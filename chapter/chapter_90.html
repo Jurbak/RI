@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 90 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 90";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_89.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 90">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_91.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 90</h1>
+        <div class="text-left">
+<p>	Bab 90</p>
+<p>	Babak 90: Ini hanya sedikit angin es</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di aula, lampu bersinar terang.</p>
+<p>	Di meja makan bundar, anggurnya sudah dingin, dan hidangannya sudah dingin.</p>
+<p>	Lilin merah cemerlang berkedip dan menari, memproyeksikan bayangan Bibi dan Paman ke dinding.</p>
+<p>	Bayangan kedua sosok itu bergabung menjadi satu, dan bergoyang muram dengan cahaya lilin.</p>
+<p>	Di depan mereka, Ibu Shen sedang berlutut.</p>
+<p>	Paman memecah kesunyian, “Memikirkan Fang Yuan ini sangat ingin melawanku. Huh, aku ingin menenangkannya dengan kata-kata manis dan menahannya di rumah dulu sebelum menemukan alasan untuk mengusirnya keluar rumah. Untuk berpikir bahwa dia tidak jatuh untuk itu! Dia telah mengambil keputusan, menolak undanganku tanpa satu cara pun untuk bernegosiasi! Bahkan tidak melangkah ke rumahku!”</p>
+<p>	Bibi menggertakkan giginya, ekspresinya sedikit bingung, “Bajingan ini sudah berusia enam belas tahun, jadi jika dia menginginkan kekayaan keluarga sekarang, kita tidak dapat menyangkalnya. Bertahun-tahun yang lalu kami memperoleh kekayaan keluarga itu dan itu dicatat dengan jelas di aula urusan dalam. Sekarang kita tidak dapat menyangkalnya, apa yang harus kita lakukan sekarang ?! ”</p>
+<p>	“Pergi dulu.” Paman melambai pada Ibu Shen untuk mundur, tertawa dingin, “Jangan cemas. Sepanjang tahun, saya sudah merencanakan ini. Pertama, untuk mendapatkan kembali asetnya, dia harus memiliki kultivasi tahap tengah peringkat satu. Dia sudah mencapai ini dan bahkan pada tahap puncak, dan mendapat nomor satu dalam ujian, itu sangat mengesankan. Hehe…”</p>
+<p>	“Tapi, untuk berhasil mendapatkan kekayaan keluarganya, itu tidak mudah! Peringkat satu budidaya tahap tengah hanya prasyarat. Untuk membagi aset, Fang Yuan harus mengajukan permohonan, dan aula urusan internal harus menyetujuinya dan mengirimnya misi untuk menguji apakah dia memiliki kualifikasi. Ini untuk mencegah klan membagi aset keluarga secara tidak masuk akal, menyebabkan perselisihan internal dan melemahkan klan. ”</p>
+<p>	Bibi tercerahkan, “Ini berarti, dia harus menyelesaikan misi sebelum dia bisa mendapatkan warisan orang tuanya.”</p>
+<p>	“Betul sekali.” Paman tertawa sinis, “Tapi misi aula urusan internal dikirim ke kelompok. Misi aset keluarga akan sama. Jika Fang Yuan ingin menyelesaikannya, dia harus bergantung pada kelompok, dia tidak bisa melakukannya sendiri. Keluarga melakukan ini untuk memastikan bahwa kelompok-kelompok kecil tetap bersatu dan meningkatkan kekompakan mereka.”</p>
+<p>	Bibi tertawa keras, “Suamiku, kamu terlalu pintar. Membuat Jiao San merekrut Fang Yuan — dengan cara ini, jika Fang Yuan ingin menyelesaikan misi, dia akan membutuhkan kekuatan mereka. Tapi Jiao San ada di pihak kita, jadi Fang Yuan tidak akan pernah bisa menyelesaikan misi ini.”</p>
+<p>	Mata Paman bersinar puas, “Hmph, bahkan jika dia tidak bisa memasukkannya ke dalam grup, aku punya cara lain untuk menghadapinya. Belum lagi menyelesaikan misi, bahkan jika dia ingin mengajukan pembagian kekayaan dan menerima misi, itu mungkin tidak mungkin! ”</p>
+<p>	…</p>
+<p>	Malam tiba dan salju berhenti.</p>
+<p>	Fang Yuan berjalan di jalanan. Rumah-rumah bambu di sepanjang jalan semuanya tertutup lapisan salju putih.</p>
+<p>	Salju yang dia injak mengeluarkan suara ringan. Udara dingin memasuki sistem pernapasannya, menyebabkan otak Fang Yuan menjadi sangat terjaga.</p>
+<p>	Setelah menolak Ibu Shen, Fang Yuan mengabaikan saran Jiao San dan kelompoknya dan mengucapkan selamat tinggal kepada semua orang, pergi sendiri.</p>
+<p>	“Jadi begitu.” Dia berjalan dan berpikir, “Paman dan Bibi mencoba menjebak dan menunda saya, menyebabkan saya kehilangan kesempatan untuk mengambil kembali warisan saya.”</p>
+<p>	“Setelah tahun baru, saya akan berusia enam belas tahun dan memenuhi syarat untuk membagi aset. Orang tua saya sudah meninggal, dan saudara laki-laki saya memiliki orang tua baru. Jika saya berhasil, seluruh warisan menjadi milik saya. Tetapi untuk mengambil kembali warisan, ada dua langkah penting, masing-masing sangat penting. ”</p>
+<p>	“Yang pertama adalah melamar misi di aula urusan internal tanpa ada misi lain yang ada. Yang kedua adalah menyelesaikan misi untuk mendapatkan hak untuk mewarisi aset. ”</p>
+<p>	“Jiao San bersekongkol dengan Paman dan Bibi. Mengesampingkan langkah kedua, dia sudah mencoba menjebakku di langkah pertama. ”</p>
+<p>	Aturan klan menyatakan bahwa Master Gu hanya bisa berada di satu misi pada satu waktu. Ini untuk mencegah Master Gu memonopoli dan menyebabkan persaingan negatif di klan.</p>
+<p>	Jiao San menerima misi secara berurutan. Setelah menyelesaikan misi tanah busuk permafrost, ia langsung menerima misi baru untuk menangkap rusa liar.</p>
+<p>	Misi klan semuanya diberikan kepada kelompok, artinya, menurut aturan klan, Fang Yuan harus menyelesaikan misi menangkap rusa sebelum mengajukan misi pemisahan asetnya.</p>
+<p>	“Tetapi pada saat itu, saya percaya Jiao San akan menerima misi baru lainnya. Sebagai pemimpin, ketika menerima misi, dia akan selalu selangkah lebih maju dari saya, menyebabkan saya tidak dapat menerima misi saya, sehingga selalu menghentikan saya.” Memikirkan hal ini, mata Fang Yuan bersinar tak menyenangkan.</p>
+<p>	Plot dan skema ini menjengkelkan, seperti tali tak terlihat yang menghalangi kemajuan Fang Yuan.</p>
+<p>	Tapi Fang Yuan tidak menyesal masuk ke grup ini.</p>
+<p>	Di arena, dia terpojok. Undangan Jiao San menjadi cara baginya untuk bebas dari kesulitan.</p>
+<p>	Jika dia tidak masuk tim, paman dan bibinya akan memiliki cara lain untuk menghadapinya, ini tidak dapat dicegah dan akan sulit untuk dipertahankan. Tapi sekarang dia ada di grup, dia bisa dengan jelas melihat skema mereka dan dengan mudah melakukan serangan balik.</p>
+<p>	“Memecahkan masalah ini, saya punya cara saya sendiri. Cara termudah adalah dengan melenyapkan Jiao San, atau membunuh paman dan bibi, maka tidak ada yang akan bersaing dengan saya atas aset keluarga. Tapi cara ini terlalu berisiko, mereka semua adalah Master Gu peringkat dua dan kultivasi saya masih terlalu rendah. Bahkan jika aku membunuh mereka, aku tidak bisa keluar dari akibatnya yang merepotkan. Kecuali jika ada peluang bagus untuk saya manfaatkan… tetapi peluang ini biasanya karena keberuntungan.”</p>
+<p>	Fang Yuan bisa membunuh pelayan Gao Wan dan bisa membunuh orang tua Wang, tapi itu karena mereka adalah manusia dan pelayan, dengan kehidupan yang murah seperti rumput. Membunuh mereka sama dengan membunuh seekor anjing atau mencabut rumput liar, itu tidak penting.</p>
+<p>	Tapi membunuh Master Gu sangat merepotkan.</p>
+<p>	Master Gu semuanya adalah klan Gu Yue, tidak peduli siapa yang mati, aula hukuman akan menyelidiki. Fang Yuan mengevaluasi kekuatannya sendiri dan tahu ada terlalu banyak risiko dalam membunuh mereka sekarang; dia bahkan bisa terbunuh. Bahkan jika dia membunuh mereka, penyelidikan aula hukuman bahkan lebih merepotkan. Tindakannya di masa depan akan dimata-matai dan mereka bahkan mungkin mengetahui warisan Biksu Anggur Bunga.</p>
+<p>	“Menarik masalah yang jauh lebih besar ketika menghilangkan masalah kecil, bukan itu yang dilakukan orang bijak. Oh? Saya di sini, ”Fang Yuan berbicara dengan ringan, berhenti di sebuah bangunan bambu yang sudah usang.</p>
+<p>	Bangunan bambu ini robek dan usang, seperti orang tua yang akan mati, terengah-engah untuk napas terakhirnya di musim dingin yang keras.</p>
+<p>	Melihat bangunan bambu ini, wajah Fang Yuan menunjukkan jejak kenangan.</p>
+<p>	Ini adalah kamar yang dia sewa di kehidupan sebelumnya.</p>
+<p>	Dalam kehidupan sebelumnya, setelah diusir oleh paman dan bibinya, ia memiliki kurang dari lima belas batu purba yang tersisa dan harus tidur di jalanan selama beberapa hari sebelum menemukan tempat ini.</p>
+<p>	Tempat ini terlalu usang dan memiliki harga sewa yang jauh lebih rendah daripada tempat lain. Selain itu, sementara tempat lain menghitung sewa per bulan, tempat ini menghitungnya dengan hari.</p>
+<p>	“Saya tidak tahu kalau di tempat lain ada jebakan paman dan bibi atau tidak. Tapi ingatan kehidupanku sebelumnya memberitahuku bahwa setidaknya tempat ini aman.” Fang Yuan berdering di pintu.</p>
+<p>	Setelah setengah jam, ia menetapkan persyaratan sewa dan dibawa ke lantai dua oleh pemiliknya.</p>
+<p>	Lantainya sudah tua, mengeluarkan suara berbahaya dan mengkhawatirkan saat diinjak.</p>
+<p>	Kamar itu hanya memiliki satu tempat tidur, dan sebuah selimut. Selimut itu memiliki banyak tambalan tetapi masih berlubang-lubang, dan gumpalan kapas kuning bocor dari dalam.</p>
+<p>	Kepala tempat tidur memiliki lampu minyak. Pemilik rumah pergi setelah menyalakan lampu.</p>
+<p>	Fang Yuan tidak tidur, tetapi duduk di tempat tidur dan mulai berkultivasi.</p>
+<p>	Saat lautan purbanya mengamuk di lubang, setiap tetes esensi purba berwarna hijau hitam.</p>
+<p>	Empat dinding aperture berwarna kristal putih, dalam keadaan tembus pandang.</p>
+<p>	Peringkat satu tahap puncak.</p>
+<p>	Tiba-tiba, laut purba perunggu hijau mulai memiliki arus, seperti binatang buas yang mengamuk dan bunuh diri menuju empat dinding lubang.</p>
+<p>	Bam bam bam…</p>
+<p>	Gelombang besar menabrak dinding aperture, menyebabkan riak kecil pecah menjadi tetesan kecil sebelum menghilang.</p>
+<p>	Setelah beberapa saat, laut esensi purba 44% dengan cepat dikeluarkan, dengan sejumlah besar esensi purba habis.</p>
+<p>	Di dinding aperture yang kokoh, ada garis retakan.</p>
+<p>	Tapi retakan saja tidak cukup.</p>
+<p>	Fang Yuan ingin menembus peringkat satu tahap puncak dan mencapai Peringkat dua, jadi dia harus menghancurkan dinding aperture ini sepenuhnya, berkembang melalui kehancurannya!</p>
+<p>	Esensi purba hijau hitam terus menyerang dinding kristal, dan retakan meningkat, membentuk potongan raksasa. Di beberapa tempat, retakan itu bahkan lebih dalam, membentuk garis yang sangat jelas.</p>
+<p>	Saat dia menggunakan esensi purba, dia tidak terus menggunakan esensi purba untuk menyerang, dan dinding kristal mulai sembuh, menyebabkan retakan menghilang.</p>
+<p>	Fang Yuan tidak terkejut, mengumpulkan semangatnya dan membuka matanya.</p>
+<p>	Lampu minyak sudah padam. Lagipula minyaknya tidak banyak.</p>
+<p>	Ruangan itu gelap, dengan hanya jendela yang memberikan sedikit cahaya melalui celah.</p>
+<p>	Kamar tidak memiliki firepit dan tidak hangat. Fang Yuan telah duduk di tempat tidur untuk waktu yang lama tanpa bergerak, dan merasa kedinginan semakin meningkat.</p>
+<p>	Iris gelapnya menyatu dengan kegelapan.</p>
+<p>	“Untuk menerobos kunci Jiao San, ada metode yang lebih mudah dan aman. Itu untuk maju ke Peringkat dua! Peringkat satu master Gu tidak memiliki hak untuk menyerah pada misi, tetapi peringkat 2 master Gu dapat melakukannya setahun sekali. Jika saya naik ke Peringkat dua, saya bisa menyerah pada misi saya dan mengajukan pemisahan aset. ”</p>
+<p>	“Tapi untuk menembus peringkat dua, itu bukan tugas yang mudah.” Memikirkan ini, Fang Yuan menghela nafas. Turun dari tempat tidurnya, dia berjalan-jalan di kamar kecil itu.</p>
+<p>	Dari tahap awal ke tahap tengah, tahap tengah ke tahap atas, ini semua adalah alam kecil. Dari peringkat satu tahap puncak ke peringkat dua tahap awal, yaitu menerobos ranah besar. Di antara dua kasus ini ada kesulitan yang sangat berbeda.</p>
+<p>	Sederhananya, untuk menghancurkan dinding kristal, diperlukan kekuatan ledakan, membentuk dampak yang kuat dalam waktu singkat untuk menghancurkan dinding.</p>
+<p>	Tapi Fang Yuan hanya memiliki bakat kelas C, dan lautan purba hanya 44%. Jika dia menggunakan seluruh kekuatannya untuk menyerang dinding, esensi purbanya akan segera habis.</p>
+<p>	Sama seperti sebelumnya, setelah esensi purbanya habis, dia tidak akan lagi memiliki kekuatan untuk melanjutkan. Dan tembok itu memiliki kemampuan pemulihan, jadi tak lama kemudian, tembok itu akan sembuh. Apa pun yang dilakukan Fang Yuan sebelumnya akan sia-sia.</p>
+<p>	“Menghancurkan tembok dan mencapai Peringkat dua tanpa situasi khusus, seseorang membutuhkan 55% esensi purba hijau hitam. Tapi bakat saya terbatas, hanya memiliki 44%, jadi orang mengatakan bahwa bakat adalah kunci dalam kultivasi seorang Guru Gu!”</p>
+<p>	Memikirkan hal ini, Fang Yuan memperlambat langkahnya.</p>
+<p>	Tanpa sadar, dia telah pindah ke jendela, jadi dia membuka jendela dengan santai.</p>
+<p>	Setiap hembusan angin mengguncang jendela kisi bambu, dan ketika dibuka, gunung yang tertutup salju menyapa mata. (1)</p>
+<p>	Di bawah sinar bulan, salju seperti batu giok putih, menyebar dan membiarkan dunia menyerupai istana kristal di depan mata seseorang, tidak ternoda oleh debu.</p>
+<p>	Cahaya salju menyinari fitur muda Fang Yuan. Ekspresinya damai dan tenang, alisnya halus, sepasang bola matanya tampak seperti mata air kuno di bawah bulan.</p>
+<p>	Saat angin dingin bertiup ke wajahnya, pemuda itu tertawa, “Itu hanya sedikit angin es (2).”</p>
+<p>	(1) Ini adalah baris dari sebuah puisi.</p>
+<p>	(2) Hanya sedikit angin beku: pengertian non-harfiah mengacu pada kesulitan/hambatan. Sebuah permainan kata-kata untuk rintangan yang dia hadapi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

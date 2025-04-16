@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 74 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 74";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_73.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 74">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_75.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 74</h1>
+        <div class="text-left">
+<p>	Bab 74</p>
+<p>	Bab 74: Memecahkan misteri dengan pengetahuan dan menemukan niat membunuh</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Ruang di rumah pohon tidak besar, tapi ada banyak barang di dalamnya, jadi sekilas terlihat sangat berantakan.</p>
+<p>	Lantai di tengahnya dilapisi karpet tebal berwarna kuning tua.</p>
+<p>	Di dalam rumah, ada kompor besi di samping dinding, dan di atasnya ada ketel perunggu. Di dalam tungku ada jelaga berwarna hitam, dan di sampingnya ada tumpukan kecil kayu bakar kering yang belum terbakar.</p>
+<p>	Meskipun sedang musim panas, malam-malam di gunung ini masih sedingin es. Tungku besi bisa menjaga kehangatan seluruh rumah pohon saat dinyalakan, meski ukurannya kecil.</p>
+<p>	Rumah pohon memiliki dua set jendela, dua hingga tiga tali yang dililitkan sebagai bingkai jendela, menghubungkan keduanya di tengah ruangan.</p>
+<p>	Di tali itu tergantung beberapa potong pakaian yang sobek, tambalan yang sobek itu disatukan. Itu jelas pakaian orang dewasa dan masih sedikit lembab, belum sepenuhnya kering dari matahari.</p>
+<p>	Cahaya matahari terbenam menembus jendela dan bersinar di dalam rumah pohon.</p>
+<p>	Rumah pohon itu agak gelap di bagian dalam. Di sudut ada kapak dan pisau berburu dengan kulit binatang yang dibungkus pada pegangannya. Di bilahnya bahkan ada jejak darah merah gelap.</p>
+<p>	Di sisi lain dinding, ada selembar kertas bambu dengan belati ditusuk di tengahnya.</p>
+<p>	Ada wajah seorang pemuda di atas kertas bambu — itu adalah penampilan Fang Yuan!</p>
+<p>	Ini semua berarti bahwa selama periode yang singkat ini, seseorang telah datang ke rumah pohon yang tersembunyi dan tinggal di sini. Niat orang itu jelas, targetnya adalah Fang Yuan.</p>
+<p>	Kertas itu ditusuk oleh belati dan menunjukkan niat jahatnya secara ekstrem!</p>
+<p>	Skenario seperti itu, bahkan Fang Yuan terkejut.</p>
+<p>	“Apa yang diinginkan orang ini, dan mengapa dia menentang saya? Tidak, mungkin bukan aku tapi Fang Zheng.” Pikiran Fang Yuan terbang ke seluruh pikirannya.</p>
+<p>	Fang Zheng adalah bakat kelas A, satu-satunya dalam tiga tahun terakhir klan Gu Yue, dan satu-satunya harapan mereka. Jika dia bisa benar-benar dipupuk, dia akan menjadi sosok berikutnya di klan.</p>
+<p>	Tapi mengasuh adalah sebuah proses.</p>
+<p>	Selama proses ini, ada bencana dan bencana buatan manusia.</p>
+<p>	Mengabaikan bencana, yang paling penting adalah bencana manusia. Seperti semua orang tahu, gunung Qing Mao tidak hanya memiliki klan Gu Yue, tetapi juga klan Bai dan klan Xiong. Kedua kekuatan ini tidak akan senang melihat klan Gu Yue yang mendominasi berhasil memelihara bakat kelas A.</p>
+<p>	Jadi, mengirim pembunuh untuk menyingkirkannya adalah hal yang biasa.</p>
+<p>	Di dunia ini, ada sedikit jenius, dan bahkan lebih sedikit dari mereka yang berhasil tumbuh dewasa.</p>
+<p>	Bakat kelas Gu Masters, bukan karena mereka tidak ada. Tiga tahun lalu, satu muncul di klan Gu Yue. Bahkan pada generasi sebelumnya, mereka juga muncul di beberapa kesempatan.</p>
+<p>	Tapi di Gunung Qing Mao, dari tiga klan di tahun-tahun ini, hanya ada satu bakat kelas A yang berhasil dipupuk — kultivasi Bai Ning Bing peringkat tiga klan Bai.</p>
+<p>	Skenario seperti itu sudah cukup untuk mengatakan banyak hal.</p>
+<p>	“Orang ini, apakah dia dari klan Bai atau klan Xiong? Mereka ingin segera menyingkirkan Gu Yue Fang Zheng?” Fang Yuan mengerutkan kening, menatap potret itu.</p>
+<p>	“Tapi mengapa peta kulit binatang buas orang tua Wang menunjukkan rumah pohon ini? Apakah dia mata-mata dari pasukan lain? Tidak, orang ini jelas mengejarku!”</p>
+<p>	Mata Fang Yuan bersinar dengan cemerlang.</p>
+<p>	Pada saat ini, dia memikirkan banyak adegan.</p>
+<p>	Pertama kali, itu di samping jebakan, dan percakapan empat pemburu—</p>
+<p>	Seorang pemburu berkata, “Kakak kedua Wang, kamu hampir berusia sembilan belas tahun, sudah waktunya kamu menikah dan punya anak.”</p>
+<p>	Wang Er berkata, “Hmph, sebagai pria sejati, bagaimana aku bisa bernafsu dengan kecantikan sekecil itu! Suatu hari, saya akan berjalan keluar dari gunung Qing Mao ini dan menjelajahi dunia, mempelajari segala sesuatu di dunia dan memenuhi harapan tubuh laki-laki saya!”</p>
+<p>	Kedua kalinya adalah setelah dia sendiri bertindak, ketenangan khas Wang Er. Dia menarik busurnya dan menunjuk Fang Yuan. Yang lain sudah memohon pengampunan.</p>
+<p>	Yang ketiga adalah ketika Fang Yuan mengajukan pertanyaan.</p>
+<p>	“Aku bertanya padamu, di keluarga lelaki tua Wang, siapa lagi yang ada di sana?”</p>
+<p>	Seorang pemburu menjawab, “Pemburu Wang awalnya memiliki seorang istri, tetapi itu beberapa dekade yang lalu, dan dia dibunuh oleh serigala liar yang mengganggu desa. Sebelum istrinya meninggal, dia melahirkan dua putra dan seorang putri. Tetapi putra tertua Wang Da meninggal di gunung saat berburu tiga tahun lalu. Tidak ada orang lain di keluarga Wang. ”</p>
+<p>	“Aku, aku ingat! Pak tua Wang sebenarnya juga memiliki menantu perempuan, istri lama Wang Da. Namun setelah Wang Da menghilang, istrinya meninggal karena patah hati. Tahun itu, desa itu bahkan secara khusus mengirimkan lengkungan peringatan kesucian! Tapi rumor mengatakan bahwa istri Wang Da ingin menikah lagi, dan dia benar-benar diburu sampai mati oleh Pak Tua Wang. Ketika Anda membunuh Pak Tua Wang, Tuan, Anda membantu kami warga negara, membasmi kejahatan dan membawa kedamaian bagi orang-orang!”</p>
+<p>	Pemburu lainnya dengan cepat menambahkan, “Itu benar, itu benar. Sebenarnya tuan, kami telah lama menemukan Wang tua ini tidak menguntungkan. Hmph, dia tidak istimewa, hanya saja dia bisa berburu lebih baik dari kita. Kita semua hanyalah manusia biasa, namun dia berpikir dia lebih istimewa dari kita dan dengan sengaja pindah dari desa untuk tinggal di sini. Sebagai generasi muda, kami kadang-kadang akan memintanya untuk mengajari kami dan membagikan pengalamannya, tetapi dia akan langsung mengusir kami dan tidak pernah membiarkan kami muncul lagi di dekat rumah kayu!”</p>
+<p>	Keluarga lelaki tua Wang, pindah dari desa, jauh dari orang-orang ……</p>
+<p>	Putra tertua Wang Da, meninggal di gunung tiga tahun lalu saat berburu ……</p>
+<p>	Istri Wang Da ingin menikah lagi, dan dipaksa untuk bunuh diri oleh orang tua Wang, dan memperoleh sebuah lengkungan memorial kesucian….</p>
+<p>	Orang tua Wang mengusir semua pemburu muda yang mencoba meminta bimbingan …</p>
+<p>	Orang tua Wang mencoba yang terbaik untuk menyembunyikan peta kulit binatang, dan di atas kertas bambu, tidak ada lingkaran seperti itu ……</p>
+<p>	Wang Er pada usia yang sangat muda, tapi tenang terhadap Gu Masters. Pada saat yang sama dia tidak menikah, dan memiliki aspirasi untuk melampaui dunia fana di dalam hatinya ……</p>
+<p>	Yang paling penting, lingkaran di peta kulit binatang menunjukkan alam tersembunyi, ada aktivitas manusia yang jelas di daerah itu. Pada saat yang sama orang ini memiliki kebencian yang kuat terhadap Fang Yuan ……</p>
+<p>	Semua petunjuk disatukan, jika dipisahkan tidak mudah untuk dihubungkan, tetapi sekali dihubungkan itu aneh!</p>
+<p>	Semakin Fang Yuan memikirkannya, semakin dia merasa bahwa kabut yang menyelimuti misteri ini telah menipis.</p>
+<p>	Cahaya matahari terbenam melewati jendela dan terpantul di wajahnya, cahaya yang kuat mirip dengan warna darah.</p>
+<p>	Lingkungan telah jatuh ke dalam keheningan yang mematikan, apakah ada seseorang yang diam-diam mengintipnya selama ini?</p>
+<p>	Tiba-tiba, mata Fang Yuan berbinar, visinya melintasi ruang dan waktu; dia telah melihat kebenaran!</p>
+<p>	“Wang Da, tidak mati.”</p>
+<p>	Pada saat ini, cahaya di matanya memancarkan ke sekeliling (1).</p>
+<p>	“Bukan saja dia tidak mati, dia bahkan menjadi Guru Gu iblis secara kebetulan!”</p>
+<p>	Bukan karena manusia tidak memiliki bakat kultivasi, tetapi klan membatasi metode kultivasi agar tidak bocor, dan mengendalikannya dengan ketat di tangan mereka.</p>
+<p>	Tapi tidak ada yang mutlak di dunia ini.</p>
+<p>	Manusia bisa menjadi Master Gu juga, dari kecelakaan di alam liar dan bertemu dengan Hope Gu, membuka celah mereka. Atau mewarisi warisan kekuatan tertentu, atau mendapatkan bimbingan pribadi dari anggota klan tertentu.</p>
+<p>	Tapi Master Gu ini tidak diterima ke dalam klan sepenuhnya, dan hanya bisa menjadi antek mereka. Dengan demikian, mereka tidak akan puas dan menjadi Master Gu yang penyendiri. Kultivasi mereka sangat sulit. Seiring berjalannya waktu, saat mereka bersaing untuk mendapatkan sumber daya, mereka harus membunuh penjambretan dan pembunuhan, berbalik ke jalur iblis.</p>
+<p>	“Karena beberapa kesempatan keberuntungan, kemungkinan tertinggi adalah dia memperoleh kekayaan besar dari mayat Guru Gu tertentu dan menjadi Guru Gu tiga tahun lalu. Untuk bersembunyi dari orang lain, dia mengirimkan informasi palsu bahwa dia meninggal, tetapi tidak ada yang pernah melihat mayatnya. Keluarga lelaki tua Wang mengetahui hal ini dan pindah dari desa, mempertaruhkan kemungkinan bahwa binatang buas akan menyerang dan hidup sendiri, hanya untuk menyembunyikan kebenaran ini.”</p>
+<p>	“Tapi ada beberapa masalah yang terjadi, istri Wang Da tidak setuju dan mungkin ingin melapor ke klan Gu Yue. Keluarga Wang tidak punya pilihan selain membunuhnya, dan merilis beberapa informasi yang tampaknya nyata dan palsu untuk menyembunyikan kebenaran. Sesuatu tentang dia menikah lagi, atau memaksanya untuk bunuh diri untuk menyembunyikan kebenaran di bawah semua rumor ini.”</p>
+<p>	“Sesekali, Wang Da akan kembali ke rumah untuk tinggal. Dengan demikian, lelaki tua Wang harus mengejar anak-anak muda yang mencari bimbingan itu. Wang Er setelah berinteraksi dengan saudaranya telah menghilangkan rasa takutnya pada Guru Gu, dan secara alami mengembangkan tujuan ingin menjadi Guru Gu dan menjelajahi kehebatan dunia luar!</p>
+<p>	“Karena ketakutan bahwa Wang Da akan terungkap, bahkan pada usia yang begitu tua Wang Er tidak menikah. Wang Da tidak bisa tinggal di rumah, jadi lelaki tua Wang menggambar tiga lingkaran merah di peta kulit binatang, ketiga lokasi ini harus menjadi area perumahan tersembunyi seperti ini. Memiliki tiga tempat persembunyian, Wang Da merotasi tempat tinggalnya di sekitar rumah, dan tinggal di pinggiran otoritas tiga klan.”</p>
+<p>	Arti dari tiga lingkaran merah akhirnya terungkap!</p>
+<p>	Merah menunjukkan kewaspadaan, tetapi yang paling penting bagi lelaki tua Wang, ini adalah kediaman putra sulungnya. Jadi, ketika Fang Yuan ingin lelaki tua itu menggambar peta, dia tidak menunjukkannya di kertas bambu, itu untuk melindungi putranya. Demikian pula, ia menggambar lebih sedikit salib merah, untuk membalas kematian putranya.</p>
+<p>	“Mungkin pada waktu tertentu setiap tahun, Wang Da akan pulang ke rumah untuk tinggal sebentar. Ketika dia kembali, dia menemukan bahwa seluruh keluarganya sudah mati. Setelah bertanya-tanya, dia tahu itu aku, jadi dia menggunakan belati untuk menyematkan potretku di dinding, sehingga dia akan membalas dendam padaku! ”</p>
+<p>	Dengan pengalaman kehidupan sebelumnya, Fang Yuan hampir yakin ini adalah kebenaran.</p>
+<p>	Jika itu adalah kekuatan lain yang ingin membunuh Fang Zheng, mereka bisa jauh lebih halus. Mereka tidak harus mengembangkan mata-mata seperti orang tua Wang. Bagaimanapun, lelaki tua Wang tinggal di kaki gunung, bukan di dalam desa Gu Yue.</p>
+<p>	“Memikirkan itu di atas peta kulit binatang, aku memprovokasi seorang pembunuh dari faksi iblis. Dunia ini benar-benar bekerja dengan cara yang menakjubkan, “Fang Yuan tidak bisa menahan tawa.</p>
+<p>	Dia pertama kali membunuh Wang Er, lelaki tua Wang dan putri Wang, dan itu semua untuk peta kulit binatang. Orang tua Wang adalah pemburu nomor satu di desa, jadi peta kulit binatangnya memiliki nilai terbesar.</p>
+<p>	Pada saat itu dia berpikir: Ini hanya tiga kehidupan fana, apa masalahnya, saya akan membunuh mereka dengan nyaman.</p>
+<p>	Di dunia ini, siapa pun berhak untuk hidup, dan siapa pun bisa mati dengan mudah.</p>
+<p>	Untuk memikirkan itu entah dari mana, cara iblis Gu Master muncul!</p>
+<p>	Sehubungan dengan ini, Fang Yuan tidak memiliki sedikit penyesalan, tetapi malah merasa nyaman.</p>
+<p>	Jika dia terlalu berbelas kasih pada saat itu, dalam tujuannya untuk mendapatkan peta kulit binatang buas keluarga Wang, Wang Er, lelaki tua Wang dan saudari Wang akan menjadi gangguan besar. Untuk melindungi rahasia Wang Da, mereka tidak akan memberinya produk asli.</p>
+<p>	Kekuatan pertempuran Wang Er dapat memusnahkan Gu Master tingkat satu tingkat atas biasa. Orang tua Wang bahkan lebih berpengalaman seiring bertambahnya usia, dan dalam hal kekuatan membunuh, dia bahkan lebih mengancam daripada Wang Er.</p>
+<p>	Bahkan jika dia mendapatkan produk asli, orang tua Wang akan memberi tahu Wang Da, dan Wang Da akan segera mendapatkan informasi Fang Yuan. Tidak peduli bagaimana dia menghadapinya, dia akan berada dalam bayang-bayang sementara Fang Yuan berada di tempat terbuka. Wang Da akan memiliki keuntungan untuk mengendalikan situasi.</p>
+<p>	“Untung aku membunuh mereka di awal! Terlepas dari apa, saya harus mengendalikan situasi di telapak tangan saya sendiri. Dengan cara ini, bahkan jika saya tidak mendapatkan barang asli, tidak ada kerugian bagi saya, dan saya bahkan dapat merebut pemburu lain. Membunuh lelaki tua Wang dan gadis itu menyebabkan Wang Da menghabiskan banyak waktu hanya untuk mendapatkan informasiku. Tak perlu dikatakan, kedua pemburu muda itu pasti sudah dibungkam. ” Fang Yuan menegaskan dalam hatinya.</p>
+<p>	Hanya ada beberapa orang yang mengetahui situasinya, dan Wang Da tidak akan menyerang Jiang He. Setelah Jiang He mati, klan akan mengirim orang untuk menyelidiki. Tetapi jika kedua pemburu itu menghilang di gunung, itu mudah untuk dimanipulasi. Jiang He tidak akan mengungkapkan insiden seperti ini karena akan mempengaruhi penilaian klan tentang dirinya, dan bahkan akan menutupi situasi.</p>
+<p>	(1) ‘cahaya di matanya terpancar lingkungan’ adalah metafora.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

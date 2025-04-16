@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 264 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 264";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_263.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 264">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_265.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 264</h1>
+        <div class="text-left">
+<p>	Bab 264</p>
+<p>	Bab 264: Benar-benar mengerikan!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Shang Ya Zi menjadi pucat karena ketakutan.</p>
+<p>	Tindakannya menekan harga bertentangan dengan aturan. Dia akan menerima hukuman berat jika ketahuan.</p>
+<p>	Ini adalah sebuah organisasi.</p>
+<p>	Setelah Anda berada di posisi tinggi, Anda harus mematuhi aturan. Aturan suatu sistem adalah untuk memastikan manfaat dari para petinggi; meskipun banyak organisasi mengiklankan mereka mewakili manfaat mayoritas, sebagian besar hanya lelucon.</p>
+<p>	Jadi semakin tinggi posisi Anda, semakin Anda harus mematuhi aturan.</p>
+<p>	Sebaliknya, korupsi lebih banyak terjadi di posisi menengah ke bawah.</p>
+<p>	Setelah Anda mencapai posisi yang lebih tinggi, manfaat individu telah menjadi tak terpisahkan terkait dengan manfaat organisasi; seringkali, manfaat yang diterima organisasi akan mewakili manfaat Anda sendiri.</p>
+<p>	Shang Ya Zi hanya bisa dikatakan sebagai petinggi sementara, banyak yang memperhatikannya sebagai salah satu tuan muda dari Klan Shang, tetapi otoritas sebenarnya berasal dari ayahnya; dia seperti rumput liar tanpa akar.</p>
+<p>	Ini juga menandakan hukumannya akan lebih keras ketika dia melanggar aturan karena banyak orang yang mengawasinya.</p>
+<p>	“Ini tidak mungkin, saya telah menyelidiki dengan cermat sebelum saya datang, saya bahkan menghabiskan sejumlah besar batu purba untuk membeli informasi tentang keduanya dari Feng Yu Manor. Keduanya jelas adalah Master Gu iblis dan juga terdaftar sebagai buronan, mereka adalah anjing liar, mengapa ayah tuan mengundang mereka? ”</p>
+<p>	Shang Ya Zi merasa situasi ini sangat sulit dipercaya.</p>
+<p>	Itu seperti kasus orang kaya yang mempersulit dua pengemis, ketika tiba-tiba sebuah dekrit kekaisaran datang yang menyatakan bahwa kaisar ingin melihat dua pengemis ini!</p>
+<p>	Shang Ya Zi menekan Fang Yuan karena mereka adalah kekuatan tunggal; menindas mereka dan menyelesaikan urusan ini secara rahasia seharusnya benar-benar aman dan tidak ada yang tahu.</p>
+<p>	Tentu saja, pasti ada beberapa risiko tetapi Shang Ya Zi hanya bisa mengambil risiko itu untuk melindungi posisinya sebagai tuan muda.</p>
+<p>	“Bagaimana mereka bisa memiliki hubungan dengan ayah jika mereka tidak memiliki latar belakang apapun? Sial, apakah dunia sudah gila? Apa yang saya lakukan? Jika mereka mengungkapkan masalah ini, posisi tuan muda saya selesai! Haruskah saya membunuh mereka? Tidak, ini hanya mencari kematianku sendiri. Saya tidak memiliki kesempatan untuk melakukan apa pun di kota terdalam ketiga ini, apalagi sekarang mereka telah mendapat perhatian ayah. Hal utama adalah dua bajingan ini, mereka berada di peringkat tiga tahap puncak. Bagaimana saya bisa melakukan sesuatu dalam situasi ini? ”</p>
+<p>	Dalam sepersekian detik, pikiran diproses seperti kilat di benak Shang Ya Zi, mencoba memikirkan tindakan balasan.</p>
+<p>	Matanya terus bergerak, dan keringat sudah mulai merembes keluar dari dahinya.</p>
+<p>	Dia telah bermain dengan api kali ini!</p>
+<p>	“Sialan, apa yang harus saya lakukan, apa lagi yang ada ?!” Dia meraung dengan kekhawatiran di benaknya.</p>
+<p>	“Pemimpin klan Shang ingin melihat kita? Untuk apa?” Fang Yuan tepat waktu menunjukkan keraguannya.</p>
+<p>	Bai Ning Bing bahkan lebih bingung.</p>
+<p>	Apa yang sedang terjadi?</p>
+<p>	Dia curiga ini adalah trik Fang Yuan pada awalnya, dan melirik Fang Yuan.</p>
+<p>	Namun, Fang Yuan juga menunjukkan ekspresi bingung yang membuatnya bingung.</p>
+<p>	Dia tidak bisa tidak berpikir: Saya telah bersamanya sepanjang waktu, dia seharusnya tidak bisa menyembunyikan apa pun dari saya jika dia merencanakan sesuatu.</p>
+<p>	Selain itu, orang macam apa pemimpin klan Shang, dia tinggi dan di atas, berdiri di puncak manusia. Tidak peduli seberapa bangga Bai Ning Bing, bahkan dia mengakui otoritas dan kekuasaan Shang Yan Fei.</p>
+<p>	“Lalu kenapa aku merasa ada yang tidak beres, seolah-olah aku mengabaikan sesuatu?”</p>
+<p>	Wei Yang tertawa: “Yakinlah, jika klan Shang ingin menyakiti kalian, mengapa kita membuatnya begitu rumit? Ini adalah undangan yang ramah, pemimpin klan tuan sangat tertarik pada kalian berdua. ”</p>
+<p>	“Suatu kehormatan bagi kami untuk dapat menerima undangan pemimpin klan. Kami akan segera pergi menemuinya kalau begitu. ” Fang Yuan melemparkan bidak catur di tangannya dan berdiri.</p>
+<p>	Shang Ya Zi merasa lebih khawatir dan segera berkata: “Enam ratus lima puluh ribu batu purba, mari selesaikan kesepakatan!”</p>
+<p>	Fang Yuan meliriknya dan tersenyum: “Maaf, saya tidak bermaksud menjual resep rahasia!”</p>
+<p>	Wajah Shang Ya Zi berubah pucat pasi, mulutnya terasa kering dan tatapannya ke arah Fang Yuan bahkan mengandung beberapa permohonan samar: “Saya cemas dan berperilaku kasar, tolong jangan ambil hati, tamu yang terhormat. Harganya bisa didiskusikan, kita bisa mendiskusikannya dengan baik setelah kamu kembali! ”</p>
+<p>	Fang Yuan tersenyum dangkal. Dia tidak menjawab.</p>
+<p>	Siapa yang akan berdiskusi dengan Anda? Tetapi menstabilkan sementara pria ini dapat mencegahnya mengambil tindakan putus asa dan mengurangi beberapa masalah.</p>
+<p>	Saat dia memikirkan ini, Fang Yuan mengangguk: “Jika tuan muda tulus, maka saya akan menantikannya.”</p>
+<p>	Ekspresi Shang Ya Zi segera rileks dan menunjukkan ekspresi bersyukur; itu seperti seseorang yang akan jatuh dari tebing tiba-tiba menemukan pohon untuk dipegang.</p>
+<p>	“Baiklah, aku akan menunggumu.” Dia segera berkata.</p>
+<p>	“Tamu yang terhormat, silakan.” Wei Yang menunjukkan jalannya.</p>
+<p>	“Memimpin.”</p>
+<p>	Mengikuti Wei Yang, Fang dan Bai memasuki kota terdalam kedua.</p>
+<p>	Bai Ning Bing telah mengantisipasi kota terdalam kedua yang mewah, tetapi ketika dia sampai di sana, dia tercengang dan kecewa.</p>
+<p>	Di kota terdalam kedua, bangunan terbuat dari batu dan sangat sederhana, bahkan kota terdalam keempat lebih baik dari ini.</p>
+<p>	Tapi ekspresinya segera berubah muram saat dia menyadari alasannya.</p>
+<p>	Sangat mudah bagi yang hemat menjadi boros, tetapi sangat sulit bagi yang boros menjadi hemat.</p>
+<p>	Kekayaan klan Shang setinggi gunung tetapi mereka dengan cermat mematuhi hidup dengan cara yang sederhana. Ini bukan karena mereka kikir, tetapi untuk menjaga kekuatan klan.</p>
+<p>	Wei Yang membawa Fang dan Bai ke kediaman pribadi.</p>
+<p>	“Tamu-tamu yang terhormat, Anda bisa makan buah sambil menunggu. Pemimpin klan Lord baru-baru ini keluar dari budidaya pintu tertutup dan menangani beberapa hal. Dia akan segera datang ke sini. Ini adalah kediaman pribadi pemimpin klan, tolong tetap di sini dan jangan sembarangan keluar. Aku akan pergi sekarang.”</p>
+<p>	Tidak ada orang lain di rumah, Fang dan Bai ditinggalkan sendirian setelah kepergian Wei Yang.</p>
+<p>	Keduanya menunggu selama enam jam penuh tetapi tidak melihat bahkan bayangan. Wei Yang bilang mereka bisa makan buah, tapi dimana buahnya? Bahkan teh pun tidak dapat ditemukan!</p>
+<p>	Selama dua jam pertama, Fang Yuan dengan tenang duduk di kursi kayu berpunggung lebar.</p>
+<p>	Selama dua jam berikutnya, dia tidak bisa lagi duduk dengan tenang dan mulai bergumam pada dirinya sendiri, mengungkapkan ketidaksabarannya.</p>
+<p>	Pada jam keenam, dia dengan jelas mengungkapkan ketidaksabaran dan kegelisahan saat dia mulai bergerak mondar-mandir di dalam rumah.</p>
+<p>	“Hmph, apa yang sedang dilakukan pemimpin klan Shang ini? Dia ingin kita menunggunya, tapi di mana dia? Dia terlalu sombong.” Nada bicara Fang Yuan marah saat dia mondar-mandir.</p>
+<p>	“Bisakah kau duduk saja? Mataku semakin pusing. Mengapa tidak berkultivasi dengan damai saja?” Bai Ning Bing sedikit mengernyit, ini tidak seperti perilaku Fang Yuan yang biasa.</p>
+<p>	“Ada sesuatu yang mencurigakan di sini, apakah menurutmu itu benar-benar pemimpin klan Shang yang mengundang kita?” Alis Fang Yuan terjalin erat.</p>
+<p>	“Bagaimana saya tahu? Aku akan menanyakan itu padamu!” Bai Ning Bing memutar matanya dan dengan bingung berkata, “Apakah kamu melakukan sesuatu yang salah dan menyinggung klan Shang?”</p>
+<p>	Fang Yuan mendengus: “Kamu telah bersamaku sepanjang waktu dan kamu masih tidak bisa mengerti aku? Tidak ada seorang pun di kediaman pribadi ini, saya tidak dapat merasa nyaman di sini. Ayo keluar dan lihat situasinya!”</p>
+<p>	Bai Ning Bing berpikir sebentar dan berdiri: “Baiklah.”</p>
+<p>	Fang dan Bai berjalan keluar rumah, halamannya tidak besar dan juga tidak ada yang aneh.</p>
+<p>	Pada saat yang sama, di kota terdalam pertama.</p>
+<p>	Di dalam ruang kerja, asap warna-warni menggulung dan membubung di depan Shang Yan Fei, menunjukkan tampilan waktu nyata Fang dan Bai.</p>
+<p>	“Wei Yang, apa pendapatmu tentang keduanya?” Shang Yan Fei bertanya kepada ajudan tepercayanya.</p>
+<p>	Wei Yang bergumam: “Dari cara saya melihatnya, keduanya memang Master Gu iblis. Dari informasi yang kami kumpulkan, mereka masih muda tetapi memiliki kultivasi tahap puncak peringkat tiga, bakat bawaan mereka harus luar biasa. Di antara keduanya, Hei Tu agak jujur ​​​​dan agak gegabah; Bai Yun tampaknya memiliki pemikiran yang mendalam dan harus sangat cerdas. Hei Tu, Bai Yun… nama-nama ini seharusnya palsu.”</p>
+<p>	“Mm, analisismu tidak buruk. Dalam hal ini, Anda akan bertanggung jawab untuk berinteraksi dengan mereka selama beberapa hari ini. Uji kemampuan mereka dan ikuti mereka dengan cermat. ” Shang Yan Fei selesai berbicara dan menyingkirkan asap berwarna-warni.</p>
+<p>	Dia hanya khawatir tentang Shang Xin Ci dan menunjukkan sedikit minat terhadap Fang dan Bai.</p>
+<p>	Tes kecil tadi memberinya pemahaman dasar terhadap temperamen keduanya. Dan menggabungkannya dengan kecerdasan yang dia terima, dia kurang lebih memiliki kesan umum.</p>
+<p>	Tidak semua Master Gu iblis adalah orang gila.</p>
+<p>	Kedua orang ini dapat dianggap baik, dan mungkin karena mereka masih muda, dia dapat dengan jelas merasakan karakter luhur mereka.</p>
+<p>	Orang yang memiliki prinsip sering kali angkuh dan pantang menyerah.</p>
+<p>	Kesan pertama itu penting, Shang Yan Fei sejujurnya merasa Fang dan Bai cukup baik. Tapi dia adalah orang yang bijaksana, siapa pun yang bisa duduk dengan stabil di posisi seperti dia, semuanya bijaksana.</p>
+<p>	Dia menunggu, menunggu orang yang dia kirim untuk menyelidiki kebenaran untuk kembali dan mengkonfirmasi semuanya, lalu dia bisa tenang.</p>
+<p>	“Baiklah, tangani ini dengan benar, kamu bisa pergi sekarang.” Shang Yan Fei melambaikan tangannya, lalu dia mengeluarkan dokumen teratas dari tumpukan tinggi dokumen di ruang kerja.</p>
+<p>	Dia baru berkultivasi tertutup selama setengah bulan, dan pekerjaannya sudah menumpuk begitu banyak.</p>
+<p>…</p>
+<p>	Fang Yuan dan Bai Ning Bing berkeliling di kediaman pribadi, benar-benar tidak ada orang lain.</p>
+<p>	Keduanya ragu-ragu apakah akan keluar untuk memeriksa situasi ketika Wei Yang muncul di hadapan mereka.</p>
+<p>	“Dua tamu terhormat, pemimpin klan tuan sangat sibuk dengan pekerjaan dan tidak bisa pergi sekarang. Kami hanya bisa membatalkan pertemuan ini.” Dia tampak seperti dia dengan tulus meminta maaf.</p>
+<p>	“Apa? Kami datang dan pergi sesuai keinginanmu?” Fang Yuan marah.</p>
+<p>	Bai Ning Bing terdiam dan tanpa ekspresi.</p>
+<p>	Wei Yang tersenyum: “Kalian berdua adalah tamu terhormat kami, mengapa klan Shang mengusir tamu terhormat mereka? Pemimpin klan Lord secara khusus telah meminta saya untuk menghadiri Anda sebagai permintaan maaf. Saya sudah mengatur jamuan makan di restoran Shi Tian, ​​​​tolong beri saya kehormatan untuk menjadi tuan rumah. ”</p>
+<p>	Fang Yuan dan Bai Ning Bing saling melirik, lalu Fang Yuan berkata: “Tepat pada waktunya, kita juga lapar, ayo kita isi perut kita dulu.”</p>
+<p>	Restoran Shi Tian adalah salah satu restoran terbaik di kota klan Shang dan menempati banyak ruang di kota terdalam ketiga. Dekorasinya elegan, dan hidangannya mewah. Kokinya adalah Master Gu khusus yang menggunakan cacing Gu khusus untuk membantu memasak makanan lezat yang tidak dapat ditandingi dengan metode biasa.</p>
+<p>	Makanan khas di sini akan bertahan lebih dari empat jam dan lebih; ada lebih dari seratus jenis hidangan, masing-masing dengan karakteristiknya sendiri. Anggur kualitas terbaik mereka juga meninggalkan rasa yang kaya.</p>
+<p>	Bai Ning Bing tidak makan banyak dan terus mengkhawatirkan undangan pemimpin klan Shang. Dia mencoba mendapatkan jawaban dari Wei Yang secara tidak langsung di jamuan makan, tetapi Wei Yang juga seorang pria yang berhati-hati dan menutup mulutnya.</p>
+<p>	Sebaliknya, Fang Yuan makan dengan lahap, dengan bekas minyak di sekitar mulutnya. Dia juga minum banyak dan mulai membuat keributan, kebencian dan kemarahannya dari sebelumnya tampaknya telah benar-benar hilang.</p>
+<p>	Wei Yang memandang Fang Yuan yang sedang minum langsung dari toples anggur dan kemudian menatap Bai Ning Bing yang hanya minum air; dia langsung merasa Fang Yuan, pria jelek ini, jauh lebih menggemaskan.</p>
+<p>	Setelah perjamuan selesai, Wei Yang menurunkan keduanya di taman Nan Qiu.</p>
+<p>	Wei Yang meninggalkan kata-kata perpisahannya: “Istirahatlah malam ini, aku akan datang mencarimu besok dan membawamu jalan-jalan di sekitar kota klan Shang.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

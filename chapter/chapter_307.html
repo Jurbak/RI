@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 307 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 307";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_306.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 307">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_308.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 307</h1>
+        <div class="text-left">
+<p>	Bab 307</p>
+<p>	Bab 307: Lelang (3)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Lihatlah semuanya, ini willow angin seribu tahun.” Master Gu wanita menunjuk ke item di atas panggung dan memperkenalkan.</p>
+<p>	“Wind willow adalah jenis tanaman langka yang digunakan dalam pemurnian sebagai bahan. Itu hanya tumbuh di lokasi di mana ada energi angin yang cukup untuk mempertahankan pertumbuhannya. Karena gunung Ju Feng memiliki angin sepanjang tahun, mereka dapat menghasilkan willow angin dalam jumlah besar.”</p>
+<p>	“Dedalu angin biasa baru berumur beberapa dekade, atau beberapa abad. Tapi item lelang saat ini, berumur seribu tahun, dapat digunakan dalam penyempurnaan Gu peringkat lima! Tawaran dasar adalah lima puluh ribu batu purba, pelelangan dimulai sekarang. ”</p>
+<p>	Begitu dia berkata begitu, orang-orang mulai menawar.</p>
+<p>	“Lima puluh lima ribu!”</p>
+<p>	“Lima puluh delapan ribu.”</p>
+<p>	“Enam puluh lima ribu.”</p>
+<p>	“Tujuh puluh ribu.”</p>
+<p>	Tawaran naik, karena banyak orang berpartisipasi, kebanyakan dari mereka adalah master Gu penyempurnaan profesional.</p>
+<p>	Pohon willow seribu tahun jarang terlihat, bahkan klan Ju yang telah tinggal di gunung Ju Feng selama ratusan tahun, hanya tersisa delapan belas tahun.</p>
+<p>	Wind willow tidak memiliki cabang pohon, hanya ada akar di bawah tanah, dan satu batang.</p>
+<p>	Ketika angin bertiup, batang tunggal ini akan bergoyang mengikuti angin, seperti rumput laut di bawah air.</p>
+<p>	Pohon willow angin seribu tahun di atas panggung telah digulung, tetapi panjangnya pasti melebihi seratus meter.</p>
+<p>	Fang Yuan mencoba campur tangan dan menawar, tetapi Shang Ya Zi segera menaikkan tawaran sebesar lima ribu.</p>
+<p>	Akhirnya, seorang master pemurnian memperoleh angin willow, menghabiskan hampir seratus ribu.</p>
+<p>	“Dedalu angin seribu tahun adalah item kedelapan, selama periode ini, setiap kali saya menawar sesuatu, Shang Ya Zi akan ikut campur. Jika saya tidak melakukan apa-apa, dia akan tetap diam juga. Tampaknya satu-satunya tujuannya di sini hari ini adalah untuk menentangku. ” Tatapan Fang Yuan bersinar, mendapatkan pemahaman yang lebih dalam tentang pikiran sempit Shang Ya Zi.</p>
+<p>	Waktu terus berlalu.</p>
+<p>	Item kesembilan, item kesepuluh …</p>
+<p>	“Apa yang ditampilkan selanjutnya adalah item kedua belas. Ini adalah Gu angin yang mengejar, Gu gerakan peringkat empat, memungkinkan Master Gu memiliki kecepatan untuk mengejar angin. Tawaran dasar adalah seratus delapan puluh ribu.” Suara halus Master Gu wanita bergema di seluruh rumah lelang.</p>
+<p>	“Seratus sembilan puluh ribu.”</p>
+<p>	“Dua ratus ribu!”</p>
+<p>	“Dua ratus dua puluh ribu!”</p>
+<p>	“Dua ratus lima puluh ribu!”</p>
+<p>	…</p>
+<p>	Mengejar angin Gu adalah barang lelang yang populer, begitu muncul, klimaks pertama dari rumah lelang muncul.</p>
+<p>	Banyak orang berpartisipasi dan menawar, bahkan kamar pribadi yang tenang pun mulai menawar barang tersebut.</p>
+<p>	Angin, cahaya, kilat, awan, keempat jenis Gu ini adalah gerakan yang luar biasa dari cacing Gu. Mengejar angin Gu adalah peringkat empat Gu, itu memberikan dorongan besar untuk kecepatan Guru Gu.</p>
+<p>	Fang Yuan mencoba menawar, tetapi Shang Ya Zi segera mengikutinya.</p>
+<p>	Fang Yuan tidak lagi mengatakan apa-apa, karena tawaran mereka terkubur di bawah suara orang lain.</p>
+<p>	Kadang-kadang, pesaing baru memasuki penawaran, tetapi lebih banyak orang menyerah setelah melihat harga yang tidak masuk akal.</p>
+<p>	Ketika harga Gu angin mengejar naik menjadi tiga ratus lima puluh ribu, hanya dua Master Gu yang tersisa untuk bersaing.</p>
+<p>	Salah satunya adalah tetua klan Yi Yi Bu Hui, yang lainnya adalah tetua klan Fei Fei Luan Feng.</p>
+<p>	Klan Yi dan klan Fei tidak memiliki hubungan yang baik, keduanya bersaing saat percikan api muncul.</p>
+<p>	Akhirnya, Gu angin pengejar dibeli oleh tetua Yi Bu Hui menggunakan empat ratus empat puluh ribu.</p>
+<p>	Meskipun Fang Yuan memiliki lebih dari dua juta batu purba, dia tidak berpartisipasi.</p>
+<p>	Mengejar angin Gu mengandung tanda angin Dao, jika dia menggunakannya, hantu binatang buasnya akan menyebabkan gangguan besar pada Gu, menyebabkan efeknya melemah. Jadi, mengejar angin Gu bukanlah pilihan yang baik untuk Fang Yuan.</p>
+<p>	“Jika ini adalah Gu angin peri peringkat empat, aku akan membelinya, sayang sekali ini hanya Gu angin yang mengejar.”</p>
+<p>	Fang Yuan punya resep, dia bisa menggunakan Gu angin peri, Gu tujuh bintang yang bersinar, dan beberapa bahan lain untuk memperbaiki Gu bintang tetap, yang merupakan bahan utama dalam menyempurnakan Gu perjalanan abadi yang tetap.</p>
+<p>	Dream Travel, Carefree Travel, Fixed Immortal Travel, Liquor God Travel, ini adalah empat gerakan hebat Gu.</p>
+<p>	Semuanya adalah peringkat enam Gu.</p>
+<p>	Perjalanan mimpi dapat memungkinkan Master Gu memasuki mimpi orang lain. Perjalanan tanpa beban adalah yang terbaik dalam menghindari serangan. Perjalanan abadi yang diperbaiki dapat memungkinkan Master Gu untuk berteleportasi ke mana pun mereka ingin pergi. Perjalanan dewa minuman keras adalah yang paling istimewa, dan pertama kali muncul di &lt;&gt;, tapi cerita itu untuk nanti.</p>
+<p>	Fang Yuan memiliki ingatan kehidupan sebelumnya, jadi dia memiliki Gu perjalanan tanpa beban dan memperbaiki resep Gu perjalanan abadi. Di antara mereka, Gu perjalanan abadi tetap paling dibutuhkan oleh Fang Yuan, tetapi tingkat keberhasilan penyempurnaan sangat rendah, dan dia juga tidak memiliki cukup bahan untuk itu, jadi dia hanya bisa menyisihkannya untuk saat ini.</p>
+<p>	“Baiklah, untuk item ketiga belas kita, itu adalah … kekuatan pahit Gu!”</p>
+<p>	Master Gu wanita diperkenalkan di atas panggung, tetapi bahkan tanpa penjelasannya, banyak mata Master Gu bersinar terang.</p>
+<p>	“Saya harus mendapatkan kekuatan pahit ini, Gu tidak peduli apa, tidak ada yang bisa menghentikan saya, dua ratus ribu batu purba!” Sebelum Master Gu wanita memberikan tawaran dasar, Fang Yuan dengan cepat berteriak.</p>
+<p>	Kata-kata Fang Yuan membuat Ju Kai Bei tidak senang: “Anak-anak muda sangat cemas, saya menawar dua ratus lima puluh ribu.”</p>
+<p>	“Tiga ratus ribu.” Shang Bi Xi juga menawar dengan cepat.</p>
+<p>	“Lima ratus ribu!” Fang Yuan melaporkan harga yang menakutkan.</p>
+<p>	Seluruh rumah lelang menjadi liar.</p>
+<p>	“Suara itu, kurasa itu Gu Yue Fang Zheng!”</p>
+<p>	“Dia benar-benar kaya, menawar lima ratus ribu hanya untuk kekuatan pahit Gu.”</p>
+<p>	“Dia telah menang berkali-kali di panggung pertempuran, dia kaya dan sarat.”</p>
+<p>	Orang-orang menghela nafas, sementara beberapa jalur kekuatan Gu Masters memiliki ekspresi pahit, mereka memiliki harapan terhadap kekuatan pahit Gu, dan ingin mencoba menawar, tetapi dengan tawaran Fang Yuan, mereka dikeluarkan dari perlombaan bahkan sebelum memulai.</p>
+<p>	Bahkan Master Gu wanita di atas panggung terkejut.</p>
+<p>	Kekuatan pahit Gu adalah peringkat empat, tetapi jalur kekuatan cacing Gu memiliki sedikit persyaratan terhadap Master Gu dalam hal esensi purba, peringkat tiga hampir tidak bisa mengaktifkannya. Harga pasarnya sekitar tiga ratus delapan puluh ribu, lebih rendah dari Gu angin yang mengejar.</p>
+<p>	Memikirkan bahwa Fang Yuan segera menawar lima ratus ribu, seratus dua puluh ribu di atas nilai pasar.</p>
+<p>	“Anak-anak muda hari ini benar-benar memiliki kekuatan.” Ju Kai Bei menghela nafas, tidak lagi bersaing. Setengah juta batu purba sudah cukup baginya untuk membeli beberapa cacing Gu berguna lainnya.</p>
+<p>	“Kakak kedelapan, saudara kesembilan …” Shang Bi Xi menatap kedua tuan muda dengan ragu-ragu.</p>
+<p>	Saudara kesembilan Shang Suan Ni tidak mengatakan apa-apa, hanya melihat Shang Pu Lao.</p>
+<p>	“Saudara kesepuluh, ini tergantung padamu. Jika Anda ingin bersaing untuk itu, kami sebagai saudara akan mendukung Anda sepanjang jalan. ” Shang Pu Lao tersenyum dan memberi semangat.</p>
+<p>	Shang Bi Xi menggertakkan giginya: “Lima ratus ribu… terlalu rugi. Sudahlah, biarkan Fang Zheng mengambilnya. ”</p>
+<p>	Dia juga menyerah.</p>
+<p>	Tampilan tekad Fang Yuan menyingkirkan dua pesaing untuknya.</p>
+<p>	“Lima ratus ribu, pergi sekali.”</p>
+<p>	“Lima ratus ribu, pergi dua kali.”</p>
+<p>	“Lima ratus ribu, menjadi tiga …”</p>
+<p>	“Tunggu, saya menawar lima ratus sepuluh ribu.” Tepat sebelum Master Gu wanita membanting palu, Shang Ya Zi berkata perlahan di kamar pribadinya.</p>
+<p>	“Hmph, Shang Ya Zi, kamu pikir kamu bisa menghentikanku? Enam ratus ribu.” Fang Yuan segera mengikuti, berbicara dengan sangat jijik.</p>
+<p>	Shang Ya Zi tertawa dingin: “Aku akan bermain denganmu jika kamu ingin Fang Zheng. Enam ratus sepuluh.”</p>
+<p>	Orang-orang di rumah lelang mulai mengobrol.</p>
+<p>	“Tuan muda klan Fang Zheng dan Shang berselisih!”</p>
+<p>	“Bagaimana ini bisa?”</p>
+<p>	“Fang Zheng memiliki token duri ungu, dan merupakan tamu terhormat di klan Shang, dia tidak takut terhadap identitas tuan muda Shang Ya Zi. Tapi Shang Ya Zi bertanggung jawab atas semua toko di klan Shang, dan memiliki kekayaan besar. Ini akan menjadi pertempuran antara harimau dan naga !”</p>
+<p>	…</p>
+<p>	“Tujuh ratus ribu!” Fang Yuan berteriak: “Shang Ya Zi, kamu kalah dariku sebelumnya, kamu pecundang. Sepertinya Anda belum cukup dihukum. ”</p>
+<p>	Shang Ya Zi membalas: “Omong kosong, kita akan lihat siapa yang mengajari siapa pelajaran! Tujuh ratus sepuluh!!”</p>
+<p>	Begitu dia mengatakan itu, kerumunan menjadi liar.</p>
+<p>	Perselisihan Shang Ya Zi dan Fang Yuan bukanlah rahasia bagi petinggi kota klan Shang. Tetapi bagi para Master Gu biasa, itu adalah berita bagi mereka.</p>
+<p>	Seketika, orang-orang mulai menebak-nebak mengapa Shang Ya Zi memiliki dendam terhadap Fang Yuan.</p>
+<p>	“Ternyata, Shang Ya Zi kalah dalam pertarungan dengan Fang Zheng sebelumnya, dan ingin membalas dendam.”</p>
+<p>	“Mengapa repot-repot dengan alasannya. Tuan muda Ya Zi terkenal karena kepicikannya, bahkan jika seorang pengamat mengetuknya, dia akan membalas dendam. Fang Zheng adalah orang yang kejam tanpa hukum, tidak heran mereka akan memiliki konflik. ”</p>
+<p>	“Kalian berdua salah, aku sudah mendengar, Shang Ya Zi dan Fang Zheng pergi ke rumah bordil Qin Yan sebelumnya, dan tertarik pada wanita nomor satu di sana. Tapi akhirnya Fang Zheng mendapatkannya, dan itu menyebabkan permusuhan Shang Ya Zi.”</p>
+<p>	“Asli atau palsu?” Seseorang menyatakan keraguan.</p>
+<p>	Orang yang berbicara sebelumnya, menunjukkan ekspresi tak kenal takut, menunjuk ke kursi: “Lihat di sana, itu nona An Yu, Anda tidak perlu meragukan saya, tanyakan saja padanya.”</p>
+<p>	Dengan demikian, semua orang mengirim tatapan penasaran ke arahnya.</p>
+<p>	Nona An Yu juga tercengang, tidak menyangka dirinya terlibat, tapi dia tiba-tiba melihat di antara orang-orang, germonya mengedipkan mata padanya.</p>
+<p>	Dia segera mengerti, ini adalah cara untuk menjadi terkenal. Untuk pelacur rumah bordil seperti dia, hanya berita seperti itu yang bisa meningkatkan nilainya.</p>
+<p>	Dia tidak menjawab, tetapi menundukkan kepalanya, tersipu. Begitu dia melakukan itu, sebagian besar orang yang mencurigakan mempercayainya.</p>
+<p>	“Jadi itulah yang terjadi.”</p>
+<p>	“Melihat ekspresi Lady An Yu, jawabannya jelas!”</p>
+<p>	“Kalian tidak tahu cerita sebenarnya, tapi saya tahu. Dalam sejarah, wanita cantik selalu berpasangan dengan pahlawan, mengapa menurutmu Nona An Yu menyukai Fang Zheng?”</p>
+<p>	“Mengapa?”</p>
+<p>	“Hehe… karena Shang Ya Zi kurus dan lemah, dia memiliki tubuh bagian bawah yang ‘lemah’. Tapi Fang Zheng kuat dan energik, setiap ‘serangannya’ membawa kekuatan Gu sekuat tenaga. Dampak babi hutan, bantingan beruang coklat, puntiran ekor buaya, kekuatan kuda, stamina banteng hijau, dan daya tahan kura-kura batu… Hehe, pria seperti itu, wanita mana tidak akan menyukainya?”</p>
+<p>	“Ohh!” Segera, banyak pria mengerti.</p>
+<p>	Beberapa gadis meremas paha mereka bersama-sama, wajah mereka memerah karena mereka tenggelam dalam imajinasi mereka.</p>
+<p>	Kepala Lady An Yu diturunkan lebih jauh, berpikir dengan gembira di dalam hatinya: “Aku terbakar, aku akan menjadi terkenal!”</p>
+<p>	Sama seperti rumah lelang dipenuhi dengan rumor dan tebakan, persaingan Fang Yuan dan Shang Ya Zi telah mencapai delapan ratus sepuluh ribu.</p>
+<p>	“Fang Zheng, dengan saya di sini hari ini, Anda pasti akan kalah. Menyerahlah, kamu bukan tandinganku.” Shang Ya Zi tertawa bahagia, dia menambahkan sepuluh ribu setiap kali untuk membuat Fang Yuan kesal.</p>
+<p>	“Kau pikir aku takut padamu! Ini hanya delapan ratus sepuluh ribu, jadi apa. ” Fang Yuan mendengus dingin.</p>
+<p>	“Tuan muda, ini sudah cukup, kita harus berhenti sekarang.” Seorang pelayan dengan hati-hati mengamati dan menasihati.</p>
+<p>	Shang Ya Zi ragu-ragu: “Saya tahu. Fang Zheng bersikeras untuk mendapatkan kekuatan pahit Gu! Setelah dia menawar, saya akan menawar sekali lagi, dan berhenti. Si idiot ini, menghabiskan lebih dari delapan ratus ribu untuk membeli Gu kekuatan pahit, hampir dua kali lipat dari harga pasar. Saya akhirnya bisa melampiaskan kemarahan ini, rasanya sangat enak. Ha ha ha!”</p>
+<p>	Pada saat ini, Fang Yuan melanjutkan.</p>
+<p>	“Tapi kali ini, aku akan melepaskanmu. Anda dapat memiliki kekuatan pahit Gu. ”</p>
+<p>	Pelayan: “…”</p>
+<p>	Shang Ya Zi: “…”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

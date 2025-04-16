@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 275 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 275";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_274.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 275">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_276.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 275</h1>
+        <div class="text-left">
+<p>	Bab 275</p>
+<p>	Bab 275: Jalur Kekuatan dan Jalur Es</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Memelihara, menggunakan, dan menyempurnakan, itulah tiga aspek kultivasi Guru Gu.</p>
+<p>	Tidak peduli aspek mana, mereka sangat mendalam, dan masing-masing berisi pengetahuan yang seluas lautan. Banyak orang menghabiskan seluruh hidup mereka tanpa menjelajah sepenuhnya ke salah satu dari mereka.</p>
+<p>	“Tolong beri tahu saya saudara Wei.” Di pesta itu, Fang Yuan menangkupkan tinjunya.</p>
+<p>	“Kami melakukannya dengan sangat baik, saya tidak akan bertele-tele.” Wei Yang berdeham, sebelum secara resmi mengajar: “Dari aspek umum, Master Gu dibagi menjadi sembilan peringkat, peringkat satu hingga lima fana, sementara enam hingga sembilan abadi. Di antara sepuluh juta Master Gu, tidak ada satu pun yang bisa menjadi abadi. Terlalu sulit untuk menjadi satu, bahkan jenius yang diakui mungkin tidak mencapainya. Tapi mari kita tidak berbicara tentang makhluk abadi, tetapi fokus pada manusia. ”</p>
+<p>	“Lima peringkat fana, peringkat satu dan dua adalah pemula, dan peringkat empat hingga lima adalah kekuatan tempur tingkat tinggi. Peringkat tiga berada di tengah, itulah yang menghubungkan keduanya. Pada titik ini, Anda berdua sudah menjadi Master Gu yang lengkap, peringkat tiga adalah tahap yang paling penting, karena di sini, Anda akan membangun di atas fondasi Anda, dan memilih arah yang tepat untuk maju, itu pasti akan menghasilkan masa depan yang lebih baik bagi Anda. Anda.”</p>
+<p>	“Dengan peringkat tiga, kekuatan Master Gu sudah menjadi kekuatan yang harus diperhitungkan. Di banyak desa, peringkat tiga adalah tetua klan. Pada tahap ini, Master Gu harus menentukan arah yang ingin mereka tuju, dan membuat satu set cacing Gu di sepanjang garis itu. Jika Anda ingin menjadi Gu Master pendukung, worm Gu Anda terutama akan menjadi tipe penyimpanan. Jika Anda ingin menjadi Master Gu investigasi, inti cacing Gu Anda adalah tipe investigasi. Jika Anda menginginkan masa depan dalam penyempurnaan Gu, Anda dapat memilih untuk mengerjakan resep yang ada untuk membuat resep baru Anda sendiri. Jika seseorang suka membuat plot, mereka dapat mengumpulkan cacing Gu tipe bantuan berpikir, seperti pikiran kilat Gu atau makhluk abadi yang menunjukkan jalan Gu.”</p>
+<p>	Wei Yang memperkenalkan lagi.</p>
+<p>	Arah yang disebut mengacu pada serangan, pertahanan, penyembuhan, penyimpanan, gerakan, dan investigasi, enam aspek.</p>
+<p>	Healing Gu Masters dikenal sebagai dokter, memiliki status agung. Penyimpanan Gu Master adalah mendukung master Gu, setiap kekuatan dan klan membutuhkan mereka.</p>
+<p>	Wei Yang adalah Gu Master tipe gerakan, cacing Gu intinya adalah Gu cahaya pelangi.</p>
+<p>	Tentu saja, selain enam ini, ada cabang lain yang lebih kecil.</p>
+<p>	Seperti Master Gu yang berspesialisasi dalam penyempurnaan pengganti, mereka memiliki cacing Gu yang meningkatkan kecepatan penyempurnaan atau membantu melemahkan keinginan cacing Gu.</p>
+<p>	Atau mungkin Master Gu yang berspesialisasi dalam menangkap Gu, mereka pandai menemukan dan menangkap cacing Gu liar.</p>
+<p>	Secara keseluruhan, dengan peringkat tiga, master Gu akan mulai mengklasifikasikan ke dalam kelas khusus mereka, dan mereka menjadi lebih terspesialisasi, menjadi ahli dalam satu domain.</p>
+<p>	Mengatakan demikian, Wei Yang berhenti, lalu menatap Fang dan Bai, bertanya: “Apakah kalian berdua sudah memikirkan arah kemajuan kalian?”</p>
+<p>	“Menyerang.” Fang Yuan dan Bai Ning Bing berkata pada saat yang sama tanpa ragu-ragu.</p>
+<p>	Keduanya fokus pada serangan, mereka memiliki sifat bertarung bawaan, dan tidak bisa dengan mudah ditundukkan.</p>
+<p>	Wei Yang mengangguk, tidak terkejut sama sekali, dia telah melihat banyak orang, dan bisa menebak pilihan mereka.</p>
+<p>	Dia melanjutkan: “Lalu selanjutnya, Anda harus memilih cacing Gu, dan membentuk satu set, sekelompok cacing Gu yang dirantai menjadi satu sistem.”</p>
+<p>	Membentuk satu set cacing Gu memiliki banyak manfaat.</p>
+<p>	Pertama, dalam hal makan, cacing Gu serupa memiliki kebutuhan makanan yang sama, lebih mudah untuk mengumpulkan, menyimpan, dan memperdagangkan makanan ini.</p>
+<p>	Selanjutnya dari segi penggunaan, worm Gu bisa digunakan bersama-sama dan meningkatkan kemampuannya atau menutupi kelemahannya. Misalnya: Gu cahaya pelangi Wei Yang memiliki masalah pengeluaran yang besar, tetapi menggunakan sumber cahaya Gu, itu mengurangi kelemahannya.</p>
+<p>	Terakhir, dalam hal penyempurnaan, menempatkan cacing Gu yang serupa bersama-sama untuk memperbaikinya ke peringkat yang lebih tinggi, tidak hanya menghemat uang, tetapi juga memiliki peluang keberhasilan yang lebih tinggi dibandingkan dengan memperbaiki serangkaian cacing Gu.</p>
+<p>	“Kalian berdua memilih serangan, maka tanpa ragu, tipe serangan Gu harus menjadi inti kalian. Cacing Gu lainnya harus mendukung inti ini. Ambil contoh Xiao Kecil, dia memilih Gu api merah sebagai metode serangan utamanya, lalu saya menyarankan dia untuk menggunakan Gu duplikat, untuk meningkatkan jumlah apinya. Saya selanjutnya memilih Gu perbesar, menyebabkan nyala api membesar dan menjadi lebih kuat. Setelah itu, saya memilih Gu sumber api, untuk mengurangi pengeluaran esensi purbanya. Terakhir, saya memilih Gu pelepasan api, sebagai Gu tipe gerakannya. ” Wei Yang menepuk bahu Xiao Yan sambil berkata.</p>
+<p>	Xiao Yan dengan sengaja menunjukkan ekspresi pahit: “Kakak Wei, kamu menggali semua rahasiaku.”</p>
+<p>	Wei Yang tidak keberatan: “Haha, rahasiamu sudah diketahui semua orang. Di antara orang-orang di tahap pertempuran sekarang, siapa yang tidak tahu apa Gu yang kamu miliki? ”</p>
+<p>	Wei Yang kemudian menoleh ke Fang Yuan: “Tidak masalah bahkan jika cacing Gu Anda terpapar; selama Anda memasangkannya dengan baik, Anda dapat menghadapi semua situasi. Cacing Gu inti Anda adalah dasar dari seluruh rangkaian. Sudahkah Anda memikirkan jenis serangan cacing Gu apa yang ingin Anda gunakan sebagai inti Anda?</p>
+<p>	Fang Yuan mengepalkan tinjunya: “Sebelum ini, saya telah menggunakan banyak Gu untuk meningkatkan kekuatan saya. Kekuatan adalah keuntunganku, aku ingin melanjutkannya, dan menghancurkan musuhku dengan kekuatan yang luar biasa.”</p>
+<p>	Bai Ning Bing menyebut nama seorang Gu: “Gu setan beku.”</p>
+<p>	Omong-omong, Bai Ning Bing memiliki peringkat tiga iblis es Gu di masa lalu, itu memungkinkan Guru Gu untuk berubah menjadi iblis es, Bai Ning Bing sangat cocok dengannya.</p>
+<p>	Tapi selama pertempuran dengan Gu Yue Qing Shu, itu hancur.</p>
+<p>	Ini menyebabkan Bai Ning Bing masih memiliki emosi yang tersisa terhadap Gu.</p>
+<p>	Wei Yang mendengar ini dan mengerutkan kening: “Anda ingin pergi ke jalur kekuatan dan jalur es … Untuk jalur es, keuntungannya terletak pada pertahanan. Gu iblis beku, Gu peri salju, Gu kristal es, ini adalah tiga tipe transformasi Gu yang paling terkenal. Frost demon Gu dan peri salju Gu adalah untuk wanita, sedangkan Gu kristal es lebih cocok untuk pria.”</p>
+<p>	“Adapun jalur kekuatan Fang Zheng…” Wei Yang menggelengkan kepalanya: “Aku tidak mencoba untuk mengecilkan hatimu, tapi ini tidak akan berhasil. Jalur kekuatan adalah rute paling umum yang dipilih orang, mengapa demikian? Karena murah dan terjangkau, sebagian besar Gu yang terkait dengan jalur kekuatan murah, tetapi karena ini, Master Gu tidak menonjol dan sangat biasa. ”</p>
+<p>	“Saya akan mengatakan yang sebenarnya, saya mencoba jalur kekuatan di masa lalu, tetapi membuang banyak batu purba kemudian untuk menghilangkan peningkatan kekuatan di tubuh saya. Sebagian besar Master Gu iblis kekurangan sumber daya, dan menggunakan jalur kekuatan sebagai batu loncatan. Tetapi saudara Fang Zheng, Anda memiliki token duri ungu dan ratusan ribu batu purba, Anda tidak harus mengambil jalan sempit ini, jalan kekuatan membuat sulit untuk berhasil dalam hidup!</p>
+<p>	Mendengar kata-kata Wei Yang, Fang Yuan dan Bai Ning Bing saling memandang, mengangguk.</p>
+<p>	Wei Yang tersenyum, dia tidak menyia-nyiakan usahanya.</p>
+<p>	Xiao Yan juga tertawa: “Setelah mendengar kata-kata saudara Wei, saya juga mendapatkan banyak wawasan.”</p>
+<p>	“Saudara Wei masuk akal, tapi aku masih ingin berjalan di jalur kekuatan.” Fang Yuan menangkupkan tinjunya.</p>
+<p>	“Ya, saya telah memutuskan untuk menyerah pada Gu iblis es, dan memilih Gu kristal es!” Di sampingnya, Bai Ning Bing juga membuat keputusan.</p>
+<p>	“Hah …” Senyum Wei Yang membeku di wajahnya.</p>
+<p>	“Hei, hei, hei, apakah kamu mendengarkan apa yang dia katakan sama sekali.” Xiao Yan berteriak.</p>
+<p>	Bai Ning Bing tersenyum saat tekad bersinar di matanya.</p>
+<p>	Justru karena Gu kristal es itu cocok untuk laki-laki, makanya saya memilihnya, heh.</p>
+<p>	Fang Yuan menggosok hidungnya: “Saya berterima kasih kepada saudara Wei atas sarannya, tetapi saya masih menyukai jalur kekuatan. Orang lain mungkin tidak mencapai kesuksesan darinya, tetapi jika saya bisa, bukankah itu menunjukkan keunggulan saya? Hahaha, tantangan terletak pada kesulitan, dan hanya ada rasa pencapaian jika ada tantangan. Saya ragu sebelumnya, tetapi sekarang saudara Wei telah mengatakannya, saya pasti memilih ini! ”</p>
+<p>	Memilih jalur kekuatan adalah bagian dari rencana Fang Yuan; itu melibatkan warisan tiga raja dalam beberapa tahun.</p>
+<p>	Tentu saja, dia tidak bisa menyebutkan itu kepada siapa pun.</p>
+<p>	“Kalian berdua …” Xiao Yan menatap linglung, tidak yakin harus berkata apa.</p>
+<p>	“Ini … kamu harus mempertimbangkan kembali, ini bukan lelucon!” Ekspresi Wei Yang serius, nadanya cemas, dia tidak berharap nasihat tulusnya bekerja ke arah yang berlawanan.</p>
+<p>	“Tidak perlu mengatakan apa-apa lagi saudara Wei, jalan dibuat oleh laki-laki, keputusan saya sudah final. Hahaha, ayo terus minum.” Fang Yuan berkata, menunjukkan tekadnya, menyebabkan Wei Yang menelan kata-katanya.</p>
+<p>	“Huh …” Wei Yang mengangkat gelasnya tanpa daya, tetapi bersumpah dalam hatinya, bahwa dia harus meyakinkan mereka sebaliknya.</p>
+<p>	Terutama Fang Zheng ini, dia benar-benar main-main! Memperlakukan masa depannya sebagai permainan, dia seharusnya tidak melakukan ini. Pada tingkat ini, itu akan menyia-nyiakan bakat superiornya!</p>
+<p>	Wei Yang benar-benar tidak tahan.</p>
+<p>	Dia harus dengan cepat menyesuaikan pola pikir Fang Zheng, ini adalah bintang masa depan yang ingin direkrut oleh pemimpin klan.</p>
+<p>	Setelah perjamuan berakhir, dan Wei Yang yang mengomel pergi bersama Xiao Yan, Fang dan Bai tiba di toko Gu.</p>
+<p>	Setelah menunjukkan token duri ungu mereka, Bai Ning Bing menghabiskan dua puluh delapan ribu batu purba dan membeli Gu kristal es peringkat tiga.</p>
+<p>	Fang Yuan memilih peringkat dua beruang coklat kekuatan bawaan Gu, menghabiskan empat ribu seratus batu purba.</p>
+<p>	“Kamu benar-benar berniat menjadikan Gu kristal es sebagai Gu vitalmu?” Keluar dari toko, Fang Yuan mengerutkan kening dan bertanya.</p>
+<p>	Bai Ning Bing tahu apa yang sebenarnya dia maksud, dia berada di peringkat tiga tahap puncak, jika dia maju lebih jauh, itu akan menjadi peringkat empat ranah. Dia benar-benar dapat membeli cacing Gu peringkat empat terlebih dahulu.</p>
+<p>	Tapi Bai Ning Bing menggelengkan kepalanya, ekspresinya muram: “Saya tidak berniat untuk naik ke peringkat empat, baru kemarin, saya menemukan bahwa bakat saya naik satu persen lagi.”</p>
+<p>	Fisik jiwa es gelap utara adalah kutukan yang melingkari Bai Ning Bing.</p>
+<p>	Saat dia terus berkultivasi, bakat Bai Ning Bing pada akhirnya akan kembali ke seratus persen, mendapatkan kembali sepuluh status fisik ekstrem.</p>
+<p>	Karena itu, dia lebih suka menyerah untuk maju.</p>
+<p>	Esensi purba emas kuning peringkat empat memiliki kualitas yang lebih baik daripada esensi purba perak putih, itu bisa memelihara aperture lebih baik dan akan menyebabkan bakat Bai Ning Bing pulih lebih cepat.</p>
+<p>	Langkah Fang Yuan terhenti: “Begitukah, kalau begitu, kamu tidak bisa hidup tanpa Yang Gu di tanganku. Hehehe, mungkin Anda bisa pergi ke Feng Yu Manor dan bertanya kepada mereka. Mereka berspesialisasi dalam menjual informasi, mereka mungkin memiliki apa yang Anda butuhkan.”</p>
+<p>	“Kau tidak ikut denganku?” Bai Ning Bing berhenti, menatap Fang Yuan.</p>
+<p>	“Aku akan berjalan-jalan di sekitar sarang perjudian.” Fangyuan tertawa.</p>
+<p>	“Baik.”</p>
+<p>	Melihat Bai Ning Bing pergi, senyum Fang Yuan menghilang.</p>
+<p>	Dia kembali ke toko: “Penjaga toko, saya lupa membeli beberapa barang sebelumnya, apakah Anda memilikinya?”</p>
+<p>	Dia memberikan daftar.</p>
+<p>	Penjaga toko tidak berani membuat pemilik token duri ungu menunggu, dia dengan cepat melihat daftar dan mengangguk: “Ya tamu yang terhormat, kami memiliki semuanya.”</p>
+<p>	“Bagus, siapkan satu porsi untukku, segera!”</p>
+<p>	“Ya ya ya.”</p>
+<p>	Sesaat kemudian, dia berjalan keluar dari pintu belakang toko, dan pergi ke jalan lain, pergi ke tingkat yang lebih rendah dan tiba di sarang perjudian.</p>
+<p>	“Nah, biarkan aku melihat fosil Gu legendaris yang tersegel itu.” Bergerak sesuai dengan ingatannya, Fang Yuan memasuki sarang perjudian yang mewah.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 278 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 278";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_277.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 278">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_279.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 278</h1>
+        <div class="text-left">
+<p>	Bab 278</p>
+<p>	Bab 278: Betapa naifnya!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Cahaya bintang bersinar di ruang rahasia.</p>
+<p>	Fang Yuan duduk bersila di atas matrasnya dan mulai menyempurnakan Gu-nya.</p>
+<p>	Setelah dia berpisah dengan Bai Ning Bing, dia pergi ke toko lagi dan membeli semua yang dia butuhkan untuk memperbaiki kata-kata Gu. Tentu saja, untuk mencegah resep rahasianya terungkap dan menyembunyikan niatnya yang sebenarnya, dia juga membeli beberapa bahan yang tidak perlu.</p>
+<p>	Dia berkehendak, dan memanggil seorang Gu.</p>
+<p>	Gu ini bulat seperti bola, seukuran kepalan tangan dan berwarna oranye. Permukaannya berkerut dan tebal, memberikan perasaan tidak enak saat disentuh.</p>
+<p>	Ini adalah Gu kentut bau peringkat satu.</p>
+<p>	Satu-satunya kegunaannya adalah mengeluarkan bau busuk dan tidak memiliki kekuatan menyerang.</p>
+<p>	Namun, meskipun Gu ini tidak ada gunanya, itu adalah bahan penyempurnaan yang banyak digunakan.</p>
+<p>	Fang Yuan menyuntikkan esensi purba perak muda, menyebabkan tubuh kentut Gu yang bau mengembang dan melayang di udara.</p>
+<p>	Pada saat yang sama, dia membuka guci di depannya.</p>
+<p>	Seketika, bau busuk menyebar di ruangan itu.</p>
+<p>	Dalam guci ini, ada lumpur rawa yang membusuk – hitam dan lengket. Lumpur ini juga merupakan bahan pemurnian yang banyak digunakan.</p>
+<p>	“Kantong beras, pergi.” Fang Yuan menghendaki, dan sebuah benih terbang keluar dari lubangnya.</p>
+<p>	Benih ditanam ke dalam lumpur, dan saat permukaan laut purba turun, tanaman merambat hijau tua tumbuh dari lumpur busuk.</p>
+<p>	Tanaman merambat terus memanjang dan tumbuh keluar dari guci; setelah sekitar 60 sentimeter, daun mulai tumbuh di atasnya.</p>
+<p>	Daun ini berbentuk ember. Mereka kecil pada awalnya, tetapi tumbuh menjadi ukuran mangkuk dengan cepat.</p>
+<p>	Fang Yuan mengupas daun dari atas ember ini, memperlihatkan biji nasi putih yang lezat di dalamnya.</p>
+<p>	Namun, Fang Yuan tidak mengeluarkannya, tetapi menuangkan butiran beras ke dalam lumpur yang membusuk. Dia selanjutnya menurunkan Gu kentut bau, dan multi-tugas, mengaktifkan rumput karung beras dan Gu kentut bau pada saat yang bersamaan.</p>
+<p>	Gu kentut yang bau bersinar dalam cahaya oranye, sementara rumput karung beras memancarkan cahaya hijau; keduanya menyatu pada akhirnya.</p>
+<p>	Cahaya fusi meredup, saat masuk jauh ke dalam guci.</p>
+<p>	Guci itu bergetar hebat, sebelum akhirnya berhenti saat Gu baru terbang keluar darinya; berwarna kuning kecokelatan, seperti gumpalan lumpur, mengeluarkan sedikit bau seperti kotoran.</p>
+<p>	Ini adalah Gu buang air besar.</p>
+<p>	Ini mungkin terlihat tidak menarik, tetapi bisa menyebabkan orang menderita diare. Banyak dokter menggunakannya untuk menyembuhkan penyakit dan untuk detoksifikasi; gu ini sangat berharga.</p>
+<p>	Fang Yuan tenang seperti biasa.</p>
+<p>	Gu ada dalam segala bentuk dan ukuran. Itu bisa menjadi lotus harta karun esensi surgawi yang murni dan suci, Cicada Musim Semi Musim Gugur yang puitis dan misterius, tengkorak darah Gu yang jahat dan aneh. Tanpa ragu, yang menjijikkan dalam penampilan, bau dan sentuhan, seperti Gu buang air besar atau Gu kentut bau juga ada.</p>
+<p>	Menyempurnakan peringkat dua buang air besar Gu adalah langkah pertama.</p>
+<p>	Selanjutnya, Fang Yuan mengeluarkan kekuatan besar Gu, dibeli dari toko juga. Ini bisa meningkatkan kekuatan Guru Gu selama lima puluh napas waktu.</p>
+<p>	Fang Yuan menggabungkan kekuatan besar Gu dan buang air besar Gu, berhasil menyempurnakan kekuatan besar buang air besar Gu.</p>
+<p>	Meskipun kekuatan besar buang air besar Gu adalah peringkat tiga, tujuannya sama dengan buang air besar Gu, bahkan terlihat mirip tetapi efeknya tiga kali lebih kuat.</p>
+<p>	Gu ini, bagaimanapun, jauh kurang populer daripada rekan peringkat duanya.</p>
+<p>	Cacing Gu tidak selalu lebih baik karena peringkatnya lebih tinggi.</p>
+<p>	Peringkat tiga cacing Gu mengkonsumsi lebih banyak makanan daripada rekan-rekan mereka yang lebih rendah, meskipun kekuatan besar buang air besar Gu lebih efektif, efek yang sama dapat dicapai jika seseorang menggunakan buang air besar Gu beberapa kali. Ada juga kasus misdiagnosis, di mana kekuatan besar buang air besar Gu digunakan secara tidak tepat dan mengakibatkan seseorang meninggal karena diare yang berlebihan.</p>
+<p>	Memperoleh kekuatan besar buang air besar Gu adalah langkah kedua.</p>
+<p>	Selanjutnya, Fang Yuan mengeluarkan Gu yang mengaum singa.</p>
+<p>	Gu ini tampak seperti kepala singa, dan setelah digunakan, ia memanggil gambar kepala singa, seukuran penggilingan batu, dan mengeluarkan auman singa yang perkasa. Itu sering digunakan untuk mengirim sinyal atau menakut-nakuti binatang buas. Dalam pertempuran, bila digunakan dengan benar, itu bisa menyebabkan Gu Master lawan kehilangan konsentrasi.</p>
+<p>	Fang Yuan menggunakan Gu singa yang mengaum dan Gu yang kuat untuk buang air besar.</p>
+<p>	Akibatnya, pemandangan aneh muncul di udara; gambar kepala singa membuka mulutnya dan mulai memakan kekuatan besar buang air besar Gu.</p>
+<p>	Tetapi setelah memakan sepertiganya, singa mengaum, Gu tidak bisa makan lagi, dan gambarnya hampir runtuh.</p>
+<p>	Setelah itu, Fang Yuan menghendaki, dan memanggil bangau kertas Gu, yang juga dibeli dari toko.</p>
+<p>	Gu ini dibagi menjadi biru muda, hijau tua, merah muda dan beberapa warna lainnya; itu terutama digunakan untuk mengirim surat.</p>
+<p>	Bangau kertas warna biru muda terbang ke arah singa mengaum Gu, dan ditelan oleh gambar singa.</p>
+<p>	Melakukan tiga hal sekaligus!</p>
+<p>	Jika orang luar melihat ini, mereka akan berteriak kaget.</p>
+<p>	Akan sangat mengesankan jika Master Gu biasa bisa melakukan dua hal sekaligus. Tapi tiga, hanya sedikit yang bisa melakukannya, ini adalah tampilan bakat ekstrim Master Gu dalam penyempurnaan.</p>
+<p>	Banyak Master Gu biasa membutuhkan penggunaan cacing Gu untuk dapat melakukan banyak tugas.</p>
+<p>	Fang Yuan menggunakan Gu auman singa, Gu buang air besar berkekuatan besar serta Gu bangau kertas hanya menggunakan pikirannya sendiri.</p>
+<p>	Tapi baginya, ini bukan bakat, melainkan akumulasi pengalaman.</p>
+<p>	Keterampilan apa pun dapat ditingkatkan dengan latihan. Fang Yuan menghabiskan lima ratus tahun, perlahan-lahan mendapatkan pengalaman, dan dilatih selama ratusan tahun. Dari melakukan satu tugas pada satu waktu, itu meningkat menjadi dua, lalu tiga, kadang-kadang dia bahkan bisa melakukan empat hal sekaligus!</p>
+<p>	Tentu saja, lagi dan dia akan membutuhkan bantuan cacing Gu.</p>
+<p>	Setelah gambar kepala singa menelan Gu bangau kertas, itu tidak lagi gagal, tetapi kembali ke aslinya.</p>
+<p>	Fang Yuan terus menginginkannya untuk memakan kekuatan besar buang air besar Gu.</p>
+<p>	Setelah sepertiga lagi, hal yang sama terjadi, ketika gambar kepala singa menghilang sekali lagi.</p>
+<p>	Fang Yuan tidak bingung dan dengan tenang memanggil derek kertas hijau tua kedua Gu.</p>
+<p>	Seperti sebelumnya, gambar kepala singa mulai menjadi tidak stabil lagi setelah menelan seluruh kekuatan besar buang air besar Gu.</p>
+<p>	Fang Yuan kemudian menggunakan Gu derek kertas merah muda ketiga.</p>
+<p>	Setelah menelannya, gambar kepala singa itu tiba-tiba menyusut lebih dari setengahnya, dan tubuh putihnya mulai bersinar dalam warna biru muda, hijau tua, dan merah muda. Pada saat yang sama, gambar singa mulai meneriakkan: “Makan sial, makan sial …”</p>
+<p>	Suara itu bergema di ruangan itu, menyebabkan telinga Fang Yuan berdengung.</p>
+<p>	Dia tidak takut suara bocor, karena itu adalah ruang rahasia khusus dengan dinding yang diperkuat, mengisolasi suara apa pun.</p>
+<p>	Dia bersorak di dalam hatinya, Gu ini akhirnya selesai!</p>
+<p>	Ini adalah kata-kata orang yang makan Gu!</p>
+<p>	Tapi makan kata-kata Gu ini hanya bisa ada selama sepuluh napas sebelum menghancurkan dirinya sendiri.</p>
+<p>	Fang Yuan tidak berani membuang waktu, memanggil kata-kata orang yang makan Gu ke sisinya.</p>
+<p>	Saat lampu warna biru muda, hijau tua, dan merah muda menyinarinya, tubuh Fang Yuan mulai mengeluarkan asap ungu samar.</p>
+<p>	“Makan sial, makan sial …”</p>
+<p>	Asapnya bergetar dan bergerak saat singa mengaum; dalam waktu dua napas, asap berkumpul menjadi gambar dua sumpah racun Gu.</p>
+<p>	Fang Yuan menghendaki, dan gambar kepala singa membuka mulutnya, menelannya. Saat dikunyah, sumpah racun Gu mengeluarkan teriakan marah, tetapi segera berhenti.</p>
+<p>	Gambar kepala singa membuka mulutnya lagi, menelan sumpah racun Gu lainnya. Saat dikunyah, sumpah racun Gu benar-benar dihilangkan, tidak ada jejak asap ungu yang tersisa di Fang Yuan.</p>
+<p>	Beberapa napas kemudian, gambar kepala singa meledak menjadi hujan tiga warna di udara. Cahaya menghujani, menyebabkan seluruh ruang rahasia bersinar cemerlang.</p>
+<p>	Fang Yuan berdiri di antara rintik hujan, menunjukkan senyum dingin saat bibirnya melengkung.</p>
+<p>	Sumpah racun Gu?</p>
+<p>	Hehehe… hahaha…</p>
+<p>	Mencoba membatasiku dengan sumpah racun Gu, sungguh naif!</p>
+<p>	Namun, mereka tidak bisa disalahkan. Dalam kehidupan sebelumnya, kata-kata makan Gu ini baru muncul dua ratus tahun kemudian.</p>
+<p>	Itu berasal dari seorang pemimpin suku di gurun barat, hanya menyebar ke seluruh dunia setelah beberapa dekade. Setelah sepuluh tahun lagi, seseorang akhirnya menemukan kertas hitam putih Gu menggantikan sumpah racun Gu; itu tidak bisa dipatahkan oleh kata-kata makan Gu.</p>
+<p>	Kata-kata orang yang memakan Gu kehilangan efeknya, tetapi dalam beberapa ratus tahun lagi, Gu hitam putih yang menyimpang muncul yang mampu mengalahkan kekuatan Gu kertas hitam putih.</p>
+<p>	Sumpah racun Gu, memakan kata-kata Gu, Gu kertas hitam putih, mendistorsi Gu hitam dan putih, ini hanya sebagian kecil dari perjuangan antara kesepakatan dan melanggarnya. Perjuangan telah berlangsung sejak awal waktu dan akan terus berlanjut ke masa depan.</p>
+<p>	Fang Yuan memiliki pengalaman lima ratus tahun, seolah-olah dia berada di depan dunia dengan lima ratus tahun! Tidak sulit untuk menolak sumpah racun Gu.</p>
+<p>	Setelah pengekangan hilang, Fang Yuan merasa santai. Yang paling penting, dia hanya menghapus sisi sumpahnya, dengan demikian, Shang Ya Zi dan Bai Ning Bing masih memiliki pengekangan dari sumpah racun Gu pada mereka.</p>
+<p>	Dengan cara ini, Fang Yuan memiliki keuntungan penuh melawan kedua orang ini.</p>
+<p>	“Shang Ya Zi berpikiran sempit, setelah aku memerasnya seperti ini, dia pasti akan membalas dendam. Tapi saya sudah merencanakan untuk itu, saya akan membiarkan dia bermain-main untuk saat ini. Adapun Bai Ning Bing, sekarang kamu menari di telapak tanganku, aku akan memanfaatkanmu dengan baik dalam jangka pendek, tidak perlu jatuh lagi. ”</p>
+<p>	“Beberapa hari ini, setelah saya memberikan setengah batu purba saya, dan membeli banyak Gu, saya menghabiskan lebih dari puluhan ribu batu purba. Termasuk jamuan makan, sewa taman Nan Qiu, biaya di sarang perjudian, dan makanan untuk cacing Gu, aku hanya punya empat ratus dua puluh ribu yang tersisa. ”</p>
+<p>	Jika seseorang tidak memiliki kekhawatiran besar, mereka akan mengkhawatirkan hal-hal kecil . Memikirkan hal ini, Fang Yuan mengerutkan kening.</p>
+<p>	Dia ingin merakit satu set cacing Gu, dia mungkin tampak kaya sekarang, tapi itu tidak cukup.</p>
+<p>	Cacing Gu peringkat satu adalah sekitar lima ratus batu purba. Peringkat dua adalah lima ratus hingga seribu. Peringkat tiga berkisar dari seribu hingga sepuluh ribu.</p>
+<p>	Untuk peringkat empat, berkisar antara sepuluh ribu hingga seratus ribu. Untuk peringkat lima, bisa berkisar dari seratus ribu hingga satu juta.</p>
+<p>	Peringkat enam Gu belum pernah dijual sebelumnya.</p>
+<p>	Harga ini hanya untuk Gu biasa. Beberapa Gu langka seperti cacing minuman keras memiliki harga Gu peringkat dua meskipun mereka peringkat satu.</p>
+<p>	Peninggalan Gu bahkan lebih mahal. Peninggalan tembaga hijau Gu adalah dua ribu, peninggalan baja merah Gu adalah delapan ribu, peninggalan perak putih Gu adalah lima puluh ribu, dan peninggalan emas kuning Gu hampir tiga ratus ribu!</p>
+<p>	Fang Yuan memiliki empat ratus dua puluh ribu sekarang, dia bahkan tidak mampu membeli dua peninggalan emas kuning Gu.</p>
+<p>	Relik Gu adalah Gu alami, mereka tidak dapat disempurnakan oleh Master Gu. Dalam banyak kesempatan, bahkan uang pun tidak dapat membelinya.</p>
+<p>	“Saya ingin tinggal di sini selama dua-tiga tahun, empat ratus dua puluh ribu bahkan tidak akan bertahan selama setahun. Master Gu mengandalkan sumber daya untuk berkultivasi, semakin tinggi pangkatnya, semakin banyak biayanya. Selanjutnya, saya masih harus menghabiskan banyak uang di sarang perjudian, saya perlu menemukan cara yang baik untuk mendapatkan uang. ”</p>
+<p>	Kota klan Shang ramai dan persaingan sangat ketat, tetapi peluang ada di mana-mana.</p>
+<p>	Selama Anda memiliki kemampuan, menghasilkan uang itu mudah, tetapi tanpa kemampuan, Anda akan tersingkir.</p>
+<p>	Ini adalah hukum alam yang lain, penuh dengan persaingan yang kejam.</p>
+<p>	Fang Yuan menggabungkan pengalaman kehidupan sebelumnya, dan pemahamannya tentang kehidupan ini, sudah memiliki ide tentang cara mendapatkan batu purba.</p>
+<p>	Itu akan menjadi tahap pertempuran.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

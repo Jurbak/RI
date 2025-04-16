@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 257 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 257";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_256.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 257">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_258.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 257</h1>
+        <div class="text-left">
+<p>	Bab 257</p>
+<p>	Bab 257: Tombak dari belakang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Serangan gerombolan zombie secara bertahap melambat dan situasi menjadi terhenti.</p>
+<p>	Waktu berlalu menit demi menit; kadang-kadang, beberapa Master Gu dengan heroik mengorbankan diri mereka sendiri atau zombie jatuh.</p>
+<p>	Dua jam kemudian, Ding Hao mengikuti instruksi Fang Yuan dan dengan tajam meningkatkan serangan para zombie, mematahkan garis pertahanan yang tergantung pada seutas benang.</p>
+<p>	Hanya ada sekitar tiga puluh orang di karavan sekarang.</p>
+<p>	Mereka harus menerobos! Mereka semua satu pikiran tentang ini karena setiap orang dari mereka dapat melihat bahwa ada peluang untuk bertahan hidup jika mereka menerobos, dan jika mereka bersikeras mempertahankan posisi mereka, kematian mereka sudah pasti.</p>
+<p>	Untuk menerobos juga akan menjadi perjuangan putus asa. Lapisan demi lapisan zombie rambut putih telah mengelilingi mereka dan ada juga zombie rambut hitam menghalangi mereka.</p>
+<p>	“Menyerah pada manusia ini, mereka hanya akan memperlambat kecepatan kita!” Jia Long berteriak.</p>
+<p>	Shang Xin Ci dan Xiao Die menjadi pucat.</p>
+<p>	“Jangan khawatir, aku di sini.” Fang Yuan membela mereka.</p>
+<p>	Semua manusia yang tersisa ditinggalkan dengan kejam, hanya mereka berdua yang tersisa.</p>
+<p>	Jia Long dan Master Gu lainnya tidak berani mengatakan apa-apa karena mereka harus mengandalkan kekuatan Fang dan Bai.</p>
+<p>	Mereka maju dengan gemetar melalui pengepungan dan tepat ketika sepertinya mereka akan pecah, dua zombie berambut hijau muncul.</p>
+<p>	“Kami akan kembali.” Fang Yuan menarik Shang Xin Ci dan Xiao Die, dan berkata dengan suara lembut.</p>
+<p>	Bai Ning Bing berhenti, bukankah mereka memasuki pengepungan lagi dengan kembali?</p>
+<p>	Namun, Fang Yuan sudah mundur ke belakang bersama Shang Xin Ci dan Xiao Die. Bai Ning Bing menggertakkan giginya saat dia melihat ke lapangan kosong di depannya, tapi dia masih berbalik dan mengikuti Fang Yuan.</p>
+<p>	Master Gu lainnya jatuh ke dalam pertempuran kacau melawan dua zombie berambut hijau.</p>
+<p>	Zombie rambut hijau sekuat seribu raja binatang, dan meskipun ada banyak peringkat tiga Gu Masters, mereka sudah kelelahan.</p>
+<p>	Saat pertempuran mereka dengan zombie rambut hijau berlanjut, zombie rambut hitam dan putih di sekitarnya mendekati mereka.</p>
+<p>	Ini malah menyebabkan tekanan pada Fang dan Bai sangat berkurang.</p>
+<p>	Fang Yuan mundur puluhan langkah sebelum dia mulai menerobos lagi.</p>
+<p>	Banyak zombie rambut putih menghalangi jalan mereka, tetapi Fang Yuan baru saja jatuh dan berlari; kekuatan yang dia tunjukkan sangat tinggi, zombie berambut putih mati di mana pun dia lewat.</p>
+<p>	Bai Ning Bing tercengang, apakah ini kekuatan sejati Fang Yuan?</p>
+<p>	“Eh, zombie berambut putih ini terlalu lemah…” Dia segera menemukan sesuatu yang salah ketika dia menyerang.</p>
+<p>	Zombi rambut putih yang menghalangi mereka berkali-kali lebih lemah dari sebelumnya. Mereka memiliki ekspresi bingung dan bahkan tidak menyerang dengan benar, mereka lebih seperti meninju target.</p>
+<p>	“Apakah Fang Yuan menemukan kelemahan ini dan menggunakannya sekarang? Aneh, zombie berambut putih ini terlihat sama, bagaimana dia bisa menemukan kelemahan ini?” Bai Ning Bing merasa terganggu dan bingung.</p>
+<p>	Fang Yuan, bagaimanapun, sedang melontarkan kutukan ke dalam sekarang.</p>
+<p>	Sebelum berangkat, dia sudah mengingatkan Ding Hao untuk membuat zombie terlihat kuat meski sebenarnya lemah, dan membuatnya realistis. Jadi performa mengerikan apa ini?</p>
+<p>	Ding Hao berkeringat deras.</p>
+<p>	Dia tidak pernah mengerahkan begitu banyak konsentrasi untuk mengendalikan pasukan zombie.</p>
+<p>	Dia sangat gugup, merasa bahwa dia telah menghancurkan misi rahasia kakak tertua. Rasa bersalah dan khawatir membuatnya bekerja sama dengan tindakan Fang Yuan dengan segala upayanya. Tidak apa-apa ketika dia tidak tahu identitas Fang Yuan, tetapi sekarang dia tahu Fang Yuan adalah kakak laki-laki tertuanya, bagaimana dia bisa berani benar-benar menyerangnya?</p>
+<p>	“Luar biasa!” Xiao Die berseru kaget.</p>
+<p>	Mata indah Shang Xin Ci juga cerah.</p>
+<p>	Fang Yuan bergerak tanpa hambatan, seperti manuver umum yang tak tertandingi di medan perang, memberikan perasaan tak terkalahkan!</p>
+<p>	Siapa yang tidak suka pahlawan?</p>
+<p>	Gadis mana yang tidak memimpikan seorang pangeran menunggang kuda putih, seorang pahlawan yang menyelamatkan kecantikan?</p>
+<p>	Xiao Die melakukannya dan begitu pula Shang Xin Ci.</p>
+<p>	Saat ini, saat tuan dan pelayan melihat punggung lebar Fang Yuan, ada riak di hati mereka.</p>
+<p>	Fang Yuan jelek, tetapi pada saat ini, keburukan ini memancarkan cahaya yang indah bagi mereka. Keberanian dan semangatnya memberikan rasa aman yang tak terlukiskan pada dua gadis yang berada dalam situasi berbahaya ini; mereka tidak bisa tidak ingin mengandalkan dan bergantung padanya.</p>
+<p>	“Akting yang mengerikan, pengecut ini!” Fang Yuan benar-benar ingin menendang Ding Hao sampai mati. Pikirannya bergerak cepat dan dia bisa melihat kondisi mental Ding Hao.</p>
+<p>	“Sepertinya aku tidak punya pilihan …” Fang Yuan menyipitkan matanya, lalu dia dengan tegas menonaktifkan kanopi Gu dan menyerang zombie berambut putih yang menyerang.</p>
+<p>	Dagingnya terkoyak, Fang Yuan terluka.</p>
+<p>	“Bagus, beginilah seharusnya!” Fang Yuan dengan senang hati berpikir. Ini adalah kesempatan terbaik untuk memenangkan kepercayaan Shang Xin Ci, bagaimana dia bisa membiarkannya sia-sia?</p>
+<p>	“Brengsek!!” Bai Ning Bing mengutuk dan segera bergegas menuju Fang Yuan, meninggalkan Shang Xin Ci. Fang Yuan memiliki Yang Gu padanya, itu adalah kunci untuk kembali menjadi seorang pria dan itu sama sekali tidak bisa hilang.</p>
+<p>	“Ya Tuhan!!!” Seluruh tubuh Ding Hao bergetar ketika dia melihat Fang Yuan terluka. Dia menyalahkan dirinya sendiri; kekhawatiran dan kepanikan jelas di wajahnya saat dia bergumam: “Itu tidak disengaja, itu benar-benar tidak disengaja, kakak laki-laki tertua!”</p>
+<p>	“Ah….” Shang Xin Ci dan Xiao Die keduanya berteriak.</p>
+<p>	Hati mereka sakit melihat Fang Yuan terluka.</p>
+<p>	“Apa yang kamu lakukan, kembali dan lindungi mereka!” Fang Yuan berteriak dengan suara lembut ketika Bai Ning Bing mendekatinya.</p>
+<p>	Pupil mata biru Bai Ning Bing melebar, dia segera menyadari Fang Yuan sengaja menerima serangan itu; bajingan ini!</p>
+<p>	“Jangan berlebihan.” Mata Bai Ning Bing berkedut, dia mengucapkan kata-kata ini dan pergi.</p>
+<p>	Dengan kontrol Ding Hao, zombie berambut putih membuat gerakan mengancam, tapi itu semua pertunjukan dan sedikit aksi.</p>
+<p>	Bai Ning Bing menendang zombie berambut putih yang terbang dan bergegas kembali ke Shang Xin Ci.</p>
+<p>	“Bagaimana Hei Tu?” Shang Xin Ci meraih lengan Bai Ning Bing dan bertanya.</p>
+<p>	“Dia baik-baik saja.” Bibir Bai Ning Bing berkedut.</p>
+<p>	“Kenapa kamu tidak bertukar dengannya, dia terluka!” Kata-kata lembut Shang Xin Ci membawa keluhan yang jarang terlihat.</p>
+<p>	Bibir Bai Ning Bing berkedut, dia tidak tahu bahwa Fang Yuan sengaja menerima serangan itu, kan? Jadi, dia dengan santai membuat alasan: “Dia selalu seperti ini, dia tidak akan pernah berhenti ketika dia memulai serangan, kecuali dia jatuh.”</p>
+<p>	Mata indah Shang Xin Ci berkedip dan sedikit memerah.</p>
+<p>	Xiao Die menutup mulutnya, matanya sudah basah.</p>
+<p>	Ada riak di hati tuan dan pelayan lagi saat mereka melihat Fang Yuan. Pria macam apa ini! Dalam gerombolan zombie ini, dia bergerak tanpa rasa takut, terus-menerus menekan ke depan. Tidak diragukan lagi dia adalah seorang pahlawan, pahlawan yang menyedihkan!</p>
+<p>	Melihat Fang Yuan terluka, Ding Hao gemetar ketakutan dan tidak berani menghalangi jalan.</p>
+<p>	Fang Yuan menyerbu ke depan untuk beberapa jarak dan memimpin Shang Xin Ci dan kelompoknya keluar dari pengepungan zombie.</p>
+<p>	“Itu dia?” Dia memukul bibirnya dengan ketidakpuasan dan dengan enggan melihat satu-satunya luka di tubuhnya. Itu adalah kesempatan yang bagus untuk pamer tetapi dia hanya menerima satu cedera; tindakan itu benar-benar kurang.</p>
+<p>	Meski hanya menderita satu luka, itu sudah membuat Shang Xin Ci dan Xiao Die sangat khawatir.</p>
+<p>	“Hei Tu, kamu baik-baik saja? Kamu terluka, lukanya sangat dalam, semua karena aku!” Mata Shang Xin Ci menjadi basah karena air mata.</p>
+<p>	“Begitu banyak darah hitam mengalir keluar, Tuan Hei Tu, Anda telah diracuni.” Xiao Die berkata dengan sangat prihatin.</p>
+<p>	Fang Yuan membusungkan dadanya dan berkata dengan suara yang dalam dan tak kenal takut: “Ini hanya luka kecil, racun mayat agak merepotkan tapi aku bisa mendetoksifikasinya dengan membersihkan panas Gu. Anda tidak perlu khawatir. Ha ha ha…”</p>
+<p>	Dia mulai tertawa.</p>
+<p>	Kamp itu hancur, api berkobar di mana-mana. Orang-orang yang tersisa di karavan telah membakar kamp sebelum pergi; itu untuk membakar jembatan mereka dan juga memiliki sumber penerangan.</p>
+<p>	Fang Yuan dan kelompoknya keluar dari pengepungan zombie dan mencapai batas luar cahaya dari api.</p>
+<p>	Cahaya menyinari wajah, dada, dan luka Fang Yuan.</p>
+<p>	Dia tertawa, penampilannya jelek tapi itu memberikan pesona heroik yang berbeda pada kedua gadis itu!</p>
+<p>	Mereka telah memimpikan mimpi pahlawan yang menyelamatkan keindahan, memimpikan pahlawan yang tampan dan tidak terkendali; sejujurnya, citra Fang Yuan dan citra pahlawan mereka berbeda seperti siang dan malam. Namun, anehnya, kedua gadis itu merasa inilah pahlawan sejati! Dia tidak terkendali, tak kenal takut dan memiliki semangat kepahlawanan yang tak tertandingi!</p>
+<p>	Bertahun-tahun kemudian, Shang Xin Ci akan bertanya pada dirinya sendiri bagaimana Fang Yuan berjalan jauh ke dalam hatinya … setiap kali, dia tanpa sadar akan memikirkan malam ini ….</p>
+<p>	Lapisan demi lapisan zombie di punggungnya, kobaran api menyinari wajahnya, bekas luka bakar di wajahnya, senyumnya memperlihatkan gigi putihnya. Pupil matanya yang hitam pekat melihat dirinya sendiri, mata yang biasanya dingin dan acuh tak acuh – di bawah api oranye – mengungkapkan sedikit kehangatan.</p>
+<p>	“Selamatkan kami!” Kelompok karavan sangat dikelilingi oleh gerombolan zombie dan mulai berteriak minta tolong ketika mereka melihat situasi di pihak Fang Yuan.</p>
+<p>	Tatapan Fang Yuan melintas tetapi dia tidak berbicara. Shang Xin Ci sudah meraih lengannya: “Kamu terluka, jangan pergi, ayo pergi. Apakah Anda ingat apa yang Anda katakan kepada saya? Lakukan hanya apa yang Anda mampu.”</p>
+<p>	Ketenangan pikiran selama seseorang melakukan apa yang dia bisa.</p>
+<p>	Fang Yuan tertawa dan menepuk tangan Shang Xin Ci: “Jangan khawatir, aku tidak akan pergi, tidak ada kebaikan atau kebencian antara mereka dan aku. Ayo pergi!”</p>
+<p>	Namun, tidak pantas untuk pergi seperti ini. Bagaimana jika seseorang tahu dia membunuh Zhang Zhu dan di bawah keputusasaan, meneriakkannya, apa yang akan dipikirkan Shang Xin Ci? Sebenarnya, kekhawatirannya tidak perlu; Chen Xin dan Chen Shuang Jin yang mengetahui masalah ini telah tewas dalam pertempuran.</p>
+<p>	Mata Fang Yuan bersinar dengan cahaya terang saat dia berteriak keras: “Teruslah bertahan, tunggu sampai aku membawa mereka ke tempat yang aman, maka aku akan datang membantumu!”</p>
+<p>	“Saudara Hei Tu benar!”</p>
+<p>	“Kami berharap Saudara Hei Tu segera kembali!”</p>
+<p>	“Kakak Hei Tu, jika kamu menyelamatkanku, aku akan memberimu sejumlah besar uang!”</p>
+<p>	Orang-orang karavan berteriak satu demi satu.</p>
+<p>	Fang Yuan tertawa pahit dan menatap tatapan bingung tuan dan pelayan: “Saya memberi mereka harapan sehingga mereka bisa menciptakan keajaiban. Huh , aku hanya bisa melakukan sebanyak ini.”</p>
+<p>	Gambar Fang Yuan segera naik ke ketinggian yang jauh lebih tinggi di hati kedua gadis itu.</p>
+<p>	Fang Yuan dan kelompoknya berlari di sepanjang jalur gunung.</p>
+<p>	Di bawah sinar bulan, lorong gunung tampak seperti tertutup salju.</p>
+<p>	Sesuai diskusi mereka sebelumnya, Ding Hao mengatur sekumpulan zombie di sekitar sini untuk memblokir jalan.</p>
+<p>	Keempatnya bergegas ke area yang diatur, Fang Yuan memberi isyarat pada Bai Ning Bing dengan matanya lalu berdiri di tempat: “Kalian pergi dulu, aku akan menghentikan zombie ini dan bergegas kembali padamu.”</p>
+<p>	Langkah tuan dan pelayan segera melambat, tetapi di bawah bujukan Bai Ning Bing, mereka terus berlari di sepanjang jalan dan segera meninggalkan pandangan Fang Yuan.</p>
+<p>	Fang Yuan tertawa, dia bertindak seolah-olah dia sedang berjuang dengan zombie dan menemukan waktu yang tepat, dia mengaktifkan rumput lompat dan melompati zombie, tiba di samping Ding Hao.</p>
+<p>	Pertempuran dengan karavan masih berlangsung. Hanya ada tiga yang tersisa di sisi karavan, tetapi yang membuat Fang Yuan kagum adalah zombie berambut hijau telah benar-benar binasa!</p>
+<p>	Setelah bertanya pada Ding Hao, dia menyadari bahwa seorang Gu Master telah menggunakan Gu ledakan peringkat tiga yang langka.</p>
+<p>	“Kakak laki-laki tertua.” Ding Hao segera membungkuk, wajahnya pucat dan dahinya dipenuhi keringat.</p>
+<p>	Dia belum pernah mencoba membelah pikirannya untuk mengendalikan zombie dengan intensitas seperti itu. Hal utama adalah dia harus bertindak sesuai dengan arahan Fang Yuan, membuatnya lebih lelah.</p>
+<p>	Sebelumnya dia hanya akan memerintahkan zombie untuk menyerang atau mundur. Bagaimana dia bisa memerintahkan mereka untuk hanya membuat gerakan mengancam dan menyerang udara kosong? Dan dia masih harus mengendalikan zombie ini untuk tetap diam ketika diserang oleh Fang Yuan.</p>
+<p>	“Kakak tertua, bagaimana cederamu? Itu benar-benar tidak disengaja. Saya memiliki Gu yang menyembuhkan di sini. ” Ding Hao mulai menjelaskan dengan tergesa-gesa.</p>
+<p>	Fang Yuan menepuk bahunya: “Kamu baik, kamu telah berusaha keras. Tidak perlu khawatir tentang cedera saya, saya menderita itu dengan sengaja. Sekarang, Anda hanya perlu menggunakan lebih banyak kekuatan dan membasmi orang-orang ini!”</p>
+<p>	“Ya.” Ding Hao segera menghela napas lega.</p>
+<p>	Dengan semangatnya yang meningkat, dia mulai menggerakkan zombie yang tak terhitung jumlahnya ke depan.</p>
+<p>	Tiga orang yang selamat tahu bahwa kematian mereka pasti – satu menutup matanya dan menghela nafas; yang lain meneriakkan nama Fang Yuan; dan yang lain menangis dengan keras.</p>
+<p>	Di bawah ancaman kematian, naluri alami mereka terungkap sepenuhnya.</p>
+<p>	Gerombolan zombie menenggelamkan ketiganya. Fang Yuan dengan puas mengangguk: “Apakah ada orang yang melarikan diri?”</p>
+<p>	“Tidak, sama sekali tidak ada. Saya melakukan apa yang diinstruksikan oleh kakak laki-laki tertua dan mengatur sejumlah besar zombie di sekeliling. ” Ding Hao dengan cepat menjawab.</p>
+<p>	“Bagus, bagus sekali. Bersihkan medan perang, ingatlah untuk tidak meninggalkan jejak apa pun. ”</p>
+<p>	“Ya, kakak laki-laki tertua.”</p>
+<p>	Ding Hao tidak pernah mengekspos dirinya ketika dia menyerang karavan yang menunjukkan bahwa dia memiliki tingkat pencapaian tertentu dalam membersihkan jejak. Dia membersihkan medan perang dengan mudah dan menyamarkan jejaknya sebagai gerombolan zombie biasa yang menyerang karavan; Fang Yuan diam-diam mengangguk setuju.</p>
+<p>	Namun, meskipun dia lebih tua dari Fang Yuan, pengalamannya tidak bisa dibandingkan dengan veteran Fang Yuan.</p>
+<p>	Fang Yuan menunjukkan beberapa area yang diabaikan, menyebabkan Ding Hao mengaguminya. Misalnya, batu purba tidak dapat diambil seluruhnya, mereka harus meninggalkan beberapa, setelah semua zombie tidak akan mengumpulkannya. Poin lainnya adalah tidak semua mayat harus diubah menjadi zombie; racun mayat bisa dalam atau dangkal dan mereka tidak memiliki kesempatan seratus persen untuk mengubah mayat menjadi zombie.</p>
+<p>	“Kakak laki-laki tertua, tolong ambil batu purba ini.” Sekitar lima menit kemudian, Ding Hao dengan bijaksana menawarkan batu purba yang dia kumpulkan.</p>
+<p>	Fang Yuan meliriknya, ada sekitar tiga belas ribu batu purba. Ia tidak segan-segan mengambilnya dan menaruhnya di bunga tusita.</p>
+<p>	“Bagaimana keuntunganmu?” Fang Yuan menepuk bahu Ding Hao dan bertanya dengan hangat.</p>
+<p>	Wajah pucat Ding Hao memancarkan cahaya gembira: “Keuntungannya sangat besar kali ini. Saya memperoleh lima tubuh lengkap dan mereka semua peringkat tiga Master Gu. Ada juga selusin mayat Gu Master, mereka semua adalah Gu Masters yang kuat. Saya akan mendapatkan setidaknya zombie rambut hitam setelah mereka berubah menjadi zombie. ”</p>
+<p>	“Hahaha, kamu telah mendapatkan panen yang bagus. Angkat zombie rambut hitam ini dengan benar dan Anda pasti akan memiliki zombie rambut hijau baru.”</p>
+<p>	Ding Hao berulang kali menganggukkan kepalanya, wajahnya dipenuhi kekaguman: “Ini adalah pertama kalinya saya melahap seluruh karavan. Itu semua berkat kakak laki-laki tertua yang telah menarik kelompok binatang buas di sepanjang jalan dan terus-menerus mengurangi kekuatan mereka. Semua keuntungan yang saya buat ini karena kakak laki-laki tertua. ”</p>
+<p>	“Kamu juga tidak terlalu lusuh, kemampuan memerintahmu cukup bagus. Tapi melihat wajah Anda, Anda telah menggunakan otak Anda terlalu banyak, pikiran Anda kuyu dan jiwa Anda terluka. Anda perlu memulihkan diri untuk sementara waktu. Merawat jiwa kita dengan baik sangat penting bagi garis keturunan kita. Jika jiwa kita tidak kuat, pikiran kita akan lemah dan memerintah zombie akan lebih sulit.” Fang Yuan tersenyum, berbicara dengan lembut.</p>
+<p>	“Terima kasih kakak senior tertua atas perhatianmu!” Ding Hao telah hidup sendirian selama hampir sepuluh tahun, ini adalah pertama kalinya seseorang menunjukkan perhatian padanya, jadi dia tidak bisa menahan diri untuk tidak tersentuh.</p>
+<p>	Lonjakan emosional ini segera menyebabkan dia mengalami pusing yang hebat, tubuhnya bergetar dan jika bukan karena Fang Yuan mendukungnya, dia mungkin akan jatuh lebih dulu ke tanah.</p>
+<p>	“Saya malu! Kultivasi saya masih belum cukup, saya merasa pusing dan pikiran saya tidak bekerja dengan baik.” Ding Hao hampir tidak bisa berdiri.</p>
+<p>	“Tidak perlu khawatir, kembalilah ke gua dan istirahatlah dengan benar. Meskipun Anda masih akan merasakan sakit kepala besok, sebagian besar pikiran Anda akan pulih dan dapat dengan lancar memerintahkan zombie ini. ” Fang Yuan tersenyum.</p>
+<p>	“Ya. Saya pernah mengalami ini sebelumnya ketika saya mencoba mengendalikan terlalu banyak zombie, saya hampir pingsan di tempat, hahaha.” Ding Hao tertawa.</p>
+<p>	“Oke… aku harus pergi sekarang, aku memberimu persetujuanku. Beristirahatlah dengan benar dan tunggu saya kembali, saya akan membawa Anda untuk memberi hormat kepada tuan. Benar, di mana guamu?”</p>
+<p>	“Itu setengah jalan ke atas gunung di samping kolam yang gelap. Sangat mudah ditemukan, kolam yang gelap itu sangat unik, bentuknya seperti pentagram.” Ding Hao sangat senang dan segera menjawab, “Kakak tertua, Anda benar-benar tidak akan datang mengunjungi gua saya bersama saya?”</p>
+<p>	“Saya tidak bisa, waktu mendesak, saya harus menyerahkan misi rahasia untuk dikuasai. Tidak bagus, seseorang benar-benar pura-pura mati, masih ada seseorang yang lolos!”</p>
+<p>	“Di mana!” Pikiran Ding Hao bergetar dan segera berbalik untuk melihat.</p>
+<p>	Bangku gereja!</p>
+<p>	Detik berikutnya, tombak tulang menembus tengkoraknya.</p>
+<p>	Celepuk</p>
+<p>	Ding Hao ambruk di tanah, tombak tulang spiral tebal menembus tengkoraknya; darah dan otak perlahan mengalir keluar dari lubang spiral.</p>
+<p>	Matanya terbuka lebar, ekspresi tidak percaya.</p>
+<p>	Senyum di wajah Fang Yuan menghilang, berubah menjadi ekspresi acuh tak acuh. Dia perlahan membungkuk dan meraih kaki Ding Hao, menyeretnya menuju kamp yang hancur.</p>
+<p>	Kobaran api masih menyala. Zombi – setelah kehilangan tuannya – mulai melompat tanpa tujuan.</p>
+<p>	Mayat-mayat di tanah menarik perhatian mereka, memikat mereka.</p>
+<p>	Mereka melompat ke arah mayat, menggigit dan mencabik-cabiknya.</p>
+<p>	Fang Yuan menyeret mayat Ding Hao melewati mayat-mayat yang berserakan di medan perang, suara zombie yang memakan mayat terus bergema di telinganya.</p>
+<p>	Dia melemparkan Ding Hao ke arah api yang menyala-nyala dan diam-diam melihat saat mayat itu perlahan berubah menjadi abu. Cacing Gu di mayat juga meratap dengan sedih sebelum secara bertahap terbakar sampai mati.</p>
+<p>	Begitu Shang Xin Ci dikenali oleh pemimpin klan Shang, dia pasti akan diselidiki secara ketat oleh klan Shang. Pertempuran ini pasti sangat penting.</p>
+<p>	Jika Ding Hao ditangkap oleh mereka dan diinterogasi, Fang Yuan bisa dalam bahaya.</p>
+<p>	Meskipun Ding Hao adalah orang yang jujur, mudah ditipu dan bidak catur yang sangat bagus, nilainya tidak akan pernah bisa menandingi Shang Xin Ci. Dan jika ada risiko, lebih baik mengabaikannya. Ini termasuk melepaskan cacing Gu di tubuhnya. Selama Fang Yuan membawanya, Raja Zombie Kedua dapat menemukannya. Selain itu, tidak nyaman bagi Fang Yuan untuk memberi makan Gu jantung zombie dan mungkin hanya meninggalkan jejak yang dapat ditemukan dalam penyelidikan Klan Shang.</p>
+<p>	Adapun zombie ini, mereka telah kembali menjadi gerombolan zombie biasa setelah kehilangan tuannya. Setelah mereka selesai memakan mayat-mayat ini, sebagian dari mereka akan tinggal di sini dan sebagian lagi akan pergi, berkeliaran di sekitar gunung Mu Bei dan mencari makanan.</p>
+<p>	Begitu mereka selesai dengan ini, seluruh pemandangan akan menjadi lebih alami.</p>
+<p>	Hanya setelah mayat Ding Hao dibakar menjadi abu, Fang Yuan perlahan pergi.</p>
+<p>	Para zombie sedang memakan mayat-mayat itu, hal-hal yang tidak ada artinya ini tidak menjadi ancaman sekarang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

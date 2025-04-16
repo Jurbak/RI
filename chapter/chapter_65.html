@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 65 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 65";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_64.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 65">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_66.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 65</h1>
+        <div class="text-left">
+<p>	Bab 65</p>
+<p>	Babak 65: Cepat tersesat</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hutan gunung tidak terbatas, dan Fang Yuan berjalan dengan sabar.</p>
+<p>	Sinar matahari menembus melalui hutan besar dan tinggi, bersinar dan menciptakan dasar bayangan pohon berbintik-bintik dan terpisah-pisah.</p>
+<p>	Rerumputan hijau di samping kakinya seperti kasur, dan bunga-bunga liar bermekaran dengan warna-warna cerah.</p>
+<p>	Telinganya menangkap suara kicau burung, atau gemericik air yang mengalir.</p>
+<p>	Semakin jauh dia dari desa, berjalan menuju lingkungan luar, semakin berisiko. Jadi Fang Yuan bahkan lebih berhati-hati.</p>
+<p>	Hutan belantara sangat berbahaya, Master Gu harus memiliki setidaknya budidaya Peringkat tiga untuk dapat menjelajah alam liar sendirian dan menjelajah. Tapi ini tidak berarti mereka aman, karena banyak Master Gu peringkat tiga mati di alam liar, kadang-kadang bahkan peringkat empat. Binatang buas, cacing beracun, ancaman manusia, dan terkadang cuaca, ini semua adalah penyebab kematian.</p>
+<p>	Namun, Fang Yuan ingin membunuh babi hutan yang sering ditemukan di sekitar pinggiran desa. Kalau tidak, para pemburu desa tidak akan bisa menangkap babi hutan.</p>
+<p>	“Lingkungan di sekitar desa, sesekali, Master Gu dari klan akan keluar dan membersihkan daerah itu. Lingkungan ini ke peringkat satu tingkat menengah seperti saya, masih aman. Tapi saya masih harus berhati-hati, binatang buas dan cacing Gu suka bergerak. ”</p>
+<p>	Dengan pengalamannya dari kehidupan sebelumnya, Fang Yuan mengintai dengan hati-hati.</p>
+<p>	Waktu berangsur-angsur berlalu, tetapi Fang Yuan tidak mendapatkan apa-apa.</p>
+<p>	“Sial, Gunung Qing Mao masih terlalu besar untukku saat ini. Saya tidak memiliki Gu tipe pengintai dan saya tidak terbiasa dengan lingkungan ini, ditambah Gunung Qing Mao dibersihkan secara berkala, jadi untuk menemukan babi hutan, terlalu sulit. Ayo pergi ke kaki gunung!”</p>
+<p>	Kepanduan Fang Yuan tidak membuahkan hasil, jadi dia berubah pikiran dan pergi ke kaki gunung.</p>
+<p>	Gunung Qing Mao memiliki tiga desa pegunungan. Desa Gu Yue, desa keluarga Xiong, dan desa keluarga Bai. Desa keluarga Xiong berada di gunung depan, desa gunung Gu Yue berada di pinggang gunung, dan desa keluarga Bai berada di air terjun gunung belakang.</p>
+<p>	Selain tiga desa, ada juga puluhan desa kecil di kaki gunung, semuanya dihuni oleh manusia.</p>
+<p>	Tiga desa pegunungan membagi desa-desa kecil ini di antara mereka sendiri, yang mengendalikan mereka di belakang layar. Begitu mereka kekurangan pelayan keluarga, mereka akan memilih dari desa-desa kecil ini.</p>
+<p>	Tetapi mereka tidak akan memilih Gu Masters.</p>
+<p>	Memelihara Guru Gu, mereka hanya akan memilih seorang anggota klan. Bahkan jika mereka tahu bahwa di antara manusia ini adalah orang-orang dengan bakat, meskipun jarang, mereka tetap tidak akan menggunakannya.</p>
+<p>	Dunia ini sangat berpihak pada garis keturunan, dan memegang kekuasaan di antara kerabat adalah stabilitas politik yang dibutuhkan klan.</p>
+<p>	Untuk memperluas ukuran, banyak desa pegunungan telah mengadopsi orang luar ke dalam sistem mereka. Akhirnya kekuatan mereka mengalir keluar dan menyebabkan konflik internal, sehingga menyebabkan seluruh klan hancur atau melemah.</p>
+<p>	Tidak peduli dunia, kekuatan politik masih didasarkan pada kekuatan militer, ini adalah kebenaran.</p>
+<p>	Dan pasukan adalah departemen brute force, mewakili kekuatan. Dengan mengendalikan kekuatan, seseorang memperoleh status dan otoritas.</p>
+<p>	Tentu saja, aturan klan tidak selalu konstan, mereka juga mengadopsi darah baru. Setiap tahun, akan ada orang luar yang menikah dengan klan, meninggalkan status pelayan mereka, dan anak-anak yang mereka lahirkan akan menjadi Gu Yue, generasi baru klan.</p>
+<p>	Ini seperti menghubungkan sungai kecil ke mata air. Jangan meremehkan aliran ini, karena tanpanya, mata air akan diam, dan akhirnya membusuk. Dengan itu, akan ada kehidupan, dan musim semi akan tumbuh lebih kuat.</p>
+<p>	Pelayan Fang Yuan sebelumnya, Shen Cui, bertaruh pada ide menikah dengan Gu Yue dan meninggalkan status pelayannya.</p>
+<p>	Fang Yuan meninggalkan gunung, dan setelah tiga puluh menit, bisa melihat asap tebal membubung dari bawah gunung.</p>
+<p>	Setelah beberapa saat, dia bisa melihat sebuah bukit yang luas dalam pandangannya, dan sebuah desa di sekitar area itu di samping sebuah sungai kecil.</p>
+<p>	Desa-desa kecil di sekitarnya berada di bawah kekuasaan desa Gu Yue. Meskipun dekat, desa-desa kecil tidak begitu aman, sehingga membutuhkan pembersihan rutin. Agar manusia hidup dalam kondisi seperti itu dan berhasil bertahan hidup, bagi Fang Yuan, dia secara alami dapat menerima fakta seperti itu.</p>
+<p>	“Oh?” Di jalur gunung yang mendekati desa, Fang Yuan dengan sensitif menemukan jejak di tanah. Pengalaman masa lalunya memberitahunya bahwa ini adalah jejak babi hutan.</p>
+<p>	“Mengejar!” Fang Yuan membangkitkan semangatnya saat dia mengikuti petunjuk, semakin dalam ke pegunungan.</p>
+<p>	Lumut hijau tersebar di batu, pohon juniper kuno dan pohon pagoda tinggi melengkapi hutan besar.</p>
+<p>	Di bawah cahaya matahari yang kuat, hutan pegunungan musim panas bahkan lebih dalam dan tenang. Semak yang rimbun tiba-tiba bergerak sedikit.</p>
+<p>	Beberapa rusa yang sedang makan rumput mewah mendongak, menatap semak-semak dengan waspada, telinga mereka berkedut.</p>
+<p>	Semak-semak yang tingginya setengah pria terbelah, dan seorang pria muda merangkak keluar dari dalam. Kulitnya pucat dan rambut hitamnya pendek. Dia mengenakan kemeja linen sederhana, itu adalah Fang Yuan.</p>
+<p>	Swoosh.</p>
+<p>	Beberapa rusa liar ketakutan, dan keempat kaki kurus mereka dengan cepat bergerak, berlari menjauh. Dalam beberapa saat, mereka menghilang dari pandangan Fang Yuan.</p>
+<p>	“Ini adalah rusa betina, bulunya dapat dicukur untuk membuat pakaian hangat, dan daging rusa juga merupakan makanan cacing Gu. Jika itu rusa jantan, tanduknya paling berharga, dan beberapa bahkan merupakan bahan yang diperlukan untuk kemajuan cacing Gu.</p>
+<p>	Alam liar berbahaya di mana-mana, dan pada saat yang sama memiliki harta yang besar.</p>
+<p>	Fang Yuan melihat ke arah mereka melarikan diri, dan menarik kembali pandangannya. Targetnya adalah babi hutan, bukan rusa ini.</p>
+<p>	Dia terus bergerak.</p>
+<p>	Terdengar suara mendengung.</p>
+<p>	Mendekati suara-suara ini, Fang Yuan berhenti di jalurnya.</p>
+<p>	“Sarang lebah.” Dia melihat ke depan dan melihat sarang lebah tergantung di pohon.</p>
+<p>	Sarang lebah sangat besar, ukurannya sebesar keranjang anyaman. Itu muncul sebagai semacam warna kuning tua keabu-abuan. Di luar sarang lebah ada beberapa lusin tentara lebah terbang di sekitar; kadang-kadang beberapa lebah pekerja akan masuk dan keluar.</p>
+<p>	“Sarang lebah memiliki madu, dan madu adalah makanan Bear Strength Gu. Oleh karena itu, keluarga Xiong sangat membutuhkan madu. Sarang lebah ini hanya berukuran kecil, dan kemungkinan menghasilkan Gu tidak tinggi. Jika saya memiliki Gu Kulit Perunggu, saya bisa mengambil risiko ditikam dan mengumpulkan madu. Sayang sekali.” pikir Fangyuan.</p>
+<p>	Di dunia ini, tidak semua serangga adalah Gu.</p>
+<p>	Gu adalah roh dunia, badan hukum, bagaimana bisa begitu murah? Di antara segerombolan serangga, biasanya hanya raja serangga yang merupakan Gu.</p>
+<p>	Tapi itu tergantung pada ukuran dan perkembangannya, jadi jika kawanannya terlalu kecil, tidak ada Gu juga.</p>
+<p>	Mengambil sarang lebah di depan sebagai contoh, karena terlalu kecil, ada kemungkinan kecil untuk memiliki Gu.</p>
+<p>	Fang Yuan mengelilingi sarang lebah ini dan terus maju.</p>
+<p>	Jejak babi hutan semakin jelas, dan Fang Yuan tahu dia semakin dekat dengannya, jadi dia menjadi lebih berhati-hati, karena babi hutan sangat berbahaya.</p>
+<p>	Babi hutan bukanlah babi yang dipelihara. Ketika babi hutan dewasa berkelahi dengan harimau, harimau mungkin tidak menang.</p>
+<p>	Di dunia mistik ini, binatang buas juga tidak sederhana.</p>
+<p>	“Oh? Situasi ini!” Ketika Fang Yuan akhirnya menemukan babi hutan itu, dia melihat babi itu jatuh ke dalam lubang besar. Sebuah bambu hijau runcing terletak di dasar lubang, di mana ia telah menusuk babi hutan dan menyebabkannya berdarah.</p>
+<p>	Melihat akumulasi darah di lubang, dia bisa tahu bahwa babi hutan itu sudah berada di dalam perangkap setidaknya selama lima belas menit.</p>
+<p>	Tapi babi hutan ini terus meronta, merintih dan melolong, masih hidup.</p>
+<p>	“Perangkap ini jelas dipasang oleh pemburu. Untuk berpikir saya menuai hasilnya. ” Fang Yuan tersenyum tetapi ekspresinya muram.</p>
+<p>	Perangkap ini juga mengancamnya.</p>
+<p>	Jika dia jatuh ke dalamnya, setelah setengah seperempat jam, dia akan mati.</p>
+<p>	Meskipun lingkungan desa dibersihkan secara teratur, para pemburu sering datang untuk berburu dan memasang banyak jebakan. Beberapa dapat dilihat, sementara yang lain dirancang untuk disembunyikan, dan jika Fang Yuan tidak dapat menemukannya, dia mungkin jatuh ke dalam perangkap.</p>
+<p>	“Area mana pun di gunung ini bisa memiliki jebakan yang dikubur oleh para pemburu. Tetapi di antara para pemburu, dengan setiap perangkap yang dipasang, mereka akan saling menginformasikan lokasinya. Sepertinya aku harus mencari kediaman pemburu tua dan mencari tahu tentang lokasi jebakan darinya. Seiring dengan area aktivitas binatang buas di sekitarnya dan dengan intel ini, saya tidak perlu mencari seperti mencoba menemukan jarum di tumpukan jerami. ” Fang Yuan berpikir dalam hati.</p>
+<p>	Ini adalah masalah tidak memiliki cacing Gu tipe pengintai.</p>
+<p>	Tetapi untuk menemukan Gu tipe pramuka yang baik, itu tidak mudah.</p>
+<p>	Dalam waktu singkat, dia hampir tidak bisa puas dengan intel pemburu.</p>
+<p>	Dengan pemikiran seperti itu, pergelangan tangan Fang Yuan menjentik dan pedang bulan terbang keluar, dengan mudah mengenai babi hutan.</p>
+<p>	Suara mendesing!</p>
+<p>	Dengan cincin ringan, seluruh pedang bulan memotong leher babi hutan dan menyebabkan luka yang panjang dan ramping. Kemudian dengan suara plop, air mancur darah menyembur keluar darinya.</p>
+<p>	Darah yang memuntahkan menyebabkan luka menjadi lebih besar, dan dengan demikian air mancur darah juga membesar.</p>
+<p>	Babi hutan itu memekik, meronta-ronta dengan energi terakhirnya, sampai gerakannya menjadi semakin kecil ……</p>
+<p>	Fang Yuan diam-diam melihat pemandangan itu, wajahnya tenang.</p>
+<p>	Kehidupan babi hutan itu memudar saat matanya menatap lebar dan bulat sempurna, otot-otot di tubuhnya berkedut dan darah hangat memenuhi lubang perangkap, bau darah yang kental meresap ke sekitarnya.</p>
+<p>	“Bertahan hidup atau mati, ini adalah tema alam.” Dia menghela nafas dalam hatinya.</p>
+<p>	Pada titik ini, suara manusia terdengar.</p>
+<p>	“Kakak kedua Wang, di desa kami, tidak ada yang lebih baik darimu dalam berburu. Terutama membunuh babi hutan, Wang Tua keluargamu adalah raja berburu di seluruh wilayah, siapa yang tidak tahu nama besarnya?”</p>
+<p>	“Itu benar, saudara laki-laki kedua Wang mewarisi kemampuan pemburu tua itu. Untuk berburu babi hutan, secara alami sama saja dengan ditangkap!”</p>
+<p>	“Kakak kedua Wang, mengapa adik perempuan Wang tidak ikut denganmu hari ini?”</p>
+<p>	Setelah semua bootlicking, sebuah suara serius dan tegas berkata, “Hmph! Berburu babi hutan, bagaimana itu bisa menunjukkan kemampuan saya yang sebenarnya? Hari ini saya ingin membunuh tiga babi hutan, Anda akan lihat! Er Gou Dan, berhentilah bernafsu pada adikku, atau aku akan menghajarmu!!!”</p>
+<p>	Er Gou Dan membalas, “Pria dan wanita menikah ketika mereka cukup umur, apa salahnya menyukai adik perempuan Wang? Lagipula, aku bukan satu-satunya, pria mana di desamu yang juga tidak menyukainya? Kakak kedua Wang, menurutku kamu juga sudah sembilan belas tahun, kamu harus menikah dengan seorang istri dan sudah punya anak. ”</p>
+<p>	Suara itu berbicara lagi, “Hmph, aku benar-benar pria biru, bagaimana aku bisa bernafsu dengan godaan sekecil itu? Suatu hari, saya akan meninggalkan Gunung Qing Mao ini dan menjelajahi dunia dan belajar tentang segala sesuatu di bawah langit, yang benar-benar sesuai dengan status jantan saya!”</p>
+<p>	Mengatakan demikian, keempat pemburu muda itu berjalan keluar dari hutan.</p>
+<p>	Pemimpin pemburu bertubuh tinggi, membawa busur dan anak panah, otot-ototnya menonjol dan matanya penuh semangat, menunjukkan aura yang kuat.</p>
+<p>	Ketika dia melihat Fang Yuan, dia mengerutkan kening dan berteriak, “Hmm? Dari desa mana kamu berasal, beraninya kamu mencoba mengambil keuntungan dariku Wang Er, cepat tersesat! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

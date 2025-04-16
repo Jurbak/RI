@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 35 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 35";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_34.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 35">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_36.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 35</h1>
+        <div class="text-left">
+<p>	Bab 35</p>
+<p>	Bab 35 – Silakan dan Berteriak!</p>
+<p>	Fang Yuan berada di atas angin untuk saat ini, tetapi itu tidak dapat menopangnya lebih lama lagi.</p>
+<p>	Bertukar pukulan bolak-balik, dia sudah terengah-engah kelelahan. Sebaliknya, pernapasan Gao Wan masih halus dan sinkron, mencerminkan perbedaan besar dalam stamina antara keduanya. Pada saat yang sama, saat Gao Wan melatih anggota tubuhnya, tubuhnya secara bertahap memanas sementara kecepatan meninjunya menjadi lebih cepat dan lebih cepat. Efek dingin yang menyebabkan dia menjadi lambat dan mati rasa telah memudar, menunjukkan keterampilan sejati yang diasah oleh pelatihannya selama beberapa dekade.</p>
+<p>	“Lad, kamu tidak bisa mengalahkanku! Ada aturan klan yang menyatakan bahwa di dalam asrama sekolah, kamu dilarang menggunakan Moonlight Gu . Kamu adalah daging mati, ditakdirkan untuk menjadi tawananku! ” Gao Wan tertawa gila; pengalaman bertarungnya kaya, jadi dia mencoba menggunakan kata-kata untuk menyebabkan semangat juang Fang Yuan goyah.</p>
+<p>	“Pada akhirnya, aku hanya seorang remaja dan tubuhku yang belum sepenuhnya berkembang tidak dapat dibandingkan dengan pelayan ini.” Keadaan pikiran Fang Yuan tenang seperti es. Setelah mempertajam keinginannya selama lima ratus tahun, tidak mungkin semangat juangnya akan goyah.</p>
+<p>	“Cahaya Bulan Gu !” Dia memanggil dalam pikirannya, mengaktifkan esensi purba dan pada saat yang sama melompat mundur untuk menjauh dari Gao Wan.</p>
+<p>	Gao Wan ingin mengejarnya, tapi dia tiba-tiba melihat cahaya biru berair memancar dari telapak tangan Fang Yuan. Wajahnya menjadi gelap dan dia berteriak, “Nak, kamu menggunakan cacing Gu untuk bertarung di asrama sekolah, ini melanggar aturan klan!”</p>
+<p>	“Jadi bagaimana jika saya melanggar aturan?” Fang Yuan mencibir. Dia mempelajari aturan klan dan menghafalnya dalam hati, tetapi itu bukan untuk mematuhinya. Segera, telapak tangannya menebas busur ke arah Gao Wan. Dengan suara ‘ ching ‘, moonblade biru itu terbang ke arah wajah Gao Wan.</p>
+<p>	Gao Wan menggertakkan giginya saat dia mengangkat kedua tangannya untuk menutupi wajahnya, membentuk perisai pelindung. Pada saat yang sama, dia bergegas menuju Fang Yuan tanpa jeda, berencana untuk menahan serangan sambil mengakhiri pertempuran secepat yang dia bisa.</p>
+<p>	Pedang bulan menghantam lengannya. Dengan suara letupan, daging dan darahnya mengalir di bawah sinar bulan, gelombang rasa sakit yang luar biasa menghantam saraf Gao Wan. Pria yang tidak dijaga itu hampir pingsan karena kesakitan.</p>
+<p>	“Bagaimana ini bisa?!” Terburu-burunya menuju Fang Yuan berhenti, dan dia dengan ketakutan menemukan bahwa kedua anggota tubuhnya telah terpotong dengan luka yang dalam. Darah segar mengalir keluar dari luka dan dari samping, sementara otot-otot berdarah dapat terlihat berkeliaran di sekitar dagingnya. Bahkan tulang putih lengan bawah yang patah bisa terlihat.</p>
+<p>	Gao Wan terkejut melampaui kata-kata. “Ini tidak mungkin! Sebuah Moonblade tahap awal peringkat satu, yang paling bisa dilakukan adalah melukai dagingku dengan ringan. Bagaimana itu bisa menembus tulangku? Hanya peringkat satu tingkat menengah yang bisa melakukan ini !! ”</p>
+<p>	Dia tidak tahu. Sementara Fang Yuan adalah Master Gu tahap awal Peringkat satu , karena pemurnian cacing Liquor, ia memiliki esensi purba tingkat satu tingkat menengah.</p>
+<p>	Moonlight Gu , yang diaktifkan menggunakan esensi purba tahap menengah, memancarkan pedang bulan yang jauh lebih unggul dari tahap awal yang dia prediksi sebelumnya.</p>
+<p>	“Ini buruk, bocah ini aneh !!” Gao Wan yang tertangkap basah sudah menderita luka parah. Semangat juangnya hilang dan dia dengan tegas memutuskan untuk mundur.</p>
+<p>	“Apakah kamu bisa melarikan diri?” Fang Yuan tersenyum dingin saat dia mulai mengejar, pisau bulan di tangannya menembak keluar secara berurutan.</p>
+<p>	“Selamatkan aku!!!” Gao Wan berteriak ngeri saat dia melarikan diri, suaranya terdengar jauh melampaui asrama sekolah.</p>
+<p>	“Apa yang sedang terjadi? Seseorang meminta bantuan!” Suara itu mengingatkan penjaga asrama sekolah yang ada di dekatnya.</p>
+<p>	“Ini Nona muda Keluarga Mo, pelayan Mo Yan.” Para penjaga yang tiba berhenti di jalur mereka setelah melihat adegan pengejaran.</p>
+<p>	“Ini hanya seorang pelayan, tidak perlu bagi kita untuk mengambil risiko melindunginya!”</p>
+<p>	“Membiarkan dia tinggal di sini sudah merupakan bantuan terhadap Keluarga Mo.”</p>
+<p>	“Kita masih harus berhati-hati, kalau-kalau dia menyakiti Fang Yuan dengan putus asa.”</p>
+<p>	Semua penjaga yang cemas berkumpul, tetapi tidak ada yang membantu Gao Wan; mereka hanya mengamati dari pinggir lapangan.</p>
+<p>	Pelayan ini Gao Wan, bahkan jika dia mati, itu tidak ada hubungannya dengan mereka. Namun jika Fang Yuan meninggal atau terluka, itu akan menjadi tanggung jawab mereka.</p>
+<p>	Melihat pemandangan seperti itu, Gao Wan putus asa, dia dengan tragis berteriak, “Kita semua adalah orang luar! Anda tidak bisa membiarkan saya mati! ”</p>
+<p>	Kehilangan darahnya semakin parah, dan kecepatannya menurun.</p>
+<p>	Fang Yuan menyusulnya, suaranya sedingin es, mengumumkan hukuman mati Gao Wan, ”Silakan berteriak! Tidak masalah seberapa keras Anda melakukannya. ”</p>
+<p>	Sambil mengatakan itu, bilah di lengannya berputar, dan dia menembakkan dua bilah bulan ke arah Gao Wan.</p>
+<p>	Astaga, astaga !</p>
+<p>	Bilah bulan terbang menuju leher Gao Wan. Pelayan itu kehilangan semua harapan, tampaknya selangkah lagi ke jurang.</p>
+<p>	Saat berikutnya, dia merasa dunianya berputar; dia benar-benar melihat kakinya sendiri, dadanya, punggungnya… dan lehernya yang terpenggal itu.</p>
+<p>	Setelah itu, kegelapan total menunggunya.</p>
+<p>	Gao Wan telah meninggal.</p>
+<p>	Dipenggal oleh dua bilah bulan, kepalanya terbang menjauh dari benturan, tubuhnya terdorong mundur 10 meter sebelum jatuh. Daerah leher memuntahkan air mancur darah segar, mewarnai rumput di sekitarnya menjadi merah darah.</p>
+<p>	“Pembunuhan!!!”</p>
+<p>	“Fang Yuan membunuh seseorang!”</p>
+<p>	Para penjaga tidak bisa menahan diri untuk tidak berteriak. Mereka telah menyaksikan seluruh proses, dan mereka merasakan rasa gentar dan teror yang luar biasa mengalir di sekujur tubuh mereka.</p>
+<p>	Fang Yuan hanyalah seorang remaja berusia 15 tahun yang lemah, tetapi dia tanpa ekspresi membunuh orang dewasa yang kuat. Ini adalah kekuatan seorang Guru Gu !</p>
+<p>	Kemenangan telah ditentukan. Fang Yuan memperlambat langkahnya dan secara bertahap bergerak menuju mayat itu.</p>
+<p>	Wajahnya tenang, seolah-olah dia tidak melakukan sesuatu yang luar biasa. Ekspresi ini selanjutnya membuat punggung para penjaga merinding.</p>
+<p>	Kepala Gao Wan tergeletak di tanah, kedua matanya terbuka lebar, berputar di dalam kuburnya.</p>
+<p>	Fang Yuan menatap dingin. Dia mengangkat kakinya dan mengirim kepalanya terbang.</p>
+<p>	Kelopak mata para penjaga berkedut.</p>
+<p>	Fang Yuan mendekati mayat itu dan menemukan bahwa itu masih bergetar. Darah menyebar melalui tanah, membentuk genangan darah kecil. Dia melihat luka Gao Wan dengan ekspresi muram. Luka-luka ini cukup dalam untuk mengungkap rahasia fakta bahwa ia memiliki esensi purba tingkat menengah.</p>
+<p>	Setelah ini terungkap, akan dengan cepat disimpulkan bahwa dia memiliki cacing Minuman Keras, dan dengan itu keluarga secara alami akan memikirkan Biksu Anggur Bunga.</p>
+<p>	Karena itu, Fang Yuan harus menyembunyikan rahasia ini.</p>
+<p>	“Tapi ada terlalu banyak penonton.” Tatapan Fang Yuan menyapu para penjaga di dekatnya; ada lebih dari sepuluh dari mereka. Dia memiliki kurang dari 10% esensi purba yang tersisa, jadi tidak ada cara untuk membunuh mereka semua.</p>
+<p>	Setelah merenung sebentar, Fang Yuan membungkuk dan mengangkat pergelangan kaki Gao Wan, menyeret mayat itu pergi.</p>
+<p>	“Tuan muda Fang Yuan, Anda bisa menyerahkan ini kepada kami.” Para penjaga mengendalikan ketakutan mereka dan mendekati Fang Yuan, berbicara dengan sopan.</p>
+<p>	Rasa hormat dan kesopanan memiliki warna ketakutan yang jelas.</p>
+<p>	Fang Yuan diam-diam menatap para penjaga, dan mereka semua menahan napas, melihat ke bawah.</p>
+<p>	“Beri aku pedang itu,” dia mengulurkan tangannya dan berkata dengan ringan.</p>
+<p>	Dengan otoritas dalam pidatonya, dia memancarkan tekanan yang tak terbantahkan.</p>
+<p>	Penjaga yang paling dekat dengannya secara tak terkendali menyerahkan pedang di pinggangnya.</p>
+<p>	Fang Yuan mengambil pedang dan terus berjalan, meninggalkan selusin penjaga yang terpana menatap punggungnya.</p>
+<p>	Matahari terbit dari timur, dan sinar cahaya pertama menyinari puncak gunung, menerangi asrama sekolah.</p>
+<p>	Fang Yuan berusia 15 tahun, dengan tubuh kurus seperti remaja, kulitnya tampak pucat.</p>
+<p>	Di bawah matahari terbit, dia berjalan santai.</p>
+<p>	Di tangan kirinya ada pedang mengkilap.</p>
+<p>	Di tangan kanannya, mayat tanpa kepala.</p>
+<p>	Jalannya meninggalkan jejak jejak darah merah terang yang diseret di jalan.</p>
+<p>	Para penjaga terperangah, tubuh mereka kaku karena pemandangan yang menakutkan.</p>
+<p>	Bahkan saat sinar matahari menyinari mereka, mereka tidak bisa merasakan kehangatan dan cahaya.</p>
+<p>	Teguk .</p>
+<p>	Seseorang di antara mereka menelan ludah mereka dengan keras.</p>
+<p>	Catatan penulis: (Dia hanya meminta pembaca untuk merekomendasikan bukunya kepada orang lain. Babak kedua hanya mencoba memotivasi pembaca.)</p>
+<p>	Untuk sebuah buku yang baru saja ditulis, akan ada orang yang menyukainya dan orang yang tidak menyukainya. Bagi yang tidak suka, tidak perlu bersusah payah / memaksakan diri, Anda bisa pergi dan membaca buku lain. Bagi mereka yang menyukainya, tolong lakukan yang terbaik untuk mendukung buku ini! Di hari pertama tahun baru, saya minta rekomendasi, tolong bookmark buku ini ya! Setelah kiamat, saya memohon semua orang dari Dao yang sama untuk menunjukkan kekuatan mereka, mengumpulkan kekuatan kita dan bangkit sebagai api iblis, dan biarkan orang-orang di dunia melihat kekuatan kita para pembudidaya iblis! Di tahun baru, mereka yang mempertahankan wilayah terakhir yang tersisa dari cara iblis, biarkan cara iblis bangkit kembali, dan menjadi legendaris!!</p>
+<p>	*Bab ini dipersembahkan oleh Chibigen dan Skyfarrow. Penghargaan untuk Chibigen karena membantu terjemahan.</p>
+<p>	*Donasi akhirnya dibuka untuk Pendeta Insanity!! (+_+)/</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 409 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 409";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_408.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 409">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_410.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 409</h1>
+        <div class="text-left">
+<p>	Bab 409 – Mengelola Tanah yang Diberkati</p>
+<p>	Bab 409: Mengelola Tanah yang Diberkati</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan bertanya: “Lalu berapa banyak Gu yang ada di tanah yang diberkati sekarang?”</p>
+<p>	Roh tanah Hu Immortal mengangkat kepalanya sedikit: “Saat ini, ada lebih dari delapan ratus enam puluh ribu peringkat satu Gu, dengan sekitar lima puluh dua jenis dari mereka. Lebih dari seratus tiga puluh ribu peringkat dua Gu, dengan empat puluh delapan tipe. Lima ribu peringkat tiga Gu, dengan dua belas jenis. Hanya lebih dari enam puluh peringkat empat Gu, dengan delapan jenis. Dan hanya satu peringkat lima Gu – kulit rubah Gu.”</p>
+<p>	Setelah Hu Immortal meninggal, obsesinya tidak hilang dan digabungkan dengan kekuatan surgawi tanah ini untuk membentuk keberadaan yang tidak biasa yang dikenal sebagai roh tanah. Dalam beberapa hal, itu bisa dikatakan sebagai kelanjutan hidupnya.</p>
+<p>	Dengan demikian, roh tanah adalah perwakilan dari tanah yang diberkati ini dan jelas tentang segala sesuatu di tanah yang diberkati.</p>
+<p>	Karena Fang Yuan telah menjadi penguasa tanah yang diberkati sekarang, semua yang ada di tanah yang diberkati adalah miliknya.</p>
+<p>	Lebih dari delapan ratus enam puluh ribu peringkat satu Gu, seratus tiga puluh ribu peringkat dua Gu; gabungan keduanya berarti hampir satu juta cacing Gu!</p>
+<p>	Fang Yuan mengingat waktu di gunung Qing Mao, hari-hari di mana dia harus merencanakan dan berjuang untuk dua hingga tiga peringkat satu dan peringkat dua Gu.</p>
+<p>	Tanah yang diberkati hanya bisa dibuat oleh Gu Immortal, itu adalah dasar dari kekayaan mereka, harta surgawi. Hanya Tanah Yang Diberkati Abadi Hu ini saja yang bisa memasok untuk klan super. Tidak akan ada masalah untuk menempatkan lima atau enam klan kecil-menengah seperti klan Gu Yue di sini!</p>
+<p>	Adapun cacing Gu di tanah yang diberkati, jumlahnya menurun tajam di peringkat tiga. Cacing Gu peringkat empat tidak mencapai seratus dan hanya ada satu peringkat lima Gu.</p>
+<p>	Situasi ini juga alami.</p>
+<p>	Itu sama dengan Gu Masters.</p>
+<p>	Peringkat satu dan peringkat dua Master Gu sangat umum, peringkat tiga sudah langka, peringkat empat bahkan lebih sedikit, dan hanya satu atau dua peringkat lima Master Gu yang mungkin muncul di antara satu juta orang.</p>
+<p>	Ini adalah distribusi piramida; kuantitas berkurang semakin tinggi Anda pergi, dan orang-orang yang menduduki puncak sangat sedikit jumlahnya.</p>
+<p>	“Tanah yang diberkati ini masih muda dan dengan pengelolaan yang tepat, jumlah cacing Gu akan terus meningkat. Mencapai sepuluh juta peringkat satu dan dua Gu tidak akan sulit. Tetapi apakah saya dapat membesarkan mereka dengan benar atau tidak, itu tergantung pada jenis dan jumlah Gu peringkat empat dan peringkat lima. ” Fang Yuan menghitung.</p>
+<p>	Mortal Gu Masters biasanya hanya akan meningkatkan lima atau enam Gu, sementara Gu Immortals dapat meningkatkan satu juta atau bahkan sepuluh juta cacing Gu. Perbedaan antara keduanya adalah sejauh awan dari lumpur.</p>
+<p>	Gu ini dibesarkan di tanah yang diberkati Hu Immortal hanya bisa dianggap lumayan.</p>
+<p>	Di satu sisi, jumlahnya sedikit, hanya sekitar satu juta. Di sisi lain, Gu bukanlah elit. Dari perkenalan yang didapat Fang Yuan, mereka semua adalah Gu biasa. Jika mereka diubah menjadi Gu seperti cacing minuman keras atau Gu penyembunyi nafas, nilainya akan jauh lebih tinggi.</p>
+<p>	Bahkan Gu kulit rubah peringkat lima adalah Gu defensif yang sangat umum; itu efektif melawan cacing Gu jalur angin dan air, tetapi sulit digunakan di medan perang yang kompleks. Fang Yuan bahkan tidak melihatnya.</p>
+<p>	Hal yang benar-benar menggerakkan dia adalah waktu di tanah yang diberkati.</p>
+<p>	Waktu mengalir lima kali lebih cepat di tanah yang diberkati Hu Immortal. Artinya, satu hari di dunia luar berarti lima hari di sini.</p>
+<p>	Ini berarti kecepatan kultivasi Fang Yuan akan lima kali lebih cepat di tanah yang diberkati! Dia bisa berkultivasi selama satu tahun tiga bulan di sini ketika hanya tiga bulan akan berlalu di dunia luar.</p>
+<p>	Dengan ini, kecepatan kultivasi Fang Yuan akan melampaui sebagian besar Master Gu dan dia akan memiliki inisiatif yang lebih besar untuk rencana masa depannya.</p>
+<p>	Secara alami, ada kerugian besar untuk ini. Umur Fang Yuan hanya sekitar seratus tahun, jadi dengan ini, dia akan menua lima kali lebih cepat juga.</p>
+<p>	Roh tanah melanjutkan dengan pengantar: “Saat ini, ada sekitar seribu kelompok rubah yang tinggal di sini; rubah merah, rubah emas, rubah awan, rubah angin, rubah musim gugur, rubah cahaya yang mengalir, dan sebagainya. Tiga kelompok rubah terbesar masing-masing memiliki sekitar delapan ratus ribu rubah. Secara keseluruhan, ada sekitar empat juta tujuh ratus ribu rubah.”</p>
+<p>	Fang Yuan diam-diam mendengarkannya dan menganggukkan kepalanya.</p>
+<p>	Tiga kelompok rubah yang tak terhitung jumlahnya berarti tiga raja binatang yang tak terhitung jumlahnya. Perkembangan binatang buas di tanah yang diberkati masih belum mencapai tingkat menciptakan kaisar binatang buas.</p>
+<p>	Klasifikasi binatang itu sederhana. Dari rendah ke tinggi, mereka adalah seratus raja binatang, seribu raja binatang, banyak sekali raja binatang dan kaisar binatang.</p>
+<p>	Misalnya, Ba Huang dan Ying Ming dari tiga raja warisan adalah dua kaisar binatang dengan kekuatan pertempuran yang bisa menandingi peringkat lima Master Gu; mereka mampu untuk sementara menghalangi kemajuan Mo Wu Tian dan Xiao Mang.</p>
+<p>	“Ada banyak kelompok rubah, tapi sayangnya mereka semua adalah rubah biasa dan bukan binatang yang bermutasi.” Fang Yuan dalam hati mengevaluasi.</p>
+<p>	Nilai binatang biasa secara alami tidak bisa dibandingkan dengan binatang bermutasi. Contohnya adalah membandingkan babi hutan dan babi hutan; banteng hijau dan banteng kunlun; anjing liar dan singa mastiff.</p>
+<p>	Di atas binatang yang bermutasi adalah binatang yang sunyi; di atas binatang-binatang terpencil adalah binatang-binatang terpencil kuno dan binatang-binatang terpencil yang dahulu kala.</p>
+<p>	Kelelawar naga darah keras Song Zi Xing adalah binatang buas kuno yang terpencil, salah satu dari sembilan warisan sejati Laut Darah Leluhur. Binatang buas kuno yang tercatat di &lt;&gt;, contohnya adalah rubah berekor sembilan.</p>
+<p>	“Membesarkan rubah berekor sembilan di tanah yang diberkati Hu Immortal hanyalah mimpi. Bahkan membesarkan binatang buas kuno tidak mungkin. Jika itu adalah binatang buas biasa seperti rubah badai atau rubah sayap phoenix, membesarkan satu atau dua dari mereka bisa dilakukan tetapi itu akan sangat bergantung pada keberuntungan. ” Fang Yuan terus mempertimbangkan.</p>
+<p>	Karena dia telah memperoleh tanah yang diberkati Hu Immortal, rencananya setelah kelahiran kembali telah mencapai tingkat yang sama sekali baru, jadi dia harus merevisi dan memodifikasinya.</p>
+<p>	Pada saat ini, perselisihan internal klan Jia seharusnya sudah berkobar seperti api dan dia tidak akan bisa berpartisipasi di dalamnya. Dia juga tidak bisa berpartisipasi dalam pertempuran besar gunung Yi Tian. Fang Yuan bermaksud memanfaatkan sepenuhnya tanah yang diberkati Hu Immortal ini dan mengolahnya ke ranah Gu Immortal. Ini berarti bahwa dia tidak hanya harus melawan bencana duniawi yang berkelanjutan tetapi juga harus mengelola tanah yang diberkati.</p>
+<p>	Saat ini, cacing Gu hampir tidak bisa dilewati dan rubah mungkin biasa tetapi mereka memiliki potensi untuk tumbuh.</p>
+<p>	“Sebenarnya, ada lebih banyak kelompok rubah di tanah yang diberkati. Setidaknya, tiga kali lebih banyak dari saat ini. Tapi bencana duniawi kedua menyebabkan hujan meteor api yang menghancurkan wilayah timur tanah yang diberkati menjadi reruntuhan, membakar ratusan ribu rubah sampai mati; api gelap waktu itu belum padam bahkan sampai sekarang. Bencana dunia keempat adalah banjir besar yang menenggelamkan sebagian besar padang rumput di wilayah utara tanah yang diberkati, membunuh lebih banyak rubah. Jadi, hanya ada banyak yang tersisa saat ini. ” Roh tanah mengerucutkan bibir merah mudanya, matanya mengungkapkan ketakutan dan kepanikan saat dia berbicara tentang bencana bumi.</p>
+<p>	Pada saat yang sama, dia melambaikan tangan kecilnya dan asap terbang ke udara, menunjukkan pemandangan bagian timur dan utara dari tanah yang diberkati.</p>
+<p>	Fang Yuan bisa melihat: Bagian timur adalah pemandangan kehancuran dengan debu dan asap menyelimuti seluruh tempat. Ada kawah meteor di semua tempat, dan api hitam menyala di sekitar kawah. Api menyala tanpa mengeluarkan sedikit pun suara, tetapi ini mewujudkan aura yang bahkan lebih menakutkan.</p>
+<p>	Dan bagian utara adalah pemandangan air jernih yang luas. Awan gelap bergemuruh di udara dan hujan turun tanpa henti. Air yang bergelombang mengeluarkan suara suram dan suram. Ada potongan-potongan rumput dan bunga yang hancur, bersama dengan mayat rubah yang mengambang di atas air.</p>
+<p>	“Ini adalah meteor api gelap dan bencana laut putih yang mendung.” Melihat pemandangan yang begitu suram, Fang Yuan tidak bisa menahan perasaan muram.</p>
+<p>	Kekuatan malapetaka duniawi sangat kuat, apalagi ada banyak jenis malapetaka, dan tidak mungkin untuk direncanakan.</p>
+<p>	Setiap sepuluh tahun, bencana duniawi akan menimbulkan ancaman destruktif terhadap tanah yang diberkati. Hu Immortal bertahan selama lima kali sebelum kehilangan nyawanya. Dan kehancuran akibat malapetaka duniawi sebelumnya masih ada dan belum disembuhkan.</p>
+<p>	Ini adalah berita yang sangat buruk bagi Fang Yuan.</p>
+<p>	Hu Immortal Blessed Land memiliki luas 4000km2, tetapi area utara dan timur hilang, menyebabkan hilangnya lebih dari 1300km2 area. Kehilangan seperti itu benar-benar bencana.</p>
+<p>	“Saya harus menyelesaikan dua masalah ini. Terlepas dari hal lain, banyak Esensi Abadi akan digunakan untuk menekan api hitam yang menyala dan banjir yang menyebar. ” Fang Yuan bergumam dengan suara lembut.</p>
+<p>	Namun, segera menyusul, roh tanah Hu Immortal menyebutkan berita yang lebih buruk.</p>
+<p>	“Tuan, masalah terbesar ada di sini. Lihat, inilah yang tersisa dari bencana dunia kelima.” Dia melambaikan tangannya dan gambar berubah untuk menunjukkan pemandangan yang berbeda.</p>
+<p>	Fang Yuan melihat pemandangan padang rumput hitam yang hangus, dan sesosok manusia yang terbentuk dari kilat biru sedang duduk bersila di tanah.</p>
+<p>	Fisiknya tidak besar dan terlihat cukup memikat, namun itu terbentuk murni dari petir. Cahaya biru yang mulia mengeluarkan kekuatan yang sangat menakutkan!</p>
+<p>	“Petir berbentuk manusia, ini adalah bencana bumi — bayangan petir pesona biru!” Fang Yuan menarik napas dingin.</p>
+<p>	Petir berbentuk manusia ini adalah salah satu bencana bumi; itu sangat kuat dan bisa menandingi peringkat enam Gu Immortal!</p>
+<p>	Fang Yuan melihat pemandangan ini dan segera menyadari bahwa pembunuh yang membunuh Hu Immortal mungkin adalah bayangan petir pesona biru ini!</p>
+<p>	Hu Immortal adalah jalur perbudakan Gu Master yang mengendalikan kelompok rubah. Jalur perbudakan kuat tetapi juga lemah, dan dapat dengan mudah ditundukkan dengan cara memenggal kepala taktik pemimpin. Meskipun ada banyak kelompok rubah, mereka tidak dapat menghalangi bayangan petir pesona biru. Pada akhirnya, Hu Immortal harus melawan sosok petir dalam pertempuran jarak dekat dan kehilangan nyawanya.</p>
+<p>	“Sialan, bagaimana mungkin ada bayangan petir di tanah yang diberkati ini?” Ekspresi Fang Yuan berubah sangat tidak sedap dipandang.</p>
+<p>	Dia punya cara untuk perlahan menyelesaikan dua masalah sebelumnya. Namun, petir berbentuk manusia ini sudah di luar kemampuannya saat ini.</p>
+<p>	“Tuan, Anda harus berhati-hati ketika berkeliaran nanti, petir berbentuk manusia ini berjalan secara acak di sekitar tanah yang diberkati. Hanya Gunung Dang Hun, yang tidak berani mendekat.” Wajah merah muda dan halus roh tanah bermandikan bayangan petir biru, suaranya sedikit gemetar.</p>
+<p>	“Petir ini adalah bencana bumi tetapi juga merupakan jenis makhluk hidup. Karena itu adalah makhluk hidup, ia memiliki jiwa dan dengan demikian jika ia mendekati Gunung Dang Hun, jiwanya akan menerima gelombang kejut hingga berubah menjadi abu.” Fang Yuan sudah menenangkan pikirannya sekarang.</p>
+<p>	“Mungkin aku bisa menggunakan Gunung Dang Hun untuk menyelesaikan bayangan petir ini? Tapi bagaimana saya bisa memancingnya?” Pikiran Fang Yuan berubah, namun saat berikutnya suara mendengung bergema di telinganya lagi.</p>
+<p>	Dia menggelengkan kepalanya dan tidak terus berpikir.</p>
+<p>	“Apakah ada berita buruk lainnya, beri tahu mereka semua sekaligus.” Dia tersenyum pahit dan bertanya pada roh tanah.</p>
+<p>	Situasinya jauh lebih buruk dari yang dia bayangkan. Tanah yang diberkati Hu Immortal berada dalam krisis yang akan segera terjadi; apakah itu kekhawatiran internal atau agresi eksternal, keduanya sangat serius.</p>
+<p>	Adapun Feng Jin Huang – dengan orang tua Gu Immortal dan juga bantuan dari Spirit Affinity House – dia secara alami tidak perlu khawatir tentang hal-hal ini.</p>
+<p>	Tapi Fang Yuan hanyalah satu-satunya kekuatan.</p>
+<p>	Secara alami, ada manfaat yang hanya bisa dimiliki oleh satu kekuatan. Dalam biografi Feng Jin Huang, tercatat Feng Jin Huang harus menawarkan sejumlah besar sumber daya kepada sektenya setelah mendapatkan tanah yang diberkati.</p>
+<p>	Roh tanah menggelengkan kepala kecilnya. Dia sudah melaporkan situasi terburuk, sisanya adalah kabar baik.</p>
+<p>	Pertama-tama, di daerah selatan tanah yang diberkati tinggal suku rockmen.</p>
+<p>	Rockman adalah tipe manusia varian yang hidup di bawah tanah dan memakan bijih sebagai makanan.</p>
+<p>	Berita ini merupakan kejutan yang tak terduga bagi Fang Yuan.</p>
+<p>	Kedua, ada banyak esensi abadi di tanah yang diberkati Hu Immortal.</p>
+<p>	Roh tanah membawa Fang Yuan ke istana di Gunung Dang Hun. Di bagian terdalam istana adalah mangkuk emas besar yang diisi dengan esensi abadi hijau.</p>
+<p>	Selain cairan hijau dalam mangkuk, sebagian besar Immortal Essence secara otomatis membeku menjadi bola. Pada pandangan pertama, itu tampak seperti anggur.</p>
+<p>	Ini adalah sesuatu yang hanya dimiliki oleh Dewa Gu peringkat enam – esensi abadi anggur hijau!</p>
+<p>	Setiap mutiara esensi abadi anggur hijau mengandung esensi abadi yang jauh lebih banyak daripada esensi abadi di tanah yang diberkati tiga raja.</p>
+<p>	“Dengan esensi abadi ini, masih ada sedikit harapan!” Fang Yuan akhirnya bernapas lega.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

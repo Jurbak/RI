@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1008 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 1008";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_1007.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 1008">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_1009.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 1008</h1>
+        <div class="text-left">
+<p>	Bab 1008 – Pengorbanan Masing-masing</p>
+<p>	Bab 1008: Pengorbanan Masing-masing</p>
+<p>	Baca di meionovel.id</p>
+<p>	Di bawah kendali Fang Yuan, Panggung Duel Kekacauan Anggun meletus dengan lampu merah yang menyilaukan.</p>
+<p>	Lampu merah menyelubungi jarak yang jauh, menyala seperti api yang mengamuk.</p>
+<p>	Kekuatan misterius tersebar di atas api, mutiara kesusahan vajra apa pun yang mengenai Rumah Gu Abadi akan ditelan oleh lampu merah dan disegel di dalamnya.</p>
+<p>	Esensi abadi peringkat sembilan dari Giant Sun Immortal Venerable memungkinkan Graceful Chaotic Duel Stage untuk menampilkan kemampuan terkuatnya.</p>
+<p>	Retakan…</p>
+<p>	Seluruh Rumah Gu Abadi bergetar hebat dan mulai retak.</p>
+<p>	Itu hampir tidak bisa menyerap kesengsaraan peninggalan vajra.</p>
+<p>	Bagaimanapun, ini adalah kesengsaraan besar!</p>
+<p>	Tapi Fang Yuan masih berhasil.</p>
+<p>	Semakin banyak mutiara vajra dikendalikan olehnya, disegel di dalam Tahap Duel Kekacauan Anggun untuk sementara.</p>
+<p>	Namun, Fang Yuan harus membayar mahal untuk ini.</p>
+<p>	“Kami bertarung begitu lama, tetapi porsi esensi abadi Matahari Raksasa yang saya keluarkan tidak dihabiskan bahkan tiga puluh persen. Tapi setelah menyerap seratus mutiara vajra, semua bagian dari esensi abadi Matahari Raksasa itu habis!”</p>
+<p>	Pengeluaran cepat esensi abadi Giant Sun menyebabkan Fang Yuan terkejut dalam hati.</p>
+<p>	Tapi sekarang bukan waktunya untuk merasa tertekan karena kehilangan, dia mengeluarkan lebih banyak esensi abadi Giant Sun.</p>
+<p>	Panggung Duel Kekacauan Anggun bergerak bebas, tidak hanya aman dalam kesusahan besar, itu juga menyerap lebih banyak mutiara vajra, kekuatannya terus meningkat sebagai gantinya.</p>
+<p>	Heaven Overseeing Tower adalah peringkat sembilan Immortal Gu House dengan pertahanan yang menakjubkan dan dengan takdir Immortal Gu sebagai intinya, itu memiliki efek defensif terhadap bencana dan kesengsaraan.</p>
+<p>	Tapi Tahap Duel Kekacauan Anggun Fang Yuan, di bawah pengaruh esensi abadi Matahari Raksasa, mampu menampilkan kekuatan luar biasa, menampilkan keajaiban jalur waktu, kekuatannya tidak berkurang tetapi meningkat.</p>
+<p>	Setelah gelombang kesusahan besar ini, Kota Bulu Suci Sekte Bayangan menderita kerusakan terbesar. Bahkan jika mereka telah menggunakan sejumlah besar kekuatan keinginan Gu, itu tidak bisa menandingi Fang Yuan dan Pengadilan Surgawi.</p>
+<p>	Kesengsaraan peninggalan vajra berlanjut selama delapan menit sebelum berhenti tiba-tiba.</p>
+<p>	Tanpa membiarkan ketiga pihak memiliki waktu untuk bernafas, gelombang kesengsaraan kedua turun.</p>
+<p>	Lingkaran cahaya menyala di langit, dari dalam lingkaran cahaya, beberapa rusa raksasa menyerbu keluar.</p>
+<p>	Masing-masing rusa ini seukuran gajah. Tubuh mereka tembus pandang, tampaknya terbentuk dari cahaya putih.</p>
+<p>	Binatang terpencil yang abadi — Destiny Light Deer!</p>
+<p>	Ini adalah kesengsaraan besar yang terbentuk dari binatang buas kuno. Setiap binatang terpencil yang kuno bisa menandingi peringkat delapan Gu Immortal. Dan sekarang ada dua puluh dua rusa ini.</p>
+<p>	Artinya, ada dua puluh dua binatang dengan kekuatan pertempuran peringkat delapan!</p>
+<p>	Tidak diragukan lagi, bahkan jika rusa ini tidak memiliki Gu Abadi liar pada mereka, kekuatan kesengsaraan besar ini jauh lebih menakutkan daripada gelombang pertama.</p>
+<p>	Kelompok rusa ringan berlari menuju sepuluh formasi tak bernyawa zombie abadi yang ekstrim, dalam sekejap, kelompok Shadow Sect memucat.</p>
+<p>	Sebuah celah dengan cepat meluas dalam sepuluh formasi ekstrim, membiarkan setengah dari kelompok rusa masuk ke dalam.</p>
+<p>	“Rusa cahaya takdir memiliki sembilan warna yang sesuai dengan sembilan surga kuno. Rusa-rusa ini semuanya rusa putih, sepertinya mereka berasal dari surga putih.”</p>
+<p>	“Destiny light deer memiliki sifat lembut, mereka dinamai dalam legenda indah di mana mereka membawa manusia ke surga. Siapa yang mengira bahwa di bawah pengaruh kehendak surga, rusa-rusa ini akan mengamuk dan dipenuhi dengan niat untuk berperang! ”</p>
+<p>	Meskipun Dewa Gu Pengadilan Surgawi tidak ingin berpartisipasi, dengan berada dalam situasi ini, mereka tidak dapat menghindar dan juga terlibat.</p>
+<p>	Fang Yuan mengendalikan Panggung Duel Kekacauan Anggun untuk mundur ke tepi pertempuran.</p>
+<p>	Rusa ringan ini masih hidup, dia tidak dapat menggunakan Rumah Gu Abadi untuk menyegel mereka.</p>
+<p>	Serangan yang bisa disegel oleh Graceful Chaotic Duel Stage menggunakan jalur misteri waktu adalah hal-hal seperti angin, air, tanah dan api, bukan binatang buas.</p>
+<p>	Untungnya, Fang Yuan telah menangkap banyak mutiara vajra sebelumnya, dia menggunakannya sekarang untuk memaksa rusa pergi.</p>
+<p>	Dalam gelombang kesengsaraan kedua, situasi Pengadilan Surgawi adalah yang terbaik, Fang Yuan kedua, dan Sekte Bayangan memiliki tekanan terberat pada mereka, situasi mereka sangat kritis.</p>
+<p>	Pada saat genting, zombie abadi Bo Qing yang menonjol.</p>
+<p>	Dia mengaktifkan gerakan pembunuh jalur pedang yang terkenal dan mempesona seperti pedang hati lima jari, kekuatan mereka tak terbendung dan menakutkan.</p>
+<p>	Sebagian besar rusa cahaya takdir kehilangan nyawa mereka di tempat di bawah tebasan cahaya pedang. Bahkan jika mereka memiliki Gu Abadi liar, itu tidak ada gunanya.</p>
+<p>	Bo Qing sudah mati, tetapi tubuh zombie abadinya dipenuhi dengan tanda dao jalur pedang yang tak terbayangkan. Dengan penguatan tanda dao ini, bahkan gerakan pembunuh yang sama akan memiliki efek yang sama sekali berbeda dari saat Qin Bai Sheng menggunakannya, perbedaannya sangat besar.</p>
+<p>	Zombie abadi Bo Qing bertahan dengan pahit, akhirnya membiarkan Shadow Sect melewati gelombang kedua kesengsaraan besar.</p>
+<p>	Namun, awan gelap di langit sudah sangat jarang, sepuluh zombie abadi fisik yang ekstrem tidak lagi dapat menyembunyikan diri dan terlihat samar-samar.</p>
+<p>	“Formasi telah melemah ke titik terendahnya, charge!” Fang Yuan dengan tegas memanggil.</p>
+<p>	Panggung Duel Kekacauan Anggun menembakkan mutiara vajra, mencoba untuk mematahkan formasi.</p>
+<p>	Di sisi lain, Heaven Overseeing Tower Lord juga melihat peluang bagus ini, dan Heaven Overseeing Tower juga pindah, menambahkan penghinaan pada cedera Shadow Sect.</p>
+<p>	“Apa yang harus dilakukan?!” Di dalam Kota Bulu Suci, Ying Wu Xie memegang kepalanya, tidak dapat melakukan apa pun untuk membantu.</p>
+<p>	Ekspresi Dewa Gu lainnya dari Shadow Sect juga pucat, suasananya sangat serius.</p>
+<p>	Itu sudah menjadi momen penting antara kemenangan atau kekalahan.</p>
+<p>	Sepuluh formasi tak bernyawa zombie abadi yang ekstrim telah selesai, dan akan berhasil atau gagal, tidak ada hasil lain. Setelah formasi rusak, semuanya akan berantakan berturut-turut.</p>
+<p>	“Tidak ada lagi yang bisa kita lakukan, kita hanya bisa mengorbankan Zombie Alliance!” Seven Star Child menghela nafas panjang, sebelum mengambil keputusan.</p>
+<p>	Cabang Aliansi Zombie yang tersebar di lima wilayah sebenarnya adalah kekuatan bawahan dari Sekte Bayangan; seperti bagaimana sepuluh sekte kuno besar di Benua Tengah adalah bawahan Pengadilan Surgawi.</p>
+<p>	Hanya saja Shadow Sect sangat rahasia, banyak petinggi Zombie Alliance bahkan tidak menyadarinya. Rahasia ini tersembunyi di bagian terdalam dari Zombie Alliance.</p>
+<p>	Sepuluh formasi tak bernyawa zombie abadi yang ekstrem adalah rencana terbesar Shadow Sect, dibuat dengan menghabiskan semua yang mereka miliki.</p>
+<p>	Pada saat ini, Shadow Sect dipaksa untuk melakukan pengorbanan yang menyakitkan, menyerahkan Zombie Alliance untuk menyelamatkan situasi ini.</p>
+<p>	Rencana cadangan diaktifkan, satu demi satu, angka muncul dalam sepuluh formasi ekstrim.</p>
+<p>	Ini adalah zombie abadi dari semua cabang Aliansi Zombie. Banyak peringkat enam, peringkat tujuh dan peringkat delapan zombie muncul, jumlah mereka mengejutkan.</p>
+<p>	“Ini adalah?!” Di dalam Panggung Duel Kekacauan Anggun, Hei Lou Lan, Tai Bai Yun Sheng dan yang lainnya terbelalak saat mereka berseru bersama.</p>
+<p>	“Hmph! Benar saja, Shadow Sect berada di belakang Zombie Alliance,” Heaven Overseeing Tower Lord mengerutkan kening, niat membunuh melonjak di dalam dirinya, tatapannya menjadi dingin, “Bagus! Kami akan menangkap semua pemberontak yang menentang kehendak surga dalam satu gerakan.”</p>
+<p>	Namun di luar dugaan, zombie abadi ini tampaknya tidak dalam keadaan sadar dan seperti boneka yang dikendalikan oleh kabel.</p>
+<p>	Sebelum Heaven Overseeing Tower Lord bisa bergerak, mereka benar-benar mengorbankan diri mereka sendiri, berubah menjadi bagian dari sepuluh formasi ekstrim!</p>
+<p>	“Kakak!” Peri Li Shan melolong dalam kesedihan.</p>
+<p>	Di antara zombie abadi ini, dia melihat sosok Blazing Heaven Demonness.</p>
+<p>	Tapi zombie abadi peringkat delapan ini, pemimpin cabang Aliansi Zombie Dataran Utara, tampaknya tidak dalam keadaan sadar, menunjukkan ekspresi kosong.</p>
+<p>	Di bawah tatapan Peri Li Shan dan Hei Lou Lan, Blazing Heaven Demonness juga mengikuti zombie abadi ini, mengubah dirinya menjadi material abadi, bergabung menjadi formasi besar.</p>
+<p>	Memperoleh tubuh zombie abadi yang dipenuhi dengan tanda dao serta Gu Abadi dan lubang abadi yang tak terhitung jumlahnya, sepuluh awan gelap formasi ekstrem mengembun dan langsung meluas, melampaui keadaan puncak sebelumnya, dan mencapai tingkat yang belum pernah terjadi sebelumnya, hampir menutupi seluruh langit.</p>
+<p>	Peri Li Shan menangis sedih.</p>
+<p>	Hei Lou Lan tenggelam dalam keheningan.</p>
+<p>	Fang Yuan mengerutkan kening, penguatan peringkat delapan yang dia antisipasi telah mati dengan menyedihkan di depan matanya.</p>
+<p>	Siapa yang bisa meskipun Zombie Alliance memiliki hubungan seperti itu dengan Shadow Sect.</p>
+<p>	Bahkan jika seseorang telah melihat kebenaran dan mengatakannya, siapa yang akan mempercayai mereka?</p>
+<p>	Tersebar di lima wilayah, penguasa di antara kekuatan super, Aliansi Zombie besar sebenarnya hanya kedok untuk Sekte Bayangan.</p>
+<p>	“Sebelumnya, Shadow Sect mengeluarkan tugas wajib untuk memperbaiki formasi Gu dalam skala besar, itu mungkin untuk melawan anggota Zombie Alliance.” Tai Bai Yun Sheng tiba-tiba menyadari, merasakan hatinya dingin pada motif jahat Sekte Bayangan.</p>
+<p>	Ekspresi Fang Yuan juga tidak sedap dipandang.</p>
+<p>	“Aku sudah menduga hubungan antara Shadow Sect dan Zombie Alliance, tapi tidak menyangka akan ada situasi seperti itu! Kenangan hidup saya sebelumnya menyesatkan saya. Lagi pula, selama perang kacau di lima wilayah, semua cabang Aliansi Zombie telah ada…”</p>
+<p>	“Biaya yang sangat besar! Membunuh hampir semua zombie abadi dari lima wilayah, dan menjadikannya bahan abadi untuk dimasukkan ke dalam sepuluh formasi ekstrem ini. Apa yang ingin mereka perbaiki? Mungkinkah itu Gu legendaris untuk kehidupan abadi ?! ”</p>
+<p>	Heaven Overseeing Tower Lord juga memiliki ekspresi yang sangat tidak sedap dipandang.</p>
+<p>	Dewa abadi dari Pengadilan Surgawi di belakangnya juga menunjukkan ekspresi khawatir.</p>
+<p>	Bahkan jika mereka berpengalaman dan berpengetahuan luas, dengan status dan kekuatan tinggi, mereka tidak bisa tidak terpesona oleh gerakan Shadow Sect yang menakjubkan ini.</p>
+<p>	Mulai saat ini dan seterusnya, kekuatan super dengan Dewa Gu terbanyak di lima wilayah, Aliansi Zombie, benar-benar hancur, menghilang dalam angin!</p>
+<p>	Swoosh swoosh!</p>
+<p>	Suara menusuk menembus telinga semua orang.</p>
+<p>	Gelombang ketiga kesengsaraan besar telah turun.</p>
+<p>	Kehendak surga itu ganas, tidak peduli apa yang coba disempurnakan oleh Sekte Bayangan, jelas bahwa itu benar-benar hal yang menentang surga dan telah memicu kemarahan kehendak surga.</p>
+<p>	Bahkan langit dan bumi tidak mengizinkan penciptaannya!</p>
+<p>	Gelombang kesengsaraan besar ketiga jauh lebih menakutkan daripada gabungan dua kesengsaraan besar sebelumnya.</p>
+<p>	Hujan deras mulai turun dari langit. Setiap gerimis hujan hanya sepanjang setengah inci, tetapi mereka sangat tajam seolah-olah mereka bisa menembus segala sesuatu di dunia!</p>
+<p>	Kesengsaraan Besar — ​​Hujan Menembus Mutlak.</p>
+<p>	Sepuluh formasi ekstrem direkonstruksi, tetapi awan gelap yang bergemuruh tampaknya telah mengalami pukulan besar, tidak dapat memperoleh kembali kekuatannya.</p>
+<p>	Fang Yuan mengulangi hal yang sama, menggunakan esensi abadi Giant Sun untuk mengaktifkan Tahap Duel Kekacauan Anggun untuk menyerap hujan yang menusuk.</p>
+<p>	Hanya saja kali ini, dia jelas merasakan kesulitannya berkali-kali lipat dari sebelumnya.</p>
+<p>	Setelah bertahan dengan pahit untuk sementara waktu, Panggung Duel Kekacauan Anggun ditusuk di banyak tempat dengan sejumlah besar cacing Gu terus dikorbankan.</p>
+<p>	“Jika ini terus berlanjut, Rumah Gu Abadi mungkin hanya bisa bertahan selama lima belas menit.” Hei Lou Lan memanggil Fang Yuan.</p>
+<p>	Fang Yuan juga tidak memiliki metode yang bagus.</p>
+<p>	Meskipun dia sudah menggunakan seluruh kekuatannya dan menyerap banyak serangan dengan Graceful Chaotic Duel Stage, dia masih belum bisa melindungi semuanya.</p>
+<p>	Hujan seperti panah yang dia hadapi hanya sekitar sepuluh persen dari total.</p>
+<p>	Shadow Sect menderita sebagian besar hujan seperti panah.</p>
+<p>	Dengan ini, siapa pun akan tahu teror kesengsaraan besar. Di bawah keadaan yang begitu fatal, peringkat delapan Dewa Gu benar-benar tidak akan bersenang-senang.</p>
+<p>	Gelombang ketiga berakhir, Kota Bulu Suci dan Panggung Duel Kekacauan Anggun keduanya hancur, cacing Gu yang tersisa disimpan oleh Dewa Dewa masing-masing.</p>
+<p>	Menara Pengawas Surga dipenuhi dengan retakan, berkali-kali lebih dalam dari sebelumnya, sudut menara bahkan benar-benar hancur berantakan.</p>
+<p>	“Semuanya berakhir. Pemenang terakhir hanya bisa menjadi Pengadilan Surgawi! ” Heaven Overseeing Tower Lord tertawa keras, mengaktifkan serangan terkuat dari Heaven Overseeing Tower.</p>
+<p>	Ini adalah serangan yang membawa kekuatan takdir.</p>
+<p>	Tak terhindarkan dan tak terbendung.</p>
+<p>	Pada saat berikutnya, Heaven Overseeing Tower Lord melihat: Di bawah serangan Heaven Overseeing Tower, formasi retak terbuka, Dewa Gu Sekte Bayangan menderita korban yang tak terhitung jumlahnya, Fang Yuan dan yang lainnya juga mati bersama!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

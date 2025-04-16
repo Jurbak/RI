@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 282 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 282";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_281.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 282">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_283.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 282</h1>
+        <div class="text-left">
+<p>	Bab 282</p>
+<p>	Bab 282: Kilasan inspirasi Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Meskipun Fang Yuan memiliki token duri ungu, dia tidak berani menyelidiki ini secara terbuka.</p>
+<p>	Namun dalam ingatannya, Li Ran juga berpartisipasi dalam tahap pertempuran. Setelah mendapatkan Gu yang legendaris, dia memenangkan jalannya dan menyapu panggung pertempuran.</p>
+<p>	Ini membuatnya lebih mudah.</p>
+<p>	Fang Yuan masih memiliki tantangan paksa sebulan sekali yang tidak digunakan, jadi, dia datang ke area penerimaan rahasia menggunakannya.</p>
+<p>	Ada tiga orang yang bernama Li Ran di antara orang-orang yang mendaftar.</p>
+<p>	Dua laki-laki dan satu perempuan.</p>
+<p>	Menghilangkan perempuan karena Li Ran adalah laki-laki dalam rumor.</p>
+<p>	Dua sisanya, satu adalah seorang lelaki tua berusia sekitar enam puluh tahun, sedikit terkenal. Dengan kultivasi peringkat tiga, dia telah naik ke tahap pertempuran kota terdalam ketiga beberapa tahun yang lalu, tetapi tubuhnya semakin buruk seiring berjalannya waktu, akhirnya jatuh kembali ke kota terdalam keempat. Ini jelas bukan Li Ran yang ingin ditemukan oleh Fang Yuan, karena Li Ran dalam ingatannya memiliki kehidupan yang sulit.</p>
+<p>	Yang lainnya adalah pria paruh baya, berusia lebih dari lima puluh tahun. Dengan kultivasi peringkat dua, dia telah tiba di kota klan Shang selama sekitar sepuluh tahun, tetapi tetap berada di tahap pertempuran kota terdalam kelima. Dia suka berjudi, dan menjalani kehidupan yang sulit. Dia telah menikah dan melahirkan anak di kota klan Shang, tetapi pasangan itu tidak akur dan berpisah.</p>
+<p>	Fang Yuan diam-diam menyelidiki, dan menemukan bahwa orang ini adalah orang yang dilihatnya di sarang perjudian.</p>
+<p>	Mengikutinya selama beberapa hari, Fang Yuan menemukan bahwa Li Ran ini hidup dari hari ke hari, kadang-kadang, setelah makan hari ini, dia tidak mampu membeli makanan pada hari berikutnya.</p>
+<p>	Tapi ini tidak berarti dia tidak memiliki kemampuan.</p>
+<p>	Dia mengandalkan batu purba yang dia dapatkan di tahap pertempuran kota terdalam kelima untuk bertahan hidup.</p>
+<p>	Fang Yuan menyelidiki catatan pertempurannya, dia menang lebih banyak daripada kalah.</p>
+<p>	Menurut logika, dia seharusnya tidak menjalani kehidupan seperti itu. Tetapi orang ini suka makan, berjudi, dan mengunjungi pelacur, dia menghabiskan uangnya tanpa menahan diri. Untuk berjudi, dia bahkan akan menggunakan semua batu purba yang dia miliki, sehingga selama setengah bulan berikutnya, dia harus meminjam uang dari orang-orang, dan makan makanan termurah untuk bertahan hidup.</p>
+<p>	Demikian pula, untuk mengadakan pesta, dia akan pergi ke restoran kelas atas, dan menghabiskan sebagian besar uang yang dia miliki. Dia bahkan makan tanpa membayar, dan masih berutang beberapa restoran sekarang.</p>
+<p>	“Orang ini pasti pemilik Gu legendaris di kehidupanku sebelumnya. Tapi dia tidak bisa mengendalikan keinginannya, bahkan dengan Gu yang legendaris, apa yang bisa dia lakukan? Tidak heran dia seperti bintang jatuh, menghilang segera setelah ketenarannya.” Fang Yuan menggelengkan kepalanya diam-diam.</p>
+<p>	“Dia mendapatkan Gu legendaris di kehidupanku sebelumnya, apakah dia akan mendapatkannya lagi sekarang? Tidak mungkin bagi saya untuk terus membuntutinya lama-lama. Hari di mana dia menemukan Gu yang legendaris sudah dekat. Apakah saya benar-benar tidak ditakdirkan untuk menerima Gu ini? ” Fang Yuan mengerutkan kening.</p>
+<p>	Hari-hari ini, Fang Yuan menghabiskan banyak waktu dan usaha untuk membuntuti Li Ran. Jika dia menghabiskan waktu ini untuk berkultivasi, dia mungkin mencapai kesuksesan yang lebih besar.</p>
+<p>	Yang paling penting, Fang Yuan tidak yakin apakah dia akan mendapatkan sesuatu dari melakukan ini.</p>
+<p>	Dan jika dia melanjutkan, dia mungkin akan ketahuan. Untungnya, Wei Yang adalah orang yang sibuk, hanya datang untuk menonton ketika Fang Yuan bertempur, jika tidak, Fang Yuan tidak akan memiliki kesempatan untuk membuntuti Li Ran.</p>
+<p>	Jika Wei Yang menemukannya melakukan ini, bagaimana Fang Yuan menjelaskan dirinya sendiri?</p>
+<p>	Kecurigaan terbesar sekarang adalah, mengapa Gu legendaris tidak berada di dalam batu bintang, ini tidak sesuai dengan rumor!</p>
+<p>	Fang Yuan tidak bisa mengerti, ini terlalu tak terbayangkan! Semua elemen hadir, tetapi Gu tidak ditemukan di mana pun.</p>
+<p>	Mungkin saja sifat Fang Yuan yang sangat mencurigakan, tapi dia menganggap Li Ran ini sangat aneh. Dia tidak bisa menunjukkan dengan tepat apa keanehan itu, tetapi itu adalah perasaan, naluri. Itu adalah perasaan yang tidak berdasar sehingga bahkan Fang Yuan tidak dapat memastikannya.</p>
+<p>	Seperti ini, setelah dua puluh hari lagi, Fang Yuan jatuh ke dalam kebingungan yang mendalam. Perasaan aneh itu menjadi lebih kuat, tetapi Fang Yuan tidak tahu dari mana asalnya.</p>
+<p>	Tindakan Li Ran tidak ada yang salah.</p>
+<p>	Dia tinggal di kota klan Shang selama hampir sepuluh tahun, jika ada yang salah dengannya, orang luar pasti sudah tahu.</p>
+<p>	“Saya terlalu mengakar dalam hal ini, dan terlalu banyak memikirkan hal ini. Saat ini, saya membutuhkan pendapat orang luar untuk menginspirasi diri saya sendiri.” Fang Yuan jelas dari situasinya.</p>
+<p>	Tapi dia hanya mempercayai dirinya sendiri, meskipun dia membuat sumpah racun dengan Bai Ning Bing, Fang Yuan tidak mempercayai Bai Ning Bing sedikit pun. Dia hanya menggunakannya untuk berkultivasi, karena kesatuan daging tulang Gu jauh lebih baik daripada cacing minuman keras.</p>
+<p>	Tanpa bantuan siapa pun, Fang Yuan hanya bisa mengandalkan dirinya sendiri. Dan dia sudah terbiasa mengandalkan dirinya sendiri, dan menyukainya juga.</p>
+<p>	Jadi, dia datang ke toko: “Penjaga toko, apakah Anda memiliki kilasan inspirasi Gu?”</p>
+<p>	Fang Yuan telah meminta beberapa toko, mereka tidak memilikinya. Akhirnya, sebuah toko memilikinya, tetapi harganya dua puluh sembilan ribu batu purba.</p>
+<p>	Kilasan inspirasi Gu, Gu peringkat tiga konsumsi, hilang setelah satu kali digunakan. Siapa yang akan menghabiskan begitu banyak batu purba untuk membeli ini?</p>
+<p>	Tapi kenyataannya, banyak orang melakukannya.</p>
+<p>	Orang-orang ini adalah ahli resep yang berspesialisasi dalam membuat resep penyempurnaan Gu.</p>
+<p>	Ketika mereka mengalami kemacetan, dan selangkah dari kesuksesan, mereka akan memilih untuk menggunakan Gu ini. Setelah Gu ini digunakan, itu akan memberi mereka percikan inspirasi yang memungkinkan mereka berhasil membuat resep baru.</p>
+<p>	Nilai sebuah resep jauh lebih besar daripada dua puluh sembilan ribu batu purba.</p>
+<p>	Jadi, kilasan inspirasi Gu adalah Gu dengan banyak permintaan, jika Fang Yuan tidak memiliki token duri ungu, toko tidak akan pernah menjualnya kepadanya.</p>
+<p>	Gu yang mirip dengan kilasan inspirasi Gu adalah penunjuk kaktus.</p>
+<p>	Tapi yang terakhir adalah rumput khusus klan Tie Gu, itu tidak dijual di pasar.</p>
+<p>	Fang Yuan menggertakkan giginya, membelikan ini kilasan inspirasi Gu.</p>
+<p>	Gu ini seperti kecebong permata biru, kecil dan lincah, berenang dan melambaikan ekornya.</p>
+<p>	Fang Yuan mengaktifkan esensi purba, dan Gu ini memasuki otaknya, berubah menjadi cahaya spiritual putih, dan seperti kilat, merobek lapisan misteri di kepala Fang Yuan.</p>
+<p>	Mata Fang Yuan bersinar dengan kecemerlangan, akhirnya menyadari apa perasaan aneh itu.</p>
+<p>	“Itu benar, meskipun hidup Li Ran ini berantakan, tanpa kendali atas dirinya sendiri, ada pola di antara kekacauan ini. Dia pergi ke restoran sekali setiap tiga hari, pergi ke tempat perjudian dua kali setiap tujuh hari, dan rumah bordil sekali setiap lima hari. Dan setiap sepuluh hari, dia akan pergi ke restoran bernama ‘Fu Tai Xiang He’.</p>
+<p>	Dari laporan berantakan, di bawah pengaruh kilasan inspirasi Gu, pola di dalamnya terungkap.</p>
+<p>	Ini adalah bagian yang aneh.</p>
+<p>	Jika seseorang benar-benar tidak terkendali dan tidak memikirkan apa yang harus dilakukan, hidupnya akan benar-benar berantakan, bagaimana bisa ritme yang begitu sempurna?</p>
+<p>	Tiga hari kemudian, di restoran Fu Tai Xiang He.</p>
+<p>	“Petugas, tagihannya.” Li Ran memalingkan muka dari jendela, memanggil dengan keras.</p>
+<p>	“Ayo, Tuan Li Ran, tolong lima setengah batu purba.”</p>
+<p>	“Ini enam, tidak perlu diubah.” Li Ran membuang enam batu purba.</p>
+<p>	“Terima kasih tuan, hati-hati!”</p>
+<p>	Entahlah…</p>
+<p>	Li Ran berjalan menuruni tangga, dan saat dia berjalan keluar dari restoran, dia berbelok ke sebuah gang dan perlahan menghilang di bawah bayangan.</p>
+<p>	Di lantai bawah, Fang Yuan mengamati dalam diam, sebelum memanggil asisten toko, menunjuk ke kursi Li Ran: “Pemandangan di sini mengerikan, saya ingin duduk di sana sebagai gantinya.”</p>
+<p>	Menurut pemahamannya, setiap kali Li Ran datang ke sini, dia akan duduk di kursi dekat jendela, itu memang aneh.</p>
+<p>	“Tidak masalah!” Asisten toko tertawa: “Adalah minat seorang pria untuk mengintip keindahan.”</p>
+<p>	“Apa?” Alis Fang Yuan terangkat.</p>
+<p>	“Hmm, bukankah pelanggan yang terhormat mencoba melihat bintang nomor satu rumah bordil Qin Yan, Nona An Yu? Hehe, kursi itu bisa langsung melihat ke kamarnya, jika Anda beruntung, Anda bahkan bisa melihat tubuhnya. Bahwa Li Ran sebelumnya, dia selalu duduk di sini untuk melihatnya. Dia selalu membuat saya memesan kursi untuk setengah batu purba. ” Asisten toko berkata dengan ekspresi mesum.</p>
+<p>	“Oh, begitu?” Fang Yuan menjawab singkat, duduk di kursi Li Ran.</p>
+<p>	Melalui jendela, dia memang bisa melihat ke dalam rumah bordil.</p>
+<p>	Rumah bordil Qin Yan memiliki delapan lantai, wanita nomor satu An Yu adalah Master Gu peringkat dua, memiliki kamar di lantai paling atas. Dia memiliki tubuh yang bagus, dan identitas Master Gu-nya dapat membangkitkan hasrat penakluk pria, rumor mengatakan dibutuhkan hampir sepuluh ribu batu purba untuk memilikinya selama satu malam.</p>
+<p>	Dengan kekayaan Li Ran, dia tidak mampu membayar ini, tetapi apakah dia benar-benar di sini untuk mengintip Nona An Yu?</p>
+<p>	Melihat cara dia meninggalkan rumah bordil, dia bukan pria seperti itu.</p>
+<p>	Fang Yuan melihat ke luar, ada banyak restoran di sekitar rumah bordil Qin Yan, mengapa dia memilih yang ini?</p>
+<p>	Jika dia memiliki cacing Gu untuk meningkatkan penglihatannya, maka mungkin, tetapi Fang Yuan tahu dia tidak memiliki Gu seperti itu.</p>
+<p>	Pada jarak ini, bahkan jika Nona An Yu ada di sana, dia hanya akan melihat gambar buram.</p>
+<p>	“Eh? Ini…” Tatapan Fang Yuan terpusat pada toko tahu di seberang jalan.</p>
+<p>	Sepasang ibu dan anak sedang mengemasi kios mereka, bersiap untuk pulang.</p>
+<p>	Fang Yuan mengenali mereka, mereka adalah istri dan putra Li Ran!</p>
+<p>	“Jangan bilang, motif sebenarnya adalah untuk melihat mereka?” Fang Yuan tidak bisa tidak berpikir.</p>
+<p>	Dia menutup matanya, dan peta jalan muncul di kepalanya.</p>
+<p>	Ada tempat yang lebih baik untuk mengintip Lady An Yu, tetapi untuk mengamati pasangan ibu dan anak ini, ini adalah satu-satunya tempat!</p>
+<p>	“Jika dia benar-benar ingin melihat mereka, mengapa dia harus melakukannya secara diam-diam? Menurut temuan saya, dia meninggalkan mereka bertahun-tahun yang lalu, apakah dia merasa bersalah? Aneh… jika dia bersalah, dan ingin menunjukkan kepedulian pada mereka, dia bisa muncul di depan mereka secara pribadi, mengapa dia harus merahasiakannya.”</p>
+<p>	“Tidak, bisa jadi dia terlalu malu untuk menghadapi mereka. Tetapi jika ya, mengapa dia tidak membuka lembaran baru? Ini benar-benar aneh, dia tampak berantakan, dan tidak bisa menahan diri, tetapi hidupnya sebenarnya berantakan. Ini jelas menunjukkan dia memiliki kendali yang baik atas dirinya sendiri.”</p>
+<p>	Mata Fang Yuan menakutkan saat kemungkinan melintas di benaknya.</p>
+<p>	Dia mengunyah makanan, tetapi tidak bisa merasakannya sama sekali.</p>
+<p>	Dia merasa dirinya mendekati kebenaran, seperti orang buta di sebuah ruangan yang mendekati pintu.</p>
+<p>	Semua petunjuk dan kecurigaan terbang di kepalanya seperti tornado.</p>
+<p>	Kecepatan berpikir seperti itu, menyebabkan tindakan makannya menjadi sangat lambat.</p>
+<p>	Dia perlahan meletakkan sumpit, mengangkat gelas anggurnya, anggur di dalamnya berkilauan saat mengeluarkan aroma yang kuat.</p>
+<p>	Tiba-tiba, pupil hitam Fang Yuan melebar!</p>
+<p>	Gelas anggur diangkat setengah, dan lengannya tetap di udara, tidak bergerak seperti patung.</p>
+<p>	Dalam benaknya, sambaran petir menyambar dan meledak.</p>
+<p>	“Jadi itu sebabnya… akhirnya aku mengerti!”</p>
+<p>	Dia berteriak penuh semangat di dalam hatinya, saat kecemerlangan besar melintas di matanya seperti kilat.</p>
+<p>	Misteri yang melibatkan kehidupan terakhirnya dan kehidupan saat ini akhirnya terpecahkan, semua kecurigaan terangkat dan Fang Yuan menemukan jawaban yang diinginkannya!</p>
+<p>	Pada saat yang sama, dia ‘menemukan’ Gu legendaris yang hilang!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

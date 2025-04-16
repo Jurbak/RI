@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 305 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 305";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_304.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 305">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_306.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 305</h1>
+        <div class="text-left">
+<p>	Bab 305</p>
+<p>	Bab 305: Lelang (1)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Angin kencang bertiup terus menerus sepanjang tahun di gunung Ju Feng, sejak pembentukannya, desa klan Ju telah menghadapi ancaman angin topan.</p>
+<p>	Desa klan Ju terletak di puncak gunung Ju Feng, memiliki sejarah ratusan tahun. Melawan bencana alam sebagai manusia biasa, klan sering menghadapi ancaman pemusnahan, tetapi mereka berhasil melewatinya setiap saat. Tapi kali ini, mereka menghadapi badai raksasa yang jarang terlihat dalam seratus tahun.</p>
+<p>	Desa klan Ju tidak bisa lagi mempertahankan diri, dan dihancurkan oleh bencana.</p>
+<p>	Badai yang mengerikan menghancurkan mata air roh, dan banyak orang di klan Ju meninggal. Setelah kehilangan desa mereka, mereka hanya bisa pergi dan datang ke kota klan Shang, mencari perlindungan dengan harapan dapat membangun kembali rumah mereka di masa depan.</p>
+<p>	Harga komoditas tinggi di kota klan Shang, untuk hidup, mereka harus menjual aset mereka.</p>
+<p>	Bagi klan Ju, ini adalah bencana, tetapi bagi yang lain, ini adalah kesempatan langka.</p>
+<p>	Meskipun klan Ju adalah klan ukuran kecil, mereka memiliki rahasia untuk dapat hidup di gunung Ju Feng dan melawan bencana alam selama ratusan tahun tanpa jatuh.</p>
+<p>	Klan Ju menjual aset mereka membuat pelelangan ini sangat menarik bagi orang-orang.</p>
+<p>	Begitu berita keluar, itu menarik perhatian kebanyakan orang di kota klan Shang.</p>
+<p>	Tujuh hari kemudian, pelelangan diadakan.</p>
+<p>	Di pelelangan, itu penuh sesak dengan orang-orang dan tidak ada kursi kosong di aula besar. Kamar pribadi di lantai yang lebih tinggi juga terjual habis.</p>
+<p>	Fang Yuan dan Bai Ning Bing, menggunakan token duri ungu mereka, mengambil kamar pribadi untuk diri mereka sendiri.</p>
+<p>	Fang Yuan membuka celah di tirai ruangan, berdiri di satu sisi merasakan suasana aula yang gaduh.</p>
+<p>	Pada saat ini, pelelangan belum dimulai, dan hampir seribu orang di aula berbicara di antara mereka sendiri, membuat keributan besar.</p>
+<p>	“Huh, sayang sekali untuk klan Ju. Setelah ratusan tahun, mereka akhirnya kalah dari badai. Manusia benar-benar tidak dapat menandingi kekuatan unsur-unsur alam.” Seseorang berseru.</p>
+<p>	“Ini tidak banyak, klan baru bangkit dan klan lama tersingkir. Sama seperti beberapa tahun yang lalu, tiga klan di gunung Qing Mao musnah bersama. Kematian klan Ju bukanlah hal yang luar biasa.” Seseorang merasa acuh tak acuh.</p>
+<p>	“Tragedi klan Ju adalah kebahagiaan kami. Saya mendengar ada banyak barang bagus dalam pelelangan ini. ” Seseorang sedang menertawakan bencana klan.</p>
+<p>	“Begitu banyak klan Ju memasuki kota klan Shang, ini akan menyebabkan gangguan besar pada ekonomi kota klan Shang.” Seseorang meramalkan masa depan.</p>
+<p>	Pada saat ini, ada keributan besar.</p>
+<p>	“Lihat, itu adalah tuan muda klan Shang, Qiu Niu.”</p>
+<p>	Fang Yuan mengikuti suara itu dan melihat, melihat Shang Qiu Niu masuk dari pintu masuk, mengambil langkah besar masuk.</p>
+<p>	Dia memiliki tubuh yang berotot dan langkahnya stabil. Dia berusia tiga puluh tahun sekarang, sebagai putra tertua Shang Yan Fei.</p>
+<p>	“Salam untuk tuan muda tertua Qiu Niu!”</p>
+<p>	“Hormat saya untuk tuan muda tertua.”</p>
+<p>	“Merupakan kehormatan bagi kami untuk dapat melihat tuan muda tertua secara langsung.”</p>
+<p>	Seketika, banyak orang bergegas dan memberi hormat kepada Qiu Niu.</p>
+<p>	“Halo semuanya.” Qiu Niu tidak banyak bicara, tersenyum ringan saat dia dengan tenang menghadapi situasi.</p>
+<p>	Akhirnya, dia berjalan ke ruang pribadi di bawah tatapan semua orang.</p>
+<p>	Rumah lelang menjadi sunyi lagi.</p>
+<p>	Namun tak lama kemudian, keributan kembali terjadi.</p>
+<p>	“Tuan muda Chao Feng dan Fu Xi juga ada di sini!”</p>
+<p>	“Mereka memiliki hubungan yang hebat sejak muda, seperti yang diharapkan, mereka datang ke sini hari ini bersama-sama.”</p>
+<p>	Putra keempat Shang Chao Feng, masih memiliki rambut acak-acakan dan aura liar. Putra ketiga belas Shang Fu Xi halus dan lembut, tampak seperti seorang sarjana.</p>
+<p>	Keduanya berbicara ketika mereka memasuki ruang pribadi bersama. Pelayan mereka membuka jalan bagi mereka di sepanjang jalan, dan mereka tidak peduli dengan orang-orang di sekitarnya.</p>
+<p>	Fang Yuan melihat dengan ekspresi dingin, menyipitkan mata.</p>
+<p>	Dalam ingatannya, Shang Chao Feng hampir berhasil mendapatkan posisi pemimpin klan Shang, dia adalah pesaing terbesar Shang Xin Ci. Dia jahat dan licik, dan memiliki keberanian yang menentukan, ini agak seperti Shang Yan Fei.</p>
+<p>	Shang Fu Xi adalah pendukung terbesarnya, rela berada di bawahnya dan memiliki kecerdasan, pandai membuat perencanaan. Di masa depan, ketika pertempuran iblis yang benar di gunung Yi Tian terjadi, dia merencanakan dan menggunakan strategi yang menyebabkan kerusakan besar pada Master Gu iblis, mendapatkan ketenaran secara instan.</p>
+<p>	Keduanya, satu mampu dan yang lain pandai merencanakan, saling melengkapi. Yang pertama mengendalikan zona pertempuran Gu sementara yang kedua mengendalikan zona lelang. Mereka berdua adalah domain penting di kota klan Shang, yang dikembangkan sepenuhnya. Saat ini, keduanya adalah faksi terbesar ketiga di antara sepuluh tuan muda yang bersaing.</p>
+<p>	Sebelum Shang Chao Feng dan Shang Fu Xi memasuki kamar mereka, sekelompok orang lain datang.</p>
+<p>	Shang Pu Lao, Shang Suan Ni, dan Shang Bi Xi berjalan dengan penuh senyuman saat mereka berbicara.</p>
+<p>	Ketiganya adalah anak kedelapan, kesembilan, dan kesepuluh dari Shang Yan Fei. Karena keuntungan, mereka membentuk aliansi kecil. Mereka adalah faksi terbesar kedua di antara tuan muda yang bersaing karena mereka memiliki kekuatan kolektif yang kuat dan untuk sementara menekan Shang Chao Feng dan Shang Fu Xi.</p>
+<p>	Shang Pu Lao menguasai rumah bordil di kota klan Shang, dia adalah seorang casanova dan wanita. Shang Suan Ni bertanggung jawab atas restoran dan toko sutra, memiliki mulut besar dan hidung lebar, dua jejak asap kuning keluar dari hidungnya ketika dia bernafas. Shang Bi Xi pendek dan gemuk, tetapi juga merupakan jalur kekuatan Gu Master. Gu intinya adalah Gu ban kura-kura, memiliki kekuatan sepuluh kura-kura.</p>
+<p>	Shang Suan Ni dan Shang Bi Xi adalah ahli yang kuat dalam kultivasi, sementara Shang Pu Lao memiliki bakat sastra dan nasib dengan wanita. Dengan tiga sebagai kepala, dua pejuang dan satu sarjana, mereka memiliki koordinasi yang hebat.</p>
+<p>	Tiga tuan muda tidak memilih kamar, tetapi duduk di aula.</p>
+<p>	Shang Pu Lao memiliki keterampilan komunikasi interpersonal yang hebat, ke mana pun dia pergi, orang-orang mengikuti. Dia berbicara dengan santai di antara orang-orang, berbaur dengan sempurna, menyebabkan adegan menjadi lebih hidup.</p>
+<p>	Di kiri dan kanannya, Shang Suan Ni dan Shang Bi Xi berdiri seperti dua penjaga.</p>
+<p>	“Anak-anak Shang Yan Fei semuanya naga dan burung phoenix di antara manusia !” Fang Yuan menghela nafas secara internal.</p>
+<p>	Dia memiliki pemahaman yang jelas tentang sepuluh situasi tuan muda klan Shang sekarang.</p>
+<p>	Saat ini, ada tiga faksi di antara tuan muda.</p>
+<p>	Yang pertama, adalah Shang Qiu Niu. Dia adalah putra tertua Shang Yan Fei, hanya dengan identitas ini, dia memiliki banyak tetua klan Shang dan anggota klan yang mendukungnya.</p>
+<p>	Yang kedua, adalah Shang Pu Lao, Shang Suan Ni, dan Shang Bi Xi, ketiganya berkumpul menjadi kekuatan yang kuat dan saat ini menjadi pusat perhatian.</p>
+<p>	Yang ketiga adalah Shang Chao Feng dan Shang Fu Xi, menyembunyikan kekuatan mereka dan menunggu kesempatan untuk bangkit.</p>
+<p>	Adapun yang lain, Shang Ya Zi adalah seorang penyendiri, memiliki sedikit pengaruh. Shang Chi Wen ceria dan bersemangat, tetapi tidak memiliki ambisi. Shang Pi Xiu memiliki bakat yang hebat, tapi terlalu licik…</p>
+<p>	“Saya ingin membantu Shang Xin Ci naik takhta, kita tidak bisa bersaing dengan tiga faksi. Meskipun Shang Xin Ci dapat berkultivasi, aperture yang dibangunkan dengan paksa hanya memiliki bakat kelas C, ini bukan fondasi yang lemah, tetapi fondasi nol. ”</p>
+<p>	Shang Xin Ci adalah putri tidak sah Shang Yan Fei, dan ibunya berasal dari klan Zhang. Klan Zhang dan klan Wu sangat dekat, memiliki banyak dendam dengan klan Shang. Ini adalah kelemahan politik Shang Xin Ci.</p>
+<p>	“Setiap tahun, selama penilaian tuan muda, ada peluang besar bagi anak-anak Shang Yan Fei lainnya untuk bangkit. Dalam ingatanku, Shang Xin Ci baru menjadi tuan muda klan Shang setelah enam tahun. Tapi ini terlalu lama, jika aku ingin memanfaatkannya, aku harus membawanya ke sana sesegera mungkin. Penilaian tahun ini adalah sebuah kesempatan.” Fang Yuan mengevaluasi dalam hatinya.</p>
+<p>	Untuk mendapatkan Shang Xin Ci berkuasa, dia harus berurusan dengan anak-anak Shang Yan Fei yang lain. Karena dia tidak bisa berurusan dengan tiga faksi besar, dia harus berurusan dengan yang lain.</p>
+<p>	Pada aspek ini, Fang Yuan punya rencana setiap kali dia memasuki kota klan Shang.</p>
+<p>	Saat dia memikirkan Shang Xin Ci, dia tiba.</p>
+<p>	Banyak bola mata tertarik ke pintu masuk rumah lelang.</p>
+<p>	“Dua wanita cantik klan Shang!”</p>
+<p>	“Benar-benar cantik…”</p>
+<p>	“Tuan muda Shang Chi Wen terlihat imut dan polos, tetapi datang dengan Nona Shang Xin Ci, dia kalah dalam hal penampilan.”</p>
+<p>	Orang-orang berdiskusi.</p>
+<p>	Shang Xin Ci dan Shang Chi Wen berpegangan tangan dan berbicara saat mereka memasuki rumah lelang.</p>
+<p>	Shang Chi Wen mengenakan gaun berwarna-warni, wajahnya seperti buah persik, lembut dan lembut. Shang Xin Ci mengenakan rok hijau, rambut hitamnya halus dan matanya bersinar seperti bulan. Kulitnya putih seperti salju dan bibirnya merah muda dan lembut. Dia tampak anggun dan anggun, lembut seperti air, ketika dia tersenyum, itu murni dan tanpa cacat, keindahan yang sempurna. Itu menyebabkan tatapan orang menjadi linglung.</p>
+<p>	Di samping mereka berdua, ada empat pelayan.</p>
+<p>	Dua di antaranya adalah Tian Lan dan Xiao Die, pelayan pribadi Shang Xin Ci.</p>
+<p>	Para pelayan menghalangi para pemuda yang bersemangat di aula, saat Shang Xin Ci dan Shang Chi Wen berjalan menuju kamar pribadi Fang Yuan.</p>
+<p>	“Kakak Hei Tu, Kakak Bai Yun.” Shang Xin Ci menyapa, tidak bisa menyembunyikan kegembiraan dan kegembiraan dalam suaranya.</p>
+<p>	Shang Yan Fei menggunakan pria surga yang menang, Gu untuk secara paksa membangunkan aperture-nya. Dua tahun ini, dia menggunakan banyak cacing Gu yang berharga untuk meningkatkan bakatnya. Dari bakat kelas D dua puluh persen terendah, perlahan-lahan naik ke kelas C lima puluh sembilan persen, selangkah lagi dari kelas B.</p>
+<p>	Shang Yan Fei membayar harga yang sangat mahal untuk mengasuhnya, dan mengajarinya secara pribadi, Shang Xin Ci merasakan cinta kebapakannya, dan kebenciannya lenyap begitu saja, menikmati cinta dan kebahagiaan.</p>
+<p>	Shang Yan Fei memilih banyak Guru Gu untuk mengajarinya. Shang Xin Ci tinggal di rumah hampir sepanjang waktu, mempelajari lebih banyak tentang kultivasi Guru Gu atas kemauannya sendiri. Dia cerdas dan dewasa, setelah menghadapi beberapa kesulitan, dia menginginkan kekuatan tetapi tidak sombong, memiliki tujuan yang ketat untuk dirinya sendiri dan meningkat dengan pesat, menyebabkan Shang Yan Fei sangat senang.</p>
+<p>	Lelang ini adalah kesempatan langka untuk bersantai, dia telah menerima undangan Fang Yuan dan ingin datang sendiri, tetapi bertemu Shang Chi Wen di sepanjang jalan.</p>
+<p>	“Fang Zheng, aku datang tanpa diundang, apakah kamu akan mengusirku?” Shang Chi Wen tertawa saat dia mengikuti Shang Xin Ci ke dalam ruangan.</p>
+<p>	“Bagaimana saya berani, silakan duduk.” Fang Yuan mengundangnya sambil tersenyum.</p>
+<p>	Bai Ning Bing duduk di satu sisi, mendengar ini, dia tidak berbalik, tetapi tetap tanpa ekspresi.</p>
+<p>	Shang Chi Wen menatap si cantik es ini dengan pandangan ingin tahu, sambil berpikir: “Orang luar mengatakan Bai Ning Bing itu dingin dan arogan, sepertinya mereka benar.”</p>
+<p>	Selanjutnya, dia menatap Fang Yuan.</p>
+<p>	“Sebenarnya, Fang Zheng ini juga sangat arogan. Setelah mencapai kota terdalam ketiga, dan memenangkan semua pertempurannya, tidak pernah mengalami kekalahan, banyak pasukan mulai merekrutnya. Shang Chao Feng, Shang Qiu Niu, Shang Pu Lao dan lainnya, mereka bahkan mengadakan perjamuan dan mengundangnya secara pribadi, tetapi ditolak. Keduanya bersama-sama … benar-benar burung dari bulu berkumpul bersama. ”</p>
+<p>	Shang Chi Wen mengendalikan panggung pertempuran kota klan Shang, dia sangat jelas tentang situasi Fang Yuan dan Bai Ning Bing.</p>
+<p>	Fang dan Bai tidak pernah kalah dalam pertempuran sejak mereka bergabung dengan panggung pertempuran, mereka memiliki bakat yang luar biasa dan merupakan orang-orang paling terkenal di zona pertempuran. Ketenaran mereka bahkan menyaingi dua Master Gu peringkat empat besar, Ju Kai Bei dan Yan Tu.</p>
+<p>	Siapa pun dapat mengatakan bahwa masa depan mereka menjanjikan, jika salah satu tuan muda klan Shang mendapatkan bantuan mereka, itu akan menjadi dorongan besar bagi kekuatan mereka.</p>
+<p>	Tapi dia, Shang Chi Wen, tidak punya ambisi, jadi dia tidak mengirim undangan apa pun kepada mereka.</p>
+<p>	“Saudara Hei Tu, sudah lama, apakah kamu baik-baik saja? Saya mendengar Anda berkelahi dengan seorang Guru Gu bernama Teng Jiu Long …” Shang Xin Ci duduk di samping Fang Yuan, tatapannya tertuju padanya saat dia bertanya dengan prihatin.</p>
+<p>	Fang Yuan tertawa ringan: “Baru sepuluh hari sejak kita bertemu, mengapa ‘sudah lama’? Adapun Teng Jiu Long, dia bahkan tidak bisa menghentikan kemajuanku sebelum kalah. Dalam tahap pertempuran ini, hanya Ju Kai Bei dan Yan Tu yang menjadi ancaman, sisanya tidak perlu dikhawatirkan.”</p>
+<p>	Kata-kata tenang Fang Yuan menunjukkan kebanggaan dan kepercayaan dirinya yang luar biasa, saat Shang Chi Wen mendengarkan dengan mata bersinar, dan hati Shang Xin Ci tergerak sekali lagi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

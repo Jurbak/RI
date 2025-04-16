@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 64 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 64";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_63.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 64">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_65.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 64</h1>
+        <div class="text-left">
+<p>	Bab 64</p>
+<p>	Bab 64: Mudah dilakukan secara diam-diam, sulit dilakukan secara terbuka</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Suhu beberapa hari ini semakin tinggi.</p>
+<p>	Matahari bersinar terik di sore hari, menggantung tepat di atas kepala semua orang.</p>
+<p>	Karavan pergi dan bisnis penginapan jatuh lagi.</p>
+<p>	Fang Yuan melangkah ke kafetaria, segera menarik perhatian asisten toko.</p>
+<p>	Wajah yang familier bergegas mendekat dan memberinya senyum menyanjung. “Oh, tuan muda, kamu di sini! Silahkan duduk!”</p>
+<p>	“Beri aku sebotol anggur dan potong 600 gram daging sapi, dan sajikan beberapa lauk pauk.” Fang Yuan berjalan melewati kafetaria dan mendekati kursi dekat jendela tempat dia selalu duduk.</p>
+<p>	Asisten toko menunjukkan ekspresi yang sulit, “Tuan muda, maafkan saya, tetapi terakhir kali karavan datang, pemilik penginapan menjual semua anggur bambu hijau. Kami tidak memiliki anggur ini lagi di sini. ”</p>
+<p>	Fang Yuan mengangguk, tidak merasa terkejut, “Kalau begitu beri saya sebotol anggur beras dan beri tahu pemilik penginapan, buat lebih banyak anggur bambu hijau tahun ini, saya memesan di muka seratus toples. Adapun berapa banyak uang muka, Anda dapat menghitung terlebih dahulu dan melaporkan kepada saya. ”</p>
+<p>	Sekarang setelah cacing Liquor terungkap dan tidak menimbulkan kecurigaan, Fang Yuan tidak perlu menahan diri untuk membeli anggur lagi.</p>
+<p>	“Baiklah, aku pasti akan menyampaikan kata-katamu! Harap tenang tuan muda. ” Asisten toko menepuk dadanya, terdengar percaya diri.</p>
+<p>	Tak lama kemudian, hidangan disajikan.</p>
+<p>	Fang Yuan minum dan makan sambil menatap ke luar jendela.</p>
+<p>	Dalam cuaca yang begitu panas, terutama pada waktu makan, hanya ada sedikit orang di jalanan.</p>
+<p>	Sinar matahari menyinari tanah dan rumah-rumah bambu berwarna hijau.</p>
+<p>	Beberapa petani manusia bertelanjang kaki yang membawa semen, sekop baja atau tiang bahu berjalan di depan. Mereka baru saja menyelesaikan pekerjaan pertanian mereka, dan sedang menuju rumah.</p>
+<p>	Dua anak memegang kerangka bambu mainan kincir angin mereka dan berlarian. Yang di belakang mengejar sambil menangis dan berteriak; tampaknya anak laki-laki di depan telah mencuri mainan kincir anginnya.</p>
+<p>	Pada saat ini, dua Master Gu muda yang mengenakan sabuk hijau berjalan tergesa-gesa di jalan.</p>
+<p>	“Tersesat, jangan menghalangi jalan!” Seorang Guru Gu mendorong petani di depannya.</p>
+<p>	Para petani dengan panik mengalah.</p>
+<p>	“Hmph.” Kedua Tuan Muda Gu berjalan dengan arogan.</p>
+<p>	Fang Yuan melihat dengan tatapan terganggu di matanya, karena sebagian pikirannya sudah terfokus pada aperture-nya.</p>
+<p>	Di dalam lubang, dinding air terus mengalir saat laut purba tembaga hijaunya naik dengan ombak yang mengamuk.</p>
+<p>	Cacing Liquor sedang bermain-main di laut purba, kadang-kadang berguling-guling dengan nyaman, dan kadang-kadang meringkuk menjadi bola.</p>
+<p>	Jangkrik Musim Semi Musim Gugur sedang tertidur lelap, menyembunyikan penampilannya.</p>
+<p>	Tubuh bulat White Boar Gu melebarkan sayapnya dan menggambar lingkaran di langit.</p>
+<p>	White dan Black Boar Gu sama-sama terkenal, keduanya adalah cacing Gu yang berharga dan langka. Nilai pasar mereka bahkan lebih besar dari cacing Liquor.</p>
+<p>	Meskipun mereka memiliki penggunaan yang sama dan penampilan yang mirip, rute kemajuan masa depan mereka sangat berbeda.</p>
+<p>	Gu Babi Hitam dan Gu Sutra Hijau akan bergabung menjadi Gu Surai Hitam Peringkat dua, dan kemudian ke Gu Surai Baja Peringkat 3.</p>
+<p>	Tapi Gu Babi Putih paling cocok dengan Gu Kulit Giok, di mana ia akan berubah menjadi Gu Giok Putih Peringkat dua, dan kemudian menjadi Gu Mugwort Surgawi Peringkat tiga (1).</p>
+<p>	Steel Mane Gu bisa membuat rambut Master Gu menjadi keras seperti baja, meningkatkan serangan dan pertahanan. The Heavenly Mugwort Gu membiarkan tubuh Gu Master menjadi keras seperti batu giok putih sementara pada saat yang sama mengurangi kerusakan dari serangan seperti moonblade.</p>
+<p>	Fang Yuan sedikit senang atas ini.</p>
+<p>	Mendapatkan Gu Babi Putih hanyalah salah satu aspeknya, tapi yang membuatnya benar-benar bahagia adalah warisan kekuatan Biksu Anggur Bunga.</p>
+<p>	“The White Boar Gu dapat meningkatkan kekuatan. Biksu Anggur Bunga memasang batu raksasa untuk menghalangi jalan, jadi sepertinya saya perlu memperbaiki Gu ini dan dengan kekuatan yang cukup, dorong batu raksasa itu menjauh dan terus maju. Ini pasti ujian pertama.”</p>
+<p>	“Dengan pengaturan yang cermat dari Flower Wine Monk, saya dapat menyimpulkan bahwa harus ada uji coba pewarisan di masa depan, rintangan kedua atau ketiga. Yang terpenting, saya dapat memastikan bahwa dia menetapkan warisan kekuatan ini bukan sebagai jebakan, tetapi dengan ketulusan yang sebenarnya. ”</p>
+<p>	“Dengan warisan ini, aku bisa mencapai Peringkat tiga lebih cepat dan meninggalkan Gunung Qing Mao ini, dan menjelajah ke luar, mendapatkan peluang lebih besar!”</p>
+<p>	Apa yang paling dibutuhkan Guru Gu dalam berkultivasi?</p>
+<p>	Jawabannya hanyalah satu kata — Sumberdaya.</p>
+<p>	Fang Yuan perlu berkultivasi, jadi dia membutuhkan sumber daya. Tetapi sumber daya klan terbatas, jadi jika dia menginginkan lebih, dia harus berjuang untuk itu.</p>
+<p>	Tidak hanya memperebutkan sumber daya, dia juga harus menang.</p>
+<p>	Baginya, semakin dia bertarung dan semakin banyak kemenangan yang dia peroleh, semakin dia akan mengungkapkan lebih banyak kartu trufnya dan membuat orang lain lebih waspada.</p>
+<p>	Kewaspadaan ketika terakumulasi sampai batas tertentu, akan berubah menjadi penindasan dan rintangan yang menghalangi jalannya.</p>
+<p>	Fang Yuan membunuh seorang pelayan keluarga, tetapi mengapa keluarga Mo tetap acuh tak acuh? Merampok teman sekelas, mengapa keluarga mereka tidak mengejarnya? Fang Yuan menolak klan dan menolak untuk menjadi bagian dari sistem, tetapi mengapa pemimpin klan memilih untuk bersikap lunak?</p>
+<p>	Itu semua karena dia lemah, karena dia kelas C.</p>
+<p>	Mereka merasa kuat dan tidak ingin menindas yang lemah. Di bawah sistem keluarga, bersikap picik dengan Fang Yuan yang lemah tidak hanya menyebabkan mereka menghadapi penghinaan, itu juga membuat orang lain merasa bahwa orang itu dingin dan tidak berperasaan, merusak hubungan sosial seseorang.</p>
+<p>	Kelemahan adalah payung pengaman yang dimiliki Fang Yuan untuk saat ini.</p>
+<p>	Tetapi dengan persaingan yang berkelanjutan untuk sumber daya, Fang Yuan akan tampak lebih kuat. Ini akan membuat semua orang mulai waspada padanya, dan mulai mencoba merekrutnya. Tidak peduli pihak mana yang dia pilih, dia akan menghadapi penindasan dan masalah dari faksi lain.</p>
+<p>	Penindasan dan pembatasan akan menurunkan kecepatannya yang semakin meningkat.</p>
+<p>	Fang Yuan menyadari kesulitannya, dia berada dalam posisi yang sulit. Dia tampaknya telah menyinggung semua orang, tetapi dia tidak melanggar hukum apa pun dalam kenyataan.</p>
+<p>	Namun seiring waktu, tingkat kultivasinya akan meningkat, dan konflik akan muncul dan memburuk.</p>
+<p>	Fang Yuan tahu bahwa konflik ini akan meningkat, tetapi semakin lama semakin meningkat, semakin besar keuntungan yang akan dia dapatkan.</p>
+<p>	Dengan demikian, warisan Biksu Anggur Bunga tepat waktu!</p>
+<p>	Dengan warisan kekuatan ini, dia akan memiliki sumber daya tersembunyi. Dengan menggunakan ini, dia bisa bebas dari kendali sistem dan berjalan di jalannya sendiri, berkultivasi dengan kecepatannya sendiri dan diam-diam mengumpulkan kekuatan.</p>
+<p>	Begitu dia diadopsi ke dalam sistem, dia harus berpihak pada faksi. Bahkan jika dia tidak ingin bersaing, dia pasti akan terseret ke dalam perselisihan politik.</p>
+<p>	Di dalam sistem, salah satunya adalah pion. Pertama-tama Anda harus menjadi pion yang tepat bagi orang lain untuk menggunakan Anda dengan sukarela. Setelah mereka mempercayai dan menggunakan Anda, Anda memiliki kesempatan untuk naik ke atas, dan bahkan selama proses itu, Anda harus berhati-hati agar tidak menjadi pion yang dibuang.</p>
+<p>	Fang Yuan jelas dari prosedur ini, dia tahu itu terlalu baik. Bahkan dengan pengetahuannya yang luas, tidak ada yang bisa dia lakukan untuk situasi ini. Ini adalah aturannya!</p>
+<p>	Bagian yang lebih penting adalah bakat kelas C-nya. Untuk klan, tidak ada keinginan untuk berinvestasi dalam dirinya. Seringkali dia akan diperlakukan sebagai pion yang dibuang.</p>
+<p>	Rute kemajuan yang paling optimal adalah bekerja sendiri. Dengan cara ini, dia bisa menghindari sebagian besar kompetisi. Menuju petinggi di desa, citra yang dia buat sebelumnya akan dipertahankan.</p>
+<p>	“Hal-hal dunia ini, selalu mudah dilakukan secara sembunyi-sembunyi, tetapi sulit dilakukan secara terbuka. Menggunakan warisan Biksu Anggur Bunga, saya dapat mengolah dan mengumpulkan kekuatan secara diam-diam tanpa mendapatkan perhatian dan penindasan. Tetapi pemerasan harus terus berlanjut, karena jika berhenti tiba-tiba, itu akan mengundang kecurigaan, dan saya juga membutuhkan batu purba.” Fang Yuan mempertimbangkan rencana masa depannya.</p>
+<p>	Dia benar-benar membutuhkan batu purba.</p>
+<p>	Remaja lain seusianya baru mulai memurnikan dan memberi makan cacing Gu kedua. Namun, dia juga telah menyempurnakan Gu Cahaya Kecil dan baru-baru ini memperoleh Gu Babi Putih, sehingga memiliki total empat cacing Gu.</p>
+<p>	Sebelumnya, dia membutuhkan sekitar satu batu purba sehari hanya untuk memberi makan Moonlight Gu dan cacing Liquor. Sekarang setelah menghitung, dia membutuhkan lebih dari dua potong setiap hari hanya sebagai pengeluaran!</p>
+<p>	Jika termasuk kebutuhan budidaya dan pengeluaran hidupnya, dia perlu menggunakan sekitar lima batu purba sehari!</p>
+<p>	Lima batu purba sudah cukup untuk memberi makan keluarga yang terdiri dari tiga manusia selama lima bulan.</p>
+<p>	Di tangan saat ini, dia memiliki beberapa ratus batu purba, tetapi itu tidak cukup untuk mempertahankan pengeluaran seperti itu dalam jangka panjang.</p>
+<p>	Lebih penting lagi, semakin jauh dia, semakin besar pengeluarannya. Terutama setelah naik ke Peringkat dua, setiap kali dia mencoba menggabungkan cacing Gu, itu akan menghabiskan banyak biaya.</p>
+<p>	Memikirkan hal ini, Fang Yuan merasa bermasalah.</p>
+<p>	Masalah batu purba adalah masalah, dan dengan hanya mengandalkan pemerasan dan sumber daya yang ada, dia hanya bisa menunda masalah ini meletus.</p>
+<p>	Selain itu, dia memiliki masalah lain, dan itu adalah memberi makan White Boar Gu.</p>
+<p>	Makanan White Boar Gu adalah daging babi.</p>
+<p>	Babi hutan, jelas disebut babi. Makanan seri Boar Gu, semuanya daging babi.</p>
+<p>	Black and White Boar Gu memiliki selera makan yang besar. Setiap lima hari mereka perlu makan sekitar satu daging babi dewasa.</p>
+<p>	Daging babi di dunia ini tidak murah, dan manusia hanya mampu menyembelih satu babi selama perayaan Tahun Baru, dan menikmatinya sendiri. Tanpa teknik budidaya skala besar di Bumi, harga daging babi dan sapi bukanlah sesuatu yang bisa sering dimakan manusia. Pada saat yang sama topografi Gunung Qing Mao terjal, area tempat tinggal sempit, berapa banyak ruang yang bisa dialokasikan hanya untuk memelihara ternak?</p>
+<p>	Anda makan apa yang bisa Anda dapatkan di tempat tinggal Anda, penduduk desa kadang-kadang bisa makan babi karena para pemburu berburu babi hutan di pegunungan.</p>
+<p>	“Sepertinya aku harus berburu sendiri mulai sekarang, untuk daging babi.” Mata Fang Yuan bersinar dengan kilatan.</p>
+<p>	Mengandalkan desa untuk membeli daging babi, pertama adalah pengeluaran batu purba, kedua adalah itu akan menarik perhatian. Bahkan jika Anda suka makan daging babi, bagaimana seseorang bisa makan begitu banyak dalam waktu sesingkat itu?</p>
+<p>	Jika dia berburu sendiri, itu tidak hanya akan menyelesaikan masalah ini, tetapi juga mengurangi tekanan keuangannya saat ini.</p>
+<p>	“Asisten toko, tagihan!” Memikirkan hal ini, Fang Yuan tidak ragu lagi, dan setelah membayar tagihan, dia meninggalkan penginapan.</p>
+<p>	Beberapa hari ini akademi sedang istirahat sehingga para siswa dapat memperbaiki cacing Gu kedua mereka. Fang Yuan memutuskan bahwa dia bisa menggunakan waktu ini dengan baik. Dia akan meninggalkan desa dan menjelajahi pegunungan, dan kemudian membunuh beberapa babi hutan dan mendapatkan daging babi untuk dirinya sendiri.</p>
+<p>	(1) Mugwort – Sejenis tanaman. https://en.wikipedia.org/wiki/Artemisia_princeps</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

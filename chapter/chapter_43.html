@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 43 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 43";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_42.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 43">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_44.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 43</h1>
+        <div class="text-left">
+<p>	Bab 43</p>
+<p>	Bab 43: Batu emas ungu keenam terakhir</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Laut purba tembaga hijau memiliki pasang naik dan turun, pasang surut dan mengalir.</p>
+<p>	Di atas permukaan laut, cacing Liquor meringkuk menjadi bola, memancarkan uap anggur yang secara bertahap berkembang menjadi kabut putih.</p>
+<p>	Gelombang esensi purba dengan “swoosh”, bergegas melawan arus dan masuk ke kabut anggur. Saat air pasang surut, sudah tersisa setengahnya, dan warnanya pun semakin gelap. Dari hijau giok tahap awal (1), telah berubah menjadi hijau pucat tahap tengah.</p>
+<p>	Esensi purba tahap tengah jatuh ke laut, tetapi tidak bercampur dengan esensi purba tahap awal. Seolah lebih padat, ia tenggelam ke dasar.</p>
+<p>	Dengan demikian, situasinya menjadi bahwa lapisan atas laut purba dipenuhi dengan esensi purba tahap awal, sedangkan bagian bawahnya adalah esensi purba tahap tengah.</p>
+<p>	Seiring berjalannya waktu, kabut anggur beredar di dalam lubang. Di bawah penyempurnaan cacing Liquor, akhirnya, esensi purba tahap awal terus menurun, sedangkan esensi purba tahap tengah secara bertahap meningkat.</p>
+<p>	Itu bisa dilihat dengan mata telanjang di mana esensi purba tahap tengah lapisan bawah secara bertahap naik, sedangkan esensi purba tahap awal lapisan atas terus menurun, tetapi juga naik di permukaan laut.</p>
+<p>	Saat Fang Yuan memurnikan esensi purba, ia mengekstrak esensi alami dari batu purba pada saat yang sama, dengan cepat mengisi kembali esensi purba yang berkurang di aperture-nya.</p>
+<p>	Akhirnya, laut purba 45% di celahnya sepenuhnya disempurnakan menjadi esensi purba tahap menengah.</p>
+<p>	“Banyak terima kasih kepada esensi purba tahap tengah, atau aku tidak akan bisa membuka batu lima kali di ruang judi.” Duduk dalam posisi lotus di tempat tidurnya, Fang Yuan secara bertahap membuka matanya.</p>
+<p>	Saat ini sudah larut malam.</p>
+<p>	Setelah dia berjalan keluar dari sarang perjudian, dia tidak berkeliling di toko-toko lain, tetapi kembali ke akademi.</p>
+<p>	Meskipun berada di pinggiran Desa Gunung Gu Yue, sebagai master Gu tahap awal Peringkat satu, memiliki lima ratus tiga puluh delapan batu purba masih terlalu banyak.</p>
+<p>	Ini bukan hanya karena batu-batu purba itu berat dan repot untuk dibawa-bawa. Ini juga menarik keinginan orang lain; dalam arti lain, itu akan membahayakan hidupnya.</p>
+<p>	Jika ada peringkat satu tingkat atas, atau bahkan peringkat dua yang mendambakan asetnya, dengan kemampuan Fang Yuan saat ini, dia tidak akan bisa bersaing.</p>
+<p>	“Kekayaan datang dan pergi, tetapi manusia mati karena kekayaan, itu menyedihkan. Yang menggelikan adalah banyak orang di dunia ini tidak dapat memahaminya. Perahu manfaat membawa banyak orang, tetapi juga menenggelamkan banyak orang lainnya.” Bibir Fang Yuan melengkung menjadi seringai dingin saat dia melihat batu purba putih abu-abu di tangannya.</p>
+<p>	Sebuah batu purba yang lengkap seukuran telur bebek. Tapi batu di tangannya, seperti yang telah diekstraksi dari setengah dari esensinya, adalah seluruh lingkaran yang lebih kecil.</p>
+<p>	Fang Yuan tidak menyesalinya.</p>
+<p>	Semuanya ada untung dan ruginya. Fang Yuan hanyalah talenta kelas C, namun dia menggunakan Liquor Gu untuk memperbaiki esensi purbanya, dan pengeluaran batu purbanya beberapa kali lipat dari orang-orang seusianya. Namun karena inilah dia mampu mengatasi kekurangan bakatnya. Jika kecepatan kultivasi yang sebenarnya dapat dihitung, dia akan dapat menempati peringkat tiga pertama.</p>
+<p>	Fang Yuan memasukkan kembali batu-batu purba itu ke dalam kantong uangnya dan mengeluarkan fosil emas ungu terakhir itu.</p>
+<p>	Dia membeli total enam fosil di sarang perjudian dan membuka lima di tempat, membawa yang terakhir kembali bersamanya.</p>
+<p>	Matanya bersinar saat dia mengaktifkan Moonlight Gu, menggiling dengan lima jari, perlahan membedah batu itu.</p>
+<p>	Fosil emas ungu berangsur-angsur menyusut di bawah riak biru, dan akhirnya digiling menjadi ketiadaan, meninggalkan tumpukan bubuk di tanah.</p>
+<p>	Fang Yuan tidak terkejut, karena dalam perjudian batu, Anda kalah sembilan dari sepuluh kali.</p>
+<p>	Bahkan dengan pengalamannya selama lima ratus tahun, dia hanya bisa mengelola delapan kerugian dari sepuluh kali. Dan di sisa dua kali, itu tergantung pada apakah itu Gu hidup atau Gu mati.</p>
+<p>	Gu Mati pada dasarnya tidak memiliki nilai. Adapun Gu hidup, mereka mungkin bukan jenis cacing Gu yang langka, dan bahkan jika itu adalah Gu yang sangat berharga, seseorang mungkin menarik krisis yang mengancam jiwa karenanya.</p>
+<p>	Tingkat kultivasi Fang Yuan saat ini masih sangat rendah, itu di tingkat bawah Master Gu. Kodok Kulit Lumpur yang dia dapatkan sebelumnya, jika bukan karena fakta bahwa ini adalah Desa Gunung Gu Yue, itu mungkin telah direnggut paksa oleh Jia Jin Sheng itu.</p>
+<p>	Perjudian tidak pernah menjadi cara untuk mengembangkan kekayaan keluarga, dan pada kenyataannya itu adalah penyebab kebangkrutan dan hutang yang lebih besar. Ini bukan jalur pengembangan yang ingin diambil Fang Yuan.</p>
+<p>	Meskipun fosil emas ungu terakhir tidak memiliki cacing Gu, Fang Yuan tidak kecewa. Bahkan dia melihat tumpukan bubuk batu dan secara bertahap tersenyum.</p>
+<p>	Memang, motif utamanya memasuki sarang perjudian adalah untuk tumpukan bubuk batu ini. Kodok Kulit Lumpur itu hanya sesuatu yang dia dapatkan dari kenyamanan.</p>
+<p>	Dia secara pribadi membuka fosil itu, dan selain dia, tidak ada yang tahu kebenaran hasil ini.</p>
+<p>	Sejak hari itu, dia dapat mengklaim bahwa cacing Liquor terbangun dan ditundukkan dari fosil emas ungu.</p>
+<p>	Ide ini luar biasa.</p>
+<p>	Pertama, tidak ada yang bisa memastikan cacing Gu benar-benar ada dalam fosil. Siapa yang berani mengatakan bahwa cacing Liquor tidak bisa berhibernasi di dalam fosil emas ungu? Itu sangat mungkin!</p>
+<p>	Kedua, dia memiliki beberapa saksi mata. Dia membuka Kodok Kulit Lumpur, yang akan meninggalkan kesan kuat pada Master Gu di sarang perjudian.</p>
+<p>	Ketiga, bahkan jika seseorang tanpa henti menanyainya, dia bisa memaksakan segalanya untuk keberuntungannya. Keberuntungan adalah sesuatu yang tak terduga. Bahkan jika seseorang curiga bahwa ini adalah cacing Minuman Keras Biksu Anggur Bunga, dengan alasan seperti ‘keberuntungan’, mereka tidak akan tahu bagaimana berdebat melawan Fang Yuan.</p>
+<p>	Di dalam ruangan gelap, ekspresi Fang Yuan tidak menyenangkan.</p>
+<p>	Menutupi satu sisi mirip dengan menutupi api dengan kertas. Akan ada hari di mana dia akan diekspos.</p>
+<p>	Untuk menyingkirkan ancaman tersembunyi seperti cacing Liquor, dia harus menyerang terlebih dahulu. Ini adalah gaya Fang Yuan.</p>
+<p>	Selain itu, dia telah memikirkannya dengan hati-hati, dan dalam proses kultivasi yang akan datang, dia perlu mengekspos cacing Liquor.</p>
+<p>	“Untuk Gu Peringkat satu seperti cacing Liquor, sangat berharga untuk Peringkat satu Gu Masters. Tetapi untuk Peringkat dua Gu Masters, itu tidak lagi cocok untuk mereka. Jadi bahkan jika ini terungkap, yang akan saya dapatkan hanyalah beberapa perhatian, tetapi itu tidak akan mempengaruhi situasi secara keseluruhan, sehingga menjadi tidak ada yang perlu dikhawatirkan. Ini tidak seperti Jangkrik Musim Semi dan Musim Gugur. Jika Jangkrik Musim Semi dan Musim Gugur terungkap, saya mungkin akan mati dengan kematian yang mengerikan pada saat berikutnya. ”</p>
+<p>	Lima ratus tahun pengalaman dalam menangani masalah telah membuat Fang Yuan sangat akrab dengan mentalitas manusia, dengan setiap pikiran mereka sejelas hari baginya.</p>
+<p>	“Warisan Pengembara Anggur Bunga dan Kodok Kulit Lumpur, di antara ingatanku, ini adalah satu-satunya dua harta di sini, dan sekarang setelah mereka diperoleh olehku, apa yang bisa aku lakukan selanjutnya hanyalah kultivasi bertahap dan tabah.”</p>
+<p>	Fang Yuan menghela napas dalam-dalam dan mengendurkan tubuhnya, merasakan rasa lelah yang kuat melanda dirinya.</p>
+<p>	Budidaya laut purba Guru Gu tidak bisa menggantikan tidur.</p>
+<p>	Fang Yuan menarik selimutnya dan berbaring di tempat tidurnya, matanya masih setengah terbuka.</p>
+<p>	Meskipun ada lima ratus batu purba yang tersembunyi di bawah tempat tidur, serta banyak pot Anggur Bambu Hijau, dia masih merasakan urgensi dan bahaya.</p>
+<p>	Lima ratus batu purba ini sudah merupakan bentuk batas. Dari berkembang hingga menurun, Fang Yuan jelas bahwa selanjutnya pengeluaran batu purba hanya akan menjadi lebih besar.</p>
+<p>	Tapi penghasilannya sebagian besar dari memeras teman-teman sekelasnya.</p>
+<p>	Dia semakin merasakan pertumbuhan dan peningkatan teman-teman sekelasnya. Terutama dalam beberapa pemerasan baru-baru ini, Gu Yue Mo Chen, Chi Chen, dan saudaranya Gu Yue Fang Zheng, telah sangat meningkat dalam tendangan dan pukulan mereka. Sebelumnya dia hanya membutuhkan satu atau dua serangan untuk menjatuhkannya, tetapi sekarang dia membutuhkan lima atau enam.</p>
+<p>	“Tiga hingga empat penjarahan lagi, dan pukulan serta tendangan mereka akan dipoles sepenuhnya. Jika mereka menantangku satu per satu, dengan staminaku saat ini, aku tidak bisa menahan pertempuran round robin semacam itu. Lima ratus batu purba mungkin tampak banyak, tetapi dengan pengeluaran saya saat ini empat batu sehari, sebenarnya tidak sebanyak itu. ”</p>
+<p>	“Gunung Qing Mao sudah tidak memiliki harta yang tersisa, tetapi di dekat Gunung Bai Gu (2), ada warisan kekuatan yang dibangun secara rahasia dari Master Gu Peringkat empat dari jalan yang benar.</p>
+<p>	“Huh, itu masih bermuara pada harta Biksu Anggur Bunga yang terlalu sedikit, hanya memberiku cacing Liquor. Hmm… masih ada dinding gambar film itu, mungkin aku bisa menjualnya ke pedagang tertentu di karavan…”</p>
+<p>	Fang Yuan berpikir ketika kelopak matanya semakin berat sampai akhirnya dia tertidur.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

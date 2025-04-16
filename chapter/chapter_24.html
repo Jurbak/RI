@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 24";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_23.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 24">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_25.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 24</h1>
+        <div class="text-left">
+<p>	Bab 24</p>
+<p>	Bab 24 – Tutup Tempur Gu Master</p>
+<p>	Tiga hari kemudian.</p>
+<p>	“Menurunkan tubuhmu untuk menghindar, itu adalah teknik biasa menahan tinju terbang. Ketika musuh Anda datang dan menyerang Anda, segera jongkok dan lakukan serangan balik, pukul selangkangan dan perutnya. Jangan takut dengan tinju yang berayun. Biasanya mereka yang muncul dan mulai mengayunkan tinju mereka pada saat pertama adalah orang-orang yang tidak punya otak dan impulsif dan gegabah.”</p>
+<p>	Di bidang seni bela diri, instruktur seni bela diri (1) akademi berbicara saat dia melakukan tindakan untuk menunjukkan. Hak boneka kayu pertama menyapu, dan instruktur seni bela diri dengan cepat berjongkok, menghindari serangan yang masuk. Kemudian dia melemparkan pukulan ke perut boneka itu, menjatuhkannya dengan beberapa pukulan.</p>
+<p>	Para siswa melihat demonstrasi dalam lingkaran, tetapi kebanyakan dari mereka kurang semangat, menunjukkan minat yang sangat kecil.</p>
+<p>	Akademi mengajarkan berbagai kursus dan pelajaran ini adalah pelajaran yang mengajarkan dasar seni bela diri. Menggunakan tinju dan kaki untuk mengerahkan diri terlalu rendah untuk gaya serangan pedang bulan yang tampan dan keren, membuat hampir semua siswa linglung.</p>
+<p>	“Kelas selanjutnya adalah penilaian penggunaan Moonlight Gu . Bagaimana Anda berlatih sejauh ini akhir-akhir ini? ”</p>
+<p>	“Saya masih baik-baik saja. Saya bisa melakukan tiga moonblade, tetapi hanya sedikit yang benar-benar mengenai. Biasanya saya mendapatkan dua bilah di boneka rumput. ”</p>
+<p>	“Mmm, itu sama sepertiku. Saya secara khusus membeli boneka rumput hanya untuk berlatih dalam beberapa hari ini. ”</p>
+<p>	…..</p>
+<p>	Para remaja muda saling berbisik, pikiran mereka sudah lama hilang dari pelajaran. Mereka semua khawatir tentang penilaian di kelas berikutnya. Hanya untuk penilaian ini, mereka telah berlatih keras untuk waktu yang lama setelah kelas, dan sekarang mereka melenturkan tangan dan kaki mereka, menantikan penilaian.</p>
+<p>	Suara diskusi siswa telah mencapai telinga instruktur, dan pelatih seni bela diri menyentakkan pandangannya ke arah mereka, berteriak, “Tidak boleh berbicara di kelas, kalian semua tutup mulut dan perhatikan baik-baik!”</p>
+<p>	Dia adalah master Gu peringkat dua , tubuhnya agak berotot. Tubuh bagian atasnya telanjang dan kuat, kulitnya yang berwarna perunggu dipenuhi bekas luka yang tak terhitung jumlahnya. Dengan teriakan keras dia menunjukkan sikap mengancam, menekan semua siswa di lapangan.</p>
+<p>	Keheningan jatuh di bidang seni bela diri.</p>
+<p>	“Fondasi seni bela diri adalah yang paling penting di antara hal-hal penting. Terutama pada tahap awal kultivasi Master Gu , itu lebih penting daripada yang lainnya. Kalian semua lebih baik memusatkan perhatianmu padaku! ”</p>
+<p>	Setelah dia selesai memarahi, instruktur seni bela diri memanggil boneka kayu lainnya. Boneka kayu kuning muda ini tingginya dua meter, kaki kayunya yang besar mengeluarkan suara tajam saat menginjak ubin lantai batu biru. Boneka kayu itu merentangkan tangannya dan bergegas menuju kereta dengan kikuk.</p>
+<p>	Instruktur menghindari serangannya, lalu dengan keras memeluk pinggangnya dan menggunakan kekuatannya untuk mendorongnya ke depan, menyebabkan boneka kayu besar dan tinggi itu jatuh ke tanah. Kemudian instruktur naik di pinggang boneka dan mengayunkan tinjunya dengan cepat ke kepala boneka.</p>
+<p>	Boneka kayu itu memberontak sejenak, lalu kepalanya pecah pecah akibat hantaman hujan sang instruktur. Itu lumpuh di tanah, terbaring tak bergerak.</p>
+<p>	Instruktur seni bela diri berdiri, napasnya tenang dan panjang seperti biasanya. Dia menjelaskan kepada para siswa, “Ketika menghadapi musuh yang besar dan tinggi dalam pertempuran jarak dekat, jangan takut. Menghancurkan pusat gravitasi lawan adalah jenis taktik yang masuk akal untuk menjatuhkan musuh Anda. Seperti yang saya lakukan sebelumnya, Anda harus memeluk pinggang lawan, mengontrol pinggulnya dan kemudian mendorong ke depan dengan kekuatan Anda. Setelah itu Anda mengambil kesempatan dan naik ke tubuhnya dan meninju musuh Anda dengan keras. Mereka yang tidak memiliki kemampuan bertahan akan langsung runtuh.”</p>
+<p>	Para siswa mengangguk berulang kali, tetapi sebagian besar mata mereka menunjukkan ketidaksetujuan. Pelatih melihat semua ini dan tertawa pahit di dalam hatinya.</p>
+<p>	Setiap batch seperti ini. Sikap anak-anak muda ini secara alami mudah tertarik oleh hal-hal yang indah. Tanpa pemahaman dan pengalaman pribadi, sulit bagi mereka untuk memahami pentingnya memiliki landasan seni bela diri. Sebenarnya terutama untuk seorang Master Gu di tahap awal, sementara seni bela diri dasar tidak terlihat menjanjikan, itu sebenarnya lebih penting daripada serangan pedang.</p>
+<p>	“….Ingat, dalam pertarungan jarak dekat, pandanganmu tidak harus selalu menatap mata musuh. Itu harus fokus pada bahu musuh. Tidak peduli meninju atau menendang, bahu musuh akan selalu bergerak lebih dulu….”</p>
+<p>	“…Dalam pertarungan jarak dekat, kecepatanmu sangat penting, kecepatan yang saya bicarakan dalam konteks ini bukanlah kecepatan tinjumu, tetapi kecepatan gerakan kakimu….”</p>
+<p>	“….Jarak adalah pertahanan terbaik…”</p>
+<p>	“…Jaga agar kakimu tetap elastis, maka kamu akan dapat dengan mudah mengeluarkan kekuatanmu…”</p>
+<p>	“Saat menyerang dengan kepalan tangan Anda, pertahankan dukungan segitiga. Jika tidak, Anda akan kehilangan pijakan. Musuh belum jatuh, malah kamu yang jatuh duluan…”</p>
+<p>	Instruktur dengan sabar menjelaskan saat dia mendemonstrasikan. Ini semua adalah pengalaman berharga yang dia dapatkan dari mengorbankan darah dan air mata, pengalaman yang dikumpulkan dari pertempuran panjang.</p>
+<p>	Sayangnya para siswa tidak menyadari hal ini. Perlahan-lahan mereka mulai berbisik lagi, fokus diskusi masih pada penilaian moonblade pelajaran berikutnya.</p>
+<p>	“Instruktur seni bela diri ini sangat pragmatis, tetapi gaya mengajarnya salah.” Fang Yuan memperhatikan dengan tenang di antara kerumunan, sesekali mengangguk dan menggelengkan kepalanya. Instruktur tidak memiliki disiplin dalam pengajarannya; dia mengajar sepenuhnya dengan minat, dan hanya mengajarkan apa pun yang dia pikirkan. Oleh karena itu hal-hal yang dia ajarkan menjadi berantakan dan ada banyak info yang rumit. Pada awalnya banyak siswa yang mendengarkan dengan serius, namun lambat laun mereka kehilangan minat dan mengalihkan perhatiannya ke aspek lain.</p>
+<p>	Hanya Fang Yuan yang mendengarkan dengan cermat; sementara yang lain sedang belajar, dia merevisi. Pengalaman tempurnya lebih kaya daripada instruktur, tetapi mendengarkan narasi orang lain juga merupakan cara verifikasi dalam kultivasi.</p>
+<p>	Sebuah Gu metode Guru pertempuran biasanya dibagi antara jarak dekat dan berkisar. Serangan moonblade adalah jenis serangan jarak jauh, tetapi ketika berbicara secara tegas, itu dianggap jarak menengah karena jarak efektifnya hanya sepuluh meter.</p>
+<p>	Dalam hal pertarungan jarak dekat , para Master Gu , instruktur seni bela diri adalah contoh terbaik. Pertarungan jarak dekat Master Gu biasanya akan memilih Gu yang memperkuat kekuatan tubuh mereka sendiri dan mengolahnya. Gu ini akan memberi mereka kekuatan manusia super, kelincahan, daya tanggap, daya tahan, dll.</p>
+<p>	Sama seperti instruktur seni bela diri ini, seluruh tubuhnya ditutupi kulit perunggu. Ini tentu saja bukan warna kulitnya sendiri, tetapi itu adalah jenis efek kulit tembaga Gu . Kulit tembaga Gu akan meningkatkan ketangguhan dan pertahanan kulit Guru Gu dengan banyak, membiarkan Guru Gu dapat menanggung lebih banyak kerusakan.</p>
+<p>	“Satu moonblade akan mengkonsumsi 10% dari esensi purba. Berapa kali seorang Guru Gu bisa melempar pisau bulan selama pertempuran? Jumlahnya sedikit, terutama bagi pemula yang kesulitan membentuk pukulan efektif. Itu hanya dapat digunakan sebagai jenis kartu truf, faktor terornya lebih besar daripada tingkat kematiannya. Untuk Master Gu Peringkat satu , keterampilan yang benar-benar berguna adalah seni bela diri kung fu. Ini karena serangan bela diri lebih tahan lama dan dapat diandalkan. Sangat disayangkan fakta ini adalah sesuatu yang tidak akan mereka pahami kecuali mereka menghadapinya dengan pengalaman mereka sendiri.”</p>
+<p>	Fang Yuan dengan ringan melirik rekan-rekannya, seringai tipis entah bagaimana terbentuk di bibirnya.</p>
+<p>	Kelas seni bela diri dasar akhirnya berakhir. Setelah istirahat sejenak, mata siswa itu dipenuhi dengan antisipasi; tetua akademi terlambat. Dia melambaikan tangannya yang besar, menunjuk ke deretan wayang rumput di depan dinding bambu. Dia langsung menuju ke subjek dan berkata, “Baiklah, hari ini adalah hari untuk memeriksa hasilnya. Saya ingin lima orang dalam kelompok muncul dalam urutan yang tepat, menggunakan moonblade untuk menyerang tiga kali.”</p>
+<p>	Swoosh.</p>
+<p>	Kelompok siswa pertama naik, dan pedang bulan menari di udara. Setelah tiga putaran, hanya sembilan pedang bulan yang mengenai boneka rumput.</p>
+<p>	Tetua akademi menggelengkan kepalanya sedikit, merasa sedikit tidak senang. Tingkat hit ini terlalu rendah, kuncinya adalah di antara lima ini hanya dua yang berhasil membuang dua moonblade.</p>
+<p>	“Kalian semua lebih baik berlatih dengan benar setelah ini, terutama kamu, dan kamu.” Penatua menegur dalam kalimat pendek, lalu dia melambaikan tangannya yang besar dan berkata, “Kelompok berikutnya.”</p>
+<p>	Dua yang ditegur menundukkan kepala dan meninggalkan lapangan dengan cemas. Salah satunya adalah seorang gadis, matanya sedikit merah dan hatinya berduka. Dia hanya bakat kelas C, namun dia tidak tahan menggunakan batu purba untuk memulihkan esensi purba dengan cepat. Jadi dalam tiga hari ini dia berlatih sangat sedikit, mengakibatkan lemparan pedang bulannya yang tidak terampil.</p>
+<p>	Seorang Guru Gu membutuhkan uang untuk memperbaiki Gu , membesarkan Gu ; bahkan berlatih menggunakan Gu membutuhkan uang tunai. Tapi di mana dia bisa mendapatkan begitu banyak uang? Meskipun kedua orang tuanya mendukungnya dari belakang, tetapi setiap keluarga memiliki masalah mereka sendiri. Kekurangan dana sering kali menjadi dilema yang dihadapi Guru Gu .</p>
+<p>	“Pokoknya saya tidak punya peluang sedikit pun untuk mendapatkan nomor satu. Saya mungkin juga menyerah dan menghemat batu purba, itu lebih baik untuk saya. ” Saat dia memikirkan hal ini, hatinya menjadi tenang sekali lagi.</p>
+<p>	Sebenarnya ada cukup banyak orang yang berpikiran sama dengan gadis muda ini. Karena kurangnya latihan, banyak siswa yang berprestasi buruk. Alis sesepuh akademi semakin dalam.</p>
+<p>	Fang Yuan memperhatikan, diam-diam menggelengkan kepalanya. “Orang-orang ini benar-benar menyedihkan dan menyedihkan. Hanya untuk sejumlah kecil batu purba, mereka menyerahkan kesempatan mereka sendiri untuk membuat kemajuan. Batu purba dimaksudkan untuk digunakan; jika kamu ingin menjadi kikir dan mengumpulkan batu purba, lalu untuk apa kamu menjadi Master Gu ?”</p>
+<p>	Dengan kata lain, mereka yang rabun jauh akan sering menawar setiap sen dan mengejar hal-hal yang kurang penting. Adapun mereka yang bercita-cita tinggi biasanya menunjukkan sikap toleran dan murah hati, serta memiliki kekuatan untuk menyerah dan melepaskan sesuatu.</p>
+<p>	“Akhirnya giliranku.” Pada saat ini, wajah kuda Gu Yue Mo Bei tersenyum penuh percaya diri, dan dia berjalan ke lapangan. Perawakannya kekar dan memancarkan aura garang dan kuat. Setelah berdiri diam, dia mengangkat tangannya dan melemparkan tiga pedang bulan – ketiganya mengenai. Di antara bilah, dua di antaranya mengenai dada boneka, sementara bilah lainnya mengenai lengan kiri boneka, mencukur beberapa rumput hijau.</p>
+<p>	Hasil ini secara alami menyebabkan para remaja muda meledak dengan kekaguman.</p>
+<p>	“Sudah selesai dilakukan dengan baik.” Alis sesepuh sedikit dihaluskan.</p>
+<p>	Kelompok berikutnya muncul, Gu Yue Chi Cheng berdiri di antara mereka. Dia memiliki tubuh kecil dan pendek, wajahnya penuh bopeng, ekspresinya membawa sedikit kegugupan.</p>
+<p>	Dia mengirimkan tiga pedang bulan terus menerus dan ketiganya mengenai dada boneka itu, memotong tiga bekas luka yang saling terkait. Bekas luka berubah dari dalam ke dangkal dan dikembalikan ke penampilan aslinya setelah beberapa napas, karena kemampuan penyembuhan diri boneka itu.</p>
+<p>	Namun hasil ini sudah terkait dengan hasil Gu Yue Mo Bei, dan juga menerima pujian dari yang lebih tua. Chi Cheng mengangkat kepalanya tinggi-tinggi saat dia berjalan keluar dari lapangan, menatap mata Mo Bei dengan menantang di jalan.</p>
+<p>	“Hmph!” Di bawah lapangan, Gu Yue Mo Bei mendengus dingin, tapi dia tidak membalas tatapan Chi Cheng. Sebaliknya, dia terus menatap Gu Yue Fang Zheng yang belum naik.</p>
+<p>	Hatinya jelas tahu bahwa ancaman sebenarnya hanya Gu Yue Chi Cheng dan Gu Yue Fang Zheng. Yang sebelumnya sama seperti dia – bakat kelas B sementara juga memiliki persediaan batu purba yang konstan. Yang terakhir adalah bakat kelas A; sementara Fang Zheng tidak memiliki batu purba sebanyak mereka, tetapi hanya dengan mengandalkan kecepatan pemulihan alaminya sendiri berkat bakat kelasnya, dia juga akan dapat banyak berlatih dalam waktu singkat.</p>
+<p>	Saat ini hasil Gu Yue Chi Cheng telah muncul, menunjukkan dasi ke Mo Bei, dan hanya Gu Yue Fang Zheng yang tersisa.</p>
+<p>	Dalam beberapa grup terakhir, Gu Yue Fang Zheng akhirnya naik ke atas panggung.</p>
+<p>	(1) – tinju Cina tapi saya menerjemahkannya sebagai seni bela diri, karena pertama saya tidak yakin Cina adalah kata yang tepat di sini. Tanah ini tidak benar-benar Cina dan bahasa mereka tidak benar-benar Cina, juga menulis tinju Cina terasa tidak pada tempatnya di sini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

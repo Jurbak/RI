@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 163 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 163";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_162.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 163">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_164.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 163</h1>
+        <div class="text-left">
+<p>	Bab 163</p>
+<p>	Bab 163: Serigala Mahkota Guntur</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Saat Fang Yuan melihat Lotus Harta Karun Esensi Surgawi, banyak keraguan di hatinya terhapus. Dia kira-kira bisa berspekulasi apa yang terjadi.</p>
+<p>	Kembali ke masa lalu, satu milenium yang lalu.</p>
+<p>	Seorang Guru Gu peringkat lima yang sendirian datang ke gunung Qing Mao dan secara kebetulan menemukan mata air roh alam bawah tanah ini.</p>
+<p>	Dia sangat gembira dan menetap di sini. Dia mulai menggabungkan penduduk desa fana yang tinggal di sekitar kaki gunung bersama-sama, membentuk prototipe desa Gu Yue.</p>
+<p>	Dia mengambil lebih dari seratus istri dan selir, dengan ceroboh menyebarkan garis keturunannya.</p>
+<p>	Dia adalah leluhur klan Gu Yue, pendiri desa Gu Yue.</p>
+<p>	Waktu berlalu, dan dia meninggal mengakhiri generasi pertama, lalu generasi kedua, ketiga hingga mencapai generasi keempat.</p>
+<p>	Pemimpin klan generasi keempat memiliki bakat kelas A dan berkultivasi ke Peringkat lima, menciptakan zaman keemasan lain untuk klan.</p>
+<p>	Suatu hari, jalur iblis Gu Master datang ke desa.</p>
+<p>Dia botak dan berotot, mengenakan pakaian merah muda dan bergerak sendiri; hobi favoritnya adalah mencemarkan wanita yang tidak bersalah. Itu adalah iblis terkenal dari jalur iblis: Biksu Anggur Bunga.</p>
+<p>	Siapa yang tahu pertemuan kebetulan apa yang dialami Biksu Anggur Bunga ini, untuk dapat mengetahui resep untuk memperbaiki Teratai Harta Karun Esensi Surgawi. Setelah banyak persiapan, dia hanya kekurangan mata air roh alami untuk memurnikan Gu bunga ini.</p>
+<p>	Setelah melihat sekeliling, dia akhirnya memilih mata air roh desa Gu Yue.</p>
+<p>	Pada awalnya, dia menggunakan kepura-puraan membeli anggrek bulan untuk mendekati petinggi klan Gu Yue secara perlahan dan mendapatkan detail tentang klan Gu Yue.</p>
+<p>	Setelah itu, dalam pertempuran dengan pemimpin klan generasi keempat, ia mampu mencapai kemenangan penuh dengan kekuatannya yang tangguh. Dia tidak hanya membunuh kepala generasi keempat, tetapi juga membunuh sebagian besar tetua. Namun, tubuhnya terinfeksi oleh Moonshadow Gu.</p>
+<p>	Kemampuan Moonshadow Gu adalah untuk membatasi esensi purba dan tidak cukup untuk berakibat fatal. Namun, Flower Wine Monk tidak bisa sembarangan membantai jika dia ingin memperbaiki Heavenly Essence Treasure Lotus, karena itu akan menarik banyak perhatian dan menghambat kemajuan. Karena itu, dia memilih untuk melakukan sesuatu dari kegelapan.</p>
+<p>	Dia menggunakan Seribu Li Earthwolf Spider untuk menggali terowongan, diam-diam maju ke daerah ini. Karena persiapan menyeluruh yang telah dia buat sebelumnya dan dengan bahan yang cukup, dia mampu memperbaiki Teratai Harta Karun Esensi Surgawi di mata air roh.</p>
+<p>	Lotus Harta Karun Esensi Surgawi memiliki latar belakang yang luar biasa. Resep fusinya telah dibuat ribuan tahun yang lalu oleh Master Gu dari faksi yang benar: Immortal Venerable Genesis Lotus.</p>
+<p>	Heavenly Essence Treasure Lotus hanya peringkat tiga bunga Gu, tetapi memiliki rute kemajuannya dan bisa menjadi peringkat enam Heavenly Essence Treasure Imperial Lotus, yang berada di peringkat keenam di antara daftar peringkat Sepuluh Besar Immortal Gu. Nilainya hampir sama dengan Spring Autumn Cicada!</p>
+<p>The Heavenly Essence Treasure Lotus memiliki reputasi sebagai mata air roh portabel, karena dapat menghasilkan batu purba.</p>
+<p>	Namun, proses fusinya memiliki harga yang sangat tinggi.</p>
+<p>	Untuk memperbaiki Lotus Harta Karun Esensi Surgawi, harus ada mata air roh alami. Mata air ini harus penuh dengan energi purba, dan tidak bisa menjadi mata air roh yang telah digunakan selama bertahun-tahun, dengan cadangannya mengering.</p>
+<p>	Setelah fusi berhasil, mata air roh ini akan benar-benar tidak berguna dan akan kehilangan kemampuannya untuk menghasilkan batu purba, menjadi mata air biasa.</p>
+<p>	Mata air roh alami sangat berharga. Kita hanya perlu melihat bagaimana mata air roh ini telah menopang Guru Gu yang tak terhitung jumlahnya dari klan Gu Yue selama hampir satu milenium untuk menyadari hal ini.</p>
+<p>	Memurnikan Lotus Harta Karun Esensi Surgawi akan benar-benar menghancurkan mata air roh ini. Tapi itu baru permulaan. Jika ingin naik ke Peringkat empat, itu akan membutuhkan tujuh mata air roh, sembilan di Peringkat lima, dan sebelas untuk Peringkat enam!</p>
+<p>	Terlepas dari ini, banyak cacing Gu yang sangat berharga akan dibutuhkan sebagai bahan tambahan.</p>
+<p>	“Jika saya mengambil Teratai Harta Karun Esensi Surgawi ini, itu akan seperti membawa mata air roh skala mini bersama saya. The Heavenly Essence Treasure Lotus hanya Gu Peringkat tiga, jadi produksi batu purba hariannya tidak dapat dibandingkan dengan mata air roh normal, tetapi jumlahnya akan cukup untuk mempertahankan pengeluaran kultivasi saya! ”</p>
+<p>	Ini hanyalah salah satu manfaatnya.</p>
+<p>	Batu purba yang diproduksi oleh Heavenly Essence Treasure Lotus jauh lebih banyak daripada pendapatan dari Rumput Vitalitas Sembilan Daun.</p>
+<p>	Batu purba tidak hanya dapat membantu dalam memajukan budidaya – mereka juga merupakan bentuk mata uang yang dapat ditukar.</p>
+<p>	Dengan lotus harta karun, Fang Yuan dapat mengurangi jumlah batu purba yang dibawanya. Bunga tusita kemudian dapat digunakan untuk menyimpan berbagai barang yang dapat sangat mengurangi bebannya.</p>
+<p>	“Namun….Saya mendengar bahwa proses peleburan teratai harta karun cukup misterius; ia muncul dari ketiadaan selama ia transit antara bentuk astral dan fisik. Orang biasa tidak bisa melihatnya, dan itu hanya bisa dilihat dengan jelas melalui kristal. Gu ini cukup halus dan perlu diberi makan di dalam mata air roh selama sembilan hari sembilan malam sampai tumbuh sembilan daun utuh, sebelum dapat dipetik dan dimasukkan ke dalam laut purba di celah. Jika seseorang mengambilnya sebelum waktunya matang, semua usaha mereka akan sia-sia.”</p>
+<p>	Fang Yuan tidak tahu resep terperinci dari Heavenly Essence Treasure Lotus dan hanya tahu beberapa rumor orang dalam. Dia tidak tahu bagaimana memajukannya di masa depan.</p>
+<p>	Meski begitu, Lotus Harta Karun Esensi Surgawi Peringkat tiga ini akan sangat membantunya.</p>
+<p>	Dia melihat ke balik dinding kristal dan mengamati dengan cermat; yang mengejutkan, bunga itu hanya memiliki delapan setengah daun yang rusak. Hanya ada setengah daun yang tersisa untuk sembilan daun lengkap.</p>
+<p>	Fang Yuan tidak bingung dengan ini.</p>
+<p>	Berabad-abad telah berlalu, cadangan mata air roh telah dikonsumsi selama empat generasi.</p>
+<p>	Teratai Harta Karun Esensi Surgawi ini memadatkan sebagian besar esensi mata air roh, terus-menerus memakan batu purba yang dihasilkan oleh mata air roh, dan menyebabkan cadangan mata air roh semakin berkurang. Akibatnya, lotus harta karun perlahan mulai membalikkan penyerapan, alih-alih mengisi kembali kerusakan pada mata air roh. Dengan melakukan ini, itu merusak dirinya sendiri; ini adalah alasan untuk daun yang rusak.</p>
+<p>	“Teratai Harta Karun Esensi Surgawi harus memiliki sembilan daun lengkap sebelum dapat dipetik. Sekarang hanya memiliki delapan daun setengah. Saya harus melempar batu purba ke mata air jika saya ingin memetiknya! ”</p>
+<p>	Batu purba adalah kristalisasi mata air roh, mereka bisa memberi nutrisi pada teratai harta karun dan membiarkannya tumbuh lagi.</p>
+<p>	Namun, jangan remehkan daun setengah rusak ini. Itu pasti membutuhkan sejumlah besar batu purba untuk tumbuh kembali!</p>
+<p>	“Jika saya tidak salah, dinding kristal ini harus diproduksi oleh Gu Parit ….” Fang Yuan mencoba menyentuh dinding, dan menemukan bahwa dinding ini nyata tetapi juga virtual, seperti cahaya dan bayangan; tangannya menembus dinding tanpa halangan.</p>
+<p>	Tapi dia dengan cepat mengambil kembali tangannya dan tidak berani masuk jauh ke dalam mata air roh.</p>
+<p>	Mata air roh tidak boleh tercemar.</p>
+<p>	Dia menuangkan esensi purba ke dalam bunga tusita dan mengeluarkan batu purba.</p>
+<p>	Dia melemparkan batu purba melalui dinding kristal. Seolah-olah tembok itu tidak ada, batu purba melewatinya dan jatuh ke mata air roh, menyerang sosok hantu Lotus Harta Karun Esensi Surgawi.</p>
+<p>Heavenly Essence Treasure Lotus transit antara biru dan putih dan mulai bergetar seperti riak air. Itu mencerna batu purba hampir dalam sekejap.</p>
+<p>	Setelah menunggu bunga menjadi tenang, Fang Yuan mengamatinya dengan penuh perhatian, tetapi tidak menemukan perubahan pada daun yang rusak itu.</p>
+<p>	Ekspresinya tenang. Dia mulai melemparkan lusinan batu purba tetapi masih tidak ada perubahan pada daun yang rusak.</p>
+<p>	Fang Yuan terus melempar batu purba sambil diam-diam menghitung jumlahnya. Ketika lebih dari lima ratus batu purba dilempar, daun yang rusak akhirnya tumbuh sedikit.</p>
+<p>	Setelah melihat adegan ini, Fang Yuan tidak bisa membantu tetapi merasa sedikit suram.</p>
+<p>	Dari perhitungan ini, dia harus memasukkan setidaknya lebih dari lima puluh ribu batu purba sekaligus.</p>
+<p>	Jika dia melakukannya dalam batch dan jeda waktu yang lama, Heavenly Essence Treasure Lotus akan menghabiskan dirinya sendiri untuk mengisi kembali mata air roh saat klan terus-menerus mengekstraksi batu purba.</p>
+<p>	“Lebih dari lima puluh ribu batu purba … saya hanya memiliki lebih dari sepuluh ribu dengan saya dan kekurangan empat puluh ribu lagi.”</p>
+<p>	Dengan statusnya sebagai penatua, meningkatkan empat puluh ribu batu purba ini sebenarnya bukan masalah.</p>
+<p>	Masalah sebenarnya, bagaimanapun, terletak di tempat lain. Begitu dia mengeluarkan Teratai Harta Karun Esensi Surgawi ini, mata air roh akan sama sekali tidak berguna dan ini pasti akan menarik penyelidikan seluruh klan yang marah dan panik.</p>
+<p>	Fang Yuan memiliki banyak pengalaman, tetapi dia memiliki metode yang terbatas. Jika klan menyelidiki tanpa pertimbangan apa pun, mereka pasti akan menemukan beberapa petunjuk. Faktanya, petinggi klan sudah curiga padanya, tetapi kecurigaan mereka untuk sementara ditekan oleh gelombang serigala.</p>
+<p>	Jika warisan Flower Wine Monk terungkap, Fang Yuan pasti akan menjadi tersangka utama.</p>
+<p>	Bahkan jika Fang Yuan diam-diam melarikan diri, dia akan menderita pengejaran sembrono seluruh klan.</p>
+<p>	“Aku tidak bisa menyerah atas Lotus Harta Karun Esensi Surgawi. Bahkan jika saya tidak memiliki resep fusion, siapa yang tahu apa yang akan terjadi di masa depan? Masalahnya adalah begitu saya mengambil Gu ini, itu sama dengan menusuk sarang lebah dan membawa malapetaka pada diri saya sendiri. ”</p>
+<p>	Fang Yuan diam-diam mempertimbangkan setiap situasi dan memutuskan dia harus menunggu kesempatan terbaik untuk muncul, untuk mengambil Lotus Harta Karun Esensi Surgawi ini.</p>
+<p>	“Teratai Harta Karun Esensi Surgawi ini harus menjadi warisan terakhir dari Biksu Anggur Bunga. Tapi ada banyak hal yang mencurigakan untuk ini; Biksu Anggur Bunga akan datang ke tempat ini untuk memperbaiki Teratai Harta Karun Esensi Surgawi, jadi kecelakaan macam apa yang dia temui hingga terluka parah sehingga dia harus buru-buru mengatur warisan ini sebelum mati? ”</p>
+<p>	Fang Yuan sudah tahu alasan Biksu Anggur Bunga mengatur warisan.</p>
+<p>	Itu untuk membalas dendam terhadap klan Gu Yue.</p>
+<p>	Jika Heavenly Essence Treasure Lotus diambil dari mata air roh – apakah itu berhasil atau gagal – mata air roh alami ini pasti tidak berguna.</p>
+<p>	Tanpa mata air roh alami, klan Gu Yue tidak akan memiliki dasar untuk tinggal di sini. Hanya masalah waktu sebelum klan pecah.</p>
+<p>	“Lupakan saja, saya tidak akan membuat kemajuan dalam keraguan saya tanpa bukti baru. Aku harus kembali ke desa sekarang.” Pada akhirnya, Fang Yuan menggelengkan kepalanya dan mulai kembali ke tempat dia datang.</p>
+<p>	Ketika dia baru saja keluar dari celah batu, lolongan serigala yang keras dan jelas terus bergema.</p>
+<p>	“Suara ini!” Fang Yuan menjadi muram dan dengan cepat bergerak.</p>
+<p>	Ketika dia sampai di tepi sungai di luar celah batu, dia bisa mencium bau darah yang kental.</p>
+<p>	Suara tangisan, jeritan, lolongan serigala dan ledakan dapat terdengar meskipun jarak ke desa masih cukup jauh.</p>
+<p>	Fang Yuan menyembunyikan sosoknya dan memanjat bukit.</p>
+<p>	Saat itu pagi-pagi sekali dan sinar matahari pertama baru saja muncul dari langit.</p>
+<p>	Paket serigala yang tak terhitung jumlahnya bergegas menuju desa Gu Yue seperti banjir.</p>
+<p>	Tatapan Fang Yuan melewati mereka, lalu tubuhnya bergetar.</p>
+<p>	Di bagian paling belakang dari gerombolan serigala, dia melihat serigala petir yang sebesar bukit kecil.</p>
+<p>	Raja binatang segudang: Serigala Mahkota Guntur!</p>
+<p>	Itu tinggi dan ramping, memiliki anggota badan yang kuat dan seluruh tubuhnya ditutupi dengan sisik biru yang menakutkan. Jumbai bulu serigala emas bisa dilihat di cakar dan ekornya.</p>
+<p>	Bulu di kepalanya semuanya kaku dan terangkat, membentuk mahkota yang menjulang tinggi.</p>
+<p>	Itu berjongkok di tanah dan masih seperti patung. Serigala petir yang hiruk pikuk dan serigala petir yang berani di sekitarnya terus-menerus melolong, berfungsi untuk menunjukkan keanggunan dan kemuliaan.</p>
+<p>	Hanya dengan duduk di sana, itu sudah membawa tekanan mental yang besar ke klan Gu Yue.</p>
+<p>	“Raja binatang yang tak terhitung jumlahnya akhirnya tiba, ini adalah saat yang menentukan untuk kelangsungan hidup desa Gu Yue!” Fang Yuan menatap ke arah desa; Gu Masters yang tak terhitung jumlahnya berada dalam pertempuran sengit, menggunakan semua kekuatan mereka untuk memblokir serangan panik dari gelombang serigala.</p>
+<p>	Tiba-tiba, sekitar sepuluh sosok terbang keluar dari desa dan bergegas melawan gelombang serigala, menyerbu ke arah Serigala Mahkota Guntur.</p>
+<p>	Mereka semua adalah tetua dan di depan mereka adalah pemimpin klan Gu Yue Bo!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

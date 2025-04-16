@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 95 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 95";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_94.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 95">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_96.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 95</h1>
+        <div class="text-left">
+<p>	Bab 95</p>
+<p>	Babak 95: Rekan tim sampah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Tubuh Master Gu perempuan itu seperti boneka kain. Dari pinggang dan di seberangnya patah, dan tubuh bagian atasnya tergeletak di tanah, ditampilkan pada sudut yang aneh di tubuh bagian bawahnya, lengannya sejajar dengan tanah sementara kakinya mengarah ke langit.</p>
+<p>	Dari jauh, Fang Yuan juga mulai turun.</p>
+<p>	Pertama, dia menabrak kanopi pohon dan mematahkan banyak cabang sebelum mendarat di tanah bersalju.</p>
+<p>	Dia membalikkan tubuhnya dengan gesit dan berdiri di tanah bersalju. Karena dia telah menggunakan Jade Skin Gu sebelumnya, selain rasa sakit di punggungnya, dia tidak terluka.</p>
+<p>	Di medan perang, setelah keheningan sesaat, lolongan marah Jiao San terdengar, “Fang Yuan, bukankah kamu bilang kamu bisa bertahan!”</p>
+<p>	Fang Yuan tertawa dingin dalam kegelapan, tetapi tiba-tiba tubuhnya berputar dan dia hampir jatuh. Dia menggunakan tangannya untuk memegang batang pohon sebagai penyangga dan mampu menjaga keseimbangan tubuhnya.</p>
+<p>	Dia berpura-pura pincang seolah-olah dia tidak bisa berjalan, tetapi tatapannya menyapu sekeliling untuk melihat apakah ada Master Gu lainnya.</p>
+<p>	Melawan gerombolan binatang buas, para Master Gu bertarung dengan semua yang mereka miliki, dan tidak bisa cukup bebas atau bahkan memiliki mood untuk mengamati Fang Yuan. Meskipun dia telah mengamati secara rahasia dan tidak menemukan Master Gu di dekatnya, Fang Yuan masih diam-diam memilih untuk menyembunyikan dirinya.</p>
+<p>	Dari sisi lain, suara pertempuran yang intens bisa terdengar lagi.</p>
+<p>	Terbukti, raja babi hutan telah lolos dari jebakannya dan bertarung sekali lagi dengan ular piton lava merah.</p>
+<p>	Fang Yuan bergeser selangkah demi selangkah ke arah mereka dengan wajah cemas, hampir jatuh ke tanah beberapa kali. Kotoran, tanah, rumput, dan salju ada di sekujur tubuhnya, membuatnya tampak babak belur dan kelelahan.</p>
+<p>	Dia akhirnya kembali ke pinggiran medan perang.</p>
+<p>	Di medan perang, tiga orang dan seekor babi berkelahi.</p>
+<p>	Ular piton lava merah melingkari tubuh raja babi hutan dan kedua kaki belakangnya.</p>
+<p>	Kedua kaki depan raja babi hutan hanya bisa meronta-ronta secara acak, menyebabkannya berguling-guling di tanah, terkadang meronta-ronta. Dengan gerakan kedua kaki depannya, ia mengetuk dan menabrak benda-benda secara acak.</p>
+<p>	Ada lebih banyak luka di tubuhnya sekarang, darah babi yang mendidih telah mewarnai lantai menjadi merah.</p>
+<p>	Melihat Fang Yuan, Gu Yue Kong Jing yang berada di posisi terluar berkata, “Fang Yuan, kamu bajingan, kamu menyebabkan Hua Xin mati!”</p>
+<p>	“Aku… aku tidak bermaksud begitu. Tapi aku benar-benar tidak bisa menahannya.” Fang Yuan berteriak.</p>
+<p>	“Brengsek, lalu mengapa kamu berjanji dengan sangat percaya diri jika kamu tidak bisa. Tidak berarti tidak, memberikan janji palsu seperti ini akan membunuh kita semua!” Gu Yue Kong Jing berteriak dengan marah. Jika dia tidak dalam pertempuran saat ini, dia akan naik dan memberi Fang Yuan dua tamparan keras.</p>
+<p>	“M-Maaf, aku tidak akan melakukannya lagi.” Fang Yuan dengan cepat balas berteriak.</p>
+<p>	“Fang Yuan, kita akan membicarakan ini nanti!” Ular sakit Jiao San meraung, merasakan tekanannya meningkat. Raja babi hutan yang hampir mati telah menjadi gila, dan ular piton lava merah mengalami luka dan retakan di sekujur tubuhnya.</p>
+<p>	“Kong Jing, jangan repot-repot dengan Fang Yuan. Keluarkan jaring sisik pisau dengan cepat!” Ketika Jiao San melihat bahwa python lava merah hampir mencapai titik puncaknya, dia berteriak panik dengan keringat dingin di sekujur tubuhnya.</p>
+<p>	“Ya!” Kong Jing dengan cepat mengambil katak perut besar dan menggunakan esensi purba, memuntahkan sepotong jaring baja.</p>
+<p>	Di jaring baja ini, ada paku tajam dan bilah yang jelas.</p>
+<p>	“Fang Yuan, ambil ujung yang lain dan bergegaslah bersamaku, kita akan menjerat raja babi hutan.” kata Kong Jing.</p>
+<p>	“Tapi kakiku terluka, aku tidak bisa berjalan!” Fang Yuan berkata dengan ekspresi cemas, melumpuhkan jalannya ke sana.</p>
+<p>	“Hal yang tidak berguna!” Kong Jing tanpa pilihan lain, harus melakukannya sendiri, tangannya menyeret jaring sisik pisau dan melemparkannya ke raja babi hutan.</p>
+<p>	Raja babi hutan ditutupi oleh jaring sisik pisau, menyebabkannya berteriak saat darah segar berceceran.</p>
+<p>	Itu telah meramalkan bahwa kematiannya akan segera terjadi, dan berjuang lebih keras lagi. Saat perjuangannya semakin intensif, belitan jaring sisik pisau semakin erat, dan luka-lukanya semakin parah.</p>
+<p>	Sedangkan untuk ular piton lava merah, karena tubuh batunya, tidak banyak kerusakan yang ditimbulkan dari jaring sisik pisau ini.</p>
+<p>	“Sungguh buang-buang bulu ini!” Jiao San berkata dengan kasihan.</p>
+<p>	“Akhirnya diselesaikan.” Kong Jing menghela nafas lega.</p>
+<p>	Pada saat ini, Fang Yuan berteriak, “Biarkan aku membantu kalian!”</p>
+<p>	Swoosh swoosh.</p>
+<p>	Banyak pisau bulan terbang keluar dan mengenai jaring sisik pisau, menyebabkan benang baja terkoyak. Dengan perjuangan keras raja babi hutan, lubang itu semakin besar dan jaring sisik pisau terkoyak, memungkinkan raja babi hutan melarikan diri.</p>
+<p>	Sekaligus!</p>
+<p>	Kong Jing menatap dengan mata melotot, kehilangan kata-kata.</p>
+<p>	“Apa … apa-apaan …” Master Gu wanita lain tidak lagi peduli dengan citra femininnya dan bersumpah dengan keras.</p>
+<p>	“Aku… sepertinya aku kacau. Aku ingin membantu!” Fang Yuan berkata, terdengar sangat tulus dan polos.</p>
+<p>	Jiao San menghindari serangan raja babi hutan, berguling-guling di lantai. Bahkan sebelum dia bangun, dia berteriak, “Fang Yuan—! Dasar brengsek, lihat apa yang kamu lakukan! Kamu hanya sampah untuk rekan setim !!!”</p>
+<p>	“Pemimpin, kamu harus percaya padaku, aku tidak bersungguh-sungguh,” Fang Yuan membela dirinya sendiri.</p>
+<p>	“Diam, mulai sekarang, jangan lakukan apa-apa, tunggu di sudut!” Jiao San berteriak, berguling lagi dan menghindari menginjak-injak raja babi hutan.</p>
+<p>	Fang Yuan mencibir, tetapi masih dengan patuh mundur puluhan langkah.</p>
+<p>	“Kalian semua kembali!” Jiao San berteriak, akhirnya menunjukkan kartu asnya yang sebenarnya saat dua helai udara kuning beracun keluar dari lubang hidungnya.</p>
+<p>	Udara beracun terus keluar dari hidungnya, tumbuh semakin banyak sampai mereka berkumpul menjadi gumpalan awan beracun berwarna kuning.</p>
+<p>	Raja babi hutan dan bayangan Jiao San bisa dilihat di luar awan beracun.</p>
+<p>	Kong Jing, Fang Yuan dan yang lainnya mengamati di luar awan kuning.</p>
+<p>	Fang Yuan berkata kepada Master Gu wanita yang tersisa, “Sembuhkan kakiku, terluka!”</p>
+<p>	Master Gu perempuan menjadi marah, “Kakak perempuanku yang baik sudah mati, dan kakimu hanya buntung! Kenapa kamu tidak pergi dan mati ?! ”</p>
+<p>	Fang Yuan berkata dengan sedih, “Aku juga tidak ingin ini terjadi.”</p>
+<p>	Tapi matanya bersinar dengan jejak ketajaman.</p>
+<p>	Haruskah saya bertindak, dan melenyapkan orang-orang ini?</p>
+<p>	Ini adalah kesempatan untuk bertindak sekarang. Dalam pikiran bawah sadar mereka, mereka tidak akan mengharapkan saya untuk memiliki niat membunuh.</p>
+<p>	Jika kelompok ular yang sakit-sakitan dimusnahkan, akan ada lebih sedikit batasan pada saya.</p>
+<p>	Tetapi…</p>
+<p>	Jika ada Guru Gu yang melihat proses ini, saya akan jatuh ke dalam jurang. Kejahatan membunuh anggota klan adalah yang paling tak termaafkan di dunia ini. Saya tidak hanya akan dieksekusi, saya juga harus menghadapi berbagai macam siksaan selama tujuh hari tujuh malam.</p>
+<p>	Kematian tidak menakutkan, tetapi untuk kelompok kecil seperti itu, itu tidak sebanding dengan risikonya.</p>
+<p>	Sayang sekali raja babi hutan sedang sekarat. Setelah pertempuran ini, kelompok ular yang sakit-sakitan akan sangat melemah dan kekuatan pertempuran mereka akan berada di titik terendah, mereka pasti akan meninggalkan medan perang. Sayang sekali, ini adalah kesempatan anugerah ……</p>
+<p>	Fang Yuan merasa menyesal dan kasihan di hatinya.</p>
+<p>	Tapi dia telah melakukannya sampai batas terbesar, dan jika dia melebihi ini, perasaan “sabotase” akan menebal. Yang lain tidak bodoh, mereka akan memperhatikan dan jika Master Gu lainnya melihat ini, risikonya akan meningkat.</p>
+<p>	Lima menit kemudian, raja babi hutan itu menjatuhkan diri ke tanah.</p>
+<p>	Awan kuning menghilang, dan Jiao San bernapas keras dengan wajah pucat. Dia telah menggunakan kartu truf terakhirnya, dan sekarang dia memiliki sedikit atau tidak ada esensi purba yang tersisa.</p>
+<p>	“Kalian semua datang ke sini dan membedah mayat dengan cepat, kami akan mundur setelah mengambil rampasan pertempuran!” Jiao San berteriak.</p>
+<p>	Fang Yuan mengepung raja babi hutan dan dengan cepat mulai membedah mayat itu.</p>
+<p>	Darah raja babi hutan masih panas, dan bau darahnya kental. Di seluruh hutan di sekitarnya yang diselimuti kegelapan, ada lolongan terus menerus dari binatang buas dan suara pertempuran yang intens.</p>
+<p>	Tapi tidak ada binatang buas di medan perang kecil ini.</p>
+<p>	Ini adalah otoritas raja binatang.</p>
+<p>	Ada aturan di antara binatang buas.</p>
+<p>	Aura tebal raja babi hutan menyebabkan binatang buas lainnya menyusut ketakutan, dan jika gerombolan binatang buas itu datang ke sini, mereka akan menemukan jalan di sekitar wilayah ini. Tentu saja, jika itu adalah gerombolan binatang buas lain yang lebih kuat atau raja binatang buas lainnya, mereka tidak akan peduli dengan aura raja babi hutan.</p>
+<p>	Pada saat ini, sepasang mata biru bersinar di kegelapan sekitarnya.</p>
+<p>	Dari tempat lain, pekikan darah yang mengental dan teriakan khawatir dari Gu Masters bisa terdengar.</p>
+<p>	“Ini serigala, kawanan serigala!”</p>
+<p>	“Paket serigala petir benar-benar muncul!”</p>
+<p>	“Sialan, kenapa ada sekawanan serigala di sini, ini masih belum waktunya untuk ledakan gelombang serigala kan?!”</p>
+<p>	“Mundur, lupakan raja babi hutan, kita harus cepat mundur!” Jiao San berteriak, dan wajah orang-orang di sekitarnya juga memutih.</p>
+<p>	Satu serigala petir tidak menakutkan. Tapi sekawanan serigala petir, bahkan raja babi hutan harus lari.</p>
+<p>	Yang paling penting, daya tahan dan daya tahan serigala petir itu tinggi. Mereka juga memiliki kecepatan tinggi, paling mahir dalam mengejar.</p>
+<p>	Pada saat kritis seperti itu, Jiao San tidak lagi peduli dengan yang lain, meninggalkan ketiganya dan berlari untuk hidupnya.</p>
+<p>	“Pemimpin kelompok, tunggu aku,” teriak Kong Jing panik, mengejarnya.</p>
+<p>	“Saya tidak memiliki cacing Gu yang meningkatkan kecepatan saya, saya tidak dapat melarikan diri. Jiao San dan yang lainnya tidak memiliki esensi purba yang tersisa, jadi bahkan jika mereka memiliki Gu tipe kecepatan, mereka tidak bisa lepas dari kejaran serigala petir!” Di bawah bahaya kematian, Fang Yuan mengevaluasi dengan tenang.</p>
+<p>	Dia dengan cepat memukul leher Master Gu wanita di dekatnya yang linglung, menyebabkan dia pingsan.</p>
+<p>	Selanjutnya, dengan menyeretnya, dia menggali perut raja babi hutan yang terbelah.</p>
+<p>	Perut raja babi hutan itu sudah terbelah dengan luka yang sangat besar.</p>
+<p>	Fang Yuan masuk ke tubuh babi hutan berdarah itu, pada saat yang sama menggunakan tubuh Master Gu wanita untuk memblokir pintu masuk dan menutupi tubuhnya.</p>
+<p>	Kawanan serigala dengan cepat turun, kebanyakan mengejar Jiao San dan Kong Jing, sementara sebagian dari mereka mengepung raja babi hutan dan berpesta.</p>
+<p>	Sementara Fang Yuan berada di dalam tubuh babi hutan, dia bisa mendengar serigala mengunyah dan menelan, serta gigitan mereka, menyebabkan getaran di mayat.</p>
+<p>	“Untuk berpikir bahwa gerombolan binatang pertama memiliki serigala petir, ini adalah kejutan, klan pasti akan mengirim bala bantuan. Tubuh raja babi hutan sangat besar, jadi jika serigala petir ingin memakannya sepenuhnya, mereka masih perlu waktu. Selama saya bisa bertahan, saya akan terhindar dari mereka. ”</p>
+<p>	Fang Yuan merenung dalam-dalam.</p>
+<p>	Tanpa kecelakaan, Jiao San dan Kong Jing seharusnya menjadi daging mati. Mereka memiliki sedikit esensi purba dan tidak berorientasi pada kecepatan, jadi dengan jarak yang begitu kecil, mereka pasti akan dibantai oleh serigala.</p>
+<p>	Ketika orang panik, mereka akan membuat keputusan bodoh. Di bawah tekanan kematian, hanya sedikit yang bisa tetap tenang seperti Fang Yuan dan membuat keputusan yang paling tepat.</p>
+<p>	Bahkan jika daging raja babi hutan dimakan semua, memperlihatkan Fang Yuan yang bersembunyi, jumlah serigala petir yang harus dihadapi Fang Yuan pasti lebih sedikit daripada yang lain. Menurut pengalamannya, paling banyak lima akan muncul, yang akan menjadi batasnya. Dia memiliki peluang lebih besar untuk bertahan hidup.</p>
+<p>	Serigala petir terus mengunyah dan menggigit, suara yang menunjukkan bahwa mereka semakin dekat. Daging raja babi hutan sebagian besar telah masuk ke perut serigala petir.</p>
+<p>	Jika orang normal berada dalam kesulitan seperti itu, mereka akan merasa seolah-olah detik-detik yang berlalu seperti selamanya. Tapi sebaliknya Fang Yuan menutup matanya dan mengeluarkan batu purbanya, berjuang melawan waktu untuk memulihkan esensi purbanya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

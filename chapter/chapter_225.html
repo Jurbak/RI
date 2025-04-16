@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 225 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 225";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_224.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 225">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_226.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 225</h1>
+        <div class="text-left">
+<p>	Bab 225</p>
+<p>	Bab 225: Tulang Giok, Tulang Baja</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Gemuruh…</p>
+<p>	Ada suara ledakan sebelum dinding tulang runtuh, jalan baru muncul di depan mata semua orang.</p>
+<p>	Menghancurkan jauh lebih mudah daripada membuat, terutama ketika warisan ini tidak memiliki siapa pun yang mengendalikannya.</p>
+<p>	“Kami punya berita dari depan. Jalur kelima telah sepenuhnya diselidiki tetapi targetnya belum ditemukan. ”</p>
+<p>	“Melaporkan kepada pemimpin klan, saya memasuki jalur keenam dan menemukan aula tulang. Ada kerangka dan buku tulang besar di dalamnya.”</p>
+<p>	“Pelaporan, jalur ketujuh juga memiliki aula dengan struktur serupa, dengan kerangka duduk bersila dan juga buku tulang.”</p>
+<p>	“Pelaporan, temukan delapan jalan!”</p>
+<p>	“Mencari lagi!” Wajah pemimpin Bai Clan suram, ada lebih dari tujuh buku tulang raksasa menumpuk di depannya.</p>
+<p>	“Desain ini benar-benar sesuai dengan hati masyarakat. Ketika seorang Guru Gu menemukan kerangka dan buku tulang, mereka secara tidak sadar akan memiliki kesalahpahaman dengan berpikir bahwa mereka telah mewarisi seluruh warisan, tetapi sebenarnya Gray Bone Scholar telah mendirikan banyak aula yang terstruktur serupa. Warisan sejati harus disembunyikan di salah satu jalan.” Tie Dao Ku sangat tertarik.</p>
+<p>	Alis Bai Clan Leader berkerut lebih dalam.</p>
+<p>	Situasi menjadi rumit, dia tidak khawatir Fang dan Bai akan kembali ke jalan mereka datang, karena dia sudah mengatur banyak orang untuk menjaga pintu masuk.</p>
+<p>	Apa yang dia khawatirkan adalah Fang dan Bai akan melarikan diri dari beberapa jalan di warisan. Lagi pula, dia hanya bisa mengendalikan pintu masuk dan bukan pintu keluar yang tak terhitung jumlahnya.</p>
+<p>	Tepat pada saat ini, seorang Guru Gu bergegas dengan ekspresi gembira: “Ditemukan. Kami menemukan aula tulang di jalan kedelapan; kerangka di sana telah hancur berkeping-keping dan cacing Gu di tengkorak juga telah diambil.”</p>
+<p>	“Ini pasti jalan yang mereka ambil!” Semangat Tie Dao Ku meningkat.</p>
+<p>	“Memimpin!” Pemimpin Klan Bai segera pindah.</p>
+<p>	Setelah waktu yang singkat, sekelompok orang buru-buru tiba di aula.</p>
+<p>	“Bagaimana bisa ada dua terowongan rahasia?” Seorang penatua terkejut.</p>
+<p>	“Jalan mana yang diambil kedua pencuri jalur iblis itu?”</p>
+<p>	“Bagaimanapun, kami hanya akan pergi dalam dua kelompok. Begitu kita mencapai mereka, kita harus melindungi tuan muda apa pun yang terjadi! ”</p>
+<p>	Tangga yang mengarah ke Ruang Rahasia Kantung Daging menonjol dan menarik perhatian Pemimpin Klan Bai, Tie Dao Ku dan sebagian besar tetua.</p>
+<p>	“Ruang Rahasia Kantung Daging?” Setelah beberapa saat, kelompok itu mencapai ujung tangga.</p>
+<p>	LEDAKAN!</p>
+<p>	Pintunya hancur berkeping-keping, dan kelompok itu berbondong-bondong masuk.</p>
+<p>	Namun, tidak ada jiwa di ruang rahasia.</p>
+<p>	Hehehehe… hahaha… hehehe…</p>
+<p>	Mulut yang tak terhitung jumlahnya di dinding menghasilkan semua jenis suara tawa.</p>
+<p>	“Omong kosong apa ini?!”</p>
+<p>	“Daging tawa Gu, terutama digunakan untuk menyimpan harta karun. Mulut ini seperti laci.”</p>
+<p>	“Mulut ini terbuka cukup lebar, mereka mungkin lewat sini.”</p>
+<p>	Bai Clan Leader melihat sekeliling sebelum akhirnya, tatapan dinginnya menatap satu-satunya terowongan rahasia di ruangan ini: “Kamu, kamu dan kamu akan tetap di belakang, kalian semua akan mengikutiku!”</p>
+<p>	Beberapa waktu lalu, di ruang rahasia yang sama.</p>
+<p>	Bai Sheng baru saja sadar kembali ketika dia merasakan sakit yang tajam di perutnya.</p>
+<p>	“Jika kamu tidak ingin mati, berdirilah!” Tak lama, dia mendengar suara yang kejam.</p>
+<p>	Terhadap suara ini, Bai Sheng memiliki kesan terdalam tentangnya.</p>
+<p>	Justru pemilik suara inilah yang telah menipu seluruh klan dan menculiknya. Bahkan identitas tuan muda klan Gu Yue mungkin scam!</p>
+<p>	Penipu, penjahat, setan!</p>
+<p>	Meskipun mengutuk di dalam hatinya, Bai Sheng masih dengan patuh merangkak.</p>
+<p>	Dia baru kemudian menemukan bahwa dia berada di tempat yang sangat aneh, dinding daging di sekelilingnya dipenuhi dengan mulut dan menghasilkan hiruk-pikuk tawa yang bergema di telinganya.</p>
+<p>	“Daging tawa Gu?” Dia berseru ketika dia mengingat catatan di buku.</p>
+<p>	“Pria kecil, kamu masih muda tetapi cukup berpengetahuan.” Fang Yuan tersenyum.</p>
+<p>	Menurut rumor di kehidupan sebelumnya, dia mendengar saudara laki-laki dan perempuan klan Bai ini secara bawaan cerdas, terutama kakak laki-laki Bai Sheng yang memiliki kebijaksanaan tinggi bahkan di usia muda dengan kemampuan memori yang mendekati memori fotografi. Saat ini, dia bisa mengenali tawa daging Gu, sepertinya rumor itu tidak berdasar.</p>
+<p>	“Kalian berdua!” Bai Sheng mengertakkan gigi dan menatap Fang Yuan dan Bai Ning Bing dengan kebencian yang mendalam.</p>
+<p>	“Kakak laki-laki!” Bai Hua juga telah ditendang bangun oleh Fang Yuan, dia berlari ke sisi Bai Sheng sambil terisak.</p>
+<p>	Bai Sheng segera melindungi adiknya di belakangnya.</p>
+<p>	“Sungguh hubungan saudara yang hebat.” Bai Ning Bing terkekeh.</p>
+<p>	“Kamu wanita jahat! Kamu tumbuh begitu cantik, tetapi hatimu beracun seperti kalajengking!” Bai Sheng tanpa rasa takut memarahi.</p>
+<p>	Senyum di wajah Bai Ning Bing segera menghilang.</p>
+<p>	Kata-kata Bai Sheng sangat menusuknya. ‘Wanita’, ‘cantik’, dia tidak ingin mendengar kata-kata ini sedikit pun.</p>
+<p>	Tampar, tampar, tampar!</p>
+<p>	Dia berjalan ke depan dan meraih Bai Sheng sebelum menamparnya tiga kali.</p>
+<p>	Dia memiliki kekuatan buaya, dan meskipun dia menahan sebagian besar kekuatannya, setelah dia selesai dengan tamparannya, kedua pipi Bai Sheng memerah dan bengkak.</p>
+<p>	“Wanita berbisa, wanita jahat, bunuh aku jika kamu punya nyali!” Namun, Bai Sheng masih terus mengutuk.</p>
+<p>	Tampar, Tampar, Tampar!</p>
+<p>	Bai Ning Bing memberinya tiga tamparan lagi.</p>
+<p>	“ Hiks hiks , lepaskan kakakku, tolong lepaskan kakakku…” Bai Hua menggenggam kaki Bai Ning Bing dan memohon sambil menangis.</p>
+<p>	“Kakak … jangan memohon padanya!” Bai Sheng berbicara dengan susah payah.</p>
+<p>	Fang Yuan menghela nafas, dia kemudian berjalan ke depan dan meraih kerah Bai Hua.</p>
+<p>	Gadis kecil itu berteriak panik ketika dia diangkat oleh Fang Yuan.</p>
+<p>	Bai Sheng tidak bisa lagi bertindak pantang menyerah saat dia dengan cemas berteriak: “Pencuri jahat, lepaskan adikku!”</p>
+<p>	Fang Yuan mengulurkan tangan lain dan mencubit pipi Bai Hua dengan erat, sebelum berkata dengan nada tidak tergesa-gesa: “Sangat berisik, jika kamu membuat suara lagi, apakah kamu percaya bahwa aku akan memotong kedua lidahmu? Ya, bagaimana kalau aku mulai dengan memotong lidah gadis kecil ini dulu?”</p>
+<p>	Senyum tipis mengangkat sudut bibirnya; cahaya dingin melintas di matanya saat dia melepaskan niat membunuhnya.</p>
+<p>	Bai Hua sangat takut dia tidak berani menangis lagi, air mata mengalir di matanya.</p>
+<p>	Bai Sheng ingin membuka mulutnya untuk berbicara kembali, tetapi jantungnya langsung berdebar dengan pandangan sekilas dari Fang Yuan, dan dia menutup mulutnya.</p>
+<p>	“Ini bagus. Patuh bekerja sama dengan saya dan mungkin saya akan membiarkan Anda hidup. Fang Yuan masih tersenyum.</p>
+<p>	Mulut Bai Ning Bing berkedut.</p>
+<p>	Namun, Fang Yuan segera menambahkan: “Saya mengatakan yang sebenarnya. Saya tidak berani membuat musuh ibumu, menangkapmu juga untuk memastikan keselamatan kita. Jika Anda mematuhi kami, kami akan melepaskan Anda. Tentu saja, jika Anda tidak bekerja sama, haha, saya tidak keberatan memotong lidah Anda atau beberapa jari Anda untuk bermain.”</p>
+<p>	“Lalu apa yang kamu ingin kami lakukan?” Bai Sheng menarik napas dalam-dalam, dia tidak takut pada Bai Ning Bing yang dingin, tetapi takut pada Fang Yuan yang tersenyum.</p>
+<p>	“Apakah kamu melihat mulut-mulut ini di dinding?” Senyum Fang Yuan berubah lebih besar.</p>
+<p>	Dia menjelaskan detailnya dan membiarkan saudara dan saudari ini bekerja keras.</p>
+<p>	Hampir sesaat telah berlalu ketika Bai Hua berteriak ketakutan.</p>
+<p>	Di depannya, sebuah mulut terbuka, lidah merahnya menjulur dan memperlihatkan bola tulang seukuran telur puyuh.</p>
+<p>	Bola itu ditutupi dengan garis-garis hitam dan putih, membuat Fang Yuan bergaul dengan binatang dari Bumi — zebra.</p>
+<p>	Fang Yuan dengan cepat berjalan dan mengambil Gu ini, wajahnya berubah karena kejutan yang menyenangkan.</p>
+<p>	Jika dia tidak salah, ini adalah tipe gerakan Gu — burung tanpa kaki.</p>
+<p>	Gu ini hanya bisa digunakan sekali, tapi tubuhnya besar dan bisa terbang ribuan mil.</p>
+<p>	Ini benar-benar seperti menerima bantal ketika seseorang mengantuk .</p>
+<p>	Fang Yuan baru saja khawatir tentang cara melarikan diri, dan berpikir Bai Hua akan memberinya seekor burung tanpa kaki!</p>
+<p>	Namun, kejutan yang menyenangkan ini baru permulaan.</p>
+<p>	Setelah beberapa saat, Bai Sheng juga mencapai kesuksesan.</p>
+<p>	Dia mengetuk dan membuka mulut, tulang terungkap di lidahnya.</p>
+<p>	Kedua ujung tulang ini halus dan bulat; bagian tengahnya panjang dan ramping; dan ada cahaya kehijauan ke tulang seperti batu giok hijau.</p>
+<p>	Tulang giok Gu!</p>
+<p>	Fang Yuan memegangnya, sebelum segera memperbaiki dan memasukkannya ke dalam lubangnya.</p>
+<p>	Kali ini, giliran Bai Ning Bing yang iri.</p>
+<p>	Tulang giok Gu bisa merombak kerangka Guru Gu menjadi kualitas seperti batu giok, membuat tulangnya lebih keras dan lebih kenyal. Efek ini bersifat permanen seperti Gu babi hutan hitam putih atau Gu kekuatan buaya.</p>
+<p>	Yang lebih penting adalah Gu tulang giok dapat dicocokkan dengan Gu otot es untuk menghasilkan efek yang sangat baik.</p>
+<p>	Bai Ning Bing sudah memiliki otot es, jika dia juga memiliki tulang giok, dia akan memiliki ‘otot es dan tulang giok’, kedua efek tersebut akan saling melengkapi satu sama lain menghasilkan hasil yang jauh lebih baik.</p>
+<p>	Namun, tulang giok Gu ini adalah Gu sekali pakai. Itu juga memiliki kekurangan; master gu akan menderita rasa sakit yang sangat hebat saat menggunakannya. Banyak Master Gu dengan kemauan yang lemah telah meninggal karena rasa sakit menggunakan tulang giok Gu.</p>
+<p>	“Apakah kamu menginginkannya? Kamu bisa menukarnya dengan Gu tulang-daging.” Fang Yuan tersenyum.</p>
+<p>	Bai Ning Bing dengan dingin mendengus dan berbalik tanpa menjawab, meningkatkan usahanya dalam mengetuk gigi.</p>
+<p>	Tapi tindakan ini murni mengandalkan keberuntungan seseorang. Ada sepuluh pasang gigi di dalam mulut, dan satu harus setidaknya mengetuk lima gigi agar giginya bisa lepas.</p>
+<p>	Bai Ning Bing tidak berhasil terlepas dari percobaan pertamanya.</p>
+<p>	Adapun Fang Yuan, dia bahkan lebih menyedihkan.</p>
+<p>	Namun, setelah beberapa waktu, Bai Hua dan Bai Sheng kembali memberikan kejutan yang menyenangkan.</p>
+<p>	Bai Hua merobohkan satu set gigi lagi, memberi Fang Yuan Gu tulang Besi.</p>
+<p>	Dan mulut Bai Sheng mengetuk, secara bertahap terbuka lebar, berubah menjadi terowongan rahasia baru.</p>
+<p>	Keberuntungan saudara dan saudari seperti itu membuat Bai Ning Bing dalam hati terkesiap kaget.</p>
+<p>	Dia tidak tahu bahwa sepasang saudara laki-laki dan perempuan ini adalah pemilik sebenarnya dari warisan ini. Takdir adalah jenis kekuatan mistis, magis, dan dunia lain; terutama di dunia ini, ada beberapa cacing Gu langka yang berisi bagian-bagian dari hukum takdir, memberikan beberapa Master Gu yang beruntung untuk memahami beberapa kekuatan takdir.</p>
+<p>	Sejak terowongan rahasia baru muncul, Fang Yuan tidak berpikir untuk tinggal lebih lama lagi.</p>
+<p>	Klan Bai Gu Master bisa datang kapan saja, dan cacing Gu yang tersisa ada di mulut yang terkunci rapat dan sangat sulit untuk dihancurkan. Mereka hanya bisa ditinggalkan untuk mereka.</p>
+<p>	Fang Yuan sekali lagi membuat Bai Sheng dan Bai Hua pingsan, membawa mereka di masing-masing tangannya saat dia mengikuti di belakang Bai Ning Bing ke dalam mulut raksasa.</p>
+<p>	Keduanya tiba di sebuah aula saat mereka berjalan melalui terowongan rahasia ini.</p>
+<p>	Ini adalah aula tulang terluas yang pernah mereka temui.</p>
+<p>	Dari daerah saja sudah lebih dari 2 km2. Di tengah aula ada piramida tulang; puncaknya diratakan menjadi platform dengan dua tangga menuju ke sana.</p>
+<p>	Fang Yuan dan Bai Ning Bing saling memandang, tidak ada yang lain selain piramida tulang ini.</p>
+<p>	Setelah memeriksa sekeliling mereka dan tidak menyadari adanya bahaya, keduanya berjalan ke peron di puncak piramida.</p>
+<p>	Ada patung tengkorak binatang buas raksasa di peron; itu lebih tinggi dari setengah manusia dan tampak seperti singa atau harimau, dengan taring tertutup rapat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

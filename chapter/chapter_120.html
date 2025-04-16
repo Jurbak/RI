@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 120 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 120";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_119.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 120">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_121.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 120</h1>
+        <div class="text-left">
+<p>	Bab 120</p>
+<p>	Bab 120: Benar-benar mudah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Pada puncak musim gugur, udaranya menyegarkan, dan angin sepoi-sepoi bertiup di bawah matahari yang indah.</p>
+<p>	Kubah biru surga itu bersih dan jernih seperti kristal.</p>
+<p>	Angin bertiup lembut, menyapu penampilan Fang Yuan.</p>
+<p>	Melihat dari jauh, desa-desa terdekat memiliki orang-orang kecil. Di dekatnya, River Swallowing Toad yang seperti bukit sedang tertidur, menghalangi dasar sungai. Fang Yuan yang berdiri di tepi sungai tampak seperti monyet kecil di samping gajah besar dibandingkan dengan Gu peringkat lima ini.</p>
+<p>	Hati Fang Yuan tenang seperti air, tanpa rasa gugup, berpikir dalam hati, “Saya menggunakan White Boar Gu dan Black Boar Gu untuk memperkuat tubuh saya dan meningkatkan kekuatan saya, memiliki kekuatan dua babi hutan. Bersama dengan kekuatanku sendiri, aku memiliki kekuatan sekitar lima atau enam orang dewasa. Tetapi untuk mendorong Kodok Menelan Sungai ini, saya harus memiliki kekuatan sekitar dua banteng. Hanya dengan kekuatanku saat ini, itu tidak akan berhasil. Tapi, jika saya meminjam kekuatan ombak… ada di sini.”</p>
+<p>	desir desir desir……</p>
+<p>	Fang Yuan membalikkan tubuhnya dan melihat ombak menerjang dan mendekat, menyebabkan gerakan besar di air sungai yang damai.</p>
+<p>	Air pasang semakin besar dan terus-menerus menghantam Sungai Menelan Kodok, menyebabkan ombak terbang tinggi ke langit.</p>
+<p>	Fang Yuan hanya berdiri sebentar sebelum basah kuyup.</p>
+<p>	Dia tidak mempermasalahkannya, dan mulai mendorong River Swallowing Toad dengan penuh semangat.</p>
+<p>	The River Swallowing Toad masih tertidur. Itu awalnya adalah cacing Gu yang hidup di sungai dan laut, dan untuk itu, kekuatan ombaknya normal dan tidak bisa membangunkannya.</p>
+<p>	Dengan kekuatan ombak yang tak berujung, Fang Yuan mencoba beberapa lama dan akhirnya berhasil mendorong River Swallowing Toad menjauh dari lokasi aslinya.</p>
+<p>	Dasar sungai lebih lebar karena sungai semakin ke hilir. Seiring dengan aliran air, itu membuat dorongan Fang Yuan lebih mudah.</p>
+<p>	Setelah sekitar tiga ratus meter, River Swallowing Toad membuka matanya yang mengantuk.</p>
+<p>	Sepasang mata hijau tua, dalam keadaan mengantuk, berangsur-angsur berkontraksi dan menatap Fang Yuan yang ada di sampingnya.</p>
+<p>	Fang Yuan tidak kenal takut saat dia mencocokkan tatapannya.</p>
+<p>	Dari matanya yang gelap dan menakutkan, Fang Yuan bisa melihat bayangannya sendiri.</p>
+<p>	“Jiangaaaang!” River Swallowing Toad mengangkat kepalanya, tiba-tiba membuka mulutnya dan mengeluarkan suara serak yang aneh.</p>
+<p>	Teriakan itu menyebar dan bergema di seluruh gunung Qing Mao.</p>
+<p>	Seketika, Fang Yuan bisa merasakan telinganya menjadi tuli karena suara dering.</p>
+<p>	River Swallowing Toad menundukkan kepalanya, mulutnya mengisap air sungai yang mendekat.</p>
+<p>	desir desir desir!</p>
+<p>	Air sungai mengalir dengan kecepatan sepuluh kali lipat dari kecepatan aslinya karena semuanya tersedot ke dalam perutnya, dan permukaan air terlihat menurun dengan kecepatan yang dapat diamati.</p>
+<p>	Fang Yuan berdiri di samping River Swallowing Toad, dengan jelas melihat sejumlah besar makanan laut juga dikirim ke perut River Swallowing Toad bersama dengan air sungai.</p>
+<p>	Merasakan perubahan air sungai, kelompok Chi Shan juga bergegas, dan ketika ketiganya mengamati Kodok Menelan Sungai yang sedang menelan air, mereka tercengang.</p>
+<p>	“Sungguh pemandangan yang spektakuler!” Chi Cheng mengamati, tidak bisa menyembunyikan keterkejutannya.</p>
+<p>	“Kamu berhasil?” Chi Shan memandang Fang Yuan.</p>
+<p>	“Sepertinya begitu,” Fang Yuan mengangguk ringan.</p>
+<p>	Ketinggian air menurun sampai air berhenti mengalir, dan Kodok Sungai Menelan mengangkat kepalanya sekali lagi, perutnya membesar dan mengerut, memuntahkan banyak ikan, udang, kura-kura, dll.</p>
+<p>	Seketika, sejumlah besar makanan laut jatuh ke tanah, mengeluarkan suara yang renyah.</p>
+<p>	Seekor ikan tercebur ke tanah, kura-kura jatuh tertelungkup bingung, kepiting berjalan menjauh secara horizontal, dan kemudian mereka dihancurkan oleh makanan laut yang jatuh.</p>
+<p>	Fang Yuan tidak mempermasalahkannya dan hanya terlihat santai, tetapi tiba-tiba dia mencium aroma anggur.</p>
+<p>	“Aneh, kenapa ada bau anggur?” Chi Cheng mengendus, wajah terkejut.</p>
+<p>	“Itu seharusnya cangkang pahit Seratus tahun,” kata Master Gu wanita dalam kelompok itu dan menunjuk ke cangkang hitam berukuran cakram yang pecah.</p>
+<p>	Cangkang ini berwarna hitam seperti tinta dengan tanda bulat putih di atasnya, seperti cincin di batang pohon.</p>
+<p>	“Itu benar, cangkang pahit bisa mengubah pasir dan batu menjadi jus air pahit. Air pahit kulit pahit seratus tahun, setelah akumulasi melalui waktu, bisa berubah menjadi anggur. Pemimpin klan Bai saat ini suka minum anggur cangkang pahit ini, ”tambah Chi Shan.</p>
+<p>	Dia tidak perlu menjelaskan secara rinci; Fang Yuan sudah lama mengambil kerang ini, mulai mengumpulkan anggur cangkang pahitnya.</p>
+<p>	Belum lama ini, dia masih khawatir tentang cara mendapatkan anggur cangkang pahit ini, tetapi untuk berpikir itu muncul di depannya seperti ini.</p>
+<p>	Benar-benar ungkapan ‘menghabiskan banyak usaha untuk mencari sesuatu yang sia-sia, tetapi itu muncul di depan Anda saat paling tidak diharapkan’!</p>
+<p>	The River Swallowing Toad telah cukup banyak menelan semua air di sungai ini. Jauh di dasar sungai, ada beberapa ratus tahun cangkang pahit yang terkubur di tanah, dan karena Katak Menelan Sungai, cangkangnya terbuka.</p>
+<p>	Fang Yuan dengan cepat mengumpulkan enam cangkang pahit Seratus tahun kecil. Dua cangkang pecah, tetapi empat lainnya utuh.</p>
+<p>	“Saya akhirnya mengumpulkan anggur pahit, dengan cara ini, saya bisa mulai memurnikan cacing Four Flavour Liquor!” Saat ini, Fang Yuan sangat gembira, tetapi tidak memiliki siapa pun untuk berbagi kegembiraan.</p>
+<p>	“Jiangang!”</p>
+<p>	Setelah River Swallowing Toad memuntahkan makanan laut, ia serak lagi, dan kemudian menatap Fang Yuan sekali sebelum menggerakkan tubuhnya yang besar untuk berenang ke hilir di sepanjang sungai.</p>
+<p>	“Dia benar-benar berhasil!” Chi Shan bergumam, hatinya merasa lega. Dia mengamati River Swallowing Toad pergi sampai bayangannya benar-benar hilang, jauh dari pandangannya.</p>
+<p>	“Apa, dia menakutinya dengan mudah. Jika saya mengetahui ini sebelumnya, kami bisa melakukannya sendiri, tetapi sekarang kami membiarkan Fang Yuan menjadi pahlawan dengan mudah! ” Chi Cheng cemberut, nadanya penuh dengan kecemburuan dan kemarahan.</p>
+<p>	“Fang Yuan, tidak peduli apa, kali ini kamu telah melakukan perbuatan baik, kamu adalah pahlawan Klan Gu Yue!” Chi Shan menatap Fang Yuan dengan ekspresi rumit.</p>
+<p>	“Oh,” jawab Fang Yuan linglung, memberikan perasaan setengah hati. Pada saat yang sama, tatapannya bersinar saat dia terus mengaduk-aduk dan mencari cangkang pahit Seratus tahun di antara makanan laut.</p>
+<p>	Pahlawan apa, itu hanya sebuah gelar.</p>
+<p>	Antara pujian dan fitnah, itu semua adalah pandangan dan ekspresi orang lain terhadap diri sendiri.</p>
+<p>	Apa pendapat orang lain tentang dia, Fang Yuan tidak peduli.</p>
+<p>	Anda dapat memikirkan semua yang Anda inginkan, saya menjalani hidup saya sendiri.</p>
+<p>	Pahlawan? Nol? Hehe, saya lebih suka memiliki cangkang pahit.</p>
+<p>	Berita tentang mengusir Kodok Sungai Menelan segera sampai ke desa.</p>
+<p>	Gu Yue Bo berkata “Bagus” tiga kali terus menerus, dan kekhidmatan di aula tersapu sekaligus.</p>
+<p>	Hanya wajah tetua urusan internal yang rumit, dia tidak memikirkan Fang Yuan dengan baik. Belum lama ini, dia bahkan mengkritik Fang Yuan, tetapi sekarang desa itu dalam bahaya, Fang Yuan adalah orang yang menyelesaikan masalah tersebut. Dengan dua masalah ini datang bersama-sama, bukankah itu tamparan di wajahnya?</p>
+<p>	“Gu Yue Fang Yuan memiliki penghargaan untuk mengusir Kodok Menelan Sungai, kami akan membuat pengecualian untuk mempromosikannya menjadi pemimpin tim dan memberinya hadiah lima ratus batu purba.” Pikir Gu Yue Bo, sebelum memberikan perintah yang diisi dengan hadiah khusus. arti.</p>
+<p>	Di kedai anggur.</p>
+<p>	“Apa, Fang Yuan benar-benar berhasil ?!”</p>
+<p>	“Aneh, dia hanya seorang pemula, bagaimana dia bisa mengusir cacing peringkat lima Gu?”</p>
+<p>	“Bahkan Chi Shan gagal total, tapi dia melakukannya …”</p>
+<p>	Berita itu menyebar, dan semua orang terkejut.</p>
+<p>	“Fang Yuan menjadi penyelamat klan kita? Ini …” Master Gu laki-laki yang memiliki permusuhan dengan Fang Yuan kehilangan tindakan setelah mendengar berita ini.</p>
+<p>	Pemimpin kelompoknya tiba-tiba berteriak, menunjuk ke petugas di kedai minuman, “Kalian manusia biasa, kalian berani memfitnah pahlawan klan kami, kalian pantas dieksekusi!”</p>
+<p>	Bahkan sebelum menyelesaikan kata-katanya, dia menembakkan pedang bulan.</p>
+<p>	Penjaga toko tua tidak menyangka bahwa situasi yang mengancam jiwa seperti itu akan terjadi, dan setelah dipukul oleh moonblade ini di lehernya, dia dipenggal.</p>
+<p>	“Tuhan, lepaskan kami!” Panitera saat melihat ini pertama kali tercengang tetapi dengan cepat berlutut di tanah, memohon belas kasihan dengan keras.</p>
+<p>	“Pemimpin kelompok, apa yang kamu lakukan?” Master Gu Pria berdiri.</p>
+<p>	“Apa yang aku lakukan ya?” Pemimpin kelompoknya menggerakkan alisnya, menghela nafas dengan sungguh-sungguh, “Waktu telah berubah, Ah Hai. Fang Yuan telah berubah menjadi pahlawan tiba-tiba, para petinggi akan memperhatikannya. Jika kata-kata fitnah kami terhadapnya menyebar, menurut Anda apa yang akan terjadi? Ada banyak Master Gu tipe deteksi di sekitar, dan jika seseorang ingin menyakiti kita dan mengatakan beberapa hal buruk kepada para tetua klan, masa depan kita akan hancur!</p>
+<p>	Tuan Gu laki-laki berkeringat dingin karena ketakutan.</p>
+<p>	Memang seperti ini, hubungan klan memerintah di atas segalanya. Fang Yuan telah pergi dan berurusan dengan cacing peringkat lima Gu, mempertaruhkan nyawanya untuk membela klannya. Pada saat yang sama ia difitnah dan dihina oleh mereka. Pola pikir apa ini? Ini adalah sikap tidak tahu berterima kasih, dingin, tanpa emosi, dan sama sekali mengabaikan hubungan!</p>
+<p>	Seperti sejarah di Bumi, Yue Fei bertempur di medan perang, membela negaranya, tetapi Qin Hui menjebaknya sebagai mata-mata di pengadilan.</p>
+<p>	Meskipun Master Gu ini tidak separah pembingkaian, tetapi jika masalah ini tersebar, apakah para petinggi merasa aman dengan orang-orang ini di sekitar?</p>
+<p>	Jika itu Mo Yan atau Chi Cheng, orang-orang dengan latar belakang yang kuat, itu akan tetap baik-baik saja. Tetapi beberapa orang ini adalah orang-orang tanpa dukungan.</p>
+<p>	Mencoba menaiki tangga sistem, itu mendorong dan mendorong, saling menginjak. Jika orang lain menggunakan insiden ini dan menyerang mereka, untuk masa depan mereka, itu memiliki pengaruh yang merusak!</p>
+<p>	“Masih belum terlambat untuk menyelamatkan situasi, kita hanya perlu mengekspresikan sikap kita, dan orang luar tidak akan banyak bicara. Manusia fana ini memiliki kehidupan yang murah, jadi jika mereka mati. Tapi mereka bisa menjadi pengorbanan bagi kita, dan ini adalah kehormatan mereka. Kalian harus segera menyerang, masing-masing dari kalian harus membunuh masing-masing. Setelah membunuh, kamu harus memuji Fang Yuan dan mengekspresikan pendirian kami!” teriak ketua kelompok.</p>
+<p>	“Sialan!” Guru Gu laki-laki mengutuk; antara kebencian dan masa depannya, dia tanpa ragu memilih yang terakhir.</p>
+<p>	Dengan pisau bulan, seorang petugas meninggal di tempat.</p>
+<p>	“Tuhan, tolong lepaskan kami.” Seketika, semua pegawai lainnya lumpuh di tanah, ketakutan sampai mereka kencing di celana.</p>
+<p>	Tuan Gu laki-laki tidak mempedulikan mereka, dan di bawah tatapan waspada semua orang, dia menunjuk pegawai yang menyedihkan ini dengan benar, berteriak, “Kalian pantas mati. Gu Yue Fang Yuan adalah seorang pahlawan, dan dengan kekuatannya sendiri, dia membela klan, apa yang memberimu keberanian untuk memfitnahnya!”</p>
+<p>	Tuan Gu laki-laki mengatakan ini sambil mengerutkan kening.</p>
+<p>	Ini adalah emosinya yang sebenarnya. Fang Yuan adalah seseorang yang sangat dia benci, tetapi dia harus memujinya di depan umum; dia merasakan rasa jijik dan kesal yang kuat untuk dirinya sendiri.</p>
+<p>	“Tuhan, bukankah Engkau bertanya kepada kami…. Urgh!” Seorang petugas merasakan perasaan ketidakadilan yang mendalam, berteriak dengan keras.</p>
+<p>	Tapi dia tidak bisa menyelesaikan kalimatnya sebelum dia berhenti.</p>
+<p>	Sebuah moonblade terbang, membelahnya menjadi dua.</p>
+<p>	“Sekelompok budak rendahan, tidak hanya memfitnah Fang Yuan, tetapi juga ingin melibatkan kita!” Seorang Master Gu wanita menyerang, ekspresinya dingin saat dia berteriak dengan keras.</p>
+<p>	Master Gu lain yang melihat ini, merasa seperti sedang menonton opera sabun.</p>
+<p>	Beberapa menyeringai, beberapa acuh tak acuh dan beberapa terus mengobrol, tetapi tidak ada yang menghentikan mereka.</p>
+<p>	Jadi bagaimana jika beberapa manusia mati?</p>
+<p>	Mengkompensasi beberapa pelayan keluarga saja sudah cukup.</p>
+<p>	Setiap orang adalah bagian dari klan, mereka adalah keluarga. Tidak ada yang akan ikut campur atau mengejar masalah untuk orang luar ini, menyebabkan konflik untuk diri mereka sendiri.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

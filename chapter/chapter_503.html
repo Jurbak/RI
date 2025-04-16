@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 503 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 503";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_502.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 503">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_504.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 503</h1>
+        <div class="text-left">
+<p>	Bab 503 – Dong Fang Yu Liang</p>
+<p>	Bab 503: Dong Fang Yu Liang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Suku Zhao merobohkan kamp mereka dan pergi?” Hei Lou Lan melirik laporan informasi sebelum dengan santai melemparkannya ke atas meja.</p>
+<p>	Suku Zhao mungkin merupakan suku berskala besar tetapi tidak memiliki pasukan elit dan bahkan bukan ahli Master Gu yang layak. Meskipun pemimpin suku Zhao berada di peringkat lima tahap awal, ia ditantang dan dikalahkan oleh Dong Po Kong dengan budidaya tahap puncak peringkat empat tiga tahun lalu. Dengan demikian, dia tidak memiliki gengsi yang tinggi dan juga tidak memberikan kontribusi yang terlalu besar selama bertahun-tahun berkuasa.</p>
+<p>	Jika suku Zhao memihak suku Dong Fang, dia mungkin akan memberi mereka perhatian; lagi pula, bahkan Master Gu peringkat lima yang lemah tidak bisa diremehkan.</p>
+<p>	Namun, suku Zhao telah melarikan diri dalam sosok yang menyedihkan yang menyebabkan Hei Lou Lan dipenuhi dengan penghinaan terhadap mereka.</p>
+<p>	Orang-orang dataran utara mengagumi para pemberani dan memandang rendah perilaku pengecut seperti melarikan diri bahkan sebelum bertempur.</p>
+<p>	“Selamat kepada pemimpin aliansi, kami bahkan belum benar-benar menyerang, namun kami berhasil menakut-nakuti suku skala besar dari sisi lain.”</p>
+<p>	“Dong Fang Yu Liang seharusnya meledak marah, dia secara pribadi mengundang suku Zhao tetapi yang lain langsung melarikan diri, hahaha.”</p>
+<p>	“Menurut pendapat saya, suku Zhao mungkin merupakan suku berskala besar, tetapi mereka tidak luar biasa, mereka sebenarnya pengecut. Hmph…”</p>
+<p>	Master Gu di tenda utama berkomentar satu demi satu, tidak peduli dengan sikap suku Zhao.</p>
+<p>	Fang Yuan yang duduk di samping menyapu matanya melalui laporan informasi di atas meja.</p>
+<p>	Zhao Lian Yun.</p>
+<p>	Dia ingat nama ini. Seorang wanita misterius yang akan menjadi salah satu istri Ma Hong Yun, dan juga jalur kebijaksanaan Gu Immortal. Sekarang, bagaimanapun, dia hanya seorang gadis kecil.</p>
+<p>	“Sepertinya persuasi terkenal dari harimau, serigala dan domba telah digunakan …”</p>
+<p>	Fang Yuan mencibir ke dalam.</p>
+<p>	Dalam kehidupan masa lalunya, setelah Zhao Lian Yun menjadi jalur kebijaksanaan Gu Immortal, seseorang membuat biografi tentang dirinya.</p>
+<p>	Tradisi budaya ini dapat ditelusuri kembali ke . Gu klasik pertama ini dipoles oleh banyak Master Gu yang menghabiskan waktu dan tenaga mereka. Bagi banyak Master Gu dan Dewa Gu yang luar biasa, orang akan menulis dan menyebarkan biografi mereka untuk mengingat dan memuji mereka.</p>
+<p>	Dalam isi biografi Zhao Lian Yun: Zhao Lian Yun menampilkan kecerdasan dan kebijaksanaan yang luar biasa sejak ia masih muda. Dalam pertempuran besar di mana ‘Tiran Hitam Hei Lou Lan’ berjuang untuk kepemilikan istana Kekaisaran, suku Zhao terjepit di antara suku Dong Fang dan suku Hei.</p>
+<p>	Ketika pemimpin suku Zhao ragu-ragu, Zhao Lian Yun menggunakan perbandingan antara harimau, serigala dan domba untuk membujuk ayahnya dan membuatnya memutuskan untuk melakukan perjalanan jauh untuk berpihak pada suku Ma. Pada akhirnya, ini memungkinkan suku Zhao tidak hanya dilindungi, tetapi juga menerima sambutan yang sangat penting dan ramah.</p>
+<p>	Lima ratus tahun ingatannya tentang kehidupan masa lalunya semuanya kacau, tetapi informasi ini masih segar dalam ingatan Fang Yuan.</p>
+<p>	Hanya karena dalam pertempuran lima wilayah, Ma Hong Yun, Sheng Ling Er dan Zhao Lian Yun tidak hanya akan menjadi Dewa Gu tetapi juga menjadi simbol dan pilar Dataran Utara dalam melawan invasi Pengadilan Surgawi.</p>
+<p>	Di lima wilayah, biografi orang-orang seperti itu akan tersebar dan diulas secara luas.</p>
+<p>	“Hmph, orang-orang seperti Ma Hong Yun dan Zhao Lian Yun, aku akan mengirim mereka ke kematian mereka sebelum mereka tumbuh cepat atau lambat. Tapi tidak perlu terburu-buru saat ini…” Fang Yuan menahan niat membunuh di dalam hatinya sambil menunjukkan ekspresi tenang di permukaan.</p>
+<p>	Apakah itu Ma Hong Yun atau Zhao Lian Yun, orang-orang yang mengendarai gelombang pertempuran lima wilayah ini, saat ini mereka masih jauh dari menjadi Dewa Abadi. Fang Yuan punya banyak waktu untuk berurusan dengan mereka.</p>
+<p>	Tapi Ma Hong Yun, Fang Yuan harus menahannya untuk berurusan dengan Gedung Delapan Puluh Delapan Yang Sejati. Adapun Zhao Lian Yun, meskipun dia ingin membunuhnya, dia terhalang oleh identitas dan situasinya.</p>
+<p>	Bagaimanapun, Fang Yuan saat ini memainkan peran sebagai Chang Shan Yin. Chang Shan Yin yang agung, bagaimana dia bisa begitu mementingkan seorang gadis yang baru berusia beberapa tahun, sampai-sampai ingin membunuhnya?</p>
+<p>	“Lagipula, yang terpenting sekarang adalah menangani suku Dong Fang!” Fang Yuan mengumpulkan pikirannya dan berkonsentrasi pada diskusi lagi.</p>
+<p>	Setelah mengejek suku Zhao untuk sementara waktu, semua orang menaruh perhatian mereka pada lawan mereka kali ini.</p>
+<p>	Suku Dong Fang sama dengan suku Hei, suku super dengan fondasi yang dalam dan merupakan kekuatan besar di wilayah Cao Fu.</p>
+<p>	Dong Fang Yu Liang adalah pemimpin suku generasi ini untuk suku Dong Fang, muda dan menjanjikan. Mengandalkan kultivasi jalur kebijaksanaannya, dia tidak hanya menangani semua urusan suku dengan bersih, suku itu bahkan menunjukkan tren menjadi lebih makmur.</p>
+<p>	Meskipun kekuatan militer suku Hei lebih unggul, lawan mereka adalah jalur kebijaksanaan Gu Master yang ahli dalam perencanaan dan deduksi, kekuatan seperti itu sama sekali tidak bisa diremehkan!</p>
+<p>	“Jika kita berbicara tentang ancaman terbesar dalam pertempuran ini, itu pasti Dong Fang Yu Liang!”</p>
+<p>	“Benar, anak ini masih muda tetapi memiliki pengalaman dan pengetahuan yang luar biasa, berprestasi dalam empat seni serta astronomi dan geologi. Dia kehilangan orang tuanya pada usia sebelas tahun, dan dia tidak hanya harus mempertahankan mata pencahariannya tetapi juga merawat adik perempuannya yang berusia enam tahun, Dong Fang Qing Yu. Orang tuanya telah meninggalkan warisan yang sangat besar, tetapi anak ini tahu dengan jelas tentang sifat laki-laki dan bahwa dia tidak dapat melindungi warisan, jadi dia memberikan aset keluarga ini kepada seorang penatua yang berwibawa, hanya menyisakan sebagian kecil untuk dirinya sendiri.</p>
+<p>	“Dia tampil sangat baik selama waktunya di akademi. Setelah lulus, dia menjadi ajudan tetua tepercaya itu. Setelah itu, dia membuat banyak kontribusi yang memberinya apresiasi dan rekomendasi dari tetua, secara tak terduga mendapatkan petunjuk dari leluhur Gu Immortal mereka, akhirnya mendapatkan status dan kekuatannya saat ini. ”</p>
+<p>	Semua orang tahu tentang Dong Fang Yu Liang secara rinci, masing-masing dari mereka mengatakan beberapa patah kata tentang asal-usulnya.</p>
+<p>	Fang Yuan dengan hati-hati mendengarkan.</p>
+<p>	Dia belum pernah mendengar tentang hal-hal mendalam ini di kehidupan masa lalunya. Sekarang dia mengalami ini, dia segera menyadari bahwa Dong Fang Yu Liang ini tidak sederhana dan perlu dianggap penting.</p>
+<p>	“Sejarah itu luas dan mendalam, ombak besar menyapu pasir, siapa yang tahu berapa banyak pahlawan yang akan disapunya.”</p>
+<p>	Pada saat yang sama ketika semua orang berdiskusi, titik fokus mereka — Dong Fang Yu Liang juga merencanakan pertempuran yang sangat penting ini, di ruang belajar.</p>
+<p>	Dong dong dong.</p>
+<p>	Tiga suara ketukan lembut terdengar.</p>
+<p>	“Kamu bisa masuk, Kakak.” Dong Fang Yu Liang tahu siapa itu bahkan tanpa mengangkat kepalanya.</p>
+<p>	Pintu didorong terbuka dan seorang gadis yang lembut, anggun dan sangat cantik mengenakan gaun kuning muda masuk dengan penampilan yang cerah.</p>
+<p>	Dia memiliki kulit yang lembut dan berkilau dengan mata yang jernih dan transparan, suaranya yang lembut penuh perhatian: “Kakak, bunga aprikot giok yang kami dapatkan dari benua tengah seharusnya mekar. Kakak, temani aku untuk melihat mereka. ”</p>
+<p>	Dong Fang Yu Liang tersenyum, dia tahu dia telah mengkhawatirkan adik perempuannya dengan duduk di ruang belajar selama sehari semalam, dan dia menggunakan alasan ini untuk membuatnya santai.</p>
+<p>	“Baiklah, ayo pergi, Qing Yu.”</p>
+<p>	Kakak dan adik berjalan keluar dari ruang kerja bersama dan tiba di halaman.</p>
+<p>	Saat ini, hujan ringan turun dan awan gelap menutupi langit.</p>
+<p>	Di kejauhan, tirai hujan dan cakrawala telah menyatu membentuk warna hijau suram. Semakin dekat, dari dinding halaman, orang bisa melihat spanduk yang tak terhitung jumlahnya dan tenda suku Dong Fang yang padat.</p>
+<p>	Orang-orang bergerak ke sana kemari di kamp, ​​​​itu adalah pemandangan yang riuh saat mereka bersiap untuk pertempuran yang akan datang.</p>
+<p>	Di halaman kecil, hanya ada saudara Dong Fang.</p>
+<p>	Suara riuh di luar dipisahkan oleh tirai hujan, membuat halaman kecil tampak tenang dan sunyi.</p>
+<p>	Terutama bunga aprikot giok dengan kelopaknya yang halus dan indah yang tampak lembab dan berkilau dari hujan, dan warna kuningnya yang lembut, memberikan perasaan nyaman pada saudara kandung.</p>
+<p>	“Kakak, saya mendengar suku Zhao telah pindah?” Setelah beberapa saat hening, Dong Fang Qing Yu dengan hati-hati bertanya.</p>
+<p>	“Jangan khawatir, adik perempuan, kakak laki-laki sudah mengantisipasi ini.” Dong Fang Yu Liang tersenyum dan dengan lembut memegang tangan adiknya.</p>
+<p>	Dong Fang Qing Yu sedikit mengangkat kepalanya dan menatap kakak laki-lakinya yang berdiri di tengah hujan rintik-rintik ini dengan pakaian putihnya, wajah seperti batu giok, mata yang dalam bersama dengan aura strateginya, membawa keanggunan dan ketenangan.</p>
+<p>	Dong Fang Yu Liang melanjutkan: “Alasan saya mengundang suku Zhao adalah untuk mengumpulkan semua kekuatan yang saya bisa. Tapi kepergian mereka juga bukan masalah besar. Dengan kekuatanku saat ini, kita masih bisa menang melawan pasukan suku Hei.”</p>
+<p>	Kekhawatiran Dong Fang Qing Yu menghilang lebih dari setengahnya: “Tidak ada yang bisa lolos dari pemotongan kakak. Namun lawan kali ini bukanlah karakter yang kecil. Tidak hanya ada Hei Lou Lan, aku mendengar pahlawan dataran utara sebelumnya, Raja Serigala Chang Shan Yin, juga berpihak padanya. Kakak, kamu harus berhati-hati. ”</p>
+<p>	“Hehehe, adik perempuan, apakah kamu masih tidak percaya pada kakakmu? Tapi …” Dong Fang Yu Liang dengan lembut menghibur adik perempuannya, cahaya yang bersinar bersinar di kedalaman murid-muridnya, “Kami pertama kali bertemu Hei Lou Lan ketika kami pergi bertualang, orang ini memendam pikiran tidak baik terhadap Anda dan diajari pelajaran yang baik. oleh saya. Tapi sekarang, sepertinya orang ini masih belum menyerah. Kali ini, kakak akan memberinya pelajaran yang tidak akan pernah dia lupakan seumur hidupnya. Adapun Chang Shan Yin, kakak punya rencana untuk menghadapinya. Semua ini ada dalam rencana saya, Anda hanya perlu memulihkan diri dengan nyaman. Tubuhmu sudah lemah sejak muda, jangan terlalu khawatir. Jika kamu sakit, itu hanya akan mengalihkan perhatianku.”</p>
+<p>	Dong Fang Qing Yu dengan ringan mengangguk dengan pikirannya benar-benar lega.</p>
+<p>	Sejak muda, kakak laki-laki yang merawatnya, mengkhawatirkannya dan menjaganya.</p>
+<p>	Dia seperti bunga muda yang lembut yang dilindungi oleh pohon besar ini, kakak laki-lakinya.</p>
+<p>	Selama bertahun-tahun, dia dan kakaknya telah melalui semua jenis kesulitan bersama, kali ini juga akan sama.</p>
+<p>	‘Karena sejak muda sampai sekarang, kakak selalu tenang dan tenang seperti ini. Hanya saja… jika saya tidak memiliki penyakit ini, jika saya memiliki bakat untuk berkultivasi, itu akan jauh lebih baik.’ Dong Fang Qing Yu menghela napas dalam-dalam di dalam hatinya.</p>
+<p>	Saudara-saudara diam-diam berdiri di sana, memandangi bunga aprikot giok.</p>
+<p>	“Adik perempuan, berdiri di tengah hujan terlalu lama tidak baik untuk kesehatan, kamu harus kembali beristirahat.” Setelah beberapa saat, Dong Fang Yu Liang berbicara.</p>
+<p>	“Mm, kakak tidak bekerja terlalu banyak.” Dong Fang Qing Yu menjawab dengan suaranya yang manis.</p>
+<p>	Melihat adik perempuannya pergi dan menghilang di sudut, Dong Fang Yu Liang akhirnya tidak bisa menyembunyikan ekspresinya, alisnya berkerut dan mengungkapkan ekspresi khawatir.</p>
+<p>	Pertempuran ini benar-benar tidak semudah yang dia bayangkan.</p>
+<p>	“Hei Lou Lan sendiri bukanlah lawan yang mudah, sekarang ada Chang Shan Yin juga. Lima ratus ribu serigala, benar-benar layak menjadi master jalur perbudakan, hanya dia sendiri yang dapat mengubah situasi, menyebabkan suku Hei yang sedikit lebih unggul ini melompat jauh di depan sukuku.”</p>
+<p>	“Untuk pertempuran yang akan datang ini, pihak kita harus terlebih dahulu berurusan dengan lima ratus ribu serigala ini. Jika tidak, harapan untuk menang akan sangat tidak pasti.”</p>
+<p>	“Aku tidak bisa kalah! Tidak mudah bagi saya untuk membuat Leluhur Tua Abadi Gu setuju; jika saya dapat menyelesaikan misi rahasia ini, leluhur tua secara pribadi akan menyelesaikan sumber penyakit pada adik perempuan saya. Untuk adik perempuanku, aku harus menjadi penguasa Pengadilan Kekaisaran dan memasuki Gedung Delapan Puluh Delapan Yang Sejati!”</p>
+<p>	“Sebelum ini, siapa pun yang berani menghalangi jalanku harus mati! Jadi, Raja Serigala Chang Shan Yin, mengapa kamu tidak mati dalam hujan ini sebelum pertempuran?”</p>
+<p>	Dong Fang Yu Liang menatap awan gelap pekat di langit, wajahnya yang tampan menunjukkan ekspresi yang sangat dingin.</p>
+<p>	ChibiJenderal ChibiJenderal Saya harap tidak ada hal buruk yang terjadi pada saudara perempuannya… Bab selanjutnya adalah yang panjang, itu akan sampai besok.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

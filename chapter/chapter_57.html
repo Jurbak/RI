@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 57 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 57";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_56.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 57">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_58.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 57</h1>
+        <div class="text-left">
+<p>	Bab 57</p>
+<p>	Bab 57: Kebohongan seorang pria</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Jia Fu berkonflik.</p>
+<p>	Dia telah menghilangkan kecurigaannya terhadap Fang Yuan dan yakin bahwa Jia Gui adalah dalangnya.</p>
+<p>	“Tapi, jadi bagaimana jika aku tahu yang sebenarnya?” Jia Fu merasa marah dan sedih, “Saya tidak punya bukti, jadi jika saya menuduh Jia Gui di depan ayah tanpa bukti, ayah mungkin akan berpikir saya mencoba menjebaknya!”</p>
+<p>	Jia Fu pintar, dan dia menatap Fang Yuan, cahaya berkedip di matanya.</p>
+<p>	Jia Jin Sheng telah melakukan perjalanan bersamanya, dan sekarang setelah dia hilang, itu adalah kesalahan Jia Fu karena tidak merawatnya! Karena dia tidak bisa menuduh Jia Gui, dia harus memberikan jawaban kepada ayahnya.</p>
+<p>	Dan jawaban ini ada di depannya!</p>
+<p>	“Itu benar, jika Fang Yuan adalah kambing hitam, setidaknya itu akan membantuku melewati krisis ini. Setelah saya mengatasinya, saya bisa kembali ke Jia Gui dengan pengembalian dua kali lipat. ” Jia Fu berpikir dengan licik.</p>
+<p>	Dia mengangkat nada suaranya, menginterogasi Fang Yuan, “Fang Yuan, bagaimana kamu membuktikan bahwa kamu tidak menyakiti Jia Jin Sheng?”</p>
+<p>	Para tetua klan tercengang. Ini jelas perselisihan internal Anda, mengapa Anda masih memegang klan saya?</p>
+<p>	Hanya pemimpin klan Gu Yue yang tampak muram, ekspresinya berubah tajam saat dia menatap Jia Fu.</p>
+<p>	“Fang Yuan, bukti apa yang kamu miliki untuk menunjukkan bahwa kamu tidak hadir pada saat itu dan tidak menyakiti Jia Jin Sheng? Jika Anda tidak dapat membuktikannya, Anda adalah pembunuhnya! ” Jia Fu menunjuk ke arah Fang Yuan, tatapannya marah saat dia mengancam dengan auranya.</p>
+<p>	“Dia mencoba mendorong Fang Yuan klan kami menjadi kambing hitam. Betapa kejamnya!” Pada titik ini, para tetua klan telah bereaksi dan ekspresi mereka semua berubah tidak baik.</p>
+<p>	Mereka telah bertarung dan merencanakan satu sama lain untuk waktu yang lama, jadi jika mereka memikirkannya, mereka akan tahu dengan mudah tentang sudut pandang dan niat Jia Fu.</p>
+<p>	“Saksi? Tentu saja! Aku sudah menyiapkannya jauh-jauh hari.” Fang Yuan tersenyum dalam hati, tetapi menunjukkan ekspresi terkejut, seolah-olah dia ingin berbicara tetapi tidak bisa.</p>
+<p>	“Tidak perlu orang lain, katakan saja padaku jika kamu melakukannya atau tidak!” Jia Fu mengangkat suaranya lagi, memaksa Fang Yuan.</p>
+<p>	Fang Yuan menunjukkan ekspresi marah, tetapi akhirnya mengertakkan gigi dan berkata tanpa daya, “Tidak.”</p>
+<p>	“Ha ha. Kalau begitu kamu—” Jia Fu hendak menyatakan vonisnya tetapi pada saat itu.</p>
+<p>	“Berhenti!” Penatua akademi maju selangkah dan berdiri di depan Fang Yuan dengan ekspresi serius, “Tentu saja dia punya saksi, itu aku!”</p>
+<p>	“Anda?” Jia Fu bertanya dengan kaget.</p>
+<p>	“Itu benar, aku.” Penatua akademi, menghadapi Peringkat empat Jia Fu, sedikit dikuasai. Tapi melihat tatapan menyemangati Gu Yue Bo, dia mengumpulkan keberaniannya dan mengangkat kepalanya, “Akhir-akhir ini ketika Fang Yuan tiba-tiba menjadi yang pertama menerobos panggung tengah, aku mengirim anak buahku untuk menyelidikinya. Aktivitas dan tindakannya sehari-hari dicatat, tidak ada waktu baginya untuk menyakiti Jia Jin Sheng.”</p>
+<p>	“Ya, ini dia …” Fang Yuan bersembunyi di belakang punggung sesepuh akademi, di mana tidak ada yang bisa melihat bibirnya yang melengkung, menunjukkan senyuman.</p>
+<p>	Ekspresi Jia Fu redup, dia tidak berharap tetua akademi menonjol dan melindungi Fang Yuan.</p>
+<p>	Poin krusialnya adalah, pemimpin klan Gu Yue tidak keberatan. Ini memiliki arti yang besar, karena itu berarti klan Gu Yue akan melindungi Fang Yuan.</p>
+<p>	“Saya mengerti! Saya ingin membuat Fang Yuan menjadi kambing hitam, tetapi itu dari sudut pandang saya, dan saya tidak mempertimbangkan sudut pandang mereka. Memang, begitu Fang Yuan dikriminalisasi, klan Gu Yue harus menanggung nama jahat dengan melukai anggota keluarga Jia. Sejak saat itu mereka harus menghadapi pembalasan keluarga Jia serta kehilangan reputasi mereka sendiri. Selanjutnya, karavan masa depan tidak akan berani datang ke sini dan berdagang lagi, kerugiannya terlalu besar! ”</p>
+<p>	Memikirkan hal ini, Jia Fu sangat sedih dan ingin menampar kepalanya sendiri.</p>
+<p>	Para petinggi Gu Yue memang memiliki pertimbangan seperti itu.</p>
+<p>	Fang Yuan adalah kelas C, jadi jika dia benar-benar menyakiti Jia Jin Sheng, menyerahkannya bukanlah apa-apa. Tapi intinya adalah, sekarang kecurigaannya telah dibersihkan, jika dia diserahkan, bukankah klan Gu Yue akan menderita ketidakadilan yang besar dan sangat rugi?</p>
+<p>	Mengetahui bahwa konflik ini tidak dapat diselesaikan, Jia Fu mengertakkan gigi, bertekad untuk mendapatkan apa yang diinginkannya. Dia berkata, “Jika demikian, mengapa Anda tidak membiarkan saya menggunakan Footprint Gu. Setelah Gu ini digunakan, itu akan menunjukkan kepada kita 30.000 jejak kaki terakhirnya di lantai.”</p>
+<p>	Tetua akademi mengejek dengan tidak senang.</p>
+<p>	Kata-kata Jia Fu berarti dia tidak mempercayai mereka. Tapi dia tidak punya alasan untuk menghentikannya, jadi dia membiarkan Jia Fu lewat.</p>
+<p>	“Datang dan uji!” Fang Yuan tertawa dingin pada Jia Fu, berjalan ke arahnya dengan kepala menunduk.</p>
+<p>	Dia yakin, setelah meramalkan ini. Karena itu, beberapa hari ini dia menyimpan aktivitasnya di dalam desa dan tidak pergi ke gua rahasia.</p>
+<p>	Di bawah pengawasan atasan Gu Yue, Jia Fu tidak memainkan trik apa pun.</p>
+<p>	Footprint Gu sangat aneh, bentuknya seperti kaki orang. Bahannya seperti yogurt tembus pandang, memberi perasaan halus pada orang lain, dan permukaannya memiliki kilau kuning-hijau.</p>
+<p>	Ukurannya kecil, hanya seukuran telapak tangan.</p>
+<p>	Jia Fu memegangnya di tangannya, mengirimkan esensi purba ke dalam Footprint Gu.</p>
+<p>	Jejak Gu menjadi lebih terang, dan kemudian tiba-tiba dengan suara “bam”, meledak menjadi awan bubuk hijau kuning.</p>
+<p>	Awan bubuk menyelimuti Fang Yuan dan berputar di sekelilingnya sebelum terbang keluar dari ruang diskusi.</p>
+<p>	Di mana awan bubuk melewati, lantai akan menunjukkan serangkaian jejak kaki.</p>
+<p>	Jejak kaki ini bersinar dalam cahaya hijau kuning dengan ukuran yang sama dengan kaki Fang Yuan. Itu adalah jejak kaki Fang Yuan ketika dia memasuki ruang diskusi.</p>
+<p>	Jejak kaki memanjang dari paviliun kepala keluarga ke asrama akademi dan kemudian ke akademi dan beredar. Selain itu, mencapai penginapan desa pegunungan.</p>
+<p>	Awan bubuk menjadi lebih kecil saat terbang, dan akhirnya pada langkah ke-30.000, ia menghilang.</p>
+<p>	Hasilnya jelas, semua orang telah memeriksa dan tahu bahwa Fang Yuan tidak bersalah, tidak ada poin yang mencurigakan.</p>
+<p>	Jia Fu menghela nafas, mengeluarkan kotak batu giok kecil.</p>
+<p>	Dia membuka kotak giok, di mana hanya ada sepotong batu giok di dalamnya.</p>
+<p>	Potongan batu giok itu berwarna zamrud tembus pandang, dan ada Gu yang disegel di dalamnya.</p>
+<p>	Ini adalah phasmid (1), tubuhnya panjang dan ramping, dengan warna batu giok, seluruh tubuhnya tampak seperti tabung bambu.</p>
+<p>	Phasmid biasanya lebih panjang dari telapak tangan, tapi yang ini tidak, karena hanya seukuran kuku. Di permukaannya, itu memancarkan cahaya putih.</p>
+<p>	“Gok hijau sebagai tubuhnya, cahaya putih menyelimuti bentuknya, ini adalah Tuan Bambu!” Seketika, beberapa tetua mengenali cacing Gu ini dan berseru.</p>
+<p>	Bahkan Gu Yue Bo pun tergerak. Dia tidak bisa menahan diri untuk tidak menasihati, “Saudara Jia, Tuan Bambu ini adalah Gu Peringkat empat, tidak mudah disempurnakan. Mengapa membuangnya di sini? ”</p>
+<p>	Jia Fu menggelengkan kepalanya, menatap Fang Yuan: “Pria Bambu ini diperoleh melalui batu judi ketika saya masih muda. Batu itu hanya dibuka setengah sebelum tidak bisa lagi diekstraksi. Seperti semua orang tahu, cacing Gu ini diberi makan kejujuran, mampu mendeteksi kebohongan sejak lahir. Hanya seorang pria jujur ​​​​yang tidak pernah berbohong yang dapat memperbaiki dan memberi makan Gu ini. ”</p>
+<p>	“Fang Yuan, kamu hanya perlu membuka batu ini dan menyimpan Tuan Bambu di celahmu. Apa pun yang saya minta, Anda akan menjawab. Selanjutnya, kita akan mengeluarkan Gu ini dan membiarkan semua orang melihat apakah itu berubah warna. Jika Gu berubah warna, kamu bohong!”</p>
+<p>	“Tidak masalah.” Fang Yuan tidak ragu-ragu. Dia segera membuka potongan batu giok dan melakukan seperti yang diperintahkan Jia Fu.</p>
+<p>	Pria Bambu muncul di celahnya dan memancarkan cahaya hijau samar, menutupi laut purba.</p>
+<p>	Fang Yuan merasa bahwa jika dia mengatakan satu kebohongan, Tuan Bambu dapat mendeteksinya dan mengubah tubuhnya dari hijau menjadi warna lain.</p>
+<p>	Tetapi dia hanya menerimanya karena dia memiliki kartu trufnya.</p>
+<p>	“Cicada Musim Semi Musim Gugur!” Dengan pikiran, Jangkrik Musim Gugur Musim Semi terbangun dan mengeluarkan jejak auranya.</p>
+<p>	Aura ini sangat kuat, dan segera menekan Tuan Bambu.</p>
+<p>	Tuan Bambu memancarkan cahaya hijau dan segera menyusutkan tubuhnya. Seluruh tubuhnya meringkuk, gemetar ketakutan. Bagaimana ia bisa memiliki semangat yang berlebihan untuk mendeteksi kebohongan?</p>
+<p>	Jia Fu mulai menginterogasi, dengan pertanyaan pertamanya mengenai rumah, “Fang Yuan, apakah kamu menyakiti saudaraku Jia Jin Sheng?”</p>
+<p>	“Tidak!” Fang Yuan menegaskan.</p>
+<p>	Jia Fu bertanya, “Apakah Anda punya informasi lain tentang dia?”</p>
+<p>	Fang Yuan menggelengkan kepalanya, “Tidak tahu.”</p>
+<p>	Jia Fu bertanya lagi, “Apakah kamu mengatakan sesuatu yang tidak jujur ​​​​kepada kami sebelumnya?”</p>
+<p>	Fang Yuan menggelengkan kepalanya lagi, “Tidak.”</p>
+<p>	“Baiklah, kamu bisa mengeluarkan Tuan Bambu sekarang.” Setelah selesai dengan tiga pertanyaan, Jia Fu menginstruksikan Fang Yuan.</p>
+<p>	Fang Yuan mengeluarkan Tuan Bambu, dan semua orang melihat bahwa itu masih berwarna hijau zamrud tanpa perubahan.</p>
+<p>	Para tetua klan menghela nafas lega.</p>
+<p>	Ekspresi Jia Fu menjadi lebih lembut saat dia menjaga Pria Bambu itu, menangkupkan tinjunya ke arah Gu Yue Bo, “Kali ini banyak pelanggaran, saudara Gu Yue.”</p>
+<p>	“Tidak masalah, kebenaran adalah apa yang ingin kita lihat juga.” Gu Yue Bo melambaikan tangannya, lalu menghela nafas, “Tapi sayang sekali untuk Tuan Bambu ini.”</p>
+<p>	Tuan Bambu memiliki kemampuan untuk mendeteksi kebohongan dan merupakan Gu peringkat empat, jadi itu sangat berharga. Tetapi memberi makan dan memperbaikinya tidak mudah. Itu harus disempurnakan oleh seorang pria yang jujur. Jika ada Guru Gu lain yang mengatakan satu kebohongan, penyempurnaan akan gagal dan Tuan Bambu akan mati di tempat.</p>
+<p>	Makanannya adalah kejujuran. Itu akan berada di celah seorang pria yang jujur ​​dan memakan kejujuran pria itu sebagai makanan untuk bertahan hidup.</p>
+<p>	Sekarang Tuan Bambu telah dibuka, itu sangat lemah, tetapi tidak memiliki makanan untuk memulihkan kekuatannya. Setelah diperlakukan dengan sangat kasar oleh Fang Yuan, kematiannya telah ditetapkan.</p>
+<p>	Jia Fu menggelengkan kepalanya, menatap Pria Bambu di kepalanya, tidak merasa kasihan.</p>
+<p>	Dia berkata dengan sungguh-sungguh, “Saya telah melakukan yang terbaik untuk menyelidiki, tetapi saya tidak menerima hasil. Kali ini, ketika saya kembali ke keluarga, saya akan mempekerjakan penyelidik ilahi Tie Xue Leng (2), itu pasti akan menyelesaikan masalah ini! Selamat tinggal.”</p>
+<p>	Mengatakan demikian, dia menangkupkan tinjunya ke arah Gu Yue Bo dan pergi, tajam dan cepat, dengan keanggunan tertentu.</p>
+<p>	Melihat Jia Fu dan yang lainnya pergi, Gu Yue Bo menghela nafas lega dan berkata, “Kalian semua bisa pergi sekarang.”</p>
+<p>	Dia melambai pada tetua klan, tetapi tiba-tiba memikirkan sesuatu dan berkata, “Tetua akademi tolong tetap kembali.”</p>
+<p>	Tanpa kehilangan setetes pun keringat, Fang Yuan berjalan keluar dari paviliun kepala keluarga dengan selamat.</p>
+<p>	(1) Phasmids: Kutu tongkat. https://en.wikipedia.org/wiki/Phasmatodea</p>
+<p>	(2) – Tie Xue Leng, Tie berarti Logam dan merupakan nama dari klan Tie. Xue Leng berarti darah dingin. Nama ini akan menjadi penting.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

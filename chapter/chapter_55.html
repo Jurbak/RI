@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 55 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 55";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_54.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 55">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_56.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 55</h1>
+        <div class="text-left">
+<p>	Bab 55</p>
+<p>	Bab 55: Persis kata-kata yang ingin saya dengar!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Bulan, bulat seperti roda, samar-samar terlihat di antara awan-awan yang mengambang.</p>
+<p>	Penatua akademi buru-buru berjalan di jalan, wajahnya nyaris tidak terlihat di bawah sinar bulan yang berkedip-kedip.</p>
+<p>	Sulit untuk bertahan hidup di dunia ini, dan Gu Master hilang adalah hal yang biasa. Dengan pengalaman hidupnya yang luas, sesepuh akademi tahu bahwa dalam keadaan normal, penghilangan mendadak semacam ini sering kali berarti kematian.</p>
+<p>	Siapapun bisa mati, tapi Jia Jin Sheng tidak bisa! Terutama tidak sekarat di Desa Gu Yue.</p>
+<p>	Identitasnya istimewa, ayahnya menjadi kepala keluarga Jia, saudaranya menjadi Guru Gu peringkat empat Jia Fu.</p>
+<p>	Master Gu peringkat empat memiliki esensi purba emas kuning, dan mereka memiliki kekuatan bertarung yang tidak masuk akal. Di dalam klan Gu Yue, hanya pemimpin klan yang berada di peringkat empat dan dapat menandingi dia, sementara para tetua klan lainnya semuanya peringkat tiga.</p>
+<p>	Kepala keluarga Jia berada pada tingkat kultivasi yang lebih tinggi. Dia adalah peringkat lima, dan di bawah kepemimpinannya keluarga Jia naik ke kemakmuran, menjadi klan berukuran besar dan memiliki sumber daya dari seluruh gunung, dengan sejumlah besar klan. Dibandingkan dengan mereka, klan Gu Yue hanya berukuran sedang.</p>
+<p>	Jika kedua klan bertarung, desa Gu Yue pasti akan dirugikan.</p>
+<p>	Bagian yang paling penting adalah, jika masalah ini menyebar, reputasi klan Gu Yue akan ternoda. Banyak pedagang yang waspada dalam memilih rutenya. Tanpa interaksi dengan pedagang, kelebihan sumber daya lokal klan Gu Yue tidak akan memiliki jalan untuk dijual, dan sumber daya eksternal yang mereka butuhkan tidak akan dapat dibeli. Seiring berjalannya waktu, mereka pasti akan melemah.</p>
+<p>	“Masalah ini parah, jika kita tidak menanganinya dengan baik, itu akan menjadi bencana!” Tetua akademi dengan cemas bergegas menuju paviliun kepala klan.</p>
+<p>	Begitu dia melangkah ke aula konferensi di paviliun kepala klan, sesepuh akademi merasakan suasana serius dan serius.</p>
+<p>	Kursi utama ditempati oleh pemimpin klan saat ini Gu Yue Bo. Jia Fu yang gemuk dan pendek membawa lima hingga enam pengikut bersamanya dan berdiri di tengah aula, mengadopsi sikap akusatif.</p>
+<p>	Di bawah cahaya lampu yang terang, wajah serius para tetua yang berdiri di samping kursi mereka terlihat jelas.</p>
+<p>	Jia Fu adalah Master Gu Peringkat empat, dan karena dia tidak duduk, tetua klan peringkat tiga ini secara alami tidak berani duduk.</p>
+<p>	Ini adalah kekuatan pencegah dari Master Gu Peringkat empat.</p>
+<p>	Itu juga merupakan bentuk penghormatan terhadap kekuasaan.</p>
+<p>	“Salam pembuka….” Para tetua klan akan memberi hormat, tetapi mereka dihentikan oleh tangan pemimpin klan Gu Yue Bo.</p>
+<p>	Gu Yue Bo yang memiliki rambut putih beruban menggunakan jarinya untuk menggosok pelipisnya, ekspresi kesusahan di wajahnya, “Aku tidak akan mengatakan lebih banyak tentang masalah ini, akademi klan selalu di bawah pengawasanmu. Izinkan saya bertanya, di mana Gu Yue Fang Yuan?”</p>
+<p>	Penatua akademi terkejut. Secara internal dia berpikir, bagaimana ini ada hubungannya dengan bocah Fang Yuan itu?</p>
+<p>	Dia menjawab dengan sopan, “Pada saat ini, dia seharusnya berkultivasi di asrama akademi.”</p>
+<p>	Pemimpin klan menghela nafas, “Kakak Jia sangat curiga sekarang, dia berpikir bahwa hilangnya saudaranya Jia Jin Sheng ada hubungannya dengan Fang Yuan. Saya memerintahkan Anda untuk pergi dan membawanya ke sini segera. ”</p>
+<p>	Tetua akademi bergidik di dalam hatinya. “Ya!”</p>
+<p>	Dia memahami beratnya masalah ini, dan buru-buru memberi hormat sebelum dia berbalik dan pergi.</p>
+<p>	“Saudara Jia, Fang Yuan akan segera dibawa ke sini, duduklah.” Gu Yue Bo menunjuk kursi di dekatnya dan berkata pada Jia Fu.</p>
+<p>	Jia Fu tertawa pahit, menangkupkan tinjunya pada Gu Yue Bo. “Saya minta maaf kepada Saudara Gu Yue! Saya benar-benar cemas saat itu, sudah berhari-hari sejak saya melihat saudara laki-laki saya, saya takut akan yang terburuk. Aku benar-benar tidak bisa menunggu.”</p>
+<p>	Ada beberapa hal yang, hanya setelah kehilangannya baru bisa dipahami.</p>
+<p>	Jia Fu baru menyadarinya dalam beberapa hari ini, alasan mengapa ayahnya memasangkan dia dengan beban Jia Jin Sheng untuk karavan.</p>
+<p>	Itu untuk menguji sifatnya. Melihat apakah dia bisa, sambil menekan saudaranya, mengingat kekerabatan mereka, dan pada saat yang sama merawat adik laki-laki ini.</p>
+<p>	Jika Jia Jin Sheng sudah mati sekarang, bagaimana pandangan ayahnya terhadapnya?</p>
+<p>	Ketika dia menyadari hal ini, dia segera mengadakan penyelidikan di karavan, dan dengan cepat menetapkan targetnya di desa Gu Yue.</p>
+<p>	Dia bergegas kembali tanpa istirahat.</p>
+<p>	Sekarang dia berdiri, enggan untuk duduk, itu untuk menciptakan kesan bahwa dia bertekad untuk mendapatkan pelakunya. Ini sama-sama memberikan tekanan pada klan Gu Yue serta memberikan ayahnya suatu bentuk jaminan ketika dia kembali ke keluarga Jia.</p>
+<p>	“Melapor ke pemimpin klan, Tuan, Fang Yuan telah dibawa ke sini.” Dengan cepat, tetua akademi membawa Fang Yuan ke aula.</p>
+<p>	“Gu Yue Fang Yuan memberi hormat kepada tetua klan, Tuan Jia Fu, dan berbagai tetua klan,” kata Fang Yuan dengan wajah tanpa ekspresi.</p>
+<p>	“Itu dia?” Jia Fu dengan dingin mengamati Fang Yuan, pada saat yang sama, bertanya pada seorang Guru Gu wanita.</p>
+<p>	Master Gu wanita ini adalah orang yang Fang Yuan membeli batu emas ungu dari di sarang perjudian.</p>
+<p>	“Ya, itu dia! Tidak ada kesalahan, ”Tuan Gu wanita itu menatap Fang Yuan, berkata dengan percaya diri.</p>
+<p>	Jia Fu mengangguk. Segera tatapannya seperti dua bilah baja, menebas Fang Yuan. Tapi dia tidak menginterogasi secara terbuka, karena ini adalah desa Gu Yue, jadi dia harus menghormati pemimpin klan Gu Yue.</p>
+<p>	Jadi dia melihat ke arah pemimpin klan Gu Yue.</p>
+<p>	Pemimpin klan Gu Yue memiliki ekspresi serius. Dia tahu bahwa Jia Fu sengaja berbicara dengan Guru Gu perempuan dengan keras; itu tidak hanya untuk mengkonfirmasi identitas Fang Yuan, tetapi juga untuk menegaskan motifnya.</p>
+<p>	Dia menyiratkan kepada kepala klan Gu Yue bahwa dia memiliki bukti di tangannya, “Saya memiliki kepercayaan diri yang cukup, jadi Anda sebaiknya tidak terlalu membela klan Anda sendiri.”</p>
+<p>	Hal ini menyebabkan beberapa ketidaksenangan di hati pemimpin klan Gu Yue, berpikir, “Kamu Jia Fu kehilangan saudaramu, itu adalah kesalahanmu sejak awal. Sekarang Anda datang ke desa Gu Yue kami dengan sikap akusatif, apakah menurut Anda klan Gu Yue saya dapat dengan mudah diganggu? Klan Gu Yue saya tidak memihak dan bekerja berdasarkan logika, tapi jangan salah bahwa ini adalah kelemahan!’</p>
+<p>	Memikirkan hal ini, dia tidak segera menginterogasi Fang Yuan, tetapi dengan keras berkata kepada Tuan Gu wanita, “Apakah kamu melihat dengan jelas? Saya tidak takut untuk memberi tahu Anda ini, tetapi Fang Yuan memiliki saudara kembar yang terlihat sangat identik dengannya, apakah Anda benar-benar yakin itu dia?</p>
+<p>	Master Gu perempuan hanyalah peringkat satu, dan di bawah tekanan Gu Yue Bo, dia langsung menunjukkan ekspresi ragu-ragu dan gugup.</p>
+<p>	Jia Fu mengerutkan kening dan mengambil langkah maju, menghalangi dia dari pandangan Gu Yue Bo. Sambil menangkupkan tinjunya, dia berkata, “Saudara Gu Yue, aku selalu menghormati klan Gu Yue. Terutama pemimpin klan pertama dan keempat klan Gu Yue, keduanya adalah pembangkit tenaga listrik peringkat lima. Seseorang membangun klan dari awal, di mana dia melewati masa-masa sulit dan menciptakan fondasi seratus tahun keluarga Gu Yue. Yang lain adalah pahlawan yang baik hati, karena untuk melindungi klannya dia mengorbankan dirinya sendiri, dan patut dihormati. Saudara Gu Yue, sebagai pemimpin klan, saya yakin Anda akan bertindak tidak memihak, tolong interogasi Fang Yuan ini.</p>
+<p>	Mendengar nada suaranya melunak, Gu Yue Bo mengangguk, tapi hatinya sudah memutuskan.</p>
+<p>	Jika Fang Yuan ini adalah pelakunya, maka dia akan menyerahkannya. Lagipula dia hanya kelas C, tidak ada ruginya kehilangan dia. Selama itu mampu menyelesaikan perselisihan ini.</p>
+<p>	Jika Fang Zheng yang melakukannya, Fang Yuan juga harus disalahkan. Fang Zheng adalah seorang jenius kelas A, satu-satunya dalam tiga tahun. Para petinggi klan masih berharap untuk sangat mengasuhnya untuk melawan Bai Ning Bing dari desa klan Bai.</p>
+<p>	“Fang Yuan, jangan gugup.” Pemimpin klan Gu Yue tersenyum ramah, menggunakan nada lembut ke arah Fang Yuan, “Izinkan saya bertanya, apakah Anda tahu informasi tentang Jia Jin Sheng itu?”</p>
+<p>	“Siapa itu Jia Jin Sheng?” Fang Yuan mendongak dan berkata dengan tenang.</p>
+<p>	“Dia berbohong!” Master Gu perempuan dari sarang perjudian menjerit tepat saat Fang Yuan menyelesaikan pertanyaannya.</p>
+<p>	Orang-orang di aula diskusi, setelah mendengar jeritan ini, mengerutkan kening dan semua melihat ke arahnya.</p>
+<p>	Master Gu perempuan itu menunjuk ke arah Fang Yuan, menunjukkan ekspresi gelisah, “Ini dia, ini dia! Di sarang perjudian kami, dia membeli enam batu emas ungu, dan yang kelima adalah katak kulit lumpur. Tuan muda Jia melihatnya dan mencoba menggunakan lima ratus batu purba untuk membelinya. Ini meninggalkan kesan yang besar pada saya, bahkan jika satu atau dua tahun berlalu, saya tidak akan melupakannya. Bukan hanya saya, tetapi Master Gu lainnya di tempat perjudian juga melihatnya. ”</p>
+<p>	“Begitukah …” Senyum pemimpin klan Gu Yue menghilang, menunjukkan ekspresi kaku dan menyeret pertanyaannya ke arah Fang Yuan.</p>
+<p>	Fang Yuan hanya mengangguk sekarang, menunjukkan sedikit kegugupan, dan pura-pura tiba-tiba menyadari, “Oh itu dia. Baiklah, jika dia adalah Jia Jin Sheng, maka aku mengenalnya. Tapi setelah insiden sarang judi, saya tidak melihatnya lagi.”</p>
+<p>	“Dia berbohong lagi!” Kali ini, bukan Guru Gu perempuan, tetapi Guru Gu laki-laki yang memanggil di depan umum.</p>
+<p>	Fang Yuan melihat ke arahnya, dan seolah-olah dia mengenalinya, menunjukkan ekspresi terkejut, tetapi dengan cepat berusaha menyembunyikannya.</p>
+<p>	Perubahan ekspresinya tercermin di mata semua orang.</p>
+<p>	Semua orang mulai berpikir.</p>
+<p>	“Tuan-tuan yang terhormat, saya seorang karyawan di toko anggur.” Tuan Gu laki-laki pertama-tama menangkupkan tinjunya kepada semua orang, dan kemudian dengan penuh semangat menunjuk ke arah Fang Yuan, “Malam itu, aku melihat dengan jelas di toko anggur, dia sedang duduk dengan tuan muda Jia Jin Sheng, dan keduanya diam-diam mengobrol untuk waktu yang lama. !”</p>
+<p>	Begitu dia berkata begitu, aula itu meledak menjadi diskusi yang lembut.</p>
+<p>	Penatua akademi menggunakan tatapan dingin dan menatap Fang Yuan.</p>
+<p>	Master klan Gu Yue bergerak mundur sedikit, perlahan bersandar di kursi besar.</p>
+<p>	“Bagaimana itu bisa terjadi!” Fang Yuan menunjukkan ekspresi panik, buru-buru berkata, “Toko anggur memiliki begitu banyak orang, bagaimana kamu bisa mengenaliku begitu saja? Anda mungkin salah sendiri! ”</p>
+<p>	“Haha, aku pasti tidak salah.” Tuan Gu laki-laki tersenyum, tatapannya menatap Fang Yuan, pada saat ini dia merasa sangat percaya diri.</p>
+<p>	“Belum lagi tuan muda Jia Jin Sheng yang datang ke toko anggur kita, kita harus merawatnya dengan hati-hati. Bahkan jika itu bukan dia, saya masih akan mengenali Anda, karena Anda telah memberi saya kesan yang kuat!</p>
+<p>	Mengatakan demikian, dia mengangkat alisnya, berkata dengan puas, “Apakah kamu masih ingat? Hari itu Anda datang ke toko kami, menginginkan secangkir anggur monyet. Tapi Anda hanya minum seteguk. Setelah itu Anda melepaskan cacing Liquor dan memberi makan anggur monyet yang tersisa ke dalamnya. Saya melihat cacing Liquor dan sangat gelisah, ingin membelinya dari Anda tetapi Anda menolak untuk menjualnya dan segera pergi!”</p>
+<p>	“Bagus, persis seperti yang ingin aku dengar.” Fang Yuan tertawa dingin di dalam hatinya, tetapi menunjukkan ekspresi terkejut di wajahnya, tanpa sadar mundur selangkah.</p>
+<p>	“Cacing minuman keras!” Mata tetua akademi di belakang Fang Yuan bersinar.</p>
+<p>	Tapi dengan cepat dia mengerutkan kening lagi, dan mau tidak mau bertanya, “Fang Yuan, dari mana kamu mendapatkan cacing Liquor itu?”</p>
+<p>	Fang Yuan mengepalkan tinjunya, menggertakkan giginya, tetapi menolak untuk menjawab.</p>
+<p>	Para tetua klan sekitarnya menjadi marah, mulai cemberut.</p>
+<p>	“Fang Yuan, apakah kamu tahu masalah yang kamu sebabkan!”</p>
+<p>	“Bicara, apa yang sebenarnya terjadi?”</p>
+<p>	“Beri tahu kami tentang apa yang Anda ketahui, akui. Cacing Minuman Keras ini, apakah itu milik Jia Jin Sheng?”</p>
+<p>	“Bagaimana bisa itu miliknya? Cacing Liquor jelas diperoleh sendiri! Aku membukanya!” Fang Yuan tiba-tiba mengangkat kepalanya, ekspresinya naik, seolah-olah dia tidak tahan dengan fitnah seperti itu, dan berteriak keras dengan emosi yang marah.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

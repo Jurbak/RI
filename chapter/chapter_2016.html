@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2016 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2016";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2015.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2016">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2017.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2016</h1>
+        <div class="text-left">
+<p>	Bab 2016 – Senyum Mempesona</p>
+<p>	Bab 2016 Senyum Mempesona</p>
+<p>	Gurun Barat.</p>
+<p>	Awan gelap menutupi langit dan guntur bergemuruh saat pertarungan sengit klan Mo Gu Immortals dengan binatang raksasa misterius berlanjut.</p>
+<p>	“Mati, binatang!”</p>
+<p>	“Aku akan merobek tulang dan tendonmu sebagai sumber daya untuk mengkompensasi kerugian yang diderita klan Mo-ku.”</p>
+<p>	Dua Dewa Mo klan Gu sangat marah, binatang raksasa itu membawa bencana ke klan Mo, menyebabkan kerugian besar. Daerah yang menjadi tanggung jawab kedua orang ini mengalami kerusakan yang lebih parah.</p>
+<p>	“Kamu ingin membunuhku?” Selama pertempuran, binatang raksasa misterius itu tiba-tiba mengucapkan kata-kata manusia.</p>
+<p>	Dua abadi klan Mo terkejut dan hati mereka melompat liar.</p>
+<p>	Pada saat yang sama, binatang raksasa itu membuka mulutnya dan menjulurkan lidahnya yang panjang berwarna ungu-merah.</p>
+<p>	Lidah panjang itu bergerak dengan kecepatan yang mencengangkan dan menembus tubuh klan Mo, Gu Immortal. Hampir seketika, klan Mo Gu Immortal ini terkorosi oleh racun yang kuat dan berubah menjadi ketiadaan.</p>
+<p>	Hanya bukaan abadi yang berubah menjadi titik cahaya yang tidak jelas dan jatuh ke tanah.</p>
+<p>	“Kamu adalah binatang buas legendaris yang legendaris !?” Klan Mo yang tersisa, Gu Immortal merasa ngeri dan mundur dengan panik.</p>
+<p>	Tapi itu sudah terlambat.</p>
+<p>	Binatang raksasa misterius itu adalah Qing Chou. Itu tertawa dingin saat qi hantu mulai melonjak di sekitarnya. Lapisan padat qi hantu berubah menjadi sosok hantu yang menghalangi klan Mo Gu Immortal.</p>
+<p>	Qing Chou mendekat perlahan: “Apakah kamu tidak ingin membunuhku dan mencabut tulang dan tendonku?”</p>
+<p>	Gu Immortal klan Mo berteriak ketakutan: “Lepaskan aku, aku milik klan Mo. Ampuni aku dan klan Mo tidak akan mengejarmu lebih jauh.”</p>
+<p>	“Mengejarku?” Mendengar ini, jejak kemarahan melintas di wajah Qing Chou: “Kalian berdua idiot bahkan tidak tahu bahwa kalian sedang digunakan oleh orang lain. Pergi dan mati!”</p>
+<p>	“Ahhh—!” Klan Mo Gu Immortal menjerit kesakitan saat sosok hantu menerkam dan membunuh mereka.</p>
+<p>	Setelah membunuh dua Dewa Gu ini, Qing Chou melihat ke arah gurun.</p>
+<p>	Pasir terbang liar di tanah, berubah menjadi monster raksasa, itu adalah monster pasir purba. Ini adalah bantuan yang dibawa oleh klan Mo, Gu Immortals, mereka mampu menahan Qing Chou dengan menggunakannya.</p>
+<p>	Tapi klan Mo, Gu Immortals tidak menyangka Qing Chou menjadi binatang buas legendaris yang legendaris dengan kebijaksanaan yang melampaui manusia biasa. Qing Chou mengambil keuntungan dari poin ini, berpura-pura menjadi binatang buas kuno yang biasa, yang membuat keabadian klan Mo berpuas diri dan mengendurkan kewaspadaan mereka. Kemudian dengan serangan balik sengit Qing Chou, para dewa mati.</p>
+<p>	Dengan kematian abadi klan Mo, monster pasir purba ini tidak lagi dikendalikan; gerakannya mulai melambat dan berdiri di tanah sambil menatap Qing Chou.</p>
+<p>	Qing Chou menatap monster pasir kuno itu: “Tersesat!”</p>
+<p>	Monster pasir purba itu bergetar ketakutan dan segera berbalik, terjun ke padang pasir dan melarikan diri.</p>
+<p>	Qing Chou menakuti monster itu tetapi qi hantu di sekitarnya semakin intensif, ia melihat ke area tertentu di langit dan mencibir: “Dua cacing tercela, apakah kamu masih belum keluar?”</p>
+<p>	Saat kata-katanya keluar, dua abadi Pengadilan Surgawi, Sembilan Peri Spiritual dan Pelancong Hati Merah, perlahan menunjukkan diri mereka. Mereka melayang di langit berdampingan dan menatap Qing Chou.</p>
+<p>	Sebelumnya, ketika Red Heart Traveler sedang mencari warisan sejati Laut Darah, dia dihalangi oleh Demon Immortal Qi Jue. Setelah menyadari tujuan Demon Immortal Qi Jue, Red Heart Traveler dengan tegas menyerah pada warisan sejati Laut Darah dan terus mengejar Qing Chou dengan Sembilan Peri Spiritual.</p>
+<p>	Bagaimanapun, masalah Qing Chou berkaitan dengan rencana Pengadilan Surgawi. Dan, bahkan jika dia mendapatkan warisan sejati Laut Darah, itu hanya akan meningkatkan kekuatan Pelancong Hati Merah. Hal yang lebih penting jelas dengan satu pandangan.</p>
+<p>	Sembilan Peri Spiritual dan Pelancong Hati Merah memiliki metode rahasia Pengadilan Surgawi, jadi mereka terus melacak dan segera menemukan Qing Chou.</p>
+<p>	Namun keduanya tidak berani bergerak gegabah.</p>
+<p>	Ini adalah Gurun Barat, musuh ada di sekitar mereka, dan itu bukan wilayah kedua makhluk abadi ini. Jika mereka terburu-buru memulai perkelahian, dengan yang lain menjadi binatang buas legendaris yang legendaris, setelah pertarungan memasuki jalan buntu, Dewa Gu asli Gurun Barat akan ikut campur dan situasinya akan menjadi terlalu tidak stabil.</p>
+<p>	Setelah beberapa diskusi, Sembilan Peri Spiritual berubah menjadi binatang terpencil yang kuno dan menghancurkan titik sumber daya di sekitarnya, menarik beberapa Dewa Gu klan Mo.</p>
+<p>	Kedua makhluk abadi klan Mo membawa monster pasir kuno tetapi mereka bahkan tidak mampu membuat Qing Chou mengeluarkan energinya, sebaliknya, Qing Chou menemukan jejak dari dua makhluk abadi Pengadilan Surgawi.</p>
+<p>	Dengan rencana mereka gagal dan Qing Chou mengekspos posisi mereka, dua dewa Pengadilan Surgawi menunjukkan diri mereka dan menyerang.</p>
+<p>	Boom boom boom!</p>
+<p>	Kedua abadi keduanya peringkat delapan dan memang luar biasa. Gerakan mereka keras dan serangan mereka seperti ombak yang tak henti-hentinya.</p>
+<p>	Qing Chou segera jatuh ke dalam kerugian.</p>
+<p>	Tapi Qing Chou adalah binatang buas kuno, tubuhnya sangat keras dan tebal, tidak ada cedera bahkan setelah terkena beberapa gerakan pembunuh peringkat delapan.</p>
+<p>	Setelah puluhan pertukaran, itu menjadi akrab dengan teknik abadi Pengadilan Surgawi dan mulai perlahan membalikkan situasi.</p>
+<p>	Namun, ini tidak berlangsung lama, gelombang qi mulai muncul.</p>
+<p>	Itu karena lubang abadi dari klan Mo yang mati telah membuka pintu masuk dan mulai menyerap qi langit dan bumi untuk menstabilkan diri.</p>
+<p>	Ada perbedaan dalam qi langit dan bumi di dua lubang abadi ini dan dunia luar, dan seiring dengan akumulasi dampak dari pertarungan antara Dewa Gu dan Qing Chou, gelombang qi raksasa terbentuk.</p>
+<p>	Qing Chou mengalami pembatasan berat dalam gelombang qi, kekuatannya turun tajam. Sebaliknya, dua makhluk abadi Pengadilan Surgawi telah menawarkan lubang abadi mereka dan hanya memiliki lubang hantu, sehingga mereka tidak terlalu terpengaruh dalam gelombang qi.</p>
+<p>	Qing Chou meraung dan meronta tapi semuanya sia-sia.</p>
+<p>	Kemudian disadari bahwa dua dewa Pengadilan Surgawi masih memiliki lapisan perencanaan lain. Mereka tidak hanya menggunakan dua abadi Gurun Barat, mereka bahkan menghitung lubang abadi mereka dalam rencana mereka!</p>
+<p>	Saat Qing Chou bertarung dengan sengit, Peng Da menggelengkan kepalanya dan membuka matanya.</p>
+<p>	“Dimana saya?” Setelah beberapa saat linglung, dia menemukan dia sedang dibawa oleh Mo Li dan mereka bergerak di atas gundukan pasir yang besar.</p>
+<p>	“Paman, kamu menyelamatkanku lagi.” Peng Da menghela nafas.</p>
+<p>	“Kamu sudah bangun.” Mo Li tersenyum.</p>
+<p>	“Paman, kamu bisa menurunkanku.”</p>
+<p>	Tapi Mo Li menggelengkan kepalanya: “Lukamu parah, meskipun aku menyembuhkanmu, kamu tidak boleh bergerak dalam waktu singkat.”</p>
+<p>	Peng Da tersenyum pahit: “Saya telah mengganggu paman lagi. Dimana ini?”</p>
+<p>	Mo Li menjawab: “Huh, kita tersapu lebih dari sepuluh ribu li oleh badai, kita sekarang akan kembali.”</p>
+<p>	Mo Li telah tinggal bertahun-tahun di gurun, dia secara alami memiliki metode untuk membedakan arah.</p>
+<p>	Peng Da langsung khawatir setelah mendengar kata-kata Mo Li: “Paman, kamu masih ingin kembali? Kamu ingin kembali dan mati ?! ”</p>
+<p>	Mo Li terdiam beberapa saat, suaranya rendah dan dalam, mengandung resolusi: “Saya juga tahu kembali berisiko, tetapi jika saya bahkan tidak melihat penampilan pembunuh istri dan anak saya, saya tidak akan pernah bisa. untuk beristirahat dengan tenang!”</p>
+<p>	“Paman …” Peng Da tidak tahu harus berkata apa. Dia mengerti kesedihan dan kebencian yang dirasakan Mo Li sekarang, dan karena ini, dia tidak dapat membujuknya lebih jauh.</p>
+<p>	Mo Li melanjutkan: “Brat, aku berterima kasih atas perhatianmu. Setelah kita melakukan perjalanan sedikit lebih jauh, aku akan mengantarmu dengan air dan makanan yang cukup. Tidak akan menjadi masalah bagimu untuk menyeberangi gurun dan sampai ke kota terdekat.”</p>
+<p>	“Paman, aku tidak akan pergi, aku tidak bisa meninggalkanmu sendirian.”</p>
+<p>	“Jangan membuat keributan!”</p>
+<p>	“Aku tidak membuat keributan, kamulah yang tidak rasional!”</p>
+<p>	Saat keduanya bertengkar, pasir di bawah Mo Li mulai bergerak dan membentuk pusaran air besar yang menyedot keduanya ke dalam.</p>
+<p>	Mo Li dengan cepat menggunakan cacing Gu-nya tetapi tidak ada gunanya.</p>
+<p>	Dia pucat karena kaget: “Apa yang terjadi? Cacing Gu saya sebenarnya tidak berpengaruh! ”</p>
+<p>	Peng Da juga mencoba tanpa hasil, wajahnya sangat pucat: “Apakah ini pasir hisap? Kita akan tersedot!”</p>
+<p>	Pasir hisap ini terlalu aneh, metode mereka tidak berguna.</p>
+<p>	Keduanya semakin dekat dan semakin dekat ke pusat pasir hisap, tubuh mereka perlahan terkubur di bawah pasir dan wajah mereka pucat.</p>
+<p>	“Apakah aku akan mati?” Peng Da bergumam.</p>
+<p>	Mo Li menghela napas dalam-dalam: “Aku melibatkanmu, Peng Da.”</p>
+<p>	“Aku, aku tidak menyalahkanmu paman. Itu semua adalah pilihanku.” Peng Da merasakan jantungnya berdegup kencang dan tenggorokannya kering, dia tidak tahu harus mengungkapkan apa.</p>
+<p>	Perasaan sebelum kematian yang akan datang benar-benar yang terburuk!</p>
+<p>	Namun tak lama kemudian, perhatian Peng Da teralihkan oleh hal lain.</p>
+<p>	Dia menemukan bahwa paman Mo Li yang biasanya memiliki ketabahan mental yang besar sebenarnya menangis.</p>
+<p>	Mo Li terisak: “Aku akan mati tapi balas dendamku belum selesai! Aku bahkan tidak melihat penampilan asli si pembunuh. Aku terlalu lemah, terlalu lemah! Aku bahkan tidak memiliki kualifikasi untuk mendekati musuh. Kesenjangan antara makhluk abadi dan manusia terlalu besar, saya hanya manusia biasa, saya seperti semut! ”</p>
+<p>	Peng Da membuka mulutnya untuk menghibur Mo Li, tapi dia tidak tahu harus berkata apa.</p>
+<p>	Pada saat berikutnya, pasir panas mengalir ke mulutnya saat Peng Da dengan cepat menutupnya. Seluruh tubuhnya terkubur dan pandangannya dipenuhi kegelapan.</p>
+<p>	“Apakah aku akan mati?”</p>
+<p>	“Aku sekarat seperti ini ?!”</p>
+<p>	“Hehehehe, saya benar-benar menyedihkan, untuk berpikir bahwa perjalanan saya di dunia baru ini akan berakhir seperti ini.”</p>
+<p>	“Aku benar-benar tidak ingin mati, aku benar-benar tidak ingin mati!”</p>
+<p>	Tiba-tiba, dalam penglihatannya yang gelap, ada bintik-bintik cahaya bintang.</p>
+<p>	“Hah? aku tidak mati?” Peng Da duduk dan melihat pemandangan di depannya dengan tak percaya.</p>
+<p>	Dia sekarang berada di dasar sumur yang kering, pusaran pasir hisap terus berputar di pintu masuk sumur, tetapi yang aneh adalah pasirnya tidak jatuh.</p>
+<p>	Ada kekuatan misterius di sini yang menghentikan pusaran pasir hisap dan hanya mengizinkan Peng Da dan Mo Li untuk memasukinya.</p>
+<p>	“Paman, paman?” Peng Da segera melihat Mo Li dan berteriak dua kali sebelum dia mendapat reaksi.</p>
+<p>	“Nak, kamu sudah bangun? Ini adalah kesempatan abadi, kami telah mendapatkan emas!” Mo Li berbalik, berkata dengan kegembiraan dan keterkejutan: “Ini sangat mungkin warisan yang ditinggalkan oleh Gu Immortal.”</p>
+<p>	“Paman, kamu yakin?” Mata Peng Da terbuka dalam ketidakpercayaan, ini terlalu seperti mimpi, pasang surut kehidupan datang terlalu tiba-tiba.</p>
+<p>	Dia bukan seorang greenhorn yang baru saja pindah, Peng Da saat ini telah bepergian dengan karavan Mo Li berkali-kali dan tahu tentang dunia Gu. Gu Immortals dan Gu Immortal warisan selalu menjadi topik diskusi di antara Gu Masters di waktu idle mereka, dia tidak mengharapkan hal yang tidak terjangkau muncul di depannya sekarang.</p>
+<p>	“Sialan, sialan!”</p>
+<p>	“Kenapa tidak ada reaksi?”</p>
+<p>	Mo Li mencoba banyak hal dan menjadi gelisah tetapi cahaya bintang tidak menunjukkan reaksi.</p>
+<p>	“Paman, ini mungkin bukan warisan Gu Immortal, kan? Aku merasa kamu terlalu banyak berpikir.” Pada saat ini, Peng Da akhirnya berdiri dan berjalan menuju Mo Li.</p>
+<p>	Mo Li tidak membalas, dia juga mulai meragukan penilaiannya sebelumnya.</p>
+<p>	Tetapi tepat pada saat ini, cahaya bintang tiba-tiba membuat gerakan. Seperti gelombang pasang, mereka melewati Mo Li dan memasuki tubuh Peng Da.</p>
+<p>	Keduanya terkejut.</p>
+<p>	Ini terjadi begitu cepat sehingga ketika mereka bereaksi, cahaya bintang sudah memasuki tubuh Peng Da.</p>
+<p>	Tanpa cahaya bintang, sumur jatuh ke dalam kegelapan.</p>
+<p>	Mo Li mengaktifkan cacing Gu-nya, menciptakan gumpalan api di tangannya yang menerangi sumur sekali lagi.</p>
+<p>	Peng Da berdiri di tempat dengan linglung seperti patung dengan mata terbuka lebar.</p>
+<p>	Mo Li dengan cepat mendekatinya: “Peng Da, Peng Da! Apa kamu baik baik saja?”</p>
+<p>	Baru kemudian Peng Da bereaksi: “Un… paman, kamu benar, ini benar-benar warisan Gu Immortal dan ini adalah warisan Pencuri Surga Iblis Venerable!”</p>
+<p>	“Apa, Pencuri Surga Iblis Yang Mulia ?!” Mo Li terguncang, mereka memiliki banyak pemahaman tentang keberadaan terhormat juga. Karena waktu dan situasi saat ini, pengetahuan dunia Gu Immortal tidak lagi rahasia di antara manusia.</p>
+<p>	Tatapan Mo Li berubah sedikit rumit: “Ini berarti, Peng Da, kamu adalah iblis dari dunia lain? Tidak heran warisan tidak menanggapi saya. ”</p>
+<p>	Peng Da merasa malu: “Paman, aku tidak sengaja menyembunyikannya darimu. Itu hanya…”</p>
+<p>	“Baik.” Mo Li melambaikan tangannya: “Jadi bagaimana jika kamu adalah iblis dunia lain? Anda masih Peng Da, orang yang saya kenal, bukan begitu?”</p>
+<p>	Peng Da sangat tersentuh dan menganggukkan kepalanya dengan cepat: “Ya! Terima kasih atas pengertiannya, paman.”</p>
+<p>	Mo Li menjabat tangannya: “Baiklah, baiklah, kamu benar-benar berhasil kali ini. Karena Anda mewarisi warisan Demon Venerable, maka gunakan metode untuk pergi dari sini dengan cepat. Metode biasa tidak berguna di sini.”</p>
+<p>	Peng Da merasa malu: “Situasinya seperti ini, paman, meskipun saya memiliki banyak cacing Gu, saya tidak dapat menggunakannya. Ini adalah pertama kalinya saya melihat cacing Gu ini dan perlu banyak latihan. Selain itu, menurut warisan, saya harus menggunakan salah satu gerakan pembunuh untuk pergi dari sini. ”</p>
+<p>	“Kalau begitu praktikkan dengan cepat, tanyakan apa pun yang tidak kamu mengerti, paman akan membimbingmu!”</p>
+<p>	“Ya, terima kasih paman.”</p>
+<p>	“Apakah masih ada kebutuhan untuk terima kasih di antara kita?” Mo Li tersenyum: “Berlatihlah dengan cepat, kita tidak punya banyak air dan makanan.”</p>
+<p>	Sebagai pewaris, tidak masalah jika Peng Da makan atau minum di sumur, tetapi Mo Li tidak dapat berbagi manfaat yang sama.</p>
+<p>	Selama beberapa hari berikutnya, Peng Da berlatih tanpa istirahat. Dia hanya manusia fana sehingga cacing Gu yang dia latih semuanya adalah Gu fana.</p>
+<p>	Ini adalah pertama kalinya dia bersentuhan dengan cacing Gu ini, meskipun ada penjelasan rinci dalam warisan, dia masih perlu berlatih dan menguasai cacing Gu ini.</p>
+<p>	Mo Li membantu Peng Da untuk belajar dan belajar, begitu mereka mencapai kemajuan, Peng Da akan menyerahkan cacing Gu kepada Mo Li untuk demonstrasi dan bimbingan.</p>
+<p>	Mo Li adalah Guru Gu yang berpengalaman, meskipun dia tidak memiliki kualifikasi untuk mewarisi warisan sejati Surga Pencuri, dia memiliki cara yang jauh lebih efisien untuk menyelidiki cacing Gu ini.</p>
+<p>	Akhirnya, Peng Da hampir tidak bisa menguasai penggunaan beberapa cacing Gu dan menemukan cara untuk menggunakan jurus pembunuh.</p>
+<p>	“Ayo Peng Da, cobalah untuk berhasil dalam satu upaya!” Mo Li menyemangati Peng Da.</p>
+<p>	“Lihat ini, paman.” Peng Da menggunakan jurus pembunuh untuk pertama kalinya tetapi tidak berhasil.</p>
+<p>	Aktivasi gerakan pembunuh gagal dan dia menderita serangan balik, dia batuk darah dan jatuh ke tanah.</p>
+<p>	“Peng Da, kamu baik-baik saja?” Mo Li dengan cepat memeriksa tubuh Peng Da.</p>
+<p>	Peng Da mengeluarkan kata-kata melalui mulutnya: “Aku telah mengecewakanmu, paman. Tapi yakinlah, aku pasti akan… ah!”</p>
+<p>	Tiba-tiba, matanya terbuka lebar.</p>
+<p>	Dia kemudian melihat dadanya dengan ekspresi tidak percaya.</p>
+<p>	Dadanya tertusuk oleh tangan Mo Li, hatinya hancur karena serangan diam-diam ini!</p>
+<p>	“Un … paman …” Bahkan lebih banyak darah mulai mengalir keluar dari mulut Peng Da.</p>
+<p>	Mo Li mengangkat kepalanya perlahan, matanya dipenuhi air mata dan ekspresinya sangat bengkok, ketidaktahuan dan ketakutan memenuhi pikiran Peng Da.</p>
+<p>	Suara Mo Li sangat serak: “Aku ingin balas dendam, aku ingin balas dendam! Tapi warisan sejati memilihmu, paman tidak punya pilihan lain, Peng Da! Anda terlalu muda, Anda berlatih begitu lama tetapi Anda bahkan tidak bisa menguasai gerakan pembunuh. Paman tidak bisa menunggu lebih lama lagi, paman tidak bisa bergantung padamu.”</p>
+<p>	Mo Li kemudian mengeluarkan tangannya.</p>
+<p>	Baca di meionovel.id</p>
+<p>	Peng Da tanpa daya jatuh ke tanah, matanya tak berdaya melihat pintu masuk sumur.</p>
+<p>	Dia sudah mati.</p>
+<p>	Tapi Mo Li tidak berhenti, dia mengaktifkan cacing Gu dan menangkap jiwa Peng Da.</p>
+<p>	“Baiklah, warisan sejati Surga Pencuri adalah milikku sekarang.” Mo Li tertawa. Darah Peng Da berceceran di wajahnya, wajahnya yang berlumuran darah memiliki senyum yang mempesona.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

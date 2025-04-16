@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 14";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_13.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 14">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_15.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 14</h1>
+        <div class="text-left">
+<p>	Bab 14</p>
+<p>	Bab 14 – Di celah gunung menyembunyikan teori yang mendalam</p>
+<p>	Cacing Minuman Keras berbentuk seperti ulat sutra, seluruh tubuhnya memancarkan cahaya putih mutiara. Itu sedikit gemuk dan memiliki penampilan yang lucu.</p>
+<p>	Cacing Liquor memakan anggur dan bisa terbang. Ketika terbang, ia akan meringkuk menjadi bola, dan kecepatannya sangat cepat. Meskipun itu hanya Gu Peringkat satu , tapi nilainya bahkan lebih dari beberapa Gu peringkat dua .</p>
+<p>	Untuk membuatnya menjadi Gu vital seseorang jauh lebih bermanfaat daripada Moonlight Gu.</p>
+<p>	Saat ini cacing Liquor terpaku pada tiang bambu yang hanya berjarak 50-60 langkah dari Fang Yuan. Dia menahan napas, tidak mendekat dengan gegabah, tetapi perlahan berjalan mundur.</p>
+<p>	Dia tahu jaraknya sangat dekat, tetapi untuk benar-benar menangkap cacing Liquor secara langsung, itu adalah tugas yang sangat sulit bagi seorang Master Gu yang baru saja membuka lubang purba seperti dia. Bisa dibilang, sama sekali tidak ada harapan untuk sukses.</p>
+<p>	Fang Yuan tidak dapat melihat cacing Liquor dengan jelas, tetapi dalam kegelapan dia bisa merasakan cacing Liquor mengarahkan kewaspadaannya padanya. Dia perlahan mundur dengan lembut, mencoba yang terbaik untuk tidak mengganggu cacing Liquor.</p>
+<p>	Dia tahu bahwa jika cacing Liquor terbang, dia tidak akan pernah bisa mengejar kecepatannya sendiri. Dia perlu menunggu sampai cacing Liquor minum sampai mabuk, dan kemudian dengan kecepatan terbangnya melambat dia akan memiliki kesempatan untuk menangkapnya.</p>
+<p>	Melihat Fang Yuan mundur lebih jauh, cacing Liquor merangkak di tiang bambu bergerak. Aroma anggur yang kuat sebelumnya begitu menggoda, begitu memikat, membuat cacing tersesat dalam lamunan. Jika ada air liur, itu akan lama meneteskan air liur di sekitarnya.</p>
+<p>	Tapi cacing Liquor sangat waspada dan waspada. Hanya setelah Fang Yuan mundur 200 langkah ke belakang, itu menyusut sedikit dan memantul ke udara. Ketika terbang tinggi di udara, tubuhnya meringkuk menjadi bola, tampak seperti pangsit beras putih kecil. Pangsit kecil itu menyapu udara dalam bentuk lingkaran, mengambang di atas rumput yang ditaburi anggur bambu hijau sebelumnya.</p>
+<p>	Dengan makanan lezat tepat di depan matanya, cacing Liquor menurunkan kewaspadaannya. Dengan tidak sabar ia naik ke kuncup bunga yang diisi dengan anggur dan mengeluarkan kepalanya yang kecil, hanya meninggalkan ekor yang gemuk di luar.</p>
+<p>	Cacing Minuman Keras sangat rakus, dan anggur bambu hijau sangat lezat. Itu membuka mulutnya lebar-lebar dan menghirup, sangat cepat hilang dalam kelezatan makanannya, benar-benar melupakan Fang Yuan.</p>
+<p>	Pada saat ini, Fang Yuan mulai mendekat dengan hati-hati. Dia bisa melihat ekor cacing Liquor di luar kuncup bunga. Ekor ini persis seperti ekor ulat sutera, tembem dan bulat. Cahaya yang dipancarkannya membuat orang berpikir tentang mutiara.</p>
+<p>	Pada awalnya, ekor cacing Liquor tergantung di luar, tidak bergerak. Kemudian setelah beberapa saat, ekor ini mulai melengkung ke atas, menunjukkan bahwa ia minum dengan sangat gembira. Pada akhirnya ketika Fang Yuan hanya berjarak sepuluh langkah, ekornya mulai bergoyang dan berayun dengan irama yang ceria.</p>
+<p>	Itu benar-benar mabuk!</p>
+<p>	Melihat ini membuat Fang Yuan hampir tertawa. Dia tidak terus berjalan ke depan, tetapi dengan sabar menunggu. Jika dia bergegas sekarang, dia pasti akan memiliki peluang besar untuk menangkap cacing Liquor, tetapi niat Fang Yuan adalah agar cacing Liquor ini membimbingnya ke sisa-sisa Biksu Bunga Anggur.</p>
+<p>	Dalam sekejap, cacing Liquor menarik diri dari kuncup bunga. Tubuhnya lebih gemuk dan kepalanya bergoyang-goyang, menyerupai orang mabuk. Tanpa diduga itu tidak menyadari kehadiran Fang Yuan. Itu naik ke bunga kuning cerah lainnya dan bertengger di benang sari, makan dengan sepenuh hati pada tetesan anggur di sana.</p>
+<p>	Kali ini setelah selesai minum, akhirnya terasa kenyang. Tubuhnya perlahan menyusut menjadi bola bundar dan perlahan terbang. Ketika berada 1,5 meter di atas tanah, ia dengan santai terbang ke arah bagian hutan bambu yang lebih dalam.</p>
+<p>	Fang Yuan dengan cepat mengikuti jejaknya.</p>
+<p>	Cacing Liquor sudah mabuk berat, membuatnya terbang lebih lambat setengah dari kecepatan biasanya. Meskipun ini masalahnya, Fang Yuan masih harus berlari sekuat tenaga untuk mengikuti bayangannya.</p>
+<p>	Malam menyapu pandangannya saat remaja muda itu berlari di hutan bambu, mengejar butiran salju kecil tidak jauh di depan.</p>
+<p>	Cahaya bulan lembut, angin sepoi-sepoi lambat dan stabil. Di hutan bambu yang seperti kolam jernih, batang bambu tombak hijau melintas di depan matanya, dengan cepat jatuh di belakangnya. Tanahnya adalah hamparan rumput hijau, penuh dengan bunga-bunga liar yang mekar. Ada batu-batu kecil dengan lumut yang tumbuh, dan tunas bambu kuning.</p>
+<p>	Bayangan samar Fang Yuan juga melaju ke depan di tanah, melewati bayangan yang setiap batang bambu dilemparkan ke bumi seperti garis hitam. Dia dengan erat menjaga pandangannya pada butiran salju, menghirup udara pegunungan yang segar dalam jumlah besar, memerintahkan kakinya untuk mengejar di tengah-tengah aroma anggur yang samar di udara.</p>
+<p>	Karena kecepatannya, cahaya bulan tampak seperti air di matanya. Cahaya dan bayangan sering berpindah-pindah, seperti dia berlari kencang di air yang dipenuhi rumput laut.</p>
+<p>	Cacing Minuman Keras terbang keluar dari hutan bambu, dan begitu pula Fang Yuan. Lautan bunga putih dengan bintik kuning di tengah meminjam angin dari kakinya, menyebarkan kelopaknya. Sekelompok jangkrik Dragonpill yang menyerupai puisi mengalir kebetulan bergerak ke depan; saat Fang Yuan berlari melewatinya, ada swoosh dan awan merah mekar di depannya, menyebar di sekitar lautan kunang-kunang bintang merah yang muncul dari awan.</p>
+<p>	Aliran gunung yang tenang diaspal dengan kerikil, permukaan air yang gemericik memantulkan bulan musim semi di langit malam; dengan beberapa percikan, Fang Yuan mengarungi, menciptakan ribuan riak berwarna perak.</p>
+<p>	Sangat disayangkan bahwa sungai ini, setelah sekian lama, batu-batunya yang indah dan berharga diinjak-injak dan dipatahkan.</p>
+<p>	Fang Yuan sedang mengejar, dengan kuat mengikuti di belakang cacing Liquor. Naik ke atas aliran gunung, dia sudah bisa mendengar suara air terjun. Setelah dia berbalik di hutan yang jarang, dia melihat cacing Liquor terbang ke celah di tengah batu besar.</p>
+<p>	Mata Fang Yuan menyala dan dia berhenti di jalurnya.</p>
+<p>	“Jadi di sini.” Dia terengah-engah, jantungnya berdetak kencang di dadanya seperti orang gila. Dengan satu pemberhentian ini dia bisa merasakan seluruh tubuhnya berkeringat, udara panas mengalir ke seluruh tubuhnya mengiringi aliran darahnya yang semakin cepat.</p>
+<p>	Melihat sekeliling, dia menemukan bahwa tempat ini adalah bangku yang dangkal (1).</p>
+<p>	Kerikil dengan berbagai ukuran menutupi tanah, permukaan sungai nyaris menutupi batu-batu kecil. Ada juga balok-balok batu abu-abu yang tersebar bebas di daerah itu.</p>
+<p>	Di belakang Gunung Qing Mao ada air terjun besar. Aliran air terjun bervariasi dengan cuaca; itu jatuh ke bumi, menumbuk kolam yang dalam. Di samping kolam yang dalam adalah Desa Bai Clan, sebuah klan dengan pengaruh kuat yang sebanding dengan desa Gu Yue.</p>
+<p>	Air terjun bercabang ke banyak cabang yang lebih kecil, dan jelas bahwa Fang Yuan menghadapi salah satu dari banyak cabang cabang. Pada saat-saat normal, dataran ini kering, tetapi karena hujan deras baru-baru ini yang berlangsung selama tiga hari tiga malam, sungai dangkal terbentuk di sini.</p>
+<p>	Sumber aliran yang mengalir berasal dari batu besar yang telah dimasuki cacing Liquor sebelumnya.</p>
+<p>	Batu itu bersandar pada dinding gunung vertikal. Air terjun kecil yang bercabang dari air terjun utama seperti ular piton perak yang mengalir menuruni dinding gunung, menabrak batu besar. Setelah waktu yang cukup lama bagian tengah batu besar ini telah terkikis dan membentuk celah.</p>
+<p>	Pada saat ini saat air terjun mengalir, arus air dengan lembut meraung. Itu seperti tirai putih, benar-benar menghalangi celah di batu.</p>
+<p>	Setelah mengamati sekelilingnya, napas Fang Yuan tidak lagi cemas. Matanya bersinar dengan sedikit tekad; dia berjalan ke batu besar dan menarik napas dalam-dalam, lalu dia bergegas masuk lebih dulu.</p>
+<p>	Celah batu itu agak besar, dan dua manusia dewasa bisa berjalan berdampingan di dalamnya tanpa masalah. Apa lagi yang bisa dikatakan dengan Fang Yuan, yang hanyalah seorang remaja laki-laki berusia 15 tahun?</p>
+<p>	Begitu dia bergegas masuk, arus deras menekan tubuh Fang Yuan. Pada saat yang sama air dingin dengan cepat membasahinya dari ujung kepala sampai ujung kaki. Fang Yuan berjuang melawan tekanan air, bergerak dengan langkah cepat ke depan. Saat dia berjalan beberapa lusin langkah, tekanan air mulai berkurang.</p>
+<p>	Tetapi ruang di celah itu juga mulai menyusut, dan Fang Yuan hanya bisa berjalan menyamping. Telinganya dipenuhi dengan deru air, bagian atas kepalanya adalah lembaran putih, dan lebih dalam ke batu itu adalah kegelapan hitam.</p>
+<p>	Apa yang bersembunyi di kegelapan?</p>
+<p>	Bisa jadi ular berbisa, tapi bisa juga tokek beracun. Mungkin itu adalah jebakan yang dipasang oleh Biksu Bunga Anggur, atau mungkin itu kosong.</p>
+<p>	Fang Yuan hanya bisa terus maju dengan berjalan menyamping, perlahan merayap ke dalam kegelapan. Air tidak lagi membasahi kepalanya; dinding-dinding batunya tertutup lumut, merumput di kulitnya, terasa licin. Segera dia ditelan oleh kegelapan, dan celah batu menjadi lebih sempit, menekan di sekelilingnya. Lambat laun bahkan tengkoraknya tidak bisa berputar dengan bebas. Masih Fang Yuan mengertakkan gigi dan terus maju.</p>
+<p>	Setelah berjalan dua puluh langkah lagi, dia menyadari bahwa ada bayangan merah terang di kegelapan. Awalnya, dia mengira itu hanya ilusi. Tetapi ketika dia berkedip dan fokus, dia mulai memastikan bahwa ini memang ringan!</p>
+<p>	Kesadaran ini membuatnya memperbaharui semangatnya.</p>
+<p>	Dia terus berjalan selama lima puluh hingga enam puluh langkah lagi, lampu merah semakin terang. Di matanya, cahaya perlahan melebar menjadi jahitan yang panjang, vertikal, dan halus.</p>
+<p>	Dia mengulurkan lengan kirinya, tiba-tiba merasa bahwa dinding di depan telah bengkok. Seketika dia bersukacita, mengetahui bahwa ada ruang tertutup di dalam batu besar itu. Dengan beberapa langkah lagi dia akhirnya bergegas ke jahitan ringan ini.</p>
+<p>	Matanya disambut dengan pemandangan kandang seluas sekitar 80 meter².</p>
+<p>	“Saya sudah berjalan begitu lama. Dengan jarak sejauh ini, saya sudah lama melewati batu besar, jadi saya seharusnya berada di jantung tebing gunung sekarang.” Saat dia mengukur ruang tersembunyi ini, dia menggerakkan tangan dan kakinya, meregangkan anggota tubuhnya.</p>
+<p>	Seluruh ruangan dipenuhi dengan cahaya merah redup, tetapi dia tidak tahu dari mana cahaya itu berasal. Dinding batunya lembap dan tertutup lumut, tapi udara di sini sangat kering. Di dinding ada juga beberapa tanaman merambat yang layu. Tanaman merambat terjalin satu sama lain, menenun di setengah permukaan dinding. Bahkan ada beberapa bunga layu yang tumbuh di tanaman merambat.</p>
+<p>	Fang Yuan melihat sisa-sisa bunga dan daun ini, merasa agak akrab.</p>
+<p>	“Ini adalah Gu Bunga Karung Anggur , dan Gu Rumput Kantong Nasi .” Tiba-tiba sebuah pikiran terlintas di benaknya dan dia bisa mengenali batang dan tanaman merambat yang layu ini.</p>
+<p>	Gu datang dalam berbagai bentuk dan rupa. Beberapa seperti batu mineral seperti bentuk kristal biru dari Moonlight Gu . Beberapa datang dalam bentuk cacing, seperti cacing Liquor seperti ulat sutra. Ada juga jenis berumput berbunga, seperti Gu Bunga Karung Anggur dan Gu Rumput Kantong Nasi sebelum Fang Yuan.</p>
+<p>	Kedua jenis Gu ini adalah Gu alami peringkat satu . Hanya dengan menuangkan esensi purba mereka bisa tumbuh. Setelah tumbuh bagian tengah bunga akan mengeluarkan anggur nektar bunga, dan kantong rumput akan tumbuh beras yang harum.</p>
+<p>	Fang Yuan memindahkan garis pandangnya di sepanjang tanaman merambat, dan tentu saja dia menemukan setumpuk akar layu berkumpul menjadi rumpun berbentuk bola di sudut. Cacing Liquor sedang beristirahat di rumpun akar mati, tidur nyenyak. Itu sudah mudah dijangkau.</p>
+<p>	Fang Yuan berjalan mendekat dan membawa cacing Liquor ke dalam pelukannya. Kemudian dia berlutut dan mencabut tanaman merambat yang mati, menemukan setumpuk tulang kerangka yang terbungkus di dalamnya.</p>
+<p>	“Akhirnya aku menemukanmu, Biksu Bunga Anggur.” Ada senyum di bibirnya ketika dia melihat ini.</p>
+<p>	Tepat saat dia hendak mengulurkan tangannya dan melucuti tanaman merambat yang tersisa, tiba-tiba-</p>
+<p>	“Coba sentuh?” Suara penuh niat membunuh tiba-tiba terdengar di belakang Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

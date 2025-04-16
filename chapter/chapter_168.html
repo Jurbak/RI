@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 168 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 168";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_167.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 168">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_169.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 168</h1>
+        <div class="text-left">
+<p>	Bab 168</p>
+<p>	Bab 168: Lycan petir</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Paket serigala sedang bergerak, bergegas masuk seperti air pasang.</p>
+<p>	Situasi berubah menjadi yang terburuk, dan dua pemimpin klan dan ekspresi para tetua mereka berubah.</p>
+<p>	Meskipun kedua klan berhasil melawan gelombang serigala, itu melalui pertempuran yang berbahaya dan merupakan kemenangan besar. Sekarang ada gelombang serigala baru yang kuat, mereka tidak punya cara untuk melawannya.</p>
+<p>	Seketika, kedua klan secara tidak sadar berhenti bertarung.</p>
+<p>	“Laporan mengatakan ada tiga serigala mahkota guntur kan?” Seorang tetua klan berteriak panik.</p>
+<p>	“Tidak, serigala mahkota guntur ini memiliki banyak luka, dan ukuran gerombolan serigala juga tidak terlalu besar,” Gu Yue Bo memaksa dirinya untuk tetap tenang dan menganalisis.</p>
+<p>	“Jangan bilang, ini serigala mahkota guntur yang menyerang desa Xiong?” Seorang tetua klan menampar dahinya saat dia berteriak.</p>
+<p>	Ini sangat mungkin, dan kemungkinan besar benar.</p>
+<p>	Para tetua klan merasa serius ketika seseorang berkata, “Fakta bahwa mereka muncul di sini, bukankah itu berarti klan Xiong sudah …”</p>
+<p>“Desa Xiong sialan itu, bagaimana mereka bisa begitu tidak berguna? Bahkan tidak mampu menahan gelombang pasang serigala!” seseorang dimarahi.</p>
+<p>	Tapi ada juga yang optimis, “Soalnya, kaki depan serigala mahkota guntur ini terluka, otot-ototnya mengerut semua!”</p>
+<p>	Mereka mengikuti suara itu dan mengamati, mendapatkan kembali semangat yang hilang.</p>
+<p>	Itu benar.</p>
+<p>	Kaki belakang serigala mahkota guntur ini berkembang, tetapi kaki depannya lebih kecil, dengan otot yang menyusut. Hal ini menyebabkan ia hanya menggunakan kaki belakang saat berlari, melompat ke depan seperti kanguru.</p>
+<p>	“Tunggu, ini tidak tampak seperti serigala mahkota guntur …” Pemimpin klan Bai tiba-tiba memikirkan sesuatu, menggigil.</p>
+<p>	“Petir lycan!” Fang Yuan sudah punya jawaban.</p>
+<p>	Lima harimau satu lamassu, tiga anjing satu molossus, sepuluh serigala satu lycan.</p>
+<p>	Lycan juga merupakan tipe serigala, tetapi dia jauh lebih pintar daripada serigala berkali-kali, dan biasanya ahli strategi dari kawanan serigala. Para lycan petir di depan mereka tampak seperti serigala mahkota guntur dalam penampilan, sehingga kebingungan pengintaian Gu Master sangat umum. Tapi itu adalah raja binatang segudang biru sejati, dan memiliki kecerdasan tidak kurang dari laki-laki!</p>
+<p>	Lycan petir ini, meskipun lebih rendah dari serigala mahkota guntur biasa dalam hal kekuatan fisik, memiliki kecerdasan manusia dan jauh lebih berbahaya daripada serigala mahkota guntur. Dengan pasukan besar serigala petir untuk dikomando, tidak mengherankan jika klan Xiong dimusnahkan oleh mereka.</p>
+<p>	“Pergi!” Fang Yuan melebarkan sayapnya dan terbang ke langit.</p>
+<p>	Para tetua di sini telah mengalami pertempuran panjang, dan kekuatan pertempuran mereka sangat terkikis. Mereka tidak bisa berurusan dengan kawanan serigala, dan yang lebih penting, kekhawatiran mereka terhadap satu sama lain membuat kedua belah pihak sulit untuk bekerja sama.</p>
+<p>	Fang Yuan berbalik dan pergi; raja binatang yang tak terhitung jumlahnya bukanlah lelucon. Meskipun masih ada dua cacing Gu liar yang beterbangan, dia tidak peduli.</p>
+<p>	Dia harus segera pergi, karena nanti dan dia mungkin tidak memiliki kesempatan!</p>
+<p>	Mengetahui batasan seseorang dan mampu melepaskan dan menyerah, inilah kriteria nomor satu untuk menjelajah dunia.</p>
+<p>	“Mundur, gelombang serigala sangat besar, kita tidak bisa berbuat apa-apa.”</p>
+<p>	“Kembalilah ke desa dan rencanakan pertahanan kita!”</p>
+<p>	Meskipun tetua klan belum menyadari identitas lycan petir, mereka semua memiliki pikiran mundur.</p>
+<p>	Tetapi pada saat ini, lycan petir menggeram, membuka mulutnya yang besar.</p>
+<p>	Taring serigalanya tajam seperti belati, dan di antaranya, gumpalan hitam muncul entah dari mana, membentuk bola hitam dalam sekejap.</p>
+<p>	Bangku gereja!</p>
+<p>	Bola hitam itu melesat keluar, menggambar lintasan hitam melengkung di udara dan menghantam tanah.</p>
+<p>	“Itu ketinggalan?”</p>
+<p>	“Serigala mahkota guntur ini sudah selesai, bidikannya payah!”</p>
+<p>	Tetua klan berteriak, tetapi Fang Yuan terbang lebih cepat.</p>
+<p>	Bam!</p>
+<p>	Bola kabut hitam meledak dan di bawah pengaruh kuat itu, kabut hitam menyebar ke mana-mana.</p>
+<p>	Kecepatannya lebih cepat dari yang bisa dilihat mata. Dalam waktu singkat, itu mencakup radius lebih dari seratus li (satu li = 500m). “Ini adalah Gu Asap Serigala Peringkat empat!” Hati Fang Yuan tenggelam; dia telah membuat tanggapan yang paling logis pada saat pertama. Tapi asap serigala hitam menyebar terlalu cepat, benar-benar menyelimuti dirinya.</p>
+<p>	Seketika, dia merasa seperti sedang berdiri di tengah langit malam, tidak melihat apa-apa selain kegelapan. Di mana-mana ada asap tebal, membuat sulit bernapas, dan sangat tidak nyaman.</p>
+<p>	Tapi untungnya dia memiliki Thunderwings Gu, jadi selama dia terbang, dia bisa keluar dari jangkauan asap serigala.</p>
+<p>	Retakan!</p>
+<p>	Pada saat berikutnya, sambaran petir menyambar, membelah asap hitam tebal seperti ular guntur atau naga yang mengamuk, berjalan lebih dari seratus li dan menyerang Fang Yuan secara langsung.</p>
+<p>	Lycan petir menyerang.</p>
+<p>	Petir itu begitu cepat sehingga seseorang hampir tidak bisa bereaksi terhadapnya.</p>
+<p>	Tetapi pada saat yang genting ini, naluri bertarung Fang Yuan melampaui kecepatan pikirannya, bereaksi terlebih dahulu.</p>
+<p>	Gun Perisai Gu!</p>
+<p>	Kanopi Langit Gu!</p>
+<p>	Perisai petir bundar muncul di depan Fang Yuan, dan di tubuhnya juga muncul baju besi putih.</p>
+<p>	Petir yang mengamuk bersinar dengan kecerahan yang menusuk mata seperti naga surgawi yang mengaum, menabrak perisai petir.</p>
+<p>	Perisai itu bertahan kurang dari satu detik sebelum pecah di bawah kekuatan petir yang kuat.</p>
+<p>	Petir mendarat di Fang Yuan. Pada saat itu, meskipun dia sudah menutup matanya, dia masih merasakan cahaya menembus pupilnya.</p>
+<p>	Sebuah kekuatan yang kuat menyerangnya, menyebabkan dia jatuh.</p>
+<p>	Dia hampir pingsan saat arus listrik bergerak, melumpuhkan otot-ototnya, hampir membuatnya lupa bernapas!</p>
+<p>	Plop, dia mendarat di tanah.</p>
+<p>	Dia akhirnya hanya berhasil mendapatkan kembali kesadarannya setelah rasa sakit yang hebat melonjak melalui dirinya seperti gelombang.</p>
+<p>	Dia menahan rasa sakit dan mati rasa yang hebat, dan mencoba untuk bangun.</p>
+<p>	Thunder Shield Gu sudah mati, sedangkan Thunderwings Gu dipukul dan nyaris tidak bisa bertahan hidup; itu tidak mungkin untuk digunakan lagi. Sky Canopy Gu juga terluka parah, terlihat agak putus asa. Lagi pula, itu terkena arus listrik yang begitu kuat.</p>
+<p>	Serangan lycan petir memancarkan kekuatan penuh cacing peringkat empat Gu.</p>
+<p>	Semakin banyak cacing Gu maju, semakin besar perbedaan antara alam.</p>
+<p>	Untuk serangan cacing Gu peringkat empat, setidaknya dua Gu peringkat tiga diperlukan untuk bertahan melawannya. Namun, Perisai Petir Gu meninggal karena pertempuran sebelumnya telah menyebabkannya mengalami banyak luka.</p>
+<p>	“Tidak kusangka lycan petir ini sangat memikirkanku …” Fang Yuan tertawa pahit, mengamati sekeliling.</p>
+<p>	Lingkungannya gelap, penuh asap tebal; Fang Yuan tidak dapat memberi tahu arah.</p>
+<p>	“Hati-hati, serigala mahkota guntur itu menjadi lebih kecil, sekarang sekecil serigala petir normal dan bersembunyi di antara kawanan,” teriak seorang tetua klan saat ini dari asap.</p>
+<p>	Fang Yuan mendengarnya dan iris matanya menyusut.</p>
+<p>	Lycan petir ini terlalu licik, dan sangat jahat. Itu mungkin ingin melenyapkan semua Master Gu ini, dan ketika menyerang Fang Yuan, itu menunjukkan bahwa dia tidak ingin melepaskan satu pun dari mereka.</p>
+<p>	Lingkungan dengan cepat bersinar dengan mata serigala yang tak terhitung jumlahnya.</p>
+<p>	Suara geraman mereka dan suara angin dari kawanan serigala yang berlarian terdengar oleh Fang Yuan.</p>
+<p>	Di bawah lingkungan yang gelap seperti itu, penglihatan Master Gu sangat terhalang. Tetapi kawanan serigala itu tidak terpengaruh, karena mereka telah menyerah pada penciuman dan memperoleh penglihatan yang sangat baik.</p>
+<p>	“Aku harus cepat pergi dari sini. Siapa yang tahu jika saya akan menemukan lycan petir itu? Bahkan jika saya tidak bertemu sekarang, hanya dikelilingi oleh kawanan serigala ketika saya hanya memiliki 40% esensi purba, itu tidak cukup untuk mempertahankan pengeluaran saya!</p>
+<p>	Fang Yuan dengan cepat mempertimbangkan di dalam hatinya, lalu dia mengaktifkan Rumput Telinga Komunikasi Bumi.</p>
+<p>	Lebih dari sepuluh akar tumbuh dari telinganya dan memanjang ke luar.</p>
+<p>	Banyak suara terdengar. Ada teriakan serigala, suara pertempuran, geraman panik tetua klan, dan tangisan sedih serigala petir saat sekarat.</p>
+<p>	Terlalu membingungkan!</p>
+<p>	Jangkauan Earth Communication Ear Grass sangat besar, tetapi tidak dapat membedakan detail kecil.</p>
+<p>	Fang Yuan mengerutkan kening, hanya mendengarkan arah dengan lebih sedikit suara.</p>
+<p>	Tapi dengan cepat dia bertemu dengan sekawanan lebih dari seratus serigala.</p>
+<p>	Serigala petir berlari dari asap hitam, masing-masing ganas seperti biasa.</p>
+<p>	Fang Yuan memanggil Chainsaw Golden Centipede dan mengaktifkan Sky Canopy Gu.</p>
+<p>	Pisau cukur berputar dengan keras dan kelabang itu seperti pedang besar, memotong asap hitam dan mendarat di tubuh serigala, menyebabkan hujan darah dan tulang.</p>
+<p>	Fang Yuan menyerang seperti perahu yang mencoba mendayung menanjak, menghilangkan rintangannya.</p>
+<p>	Banyak serigala petir mati di bawah Chainsaw Golden Centipede. Tapi kemudian yang kedua, ketiga … mereka terus menyerangnya.</p>
+<p>	“Lycan petir ini terlalu jahat dan kejam, benar-benar membuat serigala petir mengelilingi kita dari belakang.” Fang Yuan telah bergerak ke satu arah, dan setelah bergegas sebentar, dia segera menyadari kebenaran setelah dia terus menghadapi serigala petir.</p>
+<p>	Dia bertarung saat dia mundur. Setelah beberapa saat, dia bermandikan darah.</p>
+<p>	Tekanannya terlalu besar, sekelilingnya tertutup kegelapan; dia tidak bisa melihat apa-apa. Paket serigala bergegas masuk dari segala arah, dan sulit baginya untuk menghadapinya sendirian.</p>
+<p>	“Gu Yue Bo, bagaimana menurutmu?” Pada saat ini, pemimpin klan Bai berkata dari dalam asap gelap.</p>
+<p>	“Baiklah, mari kita bekerja sama dan keluar dari ini dulu!” Gu Yue Bo berteriak, dengan cepat menjawab.</p>
+<p>	Ini adalah situasi yang dipaksakan — hanya melalui kerja sama mereka dapat memiliki kesempatan untuk bertahan hidup.</p>
+<p>	Jika tidak, dengan bertarung sendirian, mereka akan segera mengeluarkan semua esensi purba mereka pada serigala petir dan diubah menjadi makanan. Itu pasti akan menjadi akhir yang buruk.</p>
+<p>	Melolong!</p>
+<p>	“Persetan!”</p>
+<p>	Pada saat berikutnya, dengan teriakan serigala, ledakan hebat terdengar dan kedua pemimpin klan berteriak, tidak lagi mampu mengatur para tetua klan.</p>
+<p>	Terbukti, lightning lycan keluar dan melakukan serangan diam-diam.</p>
+<p>	Bagaimanapun, itu memiliki kecerdasan seorang pria. Setelah menyerang, itu dapat mengganggu rencana dua pemimpin klan, dan merusak aliran perlawanan tetua klan.</p>
+<p>	Tanpa dua pemimpin klan untuk menekan adegan itu, bagaimana para tetua klan bisa bekerja sama dengan tulus?</p>
+<p>	Ini adalah pertanyaan besar.</p>
+<p>	“Aku tidak bisa melanjutkan. Pengeluaran esensi purba saya terlalu tinggi, saya perlu meminjam kekuatan dari orang lain! Setelah membunuh sebentar, Fang Yuan merasa kelelahan.</p>
+<p>	Dia memiliki kekuatan dua babi hutan, tetapi sekarang dia merasa sangat sakit di sekujur tubuhnya.</p>
+<p>	Esensi purbanya tidak lagi cukup. Dia memiliki luka di sekujur tubuhnya, tetapi dia terpaksa berhenti menggunakan Sky Canopy Gu.</p>
+<p>	Tubuh Chainsaw Golden Centipede redup, pisau cukurnya sudah dalam kondisi buruk. Dalam waktu singkat, itu telah membunuh hingga seribu serigala, dan dalam jumlah itu, ada serigala petir yang berani juga.</p>
+<p>	Beberapa dari mereka lebih keras dari baja, karena mereka memiliki Gu defensif.</p>
+<p>	The Chainsaw Golden Centipede tidak kebal, dan tanpa pisau cukur, kekuatan serangannya akan sangat berkurang, dengan cepat menjadi tidak berguna.</p>
+<p>	Fang Yuan tidak memperpanjang pertempuran apa pun; dia dengan cepat bergerak saat dia bertarung.</p>
+<p>	Dia mengandalkan Earth Communication Ear Grass untuk menganalisis situasi. Begitu dia mendengar langkah kaki serigala petir yang gila, dia akan mengubah arah dan mencoba menghindarinya.</p>
+<p>	Serigala petir yang gila adalah seribu raja binatang, dia tidak bisa melawannya sendirian. Begitu dia ditarik ke dalam pertempuran, dia akan jatuh ke dalam pengepungan, dan itu akan menjadi jalan buntu.</p>
+<p>	“Saya tidak puas!” Dari asap tebal, seorang tetua klan menangis saat suaranya berakhir.</p>
+<p>	Dari asap hitam, gerombolan serigala menyerang, dan banyak tetua klan mati oleh mulut serigala, menggeram dalam ketidakberdayaan dan kemarahan.</p>
+<p>	“Aku juga tidak bisa bertahan lebih lama lagi!” Fang Yuan merasakan aura kematian, tapi dia masih tenang; semakin berbahaya, semakin tenang pikirannya.</p>
+<p>	Hatinya tidak goyah sama sekali. Dalam kehidupan sebelumnya, dia berada dalam situasi yang lebih buruk.</p>
+<p>	Situasi saat ini masih tidak terlalu buruk. Dengan dua pemimpin klan melawan lycan petir, Fang Yuan masih memiliki kesempatan.</p>
+<p>	“Oh? Pertarungan terdengar di depan. ” Fang Yuan mendengar suara itu dan mengubah arahnya. Dia berada di batas kemampuannya, jadi tidak peduli apakah itu klan Gu Yue atau Master Gu klan Bai, mereka berguna baginya.</p>
+<p>	“Membunuh! Membunuh! Membunuh!” Jauh di sana, dia mendengar Guru Gu ini berteriak, berjuang tanpa henti.</p>
+<p>	Fang Yuan berlari, dan tiba-tiba berhenti.</p>
+<p>	Bai Ning Bing!</p>
+<p>	Catatan: – Lightning Lycan, nah jujur ​​itu langsung diterjemahkan menjadi ‘Cunning electric ‘. Karena tidak ada kata bahasa Inggris untuk , digunakan Lycan. sebenarnya adalah serigala legendaris di Cina yang mungkin ada atau tidak; dikatakan memiliki dua cakar yang sangat pendek di depan sehingga ia menunggangi punggung serigala normal sebagai gantinya. (Atau semacam itu…)</p>
+<p>	– Harimau legendaris/mitos yang tidak memiliki padanan kata dalam bahasa Inggris. Jadi saya hanya menggantinya dengan lamassu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

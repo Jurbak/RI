@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 30 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 30";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_29.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 30">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_31.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 30</h1>
+        <div class="text-left">
+<p>	Bab 30</p>
+<p>	Bab 30 – Fang Yuan, kamu merampok lagi?</p>
+<p>	Hampir di saat yang sama, di tempat lain.</p>
+<p>	“Ayah dan ibu yang terhormat, begitulah yang terjadi.” Fang Zheng berdiri tegak, nadanya penuh hormat dan hati-hati.</p>
+<p>	Di aula, paman Fang Yuan, Gu Yue Dong Tu serta bibinya duduk di kursi besar berpunggung lebar sambil mengerutkan kening. Bibi menggertakkan giginya. Sambil merasakan ketidakadilan untuk Fang Zheng dan pada saat yang sama berbangga atas masalah ini, dia berkata, “Fang Yuan anak bajingan itu, dia memeras orang lain adalah satu hal, tetapi untuk berpikir dia bahkan tidak akan mengampuni adik laki-lakinya sendiri. Betapa tidak berperasaan dan tidak berperasaan! Namun kali ini dengan kejahatan yang begitu besar, saya berharap dia akan dikeluarkan dari akademi segera setelah ini. ”</p>
+<p>	“Sudah cukup, kamu harus lebih sedikit bicara.” Paman menghela napas dalam-dalam dan memberi tahu Fang Zheng, “Kamu hanya kehilangan sepotong batu purba, jangan khawatir. Pergi ke perbendaharaan dan ambil batu, tidak ada urusan untukmu di sini sekarang. Anda harus pergi dan bekerja keras dalam berkultivasi. Dengan bakat kelas A Anda, menjadi Master Gu tahap Tengah pertama adalah kemungkinan besar. Jangan sia-siakan bakat yang diberikan surga kepadamu, karena ibumu dan aku berharap melihatmu menjadi nomor satu.”</p>
+<p>	“Ya, ayah dan ibu. Anakmu pergi.” Fang Zheng pergi dengan hati penuh keraguan.</p>
+<p>	Dia diam-diam berpikir, “Kakak merampok semua siswa ketika dia memblokir gerbang akademi hari ini. Dia menciptakan akibat yang mengerikan, aku khawatir dia mungkin benar-benar dikeluarkan. Jika itu terjadi, haruskah saya membela kasusnya untuknya?”</p>
+<p>	Dua suara muncul di kepalanya.</p>
+<p>	Sebuah suara berkata, “Tidak perlu memohon padanya, dia bahkan merampok batu purba Anda meskipun Anda adalah adiknya sendiri. Bahkan jika dia dikeluarkan, itu adalah kesalahannya sendiri. Jika Surga melakukan dosa, itu dapat diampuni, tetapi jika seseorang melakukan dosa sendiri, dia layak mati ! ”</p>
+<p>	Suara lain berkata, “Tapi dia adalah kakak laki-lakimu sendiri, dia memiliki wajah yang mirip, darahnya lebih kental daripada air. Baiklah, bahkan jika Anda tidak mengakuinya, Anda tetap harus membela kasusnya. Jika Anda tidak melakukannya, bagaimana orang luar akan memandang Anda? Saya khawatir mereka mungkin menganggap Anda sebagai orang yang tidak berperasaan dan tidak tahu berterima kasih. ”</p>
+<p>	Melihat Fang Zheng meninggalkan aula, Bibi tidak bisa menahan diri untuk tidak berseru dengan gembira, “Suamiku, kami memotong biaya hidup Fang Yuan. Bajingan kecil ini akhirnya tidak tahan dan melakukan kesalahan besar! Untuk benar-benar berani memblokir gerbang akademi dan bertarung di depan umum, belum lagi pemerasan, ini sama dengan memprovokasi tetua akademi. Saya berani mengatakan waktu baginya untuk dikeluarkan sudah sangat dekat. ”</p>
+<p>	Namun Paman menggelengkan kepalanya. “Kamu terlalu memikirkan banyak hal. Fang Yuan tidak akan diusir, bahkan mungkin tidak ada hukuman. ”</p>
+<p>	“Mengapa?” Bibi bingung.</p>
+<p>	Paman mendengus. “Perkelahian dan perkelahian dianjurkan selama tidak ada konsekuensi berat. Apakah ada siswa yang mati dalam pertarungan ini? Tidak.”</p>
+<p>	Bibi menolak untuk mematuhi. “Suamiku, bagaimana kamu tahu tidak ada korban? Selalu ada kecelakaan yang terjadi dari pertempuran. ”</p>
+<p>	Paman memejamkan mata, bersandar di sandaran kursinya. “Wanita, kamu benar-benar naif. Apakah Anda benar-benar berpikir tetua akademi hanya untuk pertunjukan? Kapan para penjaga mulai bertindak? Mereka keluar pada saat terakhir, ini berarti seluruh adegan terkendali. Jika seseorang terluka parah, mereka akan bergegas sejak lama, bukan pada saat-saat terakhir. ”</p>
+<p>	“Kamu bukan Master Gu , jadi kamu tidak akan mengerti. Pihak akademi tidak melarang tawuran antar mahasiswa, namun nyatanya mereka mempertahankan sikap yang mendorong terhadap hal tersebut. Semakin banyak perkelahian, semakin bermanfaat untuk pertempuran. Beberapa siswa bahkan dapat menciptakan ikatan yang kuat melalui perkelahian. Para tetua tidak akan mengejar ini. Itu sudah menjadi rutinitas. Jika ada yang ingin mengambil tindakan atas nama keturunan mereka, itu akan melanggar aturan.”</p>
+<p>	Bibi tercengang ketika dia mendengar ini, dan dia menjawab dengan tidak puas, “Lalu tidak ada yang akan terjadi pada Fang Yuan yang merampok sejumlah besar batu purba? Dia akan dibiarkan begitu saja? Dengan sejumlah besar batu purba, itu akan membawa banyak bantuan untuk kultivasinya. ”</p>
+<p>	Paman membuka matanya, wajahnya mendung. “Apa lagi yang bisa kita lakukan? Apakah Anda mengharapkan saya untuk pergi sendiri dan merebut semua batu purba? Namun hal ini bukanlah sesuatu yang tidak bisa kita manfaatkan. Untuk Fang Yuan merampok dan memeras bahkan saudaranya sendiri Fang Zheng, ini adalah kunci kejatuhannya. Fang Zheng adalah bakat kelas A, dia pasti akan lebih kuat dari Fang Yuan suatu hari nanti. Kami akan menggunakan masalah ini untuk memecah belah dan menabur perselisihan di Fang Zheng. Kami akan membawa Fang Zheng menjauh dari Fang Yuan untuk kepentingan kami sendiri!”</p>
+<p>	Dan dengan itu, tiga hari berlalu.</p>
+<p>	Gangguan yang disebabkan Fang Yuan dari perampokan dan pemerasan tidak menyebar atau tumbuh lebih besar, tetapi secara bertahap mereda.</p>
+<p>	Tidak ada penatua yang melanggar aturan dan datang untuk mencari masalah bagi Fang Yuan, dan penatua akademi secara alami menutup satu mata dan membuka satu mata, bertindak seperti tidak ada yang terjadi. Meskipun dalam periode waktu ini, ada dua hingga tiga anak muda yang menolak untuk menerima kenyataan bahwa batu purba mereka diambil, dan mereka menantang Fang Yuan. Tetapi setelah Fang Yuan menjatuhkan mereka dengan mudah, semua orang menjadi sadar bahwa jika mereka tidak berlatih keras dalam seni bela diri, mereka tidak akan pernah mengalahkan Fang Yuan.</p>
+<p>	Di antara para remaja ini, ledakan semangat massal untuk berlatih keras dalam seni bela diri meletus.</p>
+<p>	Instruktur seni bela diri sangat gembira, dia belum pernah melihat sekelompok siswa begitu antusias dan berdedikasi terhadap seni bela diri. Sebelum ini ketika dia mengajar, semua siswa kurang tertarik, menguap sepanjang hari. Tetapi saat ini mereka akan terus-menerus mencari nasihat dengan mata yang penuh dengan semangat yang memancar.</p>
+<p>	Tetua akademi secara khusus datang untuk menanyakan situasinya.</p>
+<p>	Instruktur seni bela diri memiliki nada bersemangat ketika dia melaporkan, “Para siswa telah menunjukkan antusiasme yang tidak terduga, dan perubahan ini terlalu besar. Hanya satu siswa di antara mereka yang bernama Fang Yuan yang tetap malas seperti biasanya. ”</p>
+<p>	Tetua akademi tertawa dan menepuk pundaknya. Dia berkata, “Siswa yang Anda bicarakan ini adalah penyebab transformasi siswa lain.”</p>
+<p>	Instruktur seni bela diri bingung. Tapi tentu saja perubahannya lebih dari ini.</p>
+<p>	Setelah kejadian itu, Fang Yuan tidak diragukan lagi menjadi musuh publik dari seluruh kelompok siswa. Semua orang memusuhi dia dan dia terisolasi. Tidak ada lagi yang berbicara dengannya, dan tidak ada yang menyapanya.</p>
+<p>	Para pemuda mengerahkan kekuatan penuh, melatih teknik dasar mereka secara pribadi. Dengan dorongan dan inspirasi orang tua dan orang tua mereka, mereka telah memutuskan bahwa mereka harus merebut kembali kehormatan mereka dengan tangan mereka sendiri.</p>
+<p>	Di bawah permukaan yang tenang, arus bawah melonjak.</p>
+<p>	Empat hari lagi berlalu.</p>
+<p>	Penatua akademi membagikan tunjangan batu purba sekali lagi, dan waktu bagi Fang Yuan untuk bertindak datang lagi.</p>
+<p>	“Fang Yuan, sekali tidak cukup untukmu, kamu masih ingin merampok batu purba kami lagi ?!” Para siswa terkejut dan marah ketika Fang Yuan memblokir mereka di gerbang sekali lagi.</p>
+<p>	Fang Yuan berdiri di tengah pintu masuk, tangannya di belakang, ekspresinya dingin dan nadanya datar. “Sepotong batu purba per orang dan Anda akan terhindar dari rasa sakit fisik.”</p>
+<p>	“Fang Yuan, intimidasimu berlebihan. Aku ingin menantangmu!” Gu Yue Mo Bei meraung marah, keluar lebih dulu.</p>
+<p>	“Oh?” Fang Yuan mengangkat alisnya sedikit.</p>
+<p>	Mo Bei mengangkat tinjunya dan bergegas ke depan. Setelah beberapa putaran, dia pingsan ke tanah.</p>
+<p>	“Mo Bei, kamu terlalu tidak berguna! Lihat aku!” Gu Yue Chi Cheng berteriak keras dan berlari ke arah Fang Yuan. Setelah transisi serangan dan pertahanan, dia bergabung mengikuti jejak Mo Bei.</p>
+<p>	Pengalaman pertempuran Fang Yuan sepuluh ribu kali lebih banyak dari mereka; meskipun dia baru mulai berkultivasi, setiap kekuatan yang ditimbulkan digunakan dengan benar. Sementara itu, sekelompok siswa ini baru saja memulai perjalanan mereka. Jika mereka mendatanginya bersama, mereka mungkin masih bisa memberinya sedikit masalah. Tetapi dengan mereka datang untuk menantangnya satu per satu, itu lebih santai daripada pemerasan pertama kali.</p>
+<p>	Setelah lima belas menit, Fang Yuan dengan santai berjalan pergi dengan tas uang yang menggembung, meninggalkan lantai yang penuh dengan pemuda. Beberapa dari mereka berbaring tak bergerak, dan beberapa memegang perut mereka atau mencengkeram selangkangan mereka saat mereka mengerang dan melolong.</p>
+<p>	“Saudara-saudara, saatnya untuk datang dan menyapu lapangan dengan cepat!” Para penjaga berteriak dan semua bergegas.</p>
+<p>	T/N: Sekedar pemberitahuan – Semua pengukuran mengenai ukuran bukaan di semua bab sebelumnya dan khususnya tingkat pemulihan di Bab 10 telah diubah menjadi % sebagaimana seharusnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

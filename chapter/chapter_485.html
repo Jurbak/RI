@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 485 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 485";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_484.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 485">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_486.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 485</h1>
+        <div class="text-left">
+<p>	Bab 485 – Merencanakan Melawan Roh Tanah</p>
+<p>	Bab 485: Berkomplot melawan Roh Tanah</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Delapan hari kemudian, di malam hari.</p>
+<p>	Bintang-bintang bersinar di langit saat angin malam bertiup.</p>
+<p>	Fang Yuan menunggangi punggung serigala bermata putih, siap untuk keluar.</p>
+<p>	Ge Guang berdiri di sisinya, melaporkan situasi beberapa hari terakhir: “Selama delapan hari terakhir ini, sejumlah besar suku kecil hingga menengah telah memulai perjalanan mereka untuk menghadiri pertemuan pahlawan. Saat ini, hanya beberapa suku berukuran besar yang tersisa di danau sabit. Bei Cao Chuan, Pei Yan Fei dan yang lainnya adalah yang pertama pergi.</p>
+<p>	Fang Yuan menyesuaikan posturnya: “Mm, sebelumnya ketika kami mengambil inisiatif untuk menantang tiga suku, itu membuat banyak suku khawatir. Karena pertemuan para pahlawan sudah dekat, wajar jika mereka memutuskan untuk pergi. Tetapi untuk suku-suku besar itu, mereka memiliki banyak hal untuk diselesaikan karena banyak perusahaan mereka. Karena itu, mereka biasanya menghadiri paruh kedua majelis pahlawan. ”</p>
+<p>	“Penatua tertinggi itu bijaksana, memang begitu.” Ge Guang mulai melakukan bootlicking.</p>
+<p>	Fang Yuan terkekeh: “Tanaman air danau bulan sabit itu indah, kita akan tinggal di sini untuk saat ini, kita harus menginternalisasi keuntungan kita dari pertempuran sekarang daripada bepergian.”</p>
+<p>	“Ya tuan.” Ge Guang menghela nafas lega, mereka memiliki niat seperti itu dalam diskusi mereka sebelumnya.</p>
+<p>	Suku Ge sekarang seperti orang gemuk yang makan terlalu banyak, mereka tidak bisa berjalan. Delapan hari ini, mereka telah memperluas perkemahan siang dan malam, merekrut para tawanan itu. Setelah menghitung sumber daya mereka, kekuatan suku itu tumbuh dari hari ke hari.</p>
+<p>	“Serigala air itu, apakah mereka masih di sana?” Fangyuan bertanya.</p>
+<p>	“Ya, saya mengirim Gu Master investigasi ke sana berkali-kali untuk memeriksanya. Serigala air ini berjumlah sekitar lima ribu, pada malam hari, mereka akan memasuki sarang air itu untuk beristirahat. Tuan, apakah Anda benar-benar tidak membutuhkan penjaga? ”</p>
+<p>	Fang Yuan mendengus, menjawab dengan arogan: “Setiap tempat dengan serigala akan memilikiku Chang Shan Yin. Mengapa saya membutuhkan penjaga? ”</p>
+<p>	Ge Guang bisa mendengar ketidakbahagiaannya, jadi dia dengan cepat membungkuk dan memberi jalan: “Saya berharap yang terbaik untuk Tuan Tertinggi Penatua dalam perekrutan serigala air Anda.”</p>
+<p>	“Mm, kamu harus berhati-hati dengan masalah di suku. Tanpa saya di sekitar, Anda harus memperhatikan para Master Gu yang menyerah. ”</p>
+<p>	“Ya tuan.”</p>
+<p>	Fang Yuan meninggalkan raja serigala angin, membawa raja serigala segudang penyu yang lemah dan delapan belas ribu serigala, meninggalkan perkemahan dan memulai perburuan mereka.</p>
+<p>	Dia pertama kali mengikuti peta yang digambar oleh penyelidik suku Ge, mendekati sarang air.</p>
+<p>	Serigala air hidup di air, mereka memakan ikan sebagai makanan. Seringkali, ketika mereka lapar, mereka juga akan datang ke pantai untuk makan beberapa kelinci atau tikus.</p>
+<p>	Dengan kedatangan kelompok serigala, serigala air ini segera disiagakan.</p>
+<p>	Untuk mempertahankan rumah mereka, serigala air membentuk formasi ketat saat mereka meninggalkan sarang air, menatap Fang Yuan dengan waspada.</p>
+<p>	Fang Yuan tanpa ekspresi duduk di punggung serigala bermata putih, dia melambai dengan tangannya dan serigala liar yang tak terhitung jumlahnya melolong saat mereka menyerang serigala air.</p>
+<p>	Serigala air melawan saat kedua belah pihak terlibat dalam pertempuran sengit.</p>
+<p>	Serigala melolong Gu! Serigala asap Gu!</p>
+<p>	Fang Yuan bergerak dari belakang beberapa kali, memegang kendali pertempuran di tangannya.</p>
+<p>	Kelompok serigalanya lebih besar untuk memulai, segera, mereka mulai membunuh serigala air.</p>
+<p>	Lebih dari seribu mayat serigala air tertinggal di tanah, karena Fang Yuan menggunakan perbudakan serigala Gu untuk menaklukkan lebih dari dua ribu dari mereka, seribu sisanya melarikan diri ke bagian dalam danau bulan sabit.</p>
+<p>	Fang Yuan tidak mengejar mereka, sebaliknya dia menghancurkan sarang air ini dan memperoleh beberapa ratus anak serigala air.</p>
+<p>	Selanjutnya, dia pergi ke lokasi berikutnya.</p>
+<p>	Setelah menghancurkan beberapa sarang serigala, pada malam hari, Fang Yuan menaklukkan lebih dari enam ribu serigala air, dua ribu serigala penyu, dan seribu serigala malam.</p>
+<p>	Danau bulan sabit memiliki serigala air paling banyak, tetapi ada juga beberapa serigala penyu, serigala malam, dan serigala angin.</p>
+<p>	Tapi serigala angin terlalu cepat, mereka sulit ditangkap. Mereka sering mundur dengan bahaya sekecil apa pun, Fang Yuan menargetkan sekawanan serigala angin tetapi mereka melarikan diri dengan cepat di tengah pertempuran.</p>
+<p>	Kelompok serigala sangat licik, untuk menangkap mereka, Fang Yuan harus membayar harga juga. Jika biayanya terlalu tinggi, dan lebih besar dari manfaatnya, dia akan menyerah.</p>
+<p>	Beberapa kelompok serigala air besar memiliki banyak sekali raja serigala, Fang Yuan tidak berani menyerang mereka secara tiba-tiba.</p>
+<p>	Namun kali ini, ekspedisi berburu serigalanya hanya kedok. Sekarang setelah dia bertindak cukup, dia mencari tempat terpencil dan mengelilingi dirinya dengan serigala. Selanjutnya, dia mengaktifkan cangkir perspektif bergerak Gu dan menghubungi Hu Immortal kecil.</p>
+<p>	Little Hu Immortal mendapat berita dan segera memanggil sekelompok Gu kunang-kunang cahaya bintang, menggunakan esensi abadi cahaya bintang dan anggur hijau untuk mengaktifkan Gu stargate.</p>
+<p>	Stargate Gu datang berpasangan, menggunakan kekuatan surga hitam, mereka dapat melintasi wilayah.</p>
+<p>	Fang Yuan menunggu sebentar, melihat cahaya bintang di langit malam turun dan berkumpul di Gu stargate-nya.</p>
+<p>	Gerbang bintang Gu seperti batu permata biru saat terbang menuju langit, ketika mencapai udara, cahaya bintang meledak saat sebuah pintu terbentuk.</p>
+<p>	Kali ini, Fang Yuan tidak memasuki gerbang bintang dengan cemas, sebaliknya, dia mengirim raja serigala yang lemah dan terluka parah terlebih dahulu, serta sejumlah besar serigala yang terluka.</p>
+<p>	Sejumlah besar serigala memasuki gerbang bintang seperti air sungai yang mengalir, menghilang.</p>
+<p>	Dengan cara ini, Fang Yuan hanya memiliki serigala yang kuat dan elit yang tersisa bersamanya, ini sangat mengurangi tekanannya untuk memberi makan mereka.</p>
+<p>	Adapun serigala yang terluka itu, mereka akan berkembang biak dan tumbuh di tanah yang diberkati, melahirkan anak yang sehat. Seiring waktu di tanah yang diberkati Hu Immortal lebih cepat, mereka akan tumbuh dengan cepat dan menjadi sumber serigala baru Fang Yuan.</p>
+<p>	Setelah mengirim serigala-serigala ini ke tanah yang diberkati Hu Immortal, Fang Yuan juga memasuki pintu.</p>
+<p>	“Tuan, Anda meminta saya untuk memeriksa menghubungkan surga Gu setiap hari, saya sangat patuh dan melakukan apa yang Anda katakan. Lang Ya Old Immortal itu benar-benar muncul lagi dan membeli banyak bahan di surga kuning harta karun. ” Little Hu Immortal sangat senang melihat Fang Yuan, memeluk kakinya saat dia menggunakan wajahnya untuk menggosoknya, berbicara tentang hal-hal yang terjadi ketika Fang Yuan pergi.</p>
+<p>	“Oh? Begitu, apa yang dia beli?” Fang Yuan mendengar ini dan bersemangat, dengan cepat bertanya.</p>
+<p>	Little Hu Immortal mengeluarkan selembar kertas dari sakunya dan menyerahkannya kepada Fang Yuan.</p>
+<p>	Fang Yuan melihat dan menelusurinya, cacing dan bahan Gu ini sangat familiar, mereka digunakan untuk memperbaiki Gu bukaan kedua.</p>
+<p>	Apa artinya ini?</p>
+<p>	Lang Ya Old Immortal adalah roh tanah Lang Ya. Dia akan memperbaiki Gu bukaan kedua, jadi, dia pasti selamat dari serangan gelombang kedua dan memiliki keinginan untuk memperbaiki Gu bukaan kedua.</p>
+<p>	Pada saat yang sama, perjalanan ilahi Gu itu pasti ada di tangannya.</p>
+<p>	Kalau tidak, mengapa dia membeli bahan-bahan begitu mendesak setelah serangan gelombang kedua?</p>
+<p>	“Semangat tanah Lang Ya diplot oleh Pak Tua Yan Shi, dia seharusnya membela tanah yang diberkati Lang Ya sekarang. Meskipun roh tanah ini cerdas, dia kaku, dan tidak memiliki kemampuan untuk membuat skema. Apa yang aku tunggu?”</p>
+<p>	Fang Yuan memikirkan ini dan jantungnya berdebar!</p>
+<p>	Dia segera meninggalkan tanah yang diberkati Hu Immortal, kembali ke danau sabit dataran utara.</p>
+<p>	Selanjutnya, dia memimpin kelompok serigala saat dia menyerbu ke hutan batu itu tanpa istirahat. Menggunakan titik masuk Pencuri Surga Iblis Yang Mulia lagi, dia memasuki tanah yang diberkati Lang Ya.</p>
+<p>	Ada banyak perubahan baru pada tanah yang diberkati Lang Ya, dua belas bangunan awan diserang, ada banyak puing-puing dan struktur yang rusak, bekas luka dari nyala api, sambaran petir, atau hasil dari embun beku.</p>
+<p>	Ini adalah jejak pertempuran besar.</p>
+<p>	Terutama di luar gedung, di tanah awan putih bersih, mereka ternoda dengan jejak darah, binatang buas seperti rusa dengan ukuran gunung tergeletak di tanah awan, mati.</p>
+<p>	Meskipun kehilangan nyawanya, kulitnya tetap berkilau dan halus, bersinar dengan kilau seperti pelangi, memberikan perasaan suci.</p>
+<p>	“Mengapa kamu di sini?” Roh tanah Lang Ya menyambut Fang Yuan dengan marah.</p>
+<p>	“Apa yang terjadi?” Fang Yuan tidak menjawabnya, sebaliknya dia bertanya dan mengungkapkan keterkejutannya.</p>
+<p>	“Hmph, sekelompok bajingan pemberani, mereka memasang cakar mereka di tanah yang diberkati ini, mereka semua telah terbunuh!” Ekspresi roh tanah Lang Ya suram saat niat membunuhnya melonjak.</p>
+<p>	Fang Yuan ingin tahu melihat roh tanah: “Bukankah tanah yang diberkati Lang Ya sangat rahasia, bagaimana mereka bisa masuk? Kecuali Anda sendiri yang membuka pintu…”</p>
+<p>	“Enyah! Apa aku begitu bodoh?” Roh tanah melolong: “Para bajingan sialan ini berkomplot melawanku, mereka melakukan sesuatu pada barang-barang yang aku beli. Saya awalnya membeli Gu perjalanan ilahi untuk memperbaiki Gu bukaan kedua, tetapi selama proses penyempurnaan, sebuah lorong terbentuk dan tikus-tikus kecil ini masuk. ”</p>
+<p>	Roh tanah menyebut mereka tikus, tetapi ketika Fang Yuan melihat keadaan dua belas bangunan awan, dia bisa menebak intensitas pertempuran.</p>
+<p>	Tapi tanah yang diberkati Lang Ya bagaimanapun juga, adalah rumah tua Leluhur Rambut Panjang. Sebagai ‘Keabadian Penyempurnaan Nomor Satu sepanjang masa’, seseorang yang memiliki status setara dengan dua orang terhormat, dia pasti memiliki fondasi yang dalam dan banyak kartu truf.</p>
+<p>	Gelombang serangan kedua tidak bisa menghancurkan fondasi yang dalam ini dengan mudah. Setidaknya, Fang Yuan tahu ada dua belas binatang buas di tanah yang diberkati Lang Ya, sekarang hanya satu yang mati.</p>
+<p>	Namun, Pak Tua Yan Shi masih hidup. Gelombang serangan kedua bukanlah yang terakhir, tetapi awal. Pertunjukan baru saja dimulai.</p>
+<p>	Fang Yuan tertawa: “Saya menebak dengan benar, Anda adalah Lang Ya Old Immortal, Anda membeli Gu perjalanan ilahi di surga kuning harta karun. Sepertinya Anda berhasil melindungi perjalanan ilahi Gu. ”</p>
+<p>	Roh tanah Lang Ya tertawa puas: “Tentu saja! Kalau tidak, rusa roh sembilan warna itu tidak akan mati. ”</p>
+<p>	Tiba-tiba, ekspresinya berubah, saat dia memikirkan sesuatu, menatap Fang Yuan dengan waspada: “Mengapa kamu di sini, Nak?”</p>
+<p>	Fang Yuan membungkuk pada roh tanah, menjawab sebenarnya: “Apa lagi? Saya jelas di sini untuk meminta Anda memperbaiki aperture kedua Gu untuk saya. ”</p>
+<p>	“Apa?!” Roh tanah berteriak, menatap Fang Yuan dengan marah, matanya akan memuntahkan api.</p>
+<p>	Leluhur Rambut Panjang telah gagal untuk memperbaiki Gu Abadi yang penting untuk Pencuri Surga Setan Yang Mulia saat itu, jadi dia berjanji untuk memperbaiki sembilan cacing Gu untuknya tanpa biaya apa pun, terlepas dari Gu fana atau Abadi.</p>
+<p>	Pencuri Surga Iblis Venerable menggunakan enam kesempatan untuk menerima enam Immortal Gu. Dengan tiga peluang tersisa, dia menyegelnya ke dalam warisannya untuk diserahkan kepada orang yang ditakdirkan.</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, kesempatan ini diambil oleh Ma Hong Yun. Tapi sekarang, Fang Yuan datang ke sini lebih awal dan mengambil kesempatan abadi ini.</p>
+<p>	Sebelumnya, dia telah menggunakan salah satu kesempatan untuk meminta roh tanah Lang Ya untuk memperbaiki Gu stargate. Sekarang dia ada di sini lagi, dia akan menggunakan kesempatan kedua untuk memperbaiki Gu bukaan kedua.</p>
+<p>	Roh tanah Lang Ya terbentuk dari obsesi Leluhur Rambut Panjang, dia tidak bisa menolak permintaan seperti itu.</p>
+<p>	Tetapi untuk melindungi Gu perjalanan ilahi, dia telah membayar banyak pilihan. Melihat bahwa bukaan kedua Gu akan berhasil disempurnakan, hasilnya adalah Fang Yuan datang untuk mengambilnya darinya.</p>
+<p>	Roh tanah Lang Ya sangat marah ketika dia menatap dengan marah, menggunakan nada muram untuk bertanya kepada Fang Yuan: “Jangan bilang kamu adalah dalang yang merencanakan serangan di tanahku yang diberkati?”</p>
+<p>	Fang Yuan menggosok hidungnya, berkata dengan polos, “Apakah menurutmu aku, seorang manusia, dapat memobilisasi Dewa Abadi itu? Saya hanya tahu Anda memiliki resep Gu bukaan kedua setelah Anda membeli Gu perjalanan ilahi, dan sekarang setelah Anda membeli set bahan kedua, saya datang. ”</p>
+<p>	Tanah yang diberkati Lang Ya menggertakkan giginya dengan marah, menunjuk ke Fang Yuan: “Kalian semua manusia licik dan licik. Saya membunuh Gu Immortal itu, tetapi untuk berpikir bahwa itu semua sia-sia, saya akhirnya masih ditipu oleh Anda, anak kecil ini!</p>
+<p>	Fang Yuan tertawa terbahak-bahak: “Ini bukan penipuan, tetapi janji yang Anda berikan kepada Pencuri Surga Setan Yang Mulia saat itu. Jadi, apakah Anda akan memperbaiki Gu aperture kedua untuk saya sekarang? ”</p>
+<p>	Roh tanah marah dan ingin memotong Fang Yuan menjadi jutaan keping, tetapi dia tidak punya pilihan selain memperbaiki Gu untuknya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

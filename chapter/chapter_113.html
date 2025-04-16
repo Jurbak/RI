@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 113 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 113";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_112.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 113">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_114.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 113</h1>
+        <div class="text-left">
+<p>	Bab 113</p>
+<p>	Bab 113: Tetap diam dan dapatkan banyak uang</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Persaingannya sangat ketat, siapa yang tahu siapa pemenang terakhirnya.”</p>
+<p>	“Saya telah berdiri di sini selama lima belas menit dan telah melihat lebih dari sepuluh Master Gu menaruh tanda kutip di konter.”</p>
+<p>	“Ah, ini adalah permainan untuk orang kaya. Orang-orang seperti kami bahkan tidak memenuhi syarat untuk bersaing.”</p>
+<p>	Di lantai dua rumah pohon, Gu Masters mengelilingi konter pusat; berdiskusi dan menghela nafas.</p>
+<p>	Saat malam menjelang, persaingan untuk Relic Gu baja merah telah mencapai puncaknya. Banyak Master Gu Peringkat dua yang mengamati dalam kegelapan mulai memberikan kutipan mereka di jam terakhir ini.</p>
+<p>	Beberapa Master Gu bahkan mengajukan beberapa tawaran.</p>
+<p>	“Pemenang terakhir untuk perjuangan ini adalah Mo Yan atau Chi Shan,” tebak seseorang.</p>
+<p>	“Itu mungkin. Mo Yan dan Chi Shan keduanya berada di peringkat dua tingkat atas. Dengan Relic Gu ini, mereka dapat maju ke tahap puncak dan berada di level yang sama dengan Qing Shu.”</p>
+<p>	“Dalam beberapa tahun terakhir, Gu Yue Qing Shu telah menggantung di atas kepala mereka. Saya tidak percaya keduanya tidak memiliki pemikiran tentang itu. ”</p>
+<p>	“Kami belum bisa memastikan. Bukan hanya kami Master Gu peringkat dua, bahkan ada beberapa tetua peringkat tiga yang telah mengajukan penawaran. Baru pagi ini, seseorang melihat Lord Yao Ji mengajukan tawarannya.”</p>
+<p>	“Benar, aku juga mendengarnya. Cucu perempuan Tuhan Yao Ji, Gu Yue Yao Le akan ikut serta dalam Upacara Kebangkitan yang akan datang; Tuan Yao Ji harus bersiap ke depan dan membuka jalan bagi cucunya.”</p>
+<p>	“Ah, alangkah baiknya jika aku memiliki senior yang penyayang!”</p>
+<p>	Fang Yuan ada di antara kerumunan, tatapannya tenang saat dia mendengarkan diskusi.</p>
+<p>	Tidak ada yang menyebut namanya. Di mata orang-orang, Fang Yuan hanyalah anak yang beruntung yang baru saja mewarisi aset keluarga. Dalam pikiran mereka, Fang Yuan masih belum setingkat dengan orang-orang seperti Chi Shan, Mo Yan dan Qing Shu.</p>
+<p>	“Besar. Semakin sedikit perhatian pada saya, semakin lancar saya bisa mendapatkan Relic Gu baja merah ini. Tetapi dengan pembelian berulang ini, saya seharusnya menarik perhatiannya. ”</p>
+<p>	Fang Yuan yakin sembilan puluh sembilan persen mendapatkan Gu Relik ini; dia mulai memikirkan masalah lain.</p>
+<p>	Jika peristiwa-peristiwa berikut berkembang sesuai dengan harapannya, maka akan ada akhir yang sempurna untuk usahanya selama beberapa hari.</p>
+<p>	Itu adalah waktu.</p>
+<p>	Daun dan cabang di konter tiba-tiba tumbuh dan melilit dengan kuat di sekitar Relic Gu. Daun hijau menghalangi pandangan orang-orang dan ketika daun ini kembali terbuka, Relic Gu baja merah sudah tidak ada lagi dan digantikan oleh Revert Gu.</p>
+<p>	Revert Gu tampak seperti batu datar, lonjong, seukuran telapak tangan. Permukaannya sedikit menonjol dan halus, membentuk pola mata. Dasar batu itu rata dan terasa kasar saat disentuh.</p>
+<p>	Batu itu berwarna hitam sedangkan pola mata ditutupi dengan garis-garis putih.</p>
+<p>	Kira-kira setiap dua detik, mata akan berkedip sekali dan garis putih yang menggambarkan bola mata akan berputar, memberikan perasaan bahwa batu ini memutar matanya.</p>
+<p>	Kembalikan Gu memiliki fungsi khusus.</p>
+<p>	Itu menguraikan cacing peringkat dua Gu menjadi peringkat satu.</p>
+<p>	Misalnya, jika Gu Kembali digunakan pada Gu Giok Putih Fang Yuan, Gu Giok Putih akan kembali berubah menjadi Gu Babi Putih dan Gu Kulit Giok.</p>
+<p>	Proses ini disebut pemurnian terbalik.</p>
+<p>	Fang Yuan meliriknya dan segera kehilangan minatnya. Dia tidak membutuhkan Revert Gu.</p>
+<p>	Master Gu di sekitarnya mulai berdebat. Kembalikan Gu tidak bisa menjadi titik fokus semua orang seperti Relic Gu baja merah.</p>
+<p>	Semua orang sangat ingin tahu kepada siapa Relic Gu baja merah itu pergi.</p>
+<p>	Beberapa orang mencari Gu Master lantai karavan dan beberapa orang menunggu di meja utama.</p>
+<p>	Kerumunan perlahan menipis, tetapi Fang Yuan tidak menjauh.</p>
+<p>	“Tuan muda Fang Yuan, silakan datang ke lantai tiga. Tuan kami Jia Fu ingin mengobrol dengan Anda. ” Sebuah suara tiba-tiba memasuki telinga Fang Yuan.</p>
+<p>	Fang Yuan tidak terkejut; ada banyak jenis cacing Gu transmisi suara rahasia di dunia ini.</p>
+<p>	Dia mengikuti petunjuk yang diberikan oleh suara itu dan berjalan ke dinding di lantai tiga.</p>
+<p>	Cabang dan daun ditumpuk menjadi satu dan menutupi dinding kayu.</p>
+<p>	Astaga…..</p>
+<p>	Ranting dan daun secara otomatis terbelah ke samping dan mengungkapkan pintu tersembunyi.</p>
+<p>	Fang Yuan mendorong pintu hingga terbuka dan melihat tangga berputar indah yang bergerak ke atas.</p>
+<p>	Dia berjalan di sepanjang tangga dan datang ke ruang belajar kecil.</p>
+<p>	Di ruang belajar, Jia Fu sedang menangani beberapa akun, tangannya menulis dengan cepat.</p>
+<p>	Dia mengangkat kepalanya ketika dia mendengar langkah kaki Fang Yuan, memperlihatkan bekas luka di wajahnya. Dia tersenyum lembut, “Kita bertemu lagi, adik kecil Fang Yuan.”</p>
+<p>	“Menghormati Tuan Jia Fu.” Fang Yuan menggenggam tangannya dan memberi hormat.</p>
+<p>	“Ayo, duduk di sini.” Jia Fu menunjuk ke meja terdekat.</p>
+<p>	Setelah Fang Yuan duduk, tangan kirinya mendorong kertas bambu di atas meja ke arah Fang Yuan.</p>
+<p>	Fang Yuan melirik dan segera menyadari bahwa kertas bambu ini menyimpan semua kutipan yang dia buat dalam beberapa hari terakhir. Di bawah setiap kutipan ada tanda tangannya.</p>
+<p>	Dia bahagia dalam hati, itu telah berjalan sesuai dengan harapannya. Tetapi di permukaan, dia memasang ekspresi ragu ketika dia bertanya, “Saya tidak yakin apa yang ingin ditunjukkan oleh Tuan Jia Fu kepada saya?”</p>
+<p>	Senyum Jia Fu sedikit berkurang, matanya berkedip saat dia melihat Fang Yuan, “Ini adalah kutipan yang Anda buat bersama dengan kutipan yang Anda berikan untuk Relic Gu baja merah. Saya akan jujur, saya kagum dengan bakat bisnis Anda. Tahukah Anda, setiap tawaran Anda sangat dekat dengan harga jual akhir. ”</p>
+<p>	“Meskipun kamu hanya berhasil membeli Black Boar Gu, cacing Liquor dan Relic Gu baja merah, kutipanmu untuk cacing Gu lainnya hanya kurang dari sepuluh atau lebih batu purba. Saudara, apakah Anda tertarik bekerja untuk saya? Jia Fu mencoba merekrut Fang Yuan.</p>
+<p>	“Ini dia!” Fang Yuan tertawa dalam hati. Dia telah berulang kali mengajukan penawaran akhir-akhir ini dan dengan sengaja kehilangan sebagian besar dari mereka; tawarannya berbeda dari harga akhir hanya dengan sepuluh atau lebih batu purba. Dia hanya berhasil memenangkan Black Boar Gu, Liquor worm dan Red steel Relic Gu.</p>
+<p>	Dan seperti yang dia inginkan, Jia Fu tertarik dengan bakat bisnis yang dia tunjukkan dan berinisiatif untuk merekrutnya.</p>
+<p>	Namun, faktanya jika Fang Yuan menginginkannya, dia memiliki jaminan hampir penuh untuk dapat membeli semua cacing Gu.</p>
+<p>	“Ini….” Fang Yuan ragu-ragu, lalu menggelengkan kepalanya, “Saya merasa sangat terhormat menerima kebaikan Tuan Jia Fu, tetapi saya tidak ingin meninggalkan klan.”</p>
+<p>	“Oh, jadi seperti itu.” Tatapan Jia Fu melintas, “Saudaraku mungkin memiliki beberapa kesalahpahaman terhadapku. Setahun yang lalu, saya memang meragukan Anda, tetapi setelah menggunakan Tuan Bambu, kecurigaan pada Anda telah hilang. Jia Jin Sheng adalah saudaraku, aku harap kamu mengerti seperti apa suasana hatiku saat itu. Ada kabar baik lainnya, saya telah mengundang penyelidik ilahi Tie Xue Leng. Tidak ada kasus yang tidak bisa dia selesaikan. Saya yakin dia pasti bisa menyelidiki kebenaran dan memberikan keadilan kepada Anda.”</p>
+<p>	“Penyelidik ilahi Tie Xue Leng …. ini masalah.” Fang Yuan memikirkan nama ini. Ini bukan kabar baik baginya.</p>
+<p>	Di dunia ini, ada banyak tempat magis dan juga banyak metode luar biasa yang bisa digunakan untuk menyelidiki.</p>
+<p>	Ketika Fang Yuan membunuh Jia Jin Sheng, dia hanya berada di peringkat satu. Bahkan jika dia tahu banyak metode, dia tidak bisa menggunakannya.</p>
+<p>	Dalam ingatannya, Tie Xue Leng memiliki kultivasi yang mendalam dan bahkan tidak akan mentolerir sedikit pun pasir di matanya. Dia mengikuti pemikiran untuk menghukum kejahatan dan menghargai yang benar sepanjang hidupnya. Dia memiliki rasa keadilan yang sangat kaya dan pikirannya sangat teliti. Dia sangat pandai menemukan jejak halus dari petunjuk apa pun.</p>
+<p>	“Penyelidik ilahi memiliki reputasi tinggi, saya juga pernah mendengar tentang dia. Tapi kapan penyelidik ilahi tuan ini tiba di Gunung Qing Mao? ” Fang Yuan memasang tampang antisipasi dan langsung bertanya.</p>
+<p>	“Itu ….” Jia Fu dengan canggung tersenyum, “Penyelidik ilahi sangat sibuk. Dari jawabannya, mungkin hanya setahun setelahnya.”</p>
+<p>	Fang Yuan segera merasa lega, dia punya banyak waktu untuk bersiap.</p>
+<p>	“Saudaraku, aku sangat memikirkanmu. Saya harap Anda dapat dengan hati-hati mempertimbangkan proposal saya. ” Jia Fu membuat penawaran menarik.</p>
+<p>	Fang Yuan dengan bijaksana menolak; sekarang bukan waktu terbaik untuk meninggalkan Gunung Qing Mao.</p>
+<p>	Jika dia pergi ke lingkungan yang aneh tanpa kekuatan yang cukup, dia pasti akan diganggu dan disingkirkan. Kafilah itu juga penuh dengan aturan tidak tertulis tentang intimidasi dan pengusiran.</p>
+<p>	“Itu sangat disayangkan untuk bakatmu. Bagaimana dengan ini, saya akan memberi Anda token ini. Jika ada hari di mana Anda menginginkan bantuan saya, token ini akan menjadi bukti bahwa saya akan selalu menyambut Anda.” Jia Fu gagal merekrut Fang Yuan, tetapi dia tidak merasa terkejut. Dia memiliki pemahaman yang mendalam terhadap kekompakan klan jenis ini.</p>
+<p>	Jika dia tahu sekarang bahwa Fang Yuan adalah pembunuh Jia Jin Sheng, siapa yang tahu seperti apa ekspresinya nanti.</p>
+<p>	Fang Yuan meminta maaf dengan malu ketika dia menerima token yang diserahkan oleh Jia Fu bersama dengan Relic Gu baja merah.</p>
+<p>	Dia menyimpan kedua barang itu di dekatnya dan mundur ke luar.</p>
+<p>	Seorang Master Gu wanita muda sedang membelai daun di dinding, ketika tiba-tiba dia berteriak kaget. Ranting dan daun tiba-tiba terbelah dan membuka sebuah pintu.</p>
+<p>	Pintu didorong terbuka dari dalam dan Fang Yuan keluar tanpa ekspresi.</p>
+<p>	“Kamu kamu kamu!” Gadis muda itu melebarkan matanya dan menatap kosong ke arah Fang Yuan yang melewatinya.</p>
+<p>	Di antara Master Gu di sekitarnya yang melihat pemandangan ini; beberapa akrab dengan ini, beberapa memberikan senyum penuh pengertian dan beberapa melemparkan tatapan kagum.</p>
+<p>	Fang Yuan tidak mengindahkan tatapan ini dan berjalan ke lantai dua. Beberapa Master Gu masih menunggu di sana, dengan penuh semangat mendiskusikan kepada siapa Relic Gu baja merah itu pergi.</p>
+<p>	Beberapa orang dengan berani membuat tebakan sementara beberapa orang memberikan sedikit berita- “Mo Yan memiliki senyum misterius ketika dia berjalan keluar dari rumah pohon,” – “Wajah Chi Shan pucat,” – dan seterusnya.</p>
+<p>	Dan di atas semua itu, beberapa orang berjanji bahwa si anu telah membeli Relic Gu, bahkan membuat sumpah.</p>
+<p>	Fang Yuan melewati sekelompok orang yang bosan ini. Tidak ada yang tahu bahwa pada saat ini, Relic Gu baja merah begitu dekat dengan mereka.</p>
+<p>	Ketika Fang Yuan berjalan keluar dari rumah pohon, dia menabrak Chi Shan.</p>
+<p>	Wajahnya memang terlihat tidak enak dilihat, dan di sampingnya, Chi Cheng bertanya tentang keberadaan Relic Gu baja merah.</p>
+<p>	Setelah melihat Fang Yuan, Chi Cheng mendengus dan menoleh, sengaja tidak menatapnya. Chi Shan diam-diam menganggukkan kepalanya ke arah Fang Yuan sebagai salam.</p>
+<p>	Fang Yuan juga menganggukkan kepalanya sebagai balasan, wajahnya membawa seutas senyum.</p>
+<p>	Sinar matahari terakhir menyinari wajah anak muda ini; dia memang senang.</p>
+<p>	Dengan Relic Gu baja merah, kultivasinya akan langsung naik satu tingkat.</p>
+<p>	Dan ada juga tokennya.</p>
+<p>	Setahun yang lalu, Fang Yuan ingin membangun persahabatan dengan Jia Jin Sheng dan mengandalkannya untuk mengambil bagian dalam kompetisi pertarungan Gu skala besar di masa depan, menuai keuntungan dalam periode pergolakan itu.</p>
+<p>	Sayangnya, hidup tidak dapat diprediksi, hasil akhirnya membuat Fang Yuan tidak tahu apakah harus tertawa atau menangis — tanpa diduga, dia akhirnya membunuh Jia Jin Sheng dengan tangannya sendiri.</p>
+<p>	Tidak penting. Tanpa Jia Jin Sheng, mengandalkan Jia Fu juga berhasil. Token ini setara dengan tiket masuk ke kompetisi pertempuran Gu skala besar di masa depan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

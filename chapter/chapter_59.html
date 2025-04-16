@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 59 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 59";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_58.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 59">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_60.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 59</h1>
+        <div class="text-left">
+<p>	Bab 59</p>
+<p>	Bab 59: Terlepas dari Peringkat Tiga atau Empat, kalian semua adalah monyet</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Bulan malam ini sangat bulat.</p>
+<p>	Cahaya bulan bersinar indah dan seperti kain muslin, menutupi Gunung Qing Mao.</p>
+<p>	Kodok Kuningan Harta Karun akan melakukan perjalanan seratus meter dengan setiap lompatan. Karena metode lompatannya untuk bergerak maju, jalur gunung yang terjal dan sempit tidak dapat berfungsi sebagai batasan atau penghalang untuk itu.</p>
+<p>	Jia Fu dan krunya duduk di belakang Kodok Kuningan Harta Karun. Setelah keluar dari Desa Gu Yue, mereka sekali lagi menuju ke arah karavan pedagang.</p>
+<p>	Angin bertiup melewati telinga mereka, dan pandangan mereka mengikuti Treasure Brass Toad yang bergerak naik turun.</p>
+<p>	Cahaya bulan menyinari wajah semua orang dan mereka semua tampak serius, sementara wajah Jia Fu sedingin es.</p>
+<p>	Setelah beberapa saat, seorang bawahan yang dekat tidak tahan dengan suasana ini dan bertanya pada Jia Fu, “Tuan, apa yang akan kita lakukan sekarang? Kematian Jia Jin Sheng, setelah tuan kembali, bagaimana Anda akan menjawab tuan tua? Haruskah kita mencari kambing hitam terlebih dahulu…”</p>
+<p>	Jia Fu menggelengkan kepalanya, tetapi menghindari pertanyaan, “Apakah kamu tahu kisah Ren Zu?”</p>
+<p>	Bawahan itu tertegun, tidak mengharapkan jawaban ini. Seketika dia tidak tahu bagaimana menjawabnya.</p>
+<p>	Jia Fu melanjutkan, “Ren Zu memiliki Aturan dan Regulasi Gu, dan dapat menangkap sepuluh ribu Gu di dunia, memperoleh kekuatan tetapi kehilangan kebijaksanaan. Saat itu jaringnya masih berisi tiga Gu. Dia membuka dan melihat bahwa mereka adalah Gu Sikap, Gu Keyakinan dan Gu Kecurigaan. Ren Zu tidak mau melepaskan mereka, jadi ketiga Gu hanya bisa bertaruh dengannya. Begitu Ren Zu membuka jaring, mereka akan lari ke tiga arah yang berbeda, dan siapa pun yang ditangkap oleh Ren Zu akan ditundukkan. Tebak, siapa yang akhirnya ditangkap Ren Zu?”</p>
+<p>	Ajudan tepercaya itu berpikir, dan menjawab, “Itu adalah Gu Sikap!”</p>
+<p>	“Apa kamu tahu kenapa?” tanya Ji Fu. Bawahan yang setia menggelengkan kepalanya.</p>
+<p>	Jia Fu tertawa, “Karena sikap berarti segalanya. Tidak peduli apakah ayah ‘percaya’ atau ‘tersangka’, saya sudah menunjukkan ‘sikap’ saya. Jia Jin Sheng hilang, dan saya segera melakukan penyelidikan di karavan. Setelah saya memiliki petunjuk, saya bergegas menuju klan Gu Yue tanpa henti. Di desa, saya mempertaruhkan bahaya diserang oleh mereka dan menginterogasi mereka di tempat. Saya bahkan tidak duduk, dan untuk membuktikan kata-kata Fang Yuan, saya melangkah lebih jauh dengan menggunakan Tuan Bambu Peringkat empat. ”</p>
+<p>	“Begitu saya kembali, saya bahkan akan menghabiskan banyak uang untuk mempekerjakan penyelidik ilahi, mengundang Tie Leng Xue untuk menyelidiki masalah ini. Terlepas dari apakah Jia Jin Sheng hidup atau mati, sebagai saudaranya saya telah melakukan semua yang saya harus lakukan, sikap saya menunjukkan segalanya! Saya sudah memikirkannya sebelumnya, kita tidak perlu kambing hitam. Kita akan kembali dalam keadaan jujur ​​ini, karena saya tidak bersalah dalam hal ini! Menemukan kambing hitam, itu mungkin hanya jebakan oleh Jia Gui. Jika saya dapat menemukan kambing hitam, dia juga dapat menemukan seseorang untuk membatalkan kasus ini.”</p>
+<p>	Bawahannya terkejut dan berkata, “Tuan, Anda benar-benar curiga bahwa tuan muda Jia Gui berada di balik ini?”</p>
+<p>	“Hmph, siapa lagi selain dia yang bisa melakukan sesuatu dengan sangat sempurna?” Mengatakan demikian, wajah Jia Fu berubah, kemarahan meledak dari matanya, “Sebelum ini, saya berpikir tentang hubungan darah kami dan tidak melakukan hal seperti itu padanya. Tapi karena dia sangat licik, aku harus membalasnya, jangan salahkan aku karena tidak bermoral!”</p>
+<p>	Dia tidak tahu bahwa jauh di tempat yang jauh, ada sepasang mata yang mengirimnya pergi.</p>
+<p>	Fang Yuan berdiri di lereng bukit saat dia diam-diam menyaksikan.</p>
+<p>	Pemandangan malam ini benar-benar spektakuler.</p>
+<p>	Bulan bundar berwarna kuning keemasan berada tinggi di langit malam, bersinar sangat terang sehingga seluruh bumi menjadi terang benderang.</p>
+<p>	Pegunungan hijau di dekatnya tampak hijau dan subur, semua jenis flora tumbuh di sekitarnya. Pohon pinus dan cemara Gunung Man, serta bambu tombak hijau khas Gunung Qing Mao tumbuh dalam rumpun terus menerus, kelompok demi kelompok. Hamparan luas warna hijau tua mengalir deras dari puncak gunung dan mengalir turun ke kaki gunung.</p>
+<p>	Pegunungan yang jauh membentang tanpa henti, membentuk bayangan hitam pekat yang kacau di bawah sinar bulan.</p>
+<p>	Jalan gunung yang berliku-liku dan berkelok-kelok menyerupai usus kambing saat berkelok-kelok ke kejauhan, kadang-kadang terlindung oleh hutan, terbentang sepanjang jalan.</p>
+<p>	Jia Fu dan kelompoknya duduk di atas Kodok Kuningan Harta Karun, mengikuti jalan pegunungan saat mereka bergerak maju. Saat mereka melanjutkan lompatan kodok, sosok mereka akhirnya tertutup oleh pepohonan.</p>
+<p>	Meskipun medan gunung tidak dapat mempengaruhi kecepatan Kodok Kuningan Harta Karun, Jia Fu tidak berani sembarangan memotong gunung Qing Mao, karena jika dia menerobos masuk ke gerombolan monster, bahkan dengan budidaya Peringkat empat dia masih tidak akan keluar tanpa cedera. Oleh karena itu mengikuti jejak gunung dan bergerak maju adalah jalan terbaik.</p>
+<p>	Belum lama ini, Fang Yuan berdiri di atas bukit memegang payung, mengirim karavan pergi. Tapi sekarang dia ada di sini lagi, melihat Jia Fu pergi.</p>
+<p>	“Masalah dari membunuh Jia Jin Sheng akhirnya diselesaikan.” Matanya gelap dan jauh sementara hatinya tenang, penuh kedamaian.</p>
+<p>	Bahkan sejak dia membunuh Jia Jin Sheng malam itu, dia telah mempertimbangkan cara mengikat ujung yang longgar.</p>
+<p>	Dia jelas bahwa tanpa basis atau dukungan, jika kebenaran terungkap, klan Gu Yue pasti akan mengorbankannya. Tetapi jika dia menyembunyikannya secara membabi buta, kebenaran pasti akan terungkap suatu hari nanti.</p>
+<p>	Cara cerdas untuk berbohong, adalah memiliki kebenaran dan kebohongan, beberapa kebenaran dalam kebohongannya, dan beberapa kebohongan dalam kebenarannya.</p>
+<p>	Dia harus mengarahkan masalah ke tempat lain!</p>
+<p>	Kejadian ini seperti permainan catur dengan dua sisi yang saling berhadapan. Satu sisi adalah karavan Jia Fu, sementara yang lain adalah klan Gu Yue. Dalam kejadian ini, baik itu Gu Yue Bo, tetua akademi atau Jia fu, mereka semua adalah pion, bahkan Fang Yuan sendiri hanyalah pion.</p>
+<p>	Untuk melindungi pion yang mewakili dirinya sendiri, dia harus menggunakan dua sisi yang berlawanan dan menemukan peluang di antaranya.</p>
+<p>	Beberapa hari yang lalu, Fang Yuan sudah mulai merencanakan.</p>
+<p>	Dia pertama kali memanfaatkan kedua penjaga itu untuk membuat pertunjukan yang bagus dengan tetua akademi di akademi. Selanjutnya dia menyembunyikan keberadaan cacing Liquor dan membangkitkan rasa ingin tahu anggota klan, mendapatkan perhatian besar, menarik para petinggi. Secara bersamaan, dia mengizinkan tetua akademi untuk mengadakan penyelidikan pribadi.</p>
+<p>	Selanjutnya, dia memeras teman-teman sekelasnya dan mengungkapkan ketergesaan, keliaran, dan ketidaksenangannya terhadap klan, “menunjukkan kelemahan” kepada atasan Gu Yue.</p>
+<p>	Kemudian dia menghitung hari dan menunggu Jia Fu.</p>
+<p>	Selama interogasi dia menunjukkan ketidakdewasaan dan ketakutannya, yang memungkinkan dia untuk memimpin pikiran orang lain. Biarkan mereka menemukan “kebenaran”.</p>
+<p>	Terakhir dia memanfaatkan klan Gu Yue dan kepentingan Jia Fu yang berlawanan, dan mengubah sesepuh akademi yang curiga padanya dan mengadakan penyelidikan, menjadi saksi matanya.</p>
+<p>	Tuan Bambu adalah kecelakaan kecil yang tidak terduga, tapi itu masih Gu Peringkat empat dan di bawah aura Musim Semi Musim Gugur Jangkrik, Tuan Bambu ironisnya menjadi bukti terbesar Fang Yuan.</p>
+<p>	Akhirnya, Fang Yuan tidak hanya menjelaskan dengan sempurna dari mana dia mendapatkan cacing Liquor, tetapi juga menyalahkan Jia Gui yang tidak bersalah, sementara dia sendiri keluar dari insiden ini tanpa kehilangan sehelai rambut pun.</p>
+<p>	“Penatua akademi diminta untuk tetap tinggal, sepertinya Gu Yue Bo akan ikut campur dalam urusan akademi dan menyingkirkan rencana untuk menekanku. Dengan sifatnya, dia memang memiliki toleransi ini. Tapi motif aslinya bukan aku, itu mungkin Fang Zheng. Salah satu motif saya untuk meledakkan masalah ini adalah untuk membuat keributan dan membuat para petinggi mengetahuinya. Jika Gu Yue Bo tidak muncul, masih akan ada Gu Yue Mo Chen dan Chi Lian yang akan keluar untuk mempertahankan reputasi mereka.”</p>
+<p>	“Adapun Jia Fu, dia harus yakin bahwa Jia Gui adalah pelakunya sekarang. Dengan api balas dendam membara di dadanya, hehe, saya menantikannya. Dengan campur tangan saya, konflik saudara mereka akan meningkat. Saya ingin tahu apakah kompetisi Guru Gu itu akan diajukan? ”</p>
+<p>	“Oh ya, masih ada penyelidik ilahi Tie Leng Xue. Ikat Leng Xue … hmph.” Fang Yuan mengulangi nama ini, dan setelah setengah ketukan, tersenyum ringan, “Di antara jalan yang benar, ini memang karakter. Sayangnya dia disibukkan dengan urusan resmi dan memiliki jadwal yang padat. Untuk masalah ini, tidak mudah untuk membuatnya datang. Jia Fu ingin menunjukkan sikapnya sehingga dia harus mengundangnya, tetapi waktunya sulit untuk diukur, setidaknya harus diatur dalam waktu dua hingga tiga tahun.</p>
+<p>	Dalam dua hingga tiga tahun, dia akan memiliki kultivasi peringkat dua atau tiga. Pada saat itu, kehidupan akan menjadi pemandangan yang sama sekali berbeda.</p>
+<p>	Angin malam berhembus dengan udara sejuk pegunungan yang segar, menembus dengan semacam wewangian.</p>
+<p>	Fang Yuan menarik napas, merasa lebih segar.</p>
+<p>	Dia melihat ke kejauhan, bidang pandangnya luas. Pegunungan yang tak terkendali itu indah, tampak tenang dan menguntungkan di bawah bulan.</p>
+<p>	“Bulan yang cerah menyinari di antara pohon-pohon pinus, mata air yang jernih mengalir di atas batu.” Fang Yuan dengan ringan membacakan, dia tidak bisa tidak memikirkan sebuah ayat dari dongeng dari Bumi.</p>
+<p>	Ada sekelompok monyet yang mengejar bulan. Mereka melihat bulan di dalam sumur, dan mereka ingin memancingnya. Monyet dari belakang memegang ekor monyet di depannya, dan monyet di depannya memegangi monyet di depannya. Demikian terus berulang-ulang sampai kera pertama bisa menyentuh permukaan air sumur.</p>
+<p>	Begitu dia mengulurkan tangannya, airnya beriak dan bulan menghilang.</p>
+<p>	Orang-orang di dunia ini seperti ini. Mereka akan melihat pantulan bulan, dan berpikir bahwa itu adalah hal yang nyata.</p>
+<p>	Tidak tahu itu hanya bulan di sumur, bulan di mata mereka, atau hanya bulan di hati mereka.</p>
+<p>	“Dalam hidup ini saya berharap menjadi bulan yang nyata, naik di atas gunung dan langit, bermain-main dengan awan dan laut, mengikuti zaman kuno dan berjalan dalam kegelapan di atas berbagai langit.” Mata Fang Yuan sangat jernih, dan pegunungan hijau yang indah terpantul di pupilnya.</p>
+<p>	Di atas bukit, tubuh kurus seorang remaja berdiri diam.</p>
+<p>	Sebuah roda bulan emas berbentuk seperti piringan tergantung tinggi di langit malam.</p>
+<p>	Itu telah ada sejak zaman kuno, melakukan perjalanan melalui langit malam, melemparkan bayangan kecil remaja itu samar-samar ke batugamping.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 54 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 54";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_53.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 54">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_55.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 54</h1>
+        <div class="text-left">
+<p>	Bab 54</p>
+<p>	Bab 54: Tapi aku ketua kelas!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Roda api merah, matahari perlahan tenggelam di sisi barat pegunungan.</p>
+<p>	Cahayanya tidak menusuk mata, tapi itu semacam sinar yang terang dan lembut.</p>
+<p>	Langit barat diwarnai dengan warna merah merona, cahaya matahari terbenam terus menyebar. Itu seperti seorang selir kekaisaran yang baru saja diberi hadiah, dengan senang hati berkerumun di sekitar kaisar, ingin tidur bersama dengannya. (1)</p>
+<p>	Gunung Qing Mao ditelan seluruhnya dalam lautan warna merah mawar. Masing-masing gedung dan rumah berpilar tinggi juga ditutupi dengan lapisan benang emas.</p>
+<p>	Hutan di sekitar yang ditanam di sekitar akademi tampak seperti disapu oleh lapisan minyak yang samar. Angin bertiup perlahan, dan saat para siswa berjalan keluar kelas dengan dada membawa batu-batu purba yang baru saja pingsan, mereka berada dalam keadaan pikiran yang santai dan tenang.</p>
+<p>	“Aku benar-benar tidak tahu apa yang dipikirkan Fang Yuan, untuk benar-benar menyerah pada peran ketua kelas!”</p>
+<p>	“Heh heh heh, otaknya digoreng. Saya yakin dia berpikir untuk membunuh orang sepanjang hari, jangan khawatirkan diri kita dengan orang gila seperti ini. ”</p>
+<p>	“Kalau dipikir-pikir, hari itu ketika dia masuk ke akademi, aku benar-benar ketakutan. Itu sangat menakutkan, saya mengalami mimpi buruk pada hari itu sendiri setelah saya pulang. ”</p>
+<p>	Para siswa berada dalam kelompok dua dan tiga saat mereka berjalan.</p>
+<p>	“Selamat siang ketua kelas.”</p>
+<p>	“Mm.”</p>
+<p>	“Salam ketua kelas.”</p>
+<p>	“Hmm.”</p>
+<p>	Gu Yue Mo Bei berjalan dengan angkuh, dan kemanapun dia pergi para siswa akan membungkuk dan menyapanya tanpa kecuali.</p>
+<p>	Wajahnya tidak mampu menahan ekspresi kegembiraan dan kegilaan.</p>
+<p>	Ini adalah daya tarik otoritas itu sendiri.</p>
+<p>	Bahkan jika itu hanya sedikit perbedaan dalam status, itu juga bisa membuat seseorang lebih percaya diri dengan harga dirinya sendiri.</p>
+<p>	Saat ini saat matahari yang sekarat tampak semerah darah, Mo Bei menyaksikannya sementara hatinya bernyanyi, “Bagaimana mungkin aku tidak pernah menyadari sebelumnya, kemerahan matahari terbenam ini benar-benar menggemaskan …”</p>
+<p>	“Hmph, jungkir balik hanya karena menjadi ketua, seolah-olah itu sangat luar biasa.” Gu Yue Chi Cheng sengaja berjalan di belakang, karena dia sama sekali tidak ingin menyapa Gu Yue Mo Bei.</p>
+<p>	“Aku benar-benar tidak tahu apa yang dipikirkan Fang Yuan, untuk berpikir dia benar-benar melepaskan posisi ketua. Namun itu juga hal yang baik, atau saya sebagai yang ketiga, bagaimana saya bisa mendapatkan peran wakil ketua? Gu Yue Chi Cheng bingung di dalam hatinya, tetapi dia juga merasakan kebahagiaan dan kelegaan.</p>
+<p>	“Selamat siang wakil ketua.” Pada saat ini seorang siswa normal berjalan melewatinya dan segera membungkuk untuk menyambutnya.</p>
+<p>	“Heh heh, hari yang baik untukmu juga.” Gu Yue Chi Cheng langsung mengangguk, wajahnya penuh senyuman.</p>
+<p>	Setelah siswa itu pergi, Chi Cheng secara alami berpikir, “Rasa wakil ketua agak menyenangkan. Saya yakin perasaan menjadi ketua kelas bahkan lebih baik. Kalau saja saya bukan wakil ketua, tetapi ketua itu sendiri, betapa bagusnya itu! ”</p>
+<p>	Chi Cheng yang baru saja bersukacita sebelumnya sekarang sudah dipenuhi dengan keserakahan yang tak terpuaskan, mulai mengumpulkan harapan untuk peran ketua kelas.</p>
+<p>	Di bawah sistem klan, setiap peringkat yang lebih tinggi dari yang terakhir seperti wortel yang semakin besar dari yang sebelumnya, sangat memikatnya.</p>
+<p>	“Meskipun saya hanya bakat kelas C, tetapi saya percaya bahwa semuanya akan menjadi lebih baik dan lebih baik.” Gu Yue Chi Cheng penuh harapan untuk masa depannya.</p>
+<p>	Namun sekarang, wakil ketua lainnya Gu Yue Fang Zheng merasa sangat tidak enak di hatinya, ekspresi wajahnya juga sangat tidak sedap dipandang.</p>
+<p>	“Kakak, kamu!” Dia tampak terbelalak dengan tidak percaya di pintu masuk gerbang akademi, di mana sesosok berdiri sendirian.</p>
+<p>	“Aturan lama seperti biasa, setiap orang sepotong batu purba.” Fang Yuan berdiri sambil memeluk lengannya, nadanya membosankan.</p>
+<p>	Mulut Fang Zheng membuka dan menutup beberapa kali, kemudian setelah beberapa saat berusaha akhirnya dia berkata, “Kakak, tapi aku adalah wakil ketua sekarang!”</p>
+<p>	“Itu benar.” Fang Yuan tanpa ekspresi saat dia mengangguk, menatap Fang Zheng dengan acuh tak acuh, “Wakil ketua menerima uang saku lima potong setiap kali. Jadi kamu harus menyerahkan tiga potong sebagai gantinya. ”</p>
+<p>	Fang Zheng terperangah, dan untuk sesaat dia tidak bisa mengatakan sepatah kata pun.</p>
+<p>	Sekelompok remaja berkerumun di sekitar Gu Yue Mo Bei saat mereka berjalan.</p>
+<p>	Ketika mereka melihat Fang Yuan menghalangi pintu gerbang sekolah, Gu Yue Mo Bei menjadi marah, jarinya menunjuk ke arah Fang Yuan. “Fang Yuan! Anda yakin punya nyali untuk benar-benar masih berani menahan kami?! Saat ini saya adalah ketuanya, dan sebagai siswa normal ketika Anda melihat saya, Anda harus terlebih dahulu membungkuk dan menyapa saya!</p>
+<p>	Apa yang menjawabnya selanjutnya adalah tinju Fang Yuan.</p>
+<p>	Gu Yue Mo Bei tertangkap tak terduga. Setelah terkena tinju, dia tidak bisa menahan diri untuk mundur beberapa langkah ke belakang, wajahnya penuh ketidakpercayaan. “Kamu memukulku, kamu benar-benar berani memukulku? Saya hanyalah ketua!”</p>
+<p>	Apa yang menjawabnya lagi adalah tinju Fang Yuan.</p>
+<p>	Bang, bang, bang.</p>
+<p>	Setelah beberapa putaran bertukar pukulan ofensif dan defensif, Gu Yue Mo Bei dijatuhkan ke lantai oleh Fang Yuan, dan dia jatuh pingsan.</p>
+<p>	Para pemuda di sekitarnya semua terbelalak saat mereka menonton, mereka semua tidak yakin bagaimana harus bereaksi sejenak.</p>
+<p>	Ini benar-benar berbeda dari imajinasi mereka!</p>
+<p>	Para penjaga di pintu masuk gerbang juga telah mengawasi semua yang terjadi di bawah kelopak mata mereka. Mereka tidak bisa membantu tetapi berbisik di antara mereka sendiri.</p>
+<p>	“Fang Yuan baru saja merobohkan ketua kelas baru, apa yang harus kita lakukan?”</p>
+<p>	“Saus salad!” (2)</p>
+<p>	“Maksud kamu apa?”</p>
+<p>	“Artinya hanya awasi mereka, lalu panggil beberapa orang lain dan bereskan tempat itu.”</p>
+<p>	“Tetapi…”</p>
+<p>	“Hei, hei, kamu ingin memprovokasi orang seperti Fang Yuan? Saya harap Anda ingat apa yang terjadi pada Wang Da dan Wu Er!”</p>
+<p>	Penjaga yang bertanya segera bergetar dan berhenti berkata lagi.</p>
+<p>	Kedua penjaga di pintu masuk gerbang besar itu berdiri tegak dan tegak. Membiarkan sebuah insiden terjadi tepat di samping mereka, seolah-olah mereka tuli dan buta, tidak dapat mendengar atau melihat apa pun.</p>
+<p>	Setelah Fang Yuan menyelesaikan Gu Yue Mo Bei, dia juga berurusan dengan Fang Zheng dan Chi Cheng.</p>
+<p>	Saat itulah remaja lain menyadari bahwa tidak ada yang berubah. Fang Yuan masih menjadi Fang Yuan yang sama, dan pemerasan akan terus berlanjut seperti biasa.</p>
+<p>	“Masing-masing dari kalian menyerahkan satu potong batu purba, wakil ketua tiga potong, ketua kelas delapan potong.” Fang Yuan mengumumkan aturan baru.</p>
+<p>	Para pemuda hanya bisa menghela nafas dan dengan patuh mengeluarkan batu purba mereka.</p>
+<p>	Ketika mereka berjalan keluar dari gerbang sekolah, tiba-tiba seseorang menampar kepalanya dan berseru dengan keras, “Aku sudah memikirkannya, tidak heran Fang Yuan tidak menginginkan posisi ketua kelas. Dia ingin terus memeras kita!”</p>
+<p>	“Betul sekali. Setiap kali dia melakukannya, dia akan mendapatkan sekitar lima puluh sembilan keping batu purba, dan sekarang jumlahnya meningkat menjadi sekitar enam puluh delapan keping. Jika dia adalah ketua kelas, dia hanya akan mendapatkan sepuluh buah.” Cukup banyak dari mereka yang tercerahkan.</p>
+<p>	“Dia terlalu berbahaya, terlalu licik, terlalu biadab!” Beberapa dari mereka menampar paha mereka, penuh kebencian dan dendam.</p>
+<p>	“Huh, begini artinya tidak ada yang luar biasa dari posisi ketua kelas dan wakil ketua. Mereka juga akan diperas dan dibiarkan dengan dua potong, sama seperti kita semua.”</p>
+<p>	Tidak diketahui siapa yang baru saja berbicara, tetapi ketika anak-anak muda mendengarnya, mereka semua tidak bisa menahan diri untuk tidak terdiam.</p>
+<p>	Bang!</p>
+<p>	Tetua akademi menampar meja dengan keras, merasa sangat marah.</p>
+<p>	“Fang Yuan ini terlalu absurd, apa yang dia coba lakukan? Untuk melanjutkan pemerasan, mengambil delapan potong dari ketua kelas dan tiga potong dari wakil ketua. Dengan ini, apa bedanya menjadi ketua kelas dan wakil ketua dibandingkan dengan siswa normal lainnya ?! ” Tetua akademi mencoba yang terbaik untuk menekan suaranya, tetapi nadanya dipenuhi amarah.</p>
+<p>	Ketika Fang Yuan menolak posisi ketua kelas, itu berarti menolak integrasinya sendiri ke dalam sistem klan. Dalam istilah yang ketat, ini adalah semacam pengkhianatan terhadap klan itu sendiri. Ini sudah cukup untuk membuat sesepuh akademi sangat marah.</p>
+<p>	Segera setelah itu Fang Yuan pergi untuk memeras teman-teman sekelasnya. Jangkauan tangannya semakin jauh, dan ini sudah melampaui garis bawah sesepuh akademi. Setelah pemerasan kali ini, pengaruh ketua kelas dan wakil ketua kelas akan benar-benar melemah.</p>
+<p>	Seiring waktu, siswa normal akan kehilangan rasa hormat dan minat mereka untuk dua posisi ini.</p>
+<p>	Sementara tindakan Fang Yuan kali ini tampak kecil, makna di baliknya agak berat.</p>
+<p>	Itu cukup banyak menggunakan kekuatan diri sendiri untuk menantang sistem klan!</p>
+<p>	Ini adalah sesuatu yang sama sekali tidak ingin dilihat oleh tetua akademi. Dia membangkitkan harapan baru klan, bukan pengkhianat klan. Namun meskipun mengetahui Fang Yuan telah pergi dan menantang garis dasarnya, dia tahu bahwa dia tidak dapat melakukan apa pun untuk menangani masalah ini.</p>
+<p>	Jika dia benar-benar melakukannya, orang pertama yang tidak akan melepaskannya adalah kepala klan. Orang kedua dan ketiga yang menentangnya adalah Gu Yue Chi Lian dan Gu Yue Mo Chen.</p>
+<p>	Kepala klan menaruh semua harapannya pada Gu Yue Fang Zheng, karena Fang Zheng adalah satu-satunya talenta kelas A dalam tiga tahun. Pemimpin klan membutuhkan seorang jenius yang ulet dan mandiri, bukan bunga yang rapuh dan lembut yang dirawat.</p>
+<p>	Pada saat yang sama untuk Chi Lian dan Mo Chen, mereka juga menaruh harapan mereka pada cucu mereka masing-masing, berharap cucu mereka akan tumbuh di tengah kemunduran dan frustrasi.</p>
+<p>	Jika sesepuh akademi bertindak dan menggantikan para siswa dalam menghukum Fang yuan, begitu tersiar kabar maka akan ada pepatah “penerus masa depan keluarga Mo dan Chi tidak bisa mengalahkan Fang Yuan dan hanya bisa membiarkan para tetua membantu mereka.”</p>
+<p>	Betapa tidak menyenangkannya itu.</p>
+<p>	Ini pasti akan menjadi pukulan besar terhadap ketenaran dan kehormatan keluarga Mo dan Chi.</p>
+<p>	Tentu saja tetua akademi tidak takut pada Fang Yuan kecil, tetapi dia malah khawatir bahwa intervensinya akan menarik tekanan dari tiga sisi – kepala klan, garis keturunan Mo dan Chi. Mereka cukup banyak terdiri dari hampir seluruh otoritas tinggi Gu Yue. Sebagai penatua yang rendah, bagaimana mungkin dia bisa bertahan?</p>
+<p>	“Akar masalah ini masih kembali ke rahasia Fang Yuan. Apa yang dia andalkan untuk menerobos ke tahap tengah? ” Tetua akademi menahan api di dalam hatinya dan mengarahkan pandangannya ke tiga laporan investigasi di atas mejanya.</p>
+<p>	Laporan pertama menunjukkan info luas tentang latar belakang keluarga Fang Yuan.</p>
+<p>	Fang Yuan dilahirkan dalam keluarga yang baik; tidak ada yang aneh dengan identitasnya dan pengalaman hidupnya sangat bersih dan bersih. Kedua orang tuanya telah meninggal dan dia dibawa oleh paman dan bibinya. Namun mereka tidak akur, dan sejak dia bersekolah di akademi, Fang Yuan selalu tinggal di asrama akademi.</p>
+<p>	Laporan kedua adalah tentang catatan hidup Fang Yuan.</p>
+<p>	Dia telah menunjukkan kecerdasan awal selama usia junior, dan dilihat secara optimis oleh para anggota klan, diprediksi sebagai bakat kelas A yang mungkin. Namun setelah Upacara Kebangkitan, dia diuji untuk menjadi kelas C, sangat mengecewakan klan.</p>
+<p>	Laporan ketiga adalah tentang jejak Fang Yuan baru-baru ini.</p>
+<p>	Pola kehidupan sehari-harinya sangat sederhana, dan dia memiliki jadwal yang kaku. Pada siang hari dia akan selalu mengikuti pelajaran di akademi, dan pada malam hari dia akan selalu tidur di asrama. Dia sangat pekerja keras dalam kultivasinya, dan akan selalu memasuki kultivasi Master Gu setiap malam, memelihara aperture-nya. Ada kalanya dia pergi ke satu-satunya penginapan di desa itu untuk menikmati makanan yang lebih baik dan membeli anggur untuk diminum.</p>
+<p>	Dia memiliki kasih sayang khusus terhadap anggur, dan suka minum anggur bambu hijau. Di bawah tempat tidur asramanya, ia menyimpan puluhan pot anggur bambu hijau.</p>
+<p>	Penatua akademi melihat dengan hati-hati lagi pada tiga laporan, hatinya membentuk kesan yang lebih dalam tentang Fang Yuan lagi.</p>
+<p>	“Kedua orang tuanya meninggal lebih awal, dan dia tidak bisa bergaul dengan paman dan bibinya… Tidak heran anak nakal Fang Yuan ini tidak memiliki rasa memiliki terhadap klan. Dia secara pribadi dinobatkan sebagai jenius di antara semua oleh klan, namun mereka juga secara pribadi mencabutnya dari langit dan melemparkannya ke bumi … Tidak heran dia begitu liar dan sulit diatur, dan sangat dingin dan terpisah. Hidupnya sangat sederhana dan dia tekun dalam berkultivasi. Ini dia menahan napas, tidak mau mengakui, dia ingin membuktikan kemampuannya kepada klan! Karena itulah ketika aku menekannya, dia membalas dengan sangat keras…”</p>
+<p>	Setelah sesepuh akademi dengan hati-hati berpikir sampai titik ini, dia tidak bisa menahan diri untuk tidak menghela nafas.</p>
+<p>	Semakin dia belajar tentang Fang Yuan, semakin dia mengerti Fang Yuan.</p>
+<p>	Tentu saja, memahami bukan berarti memaafkan. Fang Yuan menentangnya, menyinggung martabatnya, menolak menjadi ketua kelas, dan bahkan memeras teman-teman sekelasnya. Ini adalah hal-hal yang tidak bisa dia toleransi.</p>
+<p>	Mengguncang informasi di tangannya, sesepuh akademi mengerutkan kening lagi. “Meskipun laporan ini terperinci, itu tidak ada hubungannya dengan rahasia kemajuan Fang Yuan. Sudah beberapa hari, orang-orang ini mengerikan! ”</p>
+<p>	Bum, bum, bum.</p>
+<p>	Pada saat ini, suara ketukan terdengar di pintu.</p>
+<p>	“Masuklah,” kata sesepuh akademi.</p>
+<p>	Pintu terbuka.</p>
+<p>	Itu adalah kepala klan, pengawal pribadi Gu Yue Bo. “Pemimpin klan memiliki perintah, tetua yang terhormat, tolong cepat ke paviliun keluarga utama, ada masalah untuk didiskusikan.”</p>
+<p>	“Oh, ada apa?” Tetua akademi berdiri dari tempat duduknya, dia merasakan beratnya masalah dari nada dan ekspresi penjaga.</p>
+<p>	“Tuan Gu peringkat empat Tuan Jia Fu telah kembali, saudaranya Jia Jin Sheng telah hilang!” Penjaga itu menjawab.</p>
+<p>	“Hiss …” Penatua akademi langsung menarik seteguk udara dingin.</p>
+<p>	—</p>
+<p>	(1) Analogi ini unik bagi penulis. Saya menerjemahkan sedekat mungkin, ya… Sesuatu tentang bagaimana pada dasarnya dua warna di langit menyatu seperti seorang kaisar ‘tidur’ dengan selirnya.</p>
+<p>	(2) Saus salad adalah permainan kata Cina yang sangat sulit untuk dikontekstualisasikan. (怎么办 Zen Me Ban dan Liang Ban, adalah homofon dengan karakter ‘Ban’ sehingga merupakan ungkapan yang umum digunakan ketika orang tidak tahu bagaimana menjawab pertanyaan “Bagaimana?”.)</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

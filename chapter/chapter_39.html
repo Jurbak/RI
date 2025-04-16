@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 39 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 39";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_38.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 39">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_40.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 39</h1>
+        <div class="text-left">
+<p>	Bab 39</p>
+<p>	Bab 39 – Pedagang Caravan Katak</p>
+<p>	Bulan Mei adalah transisi antara musim semi dan musim panas.</p>
+<p>	Keharuman bunga memenuhi udara, gunung-gunung besar yang selalu hijau dan sinar matahari mulai secara bertahap melepaskan sisi bersemangatnya.</p>
+<p>	Di bawah langit biru jernih, awan putih melayang seperti kapas.</p>
+<p>	Di Gunung Qing Mao, hutan bambu lurus seperti tombak seperti biasanya, mengarah ke langit biru. Gulma tumbuh liar di mana-mana, dan varietas bunga liar yang tidak dikenal menghiasi semak-semak rumput. Saat angin sepoi-sepoi bertiup, rumput liar bergerak ke sana kemari, aroma serbuk sari bunga yang lebat dan aroma rumput hijau menyerang pengunjung.</p>
+<p>	Setengah jalan ke atas gunung adalah sejumlah besar bidang bertingkat. Lapis demi lapis, selangkah demi selangkah, kecambah gandum hijau lembut ditanam. Dari jauh, itu tampak seperti laut hijau menghijau.</p>
+<p>	Di ladang-ladang bertingkat itu banyak petani sibuk bekerja. Ada petani yang membersihkan saluran untuk penyaluran air mengairi sawah, ada juga petani yang menggulung celana, berdiri di sawah dan menanam kecambah.</p>
+<p>	Orang-orang ini secara alami adalah orang luar yang fana karena klan Gu Yue tidak akan pernah melakukan pekerjaan rendahan ini.</p>
+<p>	Cincin, cincin…</p>
+<p>	Suara lonceng unta bisa terdengar samar-samar ditiup angin musim semi.</p>
+<p>	Para petani menegakkan tubuh mereka saat mereka menuruni gunung, hanya untuk melihat karavan bergerak seperti cacing berwarna-warni dari sisi gunung, perlahan-lahan menunjukkan kepalanya.</p>
+<p>	“Ini karavan pedagang!”</p>
+<p>	“Ya, ini sudah bulan Mei, sudah waktunya karavan datang.”</p>
+<p>	Orang-orang dewasa langsung memahami situasi itu, dan anak-anak berhenti bermain dengan air dan tanah liat di tangan mereka. Bersama-sama, mereka dengan penuh semangat mendekati karavan.</p>
+<p>	Perbatasan Selatan memiliki seratus ribu gunung – Gunung Qing Mao hanyalah salah satunya. Di setiap gunung, ada desa demi desa, yang dipertahankan oleh semua orang melalui hubungan darah dan kekerabatan mereka.</p>
+<p>	Di antara pegunungan, hutannya dalam dan tidak menyenangkan, tebingnya curam dan penuh dengan batu jatuh yang berbahaya. Selain itu, di lingkungan hutan yang kompleks tinggal sejumlah besar binatang buas dan cacing Gu yang aneh .</p>
+<p>	Manusia fana tidak bisa melewatinya sama sekali. Sulit untuk melewati rintangan ini sendirian, setidaknya seseorang harus menjadi Master Gu peringkat tiga .</p>
+<p>	Karena ekonomi yang buruk, perdagangan menjadi sulit. Jadi, bentuk perdagangan yang paling penting adalah melalui pedagang karavan. Hanya dengan mengorganisir kelompok pedagang dalam skala besar seperti itu, para Master Gu dapat bersatu dengan kekuatan untuk saling membantu, menaklukkan kesulitan dalam rute perjalanan dan melintasi dari satu gunung ke gunung lainnya.</p>
+<p>	Kedatangan karavan pedagang itu seperti semangkuk air mendidih yang dituangkan ke Gunung Qing Mao yang damai dan tenteram.</p>
+<p>	“Selama beberapa tahun terakhir mereka akan datang pada bulan April, tetapi tahun ini mereka hanya tiba pada bulan Mei. Setidaknya mereka ada di sini sekarang.” Pemilik penginapan menghela napas dalam-dalam setelah mendengar berita itu. Bisnis penginapan itu buruk di bulan-bulan lainnya, jadi hanya ketika karavan datang dia bisa mendapatkan keuntungan yang cukup untuk bertahan sepanjang tahun.</p>
+<p>	Pada saat yang sama, ada beberapa anggur bambu hijau di dalam penyimpanannya yang bisa dia jual ke pedagang karavan.</p>
+<p>	Selain penginapan, bisnis di kedai juga akan booming sebagai hasilnya.</p>
+<p>	Para pedagang karavan memasuki desa pegunungan Gu Yue satu per satu, dipimpin oleh Kodok Kuningan Harta Karun. Kodok ini tingginya dua setengah meter, seluruh tubuhnya berwarna oranye-kuning. Bagian belakang katak itu tebal dan penuh dengan kutil dan simpul. Itu seperti gumpalan paku perunggu di gerbang kota kuno.</p>
+<p>	Di punggung Treasure Brass Toad, tali tebal diikatkan di sekitar banyak barang. Sepintas, sepertinya katak itu membawa ransel raksasa.</p>
+<p>	Seorang pria paruh baya dengan wajah melingkar penuh bopeng duduk bersila di atas katak. Dia gemuk dan perutnya besar. Kedua matanya membentuk celah saat tersenyum. Dia menangkupkan tinjunya saat dia menyapa penduduk desa Gu Yue di sekitarnya.</p>
+<p>	Nama pria ini adalah Fu dari klan Jia. Kultivasinya berada di peringkat empat dan dia adalah pemimpin karavan pedagang kali ini.</p>
+<p>	Katak harta itu melompat sedikit saat bergerak maju tetapi Jia Fu yang duduk di atas kepalanya stabil dan mantap. Ketika katak melompat, tingginya akan sejajar dengan jendela di lantai dua sebuah bangunan. Bahkan ketika dia kembali ke tanah, dia berada di ketinggian yang lebih tinggi dari tingkat pertama bangunan bambu.</p>
+<p>	Jalan-jalan yang semula luas tiba-tiba agak padat dan sempit. Kodok Kuningan Harta Karun itu seperti binatang buas yang menyusup ke tengah-tengah sejumlah besar rumah bambu.</p>
+<p>	Setelah katak harta karun adalah cacing gemuk besar. Itu memiliki dua mata yang mirip dengan jendela kaca multi-warna, warnanya cerah dan indah. Cacing itu panjangnya lima belas meter, bentuk tubuhnya menyerupai ulat sutera. Namun, permukaan cacing itu ditutupi lapisan tebal pelindung kulit seperti porselen hitam. Di baju besi itu ada tumpukan barang dan barang dagangan lainnya, tali rami diikatkan di sekelilingnya. Di antara celah dan interval barang, Master Gu duduk satu per satu, beberapa tua dan beberapa muda.</p>
+<p>	Ada juga manusia yang merupakan pejuang bela diri yang kuat dan kokoh, perlahan-lahan bergerak maju di tanah mengikuti kumbang hitam yang gemuk.</p>
+<p>	Setelah kumbang gemuk, ada burung unta dengan bulu berwarna cerah, laba-laba gunung berbulu, ular bersayap dengan dua pasang sayap berbulu dan seterusnya. Namun, ini dalam jumlah kecil, sebagian besar makhluk itu adalah kodok.</p>
+<p>	Semua kodok ini mirip dengan Kodok Kuningan Harta Karun, tetapi ukurannya lebih kecil dan memiliki tubuh sapi dan kuda. Kodok-kodok itu membawa barang dagangan dan orang-orang, perut mereka membuncit saat mereka melompat ke depan.</p>
+<p>	Karavan pedagang berjalan jauh ke dalam desa.</p>
+<p>	Anak-anak di jalan akan melihat dengan rasa ingin tahu dengan mata terbelalak, berteriak kegirangan atau berseru kaget.</p>
+<p>	Jendela-jendela di lantai dua terbuka satu demi satu, penduduk desa pegunungan mengamati para pedagang dari jarak dekat. Beberapa memiliki mata yang memancarkan ketakutan dan beberapa lainnya melambaikan tangan untuk mengekspresikan sambutan hangat.</p>
+<p>	“Kakak Jia, kamu datang sedikit terlambat tahun ini, kamu pasti mengalami perjalanan yang sulit.” Mendekati dengan identitas kepala klan, Gu Yue Bo keluar sendiri untuk menyambut pemimpin karavan pedagang tahun ini.</p>
+<p>	Karena Jia Fu memiliki status Master Gu Peringkat empat , jika seorang tetua peringkat tiga bertanggung jawab untuk menerimanya, itu tidak diragukan lagi akan dilihat sebagai semacam kelalaian dan cemoohan.</p>
+<p>	Jia Fu menangkupkan tinjunya dan menghela nafas, “Jalan tahun ini agak tidak menguntungkan. Dalam perjalanan kami bertemu dengan sekelompok Kelelawar Darah Terpencil dan kami kehilangan beberapa orang baik. Kemudian di Gunung Jue Bi kami bertemu dengan kabut gunung, dan kami tidak berani melanjutkan perjalanan sama sekali. Jadi kami tertunda cukup lama, dan menyebabkan Saudara Gu Yue menunggu cukup lama.”</p>
+<p>	Saat mereka berbicara, nada mereka sangat sopan.</p>
+<p>	Desa Gu Yue membutuhkan karavan pedagang setiap tahun untuk datang dan berdagang, dan karavan pedagang juga membutuhkan bisnis untuk menghasilkan uang.</p>
+<p>	“ Heh heh heh , cukup baik kamu bisa datang. Tolong, klan telah menyiapkan makanan dan anggur, izinkan saya menjadi tuan rumah makan malam penyambutan untuk Anda, kakak laki-laki, ”Gu Yue Bo mengulurkan tangannya dan berkata dengan mengundang.</p>
+<p>	“Kepala klan sopan, terlalu sopan.” Jia Fu tersanjung.</p>
+<p>	Karavan pedagang tiba di perbatasan Gunung Qing Mao di pagi hari, dan pada sore hari mereka ditempatkan di Desa Gu Yue. Saat senja, lingkungan desa telah menjadi area yang luas dari toko-toko dan toko-toko sementara. Semua jenis tenda tinggi berwarna merah, biru, kuning dan hijau dibangun dan setiap jengkal di antara tenda-tenda itu berdesakan dengan banyak kios kecil di pinggir jalan.</p>
+<p>	Malam turun, namun masih terang benderang di daerah itu.</p>
+<p>	Aliran pejalan kaki yang tak berujung tumpah ke daerah itu dari desa. Ada manusia serta Gu Masters. Anak-anak kecil melompat-lompat dengan semangat tinggi, dan orang dewasa menunjukkan ekspresi kegembiraan yang mirip dengan merayakan festival.</p>
+<p>	Fang Yuan bergerak bersama orang banyak, berjalan sendirian.</p>
+<p>	Kerumunan ramai dengan aktivitas, kelompok-kelompok orang baik di sekitar kios atau tanpa henti keluar masuk dari pintu masuk tenda.</p>
+<p>	Lingkungan sekitar dipenuhi dengan teriakan para pedagang yang menjajakan dagangannya.</p>
+<p>	“Ayo, ayo, lihat. Batu bata teh Blue Sea Cloud terbaik, meminum teh ini membuat seseorang secerah peri! Bahkan jika itu bukan orang yang minum, itu bisa digunakan untuk memberi makan dan membesarkan teh Gu , itu adalah barang dengan harga murah untuk nilainya. Satu potong hanya berharga lima batu purba! ”</p>
+<p>	“Brute Force Longhorn Beetle Gu , seorang Master Gu yang menggunakan Gu ini akan dapat meledak dengan kekuatan seekor sapi. Anda bisa pergi, tapi jangan menyesalinya!”</p>
+<p>	“Rumput Intim, Rumput Intim berkualitas tinggi. Semua orang melihat kualitas ini, segar seperti baru dipetik. Satu kati untuk dua potong batu purba, harga sangat murah…”</p>
+<p>	Saat Fang Yuan mendengar ini, langkah kakinya berhenti sebentar, lalu dia mengikuti suara itu dan berjalan mendekat.</p>
+<p>	Dia melihat seekor burung unta menarik gerobak dengan dua roda. Di gerobak itu ada setumpuk tanaman hijau pastel. Setiap helai rumput panjangnya satu meter, ramping dan panjang. Lebar rata-rata mereka sekitar kuku. Di beberapa ujung rerumputan yang runcing tumbuh kuncup bunga merah berbentuk hati.</p>
+<p>	Rumput Intim adalah salah satu jenis makanan tambahan cacing Gu , nilainya berasal dari fakta bahwa itu dapat digunakan untuk berpasangan dengan beberapa makanan lain untuk memberi makan cacing Gu .</p>
+<p>	Misalnya, Fang Yuan perlu memberikan dua potong kelopak bunga setiap kali makan kepada Moonlight Gu saat memberinya makan. Jika dia mencampurkan sebilah Rumput Intim, Moonlight Gu akan kenyang hanya dengan memakan satu kelopak.</p>
+<p>	Rumput Intim hanya berharga dua potong batu purba per kati, sedangkan kelopak anggrek bulan berharga satu batu purba untuk setiap sepuluh potong. Dengan perhitungan sederhana, orang akan tahu bahwa mencampur Rumput Intim untuk memberi makan Gu akan lebih hemat biaya.</p>
+<p>	“Setengah bulan yang lalu, karena aku menggunakan Moonlight Gu di akademi untuk membunuh Gao Wan, aku didenda tiga puluh batu purba. Namun keluarga Mo membayar saya tiga puluh batu purba sebagai kompensasi, jadi saya tidak benar-benar mengambil kerugian. Dalam beberapa hari terakhir saya telah merampok dua kali, jumlah total batu saya berjumlah 118. Namun, baru-baru ini saya terus menghabiskan esensi untuk memperbaiki esensi purba tingkat menengah dan memelihara empat dinding lubang saya, dan saya akan menggunakan tiga potong batu setiap hari . Menambah biaya memberi makan Gu , pengeluaran harian saya sendiri dan berturut-turut membeli anggur bambu hijau, saya memiliki sembilan puluh delapan potong sekarang. ”</p>
+<p>	Sejak Fang Yuan membunuh seseorang, citra kejam dan tidak berperasaan telah mengakar kuat ke dalam hati para siswa dan untuk sementara waktu tidak ada yang berani menantangnya. Hal ini menyebabkan penjarahannya menjadi lebih mudah, karena setiap kali hanya sejumlah kecil yang berani melawan.</p>
+<p>	Fang Yuan menghitung dalam hatinya, lalu dia memindahkan pandangannya dan terus berjalan lebih dalam ke jantung pengaturan toko sementara.</p>
+<p>	Warung Intimate Grass dikelilingi oleh sekelompok orang. Mereka semua adalah Master Gu atau siswa, memegang batu purba di tangan mereka saat mereka berteriak dan bergegas untuk membelinya.</p>
+<p>	Bukan karena Fang Yuan kekurangan uang untuk membeli Rumput Intim, tetapi dia tidak punya waktu.</p>
+<p>	“Jika diingat-ingat, Kodok Kulit Lumpur itu seharusnya ada di toko itu. Dalam kehidupan saya sebelumnya ada seorang Guru Gu yang mendapatkannya dari perjudian pada malam pertama, maka dia mendapatkan banyak waktu. Saya harus cepat, saya tidak bisa kehilangan banyak dengan mencoba menabung sedikit.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 332 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 332";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_331.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 332">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_333.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 332</h1>
+        <div class="text-left">
+<p>	Bab 332</p>
+<p>	Bab 332: keterkejutan Zhou Quan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Apa yang kita lakukan tuan?” Pramugara dengan panik berlari ke arah Zhou Quan, meminta instruksi.</p>
+<p>	Zhou Quan kaget saat bangun tadi, melihat Fang Yuan membuat keributan di rumahnya, dia sangat marah.</p>
+<p>	“Fang Zheng ini benar-benar melanggar hukum, dia benar-benar berani menggunakan kekuatan di kota klan Shang! Tunggu … aura ini, peringkat empat, oh Tuhan, berapa umurnya, dia sudah naik ke peringkat empat? ”</p>
+<p>	Zhou Quan diam-diam mengamati, tetapi tiba-tiba matanya terbuka lebar, karena dia benar-benar terpana.</p>
+<p>	Dia pernah menjadi master Gu peringkat empat, pemimpin klan. Tapi dia hanya mencapai peringkat empat alam ketika dia hampir berusia lima puluh tahun. Usia Fang Yuan terkenal di panggung pertempuran, dia baru berusia dua puluh tahun!</p>
+<p>	Bakat ilahi apa ini!</p>
+<p>	Zhou Quan merasakan ratapan dan kecemburuan, kemarahan dan ketidakberdayaan: “Fang Zheng juga naik ke peringkat empat, dia benar-benar peringkat empat Gu Master. Dia juga memiliki token duri ungu, dan memiliki hubungan baik dengan Shang Xin Ci dan Shang Chao Feng. Dia terlalu keras kepala, sebelumnya dia menyebabkan masalah di pasar budak, tetapi hanya didenda empat puluh sembilan batu purba. Dia memiliki masa depan yang cerah, dia kemungkinan akan mencapai peringkat lima. Menurut rumor, bahkan Shang Yan Fei sangat memikirkannya, dan sekarang seluruh klan Shang menutup mata terhadap tindakannya. Bagaimana saya bisa bersaing dengannya? Tetapi, jika saya tidak mampu menyinggung perasaannya, tidak bisakah saya bersembunyi saja? ”</p>
+<p>	Memikirkan hal ini, Zhou Quan menghela nafas, berkata kepada pelayan lamanya: “Cepat kemasi barang-barang kita, kita akan bersembunyi di toko. Mereka datang dengan kekuatan penuh pada kami, kami harus menghindari mereka selama periode ini.”</p>
+<p>	“Ya tuan.” Pramugara tua itu dengan cepat pergi berkemas.</p>
+<p>	Sesaat kemudian, komplotan itu membalikkan manor, tempat yang elegan dan tenang telah menjadi zona perang.</p>
+<p>	“Tuhan, kami telah mencari, kami tidak menemukan Zhou Quan.” Xiong Tu melaporkan.</p>
+<p>	“Mm, dia pasti menyelinap keluar dari pintu belakang. Dia tidak mungkin pergi terlalu jauh, dia mungkin bersembunyi di toko. Tapi semua ini sesuai ekspektasiku, aku sengaja membiarkan pintu belakang tetap utuh, hehe.” Fang Yuan tertawa.</p>
+<p>	Zhou Quan berpikir Fang Yuan akan menghormati klan Shang dan berhenti membuat masalah. Tapi siapa Fang Yuan? Di dalam hatinya, bahkan klan Shang yang berukuran super hanyalah batu loncatan yang sedikit lebih besar untuk ambisinya.</p>
+<p>	“Apakah kamu sudah menyiapkan apa yang aku perintahkan untuk kamu lakukan?” Fang Yuan berbalik, bertanya pada Wei De Xin.</p>
+<p>	Wei De Xin dengan cepat menjawab: “Sudah disiapkan.”</p>
+<p>	“Baik sekali.” Fang Yuan melambaikan tangannya: “Ayo pergi.”</p>
+<p>	Geng meninggalkan manor, dan segera menyebabkan keributan.</p>
+<p>	Kota klan Shang selalu sangat damai dan aman. Fang Yuan menerobos masuk ke rumah seseorang dan mengacaukannya sudah menarik banyak perhatian.</p>
+<p>	Selain itu, Fang Yuan menginstruksikan Wei De Xin untuk menyebarkan berita tentang masalah ini, sehingga menjadi cerita yang lebih sensasional di kota.</p>
+<p>	Banyak orang yang lewat tertarik ke tempat kejadian.</p>
+<p>	“Pergi.” Fang Yuan memimpin, membawa pengikutnya saat dia berkeliaran di jalanan, dengan sengaja menjaga profil tinggi.</p>
+<p>	Sepanjang jalan, jumlah orang yang lewat bertambah, berkerumun hingga jalan dipadati orang.</p>
+<p>	“Tuan, Tuan, Fang Zheng ada di sini lagi.” Pramugara tua itu melapor dengan ketakutan.</p>
+<p>	“Tidak perlu khawatir, toko ini milik klan Shang, dia tidak akan berani menerobos masuk ke sini.” Zhou Quan mengelus jenggotnya, menenangkan pelayannya.</p>
+<p>	Sebelum kata-katanya selesai, dia mendengar suara keras.</p>
+<p>	Fang Yuan telah mengirim pintu toko terbang dengan tendangan di depan semua orang, dan mengambil langkah besar ke toko.</p>
+<p>	“Berhenti disana.” Sekelompok penjaga kota klan Shang berjalan keluar dengan ekspresi muram.</p>
+<p>	Fang Yuan dan gengnya sangat berisik, penjaga kota sudah diberitahu sejak lama.</p>
+<p>	“Ini adalah toko klan Shang, kamu tidak bisa masuk dengan paksa. Ini melanggar aturan kota klan Shang! Pemimpin penjaga berteriak sambil mengeluarkan ember.</p>
+<p>	Dia sedang bertugas hari ini, jika dia tidak berbicara, kota klan Shang akan mengejar tanggung jawabnya nanti.</p>
+<p>	Tapi Fang Yuan mengabaikannya sepenuhnya, berjalan masuk tanpa mengindahkan sepatah kata pun.</p>
+<p>	Yang lain mengikuti.</p>
+<p>	Bai Ning Bing tetap di luar, menatap dingin pada pemimpin penjaga kota, memancarkan aura peringkat empatnya: “Kita akan masuk sekarang, jadi apa? Bisakah kamu menghentikan kami?”</p>
+<p>	Jantung pemimpin peringkat dua ini berdebar kencang.</p>
+<p>	Dia menelan ludah, saat dia menjawab dengan ekspresi pucat: “Bahkan jika aku tidak bisa menghentikanmu, kita harus mencoba. Ini adalah kota klan Shang, itu adalah tanggung jawab kita. Anda harus tahu, tindakan Tuan Fang Zheng telah melanggar peraturan kota klan Shang, pasal tiga pasal dua puluh lima…”</p>
+<p>	“Kami tahu, hak yang bagus.” Bai Ning Bing mengangkat alisnya, saat dia melemparkan sekantong batu purba kepada pemimpinnya.</p>
+<p>	“Ada lima ratus batu purba di dalamnya, simpan kembaliannya. Kami harus terus meronta-ronta tempat itu nanti, ini adalah pembayaran di muka. ” Setelah mengatakan itu, Bai Ning Bing memasuki toko juga.</p>
+<p>	Pemimpin itu berdiri membeku di tempat, saat dia memegang tas batu purba yang berat itu, dia benar-benar terpana oleh aura Bai Ning Bing.</p>
+<p>	“Terlalu sombong, terlalu sombong!” Orang-orang yang lewat meraung-raung.</p>
+<p>	“Aku belum pernah melihat orang bertindak begitu melanggar hukum di kota klan Shang.”</p>
+<p>	“Fang Zheng dan Bai Ning Bing adalah Master Gu peringkat empat, mereka memiliki kemampuan. Mereka bahkan memiliki dukungan token duri ungu, siapa yang bisa meniru mereka? ”</p>
+<p>	“Bahkan jika saya memiliki kekuatan, saya tidak akan berani. Mereka terlalu berani! Melakukan ini di siang hari bolong, sungguh…”</p>
+<p>	Seperti yang didiskusikan beberapa orang, lebih banyak penonton yang tercengang.</p>
+<p>	Beberapa ingin memasuki toko untuk menonton pertunjukan, tetapi mereka diblokir di luar oleh anak buah Fang Yuan, atau diusir oleh penjaga kota.</p>
+<p>	“Pemimpin, apakah kita masuk?” Seorang penjaga kota bertanya dengan lembut.</p>
+<p>	“Masuk untuk apa? Membiarkan mereka melempari kita dengan batu purba?!” Pemimpin itu berteriak: “Tunggu, tunggu tuan tua datang dan selesaikan ini sendiri!”</p>
+<p>	Kembali ke Fang Yuan, yang memasuki toko.</p>
+<p>	“Fang Zheng, apa yang kamu coba lakukan? Menerobos ke toko klan Shang dengan paksa, apakah Anda masih ingin tinggal di kota klan Shang? Wajah Zhou Quan muram saat dia mencoba menekan dominasi Fang Yuan dengan menggunakan nama klan Shang.</p>
+<p>	Fang Yuan mencibir, memandang Zhou Quan dengan jijik: “Orang tua, bukankah kamu tidur siang di rumah? Mengapa Anda bersembunyi di sini? Kami berdua orang pintar, jangan bertele-tele, saya di sini untuk Anda. Anda memiliki dua pilihan sekarang, tunduk pada saya, atau mati. Pilih sekarang.”</p>
+<p>	“Hehehe. Anak muda, saya akan menyarankan Anda untuk menghentikan kesombongan Anda. Zhou Quan tersenyum, karakter sombongnya mengambil alih, menolak untuk menundukkan kepalanya: “Kamu ingin menyakitiku, tidak bisakah kamu melihat di mana kita berada sekarang? Hmm?”</p>
+<p>	Fang Yuan tertawa keras.</p>
+<p>	“Mengapa kamu tertawa?” Wajah Zhou Quan sangat jelek saat dia bertanya.</p>
+<p>	“Kamu sudah hidup selama bertahun-tahun, pandangan ke depanmu semakin buruk. Tidak bisakah kamu melihat, aku berbeda dari Shang Xin Ci? Tidak apa-apa, saya akan menunjukkan belas kasihan dan memberi Anda kesempatan, kesempatan untuk sepenuhnya memahami saya. ”</p>
+<p>	Fang Yuan berkata, tiba-tiba berteriak dan menyerang.</p>
+<p>	Zhou Quan tidak menyangka Fang Yuan begitu tidak terkendali, setelah diserang, dia segera dikirim terkapar di tanah dan hampir pingsan.</p>
+<p>	Tapi dia masih memiliki pengalaman yang kaya, dengan cepat bangkit dan melibatkan Fang Yuan dalam pertempuran.</p>
+<p>	Bam bam bam…</p>
+<p>	Suara pertempuran menyebar ke luar.</p>
+<p>	Kerumunan yang berdiri di luar toko bergerak.</p>
+<p>	“Mereka bertarung, mereka bertarung!”</p>
+<p>	“Dia benar-benar menyerang, nyali Fang Zheng ini terbuat dari baja, dia terlalu gila.”</p>
+<p>	“Zhou Quan sangat tidak beruntung bertemu dengannya.”</p>
+<p>	Semua orang menghela nafas, tidak ada yang mengira Zhou Quan akan menang.</p>
+<p>	Mereka benar.</p>
+<p>	Pertempuran di toko dengan cepat berakhir, Zhou Quan sama sekali bukan tandingan Fang Yuan. Dia masih memiliki beberapa luka tersembunyi, meskipun dia berada di peringkat tiga tahap puncak, melawan Fang Yuan yang sombong, tidak mungkin dia bisa menang.</p>
+<p>	Toko dihancurkan selama pertarungan, hampir setengah dari tempat itu hancur. Setelah asap menyebar, semua orang melihat Zhou Quan tergeletak di tanah, berdarah dan mengalami patah tulang, tidak bisa bergerak.</p>
+<p>	Fang Yuan berdiri di tanah, saat dia menginjak kepala Zhou Quan, mengeluarkan aura yang mendominasi.</p>
+<p>	“Tuan Fang Zheng, apa yang telah kamu lakukan?” Tiga tetua klan Shang berkumpul, berteriak.</p>
+<p>	“Di mana matamu? Tidak bisakah kamu tahu dari melihat? Saya sedang memberi pelajaran kepada orang-orang!” Fang Yuan memutar matanya, menjawab dengan keras.</p>
+<p>	Kerumunan tertawa.</p>
+<p>	“Tuan Fang Zheng, kami di sini bukan untuk bercanda. Masalah ini terlalu parah, apakah Anda tahu konsekuensinya? ” Tetua klan berkata dengan sungguh-sungguh.</p>
+<p>	Zhou Quan yang diinjak-injak oleh Fang Yuan mencibir, saat darah mengalir keluar dari mulutnya yang terbuka.</p>
+<p>	“Fang Zheng terlalu gegabah!”</p>
+<p>	“Dia membuat masalah ini terlalu parah, bagaimana dia akan keluar dari masalah kali ini.”</p>
+<p>	“Meskipun Fang Zheng berbakat, bagaimanapun juga, dia bukan klan Shang …”</p>
+<p>	Di bawah tatapan semua orang, Fang Yuan tertawa: “Tentu saja aku tahu konsekuensinya. Tidak hanya itu, aku juga tahu apa konsekuensi dari membunuh seseorang!”</p>
+<p>	Mengatakan demikian, dia mengeluarkan token duri ungu.</p>
+<p>	“Tetua, jika saya membunuh di kota klan Shang, itu akan merusak perdamaian klan Shang. Menurut aturan, saya akan kehilangan token duri ungu, kan? ” Fangyuan bertanya.</p>
+<p>	“Ya.” Seorang penatua segera menjawab.</p>
+<p>	Setelah mendapatkan jawaban yang jelas, bibir Fang Yuan meringkuk saat dia menunjukkan senyum tak berperasaan.</p>
+<p>	Dia mengerahkan kekuatan, dan menghancurkan token duri ungu menjadi bubuk.</p>
+<p>	Tindakan ini menyebabkan orang banyak berteriak kaget, karena pupil para tetua menyusut.</p>
+<p>	“Fang Zheng menghancurkan token duri ungu!”</p>
+<p>	“Itu adalah token duri ungu, dia menghancurkannya, sungguh sia-sia!”</p>
+<p>	“Fang Zheng bahkan meninggalkan token duri ungu, dia jelas menginginkan kehidupan Zhou Quan …”</p>
+<p>	“Zhou Quan terlalu arogan, menolak undangan Shang Xin Ci berkali-kali. Dia membuat marah Fang Zheng karena ini, sungguh sial!”</p>
+<p>	…</p>
+<p>	Melihat pecahan dari token duri ungu mendarat di tanah, bahkan mengenai wajahnya sendiri, senyum Zhou Quan membeku.</p>
+<p>	Ini adalah token duri ungu!!</p>
+<p>	“Fang Zheng bahkan menghancurkan token duri ungunya, dia menginginkan hidupku. Apakah dia … dia … apakah dia gila ?! ”</p>
+<p>	Zhou Quan benar-benar ngeri dengan kegilaan, kecerobohan, dan kegilaan Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

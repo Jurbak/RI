@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 37 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 37";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_36.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 37">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_38.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 37</h1>
+        <div class="text-left">
+<p>	Bab 37</p>
+<p>	Bab 37 – Baik kompromi dan ancaman</p>
+<p>	Sementara itu, di keluarga Mo.</p>
+<p>	“Apa instruksi saya kepada Anda? Lihat apa yang kamu lakukan !” Di ruang belajar, Gu Yue Mo Chen membanting meja, meledak dengan marah.</p>
+<p>	Mo Yan berdiri di seberang pria tua ini, kepalanya menunduk. Matanya penuh kejutan dan kemarahan. Dia juga baru saja mendapat kabar bahwa Gao Wan telah dibunuh oleh Fang Yuan!</p>
+<p>	Remaja berusia 15 tahun itu, untuk berpikir dia memiliki metode dan tekad seperti itu. Gao Wan adalah pelayan yang bangga dari keluarga Mo-nya dan tindakan Fang Yuan untuk membunuhnya adalah tindakan tidak hormat yang terang-terangan terhadap mereka!</p>
+<p>	“Kakek, kamu tidak perlu marah. Gao Wan ini hanya seorang pelayan, kematiannya tidak menjadi perhatian. Lagipula dia bukan anggota klan Gu Yue. Tapi Fang Yuan itu, dia terlalu berani, kamu harus ‘melihat pemiliknya sebelum kamu mengalahkan anjing itu’. Dia tidak hanya memukuli anjing kami tetapi dia bahkan memukulinya sampai mati!” Mo Yan berkata dengan marah.</p>
+<p>	Gu Yue Mo Chen dengan marah merengut, “Kamu masih punya pipi untuk mengatakan itu! Apakah sayapmu tumbuh begitu kuat sekarang sehingga kamu bahkan tidak memasukkan kata-kataku ke dalam hati, hmm ? Apa yang saya katakan sebelumnya, Anda telah melupakan semuanya! ”</p>
+<p>	“Cucumu tidak berani!” Mo Yan melompat kaget. Dia tahu sekarang bahwa kakeknya benar-benar marah dan dengan cepat berlutut.</p>
+<p>	Gu Yue Mo Chen mengarahkan jarinya ke luar jendela dan memarahi, ” Hmph , jadi bagaimana jika pelayan itu mati. Tapi sekarang Anda masih menunjukkan permusuhan terhadap Fang Yuan, ini benar-benar masalah Anda yang picik dan tidak jelas implikasinya! Apakah Anda tahu pentingnya tindakan Anda? Pertarungan antar junior adalah urusan mereka sendiri. Sebagai orang tua, kita tidak boleh ikut campur. Ini adalah aturannya! Sekarang setelah Anda mencari masalah dengan Fang Yuan, itu berarti Anda melanggar aturan. Saya tidak tahu berapa banyak orang di luar sana sekarang, melihat aib keluarga Mo kami ini!</p>
+<p>	“Kakek, tolong tenang, kemarahan akan membahayakan tubuhmu. Ini salah Mo Yan, aku membebani keluarga Mo. Apapun yang Kakek katakan pada Mo Yan untuk dilakukan, Mo Yan akan melakukannya! Tapi cucumu benar-benar tidak bisa menerima kebohongan ini, bahwa Fang Yuan terlalu hina, terlalu tak tahu malu. Pertama, dia berbohong padaku dan memasuki akademi. Selanjutnya, dia bersembunyi di asrama dan tidak peduli berapa banyak saya memarahinya, dia tidak akan keluar. Begitu aku pergi, dia pergi ke depan dan membunuh Gao Wan. Dia sangat jahat dan tercela! ” Mo Yan melaporkan.</p>
+<p>	“Oh, begitu?” Gu Yue Mo Chen mengerutkan kening. Ini adalah pertama kalinya dia mendengar informasi ini dan cahaya terang menyinari matanya.</p>
+<p>	Dia menarik napas dalam-dalam, menekan amarahnya dan dia mengelus jenggotnya sambil berkata, “Aku pernah mendengar cerita tentang Fang Yuan ini. Pada tahun-tahun awal, ia mampu membuat puisi dan lagu, menunjukkan kecerdasan awal. Tetapi untuk berpikir bahwa dia hanya memiliki bakat kelas C. Sulit baginya untuk memiliki masa depan yang baik dan karenanya saya menyerah untuk merekrutnya. Tapi sekarang sepertinya itu sedikit menarik.”</p>
+<p>	Berhenti sejenak, Gu Yue Mo Chen mengetuk meja dan memerintahkan, “Seseorang, bawa kotak itu ke sini.”</p>
+<p>	Pelayan di luar pintu dengan cepat menurut. Tak lama kemudian, dia membawa sebuah kotak. Kotak itu tidak terlalu besar atau terlalu kecil tapi agak berat. Pelayan itu menggunakan kedua tangannya untuk membawanya dan berdiri di samping meja belajar.</p>
+<p>	“Kakek, apa ini?” Mo Yan menatap kotak kayu dan bertanya dengan ragu.</p>
+<p>	“Mengapa kamu tidak membukanya dan melihatnya?” Gu Yue Mo Chen menyipitkan matanya dan berkata dengan nada yang rumit.</p>
+<p>	Mo Yan berdiri, membalik tutup kayu dan melihat ke dalam.</p>
+<p>	Segera, ekspresi wajahnya berubah dan pupilnya menyusut menjadi ukuran seperti jarum. Dia tidak bisa menahan diri untuk mundur selangkah dan melepaskan teriakan yang tidak tertahankan. Tutup kayu di tangannya juga jatuh ke tanah.</p>
+<p>	Tanpa tutup kayu, benda yang disimpan di dalam kotak kayu ditunjukkan kepada semua orang yang hadir.</p>
+<p>	Itu sebenarnya adalah tumpukan daging dan darah!</p>
+<p>	Daging berdarah jelas diiris sepotong demi sepotong dan ditempatkan ke dalam kotak. Darah merah cerah telah terkumpul di dalamnya. Ada yang kulit dan dagingnya pucat, ada pula yang berupa usus panjang, bercampur dengan beberapa potong tulang, baik tulang kaki maupun tulang rusuk. Di genangan darah di sudut, ada juga dua jari tangan dan setengah jari kaki yang mengambang di dalamnya.</p>
+<p>	Pemutih …</p>
+<p>	Wajah cantik Mo Yan berubah warna saat dia mundur selangkah lagi, perutnya berputar saat dia hampir muntah di tempat.</p>
+<p>	Dia adalah Guru Gu peringkat dua dan telah pergi keluar untuk mendapatkan pengalaman sebelumnya. Meskipun begitu, ini adalah pertama kalinya dia melihat pemandangan yang menjijikkan dan bengkok seperti itu meskipun dia telah membunuh orang sebelumnya.</p>
+<p>	Daging dan darah di dalam kotak ini jelas merupakan mayat seseorang setelah dicincang dan dimasukkan ke dalamnya.</p>
+<p>	Aroma darah meledak ke udara dan dengan cepat meresap ke udara, memenuhi seluruh ruang belajar.</p>
+<p>	Kedua tangan pelayan keluarga itu bergetar saat dia membawa kotak itu, kulitnya pucat. Meskipun dia telah melihat kotak itu sebelumnya dan muntah sebelumnya, dia masih bisa merasakan gelombang jantung berdebar dan jijik saat dia memegangnya sekarang.</p>
+<p>	Di antara tiga orang di ruang belajar, hanya tetua keluarga Gu Yue Mo Chen yang tidak terpengaruh. Dia dengan ringan melihat isi kotak sejenak dan berkata kepada Mo Yan perlahan: “Kotak ini adalah apa yang telah ditempatkan Fang Yuan di pintu belakang keluarga kami pagi ini.”</p>
+<p>	“Apa, itu benar-benar dia ?!” Mo Yan sangat terkejut saat gambar Fang Yuan muncul di benaknya.</p>
+<p>	Pertama kali dia melihat Fang Yuan, itu di penginapan.</p>
+<p>	Pada saat itu, Fang Yuan duduk di dekat jendela, diam-diam memakan makanannya. Fitur wajahnya hambar dan kedua matanya gelap dan suram. Tubuhnya kurus dan kulitnya memiliki kepucatan khusus seorang remaja.</p>
+<p>	Dia tampak seperti pemuda yang normal dan pendiam. Untuk berpikir bahwa dia telah melakukan tindakan bengkok dan gila seperti itu!</p>
+<p>	Setelah keterkejutan awalnya, muncullah kemarahan yang sangat besar. Mo Yan berteriak, “Fang Yuan ini terlalu keterlaluan, yang memberinya nyali untuk melakukannya! Untuk berani melakukan hal seperti itu, ini adalah provokasi terhadap keluarga Mo kita! Saya akan pergi ke depan sekarang dan membawanya ke sini untuk menanyainya atas kejahatannya! ” Setelah dia mengatakan ini, dia menuju pintu keluar.</p>
+<p>	“Kamu bajingan, berhenti di sana!” Gu Yue Mo Chen lebih marah daripada dia saat dia mengambil lempengan tinta di meja belajarnya dan melemparkannya.</p>
+<p>	Lempengan tinta yang keras dan berat menghantam bahu Mo Yan dan dengan ‘ bang ‘ jatuh ke tanah.</p>
+<p>	“Kakek!” Mo Yan memegang bahunya saat dia memanggil dengan waspada.</p>
+<p>	Gu Yue Mo Chen berdiri, jarinya menunjuk ke cucunya saat dia berbicara dengan nada yang sangat gelisah, “Sepertinya latihan bertahun-tahun ini sia-sia. Anda telah sangat mengecewakan saya! Melawan Pangkat kecil satu tahap awal Gu Master, belum lagi Anda melibatkan begitu banyak orang, tetapi bahkan dipimpin oleh pihak lain. Sekarang setelah Anda membiarkan kemarahan Anda menguasai Anda, pada titik ini, apakah Anda masih tidak mengerti arti di balik tindakan Fang Yuan?</p>
+<p>	“Apa artinya?” Mo Yan bingung.</p>
+<p>	Gu Yue Mo Chen mendengus, “Jika Fang Yuan ingin memprovokasi kita, dia akan meledakkan masalah ini, jadi mengapa dia menempatkan kotak ini di pintu belakang yang terpencil daripada meletakkannya di pintu depan di mana ada banyak orang berjalan-jalan? ?”</p>
+<p>	“Mungkin dia ingin berdamai dengan kita? Tidak, jika dia ingin berdamai, bukankah lebih baik meminta maaf secara langsung? Mengapa dia harus mengirimi kami sekotak mayat cincang ini, ini jelas merupakan provokasi! ” kata Mo Yan.</p>
+<p>	Gu Yue Mo Chen menggelengkan kepalanya, lalu mengangguk. “Dia ingin berdamai, tetapi pada saat yang sama, dia juga memprovokasi kita. Menempatkan kotak kayu di pintu belakang adalah niatnya untuk berdamai. Menempatkan mayat di dalam kotak, itu adalah provokasi.”</p>
+<p>	“Begini,” lelaki tua itu menunjuk ke kotak itu, dan berbicara, “Kotak kayu ini tidak besar, dan tidak bisa menampung mayat yang utuh. Oleh karena itu hanya ada sebagian dari mayat di dalamnya. Dia mencoba memberi tahu kami bahwa dia tidak ingin meledakkan masalah ini dan ingin menyelesaikannya secara damai. Tetapi jika Keluarga Mo kami ingin melanjutkan masalah ini, dia akan menempatkan sisa mayat di pintu masuk utama kami, benar-benar meledakkan masalah ini. Pada saat itu, itu akan menjadi situasi yang kalah bagi kedua belah pihak. Seluruh klan tahu bahwa keluarga Mo kami melanggar aturan terlebih dahulu, dan bagi kepala Keluarga Mo kami di masa depan, ini akan terlihat sebagai dia yang sangat lemah karena dia benar-benar membutuhkan perhatian dan perlindungan tetua. ”</p>
+<p>	Setelah mendengar kata-kata ini, Mo Yan sejenak tercengang. Dia tidak pernah menyangka bahwa tindakan Fang Yuan akan memiliki makna yang begitu dalam.</p>
+<p>	“Metodenya benar-benar bijaksana,” Gu Yue Mo Chen berkata dengan kagum, “Hanya dengan satu tindakan, dia melatih ketangguhan dan kelembutan, mampu maju dan mundur dengan aman. Ini hanya kotak kayu sederhana tetapi tidak hanya mengungkapkan niat Fang Yuan untuk berkompromi tetapi juga kemampuannya untuk menimbulkan ancaman bagi keluarga Mo kami. Dan kebetulan dia memegang kelemahan keluarga Mo kita. Jika reputasi keluarga Mo ternoda, apa yang terjadi selanjutnya adalah serangan keluarga Chi serta serangan dari pihak pemimpin klan.”</p>
+<p>	Mo Yan merasa tidak bisa dipercaya. “Kakek, bukankah kamu terlalu memikirkannya? Apakah Anda yakin dia mampu melakukan ini? Dia baru berusia 15 tahun.”</p>
+<p>	“Terlalu tinggi?” Mo Chen menatap cucunya dengan sedih. “Sepertinya hidupmu terlalu mulus dalam beberapa tahun terakhir ini. Menumbuhkan sikap arogan Anda, Anda tidak dapat melihat kenyataan dengan jelas. Fang Yuan ini tidak terpengaruh terhadap bahaya dan menipumu untuk memasuki sekolah. Selanjutnya, dia menggunakan kebijaksanaannya dalam menghadapi bahaya dan bersembunyi di dalam asrama untuk menghindari masalah. Tidak peduli penghinaan apa yang Anda lemparkan padanya, dia tidak merespons, ini adalah kemampuannya untuk bertahan dengan tenang. Setelah Anda pergi, dia langsung membunuh Gao Wan, ini adalah keberanian dan keberaniannya. Sekarang dia mengirim kotak ini, dengan jelas menunjukkan kebijaksanaan dan kemampuan perencanaannya. Bisakah kamu masih mengatakan bahwa aku terlalu memikirkannya?”</p>
+<p>	Mo Yan mendengarkan dengan mata terbelalak karena dia tidak menyangka kakeknya akan sangat memuji Fang Yuan. Segera dia berkata dengan marah, “Kakek, dia hanya memiliki bakat kelas C.”</p>
+<p>	Gu Yue Mo Chen menghela nafas dalam-dalam, “Ya, dia hanya kelas C. Memiliki kebijaksanaan seperti itu dan hanya memiliki bakat kelas C, sangat disayangkan. Selama bakatnya lebih tinggi, bahkan jika itu hanya kelas B, dia pasti akan menjadi anggota berpengaruh dari klan Gu Yue kami. Sayang sekali, dia hanya kelas C. ”</p>
+<p>	Desahan lelaki tua itu penuh emosi. Desahannya menahan penyesalan dan pada saat yang sama bersukacita.</p>
+<p>	Mo Yan terdiam dan dalam pikirannya, bayangan Fang Yuan muncul sekali lagi. Di bawah pengaruh psikologisnya, ekspresi lemah Fang Yuan diselimuti oleh lapisan bayangan misterius dan ganas.</p>
+<p>	“Masalah ini diciptakan olehmu seorang diri. Bagaimana Anda akan menyelesaikannya? ” Gu Yue Mo Chen memecah kesunyian saat dia mulai menguji Mo Yan.</p>
+<p>	Mo Yan merenung sejenak sebelum dia menjawab dengan nada dingin dan menyendiri, “Gao Wan hanyalah seorang pelayan, jadi tidak ada implikasi bahkan jika dia mati. Fang Yuan hanya kelas C, jadi dia juga masalah kecil. Yang penting adalah menjaga reputasi keluarga Mo saya. Untuk menenangkan masalah ini, kita mungkin juga membunuh seluruh keluarga Gao Wan untuk menunjukkan kepada seluruh klan sikap kita untuk melindungi aturan dan peraturan.</p>
+<p>	“ Mmm , Anda bisa memikirkan gambaran besarnya. Mengesampingkan emosi pribadi Anda untuk membela kepentingan keluarga, ini sangat baik. Namun, metode Anda masih cacat. ” Gu Yue Mo Chen menganalisis tanggapannya.</p>
+<p>	“Tolong beri tahu saya, Kakek,” Mo Yan memohon.</p>
+<p>	Gu Yue Mo Chen berkata dengan sungguh-sungguh, “Masalah ini dipicu olehmu, jadi aku akan menghukummu dengan tujuh hari kurungan. Mulai sekarang, jangan cari masalah dengan Fang Yuan lagi. Gao Wan menentang atasannya – seorang pelayan yang berani menyinggung tuannya layak dihukum mati, jadi dia seharusnya dieksekusi karena kejahatannya! Karena dia adalah pelayan keluarga Mo, kami bertanggung jawab atas ketidakmampuan kami untuk mendidik bawahan kami dan dengan demikian kami akan memberikan kompensasi kepada Fang Yuan dengan tiga puluh batu purba. Adapun anggota keluarga Gao Wan, beri mereka lima puluh batu purba sebagai kompensasi dan usir mereka dari klan.”</p>
+<p>	Setelah jeda singkat, dia melanjutkan, “Selama tujuh hari ke depan, istirahatlah dengan baik di rumah, jangan keluar. Pada saat yang sama, pikirkan tentang makna mendalam mengapa Kakek memilih untuk menangani masalah ini dengan cara ini. ”</p>
+<p>	“Ya, Kakek.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

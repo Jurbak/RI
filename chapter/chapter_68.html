@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 68 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 68";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_67.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 68">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_69.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 68</h1>
+        <div class="text-left">
+<p>	Bab 68</p>
+<p>	Bab 68: Tidak ada kepolosan di alam</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Kedua pemburu mengambil kertas bambu, tangan mereka gemetar, mata bersinar.</p>
+<p>	“Ini adalah pengalaman dan usaha hidup pemburu Wang. Kami pemburu, meskipun kami tetap berhubungan, ini semua tentang penempatan perangkap, kami tidak akan memberi tahu orang lain tentang distribusi binatang buas. Kertas bambu ini, itu semua informasi yang dikumpulkan pemburu Wang sejak nenek moyangnya.”</p>
+<p>	“Jadi di lembah ini ada kawanan rusa liar, haha, setelah saya berburu rusa liar ini, saya tidak perlu khawatir dengan biaya untuk tiga bulan ke depan! Ah, sungai ini memiliki gua beruang gunung? Seberapa dekat, saya hampir berburu di wilayah ini terakhir kali, perhatikan, saya harus mencatat semuanya! ”</p>
+<p>	Ini adalah informasi berharga, bisa dikatakan mangkuk nasi pemburu!</p>
+<p>	Biasanya tidak dalam satu generasi tetapi jauh dari nenek moyang mereka, pengalaman dan informasi ini diperoleh dengan mengorbankan darah dan nyawa mereka.</p>
+<p>	Tapi keluarga lelaki tua Wang selalu berburu untuk mencari nafkah. Ketika sampai pada lelaki tua Wang, dia telah mencapai puncak garis keluarganya, pemburu nomor satu yang terkenal.</p>
+<p>	Informasi di tangan orang seperti itu, adalah yang paling berguna dan benar.</p>
+<p>	Kedua pemburu muda itu memeriksa selama hampir lima belas menit, memeriksa peta beberapa kali. Hanya setelah Fang Yuan bergegas, mereka akhirnya menyerahkan kertas bambu dengan enggan.</p>
+<p>	Selama periode ini, lelaki tua Wang berlutut di tanah, dahinya menyentuh tanah saat dia mengungkapkan rasa hormatnya. Gadis muda itu terbaring di tanah, seolah-olah dia sudah tak bernyawa.</p>
+<p>	“Tidak ada masalah, Tuan.”</p>
+<p>	“Area jebakan di kertas bambu ini semuanya akurat.”</p>
+<p>	Keduanya menjawab.</p>
+<p>	“Tuan Gu Master, ini menyangkut saya dan kehidupan putri saya, saya pasti tidak akan berbohong kepada Anda!” Pria tua di tanah berteriak sambil terus bersujud.</p>
+<p>	“Mmm, tidak buruk.” Fang Yuan melambaikan setumpuk kertas bambu, namun tiba-tiba kata-katanya berubah, “Tapi, aku tidak percaya.”</p>
+<p>	Orang tua Wang tersentak, mengangkat kepalanya, tetapi hanya melihat sebuah moonblade biru yang menakutkan membesar di dalam pantulan iris matanya.</p>
+<p>	Bangku gereja.</p>
+<p>	Tengkorak terbang ke udara, darah segar memuntahkan ke mana-mana.</p>
+<p>	“Argh!!!”</p>
+<p>	“Tuan, ini—!”</p>
+<p>	Kedua pemburu muda itu terkejut. Keterkejutan dan ketidakpercayaan terlihat di wajah mereka.</p>
+<p>	“Ayah-!” Gadis muda itu berteriak sekencang-kencangnya saat dia melompat ke arah mayat tanpa kepala lelaki tua Wang, tapi di tengah jalan, sebuah pedang bulan terbang ke arah wajahnya.</p>
+<p>	percikan.</p>
+<p>	Dia jatuh ke tanah, tak bernyawa.</p>
+<p>	Wajah cantiknya, dari dahi hingga dagu, perlahan menunjukkan garis merah tipis.</p>
+<p>	Garis itu menjadi lebih tebal saat darah merah segar mengalir keluar, mengalir di sepanjang separuh hidung dan separuh bibirnya. Mereka mengalir ke tanah hitam, mewarnai setengah dari wajahnya menjadi merah cerah.</p>
+<p>	Namun, separuh wajahnya yang lain, masih sama cantiknya, kulitnya cerah dan kemerahan. Di bawah langit biru cerah, tampak lebih berkilau, seperti sebuah karya seni.</p>
+<p>	“Setidaknya dia terlihat layak.” Fang Yuan menatap gadis yang mati itu dengan lembut, mengangguk dengan puas.</p>
+<p>	Menggunakan esensi purba tingkat satu tingkat menengah, moonblade bisa mengiris Gu. Sekarang dia menggunakan esensi purba tingkat atas, itu bisa mematahkan tulang dan bahkan memotong baja!</p>
+<p>	“Putri keluarga Wang!” Seorang pemburu muda jatuh ke tanah dengan putus asa setelah melihat kematiannya dengan matanya sendiri.</p>
+<p>	“Tuan Gu Master, lepaskan kami!” Pemburu lainnya merasakan kebingungan Fang Yuan, hampir mati karena terkejut saat dia menjatuhkan diri ke tanah.</p>
+<p>	“Bangun, masuk ke dalam dan cari!” Fang Yuan memerintahkan, “Saya tahu bahwa keluarga pemburu selalu menyimpan peta kulit binatang. Di atasnya adalah medan, lokasi jebakan, dan wilayah binatang buas. Temukan untukku, dan aku akan membiarkanmu mempertahankan hidupmu.”</p>
+<p>	“Ya, ya, ya, kami akan segera mencari. Beri kami waktu, Tuan Gu Master!” Keduanya dengan panik bangkit dan berlari ke rumah kayu.</p>
+<p>	Suara lemari yang terbalik dan jatuh bisa terdengar dari rumah kayu itu.</p>
+<p>	Tapi sesaat kemudian, meskipun para pemburu menggeledah rumah, tidak ada peta kulit binatang yang bisa ditemukan.</p>
+<p>	“Tuhan, tolong beri saya waktu, kami akan menemukannya sekarang!” Kedua pemburu itu ketakutan karena mereka semakin putus asa dan mencari dengan kasar, menghancurkan banyak perabotan dalam prosesnya.</p>
+<p>	“Brengsek, di mana itu?”</p>
+<p>	“Tampil, silakan muncul!”</p>
+<p>	Mereka bergumam saat tubuh mereka menggigil, mata mereka memerah.</p>
+<p>	“Sampah yang tidak berguna.” Fang Yuan perlahan berjalan ke dalam rumah.</p>
+<p>	“Tuan! Tuan! Maafkan kami, tolong…wahh…” Kedua pemburu muda itu menggigil seperti tersengat listrik dan jatuh ke tanah, memohon untuk hidup mereka.</p>
+<p>	Fang Yuan mengabaikan keduanya dan mengamati rumah itu.</p>
+<p>	Ada empat kamar di rumah, ruang tamu dan dapur. Semua perabotan berantakan, seperti digeledah.</p>
+<p>	Fang Yuan perlahan melangkah masuk, langkahnya menghasilkan gema di rumah kayu.</p>
+<p>	“Itu memang sudah dicari, itu seharusnya tidak benar. Hampir setiap pemburu memiliki peta kulit binatang yang diwarisi dari generasi ke generasi, semakin disempurnakan di sepanjang jalan, merekam semua wilayah dan perangkap binatang buas. Ini adalah mata pencaharian seorang pemburu, bagaimana mungkin mereka tidak memilikinya?”</p>
+<p>	Fang Yuan berdiri merenung, “Selain itu, saya menguji lelaki tua Wang itu sebelumnya, dengan sengaja membuat kedua pemburu itu mencari kertas dan kuas. Orang tua itu segera memanggil lokasi kertas dan kuas, mungkin khawatir mereka akan menemukan peta kulit binatang, jadi itu pasti ada di rumah ini!”</p>
+<p>	Fang Yuan mengamati rumah itu lagi, dan tiba-tiba inspirasinya muncul ketika dia melihat ke perapian.</p>
+<p>	Firepit ini terhubung ke cerobong asap, digunakan di musim dingin untuk mendapatkan kehangatan. Bahkan ada beberapa arang residu di firepit.</p>
+<p>	Fang Yuan berjalan ke perapian, perlahan berjongkok dan mengambil sekop di samping perapian, menggali arang.</p>
+<p>	Sebagian besar arang masih berbentuk kayu, rapuh dan mudah pecah menjadi dua.</p>
+<p>	“Oh?” Fang Yuan memeriksa, tiba-tiba menemukan balok arang yang memiliki bahan yang sangat keras dan sangat berat, tidak ringan seperti balok arang lainnya.</p>
+<p>	Dia menggunakan sekop untuk menggali balok arang ini, menghancurkannya di tanah. Arang hancur berkeping-keping, memperlihatkan tabung bambu.</p>
+<p>	Kedua pemburu tersentak pada adegan ini.</p>
+<p>	Fang Yuan mengambil tabung bambu dan membukanya di satu sisi, mengguncangnya, menyebabkan peta jatuh.</p>
+<p>	Peta itu lebih berat dari tumpukan kertas bambu, dibuat dengan sepotong kulit binatang putih. Kulit binatang itu sangat besar, panjangnya lebih dari satu meter dan lebarnya setengah meter. Ada garis hitam, hijau, merah, kuning dan biru di atasnya, membentuk peta yang rumit.</p>
+<p>	Fang Yuan sedikit terkejut melihatnya.</p>
+<p>	Jangkauan peta sangat besar, membentang jauh melampaui sekitar desa. Sebagai manusia, tidak mudah untuk memetakan area yang begitu jauh.</p>
+<p>	Tatapannya terfokus pada lima titik, yang memiliki kawanan babi hutan.</p>
+<p>	Dua berukuran kecil, dua berukuran sedang, dan ada kawanan babi hutan berukuran besar. Di tengah kawanan berukuran besar, ada palang merah raksasa.</p>
+<p>	Melihat salib ini, Fang Yuan mencibir. Di kertas bambunya, tidak ada tanda seperti itu!</p>
+<p>	Kedua pemburu muda itu juga telah melihat kertas bambu, dan tidak menemukan masalah. Ini adalah pengalaman mereka sendiri, hanya beberapa area tertentu. Palang merah ini jauh di luar desa, dan dari sini, kelicikan lelaki tua Wang bisa terlihat.</p>
+<p>	Inilah mengapa Fang Yuan membunuh mereka.</p>
+<p>	Untuk berburu babi hutan, dia membutuhkan peta kulit binatang seperti itu. Tapi dia tidak yakin dengan peta yang digambar oleh orang lain. Hanya mendapatkan peta “nyata” seperti ini, apakah itu bisa diandalkan.</p>
+<p>	Fang Yuan telah mendengar segala macam komentar di kehidupan masa lalunya. Hanya sebuah kata “enyah”, tidak cukup alasan baginya untuk membunuh Wang Er.</p>
+<p>	Ketika mendengar percakapan empat pemburu di samping perangkap babi hutan, Fang Yuan sudah merencanakan pembunuhannya.</p>
+<p>	Membunuh Wang Er mengurangi perlawanannya, dan memberinya alasan untuk mendapatkan peta. Mengapa dia tidak membunuhnya?</p>
+<p>	Fang Yuan tidak akan membunuh demi membunuh, membunuh hanyalah sebuah metode. Dengan cara ini, jika bisa menyelesaikan masalah, kenapa tidak?</p>
+<p>	Orang tua itu pasti harus mati, bahkan jika dia dapat menanggung pembunuhan putranya, Fang Yuan tidak akan merasa nyaman. Kalau tidak, itu akan menjadi kasus “Saat menebang gulma, Anda harus mendapatkan akarnya. Jika tidak, ilalang akan kembali bersama angin musim semi.”</p>
+<p>	Apa, kamu bilang membunuh orang yang tidak bersalah?</p>
+<p>	Hehe, tidak peduli dunia mana, selama seseorang hidup di dunia ini, mereka akan terjalin dalam karma, bagaimana mungkin ada orang yang tidak bersalah? Manusia menyembelih babi, bukankah babi itu tidak bersalah?</p>
+<p>	Ikan besar makan ikan kecil, dan ikan kecil makan udang, di alam hanya ada rantai makanan, tidak ada kepolosan.</p>
+<p>	Di dunia ini, siapa pun bisa hidup, siapa pun bisa mati, tetapi tidak ada yang tidak bersalah!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

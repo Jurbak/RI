@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 105 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 105";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_104.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 105">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_106.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 105</h1>
+        <div class="text-left">
+<p>	Bab 105</p>
+<p>	Bab 105: Saya akan sangat kehilangan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Gu Yue Qing Shu juga seorang yatim piatu seperti Fang Yuan dan Fang Zheng.</p>
+<p>	Orang tuanya telah meninggal dalam gelombang serigala ketika dia masih muda.</p>
+<p>	Dia secara pribadi dibesarkan oleh pemimpin klan Gu Yue Bo.</p>
+<p>	Setelah dia diuji untuk memiliki bakat kelas B, dia menerima bimbingan pribadi Gu Yue Bo. Bakatnya luar biasa dan bisa dikatakan berada di peringkat teratas di antara nilai B, bahkan bisa disebut ‘nilai A palsu’. Gu Yue Bo telah membesarkannya sebagai calon pemimpin klan.</p>
+<p>	Gu Yue Qing Shu memiliki temperamen yang hangat dan ramah. Dia sangat dipuji dan diterima dengan baik oleh anggota klan. Dia juga sangat setia pada klan; Kedatangan Fang Zheng memotong harapannya untuk mewarisi posisi pemimpin klan, tetapi dia malah senang dan dengan sepenuh hati merawat Fang Zheng.</p>
+<p>	Di Bumi, Yue Fei(1), Wei Zheng(2) dan Bao Zheng(3) adalah orang-orang dengan karakter seperti itu.</p>
+<p>	Sayangnya, dalam gelombang serigala setahun kemudian, gerbang Utara akan jatuh; untuk memblokir celah ini dan melindungi anggota klan, dia melangkah maju. Pada akhirnya, dia dengan paksa menggunakan Gu peringkat tiga dengan kultivasi peringkat duanya, menjadi benteng yang tidak bisa ditembus dan berhasil mempertahankan desa.</p>
+<p>	Namun, aperture-nya hancur karena ini dan dia akhirnya berubah menjadi manusia pohon dan mati.</p>
+<p>	Dengan demikian, Gu Yue Qing Shu telah meninggalkan kesan mendalam pada Fang Yuan.</p>
+<p>	Ketika dia melihat Fang Yuan menghela nafas, Gu Yue Qing Shu secara alami tidak berpikir bahwa Fang Yuan melihat kembali kematiannya dan mengira Fang Yuan kesal karena cacing Liquor.</p>
+<p>	Dia tersenyum, “Fang Yuan, kamu seharusnya sudah jelas tentang batasan cacing Liquor. Cacing Liquor hanyalah cacing Gu peringkat satu dan hanya dapat memperbaiki esensi tembaga hijau peringkat satu. Tapi Anda sudah menjadi Master Gu peringkat dua; cacing Liquor tidak ada gunanya terhadap esensi purba baja merah. Meskipun Anda memiliki kedai anggur sekarang dan dapat dengan mudah memelihara cacing Liquor, mengapa Anda dengan sia-sia memelihara sesuatu yang tidak berguna bagi Anda?”</p>
+<p>	Dia mengganti topik diskusi, “Cacing Minuman Keras tidak berguna bagimu tetapi berguna untuk Master Gu Peringkat satu lainnya. Terutama di upacara kebangkitan musim semi mendatang, akan ada sekelompok siswa baru dan cacing Liquor akan sangat membantu mereka. Jadi, Anda sebaiknya menjual cacing Liquor ke klan dan berkontribusi pada kekuatan klan. ”</p>
+<p>	Fangyuan tidak menjawab.</p>
+<p>	Qing Shu merenung, menebak maksud Fang Yuan, “Aku mengerti sekarang. Anda enggan untuk berpisah dengan cacing Liquor, Anda bahkan ingin menggabungkannya. Jika saya tidak salah, Anda harus berpikir untuk mengambil rute kepompong Putih Peringkat dua, lalu rute fusi kupu-kupu Mist Perspiring peringkat tiga, kan? ”</p>
+<p>	“Ini resep paling luas dan juga paling praktis. Kupu-kupu Mist Perspiring adalah cacing Gu yang hebat. Tapi Kepompong Putih tidak memiliki kemampuan. Rute fusi ini tidak akan memiliki banyak nilai bagi Anda. Anda memiliki bakat kelas C dan sekarang memiliki kultivasi Peringkat dua; Kepompong Putih tidak memiliki kemampuan apa pun dan hanya akan menyia-nyiakan makanan, itu tidak akan membantumu.”</p>
+<p>	“Apa kemungkinan kamu mencapai Peringkat tiga? Bahkan jika kamu berhasil naik ke peringkat tiga, kamu mungkin sudah setengah baya saat itu. Maukah Anda membesarkan White Chrysalis yang tidak berguna selama puluhan tahun? Akan lebih baik menggunakan biaya membesarkan Kepompong Putih untuk memelihara cacing Gu. Itu lebih praktis dan akan lebih membantu Anda, apakah saya salah?”</p>
+<p>	“Nilai sebenarnya dari cacing minuman keras terletak pada pemurnian esensi purba dan meningkatkan ranah kecil. Jika Anda melalui fusi ini, Anda hanya akan memperlakukan cacing Liquor sebagai bahan, bukankah itu sangat disayangkan?</p>
+<p>	Semua cacing Gu hanya memiliki satu kemampuan.</p>
+<p>	Misalnya, Jangkrik Musim Gugur Musim Semi adalah Gu Peringkat enam, tetapi hanya memiliki kemampuan kelahiran kembali.</p>
+<p>	Cacing Gu baru yang berasal dari fusi biasanya mengambil kemampuan dari satu cacing Gu dan meningkatkannya. White Jade Gu, misalnya, mengambil kemampuan bertahan dari Jade Skin Gu dan meningkatkannya, sementara kehilangan kemampuan White Boar Gu untuk mendapatkan peningkatan kekuatan.</p>
+<p>	Artinya, jika seseorang memperoleh Gu Giok Putih, itu hanya akan membantu dalam pertahanan dan tidak dapat meningkatkan kekuatan Guru Gu.</p>
+<p>	Qing Shu benar, nilai cacing Liquor adalah dalam menyempurnakan esensi purba dan meningkatkan panggungnya dengan ranah kecil.</p>
+<p>	Bagi para Master Gu, ini adalah bentuk lain untuk meningkatkan cadangan esensi purba mereka sekaligus sangat membantu dalam memelihara bukaan mereka dan meningkatkan kecepatan kultivasi mereka.</p>
+<p>	Jika seseorang melewati rute fusi ‘White Chrysalis, Mist Perspiring Butterfly’, cacing Gu yang dihasilkan tidak akan memiliki kemampuan untuk memurnikan esensi purba yang akan sangat disayangkan.</p>
+<p>	Faktanya, Flower Wine Monk mengambil rute ini dan memurnikan Mist Perspiring Butterfly dari cacing Liquor, menggunakannya untuk memikat wanita dan melakukan tindakan jahat. Setelah kematiannya, Kupu-Kupu Berkeringat Kabut terus merosot karena tidak memiliki cukup makanan dan akhirnya kembali ke cacing Liquor.</p>
+<p>	Mata Qing Shu melotot saat melihat Fang Yuan yang diam dan melanjutkan, “Sebenarnya, klan kami memiliki resep; resep ini menaikkan worm Liquor ke Peringkat dua Moon Harbinger Gu kemudian peringkat tiga cacing Seven Fragrances Liquor. Cacing Seven Fragrances Liquor memiliki kemampuan untuk memurnikan esensi purba. ”</p>
+<p>	“Fang Yuan, jika kamu tidak ingin menjual worm Liquor, maka kita bisa mengubahnya menjadi transaksi bisnis. Anda akan menjual worm Liquor ke klan dan jika klan dapat memperbaikinya menjadi worm Seven Fragrances Liquor, Anda akan memiliki hak untuk menggunakannya selama lima tahun. Jika gagal, klan akan menggantinya. Bagaimana menurutmu?”</p>
+<p>	Melakukan ini berarti klan akan menanggung semua risiko untuk fusi. Dengan kondisi superior seperti itu, orang lain mungkin dengan senang hati menyetujuinya.</p>
+<p>	Tapi Fang Yuan hanya mencibir dingin di dalam hatinya.</p>
+<p>	Dia tahu dirinya.</p>
+<p>	Dengan bakat kelas C 44%, naik ke Peringkat tiga hampir tidak mungkin. Dalam kehidupan sebelumnya, Fang Yuan telah terhenti di Peringkat dua selama lebih dari seratus tahun sebelum akhirnya dan secara kebetulan mendapatkan cacing Gu yang meningkatkan bakat dan menjadi Guru Gu peringkat tiga.</p>
+<p>	Lima tahun menggunakan hak terdengar luar biasa tetapi bagi Fang Yuan, itu seperti mencoba menangkap pantulan bulan di air.</p>
+<p>	Gu Yue Qing Shu mengatakan demikian karena dia melihat ambisi Fang Yuan untuk naik ke peringkat tiga, jadi dia dengan sengaja melemparkan umpan manis ini untuk memikat Fang Yuan.</p>
+<p>	Tapi dia salah perhitungan sejak awal!</p>
+<p>	Dalam ingatan Fang Yuan, ada resep terbaik untuk fusi cacing Liquor.</p>
+<p>	Pertama adalah memajukan cacing Liquor ke Peringkat dua cacing Liquor Empat Rasa kemudian ke cacing Liquor Tujuh Keharuman Peringkat tiga. Apakah itu cacing Four Flavours Liquor atau cacing Seven Fragrances Liquor, keduanya memiliki kemampuan untuk memurnikan esensi purba.</p>
+<p>	Namun, tidak mudah untuk memurnikan cacing Four Flavours Liquor.</p>
+<p>	Pertama-tama, penggabungannya membutuhkan dua cacing Liquor; Fang Yuan hanya memiliki satu saat ini. Selanjutnya, fusi membutuhkan empat jenis anggur, dan keempat anggur ini harus memiliki empat rasa yang berbeda: asam, manis, pahit, dan pedas.</p>
+<p>	Mari kita tidak berbicara tentang kesulitan dalam membeli worm Liquor dengan hampir tidak ada pasokan di pasar.</p>
+<p>	Mari kita lihat keempat anggur ini terlebih dahulu.</p>
+<p>	Anggur pedas adalah yang paling umum, anggur roh putih biasa adalah semua jenis ini. Untuk anggur asam, Anda bisa mendapatkan anggur bayberry dan anggur anggur; anggur beras bisa memenuhi kriteria anggur manis. Tetapi untuk anggur pahit, perlu beberapa pemikiran untuk dilakukan.</p>
+<p>	Dari apa yang diketahui Fang Yuan, ada sejenis anggur pahit hijau yang diseduh dengan menggunakan rumput Ai. Sayangnya desa Ai sangat jauh, bagaimana dia bisa mendapatkannya?</p>
+<p>	Fang Yuan telah menahan cacing Liquor bukan karena dia ingin menunggu dan menjualnya dengan harga tinggi. Sebaliknya, Fang Yuan selama ini ingin melalui rute fusi ini; menggunakan rute fusi lainnya dapat dianggap menghancurkan cacing Liquor.</p>
+<p>	Bagaimana Gu Yue Qing Shu bisa tahu apa yang ada dalam pikiran Fang Yuan.</p>
+<p>	Melihat Fang Yuan tidak bergerak untuk menyetujui sama sekali, dia melemparkan kartu asnya, “Fang Yuan, jika kamu menjual worm Liquor, aku bisa menengahi antara kamu dan Fang Zheng. Setidaknya, dia tidak akan menggunakan aset keluarga untuk menantangmu dalam pertempuran Gu. Anda juga tahu aturan klan; tantangan itu harus diterima. Bahkan jika permintaan pertempuran Gu tidak disetujui oleh petinggi, itu harus diterima terlebih dahulu. Bahkan jika Anda yakin akan kekalahan Anda dan tidak ingin pergi ke arena, langsung menyerah, Anda tetap harus menerima tantangannya.”</p>
+<p>	Dunia ini mempromosikan semangat bela diri; klan tidak membutuhkan pengecut. Jika ada tantangan, Master Gu harus menerimanya. Menerima tantangan membuktikan bahwa Anda bukan seorang pengecut. Bahkan jika Anda mengakui kekalahan Anda di depan publik, itu juga merupakan tindakan yang berani.</p>
+<p>	Di bawah penindasan lingkungan yang kejam, ini secara otomatis berubah dan terbentuk menjadi sistem nilai.</p>
+<p>	Para petinggi klan akan melakukan arbitrase sesuai dengan hasil pertempuran Gu dan menyelesaikan masalah dan perselisihan apa pun.</p>
+<p>	Premis pertempuran Gu adalah memiliki alasan. Penantang harus berada di kanan dan tantangan harus masuk akal, atau kedua belah pihak dapat membuat kesepakatan yang mirip dengan taruhan, baru kemudian pertempuran Gu akan disetujui.</p>
+<p>	“Permintaan pertempuran Gu Fang Zheng masuk akal dan adil; itu akan disetujui. Jika ini terjadi, tidak peduli hasilnya – apakah kalah atau menang – akan dinilai oleh para tetua. Menurutmu dengan siapa para tetua akan memihak antara kamu dan Fang Zheng? ”</p>
+<p>	Senyum Qing Shu menjadi lebih besar, dia menatap Fang Yuan dengan tatapan membara dan terus menambahkan tekanan, “Fang Yuan, jika kamu menang, kamu hanya harus berpisah dengan sedikit lebih sedikit dari aset keluarga. Tetapi jika Anda menjual cacing Liquor ke klan, Anda akan berkontribusi pada klan. Klan akan mengingatmu. Saya juga dapat menjamin bahwa Fang Zheng tidak akan pernah menantang Anda berdasarkan aset keluarga. ”</p>
+<p>	Implikasinya adalah Fang Zheng masih bisa menantang Fang Yuan dengan berbagai alasan.</p>
+<p>	Ini adalah salah satu hal yang membuat Gu Yue Qing Shu dan Gu Yue Bo senang melihatnya. Mereka berharap Fang Zheng akan mengalahkan Fang Yuan dan menghancurkan bayangan di hatinya untuk membangun kepercayaan dirinya.</p>
+<p>	Fang Yuan tiba-tiba tersenyum, dia telah mendengarkan obrolan Gu Yue Qing Shu dari awal. Dan sekarang, dia akhirnya berbicara.</p>
+<p>	“Kamu pikir aku akan kalah jika kita bertarung?” Fang Yuan bertanya pada Qing Shu.</p>
+<p>	Qing Shu juga tersenyum, “Perkelahian penuh dengan variasi, tidak ada yang bisa meramalkan apa yang mungkin terjadi. Namun, saya perlu mengingatkan Anda, Fang Zheng telah menyempurnakan peringkat dua Moonveil Gu; Anda tidak akan mendapat banyak keuntungan.”</p>
+<p>	“Ha ha ha.” Fang Yuan menggelengkan kepalanya, dan senyum di wajahnya menjadi lebih besar, “Aku akan kalah, aku pasti akan kalah.”</p>
+<p>	Qing Shu menatap kosong.</p>
+<p>	Fang Yuan menatap matanya dan melanjutkan, “Aku tidak hanya akan kalah, aku bahkan akan kalah dengan sangat menyedihkan. Saya akan menyerahkan semua warisan orang tua saya, dan mulai saat itu saya akan tidur di jalan dan mengembara mengemis di desa.”</p>
+<p>	“Anda….” Gu Yue Qing Shu pintar, dia mengerti maksud sebenarnya dari Fang Yuan. Ekspresinya menjadi serius; tidak lagi percaya diri dan anggun.</p>
+<p>	Kata-kata Fang Yuan adalah ancaman nyata.</p>
+<p>	Fang Zheng dibesarkan sebagai pemimpin klan berikutnya; jika diketahui bahwa dia telah mengenali orang lain sebagai orang tuanya, menggunakan kultivasi dan bakatnya untuk menggertak kakak laki-lakinya, merebut warisan, maka akan ada kerusakan besar pada reputasinya.</p>
+<p>	Bahkan di Bumi, orang yang melakukan ini akan dipermalukan dan diremehkan oleh orang-orang. Apalagi di dunia ini di mana nilai-nilai cinta keluarga dinaikkan ke tingkat yang sama sekali baru.</p>
+<p>	Tidak apa-apa jika Fang Zheng ingin menjadi iblis. Tapi dia akan menjadi pemimpin klan, pemimpin jalan lurus, dan itu berarti dia harus menjunjung tinggi kebajikan dan menghargainya.</p>
+<p>	Untuk sesaat, Gu Yue Qing Shu menatap Fang Yuan dengan bingung. Dia menemukan bahwa meskipun mendengar banyak tentang Fang Yuan, dia masih meremehkan yang terakhir.</p>
+<p>	Dominasi yang dia bangun dari banyak kalimatnya sejak saat mereka bertemu, kini runtuh dengan keras.</p>
+<p>	Fang Yuan memukul paku di kepala, langsung menunjukkan bagian utama ke Gu Yue Qing Shu.</p>
+<p>	Jika itu orang lain, Fang Yuan akan berbicara secara berbeda. Tapi Gu Yue Qing Shu adalah seseorang yang sangat setia pada klan dan dalam kehidupan Fang Yuan sebelumnya, dia lebih suka mengorbankan dirinya untuk melindungi klan. Karena itu, dia tidak punya pilihan selain khawatir karena ancaman Fang Yuan.</p>
+<p>	Namun, dia dengan cepat menjadi tenang, matanya menatap Fang Yuan saat dia berbicara dengan gigi terkatup, “Tapi kamu tidak akan melakukan ini. Karena warisan telah menjadi tujuan Anda selama ini, bagaimana Anda akan berkultivasi jika Anda menyerahkan warisan?</p>
+<p>	Fang Yuan tidak takut. Dia bertemu dengan tatapan Qing Shu, bibirnya melengkung membentuk senyuman, “Itulah mengapa aku percaya kamu akan melepaskan gagasan untuk membeli cacing Liquor dan juga membujuk Fang Zheng untuk tidak menantangku, apakah aku salah?”</p>
+<p>	Orang lain mungkin tidak dapat membujuk Fang Zheng, tetapi Gu Yue Qing Shu memiliki kemampuan ini.</p>
+<p>	Fang Yuan tidak meragukan hal ini.</p>
+<p>	Situasinya menemui jalan buntu.</p>
+<p>	Setelah beberapa saat, Gu Yue Qing Shu menurunkan matanya.</p>
+<p>	Dia menatap cangkir anggur di tangannya untuk sementara waktu dan tiba-tiba tertawa.</p>
+<p>	“Menarik, kami akan melakukan hal itu.” Nada suaranya membawa sedikit melankolis.</p>
+<p>	(1). Yue Fei (岳飞) – [1103 M – 1142 M] Patriot dan jenderal Dinasti Song.</p>
+<p>	(2). Wei Zheng (魏征) – [580 M – 643 M] Politisi dan sejarawan Tang, terkenal sebagai kritikus, editor History of the Sui Dynasty.</p>
+<p>	(3). Bao Zheng (包拯) – [999 M – 1062 M] Pejabat lagu utara terkenal karena kejujurannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 15";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_14.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 15">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_16.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 15</h1>
+        <div class="text-left">
+<p>	Bab 15</p>
+<p>	Bab 15 – Sejarah ditulis oleh pemenang</p>
+<p>	Di gua rahasia ini, tiba-tiba terdengar suara seseorang di belakang.</p>
+<p>	Bahkan ketika menyangkut Fang Yuan, dia bisa merasakan bulu-bulu di bagian belakang lehernya berdiri, kulit kepalanya mati rasa.</p>
+<p>	Dia telah diikuti!</p>
+<p>	Mungkinkah dia berulang kali keluar beberapa hari ini telah menimbulkan kecurigaan dan perhatian orang?</p>
+<p>	Atau apakah itu seseorang yang dikirim oleh pamannya?</p>
+<p>	Dalam benaknya dia bahkan memikirkan Guru Gu peringkat satu yang dia temui di penginapan, pemuda bernama Jiang Ya.</p>
+<p>	Dalam waktu singkat itu, pikirannya melontarkan ide dan tebakan yang tak terhitung jumlahnya, selain memikirkan solusi.</p>
+<p>	Fang Yuan bisa merasakan bahwa dalam kalimat pendek, itu penuh dengan niat membunuh yang dalam. Ini membuatnya diam-diam mengerang – Dia hanya peringkat satu tahap awal sekarang, dan dia bahkan tidak memiliki Gu yang vital . Bagi seorang Gu Master, ini setara dengan tidak memiliki kemampuan bertarung, bagaimana dia bisa bertarung?</p>
+<p>	“Terlalu lemah, terlalu lemah!” Dia meraung di kepalanya.</p>
+<p>	“Kamu telah diracuni oleh Single Gate Poison Gu milikku . Tanpa Gu saya yang lain yang bertindak sebagai lawannya, setelah tujuh hari Anda akan berubah menjadi nanah dan darah dan mati, ”kata suara di belakangnya.</p>
+<p>	Fang Yuan mengertakkan gigi, ekspresinya dingin. Dia berkata dengan nada rendah, “Kamu ingin cacing Liquor? Aku bisa memberikannya padamu.”</p>
+<p>	Dia perlahan berdiri, tindakannya hati-hati. Tetapi pada saat ini, suara lain muncul. Suara ini penuh ketakutan, dan berkata dengan gemetar, “Aku akan memberikannya, aku bisa memberimu apa saja, tolong selamatkan hidupku, O Biksu Anggur Bunga!”</p>
+<p>	“Tunggu sebentar, ini …” Fang Yuan mengerutkan kening dan tiba-tiba berbalik dalam kesadaran. Dia bertemu dengan pemandangan cahaya dan bayangan yang berubah dan berfluktuasi di dinding di depannya, sebuah gambar muncul.</p>
+<p>	Seorang Guru Gu yang kurus dan mengancam sedang berdiri di puncak gunung; ada Guru Gu lain yang bersujud di depannya. Di sekitar kedua Master Gu ada lubang yang runtuh, pecahan dan bongkahan batu berserakan di area itu, menunjukkan pemandangan yang jelas dari pertempuran sengit yang baru saja berakhir.</p>
+<p>	Tidak jauh dari mereka adalah sekelompok penonton tua, wajah mereka dipenuhi dengan kemarahan dan ketakutan.</p>
+<p>	Di tengah adegan, Gu Master yang menang mengangkat kepalanya ke atas dan tertawa keras. “Ha ha ha, pahlawan Gu Yue, berkultivasi ke Peringkat lima di usia yang begitu muda. Saya pikir Anda cukup sesuatu pada awalnya, tetapi saya tidak berharap Anda menjadi begitu tak tertahankan. Hmph !”</p>
+<p>	Guru Gu yang tertawa memiliki mata yang panjang dan kurus. Dia mengenakan jubah merah muda panjang, lengan bajunya yang besar dan lebar bergoyang tertiup angin. Area di mana jubahnya berpotongan di lehernya longgar dan terbuka lebar, memperlihatkan otot dadanya yang kuat dan pucat. Bagian yang paling menarik dari dirinya adalah kepalanya yang botak, bersinar tanpa sehelai rambut pun.</p>
+<p>	“Biksu Anggur Bunga!” Fang Yuan segera mengenali identitas Guru Gu ini .</p>
+<p>	“Untuk membandingkan diriku dengan Sir Flower Wine, aku hanya kentut! Saya pasti sedang tidak enak badan, untuk benar-benar tidak mengenali orang yang begitu hebat dan menyinggung Tuan Bunga Anggur. Tuan Flower Wine, tolong ingat keramahan klan saya sebelumnya dan selamatkan hidup saya! ” The Gu Guru sujud di tanah gemetar, keringat dingin di seluruh, air mata dan lendir pencampuran saat ia memohon belas kasihan.</p>
+<p>	Fang Yuan menyipitkan matanya dan dengan hati-hati membedakan keduanya, menyadari bahwa Guru Gu lainnya mengenakan seragam kepala klan Gu Yue. Melihat penampilannya, jelas bahwa orang ini adalah pemimpin klan generasi keempat!</p>
+<p>	Adapun para penonton yang berusia lanjut, mereka mungkin adalah tetua klan dari generasi itu.</p>
+<p>	“ Hehe , keramahan yang murah hati? Anda pasti punya nyali untuk mengatakannya! Saya sebenarnya tulus datang untuk berdagang dengan Anda, menggunakan batu purba untuk membeli anggrek bulan klan Anda dengan harga yang wajar. Kamulah yang menyembunyikan niat jahat, berpura-pura menyapa dan membawaku masuk, menyuruhku duduk di jamuan makanmu, berniat mencampur minuman kerasku dengan Gu beracun . Kalian semua terlalu meremehkanku, aku mencari nafkah di bawah langit dengan nama Flower Wine, bagaimana mungkin aku bisa diracuni dengan cara ini?”</p>
+<p>	Biksu Anggur Bunga menunjuk pada pemimpin klan generasi keempat yang berlutut, mencibir, “Jika Anda bekerja sama dengan baik, semua ini tidak akan terjadi. Pada akhirnya kamu hanya ingin menggunakan kepalaku untuk meningkatkan reputasi dan ketenaranmu, kamu hanya menyalahkan dirimu sendiri karena mati!”</p>
+<p>	“Tuan, tolong selamatkan hidupku yang tidak berharga!” Kepala klan generasi keempat berteriak dengan cemas, lututnya menggores tanah, dia dengan cepat merangkak ke kaki Biksu Anggur Bunga dan memeluk pahanya.</p>
+<p>	“Pak, klan saya memiliki mata air roh yang menghasilkan batu purba, kami juga menanam anggrek bulan dalam jumlah besar di gua bawah tanah. Saya bersedia menerima Gu Perbudakan Anda dan menjadi pelayan Anda, hidup dan mati saya adalah kehendak, saya bersedia mengabdikan pengabdian seumur hidup kepada Anda, Tuan! ”</p>
+<p>	Fang Yuan menyaksikan tanpa berkata-kata, sementara beberapa tetua dalam gambar tampak lebih tidak pasti.</p>
+<p>	Biksu Anggur Bunga menyipitkan matanya, amarahnya sudah tenang. Matanya berkilat dan dia berkata, “Hmph, Perbudakan Gu sangat berharga di luar akal sehat, itu adalah Gu Peringkat lima , apakah kamu benar-benar berpikir aku akan memilikinya? Namun Anda telah terinfeksi oleh Single Gate Poison Gu saya , hanya saya yang bisa menyembuhkan racunnya jadi saya tidak takut Anda tidak patuh. Karena itu, klan Anda harus memberi saya 3.000 batang anggrek bulan setiap minggu, juga 3.000 batu purba. Saya akan datang sesekali untuk mengambil barang dan menyembuhkan racun Anda untuk sementara, menyelamatkan hidup Anda yang tidak berguna. ”</p>
+<p>	“Terima kasih banyak atas belas kasihan Anda, Tuan! Terima kasih banyak atas belas kasihan Anda, Tuan!” Kepala klan generasi keempat menangis berulang kali, bersujud tanpa henti. Kepalanya berdarah terus menerus saat menabrak batu gunung.</p>
+<p>	“Hmph, berhentilah bersujud, aku paling membenci orang yang merendahkan sepertimu! Apa yang disebut jenius Gu Yue, petarung peringkat lima yang kuat, betapa tidak layaknya namamu. Anda lebih baik melayani saya dengan benar. Ini juga tentang hidupmu… Urgh!” Biksu Anggur Bunga tiba-tiba berteriak, wajahnya membuat ekspresi ngeri.</p>
+<p>	Dia menendang kepala klan generasi keempat dengan kakinya, tubuhnya bergoyang. Dia dengan panik mundur beberapa langkah besar, berteriak pada kepala klan generasi keempat, “Bagaimana kamu masih memiliki Gu ?”</p>
+<p>	Kepala klan generasi keempat ditendang di perutnya dan dia meludahkan seteguk darah. Dia bangkit dengan usaha yang sungguh-sungguh, wajahnya menunjukkan senyum licik. “ Heh heh heh , siapa pun berhak menghukum orang-orang dari Fraksi Iblis! Ini Gu disebut Moonshadow, itu adalah yang terbaik di persembunyian. Meskipun hanya Peringkat empat, tetapi ia memiliki kemampuan untuk membatasi penggunaan laut purba dan esensi purba. Setan, Anda dan saya telah bertarung dengan sengit, Anda tidak memiliki banyak Gu lagi, bagaimana Anda bisa menahan Gu Moonshadow ? Taat saja menyerah dan menjadi pelayanku, selama kamu melayaniku sampai aku bahagia, kamu masih akan memiliki kesempatan untuk hidup! ”</p>
+<p>	Biksu Anggur Bunga menjadi marah dan meraung, “Persetan denganmu !!”</p>
+<p>	Suaranya baru saja goyah ketika tubuhnya melonjak ke depan seperti sambaran listrik, sebuah pukulan mendarat di jantung kepala klan generasi keempat.</p>
+<p>	Pemimpin klan generasi keempat tidak berharap Biksu Bunga Anggur menjadi begitu radikal; bahkan jika laut purbanya terancam, Biksu Anggur Bunga tidak mau berkompromi. Sebuah kekuatan besar datang dan dia terbang ke udara, tubuhnya jatuh ke tanah seperti karung yang rusak.</p>
+<p>	Berdebar.</p>
+<p>	Dia menyemburkan seteguk besar darah segar, cairan merah bercampur dengan potongan organ dalam yang tak terhitung jumlahnya.</p>
+<p>	“Apakah kamu sudah gila, kita bisa menyelesaikan ini sepenuhnya melalui diskusi …” Dia menatap belati pada Biksu Anggur Bunga, bibirnya bergerak dengan susah payah. Kalimatnya belum selesai, karena kakinya lemas dan kepalanya miring ke samping. Dia meninggal.</p>
+<p>	“Kepala klan!”</p>
+<p>“Orang-orang dari jalur Iblis semuanya gila.”</p>
+<p>“Bunuh dia, bunuh iblis ini. Balas dendam pemimpin klan! ”</p>
+<p>	“Dia telah ditimbulkan oleh Moonshadow Gu , dia tidak bisa hanya menggunakan esensi purbanya lagi, seiring waktu bahkan esensi purbanya akan terancam.”</p>
+<p>	Para tetua yang menonton di sela-sela semua meraung marah dan mengerumuni daerah itu.</p>
+<p>	“ Ha ha ha , semua yang mencari kematian, ayo!” Biksu Anggur Bunga menangis ke udara. Menghadapi para tetua yang menyerangnya, dia bergegas ke arah mereka terlebih dahulu.</p>
+<p>	Pertempuran sengit terjadi dan Biksu Bunga Anggur dengan cepat berada di atas angin. Segera semua tetua telah jatuh ke tanah, beberapa dari mereka terluka dan sisanya mati. Saat Biksu Anggur Bunga hendak menghabisi para tetua yang masih hidup, ekspresi wajahnya tiba-tiba berubah dan dia menutupi perutnya dengan tangan. “ Sialan !”</p>
+<p>	“Saya akan kembali lagi di masa depan untuk berurusan dengan Anda,” kata Biksu Bunga Anggur. Dia menatap belati pada beberapa tetua dan tubuhnya bergerak seperti listrik saat dia melarikan diri ke hutan pegunungan, menghilang tanpa jejak dalam sekejap mata.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

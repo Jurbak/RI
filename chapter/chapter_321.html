@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 321 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 321";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_320.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 321">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_322.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 321</h1>
+        <div class="text-left">
+<p>	Bab 321</p>
+<p>	Bab 321: Kehebohan Kota Klan Shang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Meskipun menggunakan kultivasi tahap puncak peringkat tiga melawan peringkat empat, Fang Zheng masih menang. Dia tidak hanya mengatasi rintangan, dia bahkan mengalahkan seorang ahli yang kuat seperti Ju Kai Bei! Dia benar-benar pemuda yang menjanjikan!”</p>
+<p>	“Ini tidak diragukan lagi merupakan kemenangan besar. Ju Kai Bei bahkan menggunakan transformasi jin pembunuhnya, tetapi masih dipukuli sampai dia terkapar di tanah oleh Fang Zheng, dipaksa untuk mengaku kalah.”</p>
+<p>	“Serangan delapan hantu binatang benar-benar menakutkan … untuk berpikir Fang Zheng memiliki kekuatan qi Gu, dia terlalu beruntung, saya mendengar Gu ini adalah harta berharga dari klan aslinya.”</p>
+<p>	Di rumah teh, restoran, dan jalan-jalan, orang-orang berbicara di waktu luang mereka, mendiskusikan pertempuran Fang Yuan dan Ju Kai Bei.</p>
+<p>	Pada titik di mana keduanya berada di puncaknya, mengalahkan peringkat empat dengan budidaya peringkat tiga benar-benar spektakuler.</p>
+<p>	Ada hampir seribu penonton di panggung pertempuran, semua orang menyaksikan seluruh proses. Fang Yuan menang adil dan jujur, tidak ada tipu daya atau skema, dia sepenuhnya mendominasi Ju Kai Bei melalui kekuatan murni.</p>
+<p>	Adapun asal usul kekuatan qi Gu, Fang Yuan memberikan berita palsu dan menyebabkan tebakan semua orang terkait dengan klan Gu Yue.</p>
+<p>	“Mulai hari ini dan seterusnya, Tuan Fang Zheng adalah panutanku!”</p>
+<p>	Setelah pertempuran ini, banyak orang mulai memanggil Fang Yuan ‘tuan’. Kekuatan pertempurannya telah mendapatkan pengakuan semua orang.</p>
+<p>	“Lord Fang Zheng benar-benar menginspirasi, era Ju Kai Bei telah berakhir.” Beberapa Master Gu wanita berkata dengan mata bersinar.</p>
+<p>	“Generasi yang lebih baru menggantikan yang lama, saat Ju Kai Bei jatuh, semuanya berkontribusi pada reputasi Fang Zheng.” Beberapa Master Gu tua berseru, merasakan kebangkitan era baru.</p>
+<p>	“Fang Zheng mengalahkan Ju Kai Bei, aku ingin tahu apakah dia bisa mengalahkan Yan Tu. Jika dia mengalahkan Yan Tu juga, dia akan menjadi satu-satunya orang yang mendominasi panggung pertempuran selama ini. Selama dia mempertahankan posisinya selama delapan belas pertempuran, dia akan menjadi tetua eksternal klan Shang! ”</p>
+<p>	Pertempuran ini menciptakan getaran di panggung pertempuran.</p>
+<p>	Struktur lama diruntuhkan, dan kekuatan baru muncul.</p>
+<p>	Orang-orang mulai melihat masa depan Fang Yuan, merasakan kegembiraan dan antisipasi.</p>
+<p>	Klan Shang tidak mendapatkan penatua eksternal selama lebih dari sepuluh tahun.</p>
+<p>	Jika Fang Yuan mengalahkan Ju Kai Bei dengan sedikit keuntungan, dan mengalami masa sulit, harapan mereka mungkin tidak akan terlalu besar.</p>
+<p>	Tapi setelah Fang Yuan menunjukkan kekuatan luar biasa yang menghancurkan Ju Kai Bei, mereka mulai menganalisis—</p>
+<p>	“Fang Zheng memiliki upaya habis-habisan Gu, kekuatan pahit Gu, kemandirian Gu, dan kekuatan qi Gu, bahkan jalur kekuatan kuno Gu Master hanya bisa mencapai level ini!”</p>
+<p>	“Upaya habis-habisan Gu memungkinkan serangannya menjadi ganas dan mendominasi! Kekuatan pahit Gu memungkinkan dia untuk menjadi lebih kuat saat dia bertarung, dipasangkan dengan kemandirian Gu, itu hanya kesempurnaan. Kekuatan qi Gu memungkinkan dia untuk memiliki serangan jarak jauh yang kuat, dan sepenuhnya menghilangkan kelemahannya. Adegan delapan hantu binatang yang menyerang bersama benar-benar menakutkan. Ini adalah jurus pembunuh Fang Zheng!”</p>
+<p>	“Kekalahan Ju Kai Bei bukanlah suatu kebetulan. Meskipun dia berada di peringkat empat dan memiliki keunggulan kultivasi, jalur kekuatan tidak banyak digunakan untuk esensi purba, membatasi keuntungan yang dia miliki. Selain itu, cacing Gu Fang Zheng terlalu bagus, mereka membentuk satu set yang kuat, dan semuanya terkait erat satu sama lain. Ju Kai Bei mungkin mengaku kalah setelah berkecil hati.”</p>
+<p>	“Bagaimana keberuntungan dan pertemuan seseorang bisa sebaik ini? Keberuntungan Fang Zheng di luar grafik. Dia baru berada di kota klan Shang selama beberapa tahun, namun dia sudah berkembang seperti ini. Perangkat Gu-nya sangat kuat, cukup baginya untuk menyebarkan namanya di perbatasan selatan dan mendapatkan gelarnya sendiri.”</p>
+<p>	“Judul? Dia sudah memilikinya… banyak orang memanggilnya dan Bai Ning Bing sebagai Iblis Hitam Putih. Tetapi semakin banyak orang yang menyebut Fang Zheng sebagai Raja Binatang Kecil.”</p>
+<p>	Fang Yuan mengendalikan delapan hantu binatang, dan memiliki gaya bertarung yang ganas, menyerang dan menabrak, gelar Little Beast King sangat cocok untuknya.</p>
+<p>	Adapun mengapa dia tidak disebut ‘Raja Binatang’.</p>
+<p>	Itu karena Beast King sudah menjadi Master Gu iblis yang mapan. Dia menduduki gunung Bai Shou, menggunakan seratus binatang sebagai pasukannya, dan merupakan peringkat lima Gu Master, tidak masuk akal, kejam dan jahat. Dia adalah orang yang menyusahkan baik bagi golongan benar dan golongan iblis.</p>
+<p>	Fang Yuan masih peringkat tiga tahap puncak, meskipun ia mengalahkan Ju Kai Bei dan mendapatkan ketenaran dalam semalam. Dia masih sangat jauh dari level ‘Beast King’ yang merupakan peringkat lima Gu Master.</p>
+<p>	Dari aspek lain, orang-orang memanggilnya Little Beast King berarti mereka sangat memikirkan Fang Yuan dan masa depannya.</p>
+<p>	“Saya menantikan panggung pertempurannya untuk mempertahankan pertempuran. Pertempuran pertahanan setiap ahli yang mendominasi adalah klasik. Saat itu, Tuan Wei Yang menggunakan kultivasi tahap tengah peringkat tiga, bahkan lebih lemah dari Fang Zheng sekarang, untuk mendominasi tahap pertempuran. Setiap pertarungannya klasik!” Seorang Master Gu senior ingat.</p>
+<p>	Segera, banyak orang mulai mendiskusikan prospek masa depan Fang Yuan.</p>
+<p>	“Pada titik ini, berapa banyak pasangan Fang Zheng? Ju Kai Bei, Yan Tu, oh benar, dan Bai Ning Bing.”</p>
+<p>	“Tapi, Ju Kai Bei sudah kehilangan akal sehatnya terhadap Fang Zheng, dia benar-benar kejam. Di antara tubuh jin, hati jin, dan pikiran jin, pikiran jin adalah yang paling sulit diperoleh. Tanpa itu, gerakan pembunuh Ju Kai Bei tidak lengkap. Bagi Fang Zheng, itu adalah satu ancaman yang lebih sedikit. ”</p>
+<p>	“Yan Tu sekarang adalah pesaing terbesar Fang Zheng. Dia dan Ju Kai Bei masing-masing adalah ‘setengah langit dari panggung pertempuran’, kekuatannya bukanlah lelucon. Tapi Fang Zheng mampu mengalahkan Ju Kai Bei, dan memiliki kekuatan qi Gu untuk menghilangkan kelemahannya, ada kemungkinan besar untuk mengalahkan Yan Tu.”</p>
+<p>	Seseorang menyebut Bai Ning Bing juga: “Bai Ning Bing tidak bisa diremehkan, setelah dia kalah dari Yan Tu, pada pertandingan berikutnya, dia sudah menembus peringkat empat tahap awal! Peringkat empat pada usia ini, bakat macam apa itu. Tapi dia dan Fang Zheng memiliki hubungan yang dalam, dia mungkin mengakui kekalahan ketika mereka bertemu untuk membantu Fang Zheng.”</p>
+<p>	Bai Ning Bing dan Fang Yuan tinggal bersama di taman Nan Qiu bukanlah rahasia lagi. Banyak orang menduga bahwa mereka telah melakukan tindakan intim.</p>
+<p>	Tapi kemudian, tepat saat diskusi mencapai puncaknya, Fang Yuan tiba-tiba mengumumkan bahwa dia pensiun dari panggung pertempuran.</p>
+<p>	Begitu berita keluar, semua orang terkejut.</p>
+<p>	“Mengapa Fang Zheng memberikan kesempatan yang begitu bagus?”</p>
+<p>	“Penatua eksternal setelah mendominasi panggung pertempuran, itu tepat di hadapannya.”</p>
+<p>	Banyak orang menghela nafas kasihan.</p>
+<p>	“Apakah ada keadaan tersembunyi?” Master Gu iblis mulai menebak.</p>
+<p>	“Mungkinkah, klan Shang tidak menginginkan penatua eksternal lagi, dan memaksa Fang Zheng untuk menyerah?” Master Gu Iblis sering kali tidak memiliki rasa aman.</p>
+<p>	“Atau apakah klan Shang ingin merevisi kebijakan mereka, dan menghapus posisi penatua eksternal?”</p>
+<p>	Kecurigaan menyebabkan banyak orang menjadi tidak pasti.</p>
+<p>	Rekrutmen Gu Master iblis dari klan Shang sebagai tetua eksternal mereka adalah satu-satunya kasus di perbatasan selatan.</p>
+<p>	Di perbatasan selatan, banyak klan memiliki tahapan pertempuran. Tahap pertempuran terbesar dan paling populer terletak di klan nomor satu di perbatasan selatan — klan Wu.</p>
+<p>	Tapi tahap pertempuran ini sebagian besar untuk klan mereka sendiri, jarang untuk orang luar. Akibatnya, kebijakan penatua eksternal klan Shang menjadi sangat populer, menarik banyak talenta.</p>
+<p>	Bahkan ketika mereka berdagang di luar, banyak Master Gu iblis tidak merampok karavan klan Shang. Itu karena kebijakan penatua eksternal, dan Master Gu iblis ini membutuhkan rencana cadangan untuk diri mereka sendiri.</p>
+<p>	Shang Yan Fei merasa ada yang tidak beres, dan dengan cepat mengklarifikasi masalah tersebut.</p>
+<p>	Meskipun dia diam-diam menggunakan dua pion Ju Kai Bei dan Yan Tu untuk mengontrol panggung pertempuran, hal seperti itu tidak dapat diungkap.</p>
+<p>	Otoritas Shang Yan Fei dengan cepat menyebabkan masalah ini selesai.</p>
+<p>	Segera setelah itu, beberapa hari kemudian, Fang Yuan mengumumkan di depan umum, dia akan membantu Shang Xin Ci dan membantunya naik ke posisi tuan muda.</p>
+<p>	Segera, perhatian semua orang beralih dari panggung pertempuran ke kompetisi tuan muda.</p>
+<p>	Karena pembukuan palsu Shang Ya Zi terungkap, posisi tuan mudanya dicabut dan ada tempat kosong sekarang.</p>
+<p>	Banyak anak Shang Yan Fei melihat posisi ini dengan keserakahan yang ekstrim.</p>
+<p>	“Aku sudah lama mendengar, Fang Zheng ini setia dan benar. Dia memiliki prinsip hidupnya, membayar setetes air yang diterima dengan mata air, dan membalas dendam seratus kali lipat. Dia benar-benar bertanggung jawab.” Seseorang memujinya.</p>
+<p>	“Untuk membantu Shang Xin Ci mencapai posisi tuan muda, dia bahkan menyerahkan identitas tetua klan eksternal yang ada di depan mata. Ini benar-benar …” Beberapa orang tidak bisa mengerti.</p>
+<p>	“Mungkin dia dan Shang Xin Ci memiliki hubungan bawah tanah . Jika itu saya, saya akan membuat pengorbanan seperti itu juga. ”</p>
+<p>	“Itu mungkin, tunggu. Jika itu masalahnya, bagaimana dengan Bai Ning Bing?”</p>
+<p>	Orang-orang memiliki sifat bergosip, dan itu menyebar seperti api. Hubungan segitiga Fang Yuan, Bai Ning Bing dan Shang Xin Ci menjadi topik hangat.</p>
+<p>	Segera setelah itu, dalam waktu beberapa hari, Bai Ning Bing juga pensiun dari panggung pertempuran.</p>
+<p>	“Bai Ning Bing juga pergi untuk membantu Shang Xin Ci!” Seseorang berseru.</p>
+<p>	“Apa yang telah terjadi di dunia ini? Tidak ada yang ingin menjadi penatua eksternal? ” Pandangan dunia beberapa orang ternoda.</p>
+<p>	“Bai Ning Bing memiliki keberanian besar, enggan melepaskannya. Demi cinta, dia memutuskan untuk ikut campur, sebenarnya mereka bertiga dan hubungan mereka yang terjalin dimulai saat mereka bertemu.” Rumor mulai menyebar lagi.</p>
+<p>	Skenario yang tak terhitung jumlahnya disulap oleh orang-orang, bahkan ada drama dan drama yang muncul di kota klan Shang yang menggambarkan hubungan segitiga Fang, Bai dan Shang.</p>
+<p>	Dan itu laris manis seperti kacang goreng!</p>
+<p>	Lupakan detail ini, tetapi perubahan posisi Fang dan Bai berhasil membuat Shang Xin Ci menjadi pusat perhatian.</p>
+<p>	Bai Ning Bing sekarang peringkat empat tahap awal, peringkat empat Gu Master adalah pemimpin klan di klan berukuran menengah atau kecil!</p>
+<p>	Meskipun Fang Yuan berada di peringkat tiga tahap puncak, kekuatan pertempurannya setara dengan peringkat empat master Gu. Begitu dia menjadi peringkat empat, siapa yang bisa membayangkan seberapa kuat dia nantinya?</p>
+<p>	Mereka berdua masih sangat muda, dan memiliki ruang untuk tumbuh, sehingga ada banyak komentar positif tentang mereka.</p>
+<p>	Mendapat bantuan dua ahli, Shang Xin Ci langsung menjadi orang terpopuler kedua yang memperebutkan posisi tuan muda.</p>
+<p>	Di hadapannya, orang mengira bahwa orang dengan harapan tertinggi untuk menjadi tuan muda adalah Shang Yi Fan.</p>
+<p>	Setelah Fang dan Bai membantunya, situasi berubah, dan itu menjadi kontes antara kedua belah pihak.</p>
+<p>	…</p>
+<p>	Shang Yi Fan tidak tinggi, sebenarnya dia sedikit pendek. Hidung elang dan mata mungil, dia memiliki tatapan tajam.</p>
+<p>	“Shang Xin Ci …” Dia duduk di kursi kayu di ruang belajarnya, bergumam ketika tatapannya bergeser tidak pasti ketika memikirkan orang ini.</p>
+<p>	Di hadapannya ada satu orang.</p>
+<p>	Itu tidak lain adalah Shang Ya Zi.</p>
+<p>	“Adik kecil Yi Fan, aku di sini untuk membantumu. Shang Xin Ci mendapat bantuan Fang dan Bai, dia akan menjadi pesaing terbesarmu. Terutama Fang Zheng, kamu harus berhati-hati, dia licik dan licik, dia menyebabkan kejatuhanku!”</p>
+<p>	Shang Ya Zi mengertakkan gigi dan berbicara.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

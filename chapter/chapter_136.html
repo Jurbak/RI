@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 136 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 136";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_135.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 136">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_137.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 136</h1>
+        <div class="text-left">
+<p>	Bab 136</p>
+<p>	Bab 136: Bentrokan otot dan otak</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Udara dingin berhembus ke mana-mana, mengiringi baling-baling es yang terbang. Tinju baja melolong tertiup angin, dan taring menggeram marah.</p>
+<p>	Pertarungan Xiong Li dan yang lainnya melawan Bai Ning Bing telah mencapai klimaksnya.</p>
+<p>	Tidak banyak waktu berlalu sejak pertempuran dimulai, jujur. Tetapi ketika tekanan dari Bai Ning Bing semakin kuat, Xiong Li dan yang lainnya mulai merasa waktu itu semakin lama dengan kesulitan yang dia ajukan.</p>
+<p>	Wajah Xiong Jiang redup seperti air, dahi Xiong Lin meneteskan keringat dingin, sementara Xiong Li mempertahankan tatapan serius.</p>
+<p>	Pada titik ini, bahkan Xiong Li harus menekan amarahnya dan mengakui kekuatan hebat Bai Ning Bing. Meskipun Bai Ning Bing menekan kultivasi Peringkat tiganya, dan hanya bertarung dengan cacing Gu peringkat dua, dia menunjukkan kekuatan yang mampu menekan seluruh kelompok mereka.</p>
+<p>	Tapi meski begitu, kenyataannya Bai Ning Bing bahkan belum memberikan semuanya. Ini tidak disengaja untuk membuktikan suatu hal, melainkan tindakan pencegahan terhadap Fang Yuan.</p>
+<p>	Bagi Xiong Li dan yang lainnya, motif mereka sederhana, yaitu menangkap atau membunuh Bai Ning Bing.</p>
+<p>	Tetapi bagi Bai Ning Bing, situasinya lebih rumit.</p>
+<p>	Dia perlu melawan kelompok Xiong Li di satu sisi, sementara secara bersamaan berjaga-jaga untuk mencegah serangan diam-diam Fang Yuan di sisi lain.</p>
+<p>	Dia telah melihat Fang Yuan menggunakan Stealth Scales Gu dengan matanya sendiri, jadi dalam pertempuran dia harus memastikan untuk mengalihkan sebagian perhatiannya untuk mencegah serangan Fang Yuan.</p>
+<p>	Tapi sampai sekarang, Fang Yuan belum bergerak.</p>
+<p>	“Apakah dia pergi? Mustahil! Meskipun ini adalah pertemuan pertama kami, dia bukan tipe orang yang mundur! Dia pasti akan bertindak. Dia hanya menunggu waktunya.” Bai Ning Bing melambaikan pisau esnya dan menekan Xiong Li, sementara pikirannya berpacu di benaknya.</p>
+<p>	Tidak hanya dia harus menggunakan kekuatannya untuk melawan kelompok Xiong Li, dia juga harus bersaing dengan Fang Yuan menggunakan kecerdasannya.</p>
+<p>	Fang Yuan menolak untuk menyerang semakin menekan dirinya sendiri. Pedang berselubung adalah yang paling berbahaya, karena seseorang tidak akan bisa memprediksi di mana pedang itu akan menusuk.</p>
+<p>	Meskipun Fang Yuan tidak menyerang, dan diam-diam menyaksikan pertempuran, dia mampu mengalihkan perhatian Bai Ning Bing selama ini. Jika bukan karena pengalihan ini, kelompok Xiong Li akan kalah sejak lama, jika tidak, mereka tidak akan bisa bertahan begitu lama.</p>
+<p>	“Bai Ning Bing ini sangat teliti. Pertama dia membunuh serigala petir yang berani dengan tegas, mengurangi pion yang bisa saya gunakan. Selanjutnya dia mempertaruhkan cedera untuk membunuh Master Gu yang menyembuhkan di kelompok Xiong Li. Semua tindakan ini adalah keputusan yang paling masuk akal untuk dibuat dalam situasinya. Meskipun dia terlibat dalam pertempuran serius dengan kelompok Xiong Li, dia masih menahan diri untuk mencegah seranganku, sebenarnya…”</p>
+<p>	Di bawah bayangan pohon di dekatnya, Fang Yuan menyilangkan lengannya saat dia melihat, matanya bersinar dengan ketidakpastian.</p>
+<p>	Bukannya dia tidak ingin menyerang, tetapi dia hanya tidak bisa menemukan kesempatan untuk melakukannya.</p>
+<p>	Padahal dia tidak cemas.</p>
+<p>	Semakin lama ini berlarut-larut, semakin banyak kekuatan pertempuran akan terkuras dari Bai Ning Bing. Sepuluh tubuh Ekstrim memiliki tingkat pemulihan esensi purba tertinggi, lebih dari nilai A, tetapi masih dihabiskan dari waktu ke waktu.</p>
+<p>	Semakin lama Fang Yuan menunggu, semakin banyak esensi purba yang digunakan di celah Bai Ning Bing, dan semakin banyak skala kemenangan yang akan bergeser ke arah Fang Yuan.</p>
+<p>	Jika lubang Bai Ning Bing tidak memiliki esensi purba yang tersisa, lalu bagaimana jika dia adalah Tubuh Jiwa Es Gelap Utara? Satu moonblade dan dia dipenggal!</p>
+<p>	Fang Yuan tahu ini, dan Bai Ning Bing juga menyadari fakta ini.</p>
+<p>	Meskipun saat ini dia berada di atas angin, hatinya semakin berat.</p>
+<p>	“Aku tidak bisa terus seperti ini!” Mata biru Bai Ning Bing bersinar saat dia mundur selangkah, menarik jarak dari kelompok Xiong Li.</p>
+<p>	Selanjutnya dia menelan ludah, tenggorokannya mengembang seperti ada sesuatu yang naik dari perutnya ke dalam mulutnya.</p>
+<p>	Rahangnya terangkat tinggi saat dia membuka mulutnya dengan susah payah.</p>
+<p>	Seekor burung kecil berwarna biru es muncul dari mulutnya, kepalanya terangkat di atas gigi putihnya. Itu melihat sekeliling dan segera menemukan terkunci ke tatapan tertentu.</p>
+<p>	Melompat keluar dari mulut Bai Ning Bing, burung kecil sedingin es itu mengepakkan sayapnya kuat-kuat, terbang menuju Xiong Li.</p>
+<p>	Burung biru kecil itu lucu seperti merpati, tetapi wajah Xiong Li dan yang lainnya kehilangan warna setelah melihatnya.</p>
+<p>	“Peringkat tiga Gu Peti Mati Es Blue Bird?”</p>
+<p>	“Menjauh darinya, cepat!”</p>
+<p>	Kelompok Xiong Li dengan panik mencoba menghindar, tetapi burung es biru ini tidak seperti pedang bulan; setelah dikirim, itu terkunci ke target.</p>
+<p>	“Ledakan!”</p>
+<p>	Itu menabrak dukungan Gu Master di kelompok Xiong Li, sebelum segera meledak.</p>
+<p>	Udara dingin bertiup ke mana-mana, dan cahaya biru yang menusuk dari ledakan menerangi seluruh medan perang.</p>
+<p>	Detik berikutnya, cahaya biru menyebar, dan balok es yang sebagian transparan terungkap, berwarna biru berair dingin.</p>
+<p>	Master Gu tampak tersegel di dalam balok es, wajahnya masih menyimpan ketakutan dan kecemasan sebelum kematian, tetapi dia telah kehilangan semua tanda kehidupan.</p>
+<p>	Meskipun Bai Ning Bing sudah menjadi Master Gu Peringkat tiga, setelah cacing Gu peringkat tiga digunakan, esensi purba Peringkat dua yang ditekan di aperture-nya akan cepat habis. Pada saat yang sama, itu tidak dapat menampilkan kekuatan sebenarnya dari cacing peringkat tiga Gu. Apalagi setelah digunakan, selama periode berikutnya, musuh bisa memanfaatkan kesempatan ini untuk menyerang.</p>
+<p>	Tapi kelompok Xiong Li yang terdiri dari tiga orang malah membeku karena terkejut, dikejutkan oleh Gu Peti Mati Es Burung Biru ini.</p>
+<p>	Bai Ning Bing tidak menindaklanjuti serangan itu, dan malah berbalik dan pergi, mencoba meninggalkan medan perang.</p>
+<p>	Ini adalah keputusan yang bijaksana, karena jika dia melanjutkan, situasinya akan menjadi lebih tidak menguntungkan baginya.</p>
+<p>	“Brengsek…”</p>
+<p>	“Bai Ning Bing, jangan lari jika kamu punya nyali!”</p>
+<p>	“Kakak Xiong Xin dibunuh olehnya, bunuh dia, balas dendam untuk saudara Xiong Xin !!!”</p>
+<p>	Kelompok Xiong Li mengutuk keras, tetapi tidak bisa mengejar.</p>
+<p>	Awalnya, mereka berempat hampir tidak cukup untuk membentuk pengepungan, tetapi sekarang mereka memiliki satu orang lebih sedikit, blokade mereka dengan mudah dipatahkan oleh Bai Ning Bing.</p>
+<p>	Melihat Bai Ning Bing hendak meninggalkan medan perang, pada saat ini, sebuah pedang bulan terbang dari antara semak-semak, dan seseorang melompat keluar dan dengan cepat mengikutinya.</p>
+<p>	“Bam!”</p>
+<p>	Bilah es Bai Ning Bing melambai, dan menghilangkan bilah bulan. Tapi perutnya dipukul oleh seseorang, melemparkannya ke belakang dengan tiga langkah besar.</p>
+<p>	Selama periode ini, Xiong Li dan yang lainnya sadar dari pingsan mereka, mendekat dan mengepung Bai Ning Bing lagi.</p>
+<p>	Bai Ning Bing mengabaikan ketiganya, malah menatap pendatang baru, tertawa.</p>
+<p>	“Jadi kamu akhirnya muncul. . .”</p>
+<p>	“Ini Fang Yuan!” Mata Xiong Lin bersinar, melihat secercah harapan.</p>
+<p>	“Fang Yuan, kerja bagus!” Xiong Jiang sangat gembira, berteriak.</p>
+<p>	Xiong Li tetap diam; meskipun dia tampak gegabah, pikirannya lebih teliti daripada orang lain. Fang Yuan tidak menyerang lebih awal, tetapi tiba-tiba muncul. . . apakah dia menonton pertempuran selama ini? Memikirkan kemungkinan ini membuatnya gelisah.</p>
+<p>	Fang Yuan tersenyum ringan, menunjukkan penampilan yang menang, tetapi hatinya tenggelam. Tindakan mundur Bai Ning Bing adalah untuk memaksanya muncul. Fang Yuan jelas dari niatnya, dan melihatnya, tetapi jadi bagaimana jika dia melakukannya? Dia harus muncul.</p>
+<p>	Ekspresi Xiong Li juga diperhitungkan, dan dia sudah menduganya.</p>
+<p>	“Yakinlah, semuanya.” Dia membuka mulutnya. “Aku sudah memberi tahu klan, tunggu sebentar lagi, bala bantuan akan datang!”</p>
+<p>	Xiong Li merasa lega sekaligus.</p>
+<p>	Xiong Lin, semangat pertempuran Xiong Jiang tersulut, dan Bai Ning Bing tiba-tiba tertawa keras, “Haha, jadi dia dipanggil Fang Yuan, pria yang sangat menarik… Aku hanya ingin membunuhmu lebih banyak lagi sekarang!!!”</p>
+<p>	“Aku khawatir kamu tidak cukup mampu untuk mencapai itu.” Mata Fang Yuan bersinar dengan cahaya dingin, mengambil langkah maju.</p>
+<p>	“Bai Ning Bing, surga ingin kamu mati, kamu sudah selesai!” Xiong Jiang menggertakkan giginya, berlari ke Bai Ning Bing.</p>
+<p>	“Bai Ning Bing, kamu terlalu sombong, kamu akan membayar harganya hari ini!” Xiong Lin menggeram, bergerak menuju punggung Bai Ning Bing.</p>
+<p>	“Fang Yuan, mundurlah sedikit, dukung kami dan cegah Bai Ning Bing melarikan diri.” Xiong Li berkata.</p>
+<p>	Jika Fang Yuan ikut campur, itu akan menghancurkan chemistry yang mereka bertiga bagikan.</p>
+<p>	Pertempuran berlanjut.</p>
+<p>	Ekspresi Fang Yuan tenang sementara dia terus menyerang, memperlakukan kata-kata Xiong Li seolah-olah itu udara.</p>
+<p>	Kelompok Xiong Li mengerutkan kening; campur tangan orang luar akan menyebabkan formasi pertempuran menjadi kacau, dan kerja sama mereka akan mulai gagal. Tapi setiap serangan Fang Yuan kejam dan tegas, memiliki pemahaman yang kuat tentang peluang, bukannya sangat membantu mereka.</p>
+<p>	Pada awalnya, Xiong Li menggeram mengancamnya, tetapi segera, dia tutup mulut. Wajahnya yang cemberut perlahan mereda, dan alisnya mulai terangkat, mengungkapkan keterkejutannya terhadap Fang Yuan.</p>
+<p>	Fang Yuan tidak banyak menyerang, tetapi setiap serangan yang dia lakukan memiliki implikasi besar pada pertempuran. Setelah metode tingkat masternya ditampilkan, dia langsung memahami pertempuran di tangannya.</p>
+<p>	Kelompok lima Xiong Li awalnya berada pada posisi yang kurang menguntungkan saat melawan Bai Ning Bing, dan akhirnya membuat dua anggota mereka terbunuh. Tapi begitu Fang Yuan bergabung, bersama dengan kecakapan tempur gabungan ketiganya, mereka berhasil menekan Bai Ning Bing ke sudut.</p>
+<p>	“Bai Ning Bing, pergi saja dan mati!”</p>
+<p>	Xiong Li menggeram keras, melompat dan mendarat dengan keras. Sepuluh jarinya terjalin untuk membentuk pukulan, membanting ke arah Bai Ning Bing.</p>
+<p>	Bai Ning Bing ingin menghindar, tetapi Fang Yuan muncul pada saat itu, dan pada saat yang sama menembakkan pedang bulan, menghalangi arah di mana dia ingin melompat.</p>
+<p>	Bai Ning Bing tidak punya pilihan selain menahan serangan Xiong Li.</p>
+<p>	“Perisai Air Gu!”</p>
+<p>	Dari lubang hidungnya, dua garis uap air melingkari tubuhnya, membentuk penghalang berbentuk bola dari uap air yang kental.</p>
+<p>	Dengan benturan keras dan letupan terkompresi, pukulan berat Xiong Li mendarat di penghalang, menembusnya seketika.</p>
+<p>	Tapi tindakan ini juga menyebabkan pukulan itu kehilangan semua kecepatannya dan memungkinkan Bai Ning Bing lolos dari kematian.</p>
+<p>	Meski begitu, Xiong Li melirik Fang Yuan, menunjukkan tanda-tanda kekaguman. Jika bukan karena kerja samanya yang luar biasa, pukulan ini akan dihindari oleh Bai Ning Bing. Itu tidak akan memaksa Bai Ning Bing untuk menerima pukulan itu, menghabiskan esensi purbanya.</p>
+<p>	“Perisai Air Gu lagi …”</p>
+<p>	Fang Yuan tidak keberatan dengan tatapan Xiong Li, tetapi fokus pada Bai Ning Bing, mengerutkan kening.</p>
+<p>	Gu Perisai Air inilah yang meringankan kesulitan Bai Ning Bing. Kekuatan pertahanan perisai air bahkan lebih unggul dari White Jade Gu.</p>
+<p>	Tapi itu memiliki kelemahan — dia perlu membentuk bentuk bola dan mengandalkan air yang bergerak untuk menarik kekuatan menjauh, menyebarkan kerusakan untuk menampilkan kemampuan pertahanan penuhnya.</p>
+<p>	Jika Bai Ning Bing berada di dinding, dia tidak bisa membentuk bola dan kekuatan pertahanannya akan sangat berkurang.</p>
+<p>	Ada banyak hutan di Gunung Qing Mao, tapi meskipun begitu Bai Ning Bing sangat berhati-hati, memastikan untuk tidak masuk ke tempat yang sempit.</p>
+<p>	“Selama aku mengalahkan Gu Perisai Air ini, aku bisa menempatkan Bai Ning Bing di tempat yang sempit. Tapi bagaimana caranya?” Fang Yuan sedang berpikir, tetapi tiba-tiba mulut Bai Ning Bing terbuka, dan seekor burung biru baru terbang keluar.</p>
+<p>	Xiong Li dan yang lainnya takut dengan serangan ini, tetapi Fang Yuan tidak bingung sedikit pun.</p>
+<p>	Dia mendengus dingin, menembakkan pedang bulan.</p>
+<p>	Dengan bam, moonblade menabrak burung es, menyebabkannya meledak.</p>
+<p>	Bai Ning Bing menggeram dengan suara rendah, dia terlalu dekat, dan setelah burung es itu meledak, dia juga terkena.</p>
+<p>	Dampaknya menyebabkan dia terbang dan kemudian jatuh ke tanah. Pada saat yang sama, setengah dari anggota tubuh kirinya membeku, kehilangan kemampuannya untuk bertarung.</p>
+<p>	“Kesempatan ilahi!” Melihat ini, mata Xiong Li bersinar dengan kecemerlangan, berteriak “Matilah!” dan lengannya berkumpul untuk membentuk pukulan lain ke arah Bai Ning Bing.</p>
+<p>	Pukulan ini terlalu berat, dan saat Bai Ning Bing berada di tanah, kemampuan pertahanan Water Shield Gu kurang dari setengah dari biasanya; jika ini mengenai kepalanya, tidak ada keraguan bahwa dia, Bai Ning Bing, akan langsung mati.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

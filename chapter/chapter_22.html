@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 22 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 22";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_21.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 22">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_23.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 22</h1>
+        <div class="text-left">
+<p>	Bab 22</p>
+<p>	Bab 22 – Menari Moonblade</p>
+<p>	Langit biru dan jernih, tampak murni seolah-olah telah dicuci bersih. Matahari bersinar keemasan.</p>
+<p>	Kepulan awan putih melayang, dan sekelompok burung beo merak berwarna-warni berkicau saat mereka terbang di bawah langit biru, membentuk formasi panah di bawah awan saat mereka melonjak.</p>
+<p>	Varian burung beo warna-warni ini hanya akan muncul dalam kelompok besar selama musim semi. Tubuh mereka dipenuhi bulu-bulu sewarna pelangi, tubuh mereka seukuran elang. Burung-burung itu memiliki paruh burung beo, sedangkan ekornya seperti ekor panjang merak yang mengalir.</p>
+<p>	Sudah sepuluh hari sejak hari Fang Yuan berhasil memperoleh nomor satu dalam ujian untuk memperbaiki Gu yang vital . Angin musim semi bertiup di atas rumput hijau seluruh gunung, sementara bunga-bunga liar bermekaran dengan penuh semangat, dan lebah serta kupu-kupu menari-nari bersama. Hidup melonjak di sekitar; itu adalah keindahan musim semi yang indah.</p>
+<p>	Napas musim semi begitu kuat sehingga dinding bambu tinggi yang mengelilingi tempat latihan tidak bisa menahannya.</p>
+<p>	Bidang pelatihan ini menempati 3 Mu(1). Tanahnya datar, diaspal dengan lapisan grafit abu-abu yang tebal dan lebar. Keempat sisinya ditanami bambu tombak hijau; tiang-tiang hijau ini ditempatkan berdekatan berdampingan, lurus dan tinggi, membentuk lingkaran tembok tinggi hijau.</p>
+<p>	Sementara di bawah sudut dinding ada batu juga, rumpun rumput hijau muncul dari banyak daerah. Di sela-sela bambu juga ada beberapa bunga mawar liar, menyembul dari luar, bahkan ada yang memanjat tembok.</p>
+<p>	Lima puluh tujuh remaja muda pada usia lima belas tahun berdiri di tengah-tengah lapangan latihan sekarang, membentuk setengah lingkaran di sekitar sesepuh akademi yang berada di tengah, memusatkan perhatian mereka padanya.</p>
+<p>	Ini adalah pelajaran untuk mengajar para siswa tentang cara menggunakan Moonlight Gu .</p>
+<p>	“The Moonlight Gu adalah kami Gu Yue klan simbolis Gu , seperti Xiong (2) DPR Beruang Kekuatan Gu , dan Bai (3) DPR Streaming Gu . Mayoritas dari Anda di lapangan telah memilih Moonlight Gu sebagai Gu vital Anda , jadi Anda semua harus menonton dengan benar. Segera saya akan menunjukkan secara pribadi bagaimana menggunakan Moonlight Gu untuk menyerang. Siswa yang Gu vitalnya bukan Moonlight Gu juga harus berkonsentrasi padaku, karena metode serangan jarak jauh klasik ini juga dapat digunakan pada Gu lain ; spektrum metode yang dapat digunakan sangat luas.”</p>
+<p>	Saat dia berbicara, sesepuh akademi mengulurkan tangan kanannya, lima jarinya terbuka lebar. Dia menurunkan telapak tangannya sehingga remaja muda itu bisa melihat bagian tengahnya.</p>
+<p>	“Pertama, Anda menggunakan pikiran Anda untuk memobilisasi Moonlight Gu , memindahkannya ke tengah telapak tangan Anda.” Mengikuti suaranya, tanda bulan sabit yang mewakili Moonlight Gu bergerak ke bawah lengan sesepuh dan ke telapak tangannya.</p>
+<p>	“Lalu, kamu memobilisasi esensi purba di aperture kamu, menuangkannya ke Moonlight Gu. Benang esensi purba berwarna perak putih menyembur keluar dari tubuh sesepuh, begitu halus hampir tidak mungkin untuk melihat. Itu memasuki Moonlight Gu di telapak tangannya.</p>
+<p>	Penatua akademi adalah dari alam Peringkat tiga, dan hanya Peringkat tiga Master Gu yang bisa menghasilkan esensi purba berwarna perak putih. Esensi purba peringkat satu Gu Master umumnya dikenal sebagai esensi purba tembaga hijau, sedangkan peringkat dua Master Gu memiliki esensi purba besi merah yang mereka sebut sebagai esensi purba besi merah. Ketika mereka mencapai Peringkat tiga, itu menjadi esensi purba perak putih.</p>
+<p>	Setelah menyerap benang esensi purba perak putih, tanda berbentuk bulan sabit di tangan sesepuh langsung bersinar lebih terang dan lebih cerah. Meskipun siang hari, masih mengeluarkan cahaya biru pucat yang cemerlang.</p>
+<p>	“Itu luar biasa!”</p>
+<p>“Sungguh cantik.” Anak-anak muda itu tidak bisa menahan diri untuk tidak memuji keterkejutan dan keheranan ketika mereka melihatnya.</p>
+<p>	Cahaya biru pucat itu jernih seperti air. Itu berkedip samar di telapak tangan tetua. Sepintas sepertinya tangan sesepuh akademi itu sedang menyendoki segenggam cahaya bulan. Tetua akademi tersenyum sedikit. “Sekarang perhatikan baik-baik, langkah terakhir seperti bagaimana saya akan melakukannya, meluncurkannya.”</p>
+<p>	Saat dia mengatakan ini, kelima jarinya yang terbuka lebar perlahan menutup bersama, lalu dia mengangkat lengannya dan perlahan menggerakkannya ke depan, lengannya lurus. Akhirnya dia melambaikan telapak tangannya dengan ringan dalam gerakan memotong.</p>
+<p>	Seluruh gerakan itu stabil dan kuat.</p>
+<p>	Swoosh.</p>
+<p>	Para siswa muda bisa mendengar suara sikat ringan di samping telinga mereka.</p>
+<p>	Mengikuti gerakan sesepuh akademi, cahaya biru pucat seperti air yang kental di telapak tangannya terlempar keluar seperti itu.</p>
+<p>	Cahaya berubah menjadi moonblade kecil di udara, moonblade biru samar hanya seukuran tangan terbuka lebar, bentuknya seperti bulan sabit di langit malam. Itu menarik garis lurus di udara sebelum menabrak boneka rumput sepuluh meter jauhnya.</p>
+<p>	Suara robekan terdengar, dan leher boneka rumput setebal sekitar tiga puluh sentimeter itu dipotong bersih oleh moonblade. Tubuh boneka itu bergoyang, kepala besar itu tiba-tiba jatuh ke lantai.</p>
+<p>	Setelah memotong boneka rumput menjadi dua, moonblade segera muncul redup. Namun itu terus terbang sekitar enam meter lagi di udara sebelum bulan sabit mulai memudar secara bertahap, akhirnya menghilang di udara.</p>
+<p>	Melihat leher boneka rumput lagi, orang dapat melihat bahwa area yang dipotong sangat rata, seolah-olah dipotong oleh sabit paling tajam.</p>
+<p>	Anak-anak muda semua terkejut ketika mereka melihat ini, mata mereka terbuka lebar. Beberapa dari mereka bahkan menyentuh leher mereka sendiri tanpa sadar, tercengang oleh kekuatan serangan dari moonblade.</p>
+<p>	Setelah keheningan singkat, suara seruan dimulai. Para remaja memiliki mata yang bersinar ketika mereka menatap boneka rumput, beberapa dari mereka menatap telapak tangan yang lebih tua. Beberapa dari mereka melihat ke arah rekan-rekan mereka, berbicara dan berbisik dengan penuh semangat.</p>
+<p>	Hanya Fang Yuan yang berdiri tersembunyi di antara kerumunan dengan ekspresi dingin, perawakannya tenang.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan telah berkultivasi ke Peringkat enam, dan dia telah menciptakan Sekte Setan Sayap Darah di Kerajaan Tengah. Dia mengajar puluhan ribu orang, dan terkenal sebagai tokoh raksasa dari faksi Iblis, ketenarannya termasyhur.</p>
+<p>	Penatua akademi hanyalah Master Gu peringkat tiga . Trik kecil ini hanyalah permainan anak-anak baginya; itu tidak akan menimbulkan riak emosi di hati Fang Yuan.</p>
+<p>	“Kalian semua yang telah menyempurnakan Moonlight Gu , keluarlah. Masing-masing dari kalian harus mengambil boneka rumput dan mengikuti cara yang baru saja saya lakukan, membuang pedang bulan, berlatih menyerang.”</p>
+<p>	Setelah sesepuh akademi selesai, sekitar tiga puluh siswa melangkah keluar.</p>
+<p>	Dalam batch ini seluruh klan memiliki seratus remaja muda yang bergabung dengan Upacara Kebangkitan. Mereka yang memiliki bakat budidaya sekitar lima puluh tujuh. Di antara para siswa ini, mereka yang telah memilih Moonlight Gu berjumlah sekitar tiga puluh lima. Setelah melalui beberapa hari kerja keras ini, mereka semua telah menyempurnakan Moonlight Gu . Yang tersisa semuanya adalah talenta kelas D. Itu bukan karena mereka tidak ingin memperbaiki Moonlight Gu , tetapi karena ketidakmampuan bakat mereka, jadi mereka hanya bisa mundur setelah mengetahui kesulitannya.</p>
+<p>	Untuk anak-anak muda dari klan Gu Yue, Moonlight Gu bukanlah cacing Gu sederhana , tetapi simbol kejayaan klan.</p>
+<p>	Sangat cepat tiga puluh lima dari mereka berdiri berturut-turut. Masing-masing dari mereka menghadap ke depan, berdiri sepuluh meter dari boneka rumput di seberangnya.</p>
+<p>	Fang Yuan berdiri di tengah barisan, tetapi dia tidak menarik perhatian. Latihan pun dimulai.</p>
+<p>	Semua siswa mengulurkan tangan kanan mereka, membiarkan Moonlight Gu bergerak ke jantung telapak tangan mereka. Satu per satu tanda sabit biru mulai mengeluarkan cahaya biru air saat esensi purba tembaga hijau dituangkan.</p>
+<p>	Tetapi ketika mereka menggambar potongan vertikal dengan telapak tangan mereka, hanya tujuh atau delapan bulan sabit yang terbang keluar. Di antara bulan sabit ini, beberapa di antaranya hanya muncul sesaat sebelum menghilang. Beberapa terbang sejauh dua hingga tiga meter sebelum hancur menjadi cahaya biru dengan keras. Beberapa terbang lebih jauh, tetapi arahnya sangat menyimpang, terbang lurus ke langit.</p>
+<p>	Semua remaja muda mengerutkan kening. Ketika mereka melihat demonstrasi sesepuh tadi, tampaknya cukup mudah. Tetapi ketika mereka mulai berlatih sendiri, mereka menyadari keterampilan yang dibutuhkan dalam tindakan ini. Untuk membuang pisau bulan dan memukulkannya ke boneka rumput, sebenarnya tidak sesederhana itu.</p>
+<p>	Penatua itu tersenyum tipis saat dia melihat. Dia melihat pemandangan ini setiap tahun, dan tidak terkejut. Dua puluh dua siswa yang tersisa hanya bisa berdiri di luar lapangan, menonton dengan iri.</p>
+<p>	Setelah berlatih selama lima menit, anak-anak secara bertahap mampu menghasilkan moonblade. Untuk sementara waktu di tempat latihan, moonblade berwarna biru pucat terbang kemana-mana.</p>
+<p>	Beberapa moonblade akan memudar di tengah jalan, beberapa sialnya menabrak yang lain. Beberapa terbang keluar dari lapangan latihan, berputar-putar. Mereka yang mampu memukul boneka rumput hanya beberapa kecil. Tentu saja ini semua karena keberuntungan semata.</p>
+<p>	Tetua akademi mulai mengajari dan membimbing masing-masing secara pribadi.</p>
+<p>	Dia sangat fokus pada Fang Zheng, Mo Bei dan Chi Cheng dan orang lain dengan bakat terpendam yang baik. Dia dengan sabar mengoreksi postur mereka, mengajari mereka pengalamannya. Terhadap siswa berbakat kelas C seperti Fang Yuan, dia hanya menyebutkan dua kalimat.</p>
+<p>	Fang Yuan terus memadatkan cahaya biru di tangannya. Dia melambaikan telapak tangannya beberapa kali memotong udara, tetapi dia tidak melepaskan cahaya, berpura-pura dan bertindak. Dengan lapangan yang berantakan saat ini dan tidak ada yang fokus pada dirinya sendiri, dia mengalihkan pikirannya dan melepaskan pegangannya pada Moonlight Gu , telapak tangannya sedikit miring, membuat gerakan memotong.</p>
+<p>	Agar tidak menarik perhatian, dia tidak fokus pada boneka rumputnya sendiri di seberangnya, tetapi membidik boneka di sebelah kirinya.</p>
+<p>	Dengan whoosh , sebuah moonblade terbang dengan cepat, melewati pusat kekacauan, menggambar garis lurus di udara dan memotong secara akurat ke area leher boneka rumput.</p>
+<p>	Boneka rumput itu goyah sejenak, area lehernya terpotong dalam oleh moonblade. Tapi dengan sangat cepat, area berumput hijau yang dipotong mulai tumbuh kembali, kusut bersama dan menyembuhkan lukanya.</p>
+<p>	Tentu saja, boneka rumput ini bukan orang-orangan sawah biasa. Itu adalah Gu Scarecrow Peringkat satu , memiliki kemampuan pemulihan diri tipe alami.</p>
+<p>	Kecuali jika boneka itu dipotong menjadi dua sekaligus, itu hanya akan pulih kembali normal dalam waktu singkat.</p>
+<p>	“Wow, lihat bulan sabit itu!”</p>
+<p>“Bagus sekali, siapa yang melemparkannya?”</p>
+<p>	Moonblade yang mampu mengenai boneka rumput saat ini sangat langka. Fang Yuan hanya dengan santai memukul satu, namun itu menyebabkan hasil yang paling signifikan sejauh ini. Maka dalam sekejap para siswa di luar lapangan berteriak kaget. Bahkan perhatian sesepuh akademi pun tertangkap, dan dia bertanya, “Moonblade tadi tidak buruk. Apakah itu milikmu?”</p>
+<p>	Dia menatap siswa berbakat kelas C dengan mata ingin tahu, karena boneka rumput itu berada tepat di seberangnya.</p>
+<p>	Siswa laki-laki ini mengedipkan matanya, merasa agak bingung saat dia menghadapi tatapan tiba-tiba semua orang padanya. Sejujurnya lapangan itu baru saja dalam kekacauan sebelumnya dengan pedang bulan beterbangan, jadi bahkan dia tidak tahu apakah dia sendiri yang melemparkannya.</p>
+<p>	Namun melihatnya, mungkin itu aku? Pikir anak muda itu. Kemudian dia menganggukkan kepalanya tanpa sadar.</p>
+<p>	Anak-anak muda di sekitarnya segera menatapnya dengan kekaguman.</p>
+<p>	“Siapa dia, siapa namanya?” Beberapa siswa perempuan bertanya-tanya.</p>
+<p>	“Bahkan dia bisa membuang pedang bulan, aku tidak boleh kalah!” Mata Gu Yue Mo Bei bersinar dengan sedikit tekad.</p>
+<p>	“Jadi bukan kakak yang melemparkannya,” Gu Yue Fang Zheng entah kenapa menghela nafas lega. Setelah Paman dan Bibi menghiburnya, dia bisa pulih dari pukulan sebelumnya.</p>
+<p>	“Kakak, kamu memenangkan tempat pertama terakhir kali karena keberuntunganmu bagus, memilih Moonlight Gu yang berkemauan lemah . Sebuah Gu budidaya Guru tidak bisa selalu bergantung pada keberuntungan, saya akan menang Anda.” Fang Zheng bersorak untuk dirinya sendiri di dalam hatinya.</p>
+<p>	“Kamu melakukannya dengan baik. Terus berusaha keras, raih perasaan yang kamu miliki sebelumnya. ” Tetua akademi menepuk bahu siswa itu, tersenyum saat dia menyemangatinya.</p>
+<p>	Bocah laki-laki itu dengan cepat menunjukkan kegembiraan dan dia mengangguk terus menerus, matanya muncul dengan kilau yang berbeda.</p>
+<p>	Penatua mengambil kesempatan itu dan mengumumkan, “Dengarkan semuanya, ini akan menjadi pekerjaan rumahmu. Berlatihlah dengan baik setelah kelas, dalam tiga hari saya akan memeriksa hasilnya. Siapa pun yang melakukan yang terbaik akan menerima sepuluh keping batu purba sebagai hadiah. Memahami?”</p>
+<p>	“Ya!” Semua siswa muda berteriak dengan keras. Mereka tidak bisa tidak menjadi lebih bersemangat ketika mereka mendengar tentang hadiah batu purba.</p>
+<p>	Namun hanya tiga menit kemudian, pedang bulan yang terbang di udara mulai menipis secara bertahap.</p>
+<p>	“Sial, setiap moonblade mengambil 10% dari esensi purba.”</p>
+<p>“Konsumsi moonblade terlalu banyak, saya hanya seorang talenta kelas C, aperture saya hanya dapat menampung 38% esensi purba tembaga hijau. Aku hanya bisa membuang tiga pedang bulan.”</p>
+<p>	Mereka yang berhenti semua menghela nafas.</p>
+<p>	Penatua akademi itu tenang ketika dia menyaksikan semuanya, tetapi hatinya menghela nafas, “Ini adalah manfaat dari mereka yang memiliki bakat kultivasi tinggi. Untuk menggunakan moonblade, hanya tiga kata – Latihan menjadi sempurna. Mereka yang memiliki talenta tingkat tinggi dapat menyimpan lebih banyak esensi purba di lubang mereka, dan tingkat pemulihannya lebih cepat, sehingga mereka memiliki lebih banyak kesempatan untuk berlatih. Mereka yang memiliki bakat yang lebih buruk juga dapat menggunakan batu purba untuk menebusnya, memperkuat jumlah latihan. Tetapi mereka yang memiliki bakat kelas rendah dan tidak memiliki batu purba, meskipun mereka memiliki pikiran untuk berlatih, mereka akan tetap tidak berdaya. Huh, proses kultivasi Guru Gu sangat kejam. Saya hanya lebih baik merawat siswa berbakat kelas tinggi itu. ”</p>
+<p>	(1) – Mu, ukuran Tiongkok kuno. 1 Mu adalah 666 meter²</p>
+<p>	(2) – Rumah Xiong, Xiong adalah kata untuk Beruang</p>
+<p>	(3) – Bai House, Bai adalah kata untuk ‘putih’ seperti warna putih</p>
+<p>	T/N: Seperti yang disebutkan, Gu Yue dari klan Gu Yue berarti Bulan Kuno. Saya akan menyimpan nama orang dan klan dalam istilah asli bahasa Cina mereka, tetapi jika ada makna yang signifikan atau sesuatu yang penting dan relevan dengan cerita tersebut, saya akan menjelaskannya, tentu saja.</p>
+<p>	Saya mungkin akan membuat halaman di masa depan, merinci dan mendaftar semua nama dan hal-hal ini sehingga Anda dapat merujuknya kapan saja.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

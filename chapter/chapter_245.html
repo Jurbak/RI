@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 245 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 245";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_244.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 245">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_246.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 245</h1>
+        <div class="text-left">
+<p>	Bab 245</p>
+<p>	Bab 245: Peringkat Dua Tahap Atas</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Kafilah melintasi gunung dan lembah saat mereka melakukan perjalanan ke barat.</p>
+<p>	Setengah bulan kemudian, karavan tiba di gunung Hun Mu yang memiliki banyak pohon yang tampak aneh; Fang Yuan menjual setengah dari barangnya untuk membeli banyak kayu khusus ini.</p>
+<p>	Dua puluh hari kemudian, mereka tiba di gunung Ju Yu.</p>
+<p>	Gunung itu penuh dengan gundukan dan kawah, gundukan ini semua dibuat oleh tetesan air hujan yang jatuh.</p>
+<p>	Di tempat ini, begitu hujan turun, tetesan air hujan sebesar tong anggur jatuh dan membentuk kawah besar di tanah. Jadi, klan Tong dari gunung Ju Yu dibangun di gua-gua kosong di dalam gunung. Jika itu adalah konstruksi terbuka, itu akan mudah dihancurkan oleh hujan.</p>
+<p>	Di desa klan Tong, minyak lampu emas yang dibeli Fang Yuan di gunung Huang Jin sangat populer.</p>
+<p>	Selama mereka tinggal, hujan turun tiga kali. Fang Yuan dengan demikian memperoleh banyak tetesan air hujan minyak biru. Tetesan hujan ini adalah jenis bahan untuk berbagai tujuan.</p>
+<p>	Tetesan hujan raksasa ini adalah kemalangan desa klan Tong yang memaksa mereka untuk tinggal di dalam gua gunung. Tapi, itu juga sumber pendapatan mereka.</p>
+<p>	Setelah meninggalkan gunung Ju Yu, karavan tiba di gunung Fang Zhuan.</p>
+<p>	Bebatuan di gunung ini sangat aneh. Masing-masing berbentuk kubus, dengan ukuran dan ketebalan yang bervariasi.</p>
+<p>	Klan Da Fang adalah klan skala besar yang telah tinggal di gunung Fang Zhuan selama lebih dari seribu tahun.</p>
+<p>	Tempat tinggal mereka terbuat dari ubin; jauh lebih baik daripada kondisi di desa klan Tong. Tembok besar yang tinggi dibangun di sekitar desa, dan di dalam tembok ada menara pertahanan, sementara di luar tembok ada kotak obat.</p>
+<p>	Fang Yuan ingat bahwa di klan Da Fang, ada sesepuh eksentrik yang menyukai ukiran kayu.</p>
+<p>	Setelah menghubunginya, semua kayu jiwa aneh dan menyeramkan yang dia kumpulkan di gunung Hun Mu dijual kepada tetua klan ini.</p>
+<p>	Sama seperti ini, dalam perjalanan ini, dengan manipulasi Fang Yuan, barang-barangnya kadang-kadang bertambah dan berkurang, tetapi setiap kali ada perubahan, ia mendapat banyak keuntungan.</p>
+<p>	Begitu dia melakukan ini berkali-kali, itu secara alami menarik perhatian orang.</p>
+<p>	Fang Yuan mendorong segalanya ke Shang Xin Ci, dan desas-desus tentang bakat bisnisnya mulai beredar.</p>
+<p>	Waktu berlalu dengan cepat, setelah empat desa, karavan secara bertahap mendekati gunung Xiao Yue.</p>
+<p>	Malam ini, karavan membuat kemah sementara di dekat tebing.</p>
+<p>	“Kami telah memasuki wilayah gunung Xiao Yue, perjalanan yang tersisa adalah semua gunung dan lembah yang tidak berpenghuni. Cacing dan binatang buas Gu berkeliaran bebas, dan bahkan tidak ada dusun. Mulai malam ini dan seterusnya, setiap orang harus menaruh perhatian penuh pada lingkungan sekitar.” Pemimpin klan Jia menginstruksikan.</p>
+<p>	Di tenda, banyak wakil pemimpin mengangguk setuju.</p>
+<p>	Mata Shang Xin Ci bersinar dengan cahaya terang.</p>
+<p>	Ini adalah segmen rute karavan yang paling berbahaya. Begitu mereka melewati ini, mereka akan mencapai gunung Xue Lei, dan setelah itu, mereka harus melewati beberapa desa klan lagi, sebelum mencapai Kota Klan Shang di gunung Shang Liang.</p>
+<p>	“Baiklah, selanjutnya kita akan menetapkan langkah-langkah pertahanan kita.” Pemimpin klan Jia melanjutkan.</p>
+<p>	Satu jam kemudian, diskusi berakhir dan semua orang meninggalkan tenda.</p>
+<p>	Zhang Zhu segera datang: “Nona, makan malam telah disiapkan. Apakah kita mengundang Hei Tu dan Bai Yun untuk makan bersama lagi?”</p>
+<p>	“Tentu saja.” Shang Xin Ci mengangguk: “Saya harus bertanya kepadanya tentang pengalamannya dalam perdagangan selama jamuan makan.”</p>
+<p>	Beberapa hari ini, pendapatan Fang Yuan jauh melebihi kerugiannya, menghasilkan lima hingga enam kali keuntungan setelah beberapa perdagangan. Hal ini menyebabkan Shang Xin Ci, Zhang Zhu dan Xiao Die – yang mengetahui kebenarannya – memandangnya dengan cara yang berbeda.</p>
+<p>	Menurut perjanjian, Fang Yuan memberikan setengah pendapatannya kepada Shang Xin Ci, tetapi baginya, batu purba ini tidak dapat dibandingkan dengan pengalaman dan pemahaman bisnisnya.</p>
+<p>	Dia tidak memiliki bakat kultivasi, dan sebagai manusia fana, terlibat dalam bisnis adalah kemampuannya yang paling membanggakan.</p>
+<p>	Tapi, dalam aspek di mana dia bisa bangga pada dirinya sendiri, Fang Yuan menunjukkan kekuatan yang tidak bisa tidak dia akui jauh lebih unggul darinya!</p>
+<p>	Banyak keputusan yang tampaknya tidak masuk akal memberikan hasil yang mengejutkan setelah kesepakatan selesai.</p>
+<p>	Shang Xin Ci bukanlah seseorang yang akan menyerah pada dirinya sendiri, dan setelah mengetahui perbedaan kemampuan ini, dia mengundangnya ke perjamuan makan malam setiap hari.</p>
+<p>	Beberapa kata nasihat dari Fang Yuan bisa sangat bermanfaat baginya.</p>
+<p>	Bakatnya dalam bisnis luar biasa dan dia menyerap pengetahuan seperti spons, berkembang pesat.</p>
+<p>	Semakin dia berinteraksi dengan Fang Yuan, semakin dia mengaguminya.</p>
+<p>	“Huh, Nona, Anda harus berhati-hati. Keduanya jelas punya cerita sendiri, mereka bukan orang biasa.” Zhang Zhu menghela nafas dengan khawatir, dia takut Shang Xin Ci tenggelam lebih dalam ke dalam ini.</p>
+<p>	“Jangan khawatir, Paman Zhang Zhu, saya tahu apa yang saya lakukan.” Shang Xin Ci memang cerdas dan cerdas, dia tidak pernah berbicara dengan Fang Yuan tentang hal-hal di luar bisnis. Dia tahu apa yang bisa dikatakan dan apa yang tidak, tidak pernah mencoba menyelidiki lebih jauh dari yang seharusnya.</p>
+<p>	Dia merasa bahwa Fang Yuan dan Bai Ning Bing mungkin misterius, tetapi mereka tidak berbahaya.</p>
+<p>	Fang Yuan menggunakan teknik yang tepat dalam perdagangan bisnisnya, dan dia tidak menarik kembali kata-katanya, membagi setengah keuntungan dengan Shang Xin Ci. Tanpa disadari, perilaku seperti itu memberi Shang Xin Ci banyak perasaan yakin.</p>
+<p>	Namun, Fang Yuan tidak menerima undangan perjamuan kali ini.</p>
+<p>	“Saya merasa sedikit lelah hari ini, saya tidak akan pergi.” Dia melambaikan tangannya pada Xiao Die yang datang untuk mengundangnya.</p>
+<p>	Fang Yuan tidak menerima setiap undangan dari Shang Xin Ci, biasanya hanya menerima satu dari tiga undangan.</p>
+<p>	Xiao Die cemberut saat dia melihat Fang Yuan dengan enggan, bergumam pelan dan pergi.</p>
+<p>	Sebelumnya ketika Fang Yuan menolak undangan, Xiao Die membuat keributan beberapa kali, merasa marah pada Nonanya. Tetapi semakin banyak yang diterima Fang Yuan, semakin banyak sikap Xiao Die berubah, dari marah menjadi menampung dan tidak berdaya.</p>
+<p>	Tidak peduli dunia mana itu, pada tingkat masyarakat apa pun, kekuatanlah yang mendapatkan rasa hormat.</p>
+<p>	Fang Yuan menutup tenda; Bai Ning Bing sudah duduk di salah satu tempat tidur.</p>
+<p>	Dalam kegelapan, mata birunya bersinar sedikit.</p>
+<p>	Ketika Fang Yuan pertama kali menolak Xiao Die, dia masih sedikit terkejut, tetapi setelah beberapa kali, Bai Ning Bing menemukan kecemerlangan tindakan ini.</p>
+<p>	Seperti kata pepatah, orang yang tidak bertanggung jawab menyembunyikan niat jahat 1 . Fang Yuan menolak undangan ini dan tidak mengakomodasi Shang Xin Ci membuat gadis muda itu merasa bahwa dia tidak mendapatkan apa-apa darinya.</p>
+<p>	“Ayo mulai.” Fang Yuan juga duduk di tempat tidur dengan punggung menghadap Bai Ning Bing.</p>
+<p>	Bai Ning Bing merentangkan kedua telapak tangannya dan meletakkannya di punggung Fang Yuan. Sepuluh persen dari esensi purba perak saljunya mengalir melalui telapak tangannya ke tubuh Fang Yuan.</p>
+<p>	Kesatuan daging tulang Gu bersinar dengan lampu hijau dan merah masing-masing, mengubah esensi purba; enam persen esensi purba salju perak memasuki lubang Fang Yuan.</p>
+<p>	Percikan cipratan cipratan…</p>
+<p>	Pikiran Fang Yuan memasuki aperture-nya dan menggunakan esensi purba ini untuk memelihara dinding aperture-nya.</p>
+<p>	Ketika dia berada di peringkat satu, aperture-nya tidak dapat menerima dampak dari esensi purba perak salju, tetapi sekarang dia berada di peringkat dua tahap tengah, dinding aperture-nya memiliki fondasi yang lebih kuat sekarang dan dapat menahannya.</p>
+<p>	Hanya saja ini tidak bisa bertahan lama, dan dia perlu istirahat sesekali.</p>
+<p>	Gelombang cahaya di dinding aperture mengalir terus-menerus. Cahaya putih semakin kuat saat beberapa area mulai mengembun. Terbukti, Fang Yuan selangkah lagi dari peringkat dua tahap atas.</p>
+<p>	Dengan pengalaman kultivasinya yang kaya, Fang Yuan memiliki sesuatu seperti pengukur di benaknya. Dia berencana untuk melakukan terobosan ke peringkat dua tahap atas sekaligus!</p>
+<p>	Waktu berlalu dan hari sudah larut malam.</p>
+<p>	Melolong—— !</p>
+<p>	Tiba-tiba, lolongan Raja Serigala Abu-abu bisa terdengar.</p>
+<p>	Raungan memecah keheningan perkemahan, dan segera setelah itu, banyak serigala melolong menanggapi raja mereka.</p>
+<p>	“Serangan serigala, serangan serigala!”</p>
+<p>	“Sialan, bangun, sekawanan serigala menyerang kamp!”</p>
+<p>	“Begitu banyak serigala abu-abu, aku bahkan tidak bisa menghitung berapa banyak!”</p>
+<p>	…</p>
+<p>	Banyak orang berteriak kaget, membangunkan semua orang di kamp; semua orang menjadi gusar.</p>
+<p>	“Hei mendengar volume ini, sepertinya kawanan serigala itu cukup besar.” Bai Ning Bing mendengarkan dan tertawa.</p>
+<p>	Dalam perjalanan karavan, mereka bertemu banyak serangan kelompok binatang buas, dan sekarang dia tidak terkejut lagi.</p>
+<p>	“Ini adalah gunung Xiao Yue, beberapa orang mengatakan seluruh serigala perbatasan selatan tinggal di sini. Selama bulan purnama, gerombolan serigala akan menatap bulan bundar, dan lolongan serigala dapat menyebabkan seluruh gunung bergetar dan berguncang. Ini baru malam pertama kami, dan kami sudah bertemu dengan sekawanan serigala abu-abu, keberuntungan kami sangat buruk.” Fang Yuan membuka matanya sedikit, tetapi melakukan banyak tugas dan tidak menghentikan kultivasi di aperture-nya.</p>
+<p>	“Sialan, ada terlalu banyak serigala.”</p>
+<p>	“Tuan Gu yang Menyembuhkan, di mana Tuan Gu yang menyembuhkan?! Ayahku terluka, dia mengeluarkan banyak darah…”</p>
+<p>	“Pertahanan arah tenggara telah ditembus, perkuat mereka dengan cepat!”</p>
+<p>	Situasinya lebih parah dari yang diperkirakan Bai Ning Bing. Setelah menemukan kawanan serigala, hanya dalam beberapa menit, garis pertahanan pertama di kamp ditembus, dan serigala masuk ke kamp.</p>
+<p>	“Ah–!”</p>
+<p>	“Ambil senjatamu dan lawan binatang buas ini!”</p>
+<p>	Para pelayan berteriak saat suara pertempuran dan teriakan berlanjut.</p>
+<p>	“Apakah kita pergi keluar?” Bai Ning Bing bertanya.</p>
+<p>	“Untuk apa? Apa yang bisa kau lakukan? Jangan lupa identitasmu.” Setelah hening sejenak, Fang Yuan menjawab dengan acuh tak acuh.</p>
+<p>	“Tapi serigala sudah menagih di sini, barang yang baru saja kamu beli mungkin rusak.” Bai Ning Bing tertawa, menunjukkan kegembiraan dalam nada suaranya.</p>
+<p>	“Kalau begitu biarkan mereka rusak.” Fang Yuan menutup matanya lagi.</p>
+<p>	Setelah beberapa saat, suara Xiao Die datang dari luar tenda: “Hei Tu, Hei Tu! Apakah kalian berdua di dalam?”</p>
+<p>	“Apa masalahnya?” Bai Ning Bing bertanya.</p>
+<p>	“Ya Tuhan, kamu masih di sini? Keributan yang begitu keras dan Anda bahkan tidak bangun! Banyak serigala abu-abu memasuki kamp, ​​meskipun situasinya terkendali, mungkin ada beberapa serigala yang tertinggal. Nona meminta Anda untuk pergi, dengan Tuan Zhang Zhu untuk melindungi kami, itu akan lebih aman! Xiao Die berteriak.</p>
+<p>	“Tidak perlu, karena situasinya terkendali, kami tidak akan memaksakan pada Nonamu. Aku bisa menangani satu atau dua serigala abu-abu dengan kekuatan fisikku.” Fang Yuan menjawab.</p>
+<p>	Xiao Die mendesak lagi, tetapi masih ditolak. Akhirnya dia menginjakkan kakinya di luar tenda: “Orang-orang yang tidak tahu berterima kasih, jangan salahkan saya karena tidak mengingatkan Anda jika Anda mati. Hmph!”</p>
+<p>	Mengatakan demikian, dia buru-buru pergi.</p>
+<p>	Serigala abu-abu terus menyerang selama lima belas menit sebelum mundur.</p>
+<p>	Serangan kelompok binatang ini membawa kerugian terbesar yang diderita karavan sejak pendiriannya.</p>
+<p>	Tiga Master Gu tewas dalam pertempuran, lebih dari selusin terluka, pelayan yang tak terhitung jumlahnya meninggal, dan sebagian besar barang rusak. Terutama barang-barang klan Zhang, mereka menerima kerusakan paling banyak.</p>
+<p>	Barang-barang ini semuanya dipinjam oleh Fang Yuan, dan pada perkiraan pertama, Fang Yuan kehilangan lebih dari seribu batu purba dalam satu malam ini.</p>
+<p>	Saat siang hari, dan mereka menghitung kerugiannya, dia menunjukkan senyum pahit tetapi tidak mempermasalahkannya sama sekali.</p>
+<p>	Karena tadi malam, dia telah naik ke peringkat dua tahap atas. Hanya menghabiskan beberapa bulan, kecepatan kultivasi ini mengejutkan bahkan bagi Bai Ning Bing yang tahu metodenya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

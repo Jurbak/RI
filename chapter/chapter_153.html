@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 153 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 153";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_152.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 153">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_154.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 153</h1>
+        <div class="text-left">
+<p>	Bab 153</p>
+<p>	Bab 153: Benar-benar tua</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Dia benar-benar naik ke peringkat tiga!”</p>
+<p>	“Aura peringkat tiga ini asli, dan ada esensi purba perak putih; tidak ada kesalahan.”</p>
+<p>	Suasana di aula klan khusyuk.</p>
+<p>	Kepala klan Gu Yue Bo sedang duduk di kursi tertinggi, dengan banyak tetua duduk berjajar di sebelah kiri dan kanannya.</p>
+<p>	Bisikan terdengar di sana-sini, dan lusinan perhatian orang kurang lebih tertuju pada seorang pemuda yang berdiri tegak di tengah aula dengan kepala terangkat tinggi.</p>
+<p>	Pemuda itu adalah Fang Yuan.</p>
+<p>	“Tidak disangka Fang Yuan ini naik ke Peringkat tiga.”</p>
+<p>	“Jika saya tidak melihatnya secara pribadi, saya tidak akan pernah percaya ….”</p>
+<p>	“Bukankah dia hanya memiliki bakat kelas C? Bagaimana dia bisa maju begitu tiba-tiba? ”</p>
+<p>	“Sebenarnya tidak bisa dikatakan tiba-tiba. Apakah Anda lupa bahwa dia memperoleh dua Relic Gu baja merah?</p>
+<p>	“Benar, itu adalah dua Relic Gu, mereka benar-benar dapat meningkatkan kultivasinya dengan tajam. Hanya memikirkan kembali ketika saya berkultivasi, menghela nafas ….”</p>
+<p>	Kelompok tua-tua itu heran sekaligus bingung; masalah ini telah membuat mereka benar-benar tidak siap.</p>
+<p>	“Fang Yuan ini bisa naik ke Peringkat tiga! Dia hanya memiliki bakat kelas C, tetapi sebenarnya bisa memiliki pencapaian seperti itu dalam waktu singkat. Ini benar-benar kejutan.” Gu Yue Mo Chen yang duduk di kursi paling depan di barisan kiri berseru dalam hati. Dia memikirkan dua-tiga tahun yang lalu, ketika Fang Yuan masih di akademi, dan membunuh seorang pelayan keluarganya. Dia sudah lupa namanya dari hamba ini. Tapi mayat cincang yang dikirim Fang Yuan telah meninggalkan kesan mendalam padanya.</p>
+<p>	Sejak hari itu, dia melihat Fang Yuan dalam cahaya baru, tetapi tidak berharap banyak darinya karena bakatnya.</p>
+<p>	Sekarang, pemuda ini benar-benar memiliki prestasi seperti itu!</p>
+<p>	Menurut sistem klan, semua Master Gu yang naik ke peringkat tiga adalah tetua baru.</p>
+<p>	Seorang penatua baru pasti memiliki dampak besar pada struktur politik lama.</p>
+<p>	“Jika saya telah merekrutnya sebelumnya, saya akan dapat menggunakan dampak ini dan mendapatkan dominasi politik. Huh, sayang sekali…..” Memikirkan hal ini, Gu Yue Mo Chen tidak bisa menahan diri untuk tidak melirik ke depannya.</p>
+<p>	Saingan lamanya Gu Yue Chi Lian duduk di kursi paling depan di baris kanan. Saat ini dia memiliki ekspresi suram dan cahaya yang tidak jelas melintas di matanya.</p>
+<p>	“Fang Yuan ini pasti memiliki rahasia padanya. Meskipun dia mendapat bantuan dari dua Relic Gu baja merah, dia tidak bisa naik ke peringkat tiga begitu cepat, ini adalah sesuatu yang bahkan Qing Shu tidak bisa capai, ”Gu Yue Bo juga merenungkan.</p>
+<p>	Dia tak terhindarkan memikirkan putra angkatnya Qing Shu, dan menghela nafas.</p>
+<p>	Jika Gu Yue Qing Shu masih hidup, dia mungkin juga memiliki kultivasi peringkat tiga sekarang. Sayangnya, kenyataan memang kejam.</p>
+<p>	“Penatua ruang pengobatan, Tuan Gu Yue Yao Ji telah tiba—!” Pada saat ini, penjaga pintu tiba-tiba mengumumkan dengan keras.</p>
+<p>	Setelah pengumumannya, seorang wanita tua masuk melalui pintu. Wajahnya pucat dan dipenuhi kerutan, tetapi di bawah kelopak matanya yang lelah ada mata yang sangat tajam yang mengunci Fang Yuan dalam sekejap.</p>
+<p>	Gu Yue Yao Ji berbicara sambil berjalan ke depan dengan cepat, “Fang Yuan, kamu naik ke peringkat tiga? Saya tidak percaya! Saya pribadi akan memverifikasinya, biarkan saya memeriksa aperture Anda!</p>
+<p>	Aperture adalah rahasia paling penting Master Gu dan juga urusan pribadi mereka. Bagaimana mereka bisa membiarkan orang lain memeriksanya dengan mudah?</p>
+<p>	Fang Yuan sedikit membalikkan tubuhnya dan menatap Yao Ji yang sedang berjalan mendekat. Dia menjawab dengan mencibir, “Gu Yue Yao Ji, atas dasar apa kamu menuntut untuk memeriksa bukaanku?”</p>
+<p>	Saat itu, ketika dia baru saja mulai berkultivasi, aperture-nya akan diperiksa secara berkala oleh sesepuh akademi. Tapi itu berbeda sekarang, dia sudah menjadi Master Gu peringkat tiga, seseorang yang sejajar dengan tetua lainnya seperti tetua akademi dan tetua ruang pengobatan.</p>
+<p>	Selain itu, sangat mudah untuk memverifikasi kultivasi seseorang.</p>
+<p>	Esensi purba perak putih tidak dapat dipalsukan dengan mudah, dan demikian pula, aura peringkat tiganya adalah fakta.</p>
+<p>	“Memalukan! Anda, seorang junior berani memanggil saya dengan nama? ” Mata Yao Ji melebar, “Kenapa aku tidak bisa memeriksamu? Dengan identitasku sebagai tetua ruang pengobatan dan juga sebagai penatuamu, aku berhak melakukannya!”</p>
+<p>	“Hmph, nenek tua, memanggilmu dengan nama memberimu rasa hormat. Saya masih belum menyelesaikan skor di antara kami. Anda menyimpan dendam terhadap saya ketika saya tidak menjual cacing Liquor saya, dan benar-benar ingin menjarah Rumput Vitalitas Sembilan Daun saya? Hmph, aku juga ingin menukar jasaku dengan Gu Rumput Harum Tiga Langkah itu, tapi kamu mencegahnya dalam kegelapan. Sekarang, saya juga seorang Master Gu peringkat tiga, jadi sebaiknya Anda berhenti mengudara!</p>
+<p>	Mata Fang Yuan menyipit dan kata-katanya setajam pisau. Dia sangat jelas dengan kata-katanya, benar-benar memamerkan permusuhannya terhadap Yao Ji.</p>
+<p>	Jika dia mengatakan ini dengan budidaya Peringkat satu atau Peringkat dua, dia pasti akan ditekan dan bahkan diserang. Namun, situasinya benar-benar berbeda sekarang; dia adalah peringkat tiga dan posisinya sudah setara dengan para tetua.</p>
+<p>	Terhadap Fang Yuan yang menghina Gu Yue Yao Ji, strategi para tetua lainnya adalah menunggu dan melihat.</p>
+<p>	Berada di posisi tinggi, pertimbangan mereka sangat mendalam. Bahkan jika mereka tidak dilahirkan cerdas, tahun-tahun perjuangan politik telah melatih kelihaian dalam diri mereka.</p>
+<p>	Mereka tidak memiliki banyak pemahaman tentang Fang Yuan, sehingga mereka dapat mengambil kesempatan ini untuk mengamatinya.</p>
+<p>	“Brat, kamu punya pipi untuk memfitnahku!” Gu Yue Yao Ji sangat marah karena dipermalukan. Apa yang dikatakan Fang Yuan itu benar, tetapi mengapa dia mengakuinya di depan semua orang?</p>
+<p>	Para tetua yang hadir semuanya diam-diam mengamati situasi yang terungkap. Sebagian besar tetua yang hadir di sini mengetahui masalah tentang Rumput Vitalitas Sembilan Daun dan bahkan melakukan transaksi dengan Gu Yue Yao Ji.</p>
+<p>	Namun dalam politik, hanya ada manfaat abadi; tidak pernah menjadi musuh abadi atau teman abadi.</p>
+<p>	Setelah mendengar Gu Yue Yao Ji membalas dirinya sendiri, Fang Yuan dengan dingin tertawa dan tidak menjawab.</p>
+<p>	Suara Gu Yue Yao Ji bergema dan berlama-lama di dalam aula.</p>
+<p>	Wanita tua ini sedikit gemetar, keheningan ini membuatnya merasa seperti dia sendirian!</p>
+<p>	Sesuatu telah berubah.</p>
+<p>	Situasinya tidak lagi sama.</p>
+<p>	Apakah Fang Yuan menjadi peringkat satu atau peringkat dua, para tetua ini akan segera melompat keluar untuk berdiri di sisi Gu Yue Yao Ji dan bersatu menghukum Fang Yuan. Otoritas atasan sama sekali tidak mengizinkan level yang lebih rendah untuk menantangnya!</p>
+<p>	Namun, Fang Yuan berada di peringkat tiga sekarang, dan bahkan jika kepala klan belum mengumumkannya secara resmi, posisinya sebagai penatua sudah ditetapkan. Dengan demikian, kontradiksinya dengan Gu Yue Yao Ji sekarang menjadi konflik internal antara petinggi.</p>
+<p>	Fang Yuan adalah penatua yang baru maju, fondasinya belum dalam dan tidak memiliki latar belakang apa pun, tetapi ini juga kekuatannya karena dia tidak akan rugi sejak awal, sehingga tidak memiliki rasa takut.</p>
+<p>	Sebaliknya, Gu Yue Yao Ji sudah tua dan meskipun dia mengendalikan ruang pengobatan, memiliki posisi tinggi dan koneksi yang luas, ini juga kelemahannya.</p>
+<p>	Dia sudah tua dan dia tidak bisa kehilangan. Pewaris faksi obatnya Yao Le hilang dan aset besar yang dia kendalikan didambakan oleh banyak orang.</p>
+<p>	Tidak akan buruk jika itu adalah masa damai, tetapi sekarang adalah waktu gelombang serigala dan bahkan para tetua memiliki kemungkinan untuk mati.</p>
+<p>	Hal-hal yang bergejolak, pendatang baru naik di posisi dan timer lama mengundurkan diri.</p>
+<p>	Ini adalah masa perubahan, tidak ada penatua yang bisa menjamin keselamatan mereka sendiri. Bahkan kepala klan bisa jatuh.</p>
+<p>	Dalam sejarah klan Gu Yue, jumlah kepala klan yang mati dalam gelombang serigala tidak sedikit.</p>
+<p>	Adapun para tetua, mereka bahkan tidak bisa menjamin keselamatan mereka sendiri, jadi kecuali ada manfaat besar yang terlibat, mereka tidak akan ikut campur dalam perkelahian orang lain.</p>
+<p>	Gu Yue Yao Ji merasa situasinya berubah menjadi sulit.</p>
+<p>	Aula itu sunyi.</p>
+<p>	Karena masalah cucunya, dia tidak tidur selama tiga hari tiga malam. Saat ini saat dia berdiri di sana, dia merasakan tekanan tak terlihat menyelimuti tubuh dan pikirannya dan itu menyebabkan keringat dingin terbentuk di dahinya.</p>
+<p>	Dia merasa seperti serigala tua yang pincang, berdiri sendirian di dalam kawanan serigala.</p>
+<p>	Serigala-serigala di sekitarnya berdiri dalam bayang-bayang, mengamatinya melalui mata hijau gelap mereka yang dalam.</p>
+<p>	Fang Yuan yang ada di depannya seperti serigala tabah yang telah mengungkapkan kecemerlangannya dalam pertempuran. Dia sangat muda, energik dan juga ambisius.</p>
+<p>	Itu benar-benar pepatah — Gelombang lama mendorong gelombang baru ke depan, dan generasi baru menggantikan yang lama!</p>
+<p>	Pada saat ini, Gu Yue Yao Ji merasa bahwa dia benar-benar menua. Sangat banyak sehingga!</p>
+<p>	Kelopak matanya melonjak lebih parah saat auranya yang mengesankan berangsur-angsur turun.</p>
+<p>	Namun, sosok Gu Yue Yao Le muncul di benaknya; dia dengan paksa membuka matanya yang kabur, auranya meningkat tiba-tiba.</p>
+<p>	Dia membuka mulutnya, “Fang Yuan, mengapa kamu menghilang selama tiga hari ini? Jika Anda tidak muncul, nama Anda akan tercantum dalam pengumuman korban di ruang pengobatan, dalam daftar Master Gu yang tewas dalam pertempuran. Anda menghilang selama tiga hari tiga malam, dan ketika Anda kembali, Anda sudah menjadi Master Gu peringkat tiga. Apa yang terjadi selama hari-hari ini? Heh heh, aku yakin semua orang di sini tertarik dengan penjelasanmu.”</p>
+<p>	Setelah menyadari bahwa dia tidak bisa lagi dengan mudah membuat masalah bagi Fang Yuan, nada suaranya menjadi lebih lembut, tidak lagi sekuat sebelumnya. Namun, kata-katanya masih sangat kuat, dengan niat berbahaya yang tersembunyi di dalamnya.</p>
+<p>	Bagaimanapun, dia memiliki senioritas tertinggi sebagai politisi tingkat tinggi!</p>
+<p>	Mata para tetua menjadi cerah ketika mereka mendengar ini, menunjukkan minat yang jelas. Tidak ada yang bodoh di antara mereka yang hadir di sini, kemajuan mendadak Fang Yuan ke Peringkat tiga memang aneh.</p>
+<p>	Bakat kelas C-nya diketahui oleh semua orang.</p>
+<p>	Kata-kata Gu Yue Yao Ji membuat para tetua itu berdiri di sisinya lagi.</p>
+<p>	Namun, karena Fang Yuan berani kembali dengan begitu megah, dia secara alami telah membuat persiapan.</p>
+<p>	Di bawah tatapan semua orang, dia mengangkat kepalanya dan tertawa, “Wanita tua, apa yang ingin kamu ketahui, apakah aku wajib memberitahumu? Namun… mendengar berita menyedihkan tentang kematian cucumu, aku akan dengan baik hati memberitahumu. Selama beberapa hari terakhir, saya telah berkultivasi dengan pintu tertutup di manor Elder Chi Lian, mencoba untuk menerobos ke Peringkat tiga. Poin ini dapat diverifikasi oleh Penatua Gu Yue Chi Lian!”</p>
+<p>	“Apa?” Gu Yue Yao Ji mengungkapkan ekspresi terkejut.</p>
+<p>	Penatua lainnya juga terkejut, semua jenis ekspresi rumit muncul di wajah mereka.</p>
+<p>	Segera, tatapan semua orang tertuju pada wajah suram Gu Yue Chi Lian.</p>
+<p>	Kepala faksi Chi, yang memegang salah satu dari dua pengaruh paling kuat di Klan Gu Yue, sekarang tampak begitu suram sehingga air bisa menetes darinya.</p>
+<p>	Namun di depan tatapan semua orang, dia tahu dia perlu memberikan penjelasan, jadi dia dengan enggan menjawab, “Memang begitu. Saya dapat bersaksi bahwa Fang Yuan telah berkultivasi dengan pintu tertutup di ruang rahasia di rumah saya selama beberapa hari terakhir ini. ”</p>
+<p>	Saat kata-kata ini keluar, seluruh kerumunan menjadi gempar.</p>
+<p>	Para tetua memiliki pengekangan yang dalam, mereka tidak akan kehilangan arah dan membuat keributan. Namun, ada banyak bisikan dan gumaman.</p>
+<p>	“Tidak kusangka Gu Yue Chi Lian benar-benar memiliki hubungan dengan Fang Yuan!”</p>
+<p>	“Kemajuan Fang Yuan terkait dengan Chi Lian?”</p>
+<p>	“Ada kemungkinan besar! Bukankah orang berspekulasi bahwa Fang Yuan memiliki seseorang yang mendukungnya dari balik layar? Memikirkan itu adalah faksi Chi. ”</p>
+<p>	“Mungkin alasan kecepatan kultivasi Fang Yuan yang cepat adalah karena faksi Chi menuangkan sumber daya kepadanya. Fang Yuan adalah kakak laki-laki Fang Zheng, tindakan Penatua Chi Lian memiliki makna yang sangat mendalam.”</p>
+<p>	Beberapa penatua berdiskusi sedangkan pikiran beberapa penatua terbalik.</p>
+<p>	“Ternyata Fang Yuan ini bukan junior tanpa ada yang membimbing langkahnya, dia mendapat bantuan dari golongan Chi. Kita harus berhati-hati terhadapnya di masa depan.”</p>
+<p>	“Untungnya, kami tidak ikut campur dan terlibat dalam pertarungan antara Fang Yuan dan Yao Ji.”</p>
+<p>	“Yao Ji berada dalam situasi berbahaya, dia ingin berurusan dengan seorang penatua yang tidak memiliki dukungan, tetapi dia tidak pernah menyangka bahwa latar belakangnya begitu kuat. Itu sebenarnya faksi Chi!”</p>
+<p>	Wajah Gu Yue Yao Ji sangat pucat. Ketika dia mendengar Gu Yue Chi Lian membenarkannya, dia mundur selangkah karena terkejut, seluruh tubuhnya gemetar samar.</p>
+<p>Menentang seorang penatua tunggal dibandingkan dengan seorang penatua yang didukung oleh faksi Chi, ini adalah dua konsep yang sangat berbeda!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 234 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 234";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_233.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 234">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_235.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 234</h1>
+        <div class="text-left">
+<p>	Bab 234</p>
+<p>	Bab 234: Surat Perintah Penangkapan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Kamu harus tahu, ada banyak daun maple ungu di gunung Zi You. Orang-orang itu membelinya karena lebih nyaman bagi mereka, dan mereka dapat menghemat waktu untuk memilihnya. Huh, tidak ada gunanya memberitahumu sekarang. Tidak apa-apa, tidak apa-apa …. ”</p>
+<p>	Kepala desa tua terus menghela nafas.</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Kami hanya ingin menjualnya untuk mendapatkan lebih banyak batu purba, satu untuk menutup biaya, yang lain untuk merawat orang tua kami. Siapa yang mengira bahwa setelah begitu banyak usaha, itu tidak bisa dijual. ”</p>
+<p>	Dia terdengar cemas, sedikit menangis dalam pidatonya.</p>
+<p>	Mendengar kata-katanya, hati kepala desa tua itu melunak, dendam di hatinya menyebar lebih dari setengah.</p>
+<p>	Fang Yuan berkata lagi: “Jangan khawatir tuan kepala desa, saya telah memutuskan untuk mengikuti karavan besok. Dengan menurunkan harga, saya yakin kita bisa menjualnya pada akhirnya.”</p>
+<p>	“Ikuti karavan? Siapa yang mengizinkanmu mengikuti karavan?” Kepala desa tua itu menatap dengan mata terbuka lebar.</p>
+<p>	Fang Yuan sebenarnya berkata: “Saya melihat banyak manusia di karavan. Jika mereka bisa mengikuti, mengapa kita bisa?”</p>
+<p>	Kepala desa tua itu menyandarkan kepalanya di lengannya: “Mereka adalah pelayan keluarga dari tuan Gu Masters! Anda pikir hanya ada orang yang bisa mengikuti mereka? Bagaimana jika orang-orang dengan niat buruk bercampur di antara mereka?”</p>
+<p>	“Ah?!” Mulut Fang Yuan terbuka lebar, tertegun di tempat: “Lalu bagaimana? Karavan akan berangkat besok.”</p>
+<p>	” Sigh …” Pria tua itu menghela nafas dalam-dalam: “Sudahlah, aku akan membantumu sampai akhir. Besok saya akan memohon mereka untuk membiarkan Anda masuk ke karavan, semuanya akan terserah nasib Anda. ”</p>
+<p>	Matahari baru saja terbit, dan masih ada beberapa bintang yang terlihat di langit biru muda. Melihat jauh, gunung Zi You diselimuti warna ungu tua, damai dan misterius.</p>
+<p>	Setelah malam istirahat, karavan sudah mulai memuat barang-barang mereka.</p>
+<p>	“Periksa barangnya sekali lagi!”</p>
+<p>	“Ikat tali dengan erat, jika ada yang jatuh selama perjalanan, kami akan menghukummu dengan seratus pukulan.”</p>
+<p>	“Cepat, cepat, cepat, beri makan kumbang kulit hitam kita sampai kenyang.”</p>
+<p>	Master Gu memerintahkan dan mengirim pelayan keluarga mereka ke keadaan sibuk. Beberapa memiliki temperamen buruk, memegang cambuk di tangan mereka, siapa pun yang bergerak lambat akan dicambuk. Beberapa menyukai cacing Gu mereka, dan memberi mereka makan secara pribadi.</p>
+<p>	“Tuan Chen.” Kepala desa tua itu membungkuk, memberi hormat kepada salah satu wakil pemimpin di karavan.</p>
+<p>	“Oh, Zhang tua, saya sibuk di sini, katakan saja apa yang ingin Anda katakan.” Kata Guru Chen Gu ini.</p>
+<p>	“Ini seperti ini. Saya memiliki dua junior, melakukan bisnis kecil …” Sebelum kepala desa tua selesai, Chen Gu Master tiba-tiba berteriak: “Chen Xin, mengapa kamu linglung? Pergi dan beri makan ular bersayap, menurutmu pelayan itu bisa memberi mereka makan dengan benar? Ularmu itu sudah menelan tiga pelayan beberapa hari ini!”</p>
+<p>	“Ya tetua klan.” Chen Xin ditangkap, mengangkat kepalanya dan berkata.</p>
+<p>	Tetapi Tuan Chen Gu tidak melepaskannya, menegur lagi: “Sudah berapa kali saya katakan, panggil saya tetua klan di desa, di karavan, Anda harus memanggil saya sebagai wakil pemimpin.”</p>
+<p>	“Ya, ya, ya, wakil pemimpin Tuan.” Chen Xin menjawab, melarikan diri dengan cepat.</p>
+<p>	“Bajingan ini …” Tuan Chen Gu memarahi dengan marah, sebelum menoleh ke kepala desa tua: “Apa yang kamu katakan sebelumnya? Oh! Anda ingin saya menjamin kedua junior Anda untuk memasuki karavan? ”</p>
+<p>	“Tuhan benar-benar bijaksana, itu masalahnya.” Kepala desa tua dengan cepat menjawab.</p>
+<p>	“Itu …” Guru Chen Gu sengaja bersenandung.</p>
+<p>	Kepala desa tua diubah menjadi Guru Gu olehnya, karena rute ini diperlukan karavan untuk lewat, dia membutuhkan seseorang yang bekerja untuknya.</p>
+<p>	Untuk perjalanan karavan, desa-desa itu penting, tetapi dusun fana di sepanjang jalan tidak dapat diabaikan juga, mereka sama pentingnya.</p>
+<p>	Karavan memiliki banyak orang dan banyak yang harus dilakukan, banyak sumber daya hidup akan segera dihabiskan dan perlu diisi ulang di sepanjang jalan. Ada juga pelayan, ketika mereka menghadapi bahaya, beberapa pelayan mati dan tenaga menjadi kurang. Kafilah harus memilih beberapa manusia di dusun-dusun itu untuk direkrut.</p>
+<p>	Omong-omong, di antara pelayan keluarga Guru Chen Gu, tenaga kerja mulai terasa kurang, setelah semua manusia memiliki kehidupan yang murah, mereka hanyalah jenis sumber daya yang dapat dibuang yang dapat berbicara dan bergerak.</p>
+<p>	“Selanjutnya, ketika saya melintasi gunung Zi You, saya masih harus menggunakan Zhang tua, jika saya tidak menuruti permintaannya, bukankah itu akan membuatnya patah semangat? Meskipun saya kekurangan tenaga sekarang, saya tidak bisa setuju dengan mudah. Saya harus menunggu, dan menjual bantuan ini dengan harga yang bagus. ”</p>
+<p>	Chen Gu Master masih mempertimbangkan, ketika utusan Gu Master dari karavan datang berlari.</p>
+<p>	Ada setumpuk kertas di tangannya, saat dia berlari dan berteriak: “Semua anggota perhatikan, ada surat perintah penangkapan baru, ada surat perintah penangkapan baru!”</p>
+<p>	teriaknya sambil menempelkan secarik kertas pada tubuh kumbang gemuk berkulit hitam.</p>
+<p>	“Surat perintah penangkapan baru? Dari klan mana? Berapa banyak hadiah, ambilkan untukku. ” Chen Gu Master tertarik.</p>
+<p>	“Ya, wakil pemimpin.” Utusan Gu Master dengan cepat menyerahkan selembar kertas.</p>
+<p>	Chen Gu Master melihat: “Oh, surat perintah penangkapan dari klan Bai. Selama informasinya akurat, mereka akan memberikan seribu batu purba? Sekali!”</p>
+<p>	Mata Chen Gu Master bersinar, tertarik pada masalah ini.</p>
+<p>	Ada dua harga pada surat perintah itu, satu adalah harga informasi, yang lain adalah harga pembunuhan.</p>
+<p>	Informasi dengan harga seribu batu purba, biasanya digunakan untuk pembudidaya iblis buronan yang telah membuat nama untuk dirinya sendiri. Tapi poster ini hanya menampilkan dua anak muda, dengan fitur yang tepat, dan satu bahkan sangat cantik.</p>
+<p>	Satu laki-laki satu perempuan, ini adalah dua pemula.</p>
+<p>	“Satu adalah peringkat satu Gu Master, yang lainnya adalah peringkat tiga. Dengan informasi harga seribu batu purba, dan harga pembunuhan lima ribu delapan ribu batu purba. Pfft, sepertinya klan Bai membenci dua bajingan iblis ini sampai ke intinya. Hehe …” Master Chen Gu menertawakan kesulitan mereka, asalkan itu bukan keluarga Chen-nya.</p>
+<p>	Apa yang tidak dia ketahui adalah, dua bajingan iblis ini ada di dekatnya.</p>
+<p>	Kepala desa tua melihat surat perintah penangkapan, dan rasa dingin datang dari dalam hatinya.</p>
+<p>	“Dunia Guru Gu benar-benar berbahaya, anak muda yang cantik, sebenarnya adalah pembudidaya setan kriminal! Mari kita berharap mereka tidak datang ke desa kita.”</p>
+<p>	“Baiklah, melihat bagaimana kamu telah bekerja keras selama bertahun-tahun Zhang, aku akan menyetujui permintaanmu.” Kata Guru Chen Gu.</p>
+<p>	“Ah, terima kasih tuan! Tuhan, saya akan memanggil mereka ke sini sekarang.” Kepala desa tua itu sangat gembira.</p>
+<p>	Chen Gu Master melambaikan tangannya: “Tidak perlu, saya sangat sibuk. Suruh mereka melapor ke Chen Xin.”</p>
+<p>	Terhadap dua manusia, dia tidak tertarik. Pada saat yang sama, dia tidak menghubungkan mereka dengan surat perintah penangkapan di tangannya, setelah semua ini adalah permintaan klan Bai, dan mereka berada ribuan li jauhnya. Chen Gu Master tanpa sadar merasa bahwa dia berada pada jarak yang sangat aman.</p>
+<p>	Ini adalah pemikiran yang sangat umum.</p>
+<p>	Bahkan di Bumi modern, ketika kasus pembunuhan terjadi di kota-kota, tidak peduli seberapa kejam dan kejinya, kota-kota lain tidak merasakan banyak bahaya, bahkan jika transportasi sudah sangat maju.</p>
+<p>	Selain itu, mereka juga memiliki mentalitas pikiran kebetulan.</p>
+<p>	Di dunia yang luas ini, di mana orang tinggal di mana-mana, bagaimana kedua bajingan iblis ini datang ke karavan saya? Kalau begitu aku akan sangat tidak beruntung, itu tidak mungkin!</p>
+<p>	Orang selalu cenderung berpikir bahwa kejadian sial tidak akan terjadi pada diri mereka sendiri.</p>
+<p>	Selain itu, banyak orang dalam surat perintah penangkapan adalah karakter yang sangat kejam dan kejam, menarik perhatian orang. Dua pemula seperti Fang dan Bai, satu peringkat tiga dan satu peringkat satu, berapa jumlahnya?</p>
+<p>	Chen Xin melihat mereka berdua tetapi tidak memikirkan surat perintah itu sama sekali.</p>
+<p>	Citra Fang dan Bai telah berubah total, bukan hanya Fang Yuan yang cacat, tetapi setelah beberapa hari berlatih, dia juga mulai menjadi lebih alami.</p>
+<p>	Chen Xin segera kehilangan minat, terutama penampilan Fang Yuan membuatnya jijik.</p>
+<p>	Dia hanya peringkat satu, sementara Fang Yuan naik ke peringkat dua beberapa hari yang lalu.</p>
+<p>	Chen Xin mengamati mereka dengan sembrono, dan tidak merasakan aura Guru Gu, lalu memanggil seorang pelayan tua dan menyuruhnya mengatur pekerjaan Fang dan Bai.</p>
+<p>	“Siapa namamu?” Pelayan tua itu bertanya.</p>
+<p>	Baru kali ini seseorang menanyakan nama mereka.</p>
+<p>	“Nama saya Hei Tu, istri saya dipanggil Bai Yun.” Fang Yuan dengan santai berkata.</p>
+<p>	“Perempuan?” Pelayan tua itu mengerutkan kening.</p>
+<p>	Dia menatap Bai Ning Bing dan melihat, melihat penampilan kulitnya yang gelap dan penampilannya yang linglung, dia dipanggil Bai Yun 1 ? Hei Tu ini juga sangat jelek!</p>
+<p>	“Perempuan memang merepotkan, harus lebih hati-hati. Jika sesuatu terjadi, jangan salahkan aku karena tidak mengingatkan kalian!” Kata pelayan tua itu.</p>
+<p>	“Aku tahu, gerobak di sampingku ini penuh dengan daun maple ungu. Istri saya tinggal di gerobak dan mengurus barang, saya tidak ingin banyak berinteraksi dengan orang lain.” kata Fangyuan.</p>
+<p>	“Hmph, bagus kalau kamu mengerti.”</p>
+<p>	Petugas tua mengatur tugas fisik untuk keduanya, untuk memindahkan barang, tetapi untuk Fang Yuan dan Bai Ning Bing, itu tidak masalah sama sekali, tetapi Bai Ning Bing harus berpura-pura dan bertindak seolah-olah dia kehabisan napas terus-menerus, menyebabkan dia kelelahan mental.</p>
+<p>	Tidak jauh dari sana, beberapa pelayan keluarga sedang bersantai, beristirahat di sudut.</p>
+<p>	Tatapan mereka diarahkan ke Fang dan Bai.</p>
+<p>	“Saudara Qiang, ada dua pendatang baru. Beberapa orang melihat mereka membawa barang pribadi mereka! Itu satu troli penuh daun maple ungu.” Seorang pelayan keluarga kurus berkata dengan penuh semangat.</p>
+<p>	Merampas pendatang baru, itu adalah ritual yang sering dilakukan karavan orang-orang tua.</p>
+<p>	Saudara Qiang berjongkok di tanah, menyipitkan mata: “Saya melihatnya. Monyet kurus, pergilah menguji mereka.”</p>
+<p>	Tubuhnya kuat seperti lembu, meskipun ototnya berkembang, dia bukan orang yang gegabah.</p>
+<p>	Di dunia ini di mana Gu Masters memerintah di atas segalanya, kekuatan manusia bukanlah hal yang spektakuler. Mampu menjadi orang yang paling penting dalam lingkaran kecil ini, bagaimanapun juga, dia memiliki beberapa kecerdasan.</p>
+<p>	Monyet kurus menghela nafas, di bawah pengawasan semua orang, dia mendekati Fang Yuan.</p>
+<p>	“Hai saudara, dari mana asalmu? Yang lain memanggil saya saudara monyet, mulai sekarang kita akan bekerja sama, saya harap kita bisa bekerja sama secara damai.” Monyet kurus memaksakan senyum.</p>
+<p>	Fang Yuan meliriknya, hanya mengucapkan sepatah kata: “Enyahlah.”</p>
+<p>	Mata monyet kurus melebar saat dia menunjukkan ekspresi marah.</p>
+<p>	Fang Yuan tidak memandangnya, tetapi terus memindahkan barang-barangnya. Dia telah bekerja di karavan di kehidupan sebelumnya, sangat jelas dari “ritual” semacam itu.</p>
+<p>	Dengan kata sederhana, monyet kurus sedang menguji air, menggunakan kata-kata untuk menguji identitas Fang Yuan, jika dia tidak memiliki dukungan, mereka akan bekerja sama dan menggertaknya, merampas beberapa keuntungan darinya.</p>
+<p>	Tapi kenyataannya, tidak hanya manusia seperti ini, Gu Masters juga sama, mereka hanya melakukannya dengan lebih elegan.</p>
+<p>	Bergerak sendiri dan mempertaruhkan hidup mereka, itu termasuk berkelahi dengan binatang buas. Bergerak bersama dalam kelompok, itu bersaing dengan jenis mereka sendiri.</p>
+<p>	Di tempat-tempat dengan manfaat, ada konflik. Bagaimanapun, hanya ada begitu banyak ruang, semua orang ingin hidup lebih baik, dan memiliki lebih banyak ruang untuk diri mereka sendiri, apa yang bisa mereka lakukan?</p>
+<p>	Mereka hanya bisa menyerang ruang orang lain.</p>
+<p>	Monyet kurus tidak menyangka Fang Yuan tidak memberi muka, jadi dia tertegun di tempat, menatap tajam ke arah Fang Yuan.</p>
+<p>	Fang Yuan tidak memikirkan karakter seperti itu. Manusia itu murah seperti rumput, bahkan jika satu atau dua orang terbunuh, lalu bagaimana?</p>
+<p>	Selama barang masih dikirim, Master Gu yang bertanggung jawab tidak akan peduli.</p>
+<p>	Bahkan jika mereka melakukannya, Fang Yuan memiliki metode cadangan untuk menyelesaikan masalah ini.</p>
+<p>	Secara keseluruhan, mencoba memprovokasi Fang Yuan, pelayan keluarga ini mencari kematian.</p>
+<p>	“Apa, kenapa kamu tidak scram, kamu ingin aku mengusirmu?” Fang Yuan menatap monyet kurus dengan dingin lagi.</p>
+<p>	Monyet kurus mendengus, tetapi tidak meledak dalam kemarahan, malah pergi.</p>
+<p>	Sikap yang begitu kuat, menyebabkan saudara Qiang merasa terancam: Apakah keduanya memiliki semacam latar belakang? Kalau tidak, bagaimana mereka bisa begitu sombong? Saya sebaiknya memeriksa latar belakang mereka terlebih dahulu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

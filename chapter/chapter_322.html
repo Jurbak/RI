@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 322 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 322";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_321.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 322">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_323.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 322</h1>
+        <div class="text-left">
+<p>	Bab 322</p>
+<p>	Bab 322: Tekanan Kompetitif</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Shang Ya Zi berkata: “Saya kalah, tetapi saya belum gagal sepenuhnya. Ayah mengirim saya ke kelompok penangkap budak selama tiga tahun, tetapi setelah tiga tahun, saya akan kembali. Tetapi sebelum itu, saya memiliki beberapa hal untuk diberikan kepada Anda. ”</p>
+<p>	Mengatakan demikian, Shang Ya Zi memberikan beberapa dokumen kepada Shang Yi Fan.</p>
+<p>	Shang Yi Fan mengambil dokumen dan melihatnya. Dokumen tersebut berisi aset rahasia Shang Ya Zi, mata-matanya dan beberapa pembantu dekatnya.</p>
+<p>	“Saudara Ya Zi, ini …” Shang Yi Fan memberikan ekspresi terkejut.</p>
+<p>	“Kakak Yi Fan, kamu adalah orang yang paling mungkin menjadi tuan muda di antara saudara kita. Saya akan membantu Anda di sini dan berharap Anda berhasil menang. Adapun sumber daya ini, jangan ragu untuk menggunakannya. Setelah tiga tahun, saya akan kembali, kembalikan saja kepada saya. ” Shang Ya Zi menghela nafas.</p>
+<p>	Dia dipaksa untuk berlatih dalam kelompok penangkap budak, dia tidak bisa membawa pelayan dan bawahannya. Dia tidak pergi ke sana untuk menikmati, tetapi untuk dihukum.</p>
+<p>	Sekarang dia kehilangan identitas tuan mudanya, kekuatan ini pada akhirnya akan runtuh, dia mungkin juga menyerahkannya kepada Shang Yi Fan saat dia masih memiliki kekuatan dan membiarkannya mengurus mereka. Setelah tiga tahun, Shang Ya Zi akan kembali, dan tidak perlu mengulang dari awal lagi.”</p>
+<p>	Shang Yi Fan dengan cepat berdiri, menangkupkan tinjunya: “Saya tidak akan melupakan bantuan saudara Ya Zi. Di masa depan, jika saya menjadi tuan muda, saya akan membalas Anda sepuluh kali lipat. ”</p>
+<p>	“Huh, kita bersaudara, tidak perlu membicarakan pembayaran. Hehehe…” Meskipun dia berkata begitu, bibir Shang Ya Zi membentuk senyuman.</p>
+<p>	Setelah mereka berbicara, Shang Yi Fan mengirim Shang Ya Zi ke pintu saat dia pergi.</p>
+<p>	Melihat dia telah pergi, senyum Shang Yi Fan menjadi dingin.</p>
+<p>	“Shang Ya Zi, apa rencana hebat yang kamu miliki, ingin aku mempertahankan kekuatanmu untukmu? Hehe, maka saya akan menggunakan kesempatan ini untuk mengambil alih semua aset Anda dan menyerapnya, ini disebut meminjam tanpa kembali . ”</p>
+<p>	Dia tahu rencana Shang Ya Zi sejak awal.</p>
+<p>	“Tiga tahun? Banyak hal bisa terjadi dalam tiga tahun, apakah Anda masih berpikir Anda memiliki kesempatan. Hmph, naif! Kenaifan seperti itu, tidak heran Fang dan Bai menipumu. Kamu memalukan bagi kami klan Shang! ” Shang Yifan tertawa.</p>
+<p>	Tapi memikirkan Fang Yuan dan Bai Ning Bing, ekspresinya menjadi gelap.</p>
+<p>	“Shang Xin Ci…” Dia terus menggumamkan namanya.</p>
+<p>	Saat Shang Ya Zi jatuh, dia pikir posisi tuan muda ini ada di dalam tas. Tetapi untuk berpikir Shang Xin Ci muncul entah dari mana dan menjadi hambatan terbesarnya.</p>
+<p>	Mata Shang Yi Fan menyipit, saat dia menganalisis dirinya sendiri dengan mata bersinar: “Keuntungan terbesar Shang Xin Ci adalah kasih sayang ayah. Ayah menyayanginya lebih dari gabungan anak-anaknya yang lain. Tetapi ada aturan klan, karena semua orang bersaing untuk posisi tuan muda secara terbuka, ayah tidak akan bisa menipu secara terang-terangan. ”</p>
+<p>	“Faktanya, karena kebaikan ayahanda, itu menyebabkan saudara kita yang lain memiliki perasaan tidak enak terhadap Shang Xin Ci, atau bahkan permusuhan. Keuntungan terbesar Shang Xin Ci juga merupakan kelemahan terbesarnya.”</p>
+<p>	“Kelebihan kedua Shang Xin Ci adalah kekuatannya yang sebenarnya, yaitu Fang Zheng dan Bai Ning Bing! Keduanya benar-benar…”</p>
+<p>	Memikirkan keduanya, wajah Shang Yi Fan menunjukkan ekspresi aneh, iri, cemburu, dan tidak bisa dipercaya.</p>
+<p>	“Keduanya, aku tidak tahu apa yang mereka kejar! Mereka menolak peran penatua eksternal untuk membantu Shang Xin Ci!”</p>
+<p>	Perasaan ini, seperti seseorang yang menyerah pada semangka untuk mengambil biji wijen.</p>
+<p>	“Bagaimana Shang Xin Ci meyakinkan mereka? Keberuntungannya sangat bagus, dengan mudah mendapatkan dua jenderal yang kuat ini. Bai Ning Bing itu sudah berada di peringkat empat, dan Fang Zheng bahkan bisa mengalahkan Ju Kai Bei!”</p>
+<p>	Dia mendapatkan dua Master Gu dengan kekuatan pertempuran peringkat empat seperti ini.</p>
+<p>	Bahkan kakak tertua mereka Shang Qiu Niu tidak memiliki bawahan peringkat empat.</p>
+<p>	Di antara sepuluh tuan muda saat ini, hanya pemimpin klan muda Shang Tuo Hai yang memiliki dua bawahan peringkat empat.</p>
+<p>	Namun kedua bawahan itu bukanlah pasukan pribadi Shang Tuo Hai, melainkan dikirim oleh klan untuk membantunya.</p>
+<p>	Sebagai pemimpin klan muda, Shang Tuo Hai mengendalikan karavan. Ketika dia berdagang di luar, dia membutuhkan kekuatan yang cukup untuk menghadapi segala macam situasi.</p>
+<p>	Tapi sekarang, Shang Xin Ci bahkan bukan seorang tuan muda, namun dia sudah memiliki bantuan dari dua ahli peringkat empat.</p>
+<p>	Situasi ini menyebabkan banyak anak Shang Yan Fei merasa iri dan takut.</p>
+<p>	“Tapi, bahkan dengan bantuan dari mereka berdua, jadi apa? Posisi tuan muda adalah milikku!” Shang Yi Fan menjilat bibirnya, ketika dia memikirkan sesuatu, semangatnya terangkat.</p>
+<p>	…</p>
+<p>	Pada saat yang sama, di taman Nan Qiu.</p>
+<p>	“Klan Shang memiliki sistem aturan klan yang kompleks dan lengkap. Terutama bagian penerus, aturannya sangat kaku.” Wei Yang berdiri di samping Fang dan Bai, di depan Shang Xin Ci, saat dia menjelaskan.</p>
+<p>	“Jika Nona Xin Ci ingin naik menjadi tuan muda, kamu harus lulus ujian klan Shang. Tes ini adalah tradisi, dan hanya ada satu jenis tes, yaitu trading.”</p>
+<p>	Klan Shang menggunakan perdagangan untuk berkembang, perkembangan klan Shang tidak dapat dipisahkan dari bisnis. Ketika klan Shang memilih tuan muda baru, mereka akan menguji keterampilan bisnis mereka.</p>
+<p>	“Jangan meremehkan trading, berpikir ini hanya metode untuk mendapatkan uang. Trading dapat menilai kualitas penerus, karena banyak masalah yang sering terjadi saat Anda melakukan trading. Ujiannya ada pada kecerdasan dan perencanaan Anda, bagaimana Anda beradaptasi dengan situasi, kekuatan kultivasi Anda, dan lainnya.”</p>
+<p>	“Klan akan memberi anak-anak yang bersaing dana awal seratus ribu batu purba. Tiga bulan kemudian, siapa pun yang berpenghasilan paling banyak akan menjadi tuan muda yang baru. ”</p>
+<p>	Wei Yang jelas dari aturan klan.</p>
+<p>	Lalu, berapa yang harus kita hasilkan untuk memenangkan kompetisi ini?” Fangyuan bertanya.</p>
+<p>	Kompetisi tuan muda klan Shang terkenal di kota, seluruh klan Shang menaruh perhatian besar padanya. Fang Yuan tahu bahwa dia harus mengikuti aturan di sini.</p>
+<p>	“Biasanya, selama Lady Xin Ci memiliki sekitar tiga ratus ribu pada akhir tiga bulan, dia akan menghilangkan sebagian besar pesaingnya. Jika dia memiliki enam ratus ribu, akan ada peluang besar untuk menang. Tujuh hingga delapan ratus ribu adalah hasil kelas pertama dari penilaian tahun-tahun sebelumnya. Tapi…” Di sini, Wei Yang berhenti.</p>
+<p>	“Kali ini, di antara para pesaing, ada satu yang ibunya adalah sepupu pemimpin klan Lord. Di klan Shang, dia memiliki kekuatan yang agak besar, dia disebut Shang Yi Fan, pesaing paling disukai dalam kompetisi master muda ini. Dengan ibunya yang membantunya secara diam-diam, dia setidaknya akan memiliki enam ratus ribu pada akhirnya. Jika Anda ingin mengalahkannya, Lady Xin Ci akan membutuhkan hasil yang lebih baik lagi.”</p>
+<p>	Shang Yi Fan akan memiliki setidaknya enam ratus ribu, sehingga untuk mendapatkan posisi tuan muda, Shang Xin Ci perlu mendapatkan hasil kelas satu.</p>
+<p>	Tapi Shang Xin Ci tidak memiliki otoritas atau kekuatan di klan Shang, ibunya bahkan seorang klan Zhang, menyebabkan kelemahan politiknya. Dia tidak akan menerima bantuan apa pun tidak seperti Shang Yi Fan.</p>
+<p>	Satu-satunya pendukungnya adalah Shang Yan Fei, tetapi sebagai pemimpin klan, dia tidak bisa berpihak padanya secara terbuka.</p>
+<p>	Dengan demikian, tekanan pada dirinya sangat tinggi sekarang.</p>
+<p>	Setelah Wei Yang selesai berbicara, dia menatap Shang Xin Ci dengan cemas. Dia tahu bahwa menghasilkan tujuh hingga delapan ratus ribu biasanya karena keadaan khusus. Sangat sedikit master muda di tahun-tahun sebelumnya yang bisa mencapai ini. Ini membutuhkan bakat, bantuan, dan lebih dari itu, keberuntungan.</p>
+<p>	Awalnya, Shang Yan Fei tidak berharap Shang Xin Ci bersaing untuk posisi tuan muda begitu cepat.</p>
+<p>	Itu semua karena Fang dan Bai mempengaruhinya.</p>
+<p>	Setelah Shang Xin Ci mendengar kata-kata Wei Yang, dia terdiam beberapa saat sebelum bertanya: “Bolehkah saya tahu, apa hasil terbaik dalam sejarah kota klan Shang?”</p>
+<p>	“Wei Yang tercengang: “Tentu saja melebihi delapan ratus ribu, mencapai sembilan ratus ribu. Tetapi sangat sedikit orang dalam sejarah yang mengelola ini, totalnya kurang dari dua puluh. Pemimpin klan muda kita saat ini Shang Tuo Hai hanya mendapat delapan ratus sembilan puluh ribu, dan itu sudah menyebabkan keributan besar. Tapi ayahmu, saat itu, dia mencapai sembilan ratus dua puluh ribu. Hanya ini saja, itu masuk ke catatan sejarah klan Shang. ”</p>
+<p>	Saat dia berbicara, Wei Yang berhenti lagi: “Tapi, hasil terbaik dalam sejarah klan Shang adalah satu juta seratus sepuluh ribu. Dia disebut Shang Gui Cai, memiliki bakat monster, tapi sayangnya dia memiliki sepuluh fisik yang ekstrim…”</p>
+<p>	“Sembilan ratus dua puluh ribu, satu juta seratus sepuluh ribu …” Shang Xin Ci mendengarkan saat matanya bersinar terang, saat dia mengepalkan tinjunya dengan erat.</p>
+<p>	Dia memiliki bakat besar dalam berbisnis. Meskipun Fang Yuan sangat mendorongnya untuk kompetisi ini, dia sendiri adalah peserta yang bersedia, dan tidak dipaksa untuk melakukannya.</p>
+<p>	Melihat ekspresi Shang Xin Ci, Wei Yang merasa yakin: “Baiklah, aku harus pergi. Tapi sebelum itu, saya akan memberi Anda beberapa saran. Seluruh perhatian klan Shang ada pada kompetisi ini, jangan mencoba mengambil jalan pintas atau celah, dan melanggar aturan. Percayalah pada saudaramu Wei, semua orang yang mencoba curang di masa lalu tidak pernah berhasil.”</p>
+<p>	Tuan muda adalah masa depan klan Shang, itu sangat penting dan tidak ada kesalahan yang bisa ditoleransi.</p>
+<p>	Shang Ya Zi adalah seorang tuan muda, tetapi karena satu pembukuan palsu, dia diasingkan, itu menunjukkan betapa pentingnya klan Shang pada tuan muda dan tindakan mereka.</p>
+<p>	Shang Yi Fan mendapat dukungan dari klan ibunya, tetapi mereka hanya bisa membantunya dalam batas-batas aturan, mereka tidak berani menipu.</p>
+<p>	Segera setelah itu, Wei Yang memberikan beberapa nasihat yang tulus sebelum meninggalkan taman Nan Qiu.</p>
+<p>	Dia adalah seorang tetua penting dari klan, dan ajudan Shang Yan Fei, menurut aturan, dia harus menghindari pertemuan dengan mereka. Tapi dia masih masuk dan meninggalkan taman Nan Qiu, menjelaskan begitu banyak untuk Shang Xin Ci, itu menunjukkan betapa dia adalah seorang teman.</p>
+<p>	“Saudara Wei menerima banyak tekanan untuk kami. Kita tidak bisa menyusahkannya lebih jauh.” kata Shang Xin Ci.</p>
+<p>	Fang Yuan tetap diam.</p>
+<p>	Bai Ning Bing mengerutkan kening: “Menghasilkan enam kali lipat jumlah awal dalam tiga bulan bisnis, lebih mudah diucapkan daripada dilakukan.”</p>
+<p>	Meskipun dia jenius alami, dia tidak memiliki bakat dalam perdagangan dan bisnis, merasa sangat bermasalah sekarang.</p>
+<p>	Tapi mata Shang Xin Ci bersinar saat dia tersenyum, berkata dengan percaya diri: “Sebenarnya aku punya rencana bagus. Selama kita berhasil, saya yakin kita bisa mendapatkan enam ratus ribu. ”</p>
+<p>	“Oh, rencana apa?” Bai Ning Bing bertanya.</p>
+<p>	Shang Xin Ci menatap Fang Yuan dalam-dalam, menyatakan rencananya: “Saya mendapat inspirasi dari pertempuran saudara Hei Tu ketika saya pergi untuk menontonnya di panggung pertempuran, kita dapat melakukan bisnis tentang intel.”</p>
+<p>	“Menjual informasi?” Bai Ning Bing mengerutkan kening.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

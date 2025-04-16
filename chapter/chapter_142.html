@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 142 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 142";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_141.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 142">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_143.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 142</h1>
+        <div class="text-left">
+<p>	Bab 142</p>
+<p>	Bab 142: Gu Yue Qing Shu vs Bai Ning Bing (Bagian 3)</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Fang Zheng berdiri jauh, bahkan tidak berani menarik napas dalam-dalam saat dia melihat.</p>
+<p>	Pertarungan telah mencapai klimaks, pemenang dan pecundang akan ditentukan dalam pertarungan ini.</p>
+<p>	“Tuan Qing Shu, bertahanlah di sana!” Fang Zheng sangat gugup sehingga tubuhnya gemetar, dia tahu bahwa pergi hanya akan menyebabkan masalah, jadi dia hanya bisa bersorak untuk Gu Yue Qing Shu dengan keras.</p>
+<p>	Seolah-olah dia mendengar suara Fang Zheng, badai bilah es semakin kecil, ditekan dengan paksa oleh Qing Shu.</p>
+<p>	“Sialan, aku benar-benar bisa masuk ke situasi di mana esensi purba saya tidak mencukupi …” Bai Ning Bing menggertakkan giginya, berputar lebih lambat karena pemulihan esensi purba tidak dapat mengimbangi pengeluarannya, masuk ke situasi tak berdaya.</p>
+<p>	Pemulihan esensi purba tubuh Jiwa Es Gelap Utara sangat cepat, tetapi kecepatan pemulihan di Peringkat tiga masih sedikit lebih rendah daripada kemampuan roh pohon untuk mengekstraksi esensi alami. Jika Bai Ning Bing bisa berkultivasi ke Peringkat empat, kecepatan pemulihannya akan jauh melampaui Wood Charm Gu.</p>
+<p>	Kecuali, dalam pertempuran hidup dan mati, tidak ada kata “jika”.</p>
+<p>	Entah menang atau kalah, hasilnya harus diterima.</p>
+<p>	Akhirnya badai bilah es berhenti, tetapi Gu Yue Qing Shu juga membayar mahal.</p>
+<p>	Lengannya besar seperti kereta kuda, dan saat ini di lengan kirinya dia memiliki dua jari di kiri dan tiga di kanannya. Kedua telapak tangannya terpotong setengah karena bilah es.</p>
+<p>	Tetapi ketika telapak tangannya berangsur-angsur berkumpul ke tengah, cabang-cabang pohon baru tumbuh lagi dengan cepat dari telapak tangannya, terjalin bersama.</p>
+<p>	Kedua telapak tangan membentuk sangkar kayu, menjebak Bai Ning Bing di dalamnya.</p>
+<p>	“Brengsek!” Bai Ning Bing menggertakkan giginya. Esensi purbanya mengering, dia hanya bisa berada di bawah belas kasihan Qing Shu.</p>
+<p>	“Kami menang!!” Jauh, Fang Zheng melompat melihat pemandangan ini.</p>
+<p>	“Apakah aku akan mati…?” Bai Ning Bing berteriak dalam hatinya, matanya melebar saat melihat kedua telapak tangan mendekat. Ketika kedua telapak tangan saling menggenggam, dia akan dihancurkan menjadi pai daging berdarah.</p>
+<p>	Tapi kecepatan telapak tangan menjadi lebih lambat, dan perlahan berdiri di udara.</p>
+<p>	Bai Ning Bing tertegun sejenak, sebelum menyadari bahwa tubuh Gu Yue Qing Shu telah mengalami masalah, langsung menjadi gembira.</p>
+<p>	“Sial, aku sangat dekat…” Pada saat ini, hati Gu Yue Qing Shu dipenuhi dengan ketidakberdayaan. Tangannya telah kehilangan semua indra, benar-benar berubah menjadi kayu.</p>
+<p>	Pada saat yang sama, ia secara bertahap kehilangan koneksi ke usus dan paru-parunya. Kemampuan Mantra Kayu Gu telah merusak seluruh tubuhnya, membawanya ke ambang kematian.</p>
+<p>	“Tidak, itu tidak bisa berakhir seperti ini! Aku masih bisa menggunakan Green Vine Gu!” Gu Yue Qing Shu memaksa dirinya untuk fokus dan mengaktifkan Green Vine Gu.</p>
+<p>	Banyak tanaman merambat tebal muncul dan menyerang Bai Ning Bing melalui bukaan kandang.</p>
+<p>	Bai Ning Bing menghindar dengan cepat tetapi dia telah mengalami beberapa pertempuran, dan staminanya sangat terkuras. Selain itu, hanya ada sedikit ruang di dalam kandang, dan dia tidak bisa banyak bergerak, sehingga pada akhirnya sebuah sulur tersangkut di kaki kanannya dan membuatnya tersandung.</p>
+<p>	“Ini sudah berakhir.” Qing Shu menghela nafas lega, saat dia dengan cepat memindahkan puluhan tanaman merambat hijau untuk ditindaklanjuti.</p>
+<p>	Pada saat hidup dan matinya, lubang Bai Ning Bing akhirnya memulihkan esensi purba yang cukup untuk kebutuhan penggunaannya.</p>
+<p>	Dia menggunakan semua esensi purba tanpa berpikir lebih jauh, mengirimkan semuanya ke Ice Blade Gu, dan membentuk bilah es baru.</p>
+<p>	Bilah es itu tajam dan memotong sulur hijau di kaki kanannya. Bai Ning Bing berguling dalam keadaan menyesal, berhasil menghindari puluhan tanaman merambat.</p>
+<p>	Tanaman merambat hijau menyentuh tanah dan menembus bumi yang tebal. Tanah beterbangan, dan tanaman merambat hijau menyerang sekali lagi.</p>
+<p>	Bai Ning Bing terengah-engah saat dia menggunakan bilah es untuk bertahan dengan putus asa.</p>
+<p>	Tanaman merambat hijau menyerang dari segala arah, seolah-olah dia sedang berjalan di atas es tipis. Satu kesalahan Bai Ning Bing akan menyebabkan dia langsung dibunuh oleh tanaman merambat.</p>
+<p>	Tapi bagaimanapun juga dia adalah seorang jenius tingkat atas. Dengan rangsangan kematian, dia memeras semua potensi dalam dirinya, dan tindakan mengelaknya menjadi cepat dan jelas.</p>
+<p>	Meskipun terkadang dia tersandung oleh tanaman merambat hijau, dia berhasil menghindari bahaya dan akhirnya mempertahankan hidupnya.</p>
+<p>	Tanaman merambat hijau dipotong oleh bilah es, dan jumlahnya menjadi semakin sedikit.</p>
+<p>	Bukannya Qing Shu tidak ingin mengaktifkan Green Vine Gu dan menghasilkan lebih banyak tanaman merambat, tetapi itu karena esensi alam di sekitarnya hampir sepenuhnya diserap olehnya.</p>
+<p>	Meskipun di luar, masih ada esensi di udara yang berkumpul, esensi yang diencerkan di udara tidak lagi dapat memenuhi kebutuhan Green Vine Gu.</p>
+<p>	Ada berita yang lebih buruk lagi — kekuatan Mantra Kayu Gu telah benar-benar merusak tubuh Gu Yue Qing Shu, dan mulai mengambil alih kesadarannya.</p>
+<p>	Kesadaran Gu Yue Qing Shu mulai menjadi linglung, dan dia memiliki kekosongan menengah.</p>
+<p>	Aura kematian berhembus di wajahnya.</p>
+<p>	“Apakah ini akan berakhir? Tidak …” Dia marah, memaksa pikirannya untuk fokus dan melakukan upaya terakhir dalam membunuh Bai Ning Bing.</p>
+<p>	Dia tidak bisa lagi melihat apa-apa, karena Mantra Kayu Gu telah mengambil alih matanya, dan dia juga tidak bisa mendengar lagi, telinganya hanya sebagai aksesori sekarang.</p>
+<p>	Dia hanya memiliki sedikit rasa sentuhan.</p>
+<p>	Mengandalkan pembalasan Bai Ning Bing, dia menilai jarak dan posisi, dan menyerang.</p>
+<p>	Usahanya dihargai, karena Bai Ning Bing akhirnya ditangkap. Sebuah pohon anggur melilit lehernya dan mengangkatnya, secara bertahap mengencangkan.</p>
+<p>	Bai Ning Bing bisa merasakan kesulitan bernafas, tidak ada gunanya bahkan jika dia membuka mulutnya. Seiring dengan Qing Shu, mereka maju menuju kematian.</p>
+<p>	Fang Yuan bernapas dengan kasar, pertempuran sengit telah berakhir.</p>
+<p>	Di lantai tergeletak lima mayat dengan mata terbuka, mereka semua adalah Master Gu klan Bai.</p>
+<p>	Mengandalkan Stealth Scales Gu untuk menyelinap menyerang, dengan keunggulan Moonglow Gu dan kekuatan dua babi hutan serta pengalamannya selama 500 tahun, dia menunjukkan kemampuan yang mengejutkan.</p>
+<p>	Meskipun dia memberi tahu Qing Shu bahwa dia akan kembali ke desa, itu hanya alasan.</p>
+<p>	Setelah pergi agak jauh, dia menggunakan Stealth Scales Gu untuk menyembunyikan dirinya, bergerak di sekitar medan perang dan pergi ke daerah di mana Man Shi dan Xiong Li meninggal.</p>
+<p>	Dia mengumpulkan cacing Gu di mayat Man Shi dan teman satu kelompoknya, dan ketika dia mendapatkan mayat Xiong Li, dia menemukan bahwa mayat itu hilang, belum lagi cacing Gu mereka.</p>
+<p>	“Sepertinya Xiong Lin mengumpulkan mayat mereka. Sayang sekali, saya ingin mendapatkan Gu Kekuatan bawaan Beruang Coklat Xiong Li. ” Fang Yuan menghela nafas.</p>
+<p>	Meninggalkan Xiong Lin hidup-hidup bukanlah yang dia inginkan.</p>
+<p>	Tapi saat itu, setelah dia membunuh Xiong Jiang, Xiong Lin sudah waspada, sehingga membunuh yang terakhir akan menghabiskan banyak usaha.</p>
+<p>	Saat itu, Bai Ning Bing sudah dekat. Jika Fang Yuan dan Xiong Lin bertarung, Bai Ning Bing akan sangat senang.</p>
+<p>	“Tapi Kekuatan bawaan Beruang Coklat Gu mungkin tidak ada di tubuh Xiong Li. Dia sudah memiliki kekuatan beruang, dia mungkin sudah mengembalikan Gu ke klannya.”</p>
+<p>	Fang Yuan memfokuskan pandangannya dan melarikan diri dari medan perang jalur gunung.</p>
+<p>	Qing Shu dan yang lainnya bertarung melawan Bai Ning Bing akan menyebabkan keributan besar, dan itu akan terdeteksi oleh kawanan serigala dan Master Gu di sekitarnya.</p>
+<p>	Meskipun Fang Yuan tidak optimis tentang kelompok Qing Shu, dia telah melihat secara langsung kekuatan Gu Mantra Kayu di kehidupan sebelumnya. Melawan Bai Ning Bing, setidaknya akan ada perjuangan yang intens.</p>
+<p>	Dia tidak mau melepaskan kesempatan seperti itu, jadi dia memilih untuk menunggu di sekitarnya.</p>
+<p>	Kadang-kadang, Master Gu tertarik dengan suara pertempuran yang intens, jadi Fang Yuan memikat beberapa sekawanan serigala dan menahan mereka.</p>
+<p>	Mereka yang tidak bisa dia hentikan, Fang Yuan akan menyerang dengan tangannya sendiri.</p>
+<p>	“Suara medan perang jalur gunung telah berhenti, sepertinya mereka sudah memutuskan pemenangnya.” Telinga kanannya memiliki akar yang tumbuh, menggali ke dalam dinding gunung, memungkinkan Fang Yuan mendengar beberapa hal dari medan perang.</p>
+<p>	Sejujurnya, kinerja Qing Shu lebih baik dari yang diharapkan. Setelah Bai Ning Bing kehilangan lengan kanannya, efek pada kekuatan pertempurannya jauh lebih besar dari yang diharapkan Fang Yuan.</p>
+<p>	Tapi segera, ekspresi Fang Yuan berubah.</p>
+<p>	Dia mendengar sejumlah besar langkah kaki dari dua arah, menuju medan perang.</p>
+<p>	Satu arah dari desa Gu Yue, sedangkan arah lainnya dari desa klan Bai.</p>
+<p>	Setiap kelompok memiliki setidaknya dua puluh orang. Itu bukan sesuatu yang bisa diblokir oleh paket serigala petir yang berani, dan Fang Yuan tidak bisa memikat dua kelompok serigala.</p>
+<p>	“Sepertinya berita tentang pertempuran ini telah ditemukan oleh seseorang, jadi ini adalah bala bantuan yang dikirim oleh dua klan, saya harus segera memasuki jalur gunung.”</p>
+<p>	Jarak Fang Yuan lebih pendek, sehingga menjadi yang pertama memasuki jalur gunung.</p>
+<p>	Skenario medan perang tidak keluar dari harapannya.</p>
+<p>	Dari pembukaan kandang, dia bisa melihat Bai Ning Bing tergantung pada tanaman merambat pada napas terakhirnya, tetapi masih hampir tidak hidup.</p>
+<p>	“Pertahanan otot-otot es dengan keras kepala menopang kehidupan Bai Ning Bing. Hmph, sayangnya, Anda telah bertemu dengan saya. ” Niat membunuh Fang Yuan melonjak saat dia mengambil beberapa langkah ke depan, berlari menuju Bai Ning Bing.</p>
+<p>	Desir desir desir.</p>
+<p>	Tiba-tiba, jarum peniti mengelilingi Fang Yuan seperti tetesan hujan.</p>
+<p>	Itu Gu Yue Qing Shu’s Pin Needle Gu, menyerang Fang Yuan.</p>
+<p>	“Apa yang sedang terjadi?” Fang Yuan segera mundur, menghindari hujan jarum peniti.</p>
+<p>	Dia memfokuskan pandangannya ke pohon besar itu, segera menyadari, “Sepertinya kesadaran Gu Yue Qing Shu telah kabur sampai pada titik di mana dia tidak bisa lagi membedakan antara teman atau musuh. Dia hanya mengandalkan kehendaknya dan berusaha membunuh Bai Ning Bing. Siapa pun yang mengganggu medan perang akan dianggap sebagai pengganggu olehnya. ”</p>
+<p>	Pada saat ini, Master Gu klan Bai muncul dari jalur gunung.</p>
+<p>	Melihat medan perang yang begitu intens, wajah mereka menunjukkan ekspresi terkejut.</p>
+<p>	“Anak laki-laki di sana, jangan membuat gerakan yang tidak perlu!” Seorang Master Gu peringkat tiga berteriak ke arah Fang Yuan, nadanya penuh peringatan dan ancaman.</p>
+<p>	“Bai Ning Bing ini benar-benar kecoa.” Fang Yuan melihat adegan ini, tertawa dingin di dalam hatinya, mengetahui bahwa dia tidak dapat melakukan serangan terakhir.</p>
+<p>	Pertama, kesadaran Qing Shu kabur, pohon anggur hijau tidak cukup untuk membunuh Bai Ning Bing yang memiliki otot es.</p>
+<p>	Agar Fang Yuan bisa dekat dengan Bai Ning Bing, dia harus menerobos jebakan Qing Shu, tapi dengan cara ini, itu akan mengalihkan banyak perhatiannya dan bahkan mungkin membantu Bai Ning Bing keluar dari kesulitannya.</p>
+<p>	Bahkan jika mereka menerobos dengan paksa, peringkat tiga Gu Masters dan peringkat dua elit Bai klan bukan untuk pertunjukan, mereka pasti akan menghentikannya.</p>
+<p>	Selanjutnya, bertarung melawan Bai Ning Bing juga berbahaya.</p>
+<p>	Bukaan Bai Ning Bing telah memulihkan esensi purba cukup untuk setidaknya menggunakan peti mati es burung Biru Gu.</p>
+<p>	Bahkan jika Fang Yuan berhasil membunuh Bai Ning Bing, para elit klan Bai ini tidak akan melepaskannya, mereka pasti akan membunuh Fang Yuan.</p>
+<p>	Fang Yuan menghela nafas dalam hatinya, “Jaraknya terlalu jauh, setidaknya ada dua puluh langkah untuk sampai ke dia, dan jangkauan serangan Moonglow Gu saya hanya sepuluh langkah, lebih jauh lagi … untuk membunuh Bai Ning Bing yang ditakdirkan untuk mati. , saya harus mempertaruhkan hidup saya pada risiko seperti itu, sangat mengganggu rencana kelahiran kembali saya, itu tidak sepadan. ”</p>
+<p>	Berpikir begitu, Fang Yuan mundur beberapa langkah.</p>
+<p>	Ini jelas merupakan gerakan yang lemah dan pengecut, menyebabkan para Master Gu klan Bai menghela nafas lega.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

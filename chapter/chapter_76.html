@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 76 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 76";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_75.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 76">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_77.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 76</h1>
+        <div class="text-left">
+<p>	Bab 76</p>
+<p>	Bab 76: Apakah Anda menyesalinya?</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Membunuh!” Wang Da menggeram, dengan ganas melompat ke udara dari dahan pohon.</p>
+<p>	Saat dia akan mendekati musuh bebuyutannya, tiga pedang bulan melesat entah dari mana tiba-tiba dan mencegatnya di tengah jalan.</p>
+<p>	“Mengapa ada Guru Gu keempat?” Hati Wang Da tenggelam, memutar tubuhnya dengan paksa di udara, menyempit menghindari dua pedang bulan. Yang tersisa, yang tidak bisa dia hindari lagi, mengenai kaki kirinya.</p>
+<p>	Bang!</p>
+<p>	Wang Da jatuh ke tanah, menundukkan kepalanya untuk melihat kaki kirinya. Ada luka, dalam dan panjang, darah sudah menetes di mana-mana.</p>
+<p>	“Sial ……” Wang Da menggertakkan giginya, hatinya berpikir, “Gu Pengikut Bayangan!”</p>
+<p>	Segera, dia berubah menjadi gumpalan bayangan gelap saat kecepatannya meningkat drastis, bergerak mundur tanpa suara.</p>
+<p>	Saat ini.</p>
+<p>	Seekor cacing Gu terbang entah dari mana, pada saat yang sama sebuah suara tua dan lelah terdengar—</p>
+<p>	“Flash Blink Gu, meledak.”</p>
+<p>	Cacing Gu meledak sesuai perintah, berubah menjadi cahaya putih yang menyilaukan.</p>
+<p>	Cahaya putih tidak dapat dihindari, tiba-tiba muncul dan mengubah seluruh hutan yang gelap menjadi cerah.</p>
+<p>	“Ah!” Wang Da berteriak. Tubuhnya yang telah berubah menjadi bayangan tidak bisa bersembunyi di mana pun di bawah cahaya terang, dan kembali ke bentuk manusianya.</p>
+<p>	Meskipun Flash Blink Gu hanya Peringkat satu dan juga tipe habis pakai, itu adalah penghitung lengkap Gu Pengikut Bayangan Wang Da. Setelah kegelapan dihilangkan oleh cahaya, Gu Pengikut Bayangan Peringkat dua perlu beristirahat tiga jam sebelum dapat digunakan lagi.</p>
+<p>	Di alam, semua makhluk adalah sama, yang satu melawan yang lain. Meskipun Shadow Follower Gu memiliki kemampuan mengintai yang sangat kuat, ia juga memiliki kelemahan yang besar.</p>
+<p>	Setelah dia dilawan, hati Wang Da tenggelam ke dasar lembah.</p>
+<p>	Guru Gu keempat ini lebih berpengalaman, tidak hanya dia tahu Gu mana yang digunakan, dia juga menyembunyikan dirinya dengan baik, musuh sejati. Lebih penting lagi, Wang Da tidak bisa lagi menggunakan Gu Pengikut Bayangan, sehingga tidak memiliki cara untuk mundur.</p>
+<p>	“Saya Gu Yue Sou, Nak, jika Anda menyerah sekarang, klan saya mungkin masih menyelamatkan hidup Anda!” Seorang Gu Master Gu berambut putih, berjenggot perak, muncul di depan pandangan Wang Da.</p>
+<p>	“Lepaskan aku, hmph, aku akan membunuhmu dulu!” Wang Da tahu bahwa jika diseret, akan ada lebih banyak Gu Master yang muncul untuk berurusan dengannya, dia harus membunuh Gu Master keempat ini sesegera mungkin.</p>
+<p>	“Esensi purba saya hanya memiliki 20% yang tersisa, baik itu balas dendam atau mempertahankan hidup saya, saya harus membunuh orang tua usil ini terlebih dahulu!” Wang Da bangkit dan melompat ke arah Gu Yue Sou.</p>
+<p>	Gu Yue Sou mendengus. Seluruh tubuhnya, baik itu rambut atau pori-pori, tumbuh gila-gilaan dan terjalin, dalam sekejap mata membentuk baju perang putih salju dengan desain runcing.</p>
+<p>	Melihat perubahan ini, ekspresi Wang Da berubah. Master Gu yang berpengalaman seperti landak, menyebabkan Wang Da tidak tahu cara menyerang.</p>
+<p>	Peringkat dua racunnya yang kuat, Gu Love Life Separation, meskipun racunnya sangat kuat dan mematikan, ia tidak memiliki kemampuan menyerang yang kuat, hanya dapat digunakan sebagai serangan diam-diam.</p>
+<p>	Wang Da hanya memiliki Love Life Separation dan Shadow Follower Gu. Jika dia memiliki cacing Gu defensif, dia tidak akan terkena moonblade.</p>
+<p>	“Hmph, jika aku tidak bisa berurusan denganmu, aku akan membunuh Fang Yuan dulu!” Wang Da tidak bodoh. Tiga tahun hidup telah membuatnya licik dan kejam.</p>
+<p>	Dia bergerak cepat, berkeliling Gu Yue Sou dan menyerang pelaku pembunuhan keluarganya.</p>
+<p>	“Bermimpilah!” Gu Yue Sou mengaktifkan esensi purba, dan tubuh pakunya segera menembakkan dua pin tajam, berputar dan terbang lima hingga enam meter menuju Wang Da.</p>
+<p>	Tubuh Wang Da bergeser, nyaris menghindari dua paku putih salju.</p>
+<p>	Di tangannya, sepuluh kukunya panjangnya setengah telapak tangan, ungu dan gelap, racun kabut mengedarkannya.</p>
+<p>	“Mati!” Wang Da sudah gila karena pertempuran, tertawa gila saat dia bergegas menuju sasarannya.</p>
+<p>	Di matanya, wajah Fang Yuan penuh dengan keterkejutan dan kepanikan.</p>
+<p>	Niat membunuh telah menguasai otak Wang Da, dia hampir bisa mendengar dirinya sendiri menusuk kulit Fang Yuan, dan nafas terakhirnya yang marah.</p>
+<p>	“Kamu berharap!”</p>
+<p>	Melihat bahwa dia akan berhasil, orang lain muncul, menghalangi jalan Wang Da.</p>
+<p>	Master Gu kelima bergegas dari dekat!</p>
+<p>	“Ini sebenarnya Pemisahan Kehidupan Cinta?” Pria paruh baya ini tidak tergerak oleh sikap gila dan ganas Wang Da.</p>
+<p>	Gu Kulit Batu!</p>
+<p>	Pria paruh baya itu mengaktifkan esensi purbanya, esensi purba baja merah menyembur keluar seperti asap, lengan telanjangnya segera berubah dari kuning menjadi warna putih abu-abu. Pada saat yang sama kedua lengannya melebar seperti balon, membentuk lengan batu yang besar dan tebal.</p>
+<p>	Saat kedua belah pihak semakin dekat, ekspresi Wang Da menjadi lebih bengkok dan gila. Master Gu setengah baya memiliki ekspresi serius saat dia mengulurkan kedua tangannya untuk meraih Wang Da.</p>
+<p>	“Mencoba untuk mendapatkan saya dengan kecepatan ini?” Wang Da menunjukkan ekspresi mengejek.</p>
+<p>	Tungkai pria paruh baya itu ditutupi oleh kulit batu yang tebal, bahkan kuku Wang Da tidak bisa menembusnya. Tapi lengannya benar-benar terlalu berat dan lambat. Fang Da merasa bahwa dia dapat dengan mudah menghindari mereka.</p>
+<p>	“Betulkah? Roda Angin Giok!” Master Gu setengah baya berteriak, dan tiba-tiba sepasang siklon berwarna giok beredar di sekitar lengan batunya seperti ban lengan.</p>
+<p>	Kecepatan lengan batu segera naik!</p>
+<p>	“Bagaimana bisa… urgh!” Wajah Wang Da terkejut saat dia tersapu oleh lengan batu dan terbang menjauh.</p>
+<p>	Master Gu setengah baya berpengalaman dalam pertempuran. Jika dia menggunakan Bee Gu Jade Wind Wheel sejak awal, Wang Da mungkin tidak akan jatuh dengan mudah.</p>
+<p>	Wang Da dikirim terbang oleh lengan batu, jatuh ke tanah dengan berantakan. Dada yang dipukul terasa sakit.</p>
+<p>	Muntah.</p>
+<p>	Dia nyaris tidak bangun, tetapi tidak bisa menahan muntah darah.</p>
+<p>	“5% esensi purba yang tersisa, aku akan mati.” Dia memeriksa aperture-nya, tertawa getir. Melihat Fang Yuan di dekatnya, dia menunjukkan tekad gila di wajahnya, “Bahkan jika aku mati, kamu akan bergabung denganku!”</p>
+<p>	Ahhhhhhhhhhhh!</p>
+<p>	Dia mengabaikan luka-lukanya dan bergegas keluar.</p>
+<p>	“Blokir dia!” Master Gu setengah baya adalah pejuang jarak dekat murni tanpa jarak jauh Gu, sekaligus dia tidak bisa melakukan apa-apa.</p>
+<p>	Tuan Gu tua telah tiba, rambut putih tubuhnya berubah menjadi spiral seukuran jari saat mereka terbang seperti ular gesit, memanjang lima hingga enam meter dan menjangkau dari belakang, menusuk tubuh Wang Da.</p>
+<p>	Tapi Wang Da tidak peduli, bergegas keluar.</p>
+<p>	“Mati!!!” Dia berteriak keras, sepuluh kukunya sudah lima puluh sentimeter.</p>
+<p>	Master Gu setengah baya mengejar, dan setelah melihat adegan ini, ekspresinya berubah karena dia tidak bisa lagi menghentikannya.</p>
+<p>	Melihat bahwa Wang Da akan mendapatkan apa yang diinginkannya, cahaya giok biru terang meledak dari sisi lain.</p>
+<p>	“Gu Kulit Giok!” Di bawah tekanan hidup dan mati, Fang Zheng berteriak keras.</p>
+<p>	Segera, kulitnya ditutupi oleh lapisan kulit giok yang kokoh.</p>
+<p>	Jari-jari Wang Da seperti pisau, menikamnya. Meskipun Pemisahan Kehidupan Cinta tidak memiliki kemampuan menyerang yang kuat, Gu Kulit Giok hanyalah cacing Gu peringkat satu dan tidak dapat memblokir kukunya.</p>
+<p>	Melolong!</p>
+<p>	Master Gu tua melihat Fang Zheng akan mati, berteriak dengan panik dan matanya melebar. Bahkan lebih banyak lagi jarum putih salju yang ditembakkan dan menusuk tubuh Wang Da.</p>
+<p>	Setelah itu, jarum bekerja seperti ular, pertama menusuk punggung ke dada, melingkar di leher, lengan dan kakinya.</p>
+<p>	Darah mendidih mengalir dari tubuh Wang Da, segera membuat rambut putihnya menjadi merah.</p>
+<p>	Seluruh tubuhnya ditutupi oleh rambut putih, seperti babi hutan yang jatuh ke dalam perangkap paku bambu hijau, menghentikan serangannya dan tidak bisa bergerak.</p>
+<p>	Perasaan pusing yang hebat menyerangnya. Wang Da tertawa menyedihkan, dia tahu bahwa kematian sudah dekat.</p>
+<p>	Betapa tidak memuaskan!</p>
+<p>	Penglihatannya menjadi kabur, dan pada saat kematiannya, ingatan paling jelas dalam hidupnya muncul kembali.</p>
+<p>	“Wan Er ….” Dia tanpa sadar memanggil nama istrinya, saat pisau di tangannya menusuk tubuhnya.</p>
+<p>	“Mengapa?” Istrinya menatap Wang Da, wajahnya yang cantik menunjukkan kebingungan dan keterkejutan, menatap tajam ke mata Wang Da.</p>
+<p>	Mata Wang Da merah, saat tubuhnya menggigil, memaksa keluar kata dari mulutnya, “Maaf.”</p>
+<p>	Istrinya tersenyum kecil, senyumnya penuh cinta. Tidak ada setetes pun kebencian.</p>
+<p>	“Aku mengerti,” katanya.</p>
+<p>	Dia ingin mengulurkan tangan kanannya, menyentuh wajah Wang Da untuk terakhir kalinya sebelum dia meninggal.</p>
+<p>	Namun di tengah, tangannya terjatuh.</p>
+<p>	Membunuh istrinya demi hatinya, dan menyempurnakan Pemisahan Kehidupan Cinta. Sejak saat itu dia memiliki kekuatan dan menempuh jalan iblis!</p>
+<p>	Apakah Anda memiliki penyesalan?</p>
+<p>	Sejak hari itu, dia terus-menerus menanyakan hal ini pada dirinya sendiri.</p>
+<p>	Saya menyesal!</p>
+<p>	Dia sangat menyesal bahwa dia lebih baik mati, jadi dia bersumpah bahwa dia harus melindungi anggota keluarganya yang tersisa!</p>
+<p>	Tetapi.</p>
+<p>	Tetapi……</p>
+<p>	“Jika aku bisa memulai dari awal lagi, Wan Er, aku akan tetap melakukan hal yang sama….” Air mata emosional mengalir dari mata merah Wang Da.</p>
+<p>	Fang Zheng menatapnya, tubuhnya bersinar dengan cahaya batu giok.</p>
+<p>	Dari awal hingga akhir, dia berada dalam kebingungan dan kecurigaan yang mendalam.</p>
+<p>	Seorang Guru Gu yang tidak dikenal bergegas menuju dirinya sendiri, dan ingin mencabik-cabiknya. Tapi Fang Zheng tidak mengenalnya.</p>
+<p>	Di bawah aura kematian yang tebal, Fang Zheng tidak bisa bergerak satu inci pun. Pikirannya kosong karena dia secara tidak sadar mengaktifkan Jade Skin Gu.</p>
+<p>	Kuku Wang Da menembus kulit batu giok dan menusuk satu sentimeter, tetapi tidak bergerak lagi.</p>
+<p>	Dia meninggal.</p>
+<p>	Dia penuh dengan air mata ketika dia meninggal.</p>
+<p>	“Ini sudah berakhir?” Fang Zheng bernapas dengan kasar, matanya kehilangan fokus dan tampak agak hampa.</p>
+<p>	Kemudian, rasa pusing yang kuat menguasainya.</p>
+<p>	Celepuk.</p>
+<p>	Dia juga jatuh ke tanah.</p>
+<p>	Love Life Separation, racun peringkat dua terkuat. Meskipun tidak menembus semua kulit batu giok, racun sudah menyerang tubuhnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

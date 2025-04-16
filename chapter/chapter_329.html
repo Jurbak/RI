@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 329 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 329";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_328.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 329">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_330.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 329</h1>
+        <div class="text-left">
+<p>	Bab 329</p>
+<p>	Bab 329: Tiga bersaudara dari klan Xiong</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ketiganya langsung menjadi sangat gembira, mengeluarkan separuh token lainnya dan membentuk seluruh token di tempat.</p>
+<p>	Jadi ternyata, Guru Gu iblis saat itu juga memiliki keturunan. Sebelum dia ditangkap oleh klan Tie, dia menginstruksikan keturunannya, untuk mengingat kejadian ini dan, jika mungkin di masa depan, membalas kebaikan itu.</p>
+<p>	Ketiga bersaudara itu adalah keturunan dari Gu Master iblis ini, setelah melihat token ini, mereka segera menjelaskan masalah tersebut kepada pemilik kios muda ini, menanyakan apakah dia membutuhkan bantuan; mereka akan melakukan yang terbaik untuk membantunya.</p>
+<p>	Pemuda ini sangat licik.</p>
+<p>	Dia segera menjawab, dia kekurangan tiga bawahan dan tidak ada orang di sekitar untuk membantunya.</p>
+<p>	Ketiga bersaudara itu saling melirik, sebelum berlutut bersama, berjanji bahwa mereka akan melayani pemuda itu selama dua puluh tahun.</p>
+<p>	Mereka akan mendengarkan semua perintahnya selama dua puluh tahun, tetapi setelah itu, mereka akan bebas.</p>
+<p>	Ketiga bersaudara ini terkenal di panggung pertempuran, mereka masing-masing memiliki kultivasi peringkat tiga, dan paling terampil dalam multi pertempuran.</p>
+<p>	Pemuda itu mengandalkan kekuatan ketiga bersaudara itu, hidup dalam kemewahan selama dua puluh tahun berikutnya. Selama periode itu, dia meminta ketiga bersaudara itu untuk mendapatkan makanan, air, batu purba untuknya, dan mereka menyetujui semua permintaannya.</p>
+<p>	Tetapi setelah dua puluh tahun, ketiga bersaudara itu membalas budi dan pergi. Dia sudah lama lupa bagaimana bekerja, dan terlalu malu untuk mengemis, pada kenyataannya, dia bahkan tidak menahan diri, terus hidup seperti raja. Kurang dari setengah bulan kemudian, dia meninggal.</p>
+<p>	Tentu saja, semua ini terjadi di kehidupan Fang Yuan sebelumnya.</p>
+<p>	Saat ini, tiga master Gu iblis belum menemukan setengah token. Dan token ini sudah ada di tangan Fang Yuan. Adapun pemuda itu, siapa yang peduli jika dia mati?</p>
+<p>	Menurut ingatannya, setengah token ini hanya akan ditemukan oleh tiga saudara Master Gu iblis tahun depan.</p>
+<p>	Tapi sekarang Fang Yuan memegang setengah token, dia membawa Bai Ning Bing dan Shang Xin Ci untuk menemukan mereka secara langsung.</p>
+<p>	Ketiga bersaudara itu juga membuka warung di depan rumah mereka, menikmati suasana pesta dan bersenang-senang.</p>
+<p>	“Ah? Itu adalah Tuan Fang Zheng! Dan Tuan Bai Ning Bing.” Melihat Fang dan Bai, ketiganya dengan cepat bangkit.</p>
+<p>	Mereka semua telah dihancurkan oleh Fang Yuan atau Bai Ning Bing sebelumnya di tahap pertempuran.</p>
+<p>	Di dunia ini, kekuatan adalah segalanya, terlebih lagi bagi Master Gu iblis. Bai Ning Bing memiliki kultivasi peringkat empat, sementara Fang Yuan mengalahkan Ju Kai Bei, tidak ada Gu Master iblis yang tidak menghormati keduanya.</p>
+<p>	“Aku di sini hari ini untuk menemukan kalian bertiga.” Fang Yuan mengamati ketiga bersaudara itu tanpa emosi.</p>
+<p>	Ketiga bersaudara ini semuanya memiliki nama keluarga Xiong.</p>
+<p>	Yang tertua dipanggil Xiong Tu, terpendek di antara ketiganya, rendah hati dan jujur. Dia adalah peringkat jalur bumi tiga tingkat atas Gu Master.</p>
+<p>	Kedua adalah Xiong Huo, mengenakan kemeja tanpa lengan dan celana pendek, tubuhnya berwarna merah cerah. Dia adalah peringkat tiga jalur api Gu Master tingkat menengah.</p>
+<p>	Yang termuda adalah Xiong Feng, mengenakan topi bambu, memiliki mata kecil yang tajam, dan suka menyipitkan mata saat melihat orang. Dia adalah jalur angin peringkat tiga tahap awal Gu Master.</p>
+<p>	Mendengar kata-kata Fang Yuan, ketiga bersaudara itu menjadi gelisah.</p>
+<p>	Xiong Tu dengan cepat menangkupkan tinjunya, menyapa Fang Yuan: “Tuan Fang Zheng, bolehkah saya tahu apa masalahnya? Jika saudara laki-laki saya telah menyinggung Anda tanpa sadar, saya minta maaf kepada Anda di sini. ”</p>
+<p>	Fang Yuan sedikit mengernyit: “Saya yakin Anda pernah mendengar, saya telah menyerah di panggung pertempuran untuk membantu Shang Xin Ci menjadi tuan muda. Kami kekurangan tenaga kerja di sini, saya ingin kalian bertiga bergabung dengan kami. ”</p>
+<p>	“Ini …” Tiga saudara klan Xiong mengerutkan kening.</p>
+<p>	Mereka datang ke kota klan Shang dan memasuki panggung pertempuran hanya karena satu alasan: untuk menjadi tetua luar klan Shang.</p>
+<p>	Tapi sekarang Fang Yuan ingin mereka membantu Shang Xin Ci, itu sangat berbeda dari tujuan mereka. Shang Xin Ci hanyalah seorang gadis yang tidak berpengalaman, dan hanya memiliki kultivasi peringkat satu dengan bakat yang buruk. Mereka bertiga semua memiliki bakat kelas B, dan serangan kombinasi mereka untuk sementara bisa menyamai peringkat empat Gu Master.</p>
+<p>	Meminta mereka untuk pergi di bawah Shang Xin Ci dan menjadi bawahannya, ketiga bersaudara itu tidak mau.</p>
+<p>	Jika orang lain mengatakan ini, ketiga bersaudara itu pasti sudah menyerang, memukuli pria itu hingga babak belur. Tapi Fang Yuan yang mengatakannya, menyebabkan ketiganya berada dalam posisi yang sulit.</p>
+<p>	Fang Yuan telah mengalahkan Ju Kai Bei dalam pertempuran, mereka telah menyaksikannya secara pribadi, bahkan jika mereka bergabung, mereka tidak dapat mengalahkan Fang Yuan.</p>
+<p>	“Fang Zheng ada di sini dengan niat buruk.”</p>
+<p>	“Dia jelas mencoba untuk dengan paksa menundukkan kita!”</p>
+<p>	“Huh, nasib buruk apa yang telah ditargetkan oleh Fang Zheng. Kami bertiga tidak bisa mengalahkannya, dan dia bahkan memiliki Bai Ning Bing di sampingnya. Apalagi token duri ungu…”</p>
+<p>	Ketiga bersaudara itu saling memandang, mengetahui emosi satu sama lain. Mereka bertiga tidak mau, tetapi keadaan memaksa mereka, mereka hanya bisa memilih untuk menyerah.</p>
+<p>	Tapi Fang Yuan tiba-tiba berkata: “Saya tidak ingin memaksa Anda, datang jika Anda mau, jika tidak, saya tidak akan memaksa Anda.”</p>
+<p>	Ketiga bersaudara itu saling melirik, tidak yakin apakah Fang Yuan mengatakan yang sebenarnya, atau hanya berusaha bersikap anggun.</p>
+<p>	Tapi Xiong Feng yang termuda, adalah yang paling berani, saat dia berkata dengan hati-hati: “Tuan Fang Zheng, untuk mengatakan yang sebenarnya, kami terbiasa dengan kebebasan. Kami tidak ingin terlibat dalam kompetisi tuan muda klan Shang. Jadi, dengan demikian…”</p>
+<p>	Dua lainnya tersenyum lemah, saat mereka membungkuk ke arah Fang Yuan dan Bai Ning Bing meminta maaf.</p>
+<p>	“Oh?” Alis Fang Yuan terangkat, saat cahaya dingin keluar dari matanya: “Kalian bertiga benar-benar berani, kamu berani menolak undanganku?”</p>
+<p>	Jantung ketiga bersaudara itu berdegup kencang.</p>
+<p>	Xiong Tu dengan cepat menangkupkan tinjunya, menjelaskan dengan tergesa-gesa: “Bukan itu masalahnya, bukan itu masalahnya. Tuan Fang Zheng, tolong jangan salah paham, merupakan kehormatan bagi kami untuk menerima undangan Anda. Adikku terlalu gugup, dia tidak tahu apa yang dia katakan. Sebenarnya yang ingin dia katakan adalah, kami akan senang untuk pergi di bawah sayap Lady Shang Xin Ci.”</p>
+<p>	“Ya, ya, itu yang saya maksud.” Xiong Feng melanjutkan.</p>
+<p>	“Hehe, kalau begitu, aku yakin. Kalian bertiga sangat bersemangat, Xin Ci, terimalah mereka.” Fang Yuan berbalik, berkata kepada Shang Xin Ci.</p>
+<p>	Di sampingnya, Bai Ning Bing mengerutkan kening. Memaksa mereka untuk bergabung seperti ini, dia tidak akan mendapatkan kesetiaan mereka, bawahan yang begitu jauh, apa gunanya?</p>
+<p>	Shang Xin Ci memiliki kekhawatiran yang sama, tetapi dia masih memilih untuk mempercayai Fang Yuan. Dia maju selangkah, berkata kepada ketiga bersaudara itu: “Mulai sekarang, tolong bekerja keras.”</p>
+<p>	“Ya.”</p>
+<p>	“Tiga bersaudara dari klan Xiong memberi hormat kepada Nona Xin Ci.”</p>
+<p>	Ketiganya menangkupkan tinju mereka dan membungkuk, menjawab dengan lesu.</p>
+<p>	“Hahaha …” Fang Yuan mengangkat kepalanya dan tertawa.</p>
+<p>	Ketiga bersaudara itu berpikir: Fang Zheng ini terlalu hina, menjalani kehidupan pelacur tetapi masih mengharapkan monumen yang memuji kesucian 1 . Berbicara dengan cara yang benar tetapi bertindak seperti penjahat tercela.</p>
+<p>	“Itu benar, aku lupa sesuatu, perhatikan baik-baik.” Fang Yuan berhenti tertawa, dan mengeluarkan setengah token, melemparkannya ke Xiong Tu.</p>
+<p>	Xiong Tu menangkapnya tanpa sadar.</p>
+<p>	“Apa ini?” Dua bersaudara lainnya melirik dengan rasa ingin tahu.</p>
+<p>	Tapi segera, ketiga bersaudara itu tercengang.</p>
+<p>	“Ini, ini?!” Xiong Tu yang tenang dan stabil berteriak.</p>
+<p>	Xiong Huo meraih token itu, memeriksanya dengan cermat.</p>
+<p>	Xiong Feng juga mengerti apa yang terjadi, saat dia mendesak saudaranya Xiong Tu: “Saudaraku, cepat ambil token kami.”</p>
+<p>	Di bawah tatapan aneh Bai Ning Bing dan Shang Xin Ci, Xiong Tu mengeluarkan separuh token lainnya.</p>
+<p>	Kedua setengah token sangat cocok menjadi satu, dan api ilusi mulai menyala pada token tersebut.</p>
+<p>	“Ini, ini nyata!” Tiga saudara klan Xiong menatap dengan mata terbuka lebar.</p>
+<p>	Xiong Tu memegang token itu dengan tangan gemetar.</p>
+<p>	“Apa yang sedang terjadi?” Bai Ning Bing dan Shang Xin Ci tidak tahu apa yang sedang terjadi.</p>
+<p>	“Tiga bersaudara dari klan Xiong, apakah kamu benar-benar berpikir aku datang ke sini tanpa alasan? Kenapa kamu ragu-ragu?” Fang Yuan berbicara pada saat yang tepat.</p>
+<p>	Kata-katanya membangunkan mereka.</p>
+<p>	“Kakek pernah berkata, tidak peduli siapa pemilik token itu, bahkan jika itu adalah musuh, kita harus membalas kebaikan sejak saat itu!”</p>
+<p>	“Itu benar, meskipun kakek terjebak, kita tidak bisa merusak reputasinya.”</p>
+<p>	“Mulai sekarang, Nona Shang Xin Ci adalah tuan baru kita. Tapi, hanya selama dua puluh tahun. Dua puluh tahun sudah cukup untuk membayar hutang.”</p>
+<p>	Ketiga bersaudara itu berdiskusi di antara mereka sendiri dengan cepat.</p>
+<p>	Selanjutnya, mereka bertiga berlutut di depan Shang Xin Ci, menangkupkan tinju mereka.</p>
+<p>	“Xiong Tu, Xiong Huo, Xiong Feng, ketiga bersaudara itu menyapa Nona Xin Ci!” Mereka berteriak keras, dengan nada yang berbeda dari sebelumnya, penuh dengan dorongan dan kegembiraan.</p>
+<p>	“Saudara Hei Tu, apa yang terjadi?” Shang Xin Ci mengetahui bahwa mereka dengan tulus bergabung dengannya, dan merasa sangat penasaran.</p>
+<p>	Fang Yuan mencibir: “Ceritanya panjang. Kita akan membicarakannya lain kali, sekarang, ayo rekrut beberapa anggota lagi.”</p>
+<p>	Geng enam tiba di pasar budak.</p>
+<p>	Di dunia, ada perdagangan budak. Setiap klan kelas satu yang kuat atau makmur, atau klan super, akan terlibat dalam bisnis budak.</p>
+<p>	Perdagangan budak klan Shang ditangani oleh kepala lima tetua klan, Shang Bu Li secara pribadi.</p>
+<p>	Perdagangan budak terlalu menguntungkan, para petinggi tidak percaya diri membiarkan penatua eksternal menanganinya. Dalam sejarah, hanya klan Shang yang bertanggung jawab.</p>
+<p>	Fang Yuan telah merencanakan sejak awal, dan menyelidiki dengan jelas. Dia berjalan di depan, memimpin jalan, dengan cepat tiba di sebuah kandang.</p>
+<p>	Di dalam kandang, ada banyak orang.</p>
+<p>	“Nona Xin Ci, Tuan Fang Zheng, Tuan Bai Ning Bing, apakah Anda di sini untuk membeli budak? Jika itu masalahnya, saya tidak menyarankan Anda untuk membeli orang-orang di dalam kandang ini. ” Seorang master Gu yang bertanggung jawab menangani bisnis dengan cepat datang.</p>
+<p>	“Oh? Apa itu begitu?” Shang Xin Ci bertanya.</p>
+<p>	“Nona Xin Ci tidak tahu, orang-orang ini dari klan Wei. Klan Wei mengalami pemberontakan politik beberapa waktu lalu, dan pemimpin klan Wei digulingkan oleh adiknya. Orang-orang di dalam kandang ini berasal dari faksi pemimpin klan sebelumnya. Mereka sedang dijual sekarang oleh pemimpin klan Wei saat ini.” Tuan Gu menjawab.</p>
+<p>	Xin Ci segera mengerti mengapa dia menyarankan mereka untuk tidak membeli budak ini.</p>
+<p>	Klan Wei adalah klan kelas satu. Meskipun lebih kecil dari klan Shang, itu masih klan yang terkenal di perbatasan selatan.</p>
+<p>	Gejolak politik klan Wei dikatakan didukung oleh Shang Yan Fei. Pemimpin klan Wei saat ini bahkan mengirim klan ke klan Shang sebagai sandera. Banyak tetua klan Wei juga diam-diam mentransfer aset mereka ke klan Shang.</p>
+<p>	Klan Wei bisa dikatakan sudah menjadi boneka klan Shang.</p>
+<p>	Bagi Shang Xin Ci yang bersaing untuk menjadi tuan muda klan Shang, orang-orang ini adalah masalah.</p>
+<p>	Tetapi Fang Yuan dengan cepat berkata: “Kami membeli orang-orang ini.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

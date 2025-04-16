@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 97 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 97";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_96.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 97">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_98.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 97</h1>
+        <div class="text-left">
+<p>	Bab 97</p>
+<p>	Babak 97: Iblis mengamuk</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Aula urusan internal, ruang interogasi.</p>
+<p>	Cahaya matahari musim dingin menyinari tanah melalui satu-satunya jendela.</p>
+<p>	Partikel debu halus perlahan melayang di pilar cahaya.</p>
+<p>	Pilar cahaya menyelimuti sebuah kursi.</p>
+<p>	Fang Yuan sedang duduk di kursi itu, mandi di bawah sinar matahari.</p>
+<p>	Dalam kegelapan di depannya ada meja panjang tempat tiga orang tua duduk.</p>
+<p>	Interogasi sudah berlangsung selama satu jam.</p>
+<p>	“Fang Yuan, apakah kamu yakin tidak ada kesalahan dalam narasimu?” Seorang penatua bertanya.</p>
+<p>	“Ya.” Mata Fang Yuan menunduk, menatap jari kakinya. Sinar matahari menyinari wajahnya yang putih, membuatnya tampak seperti patung putih.</p>
+<p>	Dia sudah mengharapkan situasi ini.</p>
+<p>	Bagaimanapun, semua anggota kelompoknya telah meninggal kecuali dia.</p>
+<p>	Faktanya, setiap Guru Gu akan melalui interogasi tingkat tertentu yang dengan mudah membantu klan mengumpulkan statistik pertempuran. Tapi, Fang Yuan terus diinterogasi selama satu jam; jelas, seseorang mempersulitnya dari belakang layar.</p>
+<p>	Ini benar-benar bisa dimengerti.</p>
+<p>	Selama seseorang adalah manusia dan memiliki hubungan sosial, akan ada serangkaian orang yang terlibat.</p>
+<p>	“Kalau begitu ceritakan akunmu tentang situasi pertempuran saat itu lagi.” Penatua itu terus bertanya.</p>
+<p>	“Oke. Saya menggunakan beberapa hari untuk melakukan terobosan ke Peringkat dua. Sekembalinya ke gerbang desa, saya bertemu dengan kelompok Chi Shan… dan bertemu kembali dengan kelompok Jiao San setelah menemukan mereka. Pada saat itu, mereka bertengkar sengit dengan raja babi hutan …” Fang Yuan dengan tenang menceritakan.</p>
+<p>	Dia mengambil inisiatif untuk mengungkapkan terobosannya ke Peringkat dua. Tanpa menyembunyikan cacing Gu, dia tidak akan bisa menyembunyikan aura peringkat duanya.</p>
+<p>	Sekarang ular yang sakit-sakitan dan timnya sudah mati, jadi dia secara alami mengarang kejadian itu. Tapi, dia hanya bisa menyembunyikan beberapa detail utama dan menceritakan sebagian besar peristiwa sebagaimana adanya.</p>
+<p>	Ini sudah kelima kalinya Fang Yuan menceritakan peristiwa itu. Tiga tetua mengerutkan kening saat mereka mendengarkan.</p>
+<p>	Mereka tidak dapat menemukan lubang, tetapi mereka tahu – jika itu dibuat, maka akan ada detail yang tidak perlu. Setelah seseorang terus membicarakannya beberapa kali, secara alami akan ada lubang. Tetapi setelah lima kali, meskipun ada beberapa perbedaan dalam cara Fang Yuan menceritakan peristiwa itu, isinya tetap sama.</p>
+<p>	“Itu seharusnya benar.” Ketiga tetua berkomunikasi satu sama lain menggunakan sinyal mata.</p>
+<p>	Tetapi seorang penatua tidak puas.</p>
+<p>	Putrinya adalah Gu Master penyembuh kelompok ular sakit-sakitan yang sangat dia cintai tetapi akhirnya mati dengan kejam di mulut serigala. Karena itu dia sangat marah dan tatapannya menjadi dingin saat dia melihat Fang Yuan.</p>
+<p>	“Fang Yuan, kamu memotong jaring sisik pisau dengan pisau bulanmu, mengapa kamu melakukannya?” Penatua wanita paruh baya ini berbicara dengan tegas.</p>
+<p>	“Karena saya ingin memiliki beberapa kontribusi, tetapi akhirnya menjadi langkah yang buruk.” Fang Yuan menjawab.</p>
+<p>	“Kalau begitu izinkan saya bertanya, apakah Anda sengaja menggunakan rekan setim Anda – Master Gu perempuan – sebagai perisai ketika Anda bersembunyi di perut babi hutan?” Penatua bertanya lagi.</p>
+<p>	“Saya tidak tahu. Saya sangat takut pada waktu itu dan buru-buru mencoba bersembunyi di dalam raja babi hutan, tetapi dia juga masuk ke dalam dan melawan saya untuk posisi dalam. Dia tidak bisa mengalahkan saya dan digigit sampai mati oleh serigala petir. Saya malu.” Fang Yuan menjawab.</p>
+<p>	Penatua wanita paruh baya menggertakkan giginya. Jawaban Fang Yuan licik, dia hanya menyatakan fakta tetapi tidak menyebutkan niat subjektifnya sama sekali. Ini membuat para tetua yang ingin menekannya, tidak menemukan pegangan padanya; hati mereka dipenuhi amarah tetapi mereka tidak bisa berbuat apa-apa.</p>
+<p>	Dalam situasi seperti itu, mereka tidak bisa menilai Fang Yuan bersalah.</p>
+<p>	Sudah tiga hari sejak pasang binatang kecil.</p>
+<p>	Statistik korban membuat semua petinggi memiliki ekspresi jelek.</p>
+<p>	Ada kerugian di masa lalu gelombang binatang kecil juga, tapi mereka pasti tidak separah ini. Penyebabnya adalah gerombolan serigala petir. Sebelumnya, paket serigala petir ini hanya akan muncul setelah setidaknya tiga gelombang pasang binatang kecil.</p>
+<p>	Lingkungan sangat berbahaya di dunia ini; bertahan hidup, sulit.</p>
+<p>	Dari sudut pandang manusia, untuk bertahan hidup, selain bertarung dengan manusia lain untuk sumber daya, mereka masih harus berjuang melawan binatang buas dan cuaca buruk.</p>
+<p>	Dan perjuangan ini seringkali sangat sulit.</p>
+<p>	Gelombang binatang kecil masih hanya pendahuluan. Teror yang sebenarnya adalah gelombang besar serigala, setahun kemudian. Puluhan ribu serigala petir akan menyerang desa dengan raja serigala petir yang sangat kuat.</p>
+<p>	Penatua perempuan terus mengajukan beberapa pertanyaan tetapi dia akhirnya harus menyerah di bawah jawaban kebal Fang Yuan.</p>
+<p>	“Lalu Fang Yuan, apa yang kamu rencanakan mulai sekarang?” Penatua lain bertanya dengan niat yang dalam.</p>
+<p>	“Saya berencana untuk mengajukan aset keluarga, mewarisi dan melanjutkan warisan keluarga saya.” Fang Yuan berbicara secara terbuka, tidak perlu menyembunyikannya.</p>
+<p>	Kelompok ular yang sakit dihancurkan dan sekarang hanya Fang Yuan yang tersisa. Karena itu, dia tidak perlu menggunakan hak Guru Gu peringkat dua untuk melepaskan misi dan dapat menerima misi aset keluarga.</p>
+<p>	Penatua itu menganggukkan kepalanya lalu menggelengkan kepalanya, “Kamu tidak mengerti maksudku. Selain Anda, grup Anda tidak ada lagi. Saya bisa memberi Anda saran: Bergabunglah dengan grup lain. Kesulitan misi aula urusan internal dirancang untuk kelompok, sangat sulit bagi satu orang untuk menyelesaikannya. Apakah itu misi warisan keluargamu atau misi bulanan wajib, keduanya seperti ini.”</p>
+<p>	Fangyuan terdiam.</p>
+<p>	Penatua ini melanjutkan, “Tentu saja, ada pilihan lain. Anda sudah menjadi Master Gu peringkat dua. Anda memiliki kualifikasi untuk menjadi kapten grup. Anda hanya perlu melewati misi ujian dan Anda dapat membangun grup Anda sendiri. Kamu mau pilih yang mana?”</p>
+<p>	Fang Yuan mengedipkan matanya: “Saya belum tahu, saya perlu waktu untuk mempertimbangkan.”</p>
+<p>	“Kalau begitu kamu bisa pergi. Pikirkan itu sesegera mungkin. Setelah beberapa hari berlalu, akan sulit bagimu untuk bergabung dengan grup, ”kata tetua dengan prihatin.</p>
+<p>	Fang Yuan mencibir ke dalam, dia tidak akan memilih salah satu dari dua jalan ini.</p>
+<p>	Dia punya banyak rahasia. Hanya dengan dirinya sendiri dia bisa aman dan melakukan hal-hal dengan benar. Kalau tidak, bukankah dia akan kesal setengah mati jika ada orang lain yang bersamanya sepanjang waktu?</p>
+<p>	Meninggalkan ruang interogasi ini, Fang Yuan tidak segera meninggalkan aula urusan internal tetapi malah melamar misi warisan keluarga. Namun, dia diberitahu bahwa dia hanya bisa mengambilnya setelah tiga hari karena sibuknya acara baru-baru ini.</p>
+<p>	Keluar dari aula urusan internal, dia menatap langit.</p>
+<p>	Itu hanya sore musim dingin biasa.</p>
+<p>	Musim dingin itu suram bersama dengan angin yang menggigit. Langit tampak diliputi kesedihan yang mendalam.</p>
+<p>	“Hari ini adalah pertemuan peringatan kelompok. Gu Yue Jin Zhu sudah mati, tahukah kamu, Fang Yuan?” Mo Bei, bersama dengan sekelompok pemuda, sedang berjalan melalui jalan setapak.</p>
+<p>	Selain Mo Bei, ada Fang Zheng, Chi Cheng, dan lainnya.</p>
+<p>	Mo Bei dan Chi Cheng biasanya sangat membenci satu sama lain, tapi hari ini, mereka sepertinya melupakan keluhan ini dan berjalan bersama.</p>
+<p>	“Kakak, Jin Zhu belajar bersama kami selama setahun. Ikut dengan kami.” Kata Fang Zheng.</p>
+<p>	Gu Yue Jin Zhu…</p>
+<p>	Gambar seorang gadis segera muncul di benak Fang Yuan.</p>
+<p>	Sebelumnya, dia telah berimbang dengan Mo Bei di arena tetapi kalah karena staminanya yang kurang. Dia adalah gadis pekerja keras.</p>
+<p>	Tapi, kematian tidak membedakan antara cantik dan jelek.</p>
+<p>	Kebanyakan orang akan merasa kasihan, tetapi Fang Yuan acuh tak acuh seperti biasa.</p>
+<p>	“Ah, dia sudah mati? Tapi mati karena tua atau sakit, keduanya adalah peristiwa normal. Setelah melihatnya berkali-kali Anda akan acuh tak acuh terhadapnya. Kalian pergilah, aku sibuk.” Fang Yuan melewati kelompok itu.</p>
+<p>	“Orang ini!” Seketika, banyak di antara kelompok itu marah.</p>
+<p>	“Dia benar-benar berdarah dingin dan tidak berperasaan …”</p>
+<p>	“Dia sama sekali tidak memiliki perasaan persahabatan!”</p>
+<p>	“Hehe, ada rumor yang beredar baru-baru ini. Anda semua pasti pernah mendengarnya, bukan? Alasan Fang Yuan selamat adalah karena dia bersembunyi di dalam perut babi hutan dan menggunakan rekan setimnya sebagai tameng.”</p>
+<p>	“Dia benar-benar memalukan tanpa nilai. Dia bahkan tidak memiliki sopan santun seorang pria. ” Chi Cheng melipat tangannya dan tertawa dingin.</p>
+<p>	“Kakak …” Fang Zheng menundukkan kepalanya dan menggertakkan giginya.</p>
+<p>	Mendengar diskusi ini, sebagai adik Fang Yuan, dia merasa malu.</p>
+<p>	Fang Yuan pergi dan saat dia berjalan lebih jauh, ejekan di belakangnya secara bertahap tidak terdengar lagi.</p>
+<p>	Hatinya tenang.</p>
+<p>	“Mengapa penghinaan penting bagi saya?”</p>
+<p>	Penghinaan adalah penghinaan, apa yang bisa mereka lakukan?</p>
+<p>	Orang yang dangkal akan marah karena kutukan dan akan bahagia karena pujian.</p>
+<p>	Ini hanya cara orang-orang yang melihat Anda memandang Anda. Mereka yang hidup menurut sudut pandang orang lain benar-benar menyedihkan.</p>
+<p>	Bahkan, beberapa orang sengaja menyebarkan desas-desus untuk merendahkan nama Fang Yuan.</p>
+<p>	Mengorbankan rekan satu tim wanita untuk melindungi diri sendiri tidak akan dikenakan hukuman, tetapi akan dikritik oleh konsensus moral.</p>
+<p>	Tapi, ini adalah situasi yang diinginkan Fang Yuan.</p>
+<p>	Begitu seseorang memasuki sistem, dia akan menjadi pion tanpa kebebasan dan harus mengikuti aturan sistem. Bagi Fang Yuan, itu adalah hambatan besar, dia membutuhkan sumber daya dan bahkan lebih dibutuhkan untuk menyendiri.</p>
+<p>	Jadi, dia ingin menjadi penyendiri.</p>
+<p>	Bagaimana jika Anda ditolak oleh orang banyak? Haha, hanya orang lemah hati yang takut ditolak.</p>
+<p>	Jika ini terjadi di Bumi, tidak peduli siapa, mereka akan berakhir mati. Lagi pula, dua tinju tidak bisa mengalahkan empat tangan, koneksi sosial adalah cara untuk bertahan hidup.</p>
+<p>	Tetapi di dunia ini, jika kultivasinya kuat, satu orang dapat mengalahkan sepuluh, ratusan, dan ribuan musuh. Jadi bagaimana jika Anda ditolak, bunuh saja orang-orang yang menghalangi jalan Anda. Jika Anda tidak memiliki sumber daya, rebut mereka.</p>
+<p>	Setiap dunia memiliki aturan dan peraturan yang berbeda, struktur masyarakat juga pasti berbeda, sehingga menyebabkan perbedaan perilaku manusia.</p>
+<p>	Dan di dunia seni bela diri, pemikiran kelompok agak lemah.</p>
+<p>	Jadi di dunia ini —</p>
+<p>Iblis mengamuk.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

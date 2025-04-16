@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 9";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_8.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 9">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_10.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 9</h1>
+        <div class="text-left">
+<p>	Bab 09</p>
+<p>	Bab 9 – Dua orang yang memulai di jalan yang sama, secara bertahap menjadi jauh</p>
+<p>	Matahari terbenam adalah pengaturan rona merah di timur.</p>
+<p>	Langit masih cerah, tetapi semuanya tampak tertutup oleh bayangan abu-abu. Menghadap ke jendela, pegunungan di kejauhan berangsur-angsur berubah menjadi warna hitam pekat.</p>
+<p>	Cahaya di ruang tamu redup. Bibi dan Paman duduk tinggi di kursi mereka, wajah mereka diselimuti bayangan, ekspresi mereka sulit dibedakan.</p>
+<p>	Saat dia melihat Fang Yuan membawa dua toples anggur, alis Paman Gu Yue Dong Tu menjadi simpul. Dia membuka mulutnya dan berbicara, “Dalam sekejap mata, kalian berdua sekarang berusia 15 tahun. Karena kalian berdua memiliki bakat seorang Guru Gu , terutama Fang Zheng, bibimu dan aku bangga pada kalian berdua. Saya akan memberikan Anda berdua 6 buah batu purba, ambillah. Memurnikan Gu Anda menghabiskan banyak esensi purba, jadi Anda akan membutuhkan batu purba ini. ”</p>
+<p>	Saat dia mengatakan ini, beberapa pelayan datang dan memberikan masing-masing tas kecil kepada Fang Yuan dan Fang Zheng.</p>
+<p>	Fang Yuan mengambil tasnya diam-diam.</p>
+<p>	Fang Zheng segera membuka tasnya dan melihat ke dalam untuk melihat 6 buah batu purba berwarna putih keabu-abuan berbentuk oval. Wajahnya bersinar dengan rasa terima kasih sekaligus dan dia berdiri dari tempat duduknya, menghadap bibi dan pamannya. “Terima kasih Bibi dan Paman, keponakanmu memang membutuhkan batu purba untuk mengisi kembali esensi purbaku! Anda berdua telah membesarkan saya sampai hari ini, rasa terima kasih ini terukir di hati saya, saya tidak akan melupakannya selamanya! ”</p>
+<p>	Paman tersenyum dan mengangguk. Bibi buru-buru melambaikan tangannya dan berkata dengan hangat, “Duduk, duduk! Meskipun Anda berdua bukan anak kami secara langsung, kami selalu membesarkan Anda sebagai anak kami sendiri. Anda berdua bisa meraih masa depan, dan kami bangga akan hal itu. Sayangnya kami tidak memiliki anak sendiri, dan terkadang kami berpikir bahwa jika kalian berdua benar-benar bisa menjadi anak kami, itu akan menjadi yang terbaik.”</p>
+<p>	Kata-katanya membawa makna yang dalam. Fang Zheng tidak memahaminya, tetapi Fang Yuan sedikit mengernyit.</p>
+<p>	Paman memotong dan berkata, “Aku sudah membicarakan ini dengan bibimu. Kami berpikir untuk mengadopsi Anda berdua dan menjadi keluarga yang asli dan nyata. Fang Zheng, saya ingin tahu apakah Anda bersedia? ”</p>
+<p>	Fang Zheng tertegun sejenak, tetapi raut wajahnya dengan cepat muncul senyum gembira dan dia berkata, “Sejujurnya, setiap sejak kedua orang tua saya meninggal, saya sangat merindukan keluarga saya sendiri. Untuk bisa menjadi keluarga dengan Bibi dan Paman, ini terlalu bagus untuk menjadi kenyataan!”</p>
+<p>	Ekspresi Bibi mengendur dan dia tertawa, “Kalau begitu kamu adalah putra kami yang baik, bukankah kamu harus berhenti memanggil kami Bibi dan Paman?”</p>
+<p>	“Ayah ibu.” Fang Zheng dalam keadaan sadar mengubah pernyataannya.</p>
+<p>	Bibi dan Paman tertawa terbahak-bahak. “Sungguh anak yang baik, tidak menyia-nyiakan kami suami istri untuk membesarkanmu sejak kamu berusia lima tahun. Dan kami telah membesarkanmu selama sepuluh tahun penuh,” Bibi menyeka air matanya.</p>
+<p>	Paman memandang Fang Yuan yang diam dan berkata dengan lembut, “Fang Yuan, bagaimana denganmu?”</p>
+<p>	Fang Yuan menggelengkan kepalanya tanpa mengucapkan sepatah kata pun.</p>
+<p>	“Kakak laki-laki.” Gu Yue Fang Zheng hendak menasihatinya, tetapi Paman, yang nada suaranya tidak berubah, menghentikannya. “Jika itu masalahnya, Fang Yuan keponakanku, kami tidak akan memaksamu. Karena Anda sudah berusia 15 tahun, Anda harus mulai mandiri, dengan cara ini Anda juga akan dengan mudah meneruskan garis keturunan Fang Anda. Paman di sini telah menyiapkan 200 batu purba untuk Anda sebagai dukungan keuangan.</p>
+<p>	“200 batu purba!” Mata Fang Zheng terbuka lebar; dia belum pernah melihat begitu banyak batu purba dalam hidupnya. Dia tidak bisa membantu tetapi mengungkapkan ekspresi cemburu.</p>
+<p>	Tapi Fang Yuan masih menggelengkan kepalanya.</p>
+<p>	Fang Zheng bingung, sementara ekspresi Paman sedikit berubah. Wajah Bibi juga berubah mendung.</p>
+<p>	“Bibi dan paman. Jika tidak ada yang lain, maka keponakanmu akan pergi, “Fang Yuan tidak memberi mereka kesempatan untuk berbicara lagi. Setelah dia menyelesaikan kalimatnya, dia mengambil toples anggurnya dan segera meninggalkan aula.</p>
+<p>	Fang Zheng bangkit dari tempat duduknya dan berkata, “Ayah, Ibu. Kakak tidak berpikir jernih, bagaimana kalau Anda membiarkan saya menasihatinya? ”</p>
+<p>	Paman melambaikan tangannya dan dengan sengaja menghela nafas, “Sayangnya masalah ini tidak bisa dipaksakan. Karena Anda memiliki hati, sebagai ayah Anda saya sudah sangat puas. Pelayan, jaga tuan muda Fang Zheng perlakukan dia dengan baik. “</p>
+<p>	“Kalau begitu putramu akan pergi,” Fang Zheng mundur, dan ruang tamu menjadi sunyi.</p>
+<p>	Matahari terbenam di bawah gunung, dan ruang tamu menjadi lebih gelap. Dalam beberapa saat dari kegelapan suara dingin Paman muncul. “Sepertinya bocah ini Fang Yuan telah melihat melalui plot kita.”</p>
+<p>	Di antara peraturan klan Gu Yue dengan jelas ditetapkan bahwa putra tertua pada usia 16 tahun akan memiliki kualifikasi untuk mewarisi harta keluarga. Orang tua Fang Yuan telah meninggal, meninggalkan banyak uang. Itu sedang ‘diurus’ oleh Bibi dan Paman. Warisan ini bukanlah sesuatu yang bisa dibandingkan dengan 200 batu esensi. Jika Fang Yuan juga setuju untuk diadopsi oleh Bibi dan Paman, maka dia akan kehilangan hak untuk mewarisi kekayaan ini. Jika Fang Yuan pada usia 15 tahun ini memutuskan untuk mandiri, dia juga tidak akan mematuhi peraturan klan.</p>
+<p>	“Untungnya kami berhasil memenangkan Fang Zheng, dan Fang Yuan hanya memiliki bakat kelas C,” Paman menghela nafas, merasa gembira.</p>
+<p>	“Lalu suamiku, jika Fang Yuan memutuskan untuk mandiri pada usia 16 tahun, apa yang harus kita lakukan?” Nada bicara Bibi histeris saat dia memikirkan tentang warisan.</p>
+<p>	“Hmph, karena dia bertindak tidak disiplin, maka dia tidak bisa menyalahkan kita. Selama kita menangkapnya melakukan kesalahan besar sebelum dia meninggalkan kita dan mengusirnya dari keluarga kita, itu akan dihitung sebagai merampas haknya untuk mewarisi warisan, ”Paman menjelaskan dengan dingin.</p>
+<p>	“Tapi bocah itu sangat pintar, bagaimana dia bisa membuat kesalahan?” Bibi bertanya, bingung.</p>
+<p>	Paman segera memutar matanya dan berbisik dengan marah, “Kamu benar-benar bodoh! Jika dia tidak akan membuat kesalahan, tidak bisakah kita menjebaknya? Biarkan saja Shen Cui merayu Fang Yuan dan berteriak menyerang, kami menangkapnya di tempat, mengarang cerita tentang dia bertingkah liar saat dia mabuk. Tentunya kita bisa mengusir Fang Yuan?”</p>
+<p>	“Suami, kamu benar-benar punya cara, rencana yang sangat cerdik!” Bibi sangat gembira pada saat itu.</p>
+<p>	Warna tebal malam menutupi langit, dan bintang-bintang yang menyelimuti langit sebagian besar tertutup oleh awan gelap yang mengambang. Setiap rumah tangga di desa secara bertahap menyala dengan lampu.</p>
+<p>	Gu Yue Fang Zheng diantar ke sebuah ruangan.</p>
+<p>	“Tuan muda Fang Zheng, tuan tua secara pribadi menyuruh saya merapikan kamar ini khusus untuk Anda,” kata Ibu Shen dengan nada ramah. Dia membungkuk pinggangnya, wajahnya memiliki senyum menyanjung.</p>
+<p>	Fang Zheng melihat sekeliling dengan pandangan, matanya bersinar. Ruangan ini setidaknya lebih besar dua kali lipat dari kamar sebelumnya. Di tengah ruangan ada tempat tidur yang luas; di samping jendela ada meja kayu rosewood dengan set tinta dan kertas yang halus. Dindingnya didekorasi dengan ornamen yang sangat indah, dan di bawah kakinya bukanlah lantai biasa, tetapi ditutupi lapisan karpet buatan tangan yang lembut.</p>
+<p>	Dari masa kecilnya sampai sekarang, Fang Zheng tidak pernah tinggal di kamar seperti itu. Dia segera menganggukkan kepalanya terus menerus dan berkata, “Ini sangat bagus, ini benar-benar tidak buruk, terima kasih Ibu Shen.”</p>
+<p>	Ibu Shen adalah orang yang paling berharga bagi Bibi dan Paman; dia bertanggung jawab atas semua budak di rumah dan merupakan pembantu rumah tangga yang sesuai dengan reputasinya. Gadis Shen Cui yang melayani Fang Yuan adalah putrinya.</p>
+<p>	Ibu Shen tertawa, “Saya tidak pantas menerima ucapan terima kasih tuan muda, ini adalah tugas saya, tugas saya! Tuan muda, jangan ragu untuk makan dengan baik dan tidur nyenyak. Apa pun yang Anda inginkan, goyangkan saja bel di samping tempat tidur Anda, seseorang akan segera melayani Anda. Tuan tua telah menginstruksikan kami, jadi dalam beberapa hari ini tolong berikan semua perhatianmu pada kultivasi, tuan muda. Serahkan saja semua tugas lainnya kepada kami.”</p>
+<p>	Fang Zheng merasakan semburan rasa terima kasih di dalam hatinya. Dia tidak mengatakan apa-apa, tetapi jauh di lubuk hatinya dia memutuskan, kali ini aku harus mendapatkan nomor satu dan tidak mengecewakan Bibi dan Paman!</p>
+<p>	Awan gelap di langit semakin berat, dan malam semakin gelap. Di langit malam, sebagian besar bintang tertutup awan, meninggalkan beberapa yang bersinar dengan cahaya redup, berkedip-kedip di langit.</p>
+<p>	“Bibi dan Paman pasti sedang merencanakan cara mengusirku dari rumah sekarang. Dalam kehidupan saya sebelumnya, mereka diam-diam menghasut para pelayan untuk memprovokasi saya, dan kemudian menjebak saya. Kemudian mereka mengusir saya dari keluarga; Aku ingin tahu apakah akan ada perubahan dalam hidup ini.” Fang Yuan mencibir dalam hatinya saat dia berjalan di sepanjang jalan.</p>
+<p>	Dia sudah lama melihat dengan jelas warna asli dari Bibi dan Pamannya. Tapi dia juga bisa memahaminya.</p>
+<p>	Pria akan membuang hidup mereka untuk mengejar kekayaan. Tidak peduli apakah di Bumi atau di dunia ini, akan selalu ada banyak orang yang rela menginjak-injak kekerabatan, persahabatan dan cinta untuk kepentingan dan keuntungan mereka sendiri.</p>
+<p>	Sebenarnya kekerabatan itu tidak ada. Pada awalnya ketika Bibi dan Paman menerima Fang Yuan dan Fang Zheng, satu-satunya tujuan mereka adalah mencari warisan. Hanya saja kedua bersaudara itu berulang kali tidak terduga.</p>
+<p>	“Semua hal sulit sebelum menjadi mudah. Bagi saya ini lebih dari itu. Pertama saya tidak memiliki bakat yang luar biasa; kedua saya tidak memiliki perawatan seorang guru. Ini setara dengan membesarkan keluarga dari nol, tetapi dengan warisan orang tua saya, itu dapat dikatakan sebagai keuntungan besar bagi saya. Dalam kehidupan saya sebelumnya, Bibi dan Paman mencuri warisan, dan karena itu saya harus membuang dua tahun penuh untuk dapat berkultivasi ke tahap puncak Peringkat Satu. Dalam hidup ini saya tidak bisa melakukan kesalahan yang sama.”</p>
+<p>	Fang Yuan merenung dalam pikirannya saat dia berjalan.</p>
+<p>	Alih-alih tinggal di rumah, dia memegang dua toples anggur dan berjalan menuju pinggiran desa.</p>
+<p>	Malam semakin dalam dan awan gelap mengaburkan cahaya bintang, angin gunung bertiup, semakin kuat secara bertahap.</p>
+<p>	Hujan gunung datang. Tapi dia masih harus mencari; untuk mendapatkan warisan orang tuanya, dia harus menunggu sampai dia berusia enam belas tahun. Dan harta Biksu Anggur Bunga adalah satu-satunya hal yang bisa dia dapatkan dalam jangka pendek.</p>
+<p>	Tidak banyak orang di jalanan. Rumah-rumah di sepanjang jalan menunjukkan cahaya redup. Beberapa sampah kecil dan dedaunan tertiup angin, hanyut.</p>
+<p>	Pakaian tipis Fang Yuan tidak bisa menghentikan angin gunung, dan dia tidak bisa menahan rasa dingin yang dingin. Dia hanya membuka toples anggur, minum seteguk kecil anggur. Meskipun itu anggur keruh, tetapi setelah menelannya dia merasakan perasaan hangat naik.</p>
+<p>	Ini adalah pertama kalinya dia benar-benar minum anggur dalam beberapa hari ini.</p>
+<p>	Semakin jauh dia berjalan keluar dari desa, semakin sedikit rumah-rumah di samping jalan, dan semakin redup lampunya. Di depannya bahkan lebih gelap. Angin bertiup kencang menerpa hutan pegunungan, ranting-ranting bergoyang di malam hari, membuat suara siulan yang terdengar seperti kawanan binatang yang mengaum.</p>
+<p>	Kecepatan Fang Yuan tidak melambat. Dia berjalan keluar dari pintu masuk desa yang besar dan keluar ke kegelapan, melangkah lebih jauh saat dia berjalan. Dan di belakangnya ada lampu-lampu terang dan cemerlang dari puluhan ribu rumah. Di lampu-lampu ini ada sudut yang hangat.</p>
+<p>	Adik laki-laki Fang Zheng duduk di mejanya, meninjau catatan yang telah dia catat selama kelas. Lampu-lampu di rumah itu bersinar terang, dinding yang kokoh menghalangi angin dingin. Di samping tangannya ada secangkir teh ginseng hangat, uapnya naik dari cangkir.</p>
+<p>	“Tuan muda Fang Zheng, air mandi panas telah disiapkan untukmu.”</p>
+<p>	Di luar pintu, suara Shen Cui dengan lembut melayang.</p>
+<p>	Hati Fang Zheng tersentak. “Kalau begitu tolong bawa.”</p>
+<p>	Shen Cui berjalan ke kamar dengan pinggang tertunduk, ekspresinya senang.</p>
+<p>	“Pelayanmu menyapa tuan muda.” Matanya mengirim pandangan mesra ke Fang Zheng. Fang Yuan hanya bakat kelas C, tetapi Fang Zheng adalah bakat kelas A! Untuk bisa mendapatkan dia, benar-benar keberuntungan terbesar!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

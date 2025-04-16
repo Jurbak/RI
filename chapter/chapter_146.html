@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 146 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 146";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_145.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 146">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_147.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 146</h1>
+        <div class="text-left">
+<p>	Bab 146</p>
+<p>	Bab 146: Menindas</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Jiang Ya menatap Gu Yue Ye yang wajahnya muram, mantan diam-diam merasa senang di hatinya.</p>
+<p>	Orang tua ini dengan paksa membuat Jiang Ya membawanya ke tempat ini. Jiang Ya hanya memiliki kultivasi peringkat satu dan masih junior, jadi dia harus menundukkan kepalanya ke Gu Yue Ye dan membawanya ke sini.</p>
+<p>	Tapi sekarang dia telah dipermalukan, hati Jiang Ya iri dengan kepribadian Fang Yuan yang tidak terkendali.</p>
+<p>	Gu Yue Ye ingin memberi Fang Yuan beberapa tamparan keras, untuk menceramahi junior yang sombong ini. Tetapi untuk vitalitasnya pergi, dia harus mengendalikan dirinya sendiri, “Junior Fang Yuan, kamu tidak bisa mengatakan itu. Anda masih muda, Anda tidak tahu pentingnya hubungan manusia, akan tiba saatnya Anda harus mengemis kepada orang lain. Pikirkan saja, di masa depan ketika Anda datang untuk meminta bantuan saya dan saya memperlakukan Anda seperti ini, bagaimana perasaan Anda?”</p>
+<p>	“Hubungan manusia omong kosong!” Fang Yuan tertawa jijik di dalam hatinya.</p>
+<p>	Yang disebut persatuan itu hanya karena mereka secara individu lemah.</p>
+<p>	Hubungan manusia, itu penting di bumi. Lagi pula, tidak ada perbedaan dalam kekuatan pribadi di antara orang-orang. Tetapi di dunia ini di mana orang berkultivasi, hal-hal secara inheren berbeda.</p>
+<p>	Hubungan manusia hanyalah produk sampingan dari kekuatan — jika seseorang kuat, hubungan manusiawi mereka akan berkembang.</p>
+<p>	Tetapi bagi mereka yang mengejar hubungan, mereka pasti memiliki sesuatu untuk ditanyakan kepada orang lain.</p>
+<p>	Adapun tidak membutuhkan hubungan – jika seseorang terlalu kuat, mereka dapat merebut apa pun yang mereka inginkan, memberikannya atau mati, mengapa mereka membutuhkan hubungan orang?</p>
+<p>	Ini adalah pemikiran jalur iblis, dan Fang Yuan secara alami tidak akan mengiklankannya di depan umum.</p>
+<p>	Tetapi karena dia terganggu seperti ini, Fang Yuan mungkin juga melakukan bisnis ini.</p>
+<p>	Karena itu, dia berkata, “Bukannya aku juga tidak bisa menjualnya. Satu daun vitalitas untuk enam puluh delapan batu purba. Berapa banyak yang kamu mau?”</p>
+<p>	“Hah!” Gu Yue Ye di luar pintu terkejut dengan harga ini, dengan cepat berkata, “Junior Fang Yuan, harga ini terlalu mahal!”</p>
+<p>	Fang Yuan mendengus, “Kalau begitu jangan membelinya. Di antara sumber daya yang disediakan oleh klan, ada juga daun vitalitas, Anda dapat menukarnya dengan poin prestasi. ”</p>
+<p>	Gu Yue Ye tertawa pahit, “Bagaimana aku tidak tahu itu, tapi daun vitalitas ini semua dijual kepada mereka yang memiliki hubungan, tetua klan ruang obat Gu Yue Yao Ji memiliki kendali penuh atas itu, bagaimana aku bisa ikut campur? Junior Fang Yuan, tolong aku, aku pasti akan membalasmu. Dari apa yang saya lihat, enam puluh batu purba adalah harga yang adil. ”</p>
+<p>	“Saya tidak mengantisipasi pembayaran orang, Anda sudah cukup membuang waktu saya. Tujuh puluh batu purba, jika Anda tidak ingin membelinya, pergilah. ” Fang Yuan menjawab.</p>
+<p>	Gu Yue Ye dengan marah menginjak, “Junior Fang Yuan, bagaimana kamu bisa melakukan bisnis seperti ini?”</p>
+<p>	Fang Yuan mencibir, “Waktunya berbeda, sekarang tujuh puluh dua batu purba, setiap kalimat yang Anda ucapkan membuang-buang waktu saya, dan ketika saya merasa tidak senang saya akan menaikkan harganya, saya harap Anda dapat membuat keputusan yang tepat.”</p>
+<p>	Mendengar ini, wajah Gu Yue Ye menjadi marah; dia ingin mengatakan sesuatu, tetapi setiap kali dia membuka mulutnya, tidak ada kata yang keluar.</p>
+<p>	Wajahnya yang lusuh berwarna hijau dan merah, dan Jiang Ya yang berada di sampingnya melihat ini dan bersorak dalam hati.</p>
+<p>	Akhirnya, dia menggertakkan giginya, berkata, “Oke, aku akan membelinya, aku butuh lima daun vitalitas.”</p>
+<p>	“Kamu bisa menyerahkan batu purba kepada Jiang Ya. Adapun daun vitalitas, kumpulkan darinya tiga hari kemudian. ” kata Fangyuan.</p>
+<p>	Ini sombong, memperdagangkan barang dan uang adalah keadilan yang paling mendasar.</p>
+<p>	Tapi Gu Yue Ye masih membayar uang, menyerahkan beberapa tas ke Jiang Ya di tempat.</p>
+<p>	Gerakannya sedikit gemetar, karena ini adalah tabungannya yang sedikit, tabungan darinya yang berhemat selama bertahun-tahun, dan sekarang semuanya diambil oleh pedagang yang cerdik!</p>
+<p>	Akhirnya, dia berjalan keluar dari gedung bambu ini dengan perasaan marah yang tak ada habisnya.</p>
+<p>	“Tuan Fang Yuan, apa yang Anda lakukan adalah balas dendam yang sangat keren! Tapi saya khawatir Anda telah benar-benar menyinggung Gu Yue Ye. Orang tua ini, ketika dia masih muda dia selalu membalas dendam pada orang-orang, dia tidak akan melepaskan ini dengan mudah. ​​” Di luar, Jiang Ya berkata dengan hati-hati.</p>
+<p>	“Biarkan dia, seorang lelaki tua yang mengandalkan senioritasnya, dia pasti akan tersingkir oleh klan.” Fang Yuan membuka pintu, dan Jiang Ya menyerahkan tasnya.</p>
+<p>	Klan ingin melawan gelombang serigala, sehingga membutuhkan sumber daya dalam jumlah besar. Dengan sumber daya yang lebih sedikit, mereka tidak dapat mempertahankan struktur organisasi yang besar, sehingga mereka perlu menyingkirkan anggota.</p>
+<p>	Orang-orang tua yang masih hidup ini menyia-nyiakan sumber daya langka yang berharga, mereka ditakdirkan untuk pergi.</p>
+<p>	Paket serigala menghilangkan yang tua dan sakit-sakitan, mengusir serigala yang lumpuh. Dalam masyarakat manusia, mereka tidak akan begitu jelas, selalu menutupi kejahatan mereka dengan perisai cahaya, sehingga mereka memanggil Master Gu tua ini untuk bertarung.</p>
+<p>	Jadi bagaimana jika Gu Yue Ye mengerti maksudnya?</p>
+<p>	Berada dalam sistem, seseorang dalam masyarakat, mereka tidak punya pilihan.</p>
+<p>	Klan menggunakan alasan melindungi keluarga dan klan mereka untuk memanggil mereka bertarung dan berkorban, bagaimana mereka bisa menolak?</p>
+<p>	Di Bumi ada kalimat, jika Kaisar ingin rakyatnya mati, mereka tidak bisa melakukan sebaliknya. Tapi masih banyak orang yang berjuang untuk posisi menjadi bawahan kaisar. Ini adalah daya pikat dan kekejaman sistem.</p>
+<p>	“Setiap putaran gelombang serigala di masa lalu, Master Gu tua yang keluar untuk bertarung, berapa banyak yang bisa bertahan? Jangan katakan lima daun vitalitas, bahkan jika kita memberikan lima puluh keping Gu Yue Ye ini, dia mungkin tidak bisa keluar hidup-hidup. ” Fang Yuan berdiri di pintu, tertawa dingin.</p>
+<p>	Ketika Jiang Ya mendengar nada ini, hatinya membeku.</p>
+<p>	Dia bisa merasakan aura dari Fang Yuan, penuh dingin dan beku, seperti angin utara bertiup sampai dia tidak bisa mengangkat kepalanya.</p>
+<p>	Fang Yuan memandang Jiang Ya, matanya gelap dan hitam, melanjutkan, “Mulai sekarang, selain pengaturan waktu, kamu tidak dapat mencariku! Jika Anda melanggar aturan saya, bersiaplah untuk menghadapi konsekuensinya. Membiarkan Anda menjual daun vitalitas untuk saya, adalah karena saudara Anda. Tapi rasa hormat diberikan oleh orang lain, dan dibuang oleh diri sendiri. Pikirkan tindakan Anda sendiri. ”</p>
+<p>	Jiang Ya mendengar ceramah Fang Yuan, tidak berani berbicara. Memikirkan keadaan sedih Gu Yue Ye, keringat mengalir dari dahinya.</p>
+<p>	“Juga, mulai sekarang, naikkan harga daun vitalitas menjadi tujuh puluh batu purba.” Fang Yuan berkata lagi.</p>
+<p>	“Tujuh puluh?!” Jiang Ya terkejut saat dia menelan ludah, matanya bersinar, seolah dia bisa melihat persediaan batu purba yang tak ada habisnya.</p>
+<p>	Tetapi dia juga agak takut, bertanya dengan lemah lembut, “Tuan Fang Yuan, menaikkan harga seperti ini, apakah itu akan membuat orang lain berpikir bahwa kita menumbuhkan kekayaan melalui kemalangan? Apakah kita memiliki kecurigaan mengambil keuntungan dari keadaan klan? Jika kita melakukan ini, kita mungkin akan menimbulkan kemarahan publik.”</p>
+<p>	“Kemarahan publik? Hmph, apa yang bisa mereka lakukan, lakukan apa yang saya pesan, jangan bicara omong kosong. Jika seseorang menemukan masalah, beri tahu mereka bahwa daun vitalitas dijual oleh saya. ” Fangyuan mendengus.</p>
+<p>	“Ya ya ya.” Jiang Ya mengangguk dengan marah, kata-kata Fang Yuan adalah apa yang ingin dia dengar, dia akan melakukan ini juga.</p>
+<p>	Dia hanya anak kecil peringkat satu, dia tidak bisa menyinggung terlalu banyak orang. Melempar semua masalah ini ke Fang Yuan, dia sudah mulai melakukannya.</p>
+<p>	Seekor benih kecil juga memiliki metode bertahan hidup sendiri, dan menuju niat Jiang Ya, Fang Yuan jelas hatinya.</p>
+<p>	Tetapi perbedaan kultivasi dan perbedaan era, membuat Fang Yuan menjalani gaya hidup yang berbeda.</p>
+<p>	Setelah menggunakan Relic Gu baja merah itu, dia akan menjadi peringkat dua tahap puncak, dekat dengan Peringkat tiga. Itu berarti dia akhirnya tumbuh melewati langkah awal, dan memiliki kekuatan ini berarti hidup dan masa depannya akan berbeda.</p>
+<p>	Di masa lalu dia perlu merendahkan, tetapi sekarang dia harus menindas.</p>
+<p>	Hanya ketika dia menindas dia dapat memperoleh manfaat terbesar.</p>
+<p>	Adapun Jiang Ya ini, dia masih memiliki beberapa nilai untuk digunakan. Bahkan dengan tindakan kecilnya, selama itu tidak melanggar manfaat Fang Yuan, dia bisa mentolerirnya.</p>
+<p>	Bahkan mengungkapkan beberapa kartu truf yang tidak penting bukanlah masalah besar.</p>
+<p>	Selama masa damai, para petinggi itu tidak ada hubungannya, sehingga mereka mungkin menemukan masalah. Tapi sekarang ada gelombang serigala, siapa yang punya energi untuk peduli dengan detail kecil seperti itu?</p>
+<p>	Setelah gelombang serigala, tidak ada jaminan bahwa desa Gu Yue masih ada.</p>
+<p>	Setengah bulan kemudian.</p>
+<p>	Serigala petir menyerang seperti gelombang pasang, menyebabkan Master Gu mundur dengan tergesa-gesa.</p>
+<p>	“Xiong Yuan Zhen, kamu harus bertahan di sana! Desa Gu Yue tidak terlalu jauh.” Xiong Jiao Man menatap klan di tanah, matanya memerah saat dia berteriak.</p>
+<p>	“Pemimpin kakak, aku tidak tahan lagi. Ada sesuatu di dalam hatiku yang ingin kukatakan padamu…” Xiong Yuan Zhen sedang sekarat, luka-lukanya parah dan wajahnya penuh dengan kematian.</p>
+<p>	“Oke, bicara!” Xiong Jiao Man terisak. Dia tahu di dalam hatinya bahwa meskipun Xiong Yuan Zhen ini biasanya pendiam, tapi dia diam-diam jatuh cinta padanya. Pada saat ini, dia tahu apa yang ingin dia katakan.</p>
+<p>	Tetapi ketika Xiong Yuan Zhen membuka mulutnya, dia tidak berhasil mengaku dan berkata, “Aku mencintaimu.”</p>
+<p>	Dia telah meninggal, meninggal karena kehilangan darah, luka yang terlalu parah untuk disembuhkan.</p>
+<p>	Tubuhnya penuh luka, semua dari gigitan serigala petir. Pukulan paling fatal adalah di dadanya, dari bahu kanannya sampai ke pusarnya — ini disebabkan oleh serigala petir yang berani.</p>
+<p>	“Kak, situasinya buruk, kelompok serigala petir berani datang!” Pengintai Gu Master berteriak, suaranya dipenuhi kepanikan.</p>
+<p>	Tangisan Xiong Jiao Man berakhir, menjatuhkan tubuh Xiong Yuan Zhen. Dia adalah pemimpin kelompok, anggota kelompoknya membutuhkannya!</p>
+<p>	Orang mati telah berlalu, dan mereka yang hidup harus terus menghadapi kekejaman dunia ini.</p>
+<p>	“Serigala-serigala sialan ini, apakah ada akhir bagi mereka!” Xiong Jian Man mengutuk keras. Sosok tubuhnya panas dan dia memiliki wajah cantik yang bagus, jadi ketika dia mengucapkan kata-kata umpatan ini ada rasa yang unik tentang dirinya.</p>
+<p>	Mendengar kata-katanya, yang lain menjadi tenang secara internal.</p>
+<p>	Saat Xiong Jian Man mengutuk, dia mengamati.</p>
+<p>	Hasil investigasi membuatnya sedikit tertekan. Dia bisa membunuh sekelompok serigala petir yang berani, berjuang keluar dari dua kelompok, tetapi melawan empat kelompok serigala petir yang berani, keputusan paling bijaksana adalah mundur ke lembah di belakangnya dan menggunakan Signal Gu, berharap bala bantuan.</p>
+<p>	“Mundur ke lembah,” teriak Xiong Jiao Man saat dia mengaktifkan kedua beruang raksasanya untuk melindungi mereka.</p>
+<p>	Kedua beruang raksasa ini dibesarkan dengan baik olehnya. Satu cokelat dan satu hitam, dengan bulu halus dan berkilau, tetapi mereka berdua penuh luka di sekujur tubuh mereka.</p>
+<p>	Ketika Xiong Jiao Man dan yang lainnya berhasil mundur ke lembah, kedua beruang ini memiliki satu; yang hitam telah ditelan oleh sekawanan serigala petir setelah membunuh puluhan serigala petir, karena kehabisan energi.</p>
+<p>	Seekor cacing Gu melesat keluar dari mayat beruang, kembali ke tangan Xiong Jiao Man dalam sekejap.</p>
+<p>	Ini adalah Gu Perbudakan Beruang.</p>
+<p>	Itu dapat ditanam menjadi beruang untuk memungkinkan Master Gu memanipulasi beruang raksasa.</p>
+<p>	Tentu saja, itu hanya beruang biasa, karena Perbudakan Beruang Gu adalah peringkat dua — dia tidak bisa memperbudak raja beruang.</p>
+<p>	Jika itu bisa memperbudak raja beruang, mereka akan menjadi kuat. Karena raja beruang, meskipun yang terlemah, memiliki setidaknya seratus bawahan beruang.</p>
+<p>	Jika seorang Guru Gu dapat memperbudak raja beruang, itu berarti mereka memiliki kelompok binatang untuk dimanipulasi juga.</p>
+<p>	“Sekarang kami menunggu bala bantuan, semoga mereka bisa segera datang!” Xiong Jiao Man terengah-engah saat dia menghela nafas.</p>
+<p>	Mereka telah mundur ke lembah, sehingga area yang harus mereka pertahankan sangat berkurang, menyebabkan tekanan dari kawanan serigala juga berkurang. Tapi itu juga berarti mereka tidak punya jalan keluar, dan darah serta pertempuran terus-menerus akan menarik lebih banyak kawanan serigala.</p>
+<p>	Krisis itu tidak terselesaikan.</p>
+<p>	“Eh.” Pada titik ini, dari tebing di atas kepala mereka, sebuah suara terdengar.</p>
+<p>	Semua orang mengangkat kepala mereka untuk melihat, dan melihat bahwa ada seorang pemuda.</p>
+<p>	“Itu dia…”</p>
+<p>	“Gu Yue Fang Yuan!”</p>
+<p>	Tujuh Master Gu klan Xiong pertama kali disegarkan, tetapi kemudian menunjukkan ekspresi yang rumit.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 88 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 88";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_87.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 88">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_89.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 88</h1>
+        <div class="text-left">
+<p>	Bab 88</p>
+<p>	Bab 88: Tampilan awal otoritas, memilih, dan menekan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di atas salju, lima kelompok kecil sedang berlari.</p>
+<p>	Gu Yue Jiao San melihat ke langit, berkata, “Langit mulai gelap, misi kami kali ini adalah mengumpulkan ‘tanah yang membusuk di lapisan es’. Meskipun mudah, itu menghabiskan terlalu banyak waktu. Kita harus mempercepat, semua orang mengikuti saya, cobalah untuk tidak ketinggalan. Fang Yuan, jika Anda tidak dapat mengikuti, beri tahu kami. Jangan khawatir, Anda adalah pendatang baru, kami akan menjaga Anda. ”</p>
+<p>	Gu Yue Jiao San tersenyum sangat ramah.</p>
+<p>	Fang Yuan mengangguk tanpa suara.</p>
+<p>	Tiga anggota lainnya saling bertukar pandang. Langit sebenarnya masih cerah, Jiao San tidak perlu mengatakan ini. Pada kenyataannya, dia ingin memberi Fang Yuan tampilan otoritas awal.</p>
+<p>	Ketiganya tahu ini jauh di lubuk hati, tetapi tidak mengeksposnya.</p>
+<p>	Pada kenyataannya, tampilan otoritatif semacam ini biasa terjadi. Ketika seorang anggota baru bergabung, anggota yang lebih tua biasanya akan mengerahkan otoritasnya untuk menghilangkan kesombongan anggota yang lebih muda sehingga lebih mudah untuk memerintah dan mengendalikan mereka.</p>
+<p>	“Ayo pergi.” Jiao San berkata dengan ringan, mengambil langkah besar dan menjadi yang pertama bergegas keluar.</p>
+<p>	Tatapan Fang Yuan bersinar, menuju keluar dengan kecepatan yang sama seperti tiga lainnya, mengikuti dari belakang.</p>
+<p>	Sepatu bambu itu menginjak salju, meninggalkan jejak kaki.</p>
+<p>	Jalan gunung penuh rintangan, sulit untuk bermanuver. Apalagi dengan lapisan salju yang tebal, bahkan lebih mudah untuk jatuh. Pada saat yang sama, karena lapisan salju, siapa yang tahu jika di bawahnya ada bebatuan tajam atau jebakan?</p>
+<p>	Jika seseorang masuk ke dalam perangkap pemburu, mereka akan lebih sial.</p>
+<p>	Hidup di dunia ini sangat sulit. Bepergian tampak mudah tetapi sebenarnya itu banyak berkaitan dengan pengalaman. Banyak pendatang baru menderita karena ini.</p>
+<p>	Hanya melalui periode pelatihan yang panjang, setelah melalui banyak kesulitan, seorang Guru Gu yang telah mengumpulkan banyak pengalaman akan dapat menghindari rintangan ini.</p>
+<p>	Angin musim dingin yang dingin bertiup langsung ke wajah mereka saat Fang Yuan berjalan melewati salju.</p>
+<p>	Terkadang dia melakukan lompatan kecil, terkadang dia berlari jarak jauh. Terkadang dia menghindar, terkadang dia memanjat, mengikuti dari belakang Jiao San.</p>
+<p>	Seluruh Qing Mao ditutupi oleh lapisan mantel salju, dan banyak pohon memiliki cabang telanjang, tanpa satu daun pun.</p>
+<p>	Kadang-kadang, tupai atau rusa liar ditakuti oleh orang-orang ini dan melarikan diri dengan cepat.</p>
+<p>	Tiga puluh menit kemudian, Jiao San berhenti di jalurnya saat dia telah mencapai tujuannya.</p>
+<p>	Dia menoleh, menatap Fang Yuan, tersenyum, dan memuji, “Kerja bagus! Kamu benar-benar juara tahun ini, mengikuti di belakangku dan tidak kehilangan kecepatanmu sekali pun.”</p>
+<p>	Fang Yuan tersenyum diam-diam. Tampilan otoritatif semacam ini, dia jelas dari itu. Bahkan, lari cepat di salju sudah menjadi “acara tradisional”. Banyak kelompok kecil menggunakan ini untuk menekan arogansi pendatang baru.</p>
+<p>	Keduanya berdiri di tempat dan menunggu, sampai tiga anggota yang tersisa tiba.</p>
+<p>	Huff, huff, huff……</p>
+<p>	Mereka mengambil napas dalam-dalam, dahi mereka penuh dengan keringat, wajah mereka merah saat mereka meletakkan tangan mereka di atas penantian mereka, anggota terakhir menjatuhkan diri di tanah.</p>
+<p>	Jiao San dengan kasar menatap mereka, menggonggong, “Berdiri tegak! Apakah kamu tidak cukup mempermalukan kami? Lihatlah Fang Yuan, lalu lihat dirimu sendiri. Hmph, setelah misi ini, kembalilah dan renungkan dirimu sendiri.”</p>
+<p>	Ketiganya segera berdiri tegak, tetapi menundukkan kepala. Mereka dicaci oleh Jiao San sampai mereka tidak berani mengangkat kepala atau menegurnya.</p>
+<p>	Hanya tatapan mereka ke arah Fang Yuan yang berubah.</p>
+<p>	“Aneh sekali, bagaimana Fang Yuan ini bisa begitu berpengalaman? Aku tidak melihatnya jatuh sekali pun!”</p>
+<p>	“Huh, kita hanya memiliki kekuatan normal, bagaimana kita bisa bersaing dengan monster ini?”</p>
+<p>	“Hmph, bukan hanya kami tidak mendapatkan pertunjukan untuk ditonton, kami bahkan menjadi domba kurban. Orang ini…”</p>
+<p>	“Cukup, dorong.” Jiao San menunjuk ke depan, “Lembah berukuran kecil ini adalah tujuan kita. Di dalam, ada sejumlah besar tanah permafrost yang membusuk untuk kami kumpulkan. Mari kita berpisah di sini dan memanen bumi yang membeku. Satu jam kemudian, kita akan berkumpul di sini. Kong Jing, bagikan alatnya. ”</p>
+<p>	Jiao San baru saja berbicara, dan anggota pria bernama Gu Yue Kong Jing berdiri.</p>
+<p>	Dia membuka telapak tangannya lebar-lebar dan cahaya kuning keluar dari lubang di perutnya, mendarat di telapak tangannya.</p>
+<p>	Cahaya kuning menyebar, menunjukkan bentuk aslinya. Seekor katak dengan punggung emas.</p>
+<p>	Katak emas ini gemuk dengan perut raksasa seputih salju, menyebabkan seluruh tubuhnya terlihat seperti bola saat digembungkan. Mulut dan mata katak semuanya berada di atas kepalanya karena perut ini, terjepit di suatu titik.</p>
+<p>	Tatapan Fang Yuan bersinar, mengenali cacing Gu ini.</p>
+<p>	Ini adalah cacing Gu peringkat dua — Katak Perut Besar.</p>
+<p>	Segera setelah itu, tangan Kong Jing memancarkan jejak esensi purba baja merah, dan diserap oleh katak.</p>
+<p>	pita.</p>
+<p>	Katak Perut Besar memekik, membuka mulutnya untuk memuntahkan sekop baja.</p>
+<p>	Sekop baja terbang di langit, berubah besar dengan cepat. Dalam sekejap mata, itu mendarat di tanah, menjadi sekop baja besar setengah ukuran seseorang.</p>
+<p>	Ribbit, ribbit, ribbit ……</p>
+<p>	Itu memanggil beberapa kali, setiap kali memuntahkan alat.</p>
+<p>	Akhirnya, lapangan salju di depan semua orang memiliki lima sekop baja, dan lima kotak kayu. Semua kotak kayu memiliki dua tali untuk dibawa.</p>
+<p>	Guru Gu memberi makan cacing Gu adalah beban besar. Dengan demikian, cacing Gu terbatas jumlahnya. Selama tahap awal, sulit untuk menangani sendiri lingkungan yang berbeda, dan dengan intensitas masalah yang berbeda, Master Gu sering bekerja dalam kelompok.</p>
+<p>	Dalam kelompok kecil, ada seseorang yang melakukan pengintaian, seseorang untuk menyerang, seseorang yang bertanggung jawab atas pertahanan, seseorang yang menyembuhkan, dan seseorang sebagai pendukung logistik.</p>
+<p>	Master Gu yang berdiri, Kong Jing, adalah pendukung logistik Gu Master. Dia mengendalikan Katak Perut Besar ini, yang merupakan cacing Gu pendukung, di mana perutnya memiliki ruang lain yang dapat digunakan sebagai ruang penyimpanan.</p>
+<p>	Tentu saja, setiap Gu memiliki kekuatan dan kelemahannya masing-masing.</p>
+<p>	Kelemahan Kodok Perut Besar adalah bahwa tidak hanya ruang penyimpanan yang terbatas, setiap kali memuntahkan item, ia harus berbunyi sekali, dan ini menjengkelkan. Terutama ketika seorang Master Gu bersembunyi di medan perang, jika ditangani dengan buruk, itu akan mengungkapkan lokasi seseorang.</p>
+<p>	Hal lain adalah, Katak Perut Besar tidak dapat menyimpan cacing Gu, dan tidak kebal terhadap racun, tidak dapat menyimpan benda beracun.</p>
+<p>	Setelah membagikan alat, masing-masing anggota kelompok memiliki sekop baja dan sebuah kotak di tangan mereka.</p>
+<p>	“Ayo berangkat,” Jiao San melambaikan tangannya, memimpin rombongan ke lembah.</p>
+<p>	Fang Yuan memegang sekop baja dan membawa kotak kayu, memilih arah lain.</p>
+<p>	“Bagaimanapun, dia adalah seorang pemula, terburu-buru seperti itu. Hehe.”</p>
+<p>	“Apakah tanah permafrost yang membusuk begitu mudah dipanen? Jika dia tidak bisa membedakannya, dia mungkin mendapatkan tanah beku yang normal, menyia-nyiakan usahanya. ”</p>
+<p>	“Sebenarnya, sangat sulit untuk membedakannya. Warna tanah permafrost yang membusuk hampir sama dengan tanah beku normal, terutama di bawah penutup semua salju yang terakumulasi, jadi pemula hanya bisa menggali dengan mengandalkan keberuntungan mereka. ”</p>
+<p>	Tiga anggota yang melihat tampilan belakang Fang Yuan tertawa secara internal.</p>
+<p>	Satu jam kemudian, mereka melihat Fang Yuan kembali dengan sekotak penuh tanah yang membusuk, dan semuanya tercengang.</p>
+<p>	Termasuk Jiao San, semua kotak kayu mereka hanya setengah diisi dengan tanah yang membusuk.</p>
+<p>	Melihat kotak kayu Fang Yuan, mereka hampir malu menunjukkan hasilnya.</p>
+<p>	“Itu semua tanah yang membusuk karena permafrost!” Seorang anggota mengamati dengan cermat dan bahkan lebih terkejut.</p>
+<p>	“Fang Yuan, bagaimana kamu mengumpulkan begitu banyak tanah beku?” Seorang anggota wanita tidak bisa menahan rasa penasarannya dan bertanya.</p>
+<p>	Alis Fang Yuan terangkat, dan cahaya salju menyinari iris matanya, menunjukkan tatapan yang jernih dan transparan.</p>
+<p>	Dia tertawa ringan, “Kata tetua akademi sebelumnya, tanah yang membusuk adalah pupuk yang dibuat ketika salju membekukan rawa. Ini memiliki warna ungu dalam kegelapan, dan sebenarnya sangat bau, tetapi karena dibekukan oleh salju, itu tidak dapat dicium. Ini adalah makanan Cacing Gemuk Kentut Bau. Pada saat yang sama juga sangat subur, sering bercampur di tanah untuk menanam tanaman, buah-buahan dan sayuran. Klan yang mengirimkan misi ini, mungkin karena mereka ingin menggunakannya di gua bawah tanah dan menyuburkan bunga anggrek bulan.”</p>
+<p>	Kata-katanya menyebabkan keempatnya membeku di tempat.</p>
+<p>	“Teori-teori ini jelas dipelajari di akademi. Tetapi teori dan kenyataan sangat sulit untuk dihubungkan. Apakah Fang Yuan pernah mengumpulkan tanah yang membusuk di permafrost sebelumnya?” Ketiga anggota saling memandang dengan kaget.</p>
+<p>	Tatapan Gu Yue Jiao San bersinar, berkata, “Kerja bagus, Fang Yuan.”</p>
+<p>	Saat dia memuji, senyum hangat dan ramahnya yang biasa menjadi sedikit dipaksakan.</p>
+<p>	Jiao San berbalik, berkata kepada yang lainnya, “Dengan cara ini, misi kita selesai. Semua orang memberikan sekop dan kotak Anda ke Kong Jing, dan mari kembali. ”</p>
+<p>	Ketika mereka kembali ke desa, hari sudah sore.</p>
+<p>	Kelimanya berjalan keluar dari aula urusan internal, Jiao San membagikan enam batu purba yang mereka peroleh. Dia mendapat dua potong, sedangkan anggota lainnya mendapat satu.</p>
+<p>	Batu purba sangat mudah diperoleh, jadi semua anggota tersenyum.</p>
+<p>	Fang Yuan menyimpan batu purbanya secara diam-diam.</p>
+<p>	Hanya dalam hatinya dia berpikir, “Ketika seorang pendatang baru bergabung dengan kelompok kecil, klan biasanya akan memberikan hadiah besar untuk misi sebagai bentuk mendukung pendatang baru. Mengumpulkan misi tanah yang membusuk permafrost, hadiahnya paling banyak dua batu purba, tetapi karena saya ada tiga kali lebih banyak. Menurut logika, saya seharusnya mendapatkan lebih banyak batu. Jika lari cepat salju adalah pertunjukan yang otoritatif, maka meminta kami dengan sengaja mengumpulkan tanah beku saja adalah tanda untuk menyerang saya, dan distribusi batu purba sudah merupakan penindasan. ”</p>
+<p>	Satu atau dua purba bukanlah masalah bagi Fang Yuan. Dia hanya bertanya-tanya dengan aneh — dia dan Gu Yue Jiao San tidak pernah berinteraksi, jadi mengapa dia menekannya?</p>
+<p>	“Kecuali …” Sebuah inspirasi melanda Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

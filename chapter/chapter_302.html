@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 302 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 302";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_301.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 302">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_303.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 302</h1>
+        <div class="text-left">
+<p>	Bab 302</p>
+<p>	Bab 302: Ikat Ruo Nan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Tie Dao Ku, apa yang terjadi dengan matamu?” Tie Ruo Nan melihat Tie Dao Ku mengenakan penutup mata hitam dan bertanya dengan heran.</p>
+<p>	Tie Dao Ku menunjukkan ekspresi malu, mengatakan yang sebenarnya: “Mataku terluka oleh Bai Ning Bing.”</p>
+<p>	Beberapa bulan yang lalu, dia bertarung dengan Bai Ning Bing, dan mengalami kemunduran besar.</p>
+<p>	Kehilangan mata kirinya, kekuatan pertempurannya turun drastis, dan dengan pedang tangan Gu yang diambil tanpa ampun oleh Bai Ning Bing, dia bukan lagi lawannya.</p>
+<p>	Tapi Tie Dao Ku tidak menyerah.</p>
+<p>	Dia memiliki hati yang teguh, menggertakkan giginya dan mengandalkan panggung pertempuran, bersama dengan mengambil beberapa pekerjaan mengawal dan menyelidiki, untuk bertahan hidup di kota klan Shang.</p>
+<p>	Dia seperti seekor serigala yang menjilati lukanya, saat dia mengamati Fang dan Bai secara diam-diam, perlahan mendapatkan kembali kekuatannya serta melapor ke klan.</p>
+<p>	Justru karena suratnya, Tie Ruo Nan membawa tim ke sini secara pribadi.</p>
+<p>	“Bai Ning Bing… benar-benar melukaimu. Tie Dao Ku, intel Anda memiliki beberapa kesalahan, mengapa Anda tidak menyebutkan ini dalam surat Anda? Tie Ruo Nan mengerutkan kening, sedikit tidak senang.</p>
+<p>	Bagaimana saya bisa memiliki wajah untuk mengatakannya …</p>
+<p>	Tie Dao Ku tertawa getir, dia adalah Master Gu peringkat tiga, dia memiliki harga diri dan martabatnya.</p>
+<p>	Tetapi terhadap tuduhan Tie Ruo Nan, dia menundukkan kepalanya, menjawab: “Itu adalah kesalahanku.”</p>
+<p>	Dia adalah pria yang sombong, tetapi dia sangat menghormati Tie Ruo Nan.</p>
+<p>	Sudah dua tahun.</p>
+<p>	Dua tahun lalu, kematian Tie Xue Leng dilaporkan ke klan, menyebabkan mereka jatuh ke dalam kesedihan yang mendalam.</p>
+<p>	Guru Gu peringkat lima adalah kekuatan besar, berdiri di puncak alam fana, bahkan klan besar seperti klan Tie akan merasa sakit kehilangan satu.</p>
+<p>	Terlebih lagi, ini adalah penyelidik surgawi Tie Xue Leng.</p>
+<p>	Namanya menyebar ke seluruh perbatasan selatan, dia adalah simbol dan bendera untuk klan Tie.</p>
+<p>	Kematian Tie Xue Leng adalah kerugian bagi klan Tie, tetapi juga kerugian bagi seluruh faksi yang benar.</p>
+<p>	Saat klan berduka, Tie Ruo Nan, sebagai putri Tie Xue Leng, berdiri.</p>
+<p>	Dia telah mengikuti ayahnya, berkeliaran di perbatasan selatan. Setelah kembali ke klan, dia menantang tiga belas aula klan Tie, mengalahkan musuhnya di arena pertempuran dan menjadi salah satu dari delapan tuan muda di klan Tie. Setelah mengambil alih urusan internal klan Tie, dia memecahkan banyak kasus, korupsi dan keserakahan tidak bisa bersembunyi darinya, saat dia membawa para penjahat ke pengadilan.</p>
+<p>	TIe Xue Leng jatuh, tetapi Tie Ruo Nan bangkit, mengambil alih tugas ayahnya, dan menjadi bintang baru yang sedang naik daun selama dua tahun terakhir di klan Tie.</p>
+<p>	Nama Tie Ruo Nan mulai menyebar luas, dan bahkan Tie Dao Ku, seseorang yang jauh di kota klan Shang, mendengar tentang ceritanya.</p>
+<p>	Klan Tie dan klan Shang memiliki kebijakan yang berbeda, bahkan jika Tie Ruo Nan gagal mencapai posisi pemimpin klan Tie, dia akan tetap menjadi anggota penting, seorang jenderal hebat yang melindungi gunung.</p>
+<p>	Dia masih muda, tetapi sudah menempati peringkat tiga tahap atas. Gelar jeniusnya sesuai dengan namanya.</p>
+<p>	Baik itu pencapaian Tie Ruo Nan saat ini atau masa depan, itu layak untuk dihormati oleh Tie Dao Ku.</p>
+<p>	“Tie Mu, pergi melihat luka-lukanya.” Tie Ruo Nan melambaikan tangannya, berkata.</p>
+<p>	Tie Mu memiliki wajah yang lembut, dia adalah Master Gu yang menyembuhkan dalam tim. Dia dengan cepat maju dan memeriksa mata Tie Dao Ku di depan semua orang.</p>
+<p>	Hanya dalam beberapa napas, Tie Mu melaporkan: “Matanya lumpuh, tidak ada yang bisa saya lakukan. Untuk menyembuhkannya, diperlukan peringkat lima Gu Master.”</p>
+<p>	Dia rendah hati, baru berusia dua puluh delapan tahun tetapi sudah menempati peringkat tiga tahap puncak, dia adalah elit klan dari cabang samping klan Tie.</p>
+<p>	Banyak orang mencoba merekrutnya, tetapi dia memutuskan untuk melayani Tie Ruo Nan sebagai gantinya.</p>
+<p>	Beberapa tahun ini, Tie Ruo Nan telah mengambil peran sebagai tuan muda, dan pasukannya berkembang, merekrut banyak elit berbakat ke dalam faksinya, TIe Mu hanyalah salah satunya.</p>
+<p>	“Di kota klan Shang, ada ahli peringkat lima bernama Dokter Su Shou. Tie Dao Ku, ambil uang ini dan sembuhkan matamu.” Tie Ruo Nan mengeluarkan Gu tua purba, dan melemparkannya ke Tie Dao Ku.</p>
+<p>	“Terima kasih tuan muda.” Tie Dao Ku mengambil Gu dan menunjukkan ekspresi bersyukur.</p>
+<p>	Biaya pengobatan Dokter Su Shou sangat mahal, dia telah berhemat dan menabung beberapa tahun ini, untuk menabung cukup uang untuk menyembuhkan matanya.</p>
+<p>	Tapi seratus ribu batu purba bukanlah jumlah yang kecil. Harga komoditas di kota klan Shang tinggi, dan Tie Dao Ku harus membeli pisau tangan Gu, dia tidak punya kesempatan untuk menyimpan cukup uang.</p>
+<p>	Dia menegakkan punggungnya: “Saya sudah memesan perkebunan untuk tuan muda untuk tinggal, silakan ikuti saya.”</p>
+<p>	Tapi Tie Ruo Nan melambaikan tangannya: “Jangan terburu-buru, bawa aku ke taman Nan Qiu, dalam laporanmu, kamu menyebutkan bahwa Fang dan Bai tinggal di taman Nan Qiu kan?”</p>
+<p>	“Erm… ya, begitulah.” Tie Dao Ku tercengang, tidak menyangka Tie Ruo Nan akan begitu langsung.</p>
+<p>	“Memimpin.” Tie Ruo Nan menginstruksikan.</p>
+<p>	“Ya.”</p>
+<p>	Tie Ruo Nan memiliki sifat cepat dan tegas, tetapi sesaat kemudian, dia ditolak masuk.</p>
+<p>	“Maaf, dua tuanku sedang berkultivasi di kamar rahasia mereka.” Penjaga pintu taman Nan Qiu dengan hormat berkata.</p>
+<p>	“Apa, takut? Mencoba bersembunyi di dalam!” Tie Dao Ku mendengus jijik.</p>
+<p>	Penjaga pintu telah dilatih secara khusus oleh klan Shang, dia memiliki kualitas yang hebat, setelah menatap Tie Dao Ku, dia tetap menjaga pintu dengan kuat, tidak membiarkan mereka masuk.</p>
+<p>	Tie Ruo Nan adalah salah satu tuan muda dari klan Tie yang hebat, dia tidak akan membuat keributan terhadap seorang anak.</p>
+<p>	Dia tersenyum, mengeluarkan sebuah undangan, memberikannya kepada penjaga pintu: “Jangan khawatir, berikan mereka surat undanganku. Saya memiliki beberapa hubungan dengan tuan Anda, kami akan datang lagi di malam hari. ”</p>
+<p>	“Saya pasti akan menyampaikan pesan Tuhan, tetapi mereka dalam kultivasi tertutup, saya tidak dapat menjamin kapan mereka akan keluar. Mereka mungkin tidak keluar pada waktu makan malam.” Penjaga pintu mengingatkan sebelum mereka pergi.</p>
+<p>	Sampai waktu makan malam, ketika klan Tie datang lagi, mereka ditolak sekali lagi.</p>
+<p>	“Saya pikir Fang dan Bai ini takut pada keagungan tuan muda, bersembunyi di dalam takut untuk muncul.”</p>
+<p>	“Mungkin mereka mencoba menunjukkan otoritas mereka, khususnya menargetkan kita.”</p>
+<p>	Geng klan dasi menebak, berbicara dengan marah.</p>
+<p>	Mereka telah mengunjungi dua kali, tetapi diperlakukan seperti ini. Apakah mereka benar-benar berpikir begitu tinggi tentang diri mereka sendiri? Bahkan tuan muda klan Shang harus meninggalkan pekerjaannya dan datang untuk menghadiri kelompok.</p>
+<p>	“Jangan cemas, kami akan datang lagi besok pagi.” Tie Ruo Nan menenangkan geng, membagikan undangan lain saat dia menunjukkan ekspresi tenggelam dalam pikirannya.</p>
+<p>	Pada pagi kedua, taman Nan Qiu ditutup kembali.</p>
+<p>	Emosi geng klan Tie melonjak, hampir menerobos dengan paksa, tetapi dihentikan oleh Tie Ruo Nan, yang membagikan undangan lain.</p>
+<p>	Kelompok itu baru saja pergi, dan Fang Yuan keluar dari ruang rahasianya.</p>
+<p>	“Ikat Ruo Nan?” Mendengar laporan pelayan, Fang Yuan memberikan tatapan aneh.</p>
+<p>	Dia tahu bahwa wanita ini adalah putri Tie Xue Leng, bukankah dia meninggal di gunung Qing Mao?</p>
+<p>	Tie Xue Leng terbang keluar dari topeng perunggu boneka raksasa gunung Gu, menggunakan tangan baja Gu untuk menyelamatkan Tie Ruo Nan. Fang Yuan dan Bai Ning Bing terlibat dalam pertarungan sengit pada saat itu, penglihatannya terhalang oleh ular abadi bentuk putih, sehingga dia tidak melihatnya.</p>
+<p>	Setelah kabut menyebar, dia diserang oleh kelompok bangau, pemandangannya berantakan dan dia tidak punya waktu untuk beristirahat. Bahkan sampai Bai Ning Bing meledak sendiri, Fang Yuan tidak melihat Tie Ruo Nan.</p>
+<p>	Jadi, menurut kesan Fang Yuan, dia selalu berpikir bahwa ayah dan anak klan Tie telah meninggal di gunung Qing Mao.</p>
+<p>	“Tidak kusangka Tie Ruo Nan ini masih hidup, tidak hanya itu, dia bahkan menjadi tuan muda klan Tie.” Fang Yuan memegang tiga undangan, melihat dan mengerutkan kening dalam-dalam.</p>
+<p>	Melihat nama ini, dia merasakan niat membunuh yang kuat mengalir keluar dari hatinya.</p>
+<p>	Orang ini terlalu merusak pemandangan!</p>
+<p>	Seorang yang selamat dari gunung Qing Mao, telah berinteraksi dengan dirinya sendiri dan Gu Yue Fang Zheng, sebuah ancaman besar bagi dirinya sendiri.</p>
+<p>	Jika identitas aslinya terungkap, itu akan mempengaruhi gaya hidupnya yang damai saat ini, dan surga yang telah dia bangun dengan susah payah di kota klan Shang akan hilang.</p>
+<p>	Tapi Tie Ruo Nan ini, Fang Yuan tidak bisa berbuat apa-apa padanya.</p>
+<p>	Tuan muda klan dasi, di kota klan Shang, dia tidak diizinkan untuk membunuhnya.</p>
+<p>	“Aku masih terlalu lemah, jika aku berada di peringkat enam seperti saat itu, aku bisa membunuh ikan kecil ini dengan satu jari.” Fang Yuan menghela nafas dalam hatinya.</p>
+<p>	Meskipun kekuatan pertempurannya melonjak, dan pertumbuhannya mencengangkan, membunuh Tie Ruo Nan memiliki konsekuensi yang tidak dapat ditanggungnya saat ini.</p>
+<p>	Bahkan, dia bahkan tidak bisa menggunakan namanya sendiri saat ini.</p>
+<p>	Selalu ada gunung yang lebih tinggi dari gunung, seorang ahli lebih kuat dari ahli lainnya. Peringkat lima hanyalah puncak dunia fana, namun dia hanya peringkat tiga.</p>
+<p>	Fang Yuan dengan cepat memilah-milah pikirannya, menghilangkannya adalah metode yang paling langsung, tetapi itu tidak dapat digunakan, jadi dia harus memikirkan cara untuk menghadapi tamu yang tidak diinginkan ini.</p>
+<p>	“Masalah di gunung Qing Mao tidak terungkap, melihat tindakan Tie Ruo Nan, dia pasti tidak tahu apa-apa. Kalau tidak, dia tidak akan datang hanya dengan kelompok ini untuk menangkapku.”</p>
+<p>	“Dia mengirimkan tiga undangan dan dengan sengaja menunjukkan tekadnya ingin bertemu denganku. Sepertinya dia ingin mempelajari apa yang terjadi saat itu dariku. Lagipula, ayahnya meninggal di gunung Qing Mao.”</p>
+<p>	“Maka masalahnya sekarang adalah, saya menggunakan nama Gu Yue Fang Zheng sekarang, apakah dia akan mencurigai identitas saya yang sebenarnya?”</p>
+<p>	“Jika dia memiliki kecurigaan, bagaimana saya menghilangkan keraguannya?”</p>
+<p>	“Atau lebih buruk lagi, jika identitas saya terbongkar, bagaimana cara menyelamatkannya? Dari temuan Shang Yan Fei, saya memiliki bakat biasa, hanya saudara saya yang memiliki bakat kelas A, bagaimana saya menjelaskan perubahan bakat saya … ”</p>
+<p>	Otak Fang Yuan bekerja dengan cepat.</p>
+<p>	Dia adalah seorang perencana licik, memiliki sifat waspada, dia selalu mempertimbangkan hasil terburuk, dan krisis besar ini tidak berbeda.</p>
+<p>	Dia dengan cepat memikirkan tindakan balasan.</p>
+<p>	“Jika saya benar-benar sampai ke tahap itu, saya akan menjual tengkorak darah Gu ke Shang Yan Fei. Dia telah mengumpulkan warisan sejati lautan darah, jika saya menjual tengkorak darah Gu kepadanya, dia akan dapat meningkatkan bakat Shang Xin Ci. Dia sangat menyayanginya, menggunakan pria yang menang surga Gu baginya untuk mengubah nasibnya. Dia tidak akan menolak kesepakatan ini.”</p>
+<p>	Menyerahkan tengkorak darah Gu, akan memungkinkan Fang Yuan menjelaskan alasan mengapa dia menyembunyikan identitasnya.</p>
+<p>	Tetapi kecuali masalahnya telah berkembang ke tahap terburuk, Fang Yuan pasti tidak akan menjual tengkorak darah Gu.</p>
+<p>	“Tengkorak darah Gu adalah Gu ilahi untuk membesarkan para genius untuk sebuah klan. Jika saya menjualnya ke klan Shang, pasukan klan Shang akan berkembang pesat. Meskipun tengkorak darah Gu tidak memiliki nilai lagi bagiku, itu adalah cerita lain untuk orang lain. ”</p>
+<p>	Fang Yuan tidak tahu Fang Zheng masih hidup sekarang, dan mengalami pertumbuhan kekuatan yang cepat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

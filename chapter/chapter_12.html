@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 12";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_11.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 12">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_13.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 12</h1>
+        <div class="text-left">
+<p>	Bab 12</p>
+<p>	Bab 12 – Anggur Bambu Hijau harum, Guru Gu memamerkan kekuatan</p>
+<p>	“Saat ini semuanya bermuara pada harta Biksu Anggur Bunga. Jika saya dapat menemukannya, semua masalah saya akan terpecahkan. Jika saya tidak menemukannya, semua masalah ini akan sangat memperlambat kecepatan kultivasi saya. Jika itu terjadi, saya akan kalah dengan orang-orang seusia saya dalam berkultivasi. Saya tidak mengerti! Saya telah menghabiskan lebih dari seminggu mencoba menarik cacing Liquor untuk muncul, mengapa saya masih tidak melihatnya?</p>
+<p>	Fang Yuan mengerutkan kening dan memeras otaknya. Rasanya seperti memasukkan makanan ke dalam mulutnya, tetapi masih tidak tahu bagaimana rasanya (1).</p>
+<p>	Tiba-tiba terdengar suara keras, membuyarkan lamunannya. Fang Yuan melihat ke arah suara, menyadari bahwa 6 pemburu yang duduk mengelilingi meja di tengah aula sedang mabuk berat. Suasana di sekitar mereka berapi-api dan wajah mereka semua merah.</p>
+<p>	“Saudara Zhang, ayo, minum secangkir lagi!”</p>
+<p>	“Kakak Feng, kami bersaudara mengagumi kemampuanmu! Anda mengalahkan babi hutan berkulit hitam sendirian, sungguh laki-laki! Secangkir anggur ini harus kamu minum, atau kamu akan tidak menghormati kami!”</p>
+<p>	“Terima kasih saudara-saudara atas ketulusanmu, tapi aku benar-benar tidak bisa minum lagi.”</p>
+<p>	“Kakak Feng tidak bisa minum lagi, mungkin kamu tidak suka anggur ini karena tidak cukup enak? Pelayan, datang! Beri aku anggur yang enak!”</p>
+<p>	Suara itu menjadi lebih keras; jelas bahwa kelompok itu banyak minum. Pelayan buru-buru pergi dan berkata, “Baik tuan, kami memiliki anggur yang baik, tapi itu cukup mahal.”</p>
+<p>	“Apa, kamu takut kami tidak akan membayar ?!” Ketika para pemburu mendengar pelayan itu, beberapa dari mereka berdiri dan menatap pelayan itu. Mereka besar dan tinggi atau bertubuh gemuk dan kekar, mampu dan kuat dalam cara mengancam, masing-masing memiliki keberanian yang dimiliki oleh orang gunung.</p>
+<p>	Pelayan itu dengan cepat berkata, “Saya tidak akan berani memandang rendah kalian para pemberani, hanya saja anggur ini sangat mahal, satu toples berharga 2 buah batu purba!”</p>
+<p>	Para pemburu tercengang. 2 batu purba jelas tidak murah – Itu adalah jumlah 2 bulan dari pengeluaran bulanan rata-rata rumah tangga biasa. Meskipun pemburu mendapatkan lebih banyak dari berburu jika dibandingkan dengan manusia biasa, seperti bagaimana beberapa kali babi hutan berkulit hitam bisa bernilai setengah batu purba. Namun berburu itu berisiko dan kesalahan bisa mengubah pemburu menjadi mangsa.</p>
+<p>	Bagi para pemburu, menggunakan 2 batu purba hanya untuk minum sebotol anggur tidak sepadan.</p>
+<p>	“Apakah benar-benar ada anggur yang begitu mahal?”</p>
+<p>“Nak, kamu tidak mencoba berbohong kepada kami kan?”</p>
+<p>	Para pemburu berteriak, tetapi suara mereka terasa sedikit malu-malu, tidak dapat mundur dari situasi dengan anggun. Pelayan terus mengatakan kepada mereka bahwa dia tidak akan berani.</p>
+<p>	Pemburu yang disebut saudara Feng melihat bahwa adegan itu tidak benar, dan dia buru-buru berkata, “Saudara-saudaraku, jangan belanjakan lagi. Saya tidak bisa minum lagi, mari kita minum anggur ini lain hari. ”</p>
+<p>	“Apa, kamu tidak bisa mengatakan itu saudara!”</p>
+<p>“Ini adalah…”</p>
+<p>	Pemburu lainnya masih berteriak, tetapi suara mereka mulai memudar. Satu per satu mereka kembali ke tempat duduknya. Pelayan itu juga orang yang cerdik. Ketika dia melihat ini, dia tahu bahwa dia tidak dapat menjual anggur lagi. Namun situasi ini tidak mengejutkannya. Saat dia hendak mundur, suara seorang pemuda datang dari meja di sudut gelap. “Hehehe, lucu. Masing-masing dari mereka membabi buta berteriak untuk apa-apa. Jika kamu tidak mampu membeli anggur, kamu harus dengan patuh tutup mulut dan pergi ke samping! ”</p>
+<p>	Ketika para pemburu mendengar ini, salah satu dari mereka segera membalas dengan marah, “Siapa bilang kita tidak mampu membelinya? Pelayan, bawakan toples anggur itu, aku akan memberimu batu, dua potong!</p>
+<p>	“Oh, beri saya waktu sebentar Pak, saya akan mendapatkannya!” Pelayan tidak mengharapkan pergantian peristiwa seperti itu. Dia buru-buru menjawab dan berbalik untuk mengambil toples anggur dan membawanya. Guci anggur ini sebesar toples anggur biasa, tetapi saat dibuka tutupnya, pada saat itu juga aroma menyegarkan dan lembut memenuhi seluruh kafetaria. Bahkan lelaki tua yang duduk sendirian di jendela tidak bisa tidak menoleh ketika dia mencium aroma anggur, dan dia menatap toples anggur.</p>
+<p>	Itu pasti anggur yang enak.</p>
+<p>	“Tamu-tamu yang terhormat, ini tidak membual. Ini adalah anggur bambu hijau; seluruh desa hanya memiliki satu penginapan, yaitu kami. Cium aromanya!” Pelayan itu menarik napas dalam-dalam saat dia mengatakan ini, ekspresi wajahnya penuh kepuasan dan kenikmatan.</p>
+<p>	Fang Yuan tergerak. Pelayan penginapan ini benar-benar tidak membual.</p>
+<p>	Di Desa Gu Yue ada 3 kedai minuman. Anggur yang dijual di sana adalah anggur beras biasa, anggur berlumpur dan anggur umum serupa lainnya. Agar Fang Yuan menarik cacing Liquor, dia terus membeli anggur selama 7 hari; itu wajar bahwa dia menyadari harga.</p>
+<p>	Beberapa pemburu melihat toples anggur di depan mereka. Mereka dikonsumsi oleh kecanduan alkohol. Masing-masing dari mereka menggerakkan hidung mereka dan menelan. Adapun pemburu yang membeli anggur di saat marah, ekspresinya bahkan lebih menarik; lapisan penyesalan dan kemarahan muncul di wajahnya.</p>
+<p>	Bagaimanapun, toples anggur ini adalah nilai dari dua batu purba!</p>
+<p>	“Saya terlalu gegabah dan membeli anggur secara impulsif. Pelayan ini tidak terlalu khas. Dia segera membawa anggur, sekarang gabusnya dibuka. Bahkan jika saya ingin mengembalikan barang itu sudah terlambat. ”</p>
+<p>	Semakin pemburu itu merenung, semakin dia merasa tertekan. Dia ingin mengembalikannya, namun dia tidak dapat melakukannya karena takut dipermalukan. Akhirnya dia hanya bisa menggebrak meja dan berkata dengan senyum yang kuat, “Sial, anggur ini enak! Saudaraku tolong, minumlah sesukamu. Hari ini anggur ini ada padaku!”</p>
+<p>	Pada saat ini pemuda di meja di sudut mendesis, “Bagaimana toples kecil anggur ini cukup untuk enam? Jika Anda punya nyali, belilah beberapa toples lagi. ”</p>
+<p>	Pemburu itu sangat marah ketika dia mendengar ini dan berdiri dengan marah, matanya tertuju pada pemuda yang berbicara. “Brat, kamu benar – benar punya banyak kata. Ayo, berdiri dan lawan aku!”</p>
+<p>	“ Oh ? Lalu aku akan berdiri.” Pria muda itu bangkit dari tempat duduknya ketika dia mendengar komentar pemburu itu, menyeringai ketika dia berjalan keluar dari bayang-bayang. Sosok tubuhnya tinggi kurus, kulitnya pucat. Dia mengenakan jubah perang angkatan laut, dan tampak bersih dan rapi. Kepalanya mengenakan ikat kepala biru; bagian atas tubuhnya memiliki jaket yang memperlihatkan bahunya yang kurus dan lemah. Tubuh bagian bawah bercelana panjang, kaki dibalut sendal bambu dan betis diikat.</p>
+<p>	Hal terpenting tentang dia adalah sabuk hijau di pinggangnya. Bagian tengah ikat pinggang adalah sepotong tembaga mengkilap; di pelat tembaga ada kata ” Satu ” hitam .</p>
+<p>	“Ini adalah Master Gu Peringkat Satu ?!” Pemburu dengan jelas memahami apa yang diwakili oleh pakaian ini. Dia menarik napas dalam-dalam, kemarahan di wajahnya menghilang, digantikan oleh alarm.</p>
+<p>	Dia tidak pernah membayangkan bahwa dia benar-benar memprovokasi seorang Guru Gu !</p>
+<p>	“Bukankah kau ingin melawanku? Ayo, pukul aku.” Tuan Gu muda berjalan perlahan ke arah pria itu, senyum main-main di wajahnya. Tetapi pemburu yang menantangnya sebelumnya telah membeku seperti patung, tidak bisa bergerak dari tempatnya.</p>
+<p>	“Mungkin kalian semua bisa mendatangiku bersama, itu juga berhasil.” Tuan Gu muda perlahan berjalan ke meja pemburu, berbicara dengan santai.</p>
+<p>	Ekspresi di wajah mereka telah berubah. Beberapa pemburu yang wajahnya merah karena mabuk tiba-tiba menjadi pucat. Masing-masing dahi mereka basah oleh keringat dingin, dan mereka merasa gelisah, terlalu takut bahkan untuk bernapas dengan berat.</p>
+<p>	Tuan Gu muda mengulurkan tangan, mengambil toples anggur bambu hijau. Dia meletakkannya di bawah hidungnya dan mengendus, tersenyum. Dia berkata, “Baunya pasti enak …”</p>
+<p>	“Jika tuanku menyukainya, silakan ambil dan minum. Ini adalah permintaan maaf dari saya karena telah menyinggung tuanku, ”pemburu yang memprovokasi dia sebelumnya buru-buru menjawab dan menangkupkan kedua tangannya di depan dadanya, mendorong senyum ke wajahnya.</p>
+<p>	Tanpa diduga ekspresi wajah pemuda itu berubah dengan ganas; dengan suara keras, toples itu jatuh berkeping-keping di tanah. The Gu Guru tampak dingin seperti es, itu menatap tajam seperti pedang. Dia mendesis dengan marah, “Kamu pikir kamu punya hak untuk meminta maaf kepadaku? Kalian sekelompok pemburu pasti sangat kaya, bahkan lebih kaya dariku, karena kalian menghabiskan 2 batu purba untuk minum anggur?! Apakah Anda tahu, betapa kesalnya saya dengan batu purba sekarang! Anda benar-benar berani memamerkan kekayaan Anda di depan saya saat ini! Anda manusia bahkan bisa dibandingkan dengan saya ?! ”</p>
+<p>	“Kami tidak akan berani, kami tidak akan berani!”</p>
+<p>“Untuk menyinggung tuanku, itu adalah kejahatan keji!”</p>
+<p>“Kami manusia tidak bermaksud menyinggung Anda, ini adalah batu purba kami, terimalah tuan Gu Master.”</p>
+<p>	Para pemburu dengan cepat bangkit dan mengeluarkan batu purba yang mereka miliki. Tapi bagaimana manusia ini bisa punya uang, yang mereka keluarkan hanyalah potongan-potongan batu purba, pecahan terbesarnya tidak lebih besar dari seperempat batu purba.</p>
+<p>	The Gu Guru tidak menerima batu-batu purba, tapi dia tidak berhenti mencibir. Dia menggunakan tatapannya yang seperti elang dan menyapu seluruh kafetaria. Para pemburu yang dia pindai menundukkan kepala mereka. Orang tua yang duduk di jendela menyaksikan pemandangan itu juga dengan cepat menoleh untuk menghindari tatapan Tuan Gu .</p>
+<p>	Hanya Fang Yuan yang menyaksikan dengan tenang, tanpa ragu-ragu.</p>
+<p>	Pakaian yang dikenakan oleh Tuan Gu muda ini adalah seragam yang hanya bisa dipakai oleh Tuan Gu formal , jadi Fang Yuan tidak memenuhi syarat untuk memakainya. Fang Yuan hanya akan menerimanya dari klan setelah dia lulus dari akademi.</p>
+<p>	Kata ‘ Satu ‘ pada potongan tembaga di sabuk Tuan Gu muda adalah untuk menunjukkan posisinya sebagai Tuan Gu peringkat satu . Namun dia sudah sekitar 20 tahun atau lebih, dan aura esensi purba yang dipancarkan tubuhnya tampaknya menunjukkan bahwa dia berada di peringkat satu tingkat atas.</p>
+<p>	Memulai kultivasi pada usia 15 tahun dan hanya mencapai Peringkat satu tahap atas pada usia sekitar 20 tahun, ini menunjukkan bahwa Tuan Gu muda hanya memiliki bakat kelas D, yang merupakan nilai lebih buruk daripada Fang Yuan. Ada kemungkinan besar bahwa pria ini hanya seorang Gu Master logistik , bahkan tidak dihitung sebagai Gu Master pertempuran .</p>
+<p>	Namun bahkan jika itu masalahnya, ketika menghadapi enam pemburu berotot ini, itu sudah lebih dari cukup.</p>
+<p>	Ini adalah celah kekuatan antara Guru Gu dan manusia fana.</p>
+<p>	“Dengan kekuatan, seseorang bisa berada di puncak. Ini adalah sifat dunia ini. Tidak, sebenarnya dunia manapun juga sama, ikan besar memakan ikan kecil dan ikan kecil memakan udang. Hanya saja dunia ini menunjukkannya lebih terbuka, renung Fang Yuan diam-diam.</p>
+<p>	“Baiklah Jiang Ya, kamu sudah memberi mereka pelajaran. Mari kita tidak lebih mempermalukan manusia ini. Jika keluar, bahkan jika Anda tidak malu, saya akan melakukannya, ”anak muda lain yang duduk di sudut bersuara.</p>
+<p>	Ketika semua orang mendengar suara itu berbicara, mereka menyadari bahwa anak muda ini adalah seorang wanita.</p>
+<p>	Tuan Gu muda bernama Jiang Ya berhenti mencibir saat teman wanitanya menegurnya. Dia bahkan tidak repot-repot melihat pecahan batu purba yang telah diambil oleh para pemburu; batu-batu ini bahkan bukan jumlah dari dua batu purba, dia pasti tidak tertarik padanya.</p>
+<p>	Dia menjentikkan lengan bajunya dan berjalan kembali ke meja aslinya. Saat dia melangkah mundur, dia berkata dengan jahat, “Jika kamu pikir kamu punya nyali untuk terus minum, pergilah dan minum anggur bambu hijau. Saya ingin melihat, siapa yang masih berani minum anggur ini? ”</p>
+<p>	Semua pemburu menundukkan kepala, bertingkah seperti enam putra yang patuh setelah dimarahi.</p>
+<p>	Aroma anggur yang kuat memenuhi seluruh kafetaria. Pemburu yang membeli anggur merasa hatinya sakit saat mencium aromanya. Lagipula dia telah menghabiskan 2 batu purba untuk anggur ini, namun dia tidak pernah minum bahkan satu suap pun!</p>
+<p>	Fang Yuan meletakkan sumpitnya; dia sudah cukup makan. Saat dia mengendus aroma anggur, matanya berkedip sejenak, lalu dia mengeluarkan 2 batu purba dan meletakkannya di atas meja. “Pelayan, beri aku sebotol anggur bambu hijau,” katanya acuh tak acuh.</p>
+<p>	Seluruh adegan membeku.</p>
+<p>	Tuan Gu muda bernama Jiang Ya langsung menghentikan langkahnya. Sudut mulutnya berkedut dan dia menghela nafas. Dia baru saja menyelesaikan peringatannya, namun tepat setelah dia selesai, Fang Yuan menginginkan anggurnya. Ini seperti secara khusus melangkahi dia dan menampar wajahnya.</p>
+<p>	Dia berbalik dan menyipitkan matanya, menembakkan tatapan dingin ke arah Fang Yuan.</p>
+<p>	Fang Yuan dengan tenang menatap ke belakang, wajahnya acuh tak acuh dan tanpa rasa takut.</p>
+<p>	Mata Jiang Ya berkilat dan tatapan dinginnya perlahan menghilang; dia merasakan aura esensi purba di tubuh Fang Yuan. Setelah menyadari identitas Fang Yuan, dia tersenyum dan berkata dengan hangat, “Ah, ini saudara junior.”</p>
+<p>	Semua orang menyadari dan tatapan mereka pada Fang Yuan berubah.</p>
+<p>	Tidak heran remaja muda ini tidak sedikit pun takut pada Guru Gu , itu karena dia juga salah satunya. Meskipun dia masih bersekolah di akademi, posisinya sudah berbeda.</p>
+<p>	“Tuan Gu Master, anggurmu!” Pelayan bergegas mendekat, tersenyum di seluruh wajahnya. Fang Yuan mengangguk pada Tuan Muda Gu dan mengambil sebotol anggur dan berjalan keluar dari penginapan.</p>
+<p>	(1) Saya percaya itu berarti dia berusaha, namun dia tidak bisa melihat hasilnya.</p>
+<p>	TN Catatan: Sekarang jam 7 pagi, saya akan tidur dan menerjemahkan bab lain nanti jika saya tidak dipanggil untuk pergi bekerja.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

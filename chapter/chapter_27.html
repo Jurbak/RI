@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 27 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 27";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_26.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 27">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_28.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 27</h1>
+        <div class="text-left">
+<p>	Bab 27</p>
+<p>	Bab 27 – Pemerasan langsung</p>
+<p>	Para remaja muda itu langsung kaget dan marah.</p>
+<p>	“Apa, aku tidak salah dengar, kan?”</p>
+<p>“Fang Yuan, kepalamu pasti terlalu panas dan bingung. Anda benar-benar akan berdiri di gerbang akademi dan memeras kami ?! ”</p>
+<p>	“Apakah kamu sudah gila? Siapa yang memberimu nyali untuk menuangkan idemu pada kami?”</p>
+<p>“Enyahlah, kamu hanya kelas C kecil , beraninya kamu menghalangi jalanku. Jika kamu tidak enyah, aku akan mengirimmu terbang dengan… Urghh !”</p>
+<p>	Fang Yuan tiba-tiba menyerang.</p>
+<p>	Telapak tangan kanannya dengan marah memotong ke depan. Gerakannya cepat dan tepat, irisan telapak tangannya mengenai sisi kiri leher seseorang.</p>
+<p>	Remaja sial ini sama sekali tidak mengharapkan Fang Yuan tiba-tiba menyerangnya. Sementara dia masih mengutuk Fang Yuan, dia tiba-tiba mengalami pukulan berat. Kedua matanya langsung berguling dan dia pingsan di tempat.</p>
+<p>	“Persetan! Kamu benar-benar berani menyerang ?! ” Kerumunan melompat, dan remaja muda tanpa sadar mundur ke belakang.</p>
+<p>	“Gu Yue Bei Ju pingsan, apa yang harus kita lakukan?” Beberapa dari mereka ketakutan dan ketakutan, berteriak-teriak ngeri.</p>
+<p>	“Apa lagi yang bisa dilakukan?! Ada begitu banyak dari kita, dan Fang Yuan sendirian. Kita semua harus menyerangnya bersama-sama dan menghajarnya.” Beberapa orang berteriak, kemarahan mereka meledak.</p>
+<p>	“Itu benar, dia benar-benar tidak tahu tempatnya! Bagaimana dia berani memprovokasi kita sendiri. Dia pasti menggali kuburnya sendiri dengan ambisinya yang berlebihan! Semuanya tangkap dia bersama!!”</p>
+<p>	Namun sebelum mereka bisa melakukan apa pun, Fang Yuan sudah menyerang. Dia melangkah beberapa langkah ke depan, bergegas ke kelompok remaja.</p>
+<p>	Dia menebas telapak tangannya dan ujung tangannya memotong leher seorang pemuda. Pemuda itu memutar matanya ke atas dan jatuh.</p>
+<p>	“ Aah— !” Remaja lain berteriak keras, mengayunkan tinjunya ke Fang Yuan, menyapu udara. Fang Yuan menurunkan tubuhnya dan menghindar, lalu dia mengangkat kakinya dan menendang area selangkangan bocah itu.</p>
+<p>	AHH OWWwww—!</p>
+<p>	Raungan keras anak muda itu awalnya nyaring dan marah, tetapi setelah dia menerima pukulan itu, suaranya langsung naik lebih tinggi dan menjadi tajam dan melengking, dipenuhi dengan semacam kesengsaraan dan rasa sakit.</p>
+<p>	Berdebar.</p>
+<p>	Dia menutupi selangkangannya dengan kedua tangannya, lututnya lemas saat dia jatuh ke tanah. Dia berguling-guling di lantai sambil berteriak keras, rasa sakit yang begitu hebat hingga seluruh tubuhnya dipenuhi keringat dingin.</p>
+<p>	Fang Yuan mengayunkan kedua tinjunya seperti harimau yang memasuki kawanan domba!</p>
+<p>	Dia memiliki lima ratus tahun pengalaman pertempuran, dan anak-anak muda ini hanyalah sekelompok anak-anak hijau lembut; mereka baru saja mulai berkultivasi belum lama ini, bagaimana mungkin mereka menjadi lawannya?</p>
+<p>	Dalam sekejap mata, Fang Yuan meletakkan seluruh kelompok siswa muda. Jika mereka tidak pingsan, maka mereka akan terbaring di tanah, rasa sakit membuat mereka terkuras dan seluruh tubuh mereka sakit.</p>
+<p>	“Apa yang terjadi di sini?!” Gu Yue Mo Bei tiba dan berseru. Dia melihat bahwa Fang Yuan berdiri di pintu masuk gerbang akademi, dan ada lima hingga enam siswa di lantai di sekelilingnya.</p>
+<p>	“Fang Yuan ini, k-dia ingin memeras batu purba kita!” Salah satu dari mereka yang tergeletak di lantai berteriak marah sambil memegangi perutnya.</p>
+<p>	“ Wow , masih penuh energi ya.” Ekspresi Fang Yuan datar saat dia menendang perut anak laki-laki yang baru saja berteriak dengan keras.</p>
+<p>	Aduh!</p>
+<p>	Anak muda itu langsung berteriak kesakitan, tubuhnya meringkuk seperti udang. Ketakutan muncul dari wajahnya, air matanya mengalir saat dia tidak berani berbicara lagi.</p>
+<p>	Ketika mereka melihat adegan ini, para siswa yang datang semua merasakan kebiadaban dan kekejaman Fang Yuan, hati mereka berdenyut.</p>
+<p>	“Baiklah, kalian semua bersikap baik dan membagikan sepotong batu purba. Lalu aku akan membiarkanmu pergi, atau orang-orang di tanah ini akan menjadi takdirmu.” Fang Yuan membuat langkah besar ke depan, nadanya tidak berperasaan.</p>
+<p>	“Di wajah ibumu! Anda kecil sedikit C kelas bahkan berani untuk memenangkan saya , a kelas?” Gu Yue Mo Bei menjadi marah, mengayunkan tinjunya saat dia bergegas menuju Fang Yuan sebelum mereka menyadarinya.</p>
+<p>	Dengan sedikit memutar pergelangan kakinya, Fang Yuan membelok dengan lembut ke samping dan membiarkan tinju Mo Bei terbang melewatinya. Kemudian dia mengulurkan tangan kirinya, mengangkat telunjuk dan jari tengah ke arah tengah klavikula Mo Bei, dengan akurat menusukkan ke area di bawah tenggorokan.</p>
+<p>	Mo Bei segera pingsan, jatuh ke tanah dengan bunyi gedebuk , pingsan di tempat.</p>
+<p>	Mendesis…</p>
+<p>	Ketika mereka melihat apa yang baru saja terjadi, para siswa muda yang berencana untuk bergegas ke depan dengan cepat berhenti, masing-masing dari mereka melepaskan seteguk udara dingin.</p>
+<p>	Di mata anak-anak muda ini, serangan Fang Yuan tiba-tiba terlalu dalam untuk dipahami. Mereka tidak memperhatikan seni bela diri dasar, tetapi pada kenyataannya itu secara samar disebutkan selama kelas. Tubuh manusia memiliki banyak bagian yang rentan, dan beberapa bagian yang dipukul Fang Yuan adalah salah satu tempat yang rentan. Ketika bagian-bagian ini dipukul, itu akan dengan mudah membuat seseorang pingsan di tempat, dan pukulan berat akan menyebabkan krisis yang mengancam jiwa.</p>
+<p>	Namun Fang Yuan menahan diri saat menyerang.</p>
+<p>	Mereka yang telah dia tangani jatuh atau menderita kesakitan yang luar biasa, kehilangan kemampuan untuk bertarung dalam waktu singkat. Tidak ada orang yang benar-benar terluka parah.</p>
+<p>	Ini adalah teror pengalaman tempur selama lima ratus tahun!</p>
+<p>	“Apakah kamu akan memberiku batumu atau tidak ?” Fang Yuan melangkah maju, memaksa para pemuda lainnya. Mereka saling memandang sejenak, lalu separuh dari mereka mengertakkan gigi sementara separuh lainnya meraung marah, semuanya mengerumuni Fang Yuan.</p>
+<p>	Fang Yuan menghindar sambil menyerang pada saat bersamaan. Basis kultivasinya rendah, tetapi wilayahnya masih ada; hatinya sedingin es, gerakannya cepat dan tepat.</p>
+<p>	Buk, buk…</p>
+<p>	Setelah beberapa napas, tubuh jatuh ke tanah lagi.</p>
+<p>	“Itu terlalu kejam! Terlalu mengerikan!”</p>
+<p>“Mereka tidak akan mati, kan?”</p>
+<p>	Masih ada beberapa gadis muda yang tertinggal; mereka tidak terburu-buru ke depan. Mata mereka terbuka lebar, dan setelah melihat apa yang terjadi selama ini, tubuh mereka semakin gemetar.</p>
+<p>	Fang Yuan mengalihkan pandangannya ke mereka, dan wajah mereka menjadi pucat saat mereka dengan cepat melambaikan tangan dan mundur. “Tidak, jangan datang. Kami akan menyerah, kami akan menyerahkan batu-batu itu!”</p>
+<p>	Setelah Fang Yuan menerima beberapa potong batu purba, dia melepaskannya. Mereka tersandung keluar dari gerbang akademi, sementara berturut-turut beberapa siswa datang.</p>
+<p>	Untuk meninggalkan akademi, gerbang ini adalah satu-satunya rute. Dengan Fang Yuan memblokir jalan ini, dia akan dapat memblokir semua siswa.</p>
+<p>	“Sial, apa yang terjadi?!” Gelombang baru siswa menatap dengan takjub.</p>
+<p>“Bukankah itu Gu Yue Mo Bei?” Gu Yue Chi Cheng menatap Mo Bei yang tak sadarkan diri di lantai, matanya terbelalak dan mulutnya menganga.</p>
+<p>	Ketika Fang Yuan membuka mulutnya dan berbicara, anak-anak muda itu langsung marah dan mereka menyerangnya, lalu mereka jatuh.</p>
+<p>	“Tuan tetua, kita hanya akan terus menonton semua ini dan tidak menghentikan mereka? Bagaimana jika seseorang kehilangan nyawanya, bagaimana kita akan menyelamatkan masalah ini?” Para penjaga khawatir.</p>
+<p>	Beberapa penjaga marah, berkata, “Fang Yuan ini terlalu berani. Dia benar-benar berani memeras teman-teman sekelasnya di gerbang sekolah akademi di bawah kelopak mata kita. Ini bertindak dengan mengabaikan hukum dan disiplin! Selama tuan memberi perintah, kami bawahan akan mengambil anak ini. ”</p>
+<p>	Masalah kekerasan Fang Yuan memblokir gerbang dan secara terbuka memeras teman-teman sekelasnya telah lama menarik perhatian sejak awal. Tapi penjaga fana tidak punya hak untuk menghukum para siswa, jadi mereka hanya bisa pergi dulu ke sesepuh akademi dan melapor.</p>
+<p>	Ketika tetua akademi mendengar berita itu, dia tidak segera memerintahkan mereka untuk menghentikannya. Sebaliknya dia naik paviliun dan mengamati dari jauh.</p>
+<p>	“Sepertinya anak ini memiliki bakat bertarung.” Semakin lama tetua akademi menonton, semakin dia merasa tertarik.</p>
+<p>	Penggunaan moonblade oleh Fang Yuan hari ini telah menyebabkan beberapa ketidakpastian pada penatua. Saat ini dia menyaksikan Fang Yuan dengan kekuatannya sendiri, membuat musuh dari seluruh kelompok siswa, membawa semacam gaya bertarung yang tak terhentikan dengan sikap anggun. Dengan ini keraguan di hatinya terhapus.</p>
+<p>	Di dunia ini, ada orang-orang yang sangat tertarik dan tajam terhadap pertempuran; ini adalah hadiah tersembunyi. Mereka pandai berkelahi, dan mereka menyukai pertempuran. Dalam pertempuran mereka sering terinspirasi, dan selalu menciptakan pencapaian yang mengejutkan dan bahkan tidak dapat dipercaya.</p>
+<p>	“Ah, dia adalah pertarungan alami Gu Master. Sayang, bakatnya hanya kelas C; pada akhirnya dia hanya kurang satu langkah dari nilai. ” Penatua akademi menghela nafas.</p>
+<p>	“Tuan, apakah Anda tidak akan menghentikan lelucon ini? Membiarkannya melanjutkan omong kosong ini, aku khawatir konsekuensinya tidak akan terlalu baik. ” Para penjaga di sampingnya memiliki ekspresi khawatir di wajah mereka.</p>
+<p>	T/N: Omong-omong, mereka benar-benar mengutuk dan bersumpah dalam novel ini. Semoga kalian tidak keberatan dengan vulgar, meskipun itu mungkin kekhawatiran Anda di masa depan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

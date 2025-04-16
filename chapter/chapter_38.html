@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 38 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 38";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_37.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 38">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_39.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 38</h1>
+        <div class="text-left">
+<p>	Bab 38</p>
+<p>	Bab 38 – Setan berjalan dalam cahaya</p>
+<p>	Dari lapisan awan gelap di langit, hujan musim semi turun.</p>
+<p>	Tetesan hujan tipis seperti rambut. Saat mereka jatuh, mereka menyelimuti Gunung Qing Mao dalam lapisan kabut halus.</p>
+<p>	Ruang makan di lantai pertama penginapan agak kosong. Hanya ada empat meja tamu.</p>
+<p>	Fang Yuan duduk di kursi dekat jendela. Embusan angin bertiup, membawa suasana puitis dan aroma bunga.</p>
+<p>	“Hujan ringan dari langit itu licin dan segar, warna rumput terlihat dari jauh tetapi menghilang ketika dekat.” Fang Yuan melihat ke luar melalui jendela dan mengutip sebuah puisi dengan ringan sebelum dia mengalihkan pandangannya kembali ke penginapan.</p>
+<p>	Di hadapannya ada meja yang penuh dengan anggur dan hidangan yang enak. Warna, bau, dan rasa semuanya adalah yang terbaik. Terutama anggur bambu hijau yang dibubuhi aroma alkohol dan sedikit kesegaran. Minuman keras berwarna hijau tua duduk dengan tenang di cangkir bambu. Dari sudutnya, itu bersinar dengan kilau seperti kuning.</p>
+<p>	Seorang kakek dan cucunya sedang duduk di meja terdekat dengannya. Menjadi manusia fana, mereka mengenakan pakaian sederhana.</p>
+<p>	Kakek menyesap arak berasnya sambil menatap Fang Yuan dengan iri. Dia jelas tertarik pada anggur bambu hijau tetapi tidak mampu membelinya.</p>
+<p>	Cucunya memakan kacang rebusnya, suara berderak keluar dari mulutnya saat dia mengunyah. Pada saat yang sama, dia mengganggu kakeknya, mengguncang lengannya. “Kakek, kakek, ceritakan tentang kisah Ren Zu. Jika Anda tidak memberi tahu saya, saya akan melaporkan kepada nenek bahwa Anda diam-diam keluar untuk minum! ”</p>
+<p>	“ Huh , aku bahkan tidak bisa minum dengan tenang.” Sang kakek menghela nafas tetapi wajahnya menunjukkan ekspresi sayang terhadap anak itu. Dengan lengannya yang seperti ranting, dia menepuk kepala bocah itu, “Kalau begitu, izinkan saya menceritakan kisah Ren Zu yang memberikan hatinya kepada Hope Gu , lolos dari kesulitannya ditangkap …”</p>
+<p>	Kisah Ren Zu adalah kisah paling populer dan tersebar luas di dunia ini, serta legenda paling kuno.</p>
+<p>	Kisah orang tua itu kira-kira seperti ini.</p>
+<p>	Cerita tersebut menyebutkan bahwa Ren Zu dapat lolos dari kesulitannya karena harapan. Tapi akhirnya dia menjadi tua dan tanpa Kekuatan dan Kebijaksanaan, dia tidak bisa lagi terus berburu. Bahkan giginya rontok, membuatnya tidak bisa mengunyah banyak buah dan sayuran liar.</p>
+<p>	Ren Zu merasakan kematian perlahan mendekat.</p>
+<p>	Pada saat ini, Hope Gu berkata kepadanya, “Manusia, kamu tidak boleh mati. Jika kamu mati, hatimu akan hilang dan aku akan kehilangan satu-satunya tempat tinggalku.”</p>
+<p>	Ren Zu tidak berdaya. “Siapa yang ingin mati? Tetapi jika langit dan bumi menginginkan saya mati, saya tidak punya pilihan. ”</p>
+<p>	The Hope Gu berkata, “Selalu ada harapan dalam segala hal. Selama kamu bisa menangkap Longevity Gu , kamu akan dapat meningkatkan umurmu.”</p>
+<p>	Ren Zu telah mendengar tentang keberadaan Gu Panjang Umur sejak lama, tetapi dia melambaikan tangannya tanpa daya. “Ketika Gu Panjang Umur tetap diam, tidak ada yang bisa mendeteksinya dan ketika terbang, itu lebih cepat dari cahaya. Bagaimana saya bisa menangkapnya? Ini terlalu sulit!”</p>
+<p>	Gu Harapan kemudian memberi tahu Ren Zu sebuah rahasia, “Manusia, jangan putus asa apa pun yang terjadi. Biarkan saya memberi tahu Anda, di sudut barat laut benua ini, ada gunung besar. Di gunung, ada sebuah gua dan di gua itu, ada sepasang cacing Gu bulat dan persegi . Selama kamu bisa menaklukkan mereka, tidak ada Gu di dunia ini yang tidak bisa kamu tangkap, termasuk Gu Panjang Umur !”</p>
+<p>	Ren Zu tidak punya pilihan, ini adalah harapan terakhirnya yang tersisa.</p>
+<p>	Dia menerjang semua kesulitan dan akhirnya menemukan gunung itu. Dia kemudian mempertaruhkan nyawanya dan berkelana melalui bahaya yang tak terhitung jumlahnya untuk mendaki gunung. Di puncak gunung, dekat pintu masuk gua, dia menggunakan kekuatan terakhirnya yang tersisa untuk perlahan-lahan masuk.</p>
+<p>	Bagian dalam gua benar-benar gelap dan orang tidak akan bisa melihat jari mereka sendiri. Ren Zu berjalan dalam kegelapan. Kadang-kadang, dia akan menabrak hal-hal yang tidak tahu apa itu. Ini menyebabkan dirinya terluka dan terluka di sekujur tubuh. Kadang-kadang, dia merasa bahwa gua yang gelap ini sangat besar di luar kata-kata seolah-olah ini adalah dunianya sendiri. Dia merasa seolah-olah dia adalah satu-satunya orang di daerah itu.</p>
+<p>	Dia menghabiskan banyak waktu tetapi dia tidak bisa keluar dari kegelapan. Belum lagi menundukkan dua cacing Gu .</p>
+<p>	Tepat ketika dia bingung tentang apa yang harus dilakukan, dua suara berbicara kepadanya dari kegelapan.</p>
+<p>	Satu suara berkata, “Manusia, kamu di sini untuk menangkap kami? Kembalilah, bahkan jika kamu memiliki Strength Gu , itu tidak mungkin.”</p>
+<p>	Yang lain berkata, “Manusia, kembalilah, kami tidak akan mengambil nyawamu. Bahkan jika Anda memiliki Gu Kebijaksanaan untuk membantu Anda, Anda mungkin tidak dapat menemukan kami.</p>
+<p>	Ren Zu terbaring kelelahan di tanah, terengah-engah. “Kekuatan dan Kebijaksanaan Gu telah meninggalkanku sejak lama dan umurku tidak banyak lagi, jadi aku kehabisan akal. Tapi selama masih ada harapan di hati saya, saya tidak akan menyerah!”</p>
+<p>	Mendengar kata-kata Ren Zu, kedua suara itu terdiam.</p>
+<p>	Setelah beberapa saat, salah satu Gu berkata, “Saya mengerti, manusia, Anda telah memberikan hati Anda kepada Gu Harapan . Kamu tidak akan menyerah apa pun yang terjadi. ”</p>
+<p>	Yang lain melanjutkan, “Kalau begitu, kami akan memberimu kesempatan. Selama Anda dapat menyebutkan nama kami, kami akan mengizinkan Anda untuk menggunakan kami.”</p>
+<p>	Ren Zu tercengang. Menemukan nama mereka di antara semua kata di dunia, itu seperti menemukan jarum di tumpukan jerami.</p>
+<p>	Selanjutnya, dia bahkan tidak tahu berapa banyak kata dalam nama mereka.</p>
+<p>	Ren Zu dengan cepat bertanya kepada Hope Gu , tetapi dia juga tidak tahu.</p>
+<p>	Ren Zu tidak punya alternatif dan tidak punya pilihan selain menebak nama mereka secara acak. Dia mengatakan banyak nama dan membuang banyak waktu tetapi kegelapan tidak menanggapinya sehingga jelas dia salah.</p>
+<p>	Akhirnya, napas Ren Zu melemah saat dia berubah dari seorang lelaki tua menjadi lelaki sekarat. Itu seperti pemandangan matahari terbenam di malam hari. Matahari yang perlahan akan turun telah diturunkan di tengah cakrawala, menjadi matahari terbenam.</p>
+<p>	Makanan yang dia bawa secara bertahap berkurang, otaknya menjadi lebih lambat dan dia hampir tidak punya energi untuk berbicara lagi.</p>
+<p>	Suara dalam kegelapan mendesak, “Manusia, kamu hampir mati, jadi kami akan membiarkanmu pergi. Dengan menggunakan waktu yang tersisa, Anda dapat keluar dari gua dan melihat dunia untuk terakhir kalinya. Tapi Anda telah menyinggung kami, dan sebagai hukuman, Gu Harapan akan tetap di sini sebagai rekan kami.”</p>
+<p>	Ren Zu mengepalkan hatinya dan menolak, “Bahkan jika aku mati, aku tidak akan putus asa!”</p>
+<p>	Gu Harapan sangat tersentuh dan menjawab panggilan Ren Zu dengan antusias, memancarkan cahaya terang. Di area dada Ren Zu, sebuah cahaya mulai bersinar. Tapi cahaya ini terlalu lemah, tidak bisa menerangi kegelapan. Bahkan, itu tidak bisa menutupi seluruh tubuh Ren Zu, tetapi hanya menelan area dadanya.</p>
+<p>	Namun Ren Zu bisa merasakan gelombang energi baru yang memancar ke tubuhnya dari Hope Gu .</p>
+<p>	Dia terus berbicara, meneriakkan nama-nama. Tapi dia sudah kacau. Banyak nama telah diucapkan tetapi dia tidak dapat mengingatnya dan mengulanginya, membuang banyak usaha dalam prosesnya.</p>
+<p>	Seiring waktu terus mengalir, umur Ren Zu hampir berakhir.</p>
+<p>	Akhirnya, ketika dia berada di hari terakhirnya, dia mengucapkan kata ‘Peraturan’.</p>
+<p>	Desahan datang dari kegelapan saat sebuah suara berbicara, “Manusia, aku mengagumi ketekunanmu. Anda telah menyebut nama saya, jadi mulai hari ini dan seterusnya, saya akan mematuhi perintah Anda. Tapi hanya dengan saudaraku aku bisa membantumu menangkap semua Gu di dunia. Kalau tidak, dengan kemampuan saya sendiri, itu tidak mungkin. Dengan demikian, Anda harus menyerah. Anda hampir mati, Anda sebaiknya menggunakan kesempatan ini untuk melihat dunia terakhir. ”</p>
+<p>	Ren Zu bertekad dan menggelengkan kepalanya, dia menggunakan seluruh waktunya untuk terus menyebutkan nama saat dia mencoba menebak nama cacing Gu yang lain .</p>
+<p>	Detik dan menit berlalu dan segera dia hanya punya satu jam lagi.</p>
+<p>	Tapi saat ini, dia tanpa sadar mengucapkan kata ‘Aturan’.</p>
+<p>	Segera, kegelapan menghilang.</p>
+<p>	Kedua Gu muncul di hadapannya. Seperti yang dikatakan Gu Harapan , satu kubik, disebut ‘Peraturan’. Yang lainnya berbentuk bola, disebut ‘Aturan’. Bersama-sama, mereka membuat ‘Aturan dan Peraturan’.</p>
+<p>	Kedua Gu berkata bersama, “Tidak peduli siapa itu, selama mereka tahu nama kita, kita akan mendengarkan mereka. Manusia, karena Anda sudah tahu nama kami, kami akan siap melayani Anda. Tapi kamu harus ingat, penting untuk tidak memberi tahu orang lain tentang nama kita. Semakin banyak orang yang mengetahui nama kita, semakin banyak orang yang harus kita patuhi. Sekarang Anda adalah orang pertama yang menaklukkan kami, beri tahu kami permintaan Anda. ”</p>
+<p>	Ren Zu sangat gembira. “Kalau begitu aku memesan kalian berdua, pergi dan tangkap aku Gu Panjang Umur .”</p>
+<p>	Aturan dan Peraturan Gu bekerja bersama dan menangkap Gu Panjang Umur delapan puluh tahun .</p>
+<p>	Ren Zu sudah berusia seratus tahun tetapi setelah mengkonsumsi Gu ini , kerutan di wajahnya menghilang dan anggota tubuhnya yang lemah menjadi berotot kembali. Aura pemuda yang bersemangat mengalir darinya.</p>
+<p>	Dengan perut buncit, dia melompat berdiri.</p>
+<p>	Dia dengan gembira melihat tubuhnya, mengetahui bahwa dia telah mendapatkan kembali tubuh berusia dua puluh tahun!</p>
+<p>	“Itu saja untuk hari ini, ayo pulang, cucu.” Orang tua itu, setelah menyelesaikan ceritanya, menghabiskan anggurnya juga.</p>
+<p>	“Kakek, terus katakan padaku, apa yang terjadi pada Ren Zu setelahnya?” Cucu itu pantang menyerah saat dia menjabat lengan kakeknya.</p>
+<p>	“Ayo pergi, aku akan memberitahumu ketika ada kesempatan lain.” Pria tua itu mengenakan topi jerami dan jaketnya, lalu memberikan satu set lagi kepada cucunya yang ukurannya lebih kecil.</p>
+<p>	Keduanya berjalan keluar dari penginapan, melangkah ke tengah hujan dan perlahan menghilang dari pandangan.</p>
+<p>	“Aturan dan Peraturan …” Tatapan Fang Yuan gelap saat dia memutar-mutar cangkir anggurnya, melihat minuman keras di cangkirnya. Hatinya tersentuh.</p>
+<p>	Legenda Ren Zu tersebar luas di seluruh dunia ini dan hampir tidak ada orang yang tidak mengenalnya. Fang Yuan secara alami telah mendengar tentang dia juga.</p>
+<p>	Tapi tidak peduli apakah itu legenda atau cerita, itu tergantung pada pengetahuan pembaca. Kakek dan cucu sebelumnya hanya memperlakukannya sebagai sebuah cerita, tetapi Fang Yuan dapat memahami makna yang lebih dalam.</p>
+<p>	Persis seperti itu Ren Zu.</p>
+<p>	Ketika dia tidak tahu aturan dan peraturan, dia menjelajah dalam kegelapan. Terkadang dia menabrak sesuatu, menabrak orang lain, menyebabkan dirinya terluka dan terlihat berantakan. Dan terkadang dalam area yang lebih luas, dia tersesat dan bingung, bergerak tanpa arah atau tujuan.</p>
+<p>	Kegelapan ini tidak murni hitam atau tidak adanya cahaya. Kekuatan, kebijaksanaan, dan harapan tidak dapat melawannya.</p>
+<p>	Hanya ketika Ren Zu mengetahui aturan dan peraturan dan menyebutkan nama mereka, kegelapan menghilang dan mengundang cahaya ke dalam kehidupan Ren Zu.</p>
+<p>	Kegelapan adalah kegelapan aturan dan peraturan dan cahaya juga cahaya aturan dan peraturan.</p>
+<p>	Fang Yuan mengalihkan pandangannya dari cangkirnya dan melihat ke luar melalui jendela.</p>
+<p>	Dia melihat bahwa di luar jendela, langit masih gelap, tanaman hijau berlimpah dan hujan deras beterbangan seperti kabut. Di dekatnya, rumah-rumah bambu berjajar berjajar, memanjang jauh. Di jalan, beberapa orang berjalan kaki mereka berlumuran lumpur akibat hujan. Beberapa dari mereka mengenakan mantel jerami hijau keabu-abuan, sementara yang lain membawa payung kain kuning yang diminyaki.</p>
+<p>	Fang Yuan menyimpulkan, “Langit dan bumi dunia ini seperti papan catur besar. Semua makhluk hidup adalah bidak catur, bertindak sesuai dengan aturan dan peraturan mereka. Keempat musim memiliki aturan dan peraturannya sendiri, berputar antara musim semi, musim panas, musim gugur, dan musim dingin. Aliran air memiliki aturan dan aturannya sendiri, mengalir dari tempat yang tinggi ke tempat yang rendah. Udara panas memiliki aturan dan peraturannya sendiri, melayang ke atas. Manusia secara alami juga memiliki aturan dan peraturannya sendiri. ”</p>
+<p>	“Setiap orang memiliki sudut pandang, keinginan, dan prinsip mereka sendiri. Misalnya, di desa Gu Yu, kehidupan para pelayannya murah, sedangkan nyawa tuannya mulia. Ini adalah bagian dari aturan dan peraturan. Karena itu, Shen Cui yang ingin dekat dengan orang kaya dan makmur melakukan yang terbaik untuk mencoba dan melepaskan diri dari status pelayannya. Gao Wan mencoba segala cara dan metode untuk menyenangkan tuannya, menggunakan otoritas mereka untuk dirinya sendiri.”</p>
+<p>	“Adapun Paman dan Bibi, mereka menyerah pada keserakahan, ingin menimbun warisan orang tuaku. Penatua Akademi ingin mengasuh para master Gu untuk mempertahankan posisinya di Akademi. ”</p>
+<p>	“Setiap orang memiliki aturan dan aturannya sendiri, setiap profesi memiliki aturan dan aturannya sendiri, dan setiap masyarakat dan kelompok juga memiliki aturan dan aturannya sendiri. Hanya dengan memahami aturan dan peraturan, kita dapat melihat situasi dengan jelas dari samping. Pergi dengan kegelapan dan rangkul cahaya, bergerak di sekitar aturan dengan banyak hal yang tersisa. ”</p>
+<p>	Fang Yuan memikirkan situasinya sendiri, hatinya sudah jernih. “Kepada kepala keluarga Mo, Gu Yue Mo Chen, ini untuk melindungi kemakmuran dan manfaat cabang keluarganya. Mo Yan menemukan masalah denganku dan itu akan dianggap merusak aturan, jadi demi kehormatan keluarganya, dia tidak akan melakukan apapun padaku. Bahkan, dia bahkan mungkin memberi saya kompensasi. ”</p>
+<p>	“Sebenarnya keluarga Mo memiliki pengaruh besar, jadi jika mereka mempertaruhkan reputasi mereka dan bertekad menghukumku, tidak ada yang bisa kulakukan untuk melawan mereka. Namun, Gu Yue Mo Chen takut. Dia tidak takut dirinya melanggar aturan, tetapi dia takut orang lain akan mengikuti jejaknya. Dalam perkelahian junior, jika para tetua ikut campur, itu akan memperburuk situasi. Jika itu melibatkan para petinggi, itu akan menjadi ancaman bagi seluruh desa pegunungan. Ketakutan Gu Yue Mo Chen berbohong di sini. Bagaimana jika dalam konflik di masa depan, orang lain meletakkan tangan mereka pada cucunya Gu Yue Mo Bei? Di seluruh garis keluarganya hanya ada satu laki-laki, jadi apa yang akan terjadi jika dia meninggal? Ketakutan semacam ini, mungkin dia sendiri tidak menyadarinya. Dia hanya secara tidak sadar melindungi aturan. ”</p>
+<p>	Mata Fang Yuan jernih karena dia memiliki pemahaman dan pemahaman yang sempurna tentang masalah ini dari awal hingga akhir.</p>
+<p>	Nama keluarga Gao Wan bukanlah Gu Yue. Sebaliknya, dia adalah orang luar, seorang pelayan.</p>
+<p>	Tuan yang mengeksekusi seorang pelayan bukanlah hal yang perlu dikhawatirkan. Di dunia ini, itu normal.</p>
+<p>	Dalam kasus Fang Yuan membunuh Gao Wan, kematian Gao Wan tidak penting. Bagian penting adalah tuannya, keluarga Mo di belakangnya.</p>
+<p>	“Namun Gu Yue Mo Chen seharusnya bisa memahami niat kompromi dan ancamanku sejak aku mengirim sekotak mayat cincang kepada mereka. Ini juga yang saya ingin dia pikirkan. Jika saya tidak salah, keluarga Mo tidak akan mengejar kematian Gao Wan. Tentu saja, jika saya memiliki bakat yang lebih baik dan setidaknya kelas B, keluarga Mo akan merasa terancam. Bahkan dengan hilangnya reputasi mereka, mereka ingin menekan ancaman masa depan seperti saya, “Fang Yuan mencibir dalam hatinya.</p>
+<p>	Kekuatan bisa diandalkan tapi kelemahan juga bisa dijadikan kelebihan.</p>
+<p>	Meskipun Fang Yuan bermain catur sebagai pion, dia bersih dari aturan dan peraturan, jadi dia sudah memiliki mentalitas pemain.</p>
+<p>	Karakter biasa paling banyak seperti Gu Yue Mo Chen atau Penatua Akademi, juga mengetahui aturan dan peraturan mereka sendiri tetapi tidak yakin dengan non-keahlian mereka. Menjadi seperti Fang Yuan, yang memiliki pandangan yang jelas tentang gambaran besar dan jelas dari aturan dan peraturan sangat sulit!</p>
+<p>	Untuk memahami aturan dan peraturan, seseorang harus seperti Ren Zu, tersandung dalam kegelapan dan berkeliaran tanpa tujuan.</p>
+<p>	Pada titik ini, kekuatan, kebijaksanaan, dan harapan akan sia-sia. Seseorang harus menghabiskan banyak waktu untuk melaluinya sendiri dan mendapatkan pengalaman.</p>
+<p>	Agar Ren Zu dapat menyebutkan nama Rules and Regulation Gu , ini setelah menghabiskan waktu. Di bawah ancaman kematian, dia telah mencoba berkali-kali.</p>
+<p>	Fang Yuan adalah seorang ahli dalam peraturan dan regulasi karena pengalamannya selama lima ratus tahun dari kehidupan sebelumnya.</p>
+<p>	Setelah kelahirannya kembali, dia percaya bahwa dia bisa menciptakan masa depan yang cemerlang. Bukan karena Jangkrik Musim Semi dan Musim Gugur, bukan karena dia tahu banyak rahasia dan harta karun, bukan karena dia tahu apa yang akan terjadi di masa depan.</p>
+<p>	Tetapi karena lima ratus tahun pengalaman yang dia peroleh sebagai pribadi.</p>
+<p>	Sama seperti bagaimana Ren Zu mengendalikan Aturan dan Regulasi Gu dan dapat dengan mudah menangkap semua Gu di dunia!</p>
+<p>	Dan Fang Yuan begitu akrab dengan aturan dan peraturan, sehingga dia bisa memandang rendah dunia dan melihat kebenaran dan kebohongannya. Menjadi teliti dan tepat, atau langsung ke inti masalah. Saya dengan bangga tertawa ketika saya berdiri di puncak dunia, dengan dingin melihat orang-orang di dunia yang berperilaku seperti pion, mematuhi aturan dan peraturan masing-masing, menjalani hidup mereka dengan lugas.</p>
+<p>	Aturan dan aturan kegelapan adalah kegelapan, dan aturan dan aturan terang adalah cahaya.</p>
+<p>	Tapi iblis yang terlahir kembali telah menginjakkan kaki di bawah jalan cahaya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

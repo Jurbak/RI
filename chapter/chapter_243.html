@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 243 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 243";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_242.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 243">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_244.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 243</h1>
+        <div class="text-left">
+<p>	Bab 243</p>
+<p>	Bab 243: Manfaat dikirim ke diri sendiri</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Ada begitu banyak barang, itu tidak akan murah. Itu akan membutuhkan setidaknya lima puluh ribu batu purba. ” Master Gu klan Jin memandang Fang Yuan dengan curiga.</p>
+<p>	Setelah mendapat persetujuan dari Shang Xin Ci, Fang Yuan segera menemukan beberapa Master Gu klan Jin, ini sudah yang keenam.</p>
+<p>	“Saya tidak punya batu purba.” Fang Yuan menggelengkan kepalanya: “Tapi aku bisa menggunakan barang-barangku untuk ditukar dengan milikmu.”</p>
+<p>	“Menukarkan?” Alis Gu Master terangkat. Dia tidak terkejut karena barter itu biasa, terutama di karavan.</p>
+<p>	Baginya, barter tidak ada ruginya selama nilainya hampir sama.</p>
+<p>	“Apa yang akan kamu gunakan untuk bertukar?”</p>
+<p>	Fang Yuan segera membawanya ke barang.</p>
+<p>	Master Gu klan Jin mengerutkan kening: “Barangmu lebih murah daripada milikku.”</p>
+<p>	“Tapi kamu bisa mendapatkan harga yang bagus untuk itu di gunung Huang Jin ini, apakah aku salah?” Fangyuan tertawa.</p>
+<p>	Klan Jin Gu Master mengerutkan kening lebih dalam: “Jika harganya ditetapkan terlalu tinggi, kami tidak akan bisa menjualnya.”</p>
+<p>	“Kalau begitu jual pelan-pelan, nanti juga laku. Barang lebih mahal ketika langka, saat itu Anda akan duduk di rumah mengumpulkan penghasilan Anda. ” Fang Yuan tersenyum.</p>
+<p>	Master Gu tertawa, alasan dia berbicara begitu banyak hanya untuk menurunkan harganya; hatinya sudah lama tergerak.</p>
+<p>	“Kamu tidak buruk sama sekali. Sebagai manusia fana, Anda tidak angkuh atau rendah hati. Saya memiliki tiga toko, apakah Anda tertarik bekerja untuk saya? Saya bisa memberi Anda posisi penjaga toko! Gaji Anda juga dapat didiskusikan lebih lanjut. ” Master Gu menepuk bahu Fang Yuan.</p>
+<p>	Fang Yuan menolak dengan sopan; Guru Gu merasa sedikit kasihan.</p>
+<p>	“Hei Tu, apa yang telah kamu lakukan!” Setelah transaksi selesai, Xiao Die berlari dengan ekspresi dingin.</p>
+<p>	“Kamu menukar semua barang? Apa yang sedang Anda coba lakukan? Kamu terlalu berani!” Xiao Die menghentakkan kakinya dengan marah: “Apakah kamu tahu barang-barang ini semua dipilih oleh Missy setelah banyak pertimbangan. Setelah kami mengangkutnya ke Kota Klan Shang, kami dapat menjualnya dengan harga dua kali lipat! Cepat, tukarkan kembali sekarang!”</p>
+<p>	Ekspresi Fang Yuan berubah dingin: “Nona Anda telah meminjamkan semua barang kepada saya, artinya, ini milik saya. Hmph, saya berurusan dengan barang-barang saya sendiri, apakah ada masalah? ”</p>
+<p>	Tatapan Fang Yuan menyapu Xiao Die, cahaya dingin melintas di matanya.</p>
+<p>	Xiao Die langsung merasakan hawa dingin yang membuat jantungnya berdebar.</p>
+<p>	Fang Yuan telah memutuskan untuk mengekspos sedikit lebih banyak dan dengan demikian menempatkan sikap yang kuat terhadap Xiao Die.</p>
+<p>	Xiao Die cerdas dan fasih selama ini, tetapi sekarang, perasaan dingin merayapi hatinya: “Kamu, kamu … aku akan memberi tahu Missy, hati-hati!”</p>
+<p>	Dia mencoba yang terbaik untuk menyembunyikan emosi batinnya, tetapi masih pergi dengan panik.</p>
+<p>	Laporannya secara alami tidak menyebabkan gangguan pada Fang Yuan.</p>
+<p>	Tetapi para pelayan yang dibawa Shang Xin Ci, memiliki banyak pendapat tentang tindakan Fang Yuan. Banyak yang berdiskusi diam-diam, mengira Hei Tu ini sudah gila.</p>
+<p>	Fang Yuan tahu nilai barang-barang ini dan bisa merasakan bakat bisnis Shang Xin Ci.</p>
+<p>	Tapi ini pertama kalinya dia berbisnis, pengalamannya sangat kurang padahal dia punya bakat. Bisnis tidak hanya mengangkut barang ke tempat tujuan, dan mendapatkan keuntungan dari selisih harga.</p>
+<p>	Seorang pedagang ahli sejati yang diperoleh di sepanjang jalan juga. Menggunakan pandangan ke depan yang tajam untuk mengeksplorasi peluang baru, belajar tentang spesialisasi setiap gunung, dan menyesuaikan dengan kebutuhan setiap klan; mereka membangun jaringan karena mereka mendapat untung dari semua orang di sekitar mereka.</p>
+<p>	Tentu saja, persyaratan ini terlalu tinggi untuk Shang Xin Ci saat ini. Dia baru saja berusia 16 tahun, meskipun dia memiliki bakat, dia masih seorang gadis muda yang segar.</p>
+<p>	Fang Yuan menghabiskan sekitar seratus tahun di kehidupan masa lalunya melakukan perdagangan. Dia bergabung dengan karavan dan bahkan menjadi pemimpin. Dia juga membuka toko sendiri, termasuk judi batu dan bahkan pelelangan.</p>
+<p>	Ketika datang ke pengalaman dan pandangan ke depan, para pemimpin dan wakil pemimpin di karavan itu tidak bisa memegang lilin untuk Fang Yuan, apalagi Shang Xin Ci yang tidak berpengalaman.</p>
+<p>	“Masih ada jarak ke gunung Shang Liang. Jika saya memanipulasi ini dengan sepenuh hati, saya setidaknya bisa meningkatkan nilai barang-barang ini tujuh atau delapan kali lipat! ”</p>
+<p>	Margin keuntungan ini sangat menakutkan. Lebih tinggi dan bahkan Fang Yuan bisa melakukannya. Karena keadaan sebenarnya, tujuh hingga delapan kali adalah batas dunia ini.</p>
+<p>	“Tentu saja, jika saya menggunakan metode yang tidak lazim, bukan hanya tujuh atau delapan, saya dapat dengan mudah mendongkraknya tujuh puluh atau delapan puluh kali.” Berpikir demikian, Fang Yuan tidak bisa tidak memikirkan sebuah puisi di Bumi ——</p>
+<p>	Mematuhi hukum dan hidup dalam kekhawatiran terus-menerus, bandit hidup dalam kesenangan setiap malam; orang-orang yang merugikan orang lain untuk keuntungan diri sendiri menunggang kuda, sedangkan mereka yang saleh dan adil kelaparan dalam kelaparan. Mereka yang membangun jembatan dan memperbaiki jalan menjadi buta, sedangkan mereka yang membunuh dan menyebabkan pembakaran memiliki banyak keturunan. Ketika saya meninggal, saya bertanya kepada Buddha, Buddha berkata: Tidak ada yang bisa saya lakukan!</p>
+<p>	Haha, yang disebut sistem dan hukum adalah untuk merampas massa dan membatasi yang lemah.</p>
+<p>	Di dunia mana pun itu, hukum rimba berlaku!</p>
+<p>	Jadi, bahkan selama era yang diperintah oleh hukum, orang kaya dan berpengaruh yang tak terhitung jumlahnya menemukan celah dan menghindari penilaian hukum. Belum lagi dunia Gu ini, di mana kekuatan adalah segalanya yang dibutuhkan untuk memberikan pengaruh!</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, dia pernah melakukan bisnis dengan sepenuh hati, memiliki jutaan aset dan properti yang tak terhitung jumlahnya. Tetapi kemudian, beberapa ahli dengan santai merebutnya, menyebabkan dia bangkrut dan hidup di jalanan.</p>
+<p>	Selama empat ratus tahun berikutnya dalam hidupnya, setiap kali dia memikirkannya kembali, dia sangat senang dia memiliki pengalaman seperti itu.</p>
+<p>	Hanya melalui rasa sakit seseorang dapat belajar tentang kebenaran!</p>
+<p>	Justru karena pengalaman ini, dia terbangun dari delusinya dan melepaskan diri dari pengekangan yang mengikatnya saat hidup di masyarakat yang sah di Bumi.</p>
+<p>	Manusia sering dibutakan bukan oleh pemandangan di depan mereka, tetapi oleh rantai di hati mereka.</p>
+<p>	Bagi Fang Yuan, jika dia mematuhi moral bisnis dan menjadi pengusaha yang layak, dia hanya bisa mendapatkan tujuh hingga delapan kali keuntungan.</p>
+<p>	Tetapi jika dia menggunakan beberapa metode ilegal, menjadi pedagang yang tidak bermoral, dia bisa menghasilkan lebih dari sepuluh kali lipat keuntungan.</p>
+<p>	Jika dia meninggalkan posisinya, dan berbohong dan menipu, menjadi pedagang yang tidak jujur, dia bisa mendapat untung puluhan kali lipat.</p>
+<p>	Jika dia langsung membunuh dan merampok, dia bahkan tidak membutuhkan modal. Bisnis tanpa modal investasi, selalu yang paling menguntungkan!</p>
+<p>	Tapi Fang Yuan punya tujuan lain berbisnis sekarang. Dengan demikian, metode yang melanggar aturan tidak dapat digunakan dan ini menyebabkan dia memiliki perasaan menahan diri.</p>
+<p>	Namun, malam sebelum karavan berangkat, seorang Master Gu klan Jin diam-diam mendekatinya.</p>
+<p>	“Ada kesepakatan rahasia yang ingin kami buat, apakah kamu tertarik?” Master Gu ini adalah salah satu dari mereka yang berdagang dengan Fang Yuan sebelumnya.</p>
+<p>	Fang Yuan tidak keberatan, tetapi setelah beberapa menit, dia mengubah idenya.</p>
+<p>	“Maksudmu, seseorang ingin menjual rumput Jinzan?” Dia sangat terkejut, hampir curiga bahwa dia salah dengar.</p>
+<p>	Untuk klan Jin, rumput Jinzan tidak bisa diganti dengan bahan lain, itu adalah sumber daya perang yang penting. Justru karena itu dapat digunakan sebagai bahan penyempurnaan, klan Jin dapat menghasilkan sejumlah besar ulat sutra emas Gu. Tapi sekarang ada yang mau jual?</p>
+<p>	Dalam ingatan Fang Yuan, karena klan Jin memiliki sejumlah besar Gu ulat sutra emas peringkat tiga, kekuatan pertempuran mereka meningkat dengan cepat, sehingga menghilangkan klan Huang dan menjadi pengontrol daerah tersebut.</p>
+<p>	“Tunggu sebentar, klan Huang masih ada sekarang. Ini berarti klan Jin belum sepenuhnya membuat resep untuk ulat sutra emas Gu? Seharusnya tidak begitu, saat ini mereka seharusnya sudah memiliki beberapa ide, jika tidak, mengapa mereka menanam rumput Jinzan secara massal?” Pikiran Fang Yuan bergerak seperti kilat.</p>
+<p>	Dia menyelidiki: “Saya hampir selesai dengan perdagangan barang. Rumput Jinzan adalah bahan yang tidak populer, meskipun jarang, orang kecil membutuhkannya … ”</p>
+<p>	Melihat Fang Yuan menolak, Master Gu panik: “Harganya bisa didiskusikan lebih lanjut, mengapa kita tidak membicarakannya dengan baik.”</p>
+<p>	Tatapan Fang Yuan bersinar, melihat pihak lain sangat cemas, dia mulai menurunkan harganya.</p>
+<p>	Setelah tawar-menawar yang intens, harga rumput Jinzan telah diturunkan ke tingkat yang mengerikan.</p>
+<p>	Wajah Tuan Gu memucat, ekspresinya berubah jelek dan nada suaranya menjadi kesal: “Kamu menang, kita akan pergi dengan harga ini, bisakah kita menyelesaikan kesepakatan sekarang?”</p>
+<p>	Harga ini sangat rendah, bahkan lebih rendah dari biaya memelihara rumput Jinzan. Jika mereka menjualnya, itu benar-benar merugi.</p>
+<p>	Klan Jin, Gu Master mengetahui hal ini, dan hatinya berdarah.</p>
+<p>	Fang Yuan juga tahu ini adalah batasnya, tetapi dia masih menggelengkan kepalanya: “Harga ini terlalu rendah, sejujurnya sikapmu membuatku merasa tidak pasti.”</p>
+<p>	Klan Jin Gu Master langsung meledak: “Kamu yang menurunkan harganya, sekarang kamu merasa terlalu rendah ?!”</p>
+<p>	Fang Yuan mengangkat bahu: “Kamu mengatakannya sebelumnya, ini adalah transaksi pribadi, tidak ada bukti kuat. Bagaimana jika Anda menjual saya barang palsu, siapa yang akan saya temukan? Anda tahu, karavan akan berangkat besok, saat itu bahkan jika saya mengalami kerugian, saya tidak punya pilihan selain pergi. ”</p>
+<p>	“Kecurigaanmu benar …” Kemarahan Jin Clan Gu Master mereda: “Jangan khawatir tentang barangnya, itu pasti nyata. Sejujurnya, ini diam-diam dijual oleh tuan muda kita. ”</p>
+<p>	Mata Fang Yuan bersinar cemerlang, dia akhirnya menerima beberapa informasi yang berguna.</p>
+<p>	Dia pura-pura kaget: “Tuan mudamu yang mencurinya?”</p>
+<p>	“Rumput Jinzan ini adalah tanaman yang dicintai oleh pemimpin klan, yang sengaja ditanam seluas tiga hektar. Tapi kami tidak bisa berbuat apa-apa karena pemimpin klan kami memiliki minat yang unik. Jadi jangan khawatir, rumput Jinzan tidak ada yang penting, anak mengambil barang ayahnya untuk dijual, bahkan jika ketahuan, dia hanya akan dimarahi. ” Kata Guru Gu.</p>
+<p>	Fang Yuan segera mengerti segalanya.</p>
+<p>	Jadi seperti ini!</p>
+<p>	Klan Jin sudah mencoba memperbaiki resep untuk ulat sutra emas Gu. Pada titik ini, mereka sudah memiliki gambaran kasar dan dengan demikian menanam tiga hektar rumput Jinzan..</p>
+<p>	Tetapi untuk mencegah perhatian yang tidak diinginkan dari klan Huang, informasi ini disimpan di antara para petinggi klan, bahkan tuan muda tidak tahu, hanya berpikir bahwa rumput ini ditanam untuk kepentingan.</p>
+<p>	Periode pertumbuhan rumput Jinzan sangat panjang, membutuhkan empat tahun untuk matang.</p>
+<p>	Dalam ingatannya, klan Jin melancarkan serangan mereka setahun kemudian. Mereka menggunakan peringkat tiga ulat sutra emas Gu yang memiliki kekuatan ofensif yang tajam untuk melenyapkan klan Huang dan mendominasi gunung Huang Jin.</p>
+<p>	Jika tiga hektar rumput Jinzan ini hilang, mereka juga tidak akan dapat menemukan sebanyak itu di pasar. Kemudian untuk melenyapkan klan Huang, klan Jin perlu membuang beberapa tahun lagi.</p>
+<p>	Terbukti, rumput Jinzan ini adalah barang yang berbahaya!</p>
+<p>	Jika dia benar-benar membelinya, itu akan memprovokasi klan Jin besar ini.</p>
+<p>	Orang biasa akan menghindarinya seperti wabah, tetapi Fang Yuan melihat peluang besar darinya.</p>
+<p>	Keuntungan ini, meskipun berbahaya, karena diserahkan kepadanya dengan kedua tangan, bagaimana dia bisa menolaknya?</p>
+<p>	Sejujurnya, meskipun Fang Yuan memiliki lotus harta karun esensi surgawi, dia masih membutuhkan batu purba, dan itu bukan jumlah yang sedikit yang dia butuhkan.</p>
+<p>	Ketika mereka mencapai Kota Klan Shang, dia perlu membeli cacing Gu, dan itu membutuhkan banyak batu purba. Mengandalkan produksi harian teratai harta karun surgawi itu merepotkan dan tidak mencukupi.</p>
+<p>	“Tuan muda itu benar-benar seorang pemboros, dia mungkin disayang oleh pemimpin klan, tetapi membutuhkan uang baru-baru ini, jadi dia mengarahkan pandangannya ke rumput Jinzan. Hehehe…”</p>
+<p>	Berpikir begitu, Fang Yuan tidak bisa menahan tawa.</p>
+<p>	Jika dia mengambil keuntungan ini, tidak hanya akan membantu dalam membeli cacing Gu, itu juga akan meninggalkan kesan mendalam pada Shang Xin Ci. Itu hanya membunuh dua burung dengan satu batu.</p>
+<p>	Klan Jin, Gu Master melihat senyum Fang Yuan, dan tertawa: “Jadi, kamu setuju?”</p>
+<p>	“Tentu saja.” Fang Yuan menatapnya; setelah kesepakatan ini tercapai, orang ini pasti akan berada dalam masalah.</p>
+<p>	“Tapi apa hubungannya masalahnya denganku?” Apa yang sedang dipertimbangkan Fang Yuan sekarang, adalah bagaimana menelan keuntungan ini tanpa mencekik dirinya sendiri.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

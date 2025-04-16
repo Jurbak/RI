@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 220 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 220";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_219.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 220">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_221.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 220</h1>
+        <div class="text-left">
+<p>	Bab 220</p>
+<p>	Bab 220: Ternyata mereka adalah bajingan iblis!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Informasi penting?” Pemimpin klan Bai mengerutkan kening – apa yang bisa lebih penting daripada musim semi roh?</p>
+<p>	“Karena ini bukan keadaan darurat, biarkan mereka menunggu dulu.” Dia menginstruksikan sebelum mengalihkan pandangannya kembali ke gambar asap.</p>
+<p>	Gambar bersinar, menunjukkan situasi di dalam gua; Fang Yuan dan kelompoknya bergerak lebih dalam ke dalam gua, sampai mereka mencapai akhir.</p>
+<p>	Gua ini tidak besar. Pemimpin klan Bai kecewa karena dia tidak melihat mata air roh, tidak mungkin di tempat seperti ini.</p>
+<p>	“Sepertinya kita masih perlu waktu untuk menemukan mata air roh.” Pemimpin klan Bai bergumam. Dia mengayunkan lengan bajunya dan menahan asapnya kembali, sebelum berkata ke arah luar tenda: “Panggil mereka masuk.”</p>
+<p>	Tutup tenda dibuka; seorang investigasi Gu Master yang galak dan kuat berjalan masuk dan membungkuk: “Bawahan ini menyapa pemimpin klan tuan, saya punya berita penting untuk dilaporkan.”</p>
+<p>	Ada nada kecemasan dalam suaranya.</p>
+<p>	“Kamu menangkap Gu Master klan Tie.” Pemimpin klan Bai sedikit mengernyit.</p>
+<p>	Klan Tie adalah pembangkit tenaga listrik besar yang bahkan tidak bisa ditandingi oleh sepuluh klan Bai. Akan ada masalah besar jika masalah ini tidak ditangani dengan benar.</p>
+<p>	Pemimpin klan Bai menyalahkan bawahan di dalam hatinya, Master Gu klan Tie ini seperti bom, dia seharusnya membunuhnya secara diam-diam di hutan. Membawanya kembali ke klan akan meninggalkan bukti dan menyebabkan komplikasi.</p>
+<p>	“Bawahan ini telah menerima misi, dan saat menyelidiki arah sisa-sisa Gu Yue, aku secara tidak sengaja menemukan Gu Master yang terluka parah. Saya curiga pada awalnya, mengira dia adalah anggota klan Gu Yue. Tapi setelah menyembuhkannya, dia mengaku sebagai Master Gu klan Tie. Dan dia memberi tahu saya berita yang mengejutkan! Tiga klan gunung Qing Mao benar-benar musnah. Master Gu iblis misterius berhasil melarikan diri dari bencana, dan klan Tie memobilisasi Master Gu mereka untuk mengejar Master Gu iblis ini. ” Master Gu Investigasi melaporkan.</p>
+<p>	“Apa katamu?” Pemimpin klan Bai terkejut; jantungnya melonjak, dan dia mulai mengerutkan kening.</p>
+<p>	Pada saat ini, gambar Fang Yuan dan Bai Ning Bing muncul di benaknya. Apakah kedua anak muda ini adalah Gu Masters yang jahat? Mereka tidak terlihat seperti itu!</p>
+<p>	Terutama ketika dia memikirkan gambar Fang Yuan yang menangis di perjamuan — bagaimana orang seperti itu bisa menjadi Guru Gu yang jahat?</p>
+<p>	“Bagaimana kamu bisa yakin orang ini adalah Gu Master klan Tie?” Pemimpin klan Bai bertanya lagi.</p>
+<p>	“Ini adalah token klan Tie yang kudapat dari tubuhnya! Dan cacing Gu-nya juga merupakan cacing Gu khas klan Tie.” Gu Master investigasi berkata sambil menyerahkan token logam.</p>
+<p>	Pemimpin klan Bai menerima token, dia merasakan sensasi dingin dari token.</p>
+<p>	Itu memang token klan Tie, tapi……</p>
+<p>	“Ada juga kemungkinan bahwa orang ini membunuh Gu Master klan Tie dan mengambil token itu sebagai jarahan mereka. Mungkin orang ini mencoba menyesatkan kita, dia mungkin saja Gu Master iblis yang dikejar klan Tie.” Pemimpin klan Bai memikirkan kemungkinan.</p>
+<p>	Untuk hidup, Master Gu iblis jelas harus berbohong tentang identitas mereka.</p>
+<p>	Pemimpin klan Bai memiliki persepsi yang terlalu dalam. Tapi tidak peduli apa, dia harus memastikannya sendiri.</p>
+<p>	Dia menyipitkan mata dan berkata, “Bawa tawanan itu ke sini.”</p>
+<p>	“Pindah.” Segera, tenda dibuka dan seorang Guru Gu dibawa.</p>
+<p>	Itu adalah Tie Dao Ku; rambutnya berantakan dan wajahnya pucat saat dia berjalan menuju pemimpin klan Bai.</p>
+<p>	“Berlutut!” Master Gu di belakang menendang, dan pria berkemauan keras ini mendengus, berlutut di tanah.</p>
+<p>	Tapi dia melawan dengan keras dan mencoba untuk tetap berdiri.</p>
+<p>	“Diam!” Dua Master Gu di belakangnya memegang masing-masing lengannya, memaksanya turun.</p>
+<p>	Perjuangan Tie Dao Ku sia-sia, dia berteriak: “Aku, Tie Dao Ku, akan berlutut ke langit dan bumi, akan berlutut kepada orang tuaku, akan berlutut kepada pemimpin klan, tetapi jangan mempermalukanku, atau aku akan lebih baik mati!”</p>
+<p>	“Oh, akting yang bagus.” Alis pemimpin klan Bai terangkat, tetapi dia hanya mencibir dan menginterogasi: “Bicaralah, kamu adalah Gu Master iblis, bagaimana kamu membunuh Gu Master klan Tie dan mendapatkan token ini?”</p>
+<p>	Tie Dao Ku tercengang, sebelum memuntahkan beberapa dahak berdarah: ” Ludah ! Saya Tie Dao Ku dari klan Grand Tie, nama dan nama keluarga saya tidak akan pernah berubah. Sekarang aku telah mendarat di tanganmu, lakukan apa pun yang kamu inginkan padaku, tetapi mencoba menjebakku seperti ini, bukankah itu terlalu munafik?”</p>
+<p>	Dahak tidak mendarat di pemimpin klan Bai, karena menabrak dinding tak terlihat di udara dan jatuh ke tanah.</p>
+<p>	Ekspresi pemimpin klan Bai berubah jelek.</p>
+<p>	Tie Dao Ku tertawa dingin: “Klan Tie kami ahli dalam mengejar dan menyelidiki. Klan Bai, Anda menangkap saya dan mempermalukan saya seperti ini, hehe, lebih baik Anda memusnahkan mayat saya, dan berdoa agar Anda tidak ketahuan. Jika tidak, heheh, Anda akan menghadapi murka dan balas dendam dari seluruh klan Tie kami!”</p>
+<p>	Pemimpin klan Bai mencibir: “Kamu terus mengklaim sebagai Master Gu klan Tie, tapi aku telah melihat banyak Master Gu klan Tie, mereka yang berada di bawah peringkat 5 akan bergerak dalam jumlah besar, dan sangat bersemangat, dan berkemauan keras. Anda tidak hanya bepergian sendirian, lihat saja keadaan Anda, Anda harus bertindak lebih baik jika Anda ingin lulus sebagai Master Gu klan Tie. ”</p>
+<p>	Mencibir dingin Tie Dao Ku membeku.</p>
+<p>	Kata-kata pemimpin klan Bai memicu ingatan paling menyakitkan di hatinya.</p>
+<p>	Kembali ketika mereka meninggalkan gunung Qing Mao, kesembilan dari mereka bersemangat tinggi, tetapi sekarang hanya dia yang tersisa dan itu juga sebagai tahanan!</p>
+<p>	Kesedihan…</p>
+<p>	Terutama ketika dia memikirkan bagaimana Tie Ao Tian meninggal, penyesalan dan rasa iba yang besar semakin memperparah rasa sakitnya.</p>
+<p>	Tie Ao Tian adalah tuan muda keempat klan Tie, dengan bakat unggul dan sifat yang teguh; ada banyak harapan yang diberikan padanya sejak muda. Dia adalah pesaing kuat untuk posisi pemimpin klan, dan merupakan harapan masa depan klan Tie. Kecerdasan dan bakat yang dia tunjukkan membuat Tie Dao Ku melihat masa depan klan Tie di tangannya.</p>
+<p>	Tetapi!</p>
+<p>	Ketika ledakan dahsyat itu terjadi, semuanya berakhir.</p>
+<p>	Itu terlalu mendadak!</p>
+<p>	Tie Ao Tian yang berada di tengah ledakan bahkan tidak punya waktu untuk mengaktifkan Gu pertahanannya sebelum dia hancur berkeping-keping.</p>
+<p>	Jenius satu generasi, bintang masa depan, mati dengan cara yang tidak jelas!</p>
+<p>	Tidak hanya Tie Ao Tian, ​​​​beberapa orang lain juga terpengaruh dan mati dalam ledakan bersama dengan cacing Gu yang tak terhitung jumlahnya.</p>
+<p>	Hanya ada dua orang yang hidup; keduanya terluka parah.</p>
+<p>	Tie Ku Dao adalah salah satunya. Saat itu dia berada di belakang tim, dan karena kulitnya telah berubah menjadi kulit perunggu oleh cacing Gu, dia mempertahankan hidupnya.</p>
+<p>	Orang lain yang terluka telah kehilangan separuh tubuhnya, dan dalam waktu singkat, jatuh koma; akhirnya meninggal setelah resusitasi gagal.</p>
+<p>	Tie Dao Ku menangis saat dia menguburkan anggota klannya.</p>
+<p>	Dia ingin mengubur mereka secara terpisah, tetapi sebagian besar mayatnya hancur berkeping-keping. Tie Ao Tian adalah yang paling menyedihkan, hanya sepotong daging seukuran telapak tangan yang tersisa darinya.</p>
+<p>	Dia menanggung rasa sakit dan kesedihan yang luar biasa, dan membangun sebuah makam, memotong batu besar dan memindahkannya ke sana sebagai tanda.</p>
+<p>	Selanjutnya, dia menyelidiki lokasi ledakan.</p>
+<p>	Dengan pengalamannya, dia menyimpulkan itu adalah Gu kentang guntur yang hangus.</p>
+<p>	Hampir seratus kentang guntur hangus, terkubur bersama! Tanpa ragu, ini adalah jebakan besar yang licik, kejam, dan sangat jahat!</p>
+<p>	Siapa yang akan melakukan hal jahat seperti itu!</p>
+<p>	Siapa yang memasang jebakan ini?!</p>
+<p>	Tie Dao Ku memikirkannya dengan keras, dan merasa bahwa Fang dan Bai adalah yang paling curiga. Tentu saja, dia tidak tahu nama mereka atau info pastinya, tetapi dia mengerti bahwa pelakunya kemungkinan besar adalah Gu Master iblis yang mereka kejar.</p>
+<p>	Terlalu hina!</p>
+<p>	Terlalu kejam!</p>
+<p>	Tie Dao Ku menjadi marah, kebenciannya sedalam laut.</p>
+<p>	Balas dendam, dia harus membalas dendam, dan membawa Gu Master iblis ini ke pengadilan!</p>
+<p>	Tie Dao Ku tidak bisa lagi kembali ke klan Tie. Dia bertanggung jawab untuk sampai ke akhir kematian tuan muda keempat. Lebih jauh lagi, jika dia kembali dengan tangan kosong seperti ini, itu akan menjadi aib besar bagi karakternya.</p>
+<p>	Dia harus melanjutkan pengejaran!</p>
+<p>	Hidupnya tiba-tiba berubah dari warna-warni menjadi abu-abu. Dia ingin membunuh Gu Master iblis dari gunung Qing Mao untuk melampiaskan amarahnya. Bahkan jika dia tidak bisa, dia ingin memberikan segalanya.</p>
+<p>	“Pembalasan dendam! Pembalasan dendam!” Dia berteriak, dia tidak akan berhenti sampai dia membunuh Fang dan Bai.</p>
+<p>	Namun, kenyataan itu kejam. Luka-lukanya tidak dapat disembuhkan dengan baik, dan dalam beberapa hari, ia menderita demam tinggi dan sakit kepala yang parah. Dia juga menghadapi serangan kelompok binatang buas, dan nyaris tidak berhasil melarikan diri melalui sungai. Tetapi tanpa persediaan yang tepat, dia tetap pingsan pada akhirnya.</p>
+<p>	Ketika dia bangun, dia menemukan bahwa dia telah diselamatkan, tetapi menjadi tawanan klan Bai.</p>
+<p>	Memikirkan kembali, itu semua adalah serangkaian peristiwa yang menyakitkan!</p>
+<p>	Tie Dao Ku berlutut di tenda dengan air mata mengalir tak terkendali.</p>
+<p>	Pemimpin klan Bai tercengang, Tie Dao Ku tidak menjawab pertanyaannya dan terus mengeluarkan aura tekad.</p>
+<p>	Ini tidak terlihat seperti identitas palsu, seperti Gu Master iblis yang ingin hidup.</p>
+<p>	“Apakah orang ini benar-benar dari klan Tie?” Pemimpin klan Bai mulai merasakan sesuatu yang salah, perasaan tidak enak di hatinya mulai menyebar.</p>
+<p>	Dia ingin mengetahui lebih detail, tetapi Tie Dao Ku tidak menjawab dan bahkan menutup matanya.</p>
+<p>	Pikiran pemimpin klan Bai berubah saat dia tiba-tiba berkata: “Belum lama ini, klan Bai kami menjamu dua tamu klan Gu Yue. Mereka adalah dua anak muda, yang satu mengaku sebagai tuan muda klan Gu Yue…”</p>
+<p>	Sebelum dia selesai, Tie Dao Ku membuka matanya tiba-tiba. Matanya yang dulu mati mulai bersinar dengan cahaya.</p>
+<p>	Kebencian, kemarahan, kegembiraan, segala macam emosi kompleks meledak.</p>
+<p>	Dia ingin bangun dengan gelisah, tetapi didorong oleh dua Master Gu di belakangnya.</p>
+<p>	Dia berteriak: “Itu mereka, itu pasti mereka. Untuk berpikir saya bertemu mereka di sini. Dua orang, dan bahkan anak muda, hmph, mereka pastilah Gu Master iblis yang melarikan diri dari gunung Qing Mao!”</p>
+<p>	Tie Dao Ku tidak tahu situasi di klan Bai, Gu Master investigasi hanya menginterogasi, tidak mungkin dia akan memberitahunya informasi seperti itu.</p>
+<p>	Pemimpin klan Bai dengan cepat bertanya: “Jika Anda adalah Master Gu klan Tie, di mana teman Anda?”</p>
+<p>	Sikap Tie Dao Ku berubah total pada saat ini; demi balas dendam, dia menjawab dengan serius: “Mereka sudah mati.”</p>
+<p>	“Di mana mereka mati? Di mana mayat-mayat itu?”</p>
+<p>	Ekspresi Tie Dao Ku berubah: “Aku tidak bisa memberitahumu ini. Orang mati akan beristirahat dengan tenang, bahkan jika Anda mencurigai saya, saya tidak akan membiarkan Anda menggali kuburan mereka!”</p>
+<p>	Hati pemimpin klan Bai tenggelam setelah mendengar ini.</p>
+<p>	Ini bukan kata-kata yang akan diucapkan oleh Guru Gu iblis.</p>
+<p>	“Jangan bilang …” Sebuah kekhawatiran yang intens tumbuh di hati pemimpin klan Bai.</p>
+<p>	Dia tidak bisa menahan diri untuk tidak melambaikan lengan bajunya, saat asap berwarna-warni terbang keluar dan melingkar di udara, membentuk sebuah gambar.</p>
+<p>	“Tuan muda klan Anda ada di tangan kami, kalian semua keluar sekarang!” Dalam gambar, Fang Yuan telah gagal dengan klan Bai, dia mencengkeram tenggorokan Bai Hua dan Bai Sheng saat dia mengancam.</p>
+<p>	Pemimpin klan Bai langsung tercengang.</p>
+<p>	Setelah beberapa saat, dia menjadi marah, membanting meja di depannya menjadi berkeping-keping.</p>
+<p>	Dia ingin berteriak ——</p>
+<p>	“Ternyata mereka bajingan setan!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 28 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 28";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_27.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 28">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_29.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 28</h1>
+        <div class="text-left">
+<p>	Bab 28</p>
+<p>	Bab 28 – Bisnis bebas modal</p>
+<p>	“Mengapa menghentikannya?” Penatua akademi mengangkat alisnya dan tertawa. Dia mengangkat satu jari dan mengarahkannya ke Fang Yuan yang jauh dan berkata, “Pemuda ini telah mengendalikan seluruh situasi, dan serangannya sepenuhnya terkendali. Lihatlah cara dia memotong leher, dia hanya bertindak di sisi kiri atau kanan, tetapi tidak pernah memotong tengkuk. Ini karena dia tahu bahwa memukul sisi leher bisa membuat seseorang pingsan di tempat. Sementara menyerang area di belakang kepala dan leher bisa menyebabkan kematian, jadi dia secara otomatis meninggalkan cara menyerang itu.”</p>
+<p>	“Lihat semua pemuda di tanah itu, siapa di antara mereka yang terluka parah? Tidak ada! Bahkan jika mereka terluka parah, lalu bagaimana? Apakah Anda mengatakan bahwa perawatan akademi kami Gu Masters tidak akan dapat menyembuhkan luka traumatis semacam ini?</p>
+<p>	“Tapi tuan tua, anak itu terlalu sombong. Dia memblokir pintu masuk; ini jelas tidak mengakui keberadaan kita sebagai penjaga! Diabaikan bukanlah masalah utama, yang terpenting adalah bagaimana klan akan memikirkan akademi kita. Untuk benar-benar membiarkan siswa kelas C kecil membuat keributan di akademi dan tidak menghentikannya. Jika tersiar kabar, kami khawatir ini dapat memengaruhi reputasi Anda, Tuan Penatua. ” Penjaga itu menyipitkan matanya saat mengatakan ini.</p>
+<p>	” Hmph , kenyataannya karena kalian semua diabaikan oleh bocah itu, jadi martabatmu sendiri terasa tertantang?” Penatua akademi tidak terlalu senang. Dia mencibir dan menembakkan tatapan setajam ujung pedang ke arah para penjaga. Mereka semua menundukkan kepala, semuanya tidak setuju.</p>
+<p>	“Apa yang salah dengan berkelahi? Selama nyawa tidak hilang, itu akan membangkitkan sisi kompetitif para siswa dan meredam keinginan mereka untuk bertarung. Menghentikan pertarungan semacam ini sama saja dengan melumpuhkan semangat bertarung siswa! Apakah tidak ada pertempuran di batch sebelumnya? Setiap angkatan memiliki pertempuran mereka sendiri, dan itu sering terjadi. Satu-satunya perbedaan adalah bahwa itu biasanya terjadi pada paruh kedua tahun ketika para siswa sudah menguasai beberapa cara bertarung. Dengan kekuatan mereka gatal untuk bertarung, dan pada saat yang sama itu adalah usia yang agresif. Mengapa Anda tidak menghentikan orang-orang itu saat itu? ” Penatua akademi bertanya dengan suara dingin.</p>
+<p>	“Mungkin karena pertarungan di tahun-tahun sebelumnya hanya pertarungan tunggal, jarang ada pertarungan skala besar seperti ini. Tapi Fang Yuan ini sangat pandai menciptakan gangguan! ” Kepala penjaga menjawab.</p>
+<p>	“Tidak tidak Tidak.” Penatua akademi menggelengkan kepalanya, “Itu karena kalian semua tidak berani menghentikannya. Karena setelah setengah tahun, seorang Master Gu akan memiliki kemampuan untuk bertarung melebihi kekuatan manusia, dan dengan tubuh fana kecil Anda, bagaimana Anda bisa menghentikannya? Saat ini kalian semua ingin menghentikan Fang Yuan, mungkin karena dia baru saja mulai berkultivasi, jadi dia tidak memiliki kekuatan yang cukup. Itu juga karena Anda merasa bahwa dia mengabaikan keberadaan Anda dan menyinggung martabat Anda. Tapi kalian semua harus ingat, semua siswa ini memiliki nama keluarga Gu Yue! Mereka adalah anggota klan klan Gu Yueku, tuanmu! Bahkan jika mereka masih muda, tidak peduli seberapa lemah, mereka tetap tuanmu!”</p>
+<p>	Nada suara sesepuh berubah tajam.</p>
+<p>	“Nama keluargamu bukan Gu Yue, berapa nilaimu? Karena kesetiaan Anda, Anda semua diberi posisi penjaga, memberi Anda beberapa manfaat manis. Namun pada kenyataannya, Anda masih budak. Hanya budak! Seorang budak berani memberikan pendapat yang tidak masuk akal tentang tuan mereka, peduli dengan masalah tuan mereka? ” Wajah sesepuh itu gelap seperti air.</p>
+<p>	“Ini bukan ide bawahanmu, bukan maksudku!”</p>
+<p>“Aku tidak akan berani! Saya tidak akan berani!”</p>
+<p>	Para penjaga berwajah pucat saat mereka berlutut ke tanah, menyemburkan tanpa henti. Penatua akademi mendengus dingin dan menunjuk ke kepala penjaga yang baru saja menyebut Fang Yuan orang yang pandai menciptakan gangguan. “Kamu memberikan komentar yang keterlaluan pada tuanmu. Anda dibebaskan dari posisi Anda. ”</p>
+<p>	Setelah beberapa saat, penatua berkata kepada yang lain, “Setelah setengah bulan, akan ada pemeriksaan ulang untuk menentukan kepala baru.”</p>
+<p>	Para penjaga lainnya segera memiliki mata yang bersinar, hati mereka terpompa dengan antusias.</p>
+<p>	“Posisi kepala penjaga! Setiap bulan saya akan dapat menerima setengah batu purba lebih banyak!</p>
+<p>“Untuk bisa menjadi kepala suku adalah menjadi manusia di atas manusia. Selain para master, saya berani melihat siapa lagi yang akan menunjukkan ketidaksenangan kepada saya? ”</p>
+<p>“Jika saya menjadi kepala, betapa kerennya itu …”</p>
+<p>	“Baiklah, untuk apa kalian semua mengobrol di sini? Turun dan tunggu pertempuran berakhir, lalu sapu lapangan ! ” Penatua meraung.</p>
+<p>	“Ya ya ya.”</p>
+<p>“Bawahanmu pergi!”</p>
+<p>	Para penjaga pergi dengan hormat dan kagum saat mereka turun. Salah satu penjaga di tangga kehilangan pijakan dan jatuh. Segera ada serangkaian suara yang menyiratkan rantai orang jatuh dan merobohkan.</p>
+<p>	Namun di bawah kekuatan dan pengaruh sesepuh akademi, para penjaga memerah wajah mereka dan bertahan dalam penderitaan, tidak mengeluarkan satu suara pun.</p>
+<p>	“Hmph! Para pelayan itu seperti anjing. Sesekali mereka akan membuat gatal ini berperilaku tidak baik; Anda harus memukul mereka agar mereka tahu rasa takut dan rasa hormat. Kemudian berikan saja beberapa kemenangan kecil dan tulang kepada mereka, biarkan mereka bertarung di antara mereka sendiri seperti anjing, biarkan mereka bersaing di antara mereka sendiri untuk melayani klan saya dengan hidup mereka. Untuk memegang tongkat di satu tangan dan wortel di tangan lain – Ini adalah cara unik dari eselon atas.” Saat sesepuh akademi mendengar gerakan tenang di bawah, dia mencibir dalam hatinya dan menoleh, melihat melalui jendela dan ke gerbang sekolah.</p>
+<p>	Sekelompok baru yang terdiri dari sepuluh atau lebih siswa berada di tanah di pintu masuk. Fang Yuan berdiri dengan bangga, dan ada tiga gadis muda saling membelakangi, meringkuk di sisi di seberangnya.</p>
+<p>	“Kamu, kamu-kamu sebaiknya tidak datang!”</p>
+<p>“Jika kamu datang, kami akan menembakmu dengan moonblade!!”</p>
+<p>	Di tangan mereka ada lapisan cahaya biru. Sepertinya mereka dipaksa ke titik mereka benar-benar akan memobilisasi esensi purba mereka dan menggunakan Moonlight Gu .</p>
+<p>	Tubuh Fang Yuan masih seperti anak laki-laki normal berusia lima belas tahun, dan jika mereka menyerangnya dengan pedang bulan, itu tidak akan ada gunanya baginya. Namun dia tidak takut – malah dia mencibir pada mereka dan berjalan selangkah demi selangkah menuju gadis-gadis itu. “Kalian gadis-gadis punya nyali yang cukup besar ya, apakah kamu lupa aturan sekolah? Di dalam akademi pertempuran menggunakan Gu dilarang, atau hukumannya akan dikeluarkan. Jika kalian ingin dikeluarkan, lakukan saja. ”</p>
+<p>	“Ini …” Gadis-gadis muda itu ragu-ragu.</p>
+<p>“Memang ada aturan seperti itu.” Cahaya biru di tangan mereka memudar.</p>
+<p>	Mata Fang Yuan berkilat saat dia menangkap celah ini dan berlari ke depan, telapak tangannya melambai di udara, memotong dua dari mereka tanpa bayangan keraguan.</p>
+<p>	Menjadi yang terakhir, moralnya turun dan lututnya menjadi lemah. Dia jatuh ke tanah sambil menangis berat, memohon pada Fang Yuan, “Jangan datang ke Fang Yuan, tolong biarkan aku pergi.”</p>
+<p>	Fang Yuan menatap gadis muda itu dengan tatapan merendahkan, suaranya yang dingin terdengar di telinganya. “Sepotong batu purba.”</p>
+<p>	Tubuh gadis itu berkibar dan dia dengan cepat membuka kantong uangnya, kesadaran memeluknya. Dia mengeluarkan tiga hingga empat potong batu purba dan memegangnya di telapak tangannya, mengulurkan tangannya ke Fang Yuan, “Jangan pukul aku, aku akan memberikan semuanya padamu, aku akan memberikan semua batuku padamu. !”</p>
+<p>	Fang Yuan tanpa ekspresi saat dia perlahan mengulurkan tangan kanannya. Dia mengangkat jari telunjuk dan ibu jarinya, dengan lembut mencubit sepotong batu purba dari tangan gadis itu.</p>
+<p>	Gadis muda itu tidak bisa berhenti gemetar. Tangan Fang Yuan memiliki bentuk pucat dan ramping seorang pemuda, tetapi di matanya tangannya mengerikan seperti cakar teror yang ganas.</p>
+<p>	“Aku sudah mengatakannya sebelumnya, aku hanya akan mengambil satu potong batu purba.” Fang Yuan berhenti sejenak, lalu dia berkata dengan jelas, “Kamu boleh pergi.”</p>
+<p>	Gadis itu menatap Fang Yuan sebentar, lalu akhirnya dia bangun. Tapi anggota tubuhnya masih lemah dan dia tidak bisa berdiri dengan benar. Hatinya sudah penuh ketakutan terhadap Fang Yuan, dan dia takut sampai-sampai dia tidak bisa mengumpulkan energi.</p>
+<p>	Ketika tetua akademi melihat ini, dia tidak bisa menahan diri untuk tidak menggelengkan kepalanya. Salah satu alasannya untuk tetap menjadi pengamat adalah meminjam kesempatan untuk melihat bakat bertarung masing-masing siswa.</p>
+<p>	Gadis yang pingsan di tanah ini hanyalah bakat kelas C, tetapi dengan mentalitas seperti ini dia hanya bisa menjadi Master Gu logistik . Dia akan bisa produktif di klan, tetapi tidak ada harapan baginya untuk berada di medan perang.</p>
+<p>	“Adapun Fang Yuan ini …” Penatua akademi menggosok dagunya, matanya menyipit dengan kilatan cahaya. Dia merasa bahwa Fang Yuan sangat menarik. Fang Yuan tidak hanya memiliki bakat bertarung, dia bahkan memiliki rasa kesopanan. Hanya memeras sepotong batu purba tidak melampaui batas di hati sesepuh. Tetapi jika fang Yuan ingin memeras untuk dua potong, itu akan terlalu banyak dan dia perlu campur tangan.</p>
+<p>	Tunjangan akademi awalnya tiga potong. Untuk mengambil sepotong masih akan dianggap tidak berbahaya. Tapi jika dia memeras dua batu, lalu apa gunanya memberikan subsidi? Dia mungkin juga memberikan segalanya kepada Fang Yuan.</p>
+<p>	Sangat cepat kelompok siswa terakhir tiba. Hanya ada lima orang, dan di antara mereka adalah adik kembar Fang Yuan.</p>
+<p>	“Kakak, bagaimana kamu bisa seperti ini?! Kamu terlalu berani, untuk benar-benar menghajar teman sekelasmu di gerbang dan mengambil batu purba mereka!” Mata Gu Yue Fang Zheng terbelalak saat dia melihat pemandangan itu. Dia tidak bisa mempercayai apa yang dia lihat di hadapannya, “Saya menyarankan Anda untuk segera pergi ke tetua akademi dan mengambil inisiatif untuk mengakui kesalahan Anda, atau jika Anda membuat masalah besar, itu bukan lelucon, Anda mungkin benar-benar mendapatkan diusir!”</p>
+<p>	Fang Yuan tertawa dan berkata, “Kamu benar.”</p>
+<p>	Fang Zheng menghela nafas lega. Melihat kakak laki-lakinya tidak menjadi gila dan masih bisa dibujuk, itu bagus.</p>
+<p>	Tapi dengan sangat cepat dia mendengar Fang Yuan berkata lagi, “Kalian masing-masing, sepotong batu purba.”</p>
+<p>	“ Apa ?” Fang Zheng membuka mulutnya lebar-lebar karena terkejut, “Bahkan aku harus membayar?”</p>
+<p>	“Adikku tersayang, tentu saja kamu bisa memilih untuk tidak melakukannya.” Nada bicara Fang Yuan sangat lembut. “Tapi kamu akan berakhir seperti mereka,” katanya dan menunjuk mereka yang jatuh di tanah. Beberapa dari mereka pingsan, dan beberapa dari mereka mengerang kesakitan.</p>
+<p>	“Bahkan adik laki-lakinya sendiri tidak selamat!”</p>
+<p>“Fang Yuan ini gila, dia terlalu kejam …”</p>
+<p>“Kita tidak bisa mengalahkannya, orang bijak tidak bertarung ketika ada kemungkinan melawannya. Lebih baik kita serahkan dan atasi masalahnya.”</p>
+<p>“Itu benar, kita akan melewatkan batu purba dulu. Lagipula itu hanya satu bagian, ketika kita kembali dan melapor ke guru, dia akan mendapatkannya! ”</p>
+<p>	Dengan pelajaran yang diambil dari kesalahan teman sekelas mereka, anak-anak yang tersisa dengan patuh menerima pemerasan Fang Yuan dengan tatapan menantang.</p>
+<p>	“Tahan.” Tepat ketika mereka akan pergi, Fang Yuan berteriak pada mereka untuk berhenti.</p>
+<p>	“Fang Yuan, apakah kamu benar-benar akan kembali pada kata-katamu?” Para pemuda mulai gelisah.</p>
+<p>	Fang Yuan menghadap para remaja di tanah, dengan lembut menghela nafas. “Apakah kalian benar-benar berpikir bahwa saya akan berjongkok dan mencari melalui tubuh mereka satu per satu?”</p>
+<p>	Para pemuda menatap kosong, lalu mereka dihantam oleh kesadaran satu per satu. Masing-masing dari mereka memerah di wajah dan berdiri di tempat dengan ragu-ragu.</p>
+<p>	Fang Yuan menatap mereka, menyipitkan matanya. Ada kilatan cahaya dingin di tatapannya; segera kelima anak muda itu merasakan jantung mereka berdetak kencang, kulit kepala mereka mati rasa pada saat yang bersamaan.</p>
+<p>	“Baiklah, Fang Yuan. Kami mengerti maksud Anda.”</p>
+<p>“Kami hanya akan membantumu sekali ini.”</p>
+<p>	Di bawah aura despotik Fang Yuan, mereka hanya bisa menundukkan kepala dan mencari melalui masing-masing kantong uang remaja muda di tanah, mengeluarkan sepotong batu purba dari setiap tas. Kemudian mereka membawanya bersama dan memberikannya kepada Fang Yuan.</p>
+<p>	Seluruh kelas memiliki total lima puluh tujuh orang. Dengan memeras sepotong batu purba dari masing-masing dari mereka, Fang Yuan memegang lima puluh enam keping.</p>
+<p>	Dia awalnya memiliki dua puluh buah, tetapi dia menghabiskan sepuluh untuk membeli beberapa botol anggur bambu hijau. Menambahkan jumlah batu purba dari tunjangan dan hadiahnya sendiri, jumlah total batu purba yang dimilikinya berjumlah hingga tujuh puluh sembilan buah.</p>
+<p>	“Bisnis bebas modal yang terdiri dari pemerasan dan penjarahan semacam ini benar-benar bisnis yang paling menguntungkan.” Fang Yuan mengantongi kantong uangnya yang tiba-tiba melebar ke dadanya dan melangkah pergi, meninggalkan lantai yang penuh dengan remaja, terbaring seperti mayat di tanah.</p>
+<p>	Dan beberapa remaja, Fang Zheng di antara mereka, menatap kosong ke arah bayangan Fang Yuan yang berangsur-angsur menghilang.</p>
+<p>	“Cepat keluar.”</p>
+<p>“Kalian semua, lebih cepat! Atur tuan kecil dengan benar. ”</p>
+<p>“Perawatan Gu Master, di mana dia, minta dia datang dengan cepat!”</p>
+<p>	Para penjaga berteriak ketika mereka semua bergegas ke depan, saling menjatuhkan dalam keinginan mereka untuk menampilkan diri. Mereka rela memberikan segalanya untuk posisi kecil sebagai penjaga utama.</p>
+<p>	Catatan Penulis: Ada beberapa masalah dengan tata letak kemarin, tetapi sekarang sudah diperbaiki. Sangat menyesal tentang hal itu, saya memberi Anda semua hambatan untuk membaca Anda. Hmm, dengan buku baru saya di daftar buku baru, saya sangat senang; ini semua karena semua dukungan teman baru saya! Saya telah melihat kekuatan kalian semua, popularitasnya juga meningkat. Karena keunikan gaya buku ini, saya berharap orang-orang dari jenis yang sama akan mendukungnya. Buku ini akan ditulis sepenuhnya, dan akan memiliki pembaruan yang stabil. Semua buku saya selalu selesai, aspek integritas dalam hal ini adalah drop penuh!</p>
+<p>	T/N: Menerjemahkan catatan penulis ke .. membiarkan Anda lebih memahaminya? Dan seperti yang dia katakan, dia mengaku telah menyelesaikan semua bukunya. Pada saat bab ini saya terjemahkan sekarang, Pendeta Kegilaan belum berakhir. Tetapi penulis mengatakan bahwa dia berencana untuk mengakhirinya tahun ini, setelah 4-5 tahun menulis novel ini! Dan maaf atas keterlambatannya, sementara saya berencana untuk mendorong satu bab setiap 2-3 hari, saya mencoba untuk tidak merilis pada hari ketiga … Haha.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

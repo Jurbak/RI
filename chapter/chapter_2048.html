@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2048 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2048";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2047.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2048">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2049.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2048</h1>
+        <div class="text-left">
+<p>	Bab 2048 – Bayangan Pergeseran Pasir Ilusi</p>
+<p>	Bab 2048 Bayangan Pergeseran Pasir Ilusi</p>
+<p>	Spectral Soul memang Demon Venerable yang membunuh jalannya ke puncak!</p>
+<p>	Orang lain mana pun akan waspada pada saat pertama dan bertahan melawan serangan. Tapi dia memiliki pengalaman pertempuran yang berlimpah, setelah jatuh ke dalam jebakan, dia memanfaatkan kesempatan dengan sempurna untuk menyerang secara instan!</p>
+<p>	Tidak diragukan lagi, dia memilih waktu yang tepat.</p>
+<p>	Fang Yuan dikejar oleh tiga pihak, tekanannya sangat besar, setelah masuk ke area aman ini, tidak aneh dia akan menenangkan pikirannya.</p>
+<p>	Spectral Soul mengalihkan perhatiannya dengan kata-kata sambil mempersiapkan gerakan pembunuhnya. Langkah ini tidak memiliki aura atau keributan, hanya Wu Yong di lima wilayah saat ini yang bisa menandinginya dalam aspek ini. Setelah digunakan, Spectral Soul membalikkan situasi, dia meraih leher Fang Yuan dengan erat.</p>
+<p>	Jurus Spectral Soul juga luar biasa, disebut tangan penghancur jiwa. Langkah ini hanya bisa digunakan pada jarak yang sangat dekat, itu adalah metode pertarungan jarak dekat.</p>
+<p>	Dalam pertempuran Gu Immortal, pertempuran jarak dekat jarang terjadi. Sebagian besar terlibat dalam pertempuran jarak jauh, hanya beberapa jalur seperti jalur transformasi atau jalur kekuatan yang akan fokus pada pertarungan tangan kosong. Tangan penghancur jiwa memiliki jarak yang sangat dekat, penggunaannya sangat terbatas tetapi Jiwa Spektral masih memegangnya tanpa membuangnya, alasannya adalah karena gerakan ini memiliki kekuatan yang luar biasa, begitu mengenai musuh, ia dapat dengan mudah menentukan pemenang dari serangan tersebut. pertarungan.</p>
+<p>	Pada saat berikutnya, tangan penghancur jiwa diaktifkan!</p>
+<p>	Senyum muncul di wajah Fang Yuan lagi, sementara ekspresi Spectral Soul berubah suram.</p>
+<p>	‘Fang Yuan’ di tangannya dengan cepat berubah menjadi pasir dan berserakan dengan angin, itu sebenarnya adalah boneka yang terbuat dari pasir!</p>
+<p>	Saat pasir kuning beterbangan di udara, suara Fang Yuan terdengar saat dia memuji: “Spektakuler memang! Lu Wei Yin, usaha dan waktu yang Anda habiskan untuk secara khusus menciptakan medan perang bayangan pasir ilusi ini tidak sia-sia.”</p>
+<p>	Fang Yuan tidak menyembunyikan suaranya, Spectral Soul mendengus dingin saat dia mencari jejak, terbang melewati pasir dan tiba di depan Fang Yuan.</p>
+<p>	Spectral Soul menyerang lagi sementara Fang Yuan tidak menghindar.</p>
+<p>	Pada saat berikutnya, Fang Yuan menyebar ke bintik pasir yang tak terhitung jumlahnya lagi.</p>
+<p>	Itu adalah pemandangan yang langka karena Spectral Soul akhirnya mengerutkan kening kali ini.</p>
+<p>	Suara Lu Wei Yin ditransmisikan: “Fang Yuan, kamu terlalu baik. Sebenarnya, Friend Spectral Soul terlalu kuat, saya harus menyiapkan gerakan pembunuh medan perang terkuat saya. Saya tidak akan menyembunyikannya, meskipun medan perang ini berasal dari warisan sejati Paradise Earth, itu telah dimodifikasi oleh banyak generasi, telah banyak perubahan yang dilakukan padanya. Boneka pasir ganda sebelumnya dapat menipu indra musuh dan memancing senjata. ”</p>
+<p>	“Lu Wei Yin, apakah Anda ingin kehilangan Surga Jamur Perbatasan Selatan Anda? Memikirkan Sekte Bayanganku membiarkanmu pergi dengan sengaja saat itu. ” Spectral Soul memanggil dengan dingin, dia menatap boneka pasir Lu Wei Yin lekat-lekat. Dia tahu bahwa Lu Wei Yin dengan sengaja berbicara untuk menargetkan moralnya, untuk memberikan tekanan mental padanya.</p>
+<p>	Dalam pertempuran antara para ahli, setiap kata adalah kontes. Terutama terhadap jalur informasi Gu Immortals, setiap kata yang mereka katakan tajam seperti pisau atau tombak, musuh tidak bisa lemah terhadap mereka.</p>
+<p>	Fang Yuan mengabaikan Jiwa Spektral dan terus berbicara dengan Lu Wei Yin: “Meskipun aku menggunakan dua Rumah Gu Abadi untuk menurunkan kewaspadaan monster tua ini, gerakan pembunuh di medan perang ini memiliki kekuatan seperti itu, itu tidak sia-sia. Sekarang, itu akan tergantung padamu.”</p>
+<p>	Lu Wei Yin tahu tentang kesengsaraan Fang Yuan, pada kenyataannya, gerakan pembunuh tanda surgawi yang dimiliki Fang Yuan juga diberikan kepadanya oleh Lu Wei Yin!</p>
+<p>	Faktanya, Fang Yuan tidak mempercayai Lu Wei Yin. Tujuan aslinya bukanlah Earth Abyss tetapi Crazed Demon Cave sebagai gantinya. Fang Yuan tidak tahu banyak tentang latar belakang Lu Wei Yin, tidak banyak tentang dia dalam ingatan lima ratus tahun itu.</p>
+<p>	Saat ini, tidak hanya Jiwa Spektral yang terjebak di medan perang bayangan pasir ilusi, Fang Yuan juga sama.</p>
+<p>	Dua Rumah Gu Abadi Fang Yuan, Istana Naga, dan Kapal Perang Terbang Segudang Tahun, juga hancur, dia kehilangan banyak cacing Gu, bahkan beberapa inti Gu Abadi yang dia ambil semuanya terluka.</p>
+<p>	Spectral Soul mencibir: “Fang Yuan, sembunyikan dengan baik. Mungkin Lu Wei Yin akan membiarkanmu keluar? Hehehe, tapi itu tidak masalah, Paradise Earth sudah lama mati, medan perang jalur buminya tidak bisa menjebakku lama. Setelah saya menguraikan tempat ini, itu akan menjadi waktu Anda untuk mati! ”</p>
+<p>	Lu Wei Yin tidak menjawab, dia mengaktifkan medan perang.</p>
+<p>	Dari pasir kuning yang terbang di sekitar Spectral Soul, sesosok terbang keluar, itu adalah klon Laut Qi Fang Yuan.</p>
+<p>	Leluhur Laut Qi melihat Jiwa Spektral dan terpana, seolah-olah dia baru saja menerobos badai pasir dan tidak berharap melihat Jiwa Spektral di sini.</p>
+<p>	Tetapi pada saat berikutnya, Leluhur Laut Qi bergerak, melepaskan metode jalur qi pada Jiwa Spektral.</p>
+<p>	Spectral Soul mendengus dingin, dia memblokir serangan dan ingin membalas tetapi melihat bahwa Leluhur Laut Qi diselimuti oleh badai pasir, menghilang ke udara tipis.</p>
+<p>	Spectral Soul segera mengejar, dia pergi ke pasir kuning, tetapi dia tidak bisa melihat tanda-tanda Leluhur Laut Qi.</p>
+<p>	Sosok lain mendekat, itu adalah Demon Immortal Qi Jue.</p>
+<p>	Spectral Soul hendak berbicara ketika dia melihat ekspresi Demon Immortal Qi Jue aneh, dia menjadi waspada.</p>
+<p>	Seperti yang diharapkan, Demon Immortal Qi Jue menyerangnya pada saat berikutnya.</p>
+<p>	Spectral Soul menolak saat dia memanggil: “Qi Jue, apa yang kamu lakukan?”</p>
+<p>	Demon Immortal Qi Jue mencibir: “Leluhur Laut Qi, karena Anda memprovokasi saya, saya akan menunjukkan kepada Anda kekuatan sebenarnya dari jalur qi!”</p>
+<p>	Setelah mendengar ini, Spectral Soul menjadi terpana, dia berpikir: “Jangan bilang medan perang jalur bumi ini memiliki kemampuan lain untuk membingungkan musuh?”</p>
+<p>	Karena Spectral Soul dapat melihat boneka pasir itu sebagai Fang Yuan tanpa menyadarinya, tidak aneh jika Demon Immortal Qi Jue akan tertipu dan mengira dia sebagai Qi Sea Ancestor.</p>
+<p>	Spectral Soul dan Demon Immortal Qi Jue bertarung selama lebih dari sepuluh ronde, Demon Immortal Qi Jue menderita cedera saat dia dilahap oleh badai pasir lagi.</p>
+<p>	Berikutnya adalah Qing Chou.</p>
+<p>	“Jiwa Spektral, aku ingin kamu mati! Aku ingin kamu mati!” Qing Chou masih gila, aura peringkat sembilan di tubuhnya sangat padat, hati Spectral Soul melonjak saat merasakannya.</p>
+<p>	Seperti ini, terkadang dia melawan Qi Sea Ancestor, terkadang dia bertarung melawan Demon Immortal Qi Jue, terkadang, dia bahkan menghadapi binatang buas legendaris Qing Chou.</p>
+<p>	Mereka mulai muncul dan menghilang di badai pasir, terlibat dengan Spectral Soul sambil bergiliran!</p>
+<p>	Spectral Soul memiliki kekuatan pertempuran yang luar biasa, jauh melampaui mereka secara individu, tetapi setiap kali dia mendapatkan keuntungan, Lu Wei Yin, yang mengendalikan medan perang, akan menukar lawan dan membuat Spectral Soul tidak berdaya.</p>
+<p>	Bahkan setelah beberapa putaran serangan, Spectral Soul tidak bisa melepaskan diri dari pasir kuning, dia hanya bisa melawan mereka.</p>
+<p>	Jauh di medan perang, Fang Yuan fokus pada kesengsaraannya. Wu Shuai menjaganya dengan ekspresi waspada, di sekelilingnya, semut tentara yang tak terhitung jumlahnya berkumpul menjadi bola hampa, melindunginya dan Fang Yuan dari luar.</p>
+<p>	Di dalam lubang abadi yang berdaulat, segudang kesengsaraan telah berubah menjadi banjir yang sangat deras!</p>
+<p>	Ketinggian air naik, menelan sepuluh ribu li tanah.</p>
+<p>	Lima wilayah Fang Yuan semuanya terpengaruh, sejumlah besar titik sumber daya berukuran kecil hancur total, hutan mata air roh Mini Central Continent, ladang penguburan tulang Mini Northern Plains, hubungi tepi sungai jantung, python naga api menakutkan Mini Western Desert, camar pasir pantai tanah, Perbatasan Selatan Mini menjadi gundukan naga, Gunung Penyegel Surga, dan danau akar giok Laut Timur Mini semuanya rusak berat. Adapun beberapa poin sumber daya yang sangat dipertahankan Fang Yuan, mereka juga bertemu dengan dampak yang sangat besar.</p>
+<p>	Kerugian Fang Yuan sangat parah!</p>
+<p>	Tidak ada yang membantunya, dia telah melakukan yang terbaik.</p>
+<p>	Hal baiknya adalah kerja keras dan pengorbanannya tidak sia-sia, dia telah menyempurnakan lebih dari dua puluh tanda dao jalur surga!</p>
+<p>	Terhadap segudang kesengsaraan awal, segudang kehancuran hutan petir, Fang Yuan datang dengan tindakan balasan setelah usaha keras. Karena manipulasi kehendak surga, tanda dao jalur surga segera mengubah kesengsaraan, menyebabkan metode Fang Yuan sebelumnya menjadi tidak efektif.</p>
+<p>	Jika ini terjadi pada sebagian besar Dewa Gu di dunia saat ini, itu akan menyebabkan keputusasaan. Tetapi bagi Fang Yuan, setiap kali segudang kesengsaraan berubah, itu adalah kesempatan besar baginya!</p>
+<p>	Karena dia memiliki gerakan pembunuh yang mengungkap rahasia surgawi.</p>
+<p>	Mengungkap rahasia surgawi memungkinkan Fang Yuan untuk secara akurat memprediksi apa kesengsaraan berikutnya, meskipun dia tidak bisa mempersiapkannya dengan baik, itu masih merupakan kesempatan yang bisa dia gunakan.</p>
+<p>	Lagi pula, masalah terbesar dan bahaya kesengsaraan adalah bahwa mereka tidak dapat diprediksi. Begitu mereka diketahui sebelumnya, tingkat ancaman mereka akan turun berkali-kali.</p>
+<p>	Tentu saja, bahkan jika segudang kesengsaraan dapat diprediksi, itu masih banyak kesengsaraan. Dengan demikian, aperture abadi yang berdaulat membanjiri dan sumber daya yang tak terhitung jumlahnya dihancurkan.</p>
+<p>	Kerugian Fang Yuan sangat besar, tapi itu sama sekali bukan hal yang buruk!</p>
+<p>	Kekuatan kesengsaraan yang tak terhitung jumlahnya terus turun, karena esensi dari Dao Surgawi adalah untuk menjaga keseimbangan, semakin banyak kerugian yang diderita Fang Yuan, semakin lemah kesengsaraan itu, bahkan jika kehendak surga ada di sini, itu tidak dapat menentang operasi alami dari Tao Surgawi.</p>
+<p>	Semakin banyak tanda dao jalur surga disempurnakan oleh Fang Yuan, kecepatan penyempurnaannya semakin cepat!</p>
+<p>	Langkah pertama adalah yang paling sulit, Fang Yuan mengorbankan semua binatang jiwanya untuk menciptakan peluang dalam kesulitan terbesar dalam hidupnya ini.</p>
+<p>	Dia berhasil!</p>
+<p>	Terlepas dari banyak sekali kesengsaraan yang mengamuk, Fang Yuan sudah berhasil mendapatkan kembali pijakannya, dia perlahan membalikkan situasi.</p>
+<p>	Spectral Soul jatuh ke dalam pertempuran yang sulit.</p>
+<p>	Lu Wei Yin mengendalikan medan perang bayangan pasir ilusi, menyebabkan dia berada di tempat yang sangat pasif.</p>
+<p>	Leluhur Laut Qi, Iblis Abadi Qi Jue, Qing Chou, dan bahkan Lu Wei Yin dapat menyerang Jiwa Spektral pada saat yang bersamaan.</p>
+<p>	Qing Chou diliputi amarah, pernah digunakan oleh Jiwa Spektral, tetapi di sini, Lu Wei Yin dapat memindahkannya dengan mudah, Jiwa Spektral tidak memiliki kesempatan untuk melakukannya.</p>
+<p>	Saat angin kencang bertiup, badai pasir terjadi, tiba-tiba, semua pasir berkumpul menjadi batu, mereka terbang dalam pusaran mereka sendiri.</p>
+<p>	Seketika, batu terbang yang tak terhitung jumlahnya menyelimuti Jiwa Spektral.</p>
+<p>	Spectral Soul melambaikan tangannya saat asap terbang keluar, beberapa batu terbang meleleh dalam asap hitam tetapi kebanyakan dari mereka menembusnya dan menembak ke arah Spectral Soul.</p>
+<p>	Sosok Spectral Soul tiba-tiba menghilang, ketika dia muncul kembali, dia sudah berada di ujung lain medan perang.</p>
+<p>	Dia menghindari hampir semua batu terbang, tetapi setelah batu terbang ini terbang ke badai pasir, mereka kembali menjadi pasir.</p>
+<p>	Setelah itu, pasir tersebut kembali menjadi batu terbang berwarna kekuningan yang melesat ke arah Spectral Soul.</p>
+<p>	“Langkah ini disebut pasir terbang yang mengubah batu, tolong evaluasi, Lord Spectral Soul.” Suara Lu Wei Yin bergema dari dalam.</p>
+<p>	“Permainan anak-anak.” Spectral Soul melolong saat tubuhnya bergetar, asap hitam bergemuruh dengan dia sebagai pusatnya, menyebar ke sekeliling dengan kecepatan cepat.</p>
+<p>	“Putaran.” Saat Spectral Soul menghilang dalam asap hitam, dia berteriak lagi.</p>
+<p>	Pada saat berikutnya, asap hitam berubah menjadi pusaran yang mulai berputar. Spectral Soul berada di tengah, dia mengeluarkan asap hitam sambil secara bersamaan menyerapnya.</p>
+<p>	Saat batu terbang terbang ke dalam asap hitam, mereka terkorosi menjadi pasir sebelum asap hitam menyapu mereka ke lubang abadi Spectral Soul.</p>
+<p>	Melihat tindakan balasan ini, Lu Wei Yin memuji: “Brilian, seperti yang diharapkan dari Lord Spectral Soul. Namun, saya secara khusus memilih lokasi medan perang saya di nadi bumi ini. Tidak peduli berapa banyak batu terbang yang Anda serap, medan perang ini dapat menarik lebih banyak qi bumi dari urat bumi sebagai pengisian. Jadi, kecuali Anda dapat menghabiskan seluruh urat bumi, batu terbang ini tidak ada habisnya. ”</p>
+<p>	Kata-kata ini tidak mempengaruhi Spectral Soul, mantan Demon Venerable mencibir dengan niat membunuh yang dalam: “Lu Wei Yin, apakah menurutmu gerakan ini hanya melawan pasir terbangmu yang mengubah batu?”</p>
+<p>	“Oh tidak.” Ekspresi Lu Wei Yin berubah, tidak ada waktu untuk bereaksi.</p>
+<p>	Pada saat berikutnya, semua pasir yang beterbangan di langit jatuh ke tanah, sebagian dari medan perang bayangan yang bergeser dari pasir ilusi terkorosi oleh asap hitam, itu kembali menjadi lanskap kekuningan yang datar.</p>
+<p>	“Ilusi pasir yang bergeser benar-benar rusak begitu cepat!” Ekspresi Lu Wei Yin jelek.</p>
+<p>	Spectral Soul menyembunyikan gerakan aslinya dalam-dalam, dia sepertinya berurusan dengan gerakan pembunuh, pasir terbang yang mengubah batu, tetapi target sebenarnya adalah ilusi pasir yang bergeser. Sekarang setelah gerakan ini terputus, tidak ada lagi boneka pasir yang tersisa.</p>
+<p>	Demon Immortal Qi Jue keluar dari ilusi, sementara lokasi asli Fang Yuan terungkap.</p>
+<p>	“Fang Yuan, berapa lama kamu akan bersembunyi?” Spectral Soul terbang menuju Fang Yuan tanpa ragu-ragu.</p>
+<p>	Wu Shuai berjuang untuk melawannya, tetapi pertahanan semut tentara menjadi terkoyak seketika oleh Spectral Soul.</p>
+<p>	Bola jiwa hitam ditembakkan, setelah beberapa saat, mencapai Fang Yuan.</p>
+<p>	Fang Yuan tetap duduk di tanah, dia membuka matanya saat dia tersenyum ringan: “Saya tidak perlu menghindar.”</p>
+<p>	Baca di meionovel.id</p>
+<p>	Gemuruh!</p>
+<p>	Rumah Gu Abadi tiba-tiba muncul, melindungi Wu Shuai dan Fang Yuan.</p>
+<p>	Bola jiwa hitam mendarat di Rumah Gu Abadi, meletus dengan kekuatan luar biasa. Namun, Rumah Gu Abadi ini tetap seperti gunung, tidak bergerak!</p>
+<p>	“Kamu masih memiliki Rumah Gu Abadi ?!” Pada saat ini, pupil Spectral Soul menyusut, dia mengerutkan kening dalam-dalam.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

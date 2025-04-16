@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 151 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 151";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_150.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 151">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_152.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 151</h1>
+        <div class="text-left">
+<p>	Bab 151</p>
+<p>	Bab 151: Sifat Iblis</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Apa?” Gu Yue Yao Le terkejut ketika dia mendengar ini.</p>
+<p>	Fang Yuan sudah menyerang dengan kecepatan kilat, tangannya memotong lehernya! Dia langsung pingsan.</p>
+<p>	Gadis muda itu jatuh tak berdaya, dan tangan Fang Yuan dengan cepat bergerak, memegang pinggangnya. Selanjutnya, dia mengaktifkan Stealth Scale Gu, dan tubuh mereka menghilang di tempat.</p>
+<p>	Ketika Gu Yue Yao Le terbangun dalam keadaan mengantuk, dia mendapati dirinya berada di gua gunung yang gelap.</p>
+<p>	Dia mengangkat kepalanya, mencoba untuk berdiri tanpa sadar.</p>
+<p>	Tapi dia segera menemukan bahwa lengannya diikat ke belakang, tali melingkar di lehernya; dia diikat erat pada sebuah batu besar.</p>
+<p>	Semua cacing Gu di tubuhnya telah dijarah oleh Fang Yuan, disempurnakan dan diubah menjadi miliknya.</p>
+<p>	Dia hanyalah seorang gadis muda berusia lima belas tahun — dengan tubuh lemah itu, bagaimana dia bisa melepaskan diri dari tali tebal yang beberapa kali melilit batu, bahkan diikat dengan simpul?</p>
+<p>	Terjebak di tempat terpencil dan asing ini, gadis muda itu mulai merasa ketakutan.</p>
+<p>	Dia memikirkan saat sebelum dia pingsan; bahkan orang yang paling naif juga akan tahu bahwa Fang Yuan akan melakukan sesuatu yang buruk padanya.</p>
+<p>	“Tapi bagaimana Fang Yuan akan berurusan denganku? Apa yang dia rencanakan? Apakah karena saya mengeluh tentang dia kepada nenek, sehingga dia membalas dendam? Gadis muda itu diikat tanpa daya, tetapi pikirannya dengan cepat membalik seperti halaman buku.</p>
+<p>	Semakin dia berpikir, semakin dia ketakutan, dan dia mulai menangis tak terkendali.</p>
+<p>	“Nenek, kamu dimana? Cepat datang dan selamatkan aku…” Saat dia menangis, dia merasakan ketakutan dan kesepian yang hebat.</p>
+<p>	Fang Yuan tidak terlihat di mana pun, dan gua itu dipenuhi dengan tangisannya.</p>
+<p>	“Apakah Fang Yuan berencana menjebakku di sini? Selama tujuh, delapan hari, dan membuatku menderita kelaparan, jadi aku tidak akan pernah berbicara buruk tentang dia lagi?” Setelah menangis beberapa saat, Gu Yue Yao Le memikirkan sebuah kemungkinan.</p>
+<p>	Terlalu jahat!</p>
+<p>	Fang Yuan, aku tidak akan pernah memaafkanmu!!</p>
+<p>	Dia mengertakkan gigi saat kesannya tentang Fang Yuan, yang sejak awal buruk, menjadi negatif.</p>
+<p>	Sejak kelahirannya, Gu Yue Yao Le tidak begitu membenci seseorang.</p>
+<p>	Pada saat ini, langkah kaki terdengar.</p>
+<p>	Segera, siluet Fang Yuan terlihat muncul dari bayang-bayang.</p>
+<p>	“Fang Yuan, apa yang kamu inginkan, lepaskan aku sekarang! Kalau tidak, nenek saya akan berurusan dengan Anda. ” Melihat Fang Yuan, Gu Yue Yao Le berjuang keras, kakinya yang ramping menginjak tanah seperti rusa kecil yang jatuh ke dalam perangkap.</p>
+<p>	“Kamu benar-benar hidup,” Fang Yuan mendengus dingin.</p>
+<p>	Gu Yue Yao Le hendak membuka mulutnya dan terus menangis dengan marah, tetapi dia segera melihat seekor beruang besar bergerak di belakang Fang Yuan.</p>
+<p>	“B-beruang …” Matanya yang melebar menunjukkan keterkejutan saat dia tergagap.</p>
+<p>	Fang Yuan tertawa dingin, mengulurkan tangannya dan membelai bulu hitam beruang itu, suaranya dipenuhi dengan rasa dingin yang mengalir di dalam gua seperti angin yang tidak menyenangkan, “Karena gelombang serigala, tidak mudah untuk menemukan beruang liar seperti itu, butuh waktu. saya banyak waktu dan usaha untuk menemukannya.”</p>
+<p>	Gu Yue Yao Le langsung bereaksi. Pikirannya yang cerdas segera teringat bahwa Fang Yuan pernah mengambil Gu Perbudakan Beruang dari Xiong Jiao Man.</p>
+<p>	“Jadi begitu …” Dia tertawa dingin dan hendak berbicara, tetapi Fang Yuan tiba-tiba berjongkok di depannya.</p>
+<p>	“Apa yang sedang kamu lakukan?!” Gadis muda itu mencoba menjauh, tetapi Fang Yuan dengan mudah menggunakan tangan kanannya dan meraih pipinya dengan kuat.</p>
+<p>	“Penampilan yang imut, memang menyenangkan,” komentar Fang Yuan dengan jelas.</p>
+<p>	Astaga!</p>
+<p>	Tangan kanannya bergerak cepat, meraih baju Yao Le, dan menariknya.</p>
+<p>	Kemeja itu langsung robek, menunjukkan pakaian dalam merah mudanya.</p>
+<p>	“Ah-!!!” Gadis muda itu tertegun sejenak sebelum menjerit keras, dengan panik berjuang. Meskipun otot-ototnya yang lembut berdarah karena gesekan dari tali, dia tidak peduli.</p>
+<p>	Fang Yuan tertawa dingin, terus menarik dan merobek pakaiannya.</p>
+<p>	Rrrrr.</p>
+<p>	Segera, pakaian compang-camping gadis muda itu hanya tersisa dengan beberapa sobekan kain, memamerkan sebagian besar dagingnya yang halus dan lembut.</p>
+<p>	“Tidak tidak!” Dia sangat ketakutan, menangis dengan keras. Saat dia memikirkan berbagai kemungkinan cara Fang Yuan akan menghadapinya, seluruh tubuhnya bergetar dan bergetar.</p>
+<p>	Namun, Fang Yuan tidak melanjutkan seperti yang dia harapkan, tetapi sebaliknya dia berdiri dan bergerak mundur.</p>
+<p>	Tangisan keras gadis muda itu berubah menjadi isak tangis.</p>
+<p>	Tetapi pada saat ini, beruang hitam menggerakkan cakarnya, dan mendekat.</p>
+<p>	Gadis muda itu ketakutan ketika irisnya menyusut menjadi ukuran pin, karena pada saat ini, dia merasakan sensasi kematian yang hebat.</p>
+<p>	Suara mendesing!</p>
+<p>	Cakar beruang itu menyerang, dan suaranya yang pecah bisa terdengar.</p>
+<p>	Dengan suara nyaring, tengkorak gadis muda itu dipukul, dan kekuatan yang kuat mematahkan lehernya yang kurus.</p>
+<p>	Kepalanya dipelintir pada sudut yang menyeramkan, patah dan tergantung di salah satu ujungnya.</p>
+<p>	Sesaat yang lalu, dia masih cantik memikat, dan saat berikutnya dia adalah mayat. Tubuhnya yang hangat diikat ke batu besar, seperti boneka mainan yang rusak.</p>
+<p>	Pada saat ini, bahkan tanpa kendali Fang Yuan terhadap Gu Perbudakan Beruang, dengan keinginannya untuk makan, beruang hitam itu sudah menundukkan kepalanya, menikmati makanan mewah ini.</p>
+<p>	Itu mulai menggerogoti tenggorokan gadis muda itu, dan darah segar segera keluar, memercik ke bulu hitamnya.</p>
+<p>	Berikutnya adalah payudara gadis muda yang putih dan lembut, seperti kuncup bunga yang belum dibuka.</p>
+<p>	Beruang hitam menggigit payudara kanannya dalam satu suap penuh, merobek kulit dan dagingnya, memperlihatkan tulang rusuknya yang pucat pasi.</p>
+<p>	Pada saat ini, beruang hitam menggunakan cakarnya untuk mematahkan tulang-tulang ini. Organ internal gadis muda itu hancur, dan segera darah mengalir tanpa henti.</p>
+<p>	Tanpa campur tangan kerangka itu, beruang hitam itu menempatkan mulutnya lebih jauh ke dalam tubuh gadis itu. Itu menggigit jantung gadis yang masih berdetak, lalu menelannya dalam satu suap.</p>
+<p>	Jantung melewati tenggorokannya dan masuk ke perut, dan beruang ini yang harus bersembunyi dan tidak bisa makan karena gelombang serigala, melolong puas.</p>
+<p>	Setelah tangisan lain, ia menundukkan kepalanya lagi dan mulai memakan organ internalnya dengan ceroboh.</p>
+<p>	Chomp chomp chomp.</p>
+<p>	Mulut beruang hitam itu terbuka dan mengunyah, sejumlah besar darah menyembur keluar dari mulutnya, mengeluarkan suara berair.</p>
+<p>	Setelah beberapa saat, beruang hitam itu akhirnya mengeluarkan kepalanya.</p>
+<p>	Dada gadis muda itu sudah kosong, luka besar meluas ke perutnya. Tetapi menuju usus putih yang bersinar, beruang itu tampaknya tidak terlalu tertarik.</p>
+<p>	Itu mulai fokus pada kaki ramping putih gadis muda itu.</p>
+<p>	Jari-jari gadis itu yang seperti batu giok semuanya digigit oleh beruang hitam sekaligus, dan dengan beberapa putaran mengunyah, jari-jari itu ditelan dengan suara yang renyah.</p>
+<p>	Paha gadis itu juga lezat.</p>
+<p>	Kulit lembut dan daging pahanya memancarkan aroma perawan. Ketika beruang selesai, yang tersisa hanyalah tulang kaki putih.</p>
+<p>	Di antara gerakan bergoyang, tengkorak gadis itu akhirnya jatuh ke tanah.</p>
+<p>	Sejujurnya, dia memang memiliki penampilan yang imut. Mata hitam berkilau dengan hidung bulat sedikit mengarah ke atas, dan kulitnya merona seperti bunga persik, dengan mulut kecil dan dua baris gigi putih bersih.</p>
+<p>	Tapi sekarang, wajahnya telah kehilangan warna darah, kulitnya menjadi pucat pasi. Rambut hitamnya yang halus dibiarkan menggantung, menutupi separuh wajahnya, dengan sepasang mata itu menatap terbuka lebar, dipenuhi ketakutan dan kemarahan.</p>
+<p>	Kematian yang penuh dengan kesedihan!</p>
+<p>	CATATAN: Berikut ini adalah teks agama yang mungkin tidak masuk akal bagi kebanyakan orang, tetapi bacalah dengan sedikit garam.</p>
+<p>	Fang Yuan melipat tangannya saat mengamati ekspresi Gu Yue Yao Le, memikirkan pepatah Buddhis di bumi: ‘Tanpa rasa diri, tanpa rasa pribadi; terlepas dari semua makhluk hidup, terlepas dari rasa waktu. Void adalah tengkorak merah dan tulang putih, kulit dan daging!’</p>
+<p>	Saya adalah diri saya sendiri, tanpa individualitas. Mematahkan rasa diri, menyadari bahwa yang satu itu biasa dan biasa. ‘Tanpa rasa diri’ berarti ‘semua orang sama, tidak ada perbedaan.’</p>
+<p>	Manusia adalah kemanusiaan yang tidak lagi memperlakukan manusia sebagai ras yang superior dan merendahkan makhluk hidup lainnya. ‘Tanpa rasa pribadi’ berarti ‘dunia ini sama, tidak ada perbedaan.’</p>
+<p>	‘Makhluk hidup’ mengacu pada semua kehidupan, tidak lagi mengakui kehidupan sebagai yang superior dan berpikir bahwa makhluk tak hidup seperti batu dan air memiliki kognisi. Ini adalah ‘ terlepas dari semua makhluk hidup’ , yang berarti ‘semua di dunia adalah sama, tidak ada perbedaan.’</p>
+<p>	Setiap benda atau makhluk memiliki umurnya masing-masing, dan ‘ terlepas dari pengertian waktu’ artinya ‘terlepas dari ada atau tidaknya, mereka semua sama tanpa perbedaan.’</p>
+<p>	Tidak peduli seberapa cantik pria atau wanita, mereka akhirnya berubah menjadi kerangka. Tulang, kulit dan daging adalah satu, tetapi orang-orang menyukai kulit dan daging sementara takut akan tulang — ini terpaku pada penampilan, tidak menyadari bahwa semuanya sama.</p>
+<p>	Istilah Buddhis ini menyerukan agar manusia menerobos segala bentuk, melihat kebenaran.</p>
+<p>	Kecantikan itu dangkal, dan orang-orang, saya, dunia, dan waktu, semuanya dangkal. Jika seseorang melewati aspek permukaan, mereka akan melihat Buddha.</p>
+<p>	Mengenali dan melampaui, memperlakukan semua sebagai sama, semua adalah sama.</p>
+<p>	Jadi, Buddha mengorbankan tubuhnya untuk memberi makan harimau, memotong dagingnya untuk memberi makan elang. Ini adalah kebajikan di dalam hatinya, melihat semua yang ada di dunia ini sebagai miliknya, mencintai segalanya, dan cintanya yang besar untuk segalanya.</p>
+<p>	Tidak peduli apakah itu saya, orang lain, hewan atau tumbuhan, atau bahkan batu dan air yang tak bernyawa, bahkan yang tidak ada, kita harus mencintai mereka.</p>
+<p>	Jika seorang manusia berdiri di sana menyaksikan beruang memakan seseorang, beberapa remaja berdarah panas akan melompat keluar dan berteriak, “Dasar binatang, jangan berani-beraninya memakan orang!” atau “Kecantikan, jangan takut, paman ada di sini untuk menyelamatkanmu!” dll.</p>
+<p>	Ini adalah cinta dan kebencian manusia, mencintai gadis-gadis muda dan membenci beruang besar. Tidak melampaui dan masih terpaku pada yang dangkal, tidak bisa melihat kerangka manusia merahnya.</p>
+<p>	Jika Buddha berdiri di sana dan melihat beruang memakan seseorang, dia akan menghela nafas, dan mengucapkan, “Jika saya tidak masuk neraka, siapa yang akan masuk?” Dia akan menyelamatkan gadis muda itu dan memberi makan dirinya sendiri kepada beruang hitam.</p>
+<p>	Ini adalah cinta dan kebencian Buddha, mencintai gadis muda dan mencintai beruang, memperlakukan semua dengan setara.</p>
+<p>	Tapi sekarang, Fang Yuan adalah orang yang berdiri di sini.</p>
+<p>	Melihat kematian tragis dan kekerasan gadis muda itu, hatinya tidak tergerak.</p>
+<p>	Ini bukan karena mati rasa sampai mati, tetapi dia telah melampaui yang dangkal, tidak memiliki obsesi. Tanpa rasa diri, tanpa rasa pribadi; terlepas dari semua makhluk hidup, terlepas dari rasa waktu …</p>
+<p>	Melihat semua makhluk hidup sebagai sama, dunia adalah sama.</p>
+<p>	Jadi, kematian gadis itu tidak berbeda dengan kematian rubah atau pohon.</p>
+<p>	Tetapi bagi manusia biasa, kematian gadis itu akan memicu kemarahan, kebencian, dan belas kasihan mereka. Jika gadis yang memakan beruang itu, mereka tidak akan merasakan apa-apa. Jika seorang wanita tua dimakan, rasa kasihan di hati mereka akan sangat berkurang. Jika itu penjahat, pembunuh yang dimakan, mereka akan bertepuk tangan dengan gembira, memuji.</p>
+<p>	Pada kenyataannya, semua makhluk adalah sama, dan langit dan bumi adalah adil.</p>
+<p>	Alam itu adil, mengabaikan cinta atau benci; itu tanpa emosi, dan tidak pernah memberikan perlakuan berbeda.</p>
+<p>	Aturan yang kuat, pemenang mengambil semua!</p>
+<p>	Hilangnya suatu bentuk kehidupan, menuju seluruh alam dan kosmos yang tak terbatas, ke sungai panjang sejarah — apa artinya?</p>
+<p>	Kematian berarti kematian, siapa yang bisa memilih untuk tidak mati? Bicara apa tentang seorang gadis, beruang, semut, rubah, pohon, wanita tua, pembunuh, mereka semua rendah! Rendah hati! anjing kampung!</p>
+<p>	Hanya dengan mengenali ini dan melampaui yang dangkal, sampai pada kebenaran, seseorang memperoleh keilahian.</p>
+<p>	Keilahian ini, mengambil langkah menuju cahaya, menjadi Buddha. Jika mengambil langkah menuju kegelapan, itu menjadi iblis.</p>
+<p>	Sifat iblis!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

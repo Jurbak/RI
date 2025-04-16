@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 353 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 353";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_352.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 353">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_354.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 353</h1>
+        <div class="text-left">
+<p>	Bab 353 – Babi Petir, Buaya Batu</p>
+<p>	Bab 353: Babi Petir, Buaya Batu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di dalam gua.</p>
+<p>	Li Xian meminta Fang Yuan untuk duduk dan kemudian duduk di sampingnya.</p>
+<p>	“Silakan minum teh.” Li Xian mengulurkan jari-jarinya yang pendek dan tebal, tangannya terbuka dan teh harum muncul di telapak tangannya yang terbuka.</p>
+<p>	Fang Yuan melihat tehnya, tetapi tidak menerimanya atau bahkan mengalah, sebaliknya dia menghela nafas: “Langit biru Laut Timur Gu benar-benar berguna. Tidak hanya memiliki kapasitas yang besar, jauh melebihi yang lain dari level yang sama, juga mudah dan nyaman untuk digunakan.</p>
+<p>	“Eh? Saya tidak berharap Tuan raja binatang kecil mengenali Gu ini. ” Tatapan Li Xian sedikit berkedip.</p>
+<p>	Dia bukan dari Perbatasan Selatan, tetapi datang ke sini dari Laut Timur. Langit biru Gu adalah Gu yang unik di Laut Timur dan sangat tidak biasa dalam hal itu.</p>
+<p>	Ketika Li Xian berurusan dengan orang lain, dia sering menggunakan Gu ini untuk menunjukkan metodenya.</p>
+<p>	Master Gu Perbatasan Selatan tidak mengenali Gu ini dan ketika mereka melihat metode seperti itu untuk pertama kalinya, mereka akan sering melihat lebih tinggi pada Li Xian.</p>
+<p>	Fang Yuan tersenyum dan perlahan berkata: “Gu langit biru peringkat empat ini menyatu dari lumbung langit peringkat tiga Gu. Tingkat keberhasilannya cukup rendah sehingga jarang terjadi bahkan di Laut Timur. Jika langit biru Gu ingin naik ke peringkat lima, metode terbaik adalah menggabungkannya dengan Gu langit baik, untuk membentuk Gu langit biru peringkat lima. Dan Gu langit ini adalah Gu alami yang hanya ditemukan di pulau Tian Jing di Laut Timur. Li Xian, jika Anda ingin memajukannya, itu akan merepotkan. Di sini, di Perbatasan Selatan, hanya klan Yi yang mungkin memiliki Gu yang baik.”</p>
+<p>	Klan Yi bersama dengan klan Shang, klan Wu dan klan Tie, adalah klan teratas dan memiliki hubungan yang sangat dekat dengan pasukan Laut Timur. Bisnis klan Yi sangat makmur, kedua setelah klan Shang. Karavan paus biru terbang mereka dapat bergerak melintasi langit, yang bahkan tidak dimiliki klan Shang.</p>
+<p>	“Langit biru Gu, langit baik Gu, langit biru baik Gu dan pulau Tian Jing …. bagaimana raja binatang kecil mengetahuinya dengan begitu jelas?” Li Xian terkejut dan curiga ketika mendengar kata-kata Fang Yuan.</p>
+<p>	Dunia Master Gu sangat luas, ada juga penghalang yang bertindak seperti jurang surgawi antara Perbatasan Selatan, Dataran Utara, Laut Timur, Gurun Barat, dan Benua Tengah. Sangat sulit untuk berkomunikasi satu sama lain dan berita juga diblokir.</p>
+<p>	Li Xian sudah menyelidiki semua detail tentang Fang Yuan. Fang Yuan lahir di Perbatasan Selatan dan dia masih sangat muda, bagaimana dia bisa memiliki pengalaman seperti itu? Bahkan mengetahui informasi rinci tentang Laut Timur!</p>
+<p>	Tekanan samar mulai terbentuk di benak Li Xian.</p>
+<p>	‘Aneh, aneh! Apa asal usul raja binatang kecil ini? Bagaimana dia bisa tahu begitu banyak? Mungkinkah ada ahli di belakangnya?’</p>
+<p>	‘Dengan usia dan pengalamannya, bagaimana dia bisa tahu detail seperti itu? Oh ya, dia tinggal cukup lama di kota klan Shang dan mungkin telah menerima bimbingan dari Shang Yan Fei. Shang Yan Fei adalah pemimpin klan Shang, peringkat lima tingkat atas Gu Master, seorang ahli di puncak dunia fana. Tidak aneh bagi raja binatang kecil untuk mengetahui ini di bawah bimbingannya.’</p>
+<p>	Tatapan Li Xian terus berkedip, hatinya diselimuti kabut keraguan. Seluruh tubuhnya dalam posisi kaku dan telapak tangannya masih memegang teko tanah liat ungu.</p>
+<p>	“Tidak!” Tiba-tiba, pikirannya berkelebat seperti kilat saat dia memikirkan hal utama: “Saya awalnya ingin menunjukkan metode saya dan menekannya. Memikirkan aku menjadi terlalu curiga dan pikiranku menjadi gelisah hanya dari beberapa kata raja binatang kecil! Bahkan jika dia memiliki Shang Yan Fei di belakangnya, lalu bagaimana? Orang lain mungkin takut, tapi aku, Li Xian, punya caraku sendiri! Hmph.”</p>
+<p>	Li Xian mendengus pelan dan meletakkan teko di atas meja. Dia mengambil kesempatan ini untuk menenangkan pikirannya.</p>
+<p>	Bagaimanapun, dia adalah elit dari jalur iblis dan menyesuaikan pikirannya hanya dalam beberapa waktu. Dia kemudian menghadapi Fang Yuan dengan tenang.</p>
+<p>	Hanya saja ada beberapa kehati-hatian dan keseriusan di matanya sekarang.</p>
+<p>	“Tuan raja binatang kecil, tolong cicipi tehnya. Transaksi apa yang ingin Anda lakukan dengan saya?” Li Xian bertanya.</p>
+<p>	“Tidak perlu banyak berpikir, ini hanya transaksi sederhana.” Fang Yuan berkata, lalu mengeluarkan beberapa cacing Gu dari lubangnya dan menunjukkan kepada Li Xian.</p>
+<p>	Cacing Gu ini adalah jarahan yang dia sita dari Master Gu yang dia bunuh di Warisan Raja Quan.</p>
+<p>	Ada peringkat tiga dan peringkat empat Gu, tetapi mereka tidak cocok untuk jalur kekuatan Fang Yuan.</p>
+<p>	Li Xian mau tidak mau menyipitkan matanya saat melihat Gu ini.</p>
+<p>	Dia adalah orang yang sangat cerdik dan segera menyadari banyak hal: ‘Siapa yang mengira raja binatang kecil ini juga memiliki beberapa pencapaian di jalur perbudakan! Setelah memasuki Warisan Raja Quan, dia membunuh dua Master Gu. Bakat seperti itu benar-benar iblis!’</p>
+<p>	Li Xian tidak bisa tidak memikirkan Mo Wu Tian.</p>
+<p>	Setelah dia datang ke Perbatasan Selatan, dia telah berjalan di jalur iblis untuk waktu yang lama, melakukan kontak dengan semua jenis orang. Dia merasa bahwa hanya berdasarkan bakat, bakat, dan temperamen, di antara generasi muda jalur iblis, Mo Wu Tian berada di puncak.</p>
+<p>	Namun, sekarang, dia menyadari raja binatang kecil di depannya memiliki bakat yang tidak kalah dengan Mo Wu Tian!</p>
+<p>	‘Raja binatang kecil dan Mo Wu Tian, ​​​​aku ingin tahu apa yang akan terjadi jika keduanya bertemu satu sama lain? Hanya saja budidaya raja binatang kecil saat ini agak lemah, Mo Wu Tian lebih tua darinya dan sudah peringkat empat tahap puncak.’</p>
+<p>	Li Xian merenung, dia berbicara dengan penuh semangat, namun: “Tuan raja binatang kecil, Anda melakukan hal yang benar untuk menemukan saya untuk transaksi ini. Saya memiliki Gu pada saya yang saya yakini akan penting bagi Tuan. ”</p>
+<p>	“Oh?” Fang Yuan mengangkat alisnya.</p>
+<p>	Li Xian merentangkan telapak tangannya dan sebuah bola tiba-tiba muncul.</p>
+<p>	Bola ini tampak bagus, bersinar dengan cahaya emas putih. Fang Yuan dengan hati-hati melihatnya dan melihat bahwa bola itu adalah bola semut; lebih dari seratus semut terbang merangkak satu sama lain dan saling menempel membentuk bola.</p>
+<p>	Semut terbang ini tidak terlihat berbeda dari semut biasa.</p>
+<p>	Kecuali, mereka beberapa kali lebih besar dan mereka memiliki sepasang sayap transparan di punggung mereka.</p>
+<p>	“Ini adalah Gu semut terbang pemakan emas peringkat tiga, semuanya ada seratus dua puluh. Beberapa orang tua dari klan Tie menjebak raja iblis putih dengan menggunakan lemari besi Gu bersama dengan aliran qi Gu. Sekarang, ribuan kaki di sekitar area itu telah dikunci. Namun, lemari besi Gu akan mudah runtuh melawan kelompok semut terbang ini. Tuan raja binatang kecil, saya baru saja menghitung, harga Gu Anda cukup baik untuk membeli kelompok semut terbang ini. ” Li Xian tersenyum hangat.</p>
+<p>	Namun, di luar dugaannya, Fang Yuan hanya melirik Gu semut terbang yang memakan emas ini sekali sebelum mengalihkan pandangannya: “Siapa bilang aku akan membeli barang ini? Ini adalah daftar item, saya ingin semua hal tertulis di dalamnya. ”</p>
+<p>	Li Xian menerima daftar itu dan meliriknya, ada banyak cacing Gu dan banyak bahan tambahan untuk menyempurnakan Gu tertulis di sana.</p>
+<p>	Meskipun ada semua jenis item dalam daftar, dengan pengalaman dan kelihaian Li Xian, tidak sulit baginya untuk melihat bahwa semua ini diperlukan untuk jalur kekuatan.</p>
+<p>	‘Bai Ning Bing telah terperangkap oleh klan Tie, kenapa raja binatang kecil ini tidak khawatir sedikit pun? Aneh! Tidak akan mudah baginya untuk menyingkirkan Gu kabinet besi hanya dengan jalur kekuatan Gu padanya. Apakah dia memiliki beberapa metode khusus? Atau mungkin, item dalam daftar ini adalah untuk memperbaiki musuh dari lemari besi Gu?’</p>
+<p>	Li Xian menyipitkan matanya, cahaya terang melintas melewati celah matanya. Dia menyelidiki: “Tuan raja binatang kecil, ada banyak hal dalam daftar ini, saya tidak dapat mengeluarkannya dalam waktu singkat. Selain itu, harga totalnya jauh melebihi harga Gu yang Anda jual ini. ”</p>
+<p>	“Tidak masalah, tidak masalah.” Fang Yuan melambaikan tangannya, “Saya ingin membeli semua barang di daftar ini. Beri aku apapun yang kamu miliki saat ini. Adapun yang lain, saya harus merepotkan Anda untuk memperhatikan mereka. Uang bukan masalah.”</p>
+<p>	Fang Yuan memiliki banyak batu purba pada dirinya, sumber daya keuangannya cukup memadai.</p>
+<p>	Li Xian tertawa, dia tidak bisa menyelidiki apa pun jadi dia hanya mengangguk dan setuju.</p>
+<p>	……</p>
+<p>	Di dalam gua, lampu berkedip-kedip.</p>
+<p>	Fang Yuan sedang duduk bersila di tanah, seluruh perhatiannya tertuju pada bola pasta di depannya.</p>
+<p>	Pasta ini berwarna-warni dan mengambang di udara, berguling dan berputar terus menerus, dan mengeluarkan aroma yang aneh – proses fusi Gu telah mencapai tahap kritis.</p>
+<p>	Fang Yuan terus-menerus melemparkan batu purba.</p>
+<p>	Batu purba memasuki pasta dan segera dilarutkan ke dalam cairan esensi, mengencerkan pasta kental.</p>
+<p>	Fang Yuan terus melempar batu purba tanpa peduli, hanya setelah pasta menipis sampai tingkat tertentu dia berhenti.</p>
+<p>	Kemudian, dia dengan cepat mengeluarkan Gu guntur.</p>
+<p>	Thunderclap Gu adalah Gu peringkat tiga. Pasta menelannya dan segera berkedip kilat.</p>
+<p>	Dalam sepersekian detik, aroma di udara sangat diperbesar, cahaya warna-warni menyebar dan digantikan dengan cahaya biru yang melimpah. Petir menghasilkan suara berderak lembut seperti pembakaran petasan kecil.</p>
+<p>	Napas Fang Yuan semakin cepat dan ketika dia mencium bau terbakar di udara, matanya bersinar dengan cahaya terang!</p>
+<p>	“Sudah waktunya … usaha habis-habisan Gu.”</p>
+<p>	Hantu babi segera muncul di atasnya.</p>
+<p>	Kekuatan Qi Gu.</p>
+<p>	Fang Yuan mengaktifkan kekuatan qi Gu; hantu babi hutan yang berpegang pada kekuatan qi yang tak berbentuk, segera menjadi sangat mengancam.</p>
+<p>	Di bawah kehendak Fang Yuan, hantu babi hutan terbang menuju pasta.</p>
+<p>	Saat keduanya bertabrakan, kilat meledak dan menyinari seluruh gua, membubarkan semua kegelapan dan mengungkapkan semua detail di ruangan dengan jelas.</p>
+<p>	Setelah cahaya menyebar, hantu babi di udara telah mengalami perubahan besar.</p>
+<p>	Hantu babi hutan yang baru berukuran dua kali lipat dari ukuran aslinya, gadingnya seperti gading gajah dan seluruh tubuhnya ditutupi bulu putih. Terutama bulu di punggungnya, mereka tebal dan panjang, berbaris dalam barisan, dengan kaku mengarah ke langit, dan kilat meringkuk di atasnya.</p>
+<p>	hantu babi hutan!</p>
+<p>	“Sukses, bagus. Thunder boar sama dengan naga-gajah, Biao dan mastiff. Dengan kekuatan babi hutan guntur, kekuatan pertempuran saya meningkat lagi. Selanjutnya adalah kekuatan buaya batu…”</p>
+<p>	Malam kultivasi tanpa sadar berlalu.</p>
+<p>	Ketika cahaya fajar menyinari gunung San Cha, Fang Yuan berjalan keluar dari gua tempat dia tinggal.</p>
+<p>	Meskipun dia lelah, dia bahagia di dalam. Dia berhasil meningkatkan kekuatan babi hutan dan kekuatan buaya menjadi kekuatan babi hutan guntur dan kekuatan buaya batu; kekuatan pertempurannya meningkat setidaknya tiga puluh persen!</p>
+<p>	“Bai Ning Bing…” Dia melihat ke arah tenggara; area di tengah gunung ditutupi dengan penghalang qi ungu tua.</p>
+<p>	Penghalang qi seperti menara tinggi, menyegel ruang di dalam dan mengisolasinya dari dunia luar.</p>
+<p>	Kombinasi kabinet besi Gu dan aliran qi Gu menyebabkan Bai Ning Bing menjadi binatang yang terperangkap dari klan Tie.</p>
+<p>	Fang Yuan mendengus dingin.</p>
+<p>	Situasinya tampak sederhana tetapi itu adalah masalah yang rumit.</p>
+<p>	Empat orang tua dari klan Tie yang menjebak Bai Ning Bing semuanya berada di peringkat empat tahap tengah. Meskipun Bai Ning Bing adalah seorang jenius, dia hanya berada di peringkat empat tahap awal.</p>
+<p>	Jika klan Tie benar-benar ingin menangkap Bai Ning Bing, mereka pasti sudah menangkapnya tetapi mereka tidak melakukannya.</p>
+<p>	Di satu sisi, itu untuk mempertahankan kekuatan mereka untuk memperjuangkan warisan tiga raja.</p>
+<p>	Di sisi lain, itu karena mereka ditahan oleh token duri ungu di Bai Ning Bing.</p>
+<p>	Akhirnya, itu untuk memancing Fang Yuan!</p>
+<p>	Jika Fang Yuan terburu-buru masuk, empat orang tua klan Ti dapat menggabungkan kekuatan mereka untuk mengaktifkan pencarian peringkat lima dan mengunci Gu untuk dengan mudah menekannya dan Bai Ning Bing.</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, empat orang tua klan Tie telah menggunakan gerakan pembunuh ini untuk menangkap jalur iblis Kong Ri Tian. Tapi segera setelah itu, mereka dibunuh oleh peringkat tiga Gu Master.</p>
+<p>	Pencarian dan kunci peringkat lima Gu memiliki permintaan yang sangat besar terhadap esensi purba. Empat orang tua klan Tie adalah sosok yang benar-benar tragis, mereka mengolah gerakan pembunuh selama bertahun-tahun dan akhirnya menjadi pusat perhatian, tetapi adegan itu tidak berlangsung lama karena mereka tidak memiliki esensi purba dan dibunuh oleh peringkat tiga Gu Master.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

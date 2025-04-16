@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 124 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 124";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_123.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 124">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_125.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 124</h1>
+        <div class="text-left">
+<p>	Bab 124</p>
+<p>	Bab 124: Saya tidak membutuhkan pengertian Anda</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Jadi begitu,” Fang Yuan menggosok dagunya, lalu menggelengkan kepalanya, “Cacing minuman keras ini tidak untuk dijual. Karena Yao Ji bersikeras, mengapa dia tidak menemukan Guru Gu yang membeli cacing Liquor itu?”</p>
+<p>	Mendengar ini, Qing Shu tampak seperti awan gelap menjulang di atasnya saat dia menghela nafas dalam-dalam, “Huh, kita tidak tahu klan mana yang memilikinya. Setelah membeli worm Liquor ini, sama sekali tidak ada kabar. Kami tidak dapat menemukan apa pun, dan kami tidak dapat begitu saja memeriksa lubang kan? Itu adalah tabu, tabu terbesar di antara Master Gu. Untuk masalah kecil seperti cacing Liquor, menyebabkan kemarahan publik tidak baik. Tetapi dapat dimengerti bahwa klan ini tidak menonjolkan hartanya, ini juga sifat manusia. ”</p>
+<p>	Qing Shu tidak tahu bahwa orang yang sebenarnya yang membeli cacing Liquor sedang duduk di depannya.</p>
+<p>	Tapi Qing Shu tidak pernah mencurigai Fang Yuan, karena dalam perspektifnya, Fang Yuan sudah memiliki cacing Liquor, dia tidak perlu membeli yang kedua. Apa gunanya?</p>
+<p>	Jika dia tahu tentang resep cacing Four Flavour Liquor, dia pasti akan mencurigai Fang Yuan. Tapi sekarang, resep ini hanya rahasia Fang Yuan untuk disimpan.</p>
+<p>	Satu-satunya yang tahu bahwa Fang Yuan adalah pembelinya, adalah Jia Fu. Tapi bagi Jia Fu, Fang Yuan bisa membantu orang lain untuk membelinya. Entah itu kerabat atau kekasih, hal seperti ini wajar. Yao Ji juga sama, membeli cacing Liquor untuk cucunya?</p>
+<p>	“Tidak peduli apa, saya tidak memberi jalan untuk masalah cacing Liquor ini.” Sikap Fang Yuan tegas tanpa mengendur, saat dia menyeringai di dalam hatinya.</p>
+<p>	Ini adalah sistemnya.</p>
+<p>	Sistem membuat seseorang kuat, tetapi juga menahan diri.</p>
+<p>	Gu Yue Yao Ji adalah Master Gu peringkat tiga. Dia jauh lebih kuat dari Fang Yuan, tetapi karena sistem dia tidak bisa merebutnya darinya. Karena aturan sistem dan menjaga reputasinya sendiri, dia juga tidak bisa membelinya dengan paksa.</p>
+<p>	Fang Zheng yang berada di satu sisi tiba-tiba mendesak, “Saudaraku, cacing Liquor tidak berguna bagimu, mengapa berpegang teguh padanya. Nenek Yao Ji sangat baik. Saya juga telah bertemu dengan saudari Yao Le berkali-kali, dia orang yang baik, saya yakin dia akan merawat cacing Liquor dengan baik. Dan cacing Liquor sangat membantunya. Kebaikan melahirkan kebaikan, saudara, Anda menyelamatkan desa dan saya senang untuk Anda. Ini membawa kehormatan bagi keluarga kami juga. Tapi mengapa kamu begitu keras kepala sekarang, bukankah ini terlalu picik?”</p>
+<p>	Ekspresi Fang Yuan menegang saat dia berkata dengan dingin, “Adikku yang baik, apakah kamu menguliahiku? Cacing minuman keras adalah bisnis saya. Bahkan jika itu membusuk di tangan saya, Anda tidak memiliki hak untuk mendikte apa yang saya lakukan. ”</p>
+<p>	Dia tidak benar-benar marah, tetapi sikap adalah topeng hati, dan dengan mengekspresikan sikapnya, itu akan membuat Qing Shu melihat tekadnya untuk menolak.</p>
+<p>	“Sepertinya Fang Yuan bertekad untuk menolak. Membawa Fang Zheng ke sini dengan sengaja adalah langkah yang buruk. Saudara-saudara ini memiliki hubungan yang buruk dan selalu berselisih, aku telah menembak diriku sendiri di kaki,” tatapan Gu Yue Qing Shu bersinar.</p>
+<p>	“Fang Zheng, pergi keluar dan berbelanja.” Fang Zheng ingin mengatakan lebih banyak, tetapi dia dihentikan oleh Qing Shu.</p>
+<p>	Fang Zheng menggertakkan giginya, tetapi masih mematuhi perintah Qing Shu.</p>
+<p>	“Bagaimanapun, aku tidak bisa memahamimu dalam hal ini, kakak.” Dia membuka pintu, meninggalkan kalimat terakhirnya.</p>
+<p>	“Apa yang saya lakukan, tidak membutuhkan pengertian Anda, Fang Zheng.” Fang Yuan tanpa ekspresi.</p>
+<p>	Gerakan Fang Zheng untuk membuka pintu berhenti sejenak, tetapi dia dengan cepat berjalan keluar dari kamar tanpa berbalik, menutup pintu kamar dengan bam.</p>
+<p>	Gerakan ini membuat suasana ruangan menjadi semakin canggung.</p>
+<p>	“Jika tidak ada yang lain, saudara Qing Shu bisa pergi.” Fang Yuan langsung mengusir tamunya.</p>
+<p>	“Hehehe,” Qing Shu tertawa datar, mencoba meredakan ketegangan, tetapi wajah Fang Yuan sedingin es, tidak menunjukkan tanda-tanda perubahan.</p>
+<p>	Tapi emosinya ringan, dan dia tidak frustrasi.</p>
+<p>	Menyentuh hidungnya, Qing Shu tertawa canggung, “Ada masalah lain, mengenai Rumput Vitalitas Sembilan Daun.”</p>
+<p>	“Rumput Vitalitas Sembilan Daun tidak untuk dijual.” Fang Yuan memutar matanya.</p>
+<p>	“Aku tahu, aku tahu,” Qing Shu mengangguk, “Ini tentang daun vitalitas, ini adalah urusan pribadi kelompokku. Saya harap Anda dapat memasok rumput vitalitas yang dihasilkan kepada kami. Tentu saja, kami akan membayar Anda kompensasi yang sesuai. ”</p>
+<p>	Melihat bisnis mendekat, Fang Yuan secara alami tidak menolak, “Lalu, enam puluh lima batu purba per daun.”</p>
+<p>	Qing Shu mendengar harganya, lidahnya kelu.</p>
+<p>	Menurut harga pasar, harga jual asli klan adalah lima puluh lima batu purba. Meskipun daun vitalitas adalah jenis pengeluaran Peringkat satu Gu, hilang setelah digunakan, ini adalah sesuatu untuk menyelamatkan nyawa, dan tidak ada yang akan lebih memikirkannya.</p>
+<p>	Apalagi dengan gelombang serigala yang semakin dekat, klan juga menaikkan harga, dan setiap daun dijual dengan enam puluh batu purba. Sebenarnya, bukan hanya daun vitalitas, tetapi juga sumber daya juga semakin mahal. Ini adalah volatilitas situasi, dan Gu Masters harus menghadapinya.</p>
+<p>	Tapi apa yang tidak diharapkan Qing Shu adalah, harga Fang Yuan bahkan lebih tinggi dari klan.</p>
+<p>	“Menemukan itu mahal? Anda tidak harus membelinya. Tapi sejauh yang saya tahu, setelah serigala pasang, klan akan mengontrol sumber daya dengan ketat, dan daun vitalitas akan memiliki permintaan berlebih. Saat itu, harga akan melambung lagi, bahkan mungkin tidak ada stok, bagaimana menurut Anda? ” Nada bicara Fang Yuan tenang saat dia dengan aman mengevaluasi harganya.</p>
+<p>	Qing Shu bingung, nadanya berubah tak berdaya, “Kamu benar-benar jelas dari itu. Tapi kenaikan harga Anda sedikit sombong. Apakah Anda tidak takut menyinggung orang? Jika Anda mengurangi harga, Anda dapat menggunakan kesempatan untuk membangun hubungan. Tetapi jika Anda menaikkan harga seperti ini, klan akan menyimpan dendam pada Anda karena mendapatkan keuntungan dengan cara ini.</p>
+<p>	Fang Yuan mengangkat kepalanya dan tertawa, “Gelombang serigala sudah dekat, aku hanyalah anak kecil, aku bisa mati kapan saja. Bagaimana saya bisa repot dengan hal-hal sepele ini? ”</p>
+<p>	“Kamu telah lama melewati tahap goreng kecil, dan hubungan manusia juga tidak sepele.” Qing Shu menatap Fang Yuan dalam-dalam, lalu dengan ringan menggelengkan kepalanya, “Tetapi setiap orang memiliki pemikiran dan pilihan mereka sendiri, aku tidak akan memaksamu. Namun berhati-hatilah, Tuan Yao Ji tidak akan melepaskannya begitu saja… Selamat tinggal.”</p>
+<p>	Qing Shu tidak lagi menyebutkan masalah pembelian daun vitalitas, harga Fang Yuan telah membuatnya takut.</p>
+<p>	Dia adalah orang yang cerdas, dan ketika orang yang cerdas membeli sesuatu, mereka tidak bertindak berdasarkan dorongan hati, tetapi hanya setelah pertimbangan yang cerdas. Orang yang cerdas akan memiliki evaluasi di dalam hati mereka, dan begitu harganya melebihi nilainya, mereka akan dengan tenang menarik diri.</p>
+<p>	Fang Yuan tampaknya hanya menaikkan harga lima batu purba, tetapi Qing Shu tidak hanya membeli satu daun vitalitas, dan gelombang serigala akan berlangsung setidaknya selama satu tahun, dia akan menghabiskan banyak daun vitalitas. Jika ini terakumulasi, itu akan menjadi biaya yang berat.</p>
+<p>	“Terima kasih atas saranmu, hati-hati, aku tidak akan mengirimmu pergi,” kata Fang Yuan, melihat Qing Shu pergi. Hatinya jernih saat dia tahu bahwa Qing Shu pasti akan kembali.</p>
+<p>	Itu karena dia terlalu meremehkan tingkat keparahan gelombang serigala.</p>
+<p>	Di bawah gelombang serigala seperti itu, kematian mungkin langsung menimpa siapa pun, dan daun vitalitas tidak kekurangan pelanggan. Dalam ingatannya, harganya meroket hingga lebih dari seratus batu purba!</p>
+<p>	Tentu saja, harga ini juga selama periode ketika gelombang pasang serigala paling kuat. Saat ini, yang ingin dilakukan Fang Yuan adalah mengakomodasi periode waktu, secara bertahap menaikkan harga.</p>
+<p>	Seiring berjalannya waktu, angin musim dingin semakin dingin dan keras.</p>
+<p>	Angin musim dingin tahun ini terbukti lebih dingin dari tahun-tahun sebelumnya untuk tiga desa di Gunung Qing Mao.</p>
+<p>	Mengambil desa Gu Yue misalnya.</p>
+<p>	Semakin banyak serigala lumpuh muncul di dekat lingkungan desa.</p>
+<p>	Klan mengirimkan sejumlah besar misi, dan hampir semuanya tentang memusnahkan serigala lumpuh.</p>
+<p>	Selama bulan Desember, ketika jumlah serigala lumpuh mencapai puncaknya, ini menyebabkan situasi memburuk dengan cepat, mencapai tingkat yang mengerikan. Bahkan, ada situasi di mana sebuah dusun di kaki gunung dibantai oleh sekelompok besar serigala.</p>
+<p>	Untunglah, selusin Master Gu di desa mundur tepat waktu. Para petinggi klan menghela nafas lega secara diam-diam, karena kematian seorang Guru Gu akan menyebabkan mereka merasa kasihan selama lebih dari setengah hari, tetapi bagi manusia, mereka semua adalah budak, jadi jika mereka mati.</p>
+<p>	Di dunia ini, tidak ada hak asasi manusia.</p>
+<p>	Nyawa Guru Gu lebih berharga daripada seratus manusia, ini adalah sudut pandang semua orang.</p>
+<p>	Namun kematian dan cedera pasti tidak sedikit, sehingga, desa itu memiliki suara tangisan dan hirupan dari pagi hingga malam.</p>
+<p>	Desa memancarkan rasa kesedihan dan penindasan di seluruh.</p>
+<p>	Serigala-serigala yang lumpuh hanyalah pendahuluan; gelombang serigala sejati bahkan lebih mengerikan.</p>
+<p>	Semakin banyak orang mulai menyadari bahwa gelombang serigala tahun ini, luar biasa.</p>
+<p>	Di bawah tekanan seperti itu, negosiasi yang telah menemui jalan buntu memperoleh kemajuan cepat, dan aliansi tiga klan terbentuk.</p>
+<p>	Sebulan kemudian, di akhir musim dingin.</p>
+<p>	Lereng Aliansi, Pertemuan Aliansi Tiga Klan.</p>
+<p>	Kepingan salju kecil yang seperti bulu putih lembut perlahan melayang ke bawah.</p>
+<p>	Ratusan dan ribuan Master Gu berkumpul di sini, membentuk skala besar.</p>
+<p>	Lereng aliansi awalnya merupakan lereng gunung biasa, tetapi sepanjang sejarah, kepala klan generasi kedua klan Gu Yue berhasil membuat tiga aliansi klan pertama di lereng. Dengan demikian, semua aliansi masa depan diadakan di sana.</p>
+<p>	Setelah bertahun-tahun penyempurnaan, kemiringan aliansi saat ini telah berkembang puluhan kali, menjadi alun-alun kota raksasa.</p>
+<p>	Alun-alun kota berada di sepanjang dinding gunung, dan ada sebuah batu besar yang didirikan di sana.</p>
+<p>	Di batu besar, ada pahatan batu bangunan, dan di bangunan itu ada perabotan batu yang dirakit dengan benar. Tiga petinggi klan duduk di dalam, berdiskusi dengan cermat.</p>
+<p>	Di bawah bangunan batu raksasa, Gu Masters dari tiga klan memiliki kedudukan masing-masing, membentuk tiga kelompok besar.</p>
+<p>	Master Gu mengenakan pakaian pertempuran yang serupa, dan bersama dengan ikat pinggang, tingkat kultivasi mereka masing-masing terlihat jelas. Fang Yuan ada di dalam mereka.</p>
+<p>	Dia diam-diam mengamati situasinya.</p>
+<p>	Master Gu di bawah panggung semuanya adalah Master Gu peringkat dua. Sebagian besar Master Gu Peringkat satu dialokasikan untuk mendukung, dan hanya Peringkat dua Master Gu yang merupakan pasukan bergerak yang sebenarnya. Adapun peringkat tiga Gu Masters, mereka adalah tetua klan, dan untuk klan menengah seperti klan Gu Yue, bahkan setelah upaya setiap generasi mereka hanya memiliki sedikit lebih dari dua puluh tetua klan.</p>
+<p>	Fang Yuan sedang mengamati, dan Master Gu lainnya juga menonton. Tatapan yang tak terhitung jumlahnya bersinggungan dengan kebencian, rasa ingin tahu, dan kewaspadaan.</p>
+<p>	Master Gu klan Gu Yue berada di pihak yang kurus. Master Gu klan Xiong kuat dan kuat, dan dari penampilan kekuatan mereka dapat ditunjukkan. Master Gu klan Bai, mungkin karena tinggal di dekat air terjun di belakang gunung, memiliki kulit keputihan dan memiliki aura Yin (1) di sekitar mereka.</p>
+<p>	“Pria berambut panjang itu adalah Gu Yue Qing Shu, peringkat dua tahap puncak, dan merupakan Master Gu peringkat dua Klan Gu Yue,” kata beberapa orang.</p>
+<p>	“Mo Yan! Hmph, kunci pas ini membuatku kehilangan lengan. Setelah gelombang serigala, aku harus membalas dendam!!” Seseorang mendengus dalam hati mereka.</p>
+<p>	“Woah, gadis yang menunggangi beruang raksasa itu, seharusnya dia adalah Xiong Jiao Man dari klan Xiong. Jangan tertipu oleh penampilannya, dia menjadi gila pertempuran saat bertarung.”</p>
+<p>	“Apakah kamu melihat gadis putih gemuk itu? Dia adalah Bai Zhong Shui dari klan Bai, petarung tingkat atas peringkat dua, yang memiliki Gu Babi Air. Dia sangat promiscuous dan sangat bernafsu terhadap pria. Kalian pemula hati-hati, jangan sampai kacau olehnya. ”</p>
+<p>	Permusuhan dan dendam tiga klan telah lama mengakar.</p>
+<p>	Suara diskusi lereng aliansi menjadi lebih keras saat berubah menjadi keributan. Banyak senior Gu Master menunjuk-nunjuk, memperkenalkan orang-orang kuat dari dua klan lainnya kepada junior mereka, mengingatkan mereka untuk berhati-hati terhadap mereka.</p>
+<p>	(1) Aura Yin, ini agak sulit dijelaskan? Yin diasosiasikan dengan wanita, energi gelap, energi air…</p>
+<p>	Pengingat:</p>
+<p>	Klan Xiong – Klan Beruang.</p>
+<p>	Klan Bai – Klan Putih.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

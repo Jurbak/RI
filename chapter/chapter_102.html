@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 102 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 102";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_101.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 102">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_103.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 102</h1>
+        <div class="text-left">
+<p>	Bab 102</p>
+<p>	Bab 102: Musim semi datang setelah angin musim dingin</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Fang Yuan tiba di aula urusan internal dan menyerahkan anggur madu emas.</p>
+<p>	Tuan Gu pria paruh baya yang bertanggung jawab sangat terkejut. Sambil memegang penanya, dia bertanya, “Kamu sudah menyelesaikan misi aset?”</p>
+<p>	“Bagaimana menurutmu?” Fang Yuan membalas.</p>
+<p>	Tuan Gu pria paruh baya mengerutkan kening, ini adalah misi yang dia pilih secara khusus untuk membuat hidup menjadi sulit bagi Fang Yuan. Untuk berpikir dia menyelesaikannya begitu cepat!</p>
+<p>	Dia memandang Fang Yuan, matanya mengancam, berkata dengan sungguh-sungguh, “Anak muda, jawab apa pun yang saya minta. Jika Anda tidak menjawab dengan jujur, itu akan mempengaruhi penilaian Anda. Izinkan saya bertanya, apakah Anda menyelesaikan misi ini sendirian? Katakan yang sebenarnya, kami akan menyelidiki secara menyeluruh. ”</p>
+<p>	“Tentu saja aku menyelesaikannya sendiri.” Fang Yuan menjawab.</p>
+<p>	“Bagus, aku akan mencatatnya.” Master Gu paruh baya merekam sambil tertawa secara internal, Anda hanya seorang pemula, bagaimana Anda bisa menyelesaikannya sendiri? Laporan palsu seperti itu, klan pasti akan menyelidikinya. Anda akan mengalami kesulitan kemudian.</p>
+<p>	Tapi tiba-tiba Fang Yuan melanjutkan, “Tapi situasi ini agak aneh. Hari itu saya hanya pergi untuk mengintai daerah tersebut, tetapi untuk berpikir beruang sedang menggali sarang lebah. Menggunakan kesempatan itu, saya mengambil anggur madu ini. ”</p>
+<p>	“Apa?” Pena pria paruh baya itu berhenti, mengangkat kepalanya untuk melihat Fang Yuan.</p>
+<p>	Fang Yuan mengangkat bahu, tersenyum, “Apa, menurutmu aku bisa menyelesaikan misi ini sendirian? Sejujurnya, ini semua berkatmu, menemukan misi ini untukku.”</p>
+<p>	Master Gu setengah baya tertegun di tempat, perasaan yang kompleks dan tidak dapat dijelaskan di dalam hatinya saat dia tertawa kering dan terus merekam dalam buku.</p>
+<p>	Fang Yuan menatap pria ini dengan tenang, tahu betul bahwa misi asetnya yang sangat sulit adalah ‘terima kasih’ kepada pria ini. Sayangnya, dia sudah menyelesaikan misi; bahkan jika klan menyelidiki, Fang Yuan sudah menyiapkan yang sesuai. Dia tidak bisa menghentikan Fang Yuan lagi.</p>
+<p>	Bahkan jika masalah ini ditangani olehnya.</p>
+<p>	Ini adalah kesedihan berada dalam sistem. Status Anda adalah rantai yang membatasi tindakan Anda.</p>
+<p>	“Baiklah, misimu sudah selesai, kamu sudah bisa mewarisi aset keluarga. Kecuali, aset Anda semua dikendalikan oleh paman dan bibi Anda. Aula urusan internal akan mengambilnya untukmu, kembalilah dalam tiga hari. ” Setelah merekam, kata pria paruh baya itu.</p>
+<p>	Fang Yuan mengangguk, dia tahu aturan ini, tetapi dia menatap kertas catatan pria paruh baya itu, berkata, “Menurut aturan klan, catatan misi urusan internal perlu dikonfirmasi oleh yang berprestasi di tempat. Tolong izinkan saya melihat rekaman ini.”</p>
+<p>	Ekspresi pria paruh baya itu berubah, dia tidak berharap Fang Yuan begitu akrab dengan prosesnya. Dia mendengus ringan saat menangani laporan ke Fang Yuan.</p>
+<p>	Fang Yuan melihat catatan itu tanpa masalah. Beberapa ratus kata dengan evaluasi akhir — Bagus.</p>
+<p>	Dia bisa langsung melihat hubungan antara Gu Yue Dong Tu dan Master Gu ini.</p>
+<p>	Evaluasi ini benar-benar adil, menunjukkan bahwa Guru Gu setengah baya tidak menyerah pada etos kerjanya hanya karena Gu Yue Dong Tu; alasan dia membantu Dong Tu hanya karena persahabatan mereka dan transaksi di antara mereka.</p>
+<p>	Itu adalah jenis transaksi ‘mengambil uang untuk menyelesaikan masalah orang lain’.</p>
+<p>	Memberikan laporan kembali ke Master Gu setengah baya, Fang Yuan meninggalkan aula urusan internal.</p>
+<p>	Di luar, Gu Yue Dong Tu sudah pergi.</p>
+<p>	Fang Yuan tidak bisa menahan tawa dingin. Pengaruh Gu Yue Dong Tu tidak cukup besar untuk mempengaruhi aula urusan internal. Bahkan jika Gu Yue Bo pemimpin klan ingin melakukan ini, dia harus melawan tekanan besar dari lingkaran tetua klan dan membayar harga yang besar dalam karir politiknya.</p>
+<p>	Ada ungkapan di bumi, yang disebut ‘mereka yang hidup dalam masyarakat harus mengikuti aturannya.’</p>
+<p>	Ada aturan dalam masyarakat, dan itu adalah bentuk sistem. Mereka yang mengikuti aturan, menjadi bidak siapa pun, saling membatasi, dan bukan mereka yang mengendalikan.</p>
+<p>	Kecuali jika kekuatan individu telah mencapai titik di mana ia dapat menentang seluruh organisasi, jika tidak, bergabung dengan sebuah organisasi dan ingin mempertahankan kebebasan adalah mimpi yang sia-sia!</p>
+<p>	Meminjam kekuatan sistem klan, Fang Yuan telah menegaskan kebenaran untuk mendapatkan kembali asetnya.</p>
+<p>	Terlepas dari Gu Yue Dong Tu atau pemimpin klan, mereka tidak akan membayar harga politik untuk mencampuri masalah kecil seperti itu.</p>
+<p>	Di ruang tamu.</p>
+<p>	“Saudara Dong Tu, tidak ada yang bisa saya lakukan lagi.” Master Gu setengah baya menghela nafas, berdiri di depan Gu Yue Dong Tu.</p>
+<p>	Wajah Gu Yue Dong Tu muram saat dia tetap diam di kursinya.</p>
+<p>	“Apakah benar-benar tidak ada metode lagi?” Di sampingnya, Bibi dengan takut bertanya dengan nada cemas dan marah.</p>
+<p>	Pria paruh baya itu menggelengkan kepalanya, “Hasilnya ditetapkan di atas batu dan telah memasuki prosedur aula urusan internal. Kecuali jika dua tetua klan yang berkuasa atau pemimpin klan ikut campur. Brother Dong Tu, daftar inventaris aula urusan internal ini menyatakan dengan jelas item dan jumlah warisan, tolong kembalikan semuanya dan jangan buat hidupku sulit. ” Mengatakan demikian, dia mengeluarkan daftar inventaris.</p>
+<p>	Inventaris memiliki banyak catatan, dari barang-barang mahal seperti perkebunan hingga meja atau kursi murah, selain itu ada juga cacing Gu yang ditinggalkan orang tua Fang Yuan.</p>
+<p>	Setelah Guru Gu meninggal dalam pertempuran, cacing Gu mereka akan diambil sebagai warisan untuk penerus mereka. Ini adalah langkah politik oleh klan.</p>
+<p>	Bibi melihat daftar itu, sebelum kehilangan ketenangannya, “Sialan, kamu tidak bisa melakukan ini! Ini semua milik kita, KITA! Hubby, katakan sesuatu, pikirkan sesuatu. Tanpa aset ini, apa yang tersisa? Bahkan pelayan kita akan hilang setengahnya, kita tidak mampu membelinya! ”</p>
+<p>	Tamparan!</p>
+<p>	Gu Yue Dong Tu berdiri dan mengirim telapak tangannya terbang ke arah Bibi, mengirimnya ke tanah dari tempat duduknya.</p>
+<p>	“Pelacur berisik!” Paman menjadi marah, memarahi dengan nada gelisah, “Katak di dalam sumur, aturan klan ada di sana, Anda pikir Anda dapat memilih untuk tidak mengembalikannya? Bodoh, bodoh!” Bibi menggunakan tangannya untuk menutupi pipinya, dipukuli menjadi kebodohan, berbaring di tanah karena shock, menatap suaminya dengan kosong.</p>
+<p>	“Hmph!” Gu Yue Dong Tu meraih daftar inventaris, menggertakkan giginya, memindai.</p>
+<p>	Matanya dipenuhi dengan jejak darah saat dia menarik napas berat, berkata dengan kebencian, “Kembali! Semua hal ini… Saya akan kembali… BUKAN APAPUN!!! Tetapi…”</p>
+<p>	Pembuluh darahnya muncul dari dahinya, otot-otot di wajahnya berkedut, ekspresinya penuh kekejaman, “Tapi Fang Yuan, aku tidak bisa menghentikan aula urusan internal, namun aku bisa berurusan denganmu. Jangan berpikir semuanya baik-baik saja dan hidup sekarang karena kamu memiliki aset ini, hmph!”</p>
+<p>	Tiga hari kemudian, Fang Yuan keluar dari aula urusan internal dengan setumpuk surat rumah dan tanah dan menjual kontrak manusia di tangannya.</p>
+<p>	“Memikirkan warisan ini begitu melimpah.” Dia sedikit tercengang.</p>
+<p>	Meskipun Fang Yuan memiliki beberapa perkiraan, setelah menerima daftar aset ini, itu jauh dari harapannya.</p>
+<p>	Lebih dari sepuluh mu tanah pertanian, delapan pelayan keluarga dan tiga bangunan bambu, dan kedai anggur!</p>
+<p>	“Tidak heran paman begitu ngotot, memikirkan segala cara untuk menghentikanku.” Fang Yuan bisa memahami tindakan Gu Yue Dong Tu.</p>
+<p>	Dengan aset keluarga yang begitu besar, bahkan di dunia ini, seseorang bisa hidup seperti raja.</p>
+<p>	Sepuluh mu tanah pertanian, delapan pelayan keluarga, sisihkan ini dulu. Ketiga bangunan bambu itu adalah aset properti — bahkan jika hanya disewakan, setiap bulan, jumlah sewanya cukup untuk mendukung budidaya Fang Yuan saat ini.</p>
+<p>	Selain itu ada juga kedai anggur. Perhatikan bahwa hanya ada empat area penjualan anggur di seluruh desa.</p>
+<p>	Aset seperti itu, jika di bumi, akan setara dengan memiliki beberapa rumah besar dan hotel, itu adalah kehidupan bangsawan dengan banyak pelayan.</p>
+<p>	Yang perlu disebutkan adalah, kondisi kehidupan dunia ini jauh lebih kejam dan sulit, sehingga desa menjadi lokasi teraman, harga aset properti bahkan lebih mahal daripada di bumi.</p>
+<p>	“Dikatakan bahwa keluarga Fang saya, tiga generasi yang lalu, memiliki seorang tetua klan yang memegang kekuasaan dan meninggalkan banyak warisan untuk generasi mendatang. Dengan aset keluarga ini, selain tujuh cacing Gu, bahkan jika jumlah itu berlipat ganda, saya masih bisa membelinya! Tapi poin krusialnya bukan ini. Ini rumput ini Gu! ”</p>
+<p>	Pada titik ini, ada rumput Gu tergeletak dengan tenang di telapak tangan Fang Yuan.</p>
+<p>	Itu mungil dan halus, akar hijau zamrud menyerupai janggut ginseng. Ada beberapa stolon semi-transparan yang seperti batu giok. Sembilan helai daun berbentuk bulat yang berwarna hijau giok saling menutupi dan memantulkan, membentuk bentuk piring bundar.</p>
+<p>	Ini adalah Rumput Vitalitas Sembilan Daun, cacing Gu peringkat dua tipe penyembuhan.</p>
+<p>	Jika sampai pada penyembuhan normal, itu tidak ada bedanya dengan rumput nafas Kehidupan.</p>
+<p>	Nilai sebenarnya dari Rumput Vitalitas Sembilan Daun terletak pada daunnya – Setiap daun yang tercabut darinya adalah daun vitalitas.</p>
+<p>	Daun vitalitas juga merupakan jenis rumput Gu. Di peringkat satu, itu adalah tipe yang bisa dibuang, menghilang setelah satu kali digunakan.</p>
+<p>	Itu memiliki kelemahan lain, dan saat itulah sepotong daun vitalitas digunakan untuk menyembuhkan luka, dalam satu jam berikutnya, daun vitalitas lainnya tidak lagi memiliki efek penyembuhan pada orang tersebut.</p>
+<p>	Tapi, secara keseluruhan, itu mudah untuk disempurnakan, dan penyembuhan seketika bersama dengan pemberian makan yang mudah menjadikannya teknik penyembuhan paling populer di antara Master Gu Peringkat dua.</p>
+<p>	Menyembuhkan Gu Master, setiap kelompok membutuhkannya. Tetapi di saat banyak Gu Master terluka, apa yang bisa dilakukan oleh satu Gu Master? Jika Tuan Gu yang menyembuhkan adalah orang yang meninggal, atau tersesat, apa yang terjadi dengan yang lainnya?</p>
+<p>	Dengan demikian, Master Gu selalu menyiapkan beberapa metode penyembuhan untuk diri mereka sendiri, dan daun vitalitas adalah metode terbaik. Setiap Gu Master yang berkeliaran di luar perlu mempersiapkan setidaknya satu atau dua.</p>
+<p>	“Setelah saya memperbaiki Rumput Vitalitas Sembilan Daun, setiap lembar daun yang dicabut akan menjadi daun vitalitas. Menggunakan esensi purba untuk menyuntikkan ke rumput, saya bisa membuatnya tumbuh daun baru. Dengan demikian, Rumput Vitalitas Sembilan Daun ini dapat dikatakan sebagai tambang emas yang bergerak. Aset terpenting dari semuanya… tanpa kecuali. Memiliki Rumput Vitalitas Sembilan Daun ini adalah jalan bisnis. Di dunia yang berbahaya ini, Guru Gu mana yang tidak terluka dalam misi mereka? Mereka selalu membutuhkan daun vitalitas.”</p>
+<p>	“Tidak heran Gu Yue Dong Tu dikenal sebagai ‘penatua tersembunyi’ bahkan setelah dia pensiun bertahun-tahun yang lalu; dia masih memiliki pengaruh besar di luar. Jadi alasannya adalah Rumput Vitalitas Sembilan Daun ini.”</p>
+<p>	Master Gu membutuhkan daun vitalitas, dan Gu Yue Dong Tu menjual daunnya. Dengan hubungan seperti itu, tidak diragukan lagi pengaruhnya tetap ada.</p>
+<p>	Fang Yuan tercerahkan.</p>
+<p>	“Hanya di dunia ini hubungan klan dinaikkan ke tingkat seperti itu, menahan Paman dan Bibi. Jika ini adalah bumi, dengan konflik kepentingan seperti itu, Fang Zheng dan saya pasti sudah dibunuh oleh mereka. Ini tidak baik, sepertinya aku punya masalah di depan, Paman dan Bibi tidak akan melepaskannya dengan mudah. ​​”</p>
+<p>	“Tapi aku sudah tumbuh dengan kultivasi peringkat dua. Jika mereka ingin berurusan dengan saya dan juga mempertimbangkan peraturan klan, mereka akan sangat dibatasi. Hmph, terlepas dari apa yang mereka lakukan, tunjukkan saja apa yang kamu punya. Berurusan dengan itu saat datang, saya akan menangani mereka semua. ”</p>
+<p>	Fang Yuan berjalan di jalan, matanya bersinar cemerlang.</p>
+<p>	Embusan angin musim dingin bertiup di wajahnya.</p>
+<p>	Itu masih jauh dari musim semi, tetapi Fang Yuan tahu bahwa ‘musim semi’ (mulai dari kehidupan barunya) telah tiba.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

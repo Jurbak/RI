@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 384 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 384";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_383.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 384">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_385.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 384</h1>
+        <div class="text-left">
+<p>	Bab 384 – Dokter Hantu yang Merencanakan, Pintu Rahasia Hidup dan Mati</p>
+<p>	Bab 384: Dokter Hantu yang Merencanakan, Pintu Rahasia Hidup dan Mati</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Untuk berpikir bahwa warisan tiga raja ini adalah jebakan, pemenang sebenarnya adalah kamu, raja binatang kecil!” Dokter hantu pembunuh Chou Jiu berbaring di tanah, menatap Fang Yuan dengan dalam dan saksama saat dia berseru.</p>
+<p>	Setelah Fang Yuan meyakinkan roh tanah, dia bergegas ke Chou Jiu dan memukulinya.</p>
+<p>	Chou Jiu memiliki penampilan yang jelek, rambutnya seperti rumput kuning kering, otaknya menonjol dan matanya berbeda ukuran. Tulang pipinya sangat tinggi, hidungnya rata, ada segumpal rambut besar yang tumbuh dari lubang hidungnya, dan gigi kuningnya menonjol keluar.</p>
+<p>	Tapi tatapannya sangat rumit, dia memiliki kemampuan merencanakan yang tidak bisa dimiliki orang biasa.</p>
+<p>	“Raja binatang kecil, aku tahu tentangmu, kamu memiliki bakat besar, dari seorang gelandangan, kamu tumbuh sejauh ini, aku sangat mengagumimu. Dibandingkan dengan Anda, saya hanya beberapa tahun lebih tua. Ketika saya masih muda, saya tidak memiliki prestasi seperti itu. Anda adalah naga di antara manusia, pada akhirnya Anda akan terbang ke surga, dan menjelajahi dunia dengan bebas. Saya tidak punya niat untuk bermusuhan dengan Anda, jika memungkinkan, saya ingin menggunakan informasi mengenai pintu hidup dan mati untuk mempertahankan hidup saya.</p>
+<p>	Fang Yuan telah membunuh empat master Gu peringkat lima sebelumnya, beberapa dari mereka terkejut, beberapa marah, beberapa ketakutan, tetapi Chou Jiu ini sangat tenang.</p>
+<p>	Setelah memahami situasinya, dia menurunkan egonya dan memuji Fang Yuan.</p>
+<p>	Dia berbaring di tanah, tidak bergerak, seolah dia menyerah untuk melawan.</p>
+<p>	Tetapi pada saat ini, roh tanah tiba-tiba mentransmisikan: “Cepat bunuh dia, dia mengaktifkan tokennya dan cacing Gu dengan marah, saya mencoba untuk menekan mereka tetapi ini menyebabkan pengeluaran esensi abadi yang besar.”</p>
+<p>	Tapi Fang Yuan sedikit tercengang, hampir mengira dia berhalusinasi: “Pintu hidup dan mati?”</p>
+<p>	Pintu hidup dan mati ini adalah masalah besar, itu tercatat di &lt;&gt;, sebuah tanah terlarang rahasia di zaman kuno. Itu mirip dengan sungai waktu dan jurang biasa.</p>
+<p>	Setelah Verdant Great Sun meninggal, Ren Zu pergi ke pintu hidup dan mati untuk mencoba menghidupkannya kembali.</p>
+<p>	Legenda mengatakan bahwa di balik pintu hidup dan mati menyimpan rahasia hidup dan mati, jika seseorang dapat memahaminya sepenuhnya, mereka akan dapat mengendalikan hidup dan mati itu sendiri.</p>
+<p>	“Chou Jiu tahu lokasi pintu hidup dan mati ?!” Jantung Fang Yuan berdebar kencang, saat ekspresinya berubah dingin, memperingatkan dengan keras: “Chou Jiu, aktifkan cacing Gumu sekali lagi dan aku akan segera membunuhmu.”</p>
+<p>	Ekspresi Chou Jiu berubah, pupil matanya mengecil saat dia perlahan duduk, menatap Fang Yuan: “Kamu bisa merasakan aku menggunakan cacing Gu!”</p>
+<p>	Sebuah pikiran melintas di matanya: “Kamu bisa menggunakan cacing Gu, sementara aku tidak bisa menggunakan cacing milikku sama sekali. Huh, sepertinya hanya ada satu kemungkinan — roh tanah masih hidup dan kamu menaklukkannya. Jadi tanah yang diberkati ini memiliki rahasia seperti itu. Sayang sekali, ketika tiga raja memperoleh tempat ini, mereka tidak benar-benar menguasai tanah yang diberkati, sehingga Anda telah mendapatkannya sekarang. Tapi tanah yang diberkati ini berada di ambang kehancuran, tidak ada cara untuk menyelamatkannya. Roh tanah pasti sudah sangat tua dan lemah juga, kalau tidak, para Master Gu pasti sudah diusir. Mengapa Anda perlu melenyapkan kami secara pribadi? ”</p>
+<p>	Meskipun Fang Yuan tidak mengendalikan tanah yang diberkati ini, setelah mengungkapkan identitasnya, roh tanah akan mendengarkan beberapa instruksinya untuk membantunya memperbaiki Gu.</p>
+<p>	Chou Jiu berusia lebih dari satu abad, dia sudah tua dan licik, dengan mudah menebak skenarionya.</p>
+<p>	“Karena kamu mengendalikan tanah yang diberkati, maka aku tidak akan peduli dengan tindakan sia-sia ini. Selama Anda mempertahankan hidup saya, apa yang akan Anda dapatkan akan keluar dari imajinasi Anda. ” Chou Jiu berkata, menghentikan tindakan rahasianya.</p>
+<p>	Fang Yuan tertawa tanpa menyangkal: “Bicara tentang pintu hidup dan mati. Anda tahu lokasinya? Pintu hidup dan mati adalah tanah terlarang yang tidak kalah dengan sungai waktu, ada area yang sangat luas di dalamnya, yang mencerminkan lima wilayah dunia utama. Legenda mengatakan bahwa ada banyak cacing Gu yang unik dan alami di dalamnya, seperti Gu kehidupan, dan Gu kematian.”</p>
+<p>	Chou Jiu mengangguk: “Saya tahu lokasi pintu, tidak hanya itu, saya bahkan telah menjelajahinya beberapa kali dan menangkap beberapa Gu kehidupan dan Gu kematian di dalamnya, akhirnya menyempurnakan Gu satu kehidupan satu kematian. Saya menempatkan Gu ini di dalam pintu hidup dan mati, setiap kali seseorang mati karena saya, itu akan menyerap energi kematian ini dan mengubahnya menjadi kekuatan hidup. Karena kekuatan hidup ini, metode penyembuhan saya sangat mendalam. Inilah alasan mengapa saya menjadi salah satu dari empat dokter hebat di perbatasan selatan.”</p>
+<p>	Dokter hantu pembunuh mengungkapkan rahasianya sendiri, untuk meningkatkan kepercayaannya.</p>
+<p>	“Oh? Jadi itu saja.” Ini adalah pertama kalinya Fang Yuan mendengar hal seperti itu, meskipun dia memiliki ingatan kehidupan sebelumnya, dia tidak tahu segalanya.</p>
+<p>	“Kalau begitu, katakan padaku, dan aku mungkin akan menyelamatkanmu seumur hidup.” Fang Yuan berjanji.</p>
+<p>	Tapi Chou Jiu menggelengkan kepalanya: “Rahasia mengenai pintu hidup dan mati terlalu penting. Saya pernah bersumpah di depan sumpah laut Gu, untuk tidak mengungkapkan detailnya kepada orang luar. Begitu aku mengatakannya, aku akan berubah menjadi debu, terhapus dari dunia ini. Tetapi jika Anda bergabung dengan sekte bayangan, Anda akan menjadi salah satu dari kami, dan saya akan dapat memberi tahu Anda.</p>
+<p>	“Sumpah laut Gu? Sekte Bayangan?” Fang Yuan mengerutkan kening.</p>
+<p>	Sumpah laut Gu adalah peringkat enam Gu Abadi, itu sangat terkenal pada zaman kuno, bersama dengan janji gunung Gu. Sumpah gunung dan sumpah laut, mereka bekerja seperti sumpah racun Gu, tapi sumpah racun Gu adalah pengeluaran Gu sementara dua Gu Abadi ini bisa digunakan berulang kali.</p>
+<p>	Fang Yuan telah mendengar tentang sumpah laut Gu dan memahaminya. Tapi dia tidak terbiasa dengan ‘Sekte Bayangan’.</p>
+<p>	Mendengar nama ini, kedengarannya seperti sekte untuk pembudidaya Gu. Itu berarti, Chou Jiu yang penyendiri, memiliki organisasi rahasia di belakangnya?</p>
+<p>	Fang Yuan merasa sedikit terancam, situasinya sedikit di luar dugaannya.</p>
+<p>	Tidak sulit untuk membunuh Chou Jiu sekarang, tetapi Fang Yuan tidak tahu apa-apa tentang Shadow Sect, ini memberinya rasa tidak aman.</p>
+<p>	“Itu benar, sekte saya adalah Sekte Bayangan. Leluhur hebat yang menciptakan Shadow Sect, adalah peringkat delapan Gu Immortal dari Era Immemorial. Dia adalah orang yang menemukan pintu kehidupan dan kematian, dan menempatkannya di tanahnya yang diberkati. Kemudian, banyak Dewa Gu diasuh di Shadow Sect, manfaatnya tidak terbatas bagi Anda jika Anda bergabung dengan Shadow Sect. ”</p>
+<p>	Mengatakan demikian, Chou Jiu mengatakan banyak manfaat, benar-benar mengeluarkan bakat verbalnya, menyemburkan kisah yang dilebih-lebihkan.</p>
+<p>	Fang Yuan berjuang sedikit, sebelum menjadi tenang: “Hehehe, Chou Jiu, itu rencana yang bagus di sana. Jika saya bergabung dengan Shadow Sect, Anda tidak hanya akan bebas dari bahaya, saya bahkan harus memanggil Anda kakak senior. Dalam sekte tradisional seperti itu, menghormati senioritas adalah hal yang paling penting. Jika saya bergabung, saya pasti harus bersumpah dan dibatasi dengan berbagai cara. Pada akhirnya, saya bahkan harus menyumbangkan keuntungan saya di gunung San Cha, dan melakukan misi untuk klan atas nama kesetiaan, apakah saya benar? ”</p>
+<p>	“Sekte Bayangan?” Fang Yuan mencibir, menggelengkan kepalanya: “Jangan bicara tentang kemungkinan kamu berbohong, bahkan jika itu nyata, jadi apa? Sebuah sekte yang diciptakan di Era Immemorial, merupakan keajaiban bahwa itu masih ada sampai sekarang. Anda menyebutkan ada banyak Dewa Gu dalam sejarah, tetapi mereka sebagian besar sudah mati. Kalau tidak, Shadow Sect akan menjadi kekuatan besar di perbatasan selatan, mengapa Anda harus bertarung sendirian, dan menghabiskannya sendirian?”</p>
+<p>	Ekspresi Chou Jiu memutih, dia harus menilai kembali Fang Yuan.</p>
+<p>	Fang Yuan masih sangat muda, tapi dia sangat perhitungan dan licik. Menghadapi keuntungan potensial, dia bisa tetap tenang dan analitis, pemuda macam apa ini? Dia pasti monster berusia seratus tahun!</p>
+<p>	Fang Yuan tertawa terbahak-bahak, melanjutkan: “Saya adalah tipe orang yang suka mengambil semua keuntungan untuk dirinya sendiri, jangan beri tahu saya tentang situasi menang-menang. Bahkan jika Anda membuat sumpah laut, itu tidak bisa dipecahkan. Sumpah laut Gu dan janji gunung Gu memiliki kelemahan yang jelas. Ketika Anda mengucapkan sumpah, Anda harus menghadap ke laut atau gunung besar. Selama potongan laut atau gunung dihancurkan, sumpah akan kehilangan efeknya. ”</p>
+<p>	Hati Chou Jiu membeku.</p>
+<p>	Fang Yuan berpengetahuan luas dan tahu banyak hal, dia sama sekali tidak seperti pemula.</p>
+<p>	Orang-orang seperti ini adalah yang paling sulit untuk dibodohi.</p>
+<p>	Chou Jiu menenangkan semangatnya: “Tidak ada gunanya. Laut yang saya sumpah berada di dalam tanah yang diberkati Sekte Bayangan, jika Anda ingin menghancurkan laut itu, Anda harus mengetahui lokasi tanah yang diberkati. Tetapi bagi saya untuk mengatakan lokasi itu, Anda harus menghancurkan laut terlebih dahulu. Ini adalah lingkaran mati.”</p>
+<p>	Fang Yuan mencibir, niat membunuh melonjak: “Karena tidak ada yang bisa dilakukan, lupakan saja. Kamu bisa mati sekarang.”</p>
+<p>	Chou Jiu menghela nafas berat: “Jika kamu ingin membunuhku, silakan.”</p>
+<p>	Dia tidak bergerak, tetapi di dalam hatinya, dia merasa yakin.</p>
+<p>	Pintu hidup dan mati adalah lokasi legendaris, siapa yang tidak peduli dengan hidup dan mati mereka? Raja binatang kecil pasti tidak bisa menahan godaan seperti itu, tindakannya sekarang hanya untuk menakutinya.</p>
+<p>	Tapi Fang Yuan menembakkan lonjakan tulang dengan tegas.</p>
+<p>	Lonjakan tulang ini terbang menuju jantung Chou Jiu.</p>
+<p>	Seketika, rasa bahaya yang intens menyerang Chou Jiu.</p>
+<p>	“Apa! Dia benar-benar ingin membunuhku ?! ” Chou Jiu terkejut, dengan cepat menghindar.</p>
+<p>	Bangku gereja!</p>
+<p>	Suara renyah dan duri tulang menembus bahunya, beberapa inci dari jantungnya, hanya setelah menusuk punggungnya, itu berhenti.</p>
+<p>	“Kamu, kamu!” Chou JIu menunjuk ke arah Fang Yuan, suaranya yang bergetar mengandung ketakutan, keterkejutan, dan kebingungan: “Raja binatang kecil, dasar orang gila! Anda benar-benar ingin membunuh saya, jika saya tidak menghindar, saya akan mati! Itulah pintu hidup dan mati, pintu hidup dan mati! Saat itu, bahkan Ren Zu harus menghabiskan seluruh usahanya untuk menemukannya. Ini adalah tanah suci yang tak tertandingi, pengendali hidup dan mati, selama Anda bisa mendapatkannya dan memahaminya, Anda akan mencapai keabadian!</p>
+<p>	Fang Yuan menatapnya dengan dingin, berbicara dengan jelas: “Bukankah kamu mengatakan kamu tidak bisa memberitahuku rahasianya? Lalu apa gunanya aku darimu?”</p>
+<p>	“Kamu bisa bergabung dengan Sekte Bayangan!” Tubuh Chou Jiu berkeringat, entah karena kesakitan atau ketakutan.</p>
+<p>	Fang Yuan mendengus dingin, mengangkat tangannya dan membidik lagi.</p>
+<p>	Chou Jiu dengan cepat melambaikan tangannya, berteriak: “Tunggu, tunggu, jangan gegabah. Ada metode lain selain ini, kita bisa menggunakan sumpah racun Gu, jika kita membuat sumpah racun, kita bisa saling percaya.”</p>
+<p>	“Aku tidak butuh kepercayaanmu.” Fang Yuan menjawab dengan dingin.</p>
+<p>	“Kalau begitu gunakan perbudakan Gu, aku akan mengakuimu sebagai tuanku, jangan bunuh aku.”</p>
+<p>	“Kamu adalah Master Gu peringkat lima, kita perlu menggunakan Gu perbudakan peringkat lima. Gu ini sangat langka, jauh lebih mahal daripada rekan peringkat lima lainnya, di mana Anda ingin saya menemukannya? Selain itu, bahkan jika kita menggunakan Gu ini, dapatkah Anda memberi tahu saya lokasi tanah yang diberkati Sekte Bayangan? Fang Yuan membalas.</p>
+<p>	Ekspresi Chou Jiu membeku.</p>
+<p>	Fang Yuan mengamati ekspresinya, dan hatinya bergerak, mengetahui bahwa kata-kata itu benar.</p>
+<p>	Niat membunuh Fang Yuan tidak nyata, dia hanya mencoba menguji Chou Jiu.</p>
+<p>	Chou Jiu menyarankan sumpah racun Gu, perbudakan Gu, dia sudah panik, tetapi masih tidak berani menyebutkan lokasi tanah yang diberkati. Sepertinya dia benar-benar membuat sumpah laut.</p>
+<p>	Chou Jiu ingin berbohong dan membuat lokasi acak.</p>
+<p>	Tapi selama dia tidak mati karena sumpah, itu berarti dia berbohong. Jika dia mengatakan lokasi sebenarnya, sumpah itu akan merenggut nyawanya juga.</p>
+<p>	Atau lebih tepatnya, bahkan jika dia berhasil mengatakannya, dia akan kehilangan semua nilainya dan Fang Yuan tidak akan melepaskannya.</p>
+<p>	Dalam situasi ini, Chou Jiu kehabisan akal.</p>
+<p>	Menyadari hal ini, dia tertawa getir: “Tidak disangka bahwa aku Chou Jiu akan mati di sini hari ini.”</p>
+<p>	“Mampu mati di tanganku adalah kehormatanmu.” Fang Yuan menjawab dengan jelas.</p>
+<p>	Chou Jiu memandang Fang Yuan dengan serius, mengangguk setuju: “Itu benar, dengan bakat dan mentalitasmu, selama keberuntunganmu tidak terlalu buruk, kamu pasti akan menjadi bencana berjalan di jalur iblis. Anda ingin membunuh saya, tidak ada gunanya mengemis lagi. Tidak apa-apa jika aku mati di tanganmu, setidaknya lebih baik daripada terbunuh oleh bajingan di luar itu. Sebenarnya, saya punya rencana untuk memungkinkan Anda belajar tentang pintu hidup dan mati. ”</p>
+<p>	Mengatakan demikian, cahaya licik melintas di mata Chou Jiu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

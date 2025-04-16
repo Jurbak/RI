@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 87 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 87";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_86.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 87">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_88.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 87</h1>
+        <div class="text-left">
+<p>	Bab 87</p>
+<p>	Bab 87: Sikap adalah topeng hati</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Fang Yuan bisa melihat niat di balik tindakan seperti itu, ini adalah penyelidikan kecil (ujian) dari pemimpin klan.</p>
+<p>	Tatapannya menyapu arena, tiga kelompok dengan kinerja terbaik seluruh klan ada di sini. Kelompok Qing Shu dari faksi pemimpin klan, grup Chi Shan dari faksi Chi, dan grup Mo Yan dari faksi Mo.</p>
+<p>	Jika itu adalah siswa biasa, bergabung dengan salah satu dari tiga kelompok berarti mendapatkan dukungan besar, mewakili masa depan yang cerah.</p>
+<p>	Tetapi bagi Fang Yuan, itu adalah kebalikannya.</p>
+<p>	Dalam persepsi petinggi klan, dia sudah menjadi bagian dari faksi misterius. Bergabung dengan salah satu dari tiga masalah yang dieja.</p>
+<p>	Misalnya, jika dia bergabung dengan faksi Chi Shan, keluarga Chi jelas tahu bahwa mereka tidak merekrutnya, jadi pikiran pertama mereka adalah — Fang Yuan adalah pion dari keluarga lain, tetapi sekarang dia bergabung dengan grup kami, apa niatnya? memiliki?</p>
+<p>	Selanjutnya mereka akan berpikir — Faksi misterius yang merekrut Fang Yuan sebelumnya telah melanggar aturan, dan sekarang Fang Yuan hadir di sini, pemimpin klan akan berpikir bahwa kamilah yang merekrutnya, jadi bukankah ini membawa kesalahan’ untuk mereka? Itu tidak akan berhasil, kita harus menangkap Fang Yuan, awasi dia dan selidiki dia! Kami akan menemukan bukti nyata dan mengungkap pendukung misteriusnya.</p>
+<p>	Tapi kenyataannya, Fang Yuan tidak punya pendukung!</p>
+<p>	“Begitu saya bergabung dengan salah satu dari tiga kelompok, itu berarti saya menyinggung salah satu dari tiga faksi terbesar di klan ini. Itu pasti tidak akan berhasil! Sigh, saya awalnya ingin tetap low profile dan bergabung dengan kelompok Jiang He, tetapi kelompok Jiang He didukung oleh sesepuh ruang hukuman. Di bawah pengawasan semua orang, jika saya bergabung dengan tiba-tiba, itu juga tidak pantas. ” Fang Yuan pasti ragu-ragu.</p>
+<p>	Senyum Gu Yue Bo menjadi lebih intens, melanjutkan, “Fang Yuan, jika kamu tidak memilih, aku akan memilihkan untukmu.”</p>
+<p>	Para tetua klan di sampingnya menyaksikan dengan tenang dengan ekspresi tak bergerak, masing-masing berdiri seperti patung.</p>
+<p>	“Hmph, memaksaku?” Tatapan Fang Yuan bersinar, langsung menebak kata-kata Gu Yue Bo selanjutnya — entah melemparkannya ke kelompok Chi Shan atau kelompok Mo Yan.</p>
+<p>	Gu Yue Bo tahu dalam hatinya bahwa dia tidak merekrut Fang Yuan. Baginya, tindakan ini tidak hanya dapat menghilangkan kecurigaan terhadapnya tetapi juga melemahkan musuhnya, serta mengungkap faksi misterius; itu membunuh tiga burung dengan satu batu. Itu adalah permainan yang bisa mengalihkan masalah — meskipun tampaknya sederhana, itu adalah langkah strategis yang menunjukkan kemampuan politik berpengalaman Gu Yue Bo.</p>
+<p>	“Tidak, aku tidak boleh membiarkan dia mendiktekannya. Sepertinya aku hanya bisa memilih grup yang jelek.” Fang Yuan hendak membuka mulutnya dan berbicara.</p>
+<p>	Tiba-tiba pada saat ini, seseorang berbicara, “Mengapa Anda tidak bergabung dengan tim kami. Grup kami kekurangan penyerang.”</p>
+<p>	Siapa yang bilang?</p>
+<p>	Seketika, semua orang berbalik ke arah sumber suara.</p>
+<p>	Orang yang berbicara tidak tinggi atau pendek, dengan kulit kuning gelap yang membuatnya terlihat sakit-sakitan. Sepasang mata segitiga bersinar dengan kecemerlangan.</p>
+<p>	“Itu adalah ular sakit-sakitan Gu Yue Jiao San(1).” Seseorang menunjukkan identitasnya.</p>
+<p>	“Gu Yue Jiao San? Itu hanya tim sampah tanpa latar belakang!” Pemimpin klan dan tetua klan semuanya menunjukkan ekspresi kecewa.</p>
+<p>	“Jiao San …” Mata Fang Yuan bersinar dengan kilau gelap yang tidak terdeteksi.</p>
+<p>	Dia dan orang Gu Yue Jiao San ini belum pernah bertemu atau berbicara sebelumnya, dan dia tidak memiliki ingatan tentang orang seperti itu.</p>
+<p>	Mengapa Jiao San membuka mulutnya dan mengundangnya ke dalam timnya? Apakah itu murni karena dia mendapat tempat pertama dalam ujian?</p>
+<p>	Bagaimana itu bisa terjadi!</p>
+<p>	Hanya seseorang yang kekanak-kanakan seperti Fang Zheng yang memiliki pemikiran naif seperti itu.</p>
+<p>	Tetapi……</p>
+<p>	Karena Jiao San membuka mulutnya dan mengundang Fang Yuan secara pribadi, situasi seperti itu adalah titik terobosan yang baik.</p>
+<p>	“Para petinggi klan pasti sangat kecewa sekarang. Hehe.” Fang Yuan tersenyum memikirkan hal ini, matanya melihat ke bawah, menyembunyikan kecemerlangan dalam ekspresinya.</p>
+<p>	“Kalau begitu aku akan bergabung dengan grupmu,” Fang Yuan setuju di tempat, memblokir kata-kata Gu Yue Bo yang akan datang.</p>
+<p>	“Apakah Fang Yuan ini terbelakang?”</p>
+<p>	“Mengabaikan grup dengan performa terbaik dan bergabung dengan grup ular yang sakit-sakitan!”</p>
+<p>	“Dia pasti gila, kepribadian Jiao San, hehehe…”</p>
+<p>	Para siswa dan Master Gu mulai berdiskusi, memandang Fang Yuan seolah dia orang bodoh.</p>
+<p>	Ekspresi para pemimpin klan dan sesepuh berubah redup.</p>
+<p>	Penyelidikan hari ini digagalkan oleh Gu Yue Jiao San ini! Tidak… Mungkin Jiao San ini juga pion dalam game ini, tapi apapun yang terjadi, mereka harus menyelidiki Gu Yue Jiao San ini!</p>
+<p>	Tiga hari kemudian.</p>
+<p>	Salju sudah turun selama sehari, dan sekarang setelah berangsur-angsur semakin kecil, potongan-potongan kepingan salju terbang di udara meluncur bersama angin.</p>
+<p>	Di gunung Qing Mao, ada lapisan warna putih di atasnya. Banyak cabang telanjang tanpa daun, kecuali pohon pinus yang selalu hijau dan bambu Qing Mao, yang mempertahankan warna aslinya berdiri dengan bangga di salju.</p>
+<p>	Sekelompok lima orang berlari di salju.</p>
+<p>	Orang yang memimpin tidak pendek atau tinggi, memiliki kulit kuning pucat — itu adalah Gu Yue Jiao San.</p>
+<p>	Saat dia berlari, dia berbalik ke arah Fang Yuan yang pendiam, tersenyum lembut dengan kebaikan, “Fang Yuan, jangan gugup. Meskipun ini adalah misi klan pertama Anda, isinya sederhana. Ikuti saja kami dan pelajari sepanjang jalan.”</p>
+<p>	“Ya,” jawab Fang Yuan ringan, menatap ke depan dengan ekspresi serius.</p>
+<p>	Itu sudah musim dingin.</p>
+<p>	Berlari di salju, angin musim dingin yang dingin bahkan lebih kuat. Setiap tarikan napasnya seperti memakan debu salju, mendinginkan seluruh dadanya.</p>
+<p>	Wajah Fang Yuan awalnya sangat putih, dan sekarang salju bersinar di atasnya, tampak lebih pucat. Dalam proses berlari, salju terus turun di rambut hitam pendeknya, bahu dan dahinya.</p>
+<p>	Yang berbeda dari sebelumnya adalah Fang Yuan telah berganti pakaian.</p>
+<p>	Ini adalah pakaian pertempuran berwarna biru tua.</p>
+<p>	Pakaiannya berlengan panjang dan bercelana panjang, dengan balutan lembaran bambu di kakinya sebagai pembungkus, dan sepatu bambu menghiasi kakinya. Di kepalanya ada ikat kepala biru cerah, dan ikat kepala itu berkibar di udara saat Fang Yuan berlari.</p>
+<p>	Di pinggangnya, ada sabuk longgar.</p>
+<p>	Sabuknya berwarna biru laut dengan pelat perunggu di atasnya, diukir dengan angka “1”; itu sangat mencolok mata.</p>
+<p>	Ini adalah pakaian Guru Gu, menunjukkan status Fang Yuan sebagai Guru Gu peringkat satu.</p>
+<p>	Anak-anak harus tinggal satu tahun di akademi dan lulus sebelum mereka diizinkan memakai ini.</p>
+<p>	Pakaian ini memiliki banyak arti. Setelah dipakai itu berarti bahwa seseorang telah melampaui alam fana, meninggalkan kehidupan rendahan dan melangkah ke masyarakat atas, menjadi kelas menengah dari seluruh umat manusia. Bahkan jika Peringkat satu Gu Masters adalah bagian bawah dari tingkat ini, mulai sekarang manusia mana pun harus memberi jalan kepada Fang Yuan dan memberi hormat kepadanya.</p>
+<p>	Tatapan Gu Yue Jiao San terus bersinar. Pakaian pertempuran ini saat dikenakan oleh Fang Yuan, ditambah dengan ekspresi dinginnya, menunjukkan suasana orang yang dingin dan tenang.</p>
+<p>	Sambil berlari, dia terus bertanya kepada Fang Yuan, “Kami sedang menjalankan misi, dan biasanya kami harus terburu-buru saat bepergian, jadi berlari adalah hal yang biasa. Apa kau sudah terbiasa?”</p>
+<p>	“Aku bisa mengatasinya.” Kata-kata Fang Yuan sangat berharga seperti emas, menggunakan sudut matanya untuk melihat Gu Yue Jiao San.</p>
+<p>	Ekspresi hangat dan ramah Jiao San membuatnya berpikir tentang legenda Ren Zu.</p>
+<p>	Kata-kata mengatakan bahwa Ren Zu menggunakan Aturan dan Regulasi Gu dan memperoleh kekuatan tetapi kehilangan kebijaksanaan, meninggalkan tiga cacing Gu. Salah satunya adalah Kecurigaan, satu adalah Kepercayaan, dan yang lainnya adalah Sikap.</p>
+<p>	Ren Zu meraih Attitude Gu.</p>
+<p>	Attitude Gu mengikuti aturan taruhan, tunduk pada Ren Zu, mengatakan kepadanya, “Manusia, kamu menangkapku, aku hanya bisa mengutuk nasib burukku. Mulai sekarang, saya akan berada di bawah perintah Anda. Pakailah aku dan kamu akan dapat menggunakan kemampuanku.”</p>
+<p>	Penampilan Attitude Gu seperti topeng. Ren Zu meletakkannya di wajahnya, tetapi pada akhirnya dia tidak bisa memakainya. Bahkan jika dia menggunakan tali untuk mengikatnya, itu akan tetap jatuh.</p>
+<p>	“Apa yang sedang terjadi?” Ren Zu bermasalah.</p>
+<p>	Attitude Gu tertawa, “Aku tahu, manusia, kamu tidak punya hati. Sikap adalah topeng hati, jadi tanpa hati, bagaimana Anda bisa memakai saya?”</p>
+<p>	Ren Zu segera menyadari, dia sudah memberikan hatinya untuk berharap.</p>
+<p>	Dia tidak punya hati.</p>
+<p>	Seseorang yang tidak berperasaan tidak bisa memakai topeng sikap. Dengan kata lain, bagi seseorang yang memiliki hati/niat, sikapnya adalah topeng.</p>
+<p>	“Sikap baik dan hangat ini hanyalah topeng Gu Yue Jiao San, apa niatnya yang sebenarnya?” Fang Yuan merenung.</p>
+<p>	Sementara orang “ular sakit” Jiao San mengamati Fang Yuan, Fang Yuan juga diam-diam mengamatinya.</p>
+<p>	(1) Gu Yue Jiao Shan – Namanya Jiao Shan berarti tiga sudut. Mungkin mengacu pada mata segitiganya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

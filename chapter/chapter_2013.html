@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2013 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2013";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2012.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2013">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2014.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2013</h1>
+        <div class="text-left">
+<p>	Bab 2013 – Bertahan Hidup Melalui Kematian</p>
+<p>	Bab 2013 Bertahan Hidup Melalui Kematian</p>
+<p>	Kelompok Xiao Qi Xing berjalan di sepanjang jalan.</p>
+<p>	Pertempuran besar baru saja berakhir, jalan yang berkembang dan ramai telah berubah menjadi pemandangan yang sunyi, tanpa ada pejalan kaki yang bergerak. Bahkan jika ada, mereka kebanyakan terluka.</p>
+<p>	“Fang Di Chang tidak layak berada di jalan lurus Gurun Barat! Dia membantai orang tak bersalah dan menyebabkan banyak kematian. Membiarkannya mati seperti ini benar-benar membiarkannya pergi dengan mudah. ​​” Chen Da Jiang berkata dengan penuh kebencian.</p>
+<p>	Ying Sheng Ji menghela nafas saat dia menambahkan: “Ya, ini dulunya adalah tempat yang penuh dengan vitalitas yang kaya.”</p>
+<p>	“Hehehe. Kalian benar-benar lucu.” Wei Wu Shang tertawa: “Ini hanya dunia lukisan, ini adalah jurus pembunuh Genesis Lotus Immortal Venerable. Orang-orang di sini bukanlah keberadaan nyata. Tidak peduli berapa banyak yang mati atau terluka, setelah beberapa tahun, itu akan kembali normal. ”</p>
+<p>	“Ya. Dibandingkan dengan hal-hal ini, saya lebih ingin tahu tentang hadiah yang akan diberikan sekte kepada kita! kata Gu Ting.</p>
+<p>	Mata Xiao Qi Xing menjadi cerah: “Kami membunuh makhluk abadi sebagai manusia, dan bahkan menyingkirkan bencana tersembunyi di Kota Kaisar Ilahi. Dengan kontribusi yang begitu besar, tidak hanya sekte kita, bahkan Pengadilan Surgawi secara pribadi harus menghadiahi kita, kan? Ha ha ha!”</p>
+<p>	Xiao Qi Xing tertawa terbahak-bahak dan dalam hati senang.</p>
+<p>	Dia memiliki penampilan terbaik dan berkontribusi paling besar dalam menjatuhkan tentara kacang ilahi dan melenyapkan Fang Di Chang.</p>
+<p>	Dalam hal hadiah berdasarkan kontribusi, dia akan berada di atas!</p>
+<p>	Di sebuah gang yang dilewati kelompok itu, dua pengemis sedang duduk di sudut, memandang segala sesuatu dengan acuh tak acuh.</p>
+<p>	Perilaku dari sepuluh benih Dewa Abadi sekte kuno besar ini secara alami jatuh ke dalam pandangan kedua pengemis ini.</p>
+<p>	“Saya berhutang terima kasih kepada Anda, Saudara Shen.” Seorang pengemis mentransmisikan suaranya.</p>
+<p>	Pengemis lainnya tertawa: “Haruskah saya memanggil Anda sebagai Fang Yuan, atau Fang Di Chang?”</p>
+<p>	Pengemis lainnya menjawab: “Saya hanya tiruan, dan secara tegas, saya bahkan tidak dapat dianggap sebagai tiruan sekarang, saya hanya sisa wasiat. Jadi, Anda tidak perlu memanggil saya sebagai Fang Yuan. Adapun Fang Di Chang, dia sudah mati, mati dengan meledakkan diri. Saya orang tanpa nama sekarang, hanya seorang pengemis rendahan yang tersisa. ”</p>
+<p>	Mata Shen Shang bersinar: “Kamu terlalu rendah hati. Bahkan tanpa aku, kamu sudah siap menggunakan kematian untuk melarikan diri.”</p>
+<p>	Pengemis lainnya mengangguk, tidak menyangkalnya: “Dalam rencana saya sebelumnya, jika saya bisa menduduki dan merebut dunia lukisan dengan tentara kacang surgawi, itu akan menjadi hasil terbaik. Tapi kesempatan untuk ini tidak tinggi. Dengan mendahului tindakan yang akan diambil setelah kekalahan, saya secara alami siap untuk semuanya. Peledakan diri menghancurkan tubuh dan jiwaku, tapi wasiat ini diam-diam tertinggal.”</p>
+<p>	Berhenti sejenak, surat wasiat Fang Yuan melanjutkan: “Bagaimanapun, saya harus berterima kasih atas bantuan Anda. Jika saya hanya mengandalkan metode saya, ada kemungkinan besar Genesis Lotus akan menemukan saya. Tetapi dengan Anda melindungi saya, itu adalah kasus yang sama sekali berbeda. Shen Shang, pencapaian jalur manusia Anda terus tumbuh dari hari ke hari. ”</p>
+<p>	Shen Shang terkekeh: “Itu benar. Sejak perang takdir, setelah saya menguraikan gerakan pembunuh jalur manusia yang terhormat, pencapaian jalur manusia saya meningkat sedikit. Dan setelah saya tiba di dunia lukisan ini, saya bertindak sebagai pengemis, mengamati dan mengalami hidup yang memberi saya banyak wawasan. Seorang pengemis memiliki keuntungan seorang pengemis; pengemis berdiri di tingkat masyarakat terendah, mereka dapat mengamati sikap orang, mengalami kebaikan dan kekerasan, merasakan lapar dan kenyang, hangat dan dingin.”</p>
+<p>	Shen Shang kemudian mengubah topik, bertanya: “Apa yang Anda rencanakan sekarang? Pergi dari sini atau terus tinggal?”</p>
+<p>	Surat wasiat Fang Yuan tidak ragu-ragu: “Saya tidak bisa pergi dari sini. Bahkan jika hanya sebuah wasiat yang tersisa dari saya sekarang, itu hanya sementara lolos dari pengamatan akan Genesis Lotus dan belum memahami cara untuk pergi. Bagaimana denganmu?”</p>
+<p>	Shen Shang juga menggelengkan kepalanya: “Saya juga belum menemukan metode untuk pergi. Saya sudah diam-diam memeriksa benih Gu Immortal dari sepuluh sekte kuno yang besar. Mereka dapat masuk dan keluar dari sini karena mereka telah memperoleh persetujuan dari wasiat Genesis Lotus. Tetapi saya percaya bahwa selama saya terus bersembunyi dan meneliti, pencapaian jalur manusia saya akan terus menumpuk dan mencapai perubahan kualitatif. Pada saat itu, saya dapat menemukan metode untuk meninggalkan tempat ini. ”</p>
+<p>	Surat wasiat Fang Yuan menatap Shen Shang dalam-dalam, dia bisa melihat Shen Shang senang tinggal di sini.</p>
+<p>	Namun, ketika Fang Yuan memikirkannya, itu juga tidak aneh.</p>
+<p>	Genesis Lotus Immortal Venerable telah membuat langkah besar ini, dia menciptakan dunia kecil khusus untuk mengembangkan jalur manusia.</p>
+<p>	Di sini, jalur manusia adalah yang tertinggi dan jalur lainnya adalah sekunder. Jalur manusia memiliki perkembangan terbesar sementara jalur lain memiliki sedikit kemajuan.</p>
+<p>	Pada saat yang sama, dunia ini mengikuti aturan dunia fana, ada kesenjangan yang tidak signifikan antara makhluk abadi dan manusia, yang lebih bermanfaat untuk pengembangan jalur manusia.</p>
+<p>	Selain itu, bagian dalam dan luar dipisahkan, ketika orang luar datang ke sini, mereka akan diisolasi dari lima wilayah dan bahkan tidak dapat terhubung ke surga kuning harta karun. Ini menghentikan informasi agar tidak menyebar ke luar atau masuk dan merusak orang-orang di sini. Dengan demikian, ia menciptakan tanah suci yang terisolasi dari jalur manusia.</p>
+<p>	Shen Shang terutama mengembangkan jalur manusia. Di sini, dia seperti monster rakus yang melihat makanan yang benar-benar langka, dia seperti ikan di air dan bahkan merasa sangat terikat dengan tempat ini.</p>
+<p>	Wasiat Fang Yuan saat ini memiliki tubuh, itu diciptakan dari pengemis Gu Shen Shang.</p>
+<p>	Dia punya dua pilihan di depannya sekarang. Salah satunya adalah menunggu tubuh utama untuk menyelamatkannya, yang lain adalah untuk berkultivasi bersama Shen Shang dan menggunakan kekuatan Shen Shang untuk membebaskan diri.</p>
+<p>	Semua informasi mengenai bencana tentara kacang ilahi dikumpulkan di tangan Qin Ding Ling.</p>
+<p>	“Fang Di Chang meninggal karena ledakan sendiri?” Qin Ding Ling mengerutkan kening.</p>
+<p>	Hasil ini agak mengecewakan Qin Ding Ling, dia berharap untuk menangkap tiruan Fang Yuan ini hidup-hidup. Dan melalui dia, simpulkan lokasi tubuh utama Fang Yuan.</p>
+<p>	“Saya tidak berharap kloning Fang Yuan dengan tegas membunuh dirinya sendiri, tetapi ini juga sesuai dengan kepribadian jahat Fang Yuan.” Qin Ding Ling tidak memiliki banyak keraguan.</p>
+<p>	“Jika kita bisa menangkapnya hidup-hidup, itu akan lebih baik. Di dunia lukisan, kesenjangan antara makhluk abadi dan manusia tidak besar. Sayangnya, benih Gu Immortal ini belum cukup tumbuh dan tidak dapat menangkap peluang. ” Qin Ding Ling menghela nafas dalam hati.</p>
+<p>	Kelompok Xiao Qi Xing mengira mereka memberikan kontribusi penting dengan membantai makhluk abadi, tetapi dalam benaknya, Qin Ding Ling mengulasnya dengan buruk.</p>
+<p>	Namun, meski begitu, Qin Ding Ling memutuskan untuk menghadiahi benih Gu Immortal ini dengan berat. Bagaimanapun, mereka adalah target kultivasi yang penting.</p>
+<p>	Setelah berurusan dengan masalah hadiah, Qin Ding Ling menaruh perhatiannya pada konflik Laut Timur sekali lagi.</p>
+<p>	Konflik Laut Timur adalah bentrokan antara manusia dan varian manusia.</p>
+<p>	Satu sisi dipimpin oleh Leluhur Laut Qi sementara yang lain dipimpin oleh Wu Shuai. Mereka telah bertarung beberapa kali di dua langit yang dahulu kala serta wilayah laut di Laut Timur, dan pertempuran menjadi semakin sengit.</p>
+<p>	Setelah Leluhur Laut Qi menyelamatkan surga gua Sastra yang Mendalam, ia menyatukan beberapa kekuatan gua-surga di dua surga.</p>
+<p>	Meskipun Wu Shuai dikalahkan, dia tidak mau menunjukkan kelemahan apa pun. Di satu sisi, dia mengumpulkan kekuatan dari dua surga yang bergabung dengannya, di sisi lain, dia menyergap dan menyerang kekuatan gua-surga yang ingin menunggu dan melihat.</p>
+<p>	Arah Wu Shuai sangat jelas dan tumpul.</p>
+<p>	Sebelum menyerang lima wilayah, dia harus membersihkan dua surga untuk menstabilkan pangkalan mereka.</p>
+<p>	Di satu sisi, ini karena jarak antara gua-surga kedua surga itu pendek dan mereka bisa mengirim pasukan dengan mudah. Jika Wu Shuai mengabaikan ini, ketika pasukan utama berada di luar di masa depan, surga gua hanya perlu melakukan serangan dan itu dapat menyebabkan pasukan Wu Shuai akhirnya kehilangan tanah air mereka.</p>
+<p>	Di sisi lain, buah panen qi dengan berbagai ukuran telah muncul di surga gua bawahan Wu Shuai. Setiap kali Wu Shuai menyerang gua-surga lainnya, dia akan menguji varian saran manusia Dewa Gu untuk menyingkirkan buah panen qi. Sisi Wu Shuai sangat membutuhkan trial and error seperti itu.</p>
+<p>	Karena strategi kekerasan Wu Shuai, semakin banyak pasukan manusia di dua surga mencari perlindungan Leluhur Laut Qi.</p>
+<p>	Leluhur Laut Qi membela surga gua sambil mengintegrasikan berbagai kekuatan. Tetapi secara keseluruhan, mereka masih dalam posisi yang kurang menguntungkan.</p>
+<p>	Aliansi dua surga Wu Shuai menguat dengan kecepatan yang jauh lebih cepat daripada Leluhur Laut Qi.</p>
+<p>	Dia secara aktif melindungi manfaat varian manusia, yang menyebabkan semakin banyak varian surga gua manusia bergabung dengannya. Di dua surga, varian surga gua manusia jauh lebih besar jumlahnya daripada surga gua manusia.</p>
+<p>	Kelompok terakhir dari varian pasukan manusia yang mengadopsi pemikiran menunggu dan melihat mengambil inisiatif untuk berpihak pada Wu Shuai. Di satu sisi, mereka terpaksa karena situasi, di sisi lain, jika mereka tidak menyerah, tidak ada harapan dalam menyelesaikan bahaya tersembunyi dari buah panen qi di surga gua mereka.</p>
+<p>	Pamor Wu Shuai melambung tinggi tetapi masalah buah panen qi masih mengganggunya. Aliansi dua surga menguji banyak metode tetapi mereka semua gagal dalam menghilangkan buah panen qi.</p>
+<p>	Di sisi Leluhur Laut Qi, kemajuan dalam meneliti misteri buah panen qi juga cukup lambat.</p>
+<p>	Sisi Wu Shuai dan Qi Sea Leluhur sering bertarung, tetapi tidak banyak korban. Itu karena kedua belah pihak tidak fokus untuk menghilangkan sisi lain, tetapi untuk membersihkan bahaya buah panen qi.</p>
+<p>	“Orang yang paling tahu tentang misteri buah panen qi mungkin adalah Demon Immortal Qi Jue. Sayangnya kekuatanku tertahan saat ini dan tidak mampu menghadapinya.” Fang Yuan menghela nafas dengan kasihan.</p>
+<p>	Dia telah menyelesaikan masalah besar kehendak surga, tetapi dia masih tidak tahu bagaimana cara memperbaiki tanda dao jalur surga.</p>
+<p>	Demon Immortal Qi Jue, yang dipikirkan Fang Yuan, saat ini telah tiba di Gurun Barat.</p>
+<p>	“Seharusnya di dekat sini.” Demon Immortal Qi Jue terbang rendah dan mencari kemana-mana.</p>
+<p>	Dia tidak berhasil meminjam Gu dari Leluhur Laut Qi, jadi dia menggunakan metode investigasi jalur qi untuk mencari jalur qi lainnya Immortal Gu.</p>
+<p>	Dan pada pencarian ini, dia menemukan beberapa jalur qi Immortal Gu.</p>
+<p>	Jalur qi Immortal Gu ini sebagian besar adalah Gu Immortal liar, mereka secara alami lahir setelah pasang qi yang sangat besar, sedangkan sisanya, mereka dijarah dari Dewa Gu lainnya.</p>
+<p>	Baca di meionovel.id</p>
+<p>	Demon Immortal Qi Jue tidak berlebihan, dia hanya menjarah jalur qi Immortal Gu dan menyelamatkan Gu Immortals.</p>
+<p>	Bergerak dan berhenti di sepanjang jalan, Demon Immortal Qi Jue secara bertahap meninggalkan Laut Timur dan tiba di Gurun Barat.</p>
+<p>	“Saya menyimpulkan bahwa jalur qi Immortal Gu ada di dekat sini.” Sama seperti Demon Immortal Qi Jue bergumam, Gu Immortal tiba-tiba muncul dalam jangkauan investigasinya.</p>
+<p>	Peringkat delapan Gu Immortal, Red Heart Traveler!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

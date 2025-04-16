@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 117 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 117";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_116.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 117">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_118.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 117</h1>
+        <div class="text-left">
+<p>	Bab 117</p>
+<p>	Bab 117: Anggur cangkang pahit dan Kodok Menelan Sungai</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Suasana serius dan serius memenuhi aula konferensi.</p>
+<p>	Sekelompok tetua diam-diam duduk di kursi mereka; wajah mereka acuh tak acuh, muram atau serius.</p>
+<p>	Kepala klan Gu Yue Bo sedang duduk di kursi utama, tatapannya juga dipenuhi dengan kekhawatiran yang tidak disembunyikan, “Tiga hari yang lalu, Kodok Menelan Sungai muncul di dekat desa di kaki gunung. Katak ini mengalir di sepanjang Sungai Huang Long(1) dan secara tidak sengaja sampai di sini. Saat ini, itu menghalangi saluran sungai dan tidur di sana. Jika kita mengabaikannya, desa akan terus dalam bahaya. Jadi saya ingin bertanya kepada para tetua apakah Anda punya ide bagus untuk mengusir katak ini?”</p>
+<p>	Para tetua saling memandang; sesaat, tidak ada yang berbicara.</p>
+<p>	River Swallowing Toad adalah Gu Peringkat lima; itu memiliki kekuatan yang sangat besar dan bisa memuntahkan sungai. Jika ini tidak ditangani dengan benar dan diprovokasi, lebih dari setengah gunung Qing Mao dapat terendam air dan seluruh desa akan hancur.</p>
+<p>	Setelah lama terdiam, Gu Yue Chi Lian berbicara, “Situasinya gawat, dan kita harus menyelesaikan ini secepat mungkin. Jika berita ini bocor, kami tidak bisa memastikan apakah mereka yang memiliki niat jahat tidak akan diam-diam pergi dan dengan sengaja memprovokasi Kodok Menelan Sungai ini untuk menjebak klan Gu Yue kami.”</p>
+<p>	“Penatua Chi Lian benar.” Gu Yue Mo Chen mengangguk setuju. Meskipun dia dan Gu Yue Chi Lian adalah musuh politik, tetapi pada saat yang kritis bagi desa, dia melepaskan prasangka masa lalunya.</p>
+<p>	Dia terus berbicara setelah beberapa saat, “Ada masalah lain yang lebih serius. Jika Sungai Menelan Kodok membanjiri gunung Qing Mao, sarang serigala akan terendam dan untuk kelangsungan hidup mereka, gerombolan serigala akan naik gunung. Pada saat itu, gelombang serigala akan pecah sebelum waktunya. Dan kita harus bertarung dengan binatang buas yang tak terhitung jumlahnya untuk memperebutkan ruang di atas. ”</p>
+<p>	Kulit para tetua menjadi pucat ketika mereka mendengar ini.</p>
+<p>	Gu Yue Bo berbicara dengan nada berat, “Semuanya, jangan lupakan fondasi desa kita. Nenek moyang generasi pertama mendirikan desa di tempat ini karena mata air roh bawah tanah. Jika gunung Qing Mao kebanjiran, mata air roh ini mungkin juga akan hancur.”</p>
+<p>	“Apa yang harus kita lakukan?”</p>
+<p>	“Huh….bahkan jika kita menahan gelombang pasang dan bertahan hidup di puncak gunung. Setelah banjir surut, mata air roh akan menghilang, banyak binatang akan mati, lingkungan kita akan berubah menjadi gurun dan kita akan kekurangan sumber daya budidaya.”</p>
+<p>	“Jika kita akan mati, mengapa tidak meminta bantuan dari desa Xiong dan Bai? Kami adalah tiga perahu yang diikat dengan satu tali, saya tidak percaya mereka tidak akan membantu!”</p>
+<p>	Para tetua berbisik satu sama lain dengan kepanikan yang tersembunyi di dalam. Beberapa sudah mulai berpikir untuk meminta bala bantuan.</p>
+<p>	“Terlalu dini untuk meminta bantuan sekarang,” Gu Yue Bo menggelengkan kepalanya dan segera menyangkal ide ini. “Ini bukan periode yang paling menantang sekarang. Ketika leluhur generasi pertama baru saja mendirikan desa, Python Sungai Darah Peringkat lima menyerang desa, tetapi kepala klan generasi pertama membunuhnya. Dibandingkan dengan Blood River Python, River Swallowing Toad jauh lebih menggemaskan.”</p>
+<p>	“Ia memiliki temperamen yang hangat dan tidak berbahaya bagi orang biasa. Hanya jika dia merasakan aura Gu lain, dia akan waspada. Jika menerima luka serius, ia akan marah dan memuntahkan sungai. Secara kebetulan, saya mendengar kepala klan sebelumnya berbicara tentang desas-desus tentang Kodok Menelan Sungai …. ”</p>
+<p>	Suara tenang dan tenang Gu Yue Bo bergema di dalam aula konferensi.</p>
+<p>	Kelompok tetua mendengarkan dengan penuh perhatian; ekspresi gugup dan panik mereka mereda.</p>
+<p>	“Dia benar-benar layak menjadi kepala klan. Dia menenangkan hati mereka hanya dengan kata-katanya.” Gu Yue Yao Ji merasakan perubahan di atmosfer. Dia menatap Gu Yue Bo dengan dalam dan memujinya dalam hati.</p>
+<p>	“Jika kita mengikuti apa yang dikatakan kepala klan tadi, mengusir Kodok Sungai Menelan bukanlah hal yang sulit,” Seorang tetua berbicara.</p>
+<p>	“Kami tidak bisa mengatakan itu.” Gu Yue Bo menggelengkan kepalanya, “Ini hanya rumor, aku belum pernah melihatnya atau bahkan menggunakannya secara pribadi. Yang penting kita tidak boleh lengah. Saya sarankan kita terlebih dahulu mengirim sekelompok Master Gu untuk mengujinya. ”</p>
+<p>	Semua tetua setuju.</p>
+<p>	Gu Yue Chi Lian berbicara, “Lalu bagaimana kalau saya mengirim anggota keluarga Chi saya. Jika dia tidak bisa melakukannya, maka tidak ada seorang pun di antara klan kita yang bisa melakukannya.”</p>
+<p>	Semua orang tahu siapa yang dibicarakan Chi Lian, dan mereka menyetujuinya satu demi satu.</p>
+<p>	Kepala klan Gu Yue Bo tersenyum, “Karena memang begitu, maka kita akan menugaskannya ke kelompok Chi Shan.”</p>
+<p>	Saat itu awal musim gugur, cuaca berangsur-angsur menjadi dingin.</p>
+<p>	Di atas meja di dekat jendela kedai, Fang Yuan sedang duduk sendirian, dengan tenang mencicipi anggur.</p>
+<p>	Penjaga toko kedai berdiri di sampingnya, menundukkan kepalanya.</p>
+<p>	“Penjaga toko, apakah ada kemajuan dalam masalah anggur kulit pahit yang saya minta untuk Anda periksa beberapa hari yang lalu?” Fangyuan bertanya.</p>
+<p>	Fang Yuan kekurangan anggur pahit untuk fusi cacing minuman keras.</p>
+<p>	Namun, anggur pahit sulit ditemukan dan karena masalah Relic Gu baja merah, orang-orang memusatkan perhatian padanya. Ke mana pun dia pergi, orang-orang akan menunjuknya. Jadi, tidak mudah untuk menanyakan anggur pahit.</p>
+<p>	Gangguan telah mereda baru-baru ini, dan mungkin karena kesedihan yang ekstrem berubah menjadi kegembiraan, Fang Yuan secara tidak sengaja menemukan petunjuk tentang anggur pahit.</p>
+<p>	Penjaga toko tua segera menjawab, “Tuan muda, anggur cangkang pahit yang Anda ingin saya lihat, seseorang telah meminumnya di desa Bai. Bahan baku wine ini adalah sejenis keong yang ditemukan di kolam yang dalam. Keong jenis ini berwarna hitam pekat, dengan lingkaran garis putih pada cangkangnya menyerupai cincin pertumbuhan pohon. Kami menyebutnya cangkang pahit. Keong normal dapat membentuk mutiara. Cangkang pahit menelan pasir dan batu di dalam air, melarutkannya dan membentuk air pahit sebagai gantinya. Seseorang membuka cangkangnya dan mendapatkan air pahit ini, menggunakannya untuk menyeduh anggur, membuat anggur cangkang pahit. Rasanya sangat unik; pahit dan harum.”</p>
+<p>	Fang Yuan sedikit mengangkat alisnya setelah mendengar ini, “Apakah itu berarti desa Bai memiliki anggur cangkang pahit ini?”</p>
+<p>	Penjaga toko buru-buru membungkuk, “Saya tidak berani menjaminnya, saya hanya mendengar orang membicarakannya sesekali. Namun, sebenarnya desa Bai terkenal dengan cairan butiran putihnya. Anggur ini bersama dengan anggur bambu hijau klan kami dan anggur empedu beruang desa Xiong disebut tiga anggur Qing Mao. Anggur Cangkang pahit…. Saya pikir bahkan jika desa Bai memilikinya, tidak akan banyak.”</p>
+<p>	“Bahkan jika ada sedikit, aku harus menemukannya,” kata Fang Yuan dalam pikirannya.</p>
+<p>	Tapi masalah ini merepotkan; Desa Bai secara bertahap menunjukkan tanda-tanda munculnya tahun-tahun ini, mulai mengguncang posisi desa Gu Yue sebagai penguasa.</p>
+<p>	Jika Fang Yuan ingin memasuki desa Bai tanpa izin, Gu Master desa Bai yang berpatroli mungkin akan membunuhnya bahkan sebelum dia melihat gerbang desa.</p>
+<p>	Meski begitu, Fang Yuan masih ingin mencobanya. Lagi pula, mendapatkan anggur cangkang pahit ini lebih masuk akal daripada anggur Ai hijau yang jauh sekali.</p>
+<p>	Saat dia melepaskan diri dari perenungannya, Fang Yuan menemukan bahwa penjaga toko tua itu masih berdiri di sampingnya. Dia melambaikan tangannya, “Baiklah, kamu bisa pergi, tidak ada apa-apa untukmu di sini.”</p>
+<p>	Orang tua itu tidak pergi, wajahnya menunjukkan keraguan, tidak mengatakan apa yang akan dia katakan.</p>
+<p>	Dia akhirnya mengumpulkan keberaniannya, “Tuan muda, bisakah Anda mengambil kembali kedai ini lagi? Semua pelayan dan saya ingin bekerja untuk Anda. Anda tidak tahu bahwa ketika pemilik lama kembali, dia memotong sebagian besar gaji kami. Dengan batu purba kecil seperti itu setiap bulan, sangat sulit bagi kami untuk menghidupi keluarga kami.”</p>
+<p>	Fang Yuan menggelengkan kepalanya, wajahnya tanpa ekspresi, “Aku sudah menjual kedai ini padanya. Saya tidak dapat mengambilnya kembali sesuai dengan kontrak. Selain itu, saya tidak ingin terlibat dalam bisnis kedai minuman ini. Kamu bisa pergi sekarang.”</p>
+<p>	“Tapi, tuan tanah muda….” Pria tua itu masih tidak bergerak.</p>
+<p>	Fang Yuan mengerutkan kening dengan kesal, “Ingat, aku bukan lagi tuan tanahmu!”</p>
+<p>	Dia sebelumnya telah meningkatkan gaji mereka, hanya untuk membangkitkan semangat mereka untuk pekerjaan mereka. Itu semua untuk dirinya sendiri. Namun, orang-orang ini mengira itu sebagai toleransinya dan ingin mendorong keberuntungan mereka.</p>
+<p>	Saat ini, dengan menjual daun vitalitas, dia hanya bisa memenuhi kebutuhannya sendiri. Selain itu, dia merasa jengkel karena anggur pahit. Jadi mengapa dia mengambil kembali kedai untuk orang-orang ini?</p>
+<p>	“Tapi tuan tanah muda, kita benar-benar tidak bisa terus hidup seperti ini! Tolong tunjukkan belas kasihan dan kasihanilah kami.” Penjaga toko berlutut di tanah dan memohon.</p>
+<p>	Suara itu segera menarik para tamu di sekitarnya.</p>
+<p>	Fang Yuan tertawa dingin. Dia mengambil toples anggur dari meja dan menghancurkannya di kepala penjaga toko.</p>
+<p>	Kachak.</p>
+<p>	Guci itu pecah; anggur memercik ke mana-mana dan darah mengalir dari kepala lelaki tua itu.</p>
+<p>	“Apakah kamu pikir aku tidak akan berani membunuhmu? Dasar bodoh, tersesat.” Cahaya dingin keluar dari mata Fang Yuan.</p>
+<p>	Seluruh tubuh pemilik toko tua itu gemetar karena niat membunuh ini; dia terkejut dan buru-buru pergi.</p>
+<p>	Di dunia mana pun, akan selalu ada sekelompok orang lemah yang dengan berani dan diam-diam meminta sedekah dari yang kuat. Seolah membantu mereka adalah cara orang kuat dan tidak membantu mereka adalah salah.</p>
+<p>	Yang lemah harus memiliki sopan santun yang lemah; mereka harus menyerah pada nasib mereka dan bertindak seperti budak atau berusaha keras sambil tetap tidak menonjolkan diri.</p>
+<p>	Yang kuat membantu yang lemah hanya sebagai amal ketika mereka dalam suasana hati yang baik.</p>
+<p>	Yang lemah menolak untuk bekerja keras, tanpa malu mengemis dari yang kuat, dan bahkan menuntut hasil yang pasti, bertingkah seperti lintah; mereka pantas ditolak.</p>
+<p>	Orang-orang yang puas dengan menjadi lemah, yang tidak berusaha sendiri dan hanya berpikir untuk memohon dari yang kuat, sama sekali tidak pantas mendapat simpati.</p>
+<p>	“Penjaga toko…”</p>
+<p>	“Cepat, perban lukanya.”</p>
+<p>	Para pelayan buru-buru mengepung lelaki tua yang wajahnya berlumuran darah.</p>
+<p>	Penjaga toko tua itu hanya manusia biasa, itu tidak akan menjadi masalah bahkan jika dia terbunuh di tempat.</p>
+<p>	Akhir seperti itu menghilangkan minat para tamu di sekitarnya; mereka berbalik dan melanjutkan diskusi mereka.</p>
+<p>	“Apakah kamu tahu? Sesuatu yang besar terjadi baru-baru ini!”</p>
+<p>	“Apakah kamu berbicara tentang Kodok Menelan Sungai itu? Saat ini, siapa yang tidak tahu tentang ini? ”</p>
+<p>	“Ini adalah Gu Peringkat lima, jika tidak ditangani dengan benar, desa mungkin akan jatuh ke dalam krisis!”</p>
+<p>	“Konon makanannya River Swallowing Toad ini adalah air. Ketika lapar, ia membuka mulutnya yang besar dan langsung menyedot sungai!”</p>
+<p>	“Jika marah, ia bisa melepaskan air ke gunung Qing Mao, kekuatannya sangat mengerikan. Kita mungkin akan mati!”</p>
+<p>	“Lalu apa yang harus kita lakukan?”</p>
+<p>	“Huh, kita hanya perlu melihat bagaimana para petinggi klan akan menghadapinya. Lagi pula, kita tidak bisa melarikan diri, kemana kita bisa melarikan diri?”</p>
+<p>	Kebingungan dan kebingungan menyelimuti udara di kedai minuman.</p>
+<p>	“Kodok Menelan Sungai ….” Fang Yuan dalam hati tersenyum ketika mendengar ini.</p>
+<p>	Ketakutan itu menular, semakin meningkat semakin menyebar.</p>
+<p>	Sebenarnya, River Swallowing Toad sangat lembut dan tidak menakutkan. Sifat alaminya adalah tidur dan orang sering melihatnya mengalir bersama sungai. Kodok akan berbaring di permukaan air dengan perut putihnya menghadap ke atas, dan tidur nyenyak.</p>
+<p>	Ketika bangun, ia akan menelan air sungai sampai penuh dan kembali tidur. Mereka tidak tertarik pada pertempuran dan pembunuhan; jika mereka bertemu musuh, reaksi pertama mereka adalah melarikan diri. Hanya jika mereka menemui jalan buntu dan tidak bisa melarikan diri, mereka akan melakukan serangan balik yang sengit.</p>
+<p>	Mereka sangat kuat dan bisa melepaskan sungai yang deras dari mulut mereka, menelan daratan secara instan dan mengubahnya menjadi rawa.</p>
+<p>	“Kodok Menelan Sungai ini mungkin tertidur, lalu hanyut di sepanjang sungai Huang Long dan secara tidak sengaja memasuki anak sungai, mencapai kaki gunung Qing Mao.” Fang Yuan menebak yang sebenarnya.</p>
+<p>	(1) Sungai Huang Long – Namanya berarti Sungai Naga Kuning.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

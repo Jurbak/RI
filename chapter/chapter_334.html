@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 334 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 334";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_333.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 334">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_335.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 334</h1>
+        <div class="text-left">
+<p>	Bab 334</p>
+<p>	Bab 334: Sekte Bangau Abadi, Fang Zheng</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di dunia Gu, daerah itu ajaib.</p>
+<p>	Di timur, ada laut besar, dengan pulau-pulau yang menonjol seperti bidak catur di papan catur. Itu bernama Laut Timur.</p>
+<p>	Di barat, ada gurun pasir yang luas, tanaman hijau sangat langka, hanya pasir kuning yang terlihat di mana-mana. Itu bernama Gurun Barat.</p>
+<p>	Di utara, ada padang rumput yang luas, orang menyebutnya Dataran Utara.</p>
+<p>	Di selatan, ada daerah pegunungan, yang dikenal sebagai Perbatasan Selatan.</p>
+<p>	Dan di tengah laut timur, gurun barat, dataran utara, dan perbatasan selatan, ada wilayah tengah, yang disebut Benua Tengah.</p>
+<p>	Benua tengah memiliki lebar lebih dari lima puluh juta kilometer, energi purba sangat kaya di udara, dan banyak sekte ada. Ada banyak pahlawan dan penakluk, baik iblis maupun orang benar, itu adalah daerah dengan sumber daya manusia dan alam yang berlimpah. Kekuatan totalnya adalah yang terkuat dibandingkan dengan empat wilayah lainnya.</p>
+<p>	Di bagian selatan benua tengah, di antara puluhan ribu bukit, ada gunung besar di atas awan, menembus langit.</p>
+<p>	Gunung Fei He!</p>
+<p>	Gunung Fei He megah dan megah, mengambang di atas lautan awan.</p>
+<p>	Sinar matahari menembus awan, dan menyinari hutan hijau di gunung.</p>
+<p>	Di kaki gunung, ombak menerjang saat air pasang naik dan turun.</p>
+<p>	Setiap kali angin bertiup, lautan awan akan mengalami gerakan besar, hutan bambu akan bergoyang dengan angin, seperti sepuluh ribu burung bangau bernyanyi.</p>
+<p>	Derek terbang Ironbeak, derek pelet api, derek penarik, derek kabut awan, derek cahaya bintang … lebih dari sepuluh ribu jenis derek terbang terbang atau beristirahat di pohon pinus. Itu adalah pemandangan yang luar biasa untuk dilihat.</p>
+<p>	Sepuluh ribu bangau di gunung Fei He terkenal di benua tengah. Adapun Master Gu di gunung, mereka terkenal di seluruh dunia.</p>
+<p>	Ini adalah Sekte Bangau Abadi.</p>
+<p>	Salah satu dari sepuluh sekte teratas di benua tengah, memiliki salah satu kekuatan terkuat di benua tengah.</p>
+<p>	Saat ini, ada pertempuran penting yang terjadi di arena perdebatan Immortal Crane Sekte.</p>
+<p>	Dua anak muda, mengenakan pakaian serupa, terlibat perkelahian. Keduanya bergerak saat mereka terjerat dan bertarung bersama.</p>
+<p>	“Terlalu, terlalu kuat!”</p>
+<p>	“Aku tidak bisa membayangkan, keduanya baru berusia sekitar dua puluh tahun.”</p>
+<p>	Di luar arena, para penonton menyaksikan pertempuran ini dengan saksama. Shock, kekaguman terlihat di wajah mereka.</p>
+<p>	“Kakak senior Sun Yuan Hua, dia adalah seorang ahli veteran. Nomor satu di ujian kecil tahun ketiga sebelumnya, saya tidak terkejut dia memiliki kekuatan seperti itu. Tapi saudara junior Fang Zheng itu, sungguh mengejutkan bahwa dia memiliki kemampuan seperti itu!”</p>
+<p>	“Itu benar, dia adalah kuda hitam dalam ujian tengah delapan tahun tahun ini. Tidak ada yang mengharapkan dia mencapai final.”</p>
+<p>	“Tahun-tahun ini, saudara junior Fang Zheng tidak menonjolkan diri, seperti batu gunung biasa. Tidak ada yang peduli padanya, dia sama sekali tidak menarik perhatian. Tetapi siapa yang mengira bahwa selama pemeriksaan ini, dia akan melayang ke langit dan namanya menjadi terkenal di Sekte Bangau Abadi.</p>
+<p>	Banyak orang menghela nafas saat mereka menunjukkan kekaguman dan kecemburuan.</p>
+<p>	Fang Zheng menyimpan ekspresi muram saat dia memiliki tatapan tajam, bertarung secara seimbang dengan Sun Yuan Hua.</p>
+<p>	Tahun-tahun ini, dia tumbuh lebih tinggi, bahunya lebih lebar, dan pinggangnya lebih tebal, dia menjadi lebih dewasa dan stabil.</p>
+<p>	Tiba-tiba, Fang Zheng mengeluarkan angin hijau giok, memaksa Sun Yuan Hua mundur.</p>
+<p>	“Kakak Sun, akui saja kekalahan.” Dia berkata dengan nada yang sangat percaya diri.</p>
+<p>	“Adik laki-laki kecil, tunjukkan padaku kartu truf apa yang kamu miliki.” Sun Yuan Hua tertawa, menjawab dengan tingkat kepercayaan yang sama.</p>
+<p>	“Baik-baik saja maka.” Fang Zheng bersiul, saat suara itu menyebar jauh. Segera, bangau memanggilnya kembali.</p>
+<p>	Semua orang menoleh untuk melihat, dan banyak bola mata hampir keluar saat mereka menatap dengan mulut terbuka lebar.</p>
+<p>	“Kelompok burung bangau terbang paruh besi!”</p>
+<p>	“Ya Tuhan, begitu banyak bangau terbang, apakah ini ilusi?”</p>
+<p>	“Bagaimana mungkin? Ini adalah raja binatang buas yang tak terhitung jumlahnya! Fang Zheng mencapai peringkat empat tahap tengah sudah merupakan bakat tingkat dewa! Tapi dia benar-benar bisa mengendalikan kelompok bangau yang jumlahnya hampir sepuluh ribu, metode apa ini?”</p>
+<p>	Semua orang tersentak, merasa sangat terkejut di hati mereka, beberapa tidak dapat mempercayai pemandangan di depan mereka.</p>
+<p>	Bahkan beberapa tetua sekte berdiri dari tempat duduk mereka karena terkejut.</p>
+<p>	Ekspresi Sun Yuan Hua menjadi sangat serius.</p>
+<p>	Kelompok bangau terbang Ironbeak, datang dengan aura yang mengesankan, dan keunggulan dalam jumlah, itu memberinya tekanan besar.</p>
+<p>	Tapi dia tidak berniat menyerah.</p>
+<p>	Matanya bersinar dengan tekad: “Adik laki-laki Fang, kamu sangat mengesankan. Tapi bisakah kamu benar-benar mengendalikan begitu banyak bangau terbang? Saya belum kalah, karena saya punya grup bangau juga! Keluar!”</p>
+<p>	Gunung Fei He memiliki puluhan ribu bangau terbang, keuntungan teritorial seperti itu digunakan dengan baik oleh orang-orang di Sekte Bangau Abadi.</p>
+<p>	Fang Zheng memiliki kelompok burung bangau, tetapi Sun Yuan Hua juga seorang jenius di sekte yang menerima banyak pengasuhan, dia juga menyembunyikan kelompok burung bangau secara diam-diam.</p>
+<p>	Mendengar perintah Sun Yuan Hua, sekelompok burung bangau dengan cepat terbang keluar.</p>
+<p>	Grup derek ini sangat kontras dengan grup derek terbang paruh besi Fang Zheng, hanya ada beberapa ratus.</p>
+<p>	Tapi burung bangau yang dikendalikan Sun Yuan Hua berbeda dengan burung bangau terbang paruh besi. Pada tubuhnya terdapat bulu berwarna putih, namun terdapat warna biru pada ujung sayap dan ekornya, serta pada cakarnya. Di bawah sinar matahari, mereka memberi kilau metalik.</p>
+<p>	Pada saat yang sama, ketika mereka terbang, jejak petir statis biru dapat terlihat di tubuh mereka.</p>
+<p>	“Hati-hati, bangau terbang ini adalah bangau petir ilusi. Mereka memiliki sifat yang garang dan terampil bertarung sendirian. Bangau terbang paruh besi biasa bukan tandingannya. ” Fang Zheng mendengar Lord Sky Crane dari dalam pikirannya.</p>
+<p>	“Saya mengerti, tuan!” Fang Zheng segera menjawab, matanya bersinar cemerlang saat dia mengamati kelompok derek petir ilusi dan memanipulasi kelompok derek terbang paruh besinya.</p>
+<p>	“Mereka akan jatuh!”</p>
+<p>	“Kelompok bangau terbang paruh besi terlalu besar, itu seperti monster raksasa. Kelompok bangau kakak senior Sun bahkan mungkin tidak akan membuat penyok di dalamnya.”</p>
+<p>	“Tidak, kakak senior Sun masih punya kesempatan. Pertarungan derek bukan tentang angka, itu tergantung pada kontrol dan manipulasi mereka. ”</p>
+<p>	“Kakak senior Sun telah berlatih keras selama ini, kendalinya terhadap kelompok bangau jelas merupakan salah satu yang terbaik. Itu semua tergantung pada kinerja Fang Zheng sekarang. ”</p>
+<p>	“Sejujurnya, saya tidak berpikir Fang Zheng akan menang. Meskipun dia jenius, dia masih manusia. Beberapa tahun ini, dia harus berkultivasi ke peringkat empat, melakukan misi sekte, dan mengumpulkan set cacing Gu yang patut dicontoh, semua ini telah menghabiskan banyak waktunya. Saya tidak percaya dia masih punya waktu tersisa untuk melatih keterampilan manipulasi kelompok bangaunya. ”</p>
+<p>	Semua orang berdiskusi dengan penuh semangat.</p>
+<p>	Pertarungan yang begitu intensif, jarang terlihat dalam ujian kecil tiga tahun sekte dan ujian tengah delapan tahun. Hanya dalam ujian besar lima belas tahun, itu akan terlihat sesekali.</p>
+<p>	Meskipun Fang Zheng memiliki banyak bangau, tidak semua orang menganggapnya tinggi.</p>
+<p>	Adegan sekarang seperti pertarungan antara dua tentara.</p>
+<p>	Fang Zheng memiliki hampir sepuluh ribu bangau terbang, dia memiliki pasukan yang besar, tetapi karena jumlahnya, mudah untuk kehilangan kendali atas mereka. Dia hanya peringkat empat tahap tengah, kekuatan jiwanya terbatas, dia hanya bisa memiliki energi mental sebanyak itu.</p>
+<p>	Sementara itu, meskipun Sun Yuan Hua memiliki lebih sedikit burung bangau, mereka semua adalah elit, dan dia dapat memanipulasi mereka dengan mudah. Dengan jumlah waktu yang dia habiskan untuk mengendalikan mereka, keterampilan manipulasi dereknya adalah salah satu yang terbaik di sekte tersebut.</p>
+<p>	Melihat dua tentara akan jatuh di udara.</p>
+<p>	Saat ini!</p>
+<p>	Sun Yuan Hua tiba-tiba melompat.</p>
+<p>	Dia mengaktifkan Gu di aperture-nya, menyebabkan dia berubah menjadi kilatan petir, mendekati Fang Zheng.</p>
+<p>	Fang Zheng tidak menyangka dia akan menyerang begitu tiba-tiba.</p>
+<p>	Dengan cara ini, Sun Yuan Hua akan jatuh ke dalam pengepungan burung bangau terbang paruh besi, dan menempatkan dirinya dalam bahaya besar.</p>
+<p>	Sun Yuan Hua menyerang seperti badai, seperti dia menjadi gila, kekuatannya melebihi apa yang dia tunjukkan sebelumnya.</p>
+<p>	Fang Zheng kehilangan inisiatif dan ditekan, hanya mampu bertahan dengan seluruh kekuatannya.</p>
+<p>	Kedua bangau itu bergerak di udara, sementara di darat, Fang Zheng dan Sun Yuan Hua bertarung dengan sengit.</p>
+<p>	Meskipun jumlah derek penerangan ilusi sedikit, mereka bersatu, dan menyerang bersama, merobek banyak derek terbang paruh besi.</p>
+<p>	Sebaliknya, bangau terbang paruh besi, meskipun banyak, berantakan, seperti kawanan tanpa pemimpin.</p>
+<p>	“Kelompok derek terbang paruh besi tidak dapat memblokir sejumlah kecil derek petir ilusi ini!”</p>
+<p>	“Kakak senior Sun luar biasa! Taktik pertempurannya luar biasa!”</p>
+<p>	“Itu benar, konsentrasi Fang Zheng terbatas, memanipulasi kelompok besar bangau ini seperti bayi yang memegang palu, amatir dan tidak terampil. Dia sendiri sedang diserang oleh kakak senior Sun, dia bahkan tidak bisa membela diri dengan baik, dengan konsentrasinya untuk bertahan, bagaimana dia bisa repot-repot mengendalikan burung bangau di atasnya.”</p>
+<p>	“Tapi kelompok bangau terbang paruh besi terlalu besar, ada ratusan raja binatang, beberapa ribu raja binatang, dan bahkan banyak sekali raja binatang. Dalam kelompok derek petir ilusi, hanya ada tiga ratus raja binatang dan seribu raja binatang yang terluka. Untuk menghindari raja binatang buas ini, bangau petir ilusi harus menyerang dari kanan dan kiri, bahkan jika mereka melukai banyak bangau terbang paruh besi biasa, mereka sendiri sangat terluka. ”</p>
+<p>	“Sun Yuan Hua dan Fang Zheng berimbang, satu menyerang dan satu bertahan, mereka sangat akrab dengan gerakan satu sama lain, tidak ada pemenang yang jelas. Kita hanya bisa melihat hasil dari pertarungan bangau itu.” Seorang tetua melihat kondisi kemenangan pertandingan ini.</p>
+<p>	Jika kelompok derek terbang paruh besi dapat melahap kelompok derek petir ilusi, maka itu pasti kemenangan Fang Zheng.</p>
+<p>	Tetapi jika kelompok bangau petir ilusi bergegas keluar dari pengepungan burung bangau terbang paruh besi dan pergi untuk membantu Sun Yuan Hua, Fang Zheng akan kalah.</p>
+<p>	“Bertahan, bertahan sebentar lagi. Coba dan alihkan perhatian ke derek terbang paruh besi dan bunuh semua derek petir ilusi! Jika Anda bisa melakukan itu, itu akan menjadi terobosan besar, itu akan sangat membantu Anda di masa depan. Dalam benak Fang Zheng, suara Lord Sky Crane terus menasihati.</p>
+<p>	Fang Zheng mengerahkan seluruh kekuatannya dan mengikuti apa yang dikatakan Lord Sky Crane.</p>
+<p>	Tapi tepat saat dia akan berhasil, Sun Yuan Hua selalu memecah konsentrasinya dengan serangan yang bertubi-tubi.</p>
+<p>	Sun Yuan Hua lebih tua dari Fang Zheng, dia telah menempatkan banyak upaya dalam memanipulasi crane, di bawah kendalinya, meskipun crane terluka, mereka sudah akan keluar dari pengepungan besi terbang crane.</p>
+<p>	“Adik laki-laki Fang Zheng, masih terlalu dini bagimu untuk mengalahkanku.” Dia mencibir.</p>
+<p>	Kata-kata seperti itu didengar oleh Fang Zheng, dan itu memicu bagian terdalam dari ingatannya.</p>
+<p>	Saat itu, di gunung Qing Mao, desa Gu Yue, dia dan kakak laki-lakinya Fang Yuan bertarung di arena.</p>
+<p>	Fang Yuan mengatakan kata-kata yang sama persis.</p>
+<p>	“Tidak, aku tidak bisa kalah!”</p>
+<p>	“Aku harus membalas dendam untuk klanku, untuk paman dan bibiku, untuk pemimpin klanku, untuk Tuan Qing Shu!”</p>
+<p>	“Mengapa saya bekerja sangat keras dalam beberapa tahun terakhir ini? Aku harus berdiri di depan saudaraku dan mengalahkannya. Bagaimana aku bisa kalah dari Sun Yuan Hua sekarang?”</p>
+<p>	Api menyala di mata Fang Zheng.</p>
+<p>	Dia menahan rasa sakit di kepalanya, dan mengalihkan konsentrasinya!</p>
+<p>	Bangau terbang paruh besi tiba-tiba bergerak, seperti binatang besar yang membuka mulutnya, melahap kelompok bangau petir ilusi.</p>
+<p>	Melihat ini, wajah Sun Yuan Hua menjadi pucat.</p>
+<p>	Kemenangan!</p>
+<p>	Kerumunan bersorak.</p>
+<p>	Fang Zheng adalah orang nomor satu dalam ujian tengah delapan tahun, mengalahkan Sun Yuan Hua dan menjadi murid elit Sekte Bangau Abadi!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 139 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 139";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_138.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 139">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_140.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 139</h1>
+        <div class="text-left">
+<p>	Bab 139</p>
+<p>	Bab 139: Lengan Patah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Siapa Bai Ning Bing?</p>
+<p>	Jenius nomor satu di gunung Qing Mao—seseorang yang bisa mengubah struktur tiga klan sendirian, yang kecepatan kultivasinya membuat semua orang tercengang, meredupkan kilau bahkan jenius kelas A. Tidak ada yang meragukan pencapaiannya di masa depan; bahkan musuh-musuhnya tidak punya pilihan selain menerima kenyataan bahwa bakatnya tidak tertandingi.</p>
+<p>	Namun, sekarang seseorang benar-benar membuat jenius ini melarikan diri dalam keadaan yang menyedihkan.</p>
+<p>	Tidak ada seorang pun di antara kelompok Qing Shu yang mengharapkan ini.</p>
+<p>	Yang lebih mencengangkan adalah orang yang mengejar Bai Ning Bing sebenarnya dari klan mereka: Fang Yuan.</p>
+<p>	Mengenai kesan mereka tentang Fang Yuan, mereka terutama berbasis di sekitar arena pertempuran dan mengusir River Swallowing Toad. Dan sejak saat Fang Yuan mengaku kalah dari Xiong Li, kekuatan sejatinya secara luas diremehkan.</p>
+<p>	“Kapan Fang Yuan menjadi begitu kuat?”</p>
+<p>	Kelompok Qing Shu merasa ini sulit diterima.</p>
+<p>	Fang Yuan berbalik di tikungan.</p>
+<p>	“Gu Yue Qing Shu!” Pikirannya tersentak saat melihat kelompok Gu Yue Qing Shu.</p>
+<p>	“Saya memenangkan pertaruhan. Bai Ning Bing, hari ini adalah hari kematianmu,” pikir Fang Yuan. Dia berteriak, “Adik laki-laki, kamu ada di sini! Besar! Cepat hentikan Bai Ning Bing! Dia adalah pembunuh keji yang membunuh kelompok Xiong Li dan bahkan kelompok Gu Yue Man Shi klan kita!”</p>
+<p>	“Apa?”</p>
+<p>	“Tapi klan kami telah menandatangani perjanjian!”</p>
+<p>	“Tidak, tidak ada yang terlalu berlebihan untuk Bai Ning Bing.”</p>
+<p>	“Jadi seperti itu! Tidak heran Fang Yuan bisa mengejar Bai Ning Bing….”</p>
+<p>	Kelompok Qing Shu terkejut dan menyadari. Tampaknya setelah Bai Ning Bing bertarung dalam beberapa pertempuran sengit, kekuatan bertarungnya telah jatuh ke kondisi terendah — memungkinkan Fang Yuan untungnya meraih keunggulan.</p>
+<p>	“Apakah aku benar-benar akan mati di sini? Tidak, aku hanya punya cukup esensi purba untuk meledakkan sendiri Frost Demon Gu. Aku masih punya harapan!” Bai Ning Bing berpikir dalam benaknya. Di depannya adalah kelompok Qing Shu dan di belakangnya adalah Fang Yuan. Situasinya sangat tidak menguntungkan.</p>
+<p>	Sebenarnya, ada keretakan dalam hubungan Fang Yuan dan Fang Zheng; Fang Zheng secara alami tidak akan mengindahkan kata-kata Fang Yuan.</p>
+<p>	Namun, Bai Ning Bing tidak mengetahui hal ini. Sebagai orang luar, dia hanya melihat kesamaan penampilan antara Fang Zheng dan Fang Yuan, dan dengan tegas membuat pilihan.</p>
+<p>	Dia mengangkat lengan kanannya, menuangkan semua esensi purba yang diperoleh dengan susah payah yang telah dia pulihkan ke dalam Frost Demon Gu di telapak tangan kanannya.</p>
+<p>	Otot-otot di lengan kanannya berubah menjadi es biru muda. Orang bisa dengan jelas melihat tulang putih lengannya di dalam es.</p>
+<p>	Bang!</p>
+<p>	Dengan suara ledakan, seluruh lengan kanan Bai Ning Bing tiba-tiba meledak sendiri.</p>
+<p>	Uap dan kabut muncul, dan hawa dingin yang intens mulai menyebar ke sekeliling dengan gila-gilaan.</p>
+<p>	Jepret, retak.</p>
+<p>	Embun beku yang putih bersih menyebar ke jalan pegunungan yang sempit di musim panas yang terik, menutupi tanah dan pepohonan. Suhu tiba-tiba turun.</p>
+<p>	“Dia mengorbankan seluruh lengan kanannya!” Fang Zheng terperanjat dengan tindakan kejam Bai Ning Bing.</p>
+<p>	“Cepat, mundur.” Gu Yue Qing Shu meraih Fang Zheng dan buru-buru melarikan diri.</p>
+<p>	Sejumlah besar embun beku mengalir ke arah mereka seperti gelombang serigala.</p>
+<p>	Akan sangat merepotkan jika mereka benar-benar dibekukan.</p>
+<p>	Fang Yuan mundur ke jarak seratus langkah bersama dengan kelompok Qing Shu saat serangan es berangsur-angsur berkurang.</p>
+<p>	Awalnya, jalur gunung penuh dengan pepohonan yang rimbun, dipenuhi dengan aroma tanaman liar. Sekarang, itu telah menjadi dunia es. Semua pohon membeku dan ada lapisan salju tebal di tanah.</p>
+<p>	Fang Yuan melangkah ke salju dan mendekati tengah jalan gunung.</p>
+<p>	Seluruh tubuh Bai Ning Bing membeku dalam es seperti serangga dalam damar, ekspresinya masih menunjukkan ketegasan dan kekejaman kepribadiannya.</p>
+<p>	“Dia…. bunuh diri?” Fang Zheng bergumam. Kelompok Qing Shu dengan cepat mengikuti Fang Yuan.</p>
+<p>	“Tidak!” Ekspresi Qing Shu sangat berat. “Bai Ning Bing telah membentuk otot es, lapisan kristal es ini tidak akan membekukannya sampai mati dan malah akan bertindak sebagai baju besinya, memberinya waktu untuk pulih.”</p>
+<p>	Fang Yuan menatap Bai Ning Bing dengan cermat dan melemparkan pisau bulan.</p>
+<p>	memekik.</p>
+<p>	Moonblade menghasilkan suara yang tajam ketika menabrak kristal es.</p>
+<p>	Pada kristal es setinggi tiga meter dan lebar dua meter, hanya ada bekas luka yang dangkal. Tetapi hanya dalam beberapa saat, aura dingin di dalam kristal es memenuhi luka dan bekas lukanya menghilang.</p>
+<p>	“Fang Yuan, apakah yang kamu katakan sebelumnya benar?” Qing Shu mengalihkan pandangannya ke arah Fang Yuan.</p>
+<p>	“Tentu saja. Hanya Xiong Lin yang tersisa dari kelompok Xiong Li dan dia bisa bersaksi untukku. Kita tidak bisa tinggal di sini terlalu lama; detailnya harus menunggu. Kita harus segera meninggalkan tempat ini.” Fang Yuan mengangguk dan menjawab.</p>
+<p>	Dia telah memutuskan untuk pergi.</p>
+<p>	Dia tahu dia tidak dapat menghancurkan kristal es ini. Bahkan jika mereka menggabungkan kekuatan mereka untuk menghancurkannya, itu akan membuang banyak waktu dan esensi purba.</p>
+<p>	Jika Bai Ning Bing keluar dari es, kekuatan bertarung mereka akan turun dan kekuatan bertarungnya akan pulih, menjadikannya situasi yang buruk jika pertempuran dimulai.</p>
+<p>	“Meninggalkan? Mengapa kita harus pergi?” Fang Zheng tidak bisa menahan diri untuk tidak bertanya dengan suara keras. “Bai Ning Bing telah menghancurkan lengan kanannya dan dengan pertempuran yang dia lalui, dia lelah baik secara mental maupun fisik. Kita bisa membuka kristal es ini dan mengaktifkan Gu Sinyal untuk bala bantuan klan untuk melenyapkannya! Ini adalah kesempatan yang sangat langka.”</p>
+<p>	Hati semua orang tergerak oleh kata-kata ini.</p>
+<p>	“Karena Fang Yuan bisa mengejar Bai Ning Bing dan mencoba membunuhnya, kenapa kita tidak bisa melakukan hal yang sama?” Beberapa Master Gu saling memandang dan mereka tidak bisa tidak memiliki pemikiran seperti itu.</p>
+<p>	“Jika kita membunuh Bai Ning Bing, kita akan menjadi pahlawan hebat dari klan Gu Yue!”</p>
+<p>	“Tapi jika kita membunuhnya, bukankah desa Bai akan memulai perang dalam kemarahan mereka? Dan sekarang, ada gelombang serigala….”</p>
+<p>	“Tidak, justru karena ada gelombang serigala yang bahkan jika kita membunuh Bai Ning Bing, desa Bai hanya harus menelan kepahitan mereka.”</p>
+<p>	“Benar, seorang jenius yang mati bukanlah seorang jenius!”</p>
+<p>	Anggota kelompok berdiskusi, pikiran mereka tertuju pada ketenaran dan kemuliaan.</p>
+<p>	“Benar-benar bodoh, bagaimana kamu bisa membayangkan kekuatan Fisik Jiwa Es Gelap Utara?” Fang Yuan menyipitkan matanya sambil mencibir ke dalam. Dia tidak akan menemani orang-orang ini jika mereka ingin mencari kematian.</p>
+<p>	Gu Yue Qing Shu juga ragu-ragu.</p>
+<p>	Dia, tidak diragukan lagi, memiliki pemahaman yang jauh lebih dalam tentang Bai Ning Bing daripada anggota kelompok lainnya.</p>
+<p>	Dia tidak tahu rahasia dari sepuluh fisik ekstrim, tapi dia juga tidak memiliki kerinduan yang besar terhadap ketenaran dari membunuh Bai Ning Bing.</p>
+<p>	Dia acuh tak acuh terhadap ketenaran dan keuntungan; dia pernah diasuh oleh Gu Yue Bo sebagai kepala klan berikutnya, tapi dia rela menyerahkan posisi ini kepada Fang Zheng.</p>
+<p>	Kekhawatirannya yang sebenarnya terletak pada kepentingan klan, dan hatinya terkait erat dengan kesejahteraan klan.</p>
+<p>	“Kemunculan desa Bai sepenuhnya karena Bai Ning Bing. Jika kita membunuh Bai Ning Bing, Klan Gu Yue kita akan tetap menjadi klan nomor satu di gunung Qing Mao! Meskipun Bai Ning Bing adalah Master Gu peringkat tiga, saya memiliki Gu Mantra Kayu dan kemampuan untuk bertarung dengannya. Selain itu, dia baru saja kehilangan lengan kanannya dan dia pasti akan membutuhkan waktu untuk terbiasa dengan tidak adanya anggota badan. Ini bisa menjadi kerugian terbesar dalam pertempuran hidup dan mati!” Qing Shu berpikir.</p>
+<p>	Tatapan Gu Yue Qing Shu berubah tegas.</p>
+<p>	Fang Yuan mengamati ekspresi Qing Shu sepanjang waktu; dia menyadari apa yang terakhir dipilih untuk dilakukan ketika dia melihat ekspresi Qing Shu.</p>
+<p>	“Jika Gu Yue Qing Shu menggunakan Gu Pesona Kayu tanpa memperhatikan konsekuensinya, dia akan jauh lebih kuat dari rata-rata Guru Gu peringkat tiga dan bahkan memiliki kekuatan untuk melampaui level dan bertarung. Namun, yang dia hadapi adalah Bai Ning Bing yang memiliki fisik Jiwa Es Gelap Utara. Pertempuran pasti tidak akan mudah. Karena Bai Ning Bing dapat mencairkan esensi purba dan menekan kultivasinya, dia secara alami dapat memulihkan kultivasi Peringkat tiganya. Saat ini, dia memiliki cukup waktu di dalam kristal es untuk menghilangkan batasan ini. Begitu dia keluar, dia kemungkinan besar akan menjadi Master Gu peringkat tiga. ”</p>
+<p>	Bai Ning Bing sangat berbakat dan Fang Yuan membutuhkan bantuan eksternal untuk melawannya bahkan ketika kultivasi Bai Ning Bing ditekan ke peringkat dua.</p>
+<p>	Begitu Bai Ning Bing memasuki Peringkat tiga, kekuatan bertarungnya akan meningkat beberapa kali lipat. Fang Yuan adalah penyebab utama hilangnya lengan kanannya. Ketika pertempuran dimulai, temperamen kejam Bai Ning Bing pasti akan menargetkan Fang Yuan.</p>
+<p>	Selain itu, Fang Yuan memiliki beberapa kekhawatiran dan tidak ingin mengungkapkan kekuatannya yang sebenarnya di depan Gu Yue Qing Shu.</p>
+<p>	Dengan demikian, Fang Yuan segera menyatakan niatnya untuk pergi dan meninggalkan medan perang, mengabaikan desakan orang lain untuk tetap tinggal.</p>
+<p>	“Dia benar-benar pergi? Pengecut seperti itu.”</p>
+<p>	“Hmph, dia pergi bagus. Jika dia ikut campur, itu mungkin malah menghancurkan kerja tim diam-diam kita. ”</p>
+<p>	“Hahaha, itu benar-benar membuatku takut ketika aku melihatnya mengejar Bai Ning Bing. Sekarang, tampaknya Fang Yuan memang Fang Yuan: seorang pengecut yang mengaku kalah dalam kompetisi pertempuran Gu! ”</p>
+<p>	“Berhentilah, setiap orang memiliki ambisinya sendiri. Setidaknya, dia memberi kami informasi tentang Bai Ning Bing sebelum dia pergi. Selain itu, dia akan memberi tahu klan siapa yang akan mengirim bala bantuan. ” Saat Qing Shu menatap sosok Fang Yuan yang pergi, alisnya sedikit berkerut.</p>
+<p>	“Pemimpin kelompok, kamu terlalu baik. Tidak perlu membenarkan pengecut seperti Fang Yuan.”</p>
+<p>	“Benar, meskipun Fang Yuan adalah kakak laki-laki Fang Zheng, menurut pandanganku, yang satu adalah bumi dan yang lainnya adalah surga.”</p>
+<p>	“Aku, aku sudah berhenti berbicara dengan Fang Yuan,” wajah Fang Zheng memerah, dia merasa malu karena Fang Yuan melarikan diri sebelum pertempuran.</p>
+<p>	“Fang Zheng, kamu pergi juga,” Gu Yue Qing Shu tiba-tiba berbicara.</p>
+<p>	“Apa?!” Mata Fang Zheng terbuka lebar.</p>
+<p>	“Sebagai satu-satunya bakat kelas A klan, kami tidak bisa kehilanganmu. Bai Ning Bing mungkin kehilangan tangan, tapi pertempuran berikutnya pasti akan sangat berbahaya. Untuk klan, kita bisa mati, tetapi Anda, Fang Zheng, tidak boleh mati. ”</p>
+<p>	Empat anggota lainnya semuanya tergerak.</p>
+<p>	“Katanya bagus!” Tawa cerah bergema dan seorang Guru Gu tua muncul.</p>
+<p>	“Tuan tua.” Fang Zheng segera memberi hormat. Dia mengenali pria ini sebagai tetua klan yang sangat senior.</p>
+<p>	Penatua mendekat, menatap Gu Yue Qing Shu dengan pujian, “Gu Yue Bo membesarkan anak angkat yang hebat. Dengan perasaan bertarung sampai mati untuk klan, mengapa kita harus khawatir tentang Klan Gu Yue kita tidak berkembang?</p>
+<p>	Fang Zheng masih tumbuh dewasa dan setelah upaya pembunuhan Wang Er, klan telah mengirim seorang tetua untuk selalu mengikuti Fang Zheng dan melindunginya.</p>
+<p>	“Fang Zheng, kamu tidak perlu ikut serta dalam pertarungan. Tapi jangan pergi; Anda hanya bisa mengamati dari kejauhan. Bukankah itu hanya Bai Ning Bing? Saya selalu mendengar tentang betapa luar biasanya dia dan bagaimana dia memiliki kekuatan seorang penatua. Hmph, sekarang sepertinya dia hanya anak-anak. Berapa banyak pengalaman pertempuran yang bisa dia miliki? Memutilasi dirinya sendiri, dia benar-benar amatir!” Penatua mendengus dengan jijik.</p>
+<p>	Gu Yue Qing Shu masih ingin bertahan dalam sudut pandangnya sendiri, tetapi tidak baik untuk menyangkal keputusan yang lebih tua.</p>
+<p>	Sebagai junior, dia harus menghormati yang tua dan merawat yang muda. Bagaimana dia bisa dengan mudah membantah dan mempertanyakan tetuanya?</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

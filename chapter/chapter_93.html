@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 93 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 93";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_92.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 93">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_94.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 93</h1>
+        <div class="text-left">
+<p>	Bab 93</p>
+<p>	Babak 93: Gerombolan binatang kecil</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Lari lebih cepat, jangan ketinggalan!”</p>
+<p>	“Klan di depan sedang bertempur dalam pertempuran berdarah, mereka menunggu cadangan kita.”</p>
+<p>	“Ikuti dengan cermat, atau kamu akan dengan mudah kehilangan arah di tengah pertempuran di malam hari. Pendatang baru lebih baik memberi perhatian khusus!”</p>
+<p>	Dalam perjalanan kembali ke desa, akan ada kelompok lima orang dari waktu ke waktu berlari tergesa-gesa melewati sisi Fang Yuan.</p>
+<p>	“Apakah sesuatu terjadi?” Dia belum berjalan lebih dari lima ratus meter ketika Fang Yuan melihat kelompok ketiga belas.</p>
+<p>	Mau tak mau dia merenung, tapi sejujurnya, dengan kenangan selama lima ratus tahun, itu terlalu berlebihan dan berantakan. Menyebutkan ini, meskipun Fang Yuan terlahir kembali, dia tidak pernah melepaskan ingatan lamanya.</p>
+<p>	Namun, sebagian besar ingatannya diselimuti lapisan kabut tebal, dan jika dia mencoba mengambilnya dengan paksa, dia hanya akan tersesat dalam kabut, mendapatkan lebih banyak kerugian daripada keuntungan.</p>
+<p>	Hanya beberapa kenangan yang dalam dan kuat yang seperti mutiara berkilau dan tembus pandang yang mengalir melalui kehidupan sebelumnya selama lima ratus tahun seperti benang yang terhubung.</p>
+<p>	Jelas bahwa apa yang terjadi saat ini, sebenarnya tidak ada di salah satu mutiara ini.</p>
+<p>	Kehidupannya di Desa Gu Yue hanyalah awal dari periode sebelumnya, itu sudah terlalu lama. Di samping itu…</p>
+<p>	“Ada kemungkinan hal ini tidak pernah terjadi di kehidupanku sebelumnya, tapi karena perubahanku, efek kupu-kupu terjadi dan menyebabkan perubahan pada lingkungan sekitar.”</p>
+<p>	Sama seperti itu, dia berjalan sambil merenung. Tanpa sadar, Fang Yuan mencapai gerbang utara desa.</p>
+<p>	Secara kebetulan, ada kelompok lain yang akan berangkat.</p>
+<p>	“Eh?” Saat melihat Fang Yuan, hanya satu orang dari kelompok ini yang berhenti. “Fang Yuan, mengapa kamu masih di sini?”</p>
+<p>	“Apa yang salah?” Fang Yuan mengangkat matanya dan menatap orang ini. Itu tidak lain adalah teman sekolahnya, Gu Yue Chi Cheng.</p>
+<p>	Chi Cheng segera mengerutkan kening dan berkata, “Ya ampun, kamu masih belum tahu? Ada gelombang binatang skala kecil yang terbentuk di dekat desa. Jika kita membiarkannya, perlahan-lahan akan menjadi gelombang binatang buas skala besar. Ketika itu terjadi, desa-desa di kaki gunung akan hancur. Tanpa manusia dan budak rendahan itu, terkadang kita juga berada dalam posisi yang sulit.”</p>
+<p>	“Oh, jadi seperti ini?” Tatapan Fang Yuan melintas.</p>
+<p>	Diingatkan seperti ini, dia dapat mengingat bahwa hal seperti itu memang terjadi dalam ingatannya.</p>
+<p>	Di dunia ini, sulit bagi umat manusia untuk bertahan hidup. Setiap beberapa tahun, gelombang binatang buas akan terjadi. Manusia membutuhkan sumber daya dan ruang hidup. Ini tidak berbeda dengan binatang buas dan serangga, mereka juga membutuhkan hal-hal seperti itu!</p>
+<p>	Untuk menjelaskan pasang surut binatang sebagai perang antara binatang buas dan manusia, mungkin ini akan lebih mudah dipahami.</p>
+<p>	Mengambil Gunung Qing Mao misalnya, setiap tiga tahun akan ada gelombang serigala skala besar yang menyerang setiap desa pegunungan besar.</p>
+<p>	“Menurut perhitungan saya, ledakan nyata dari gelombang serigala akan terjadi tahun depan. Namun, gelombang binatang skala kecil ini, adalah anak perusahaan dari itu. Kelompok serigala akan terus tumbuh lebih kuat dan lebih besar, dan ini akan menyebabkan kelompok binatang lain di sekitar area tersebut kehilangan tempat tinggal mereka. Saat efek ini terakumulasi, ketika mencapai batas maksimum, itu akan menyebabkan migrasi kelompok binatang buas. Migrasi kelompok binatang secara alami akan mempengaruhi kelompok binatang lainnya.”</p>
+<p>	“Di bawah pengaruh yang terjalin seperti itu, ada kemungkinan pengaruhnya akan diperluas dan menyebabkan semua jenis kelompok binatang pindah, menyebabkan gelombang binatang buas terbentuk dari masalah ini. Jika masalah ini tidak dikendalikan tepat waktu, air pasang hanya akan semakin besar. Meskipun masih tidak dapat membahayakan keberadaan desa Gu Yue, jika kita membiarkannya, kekuatan desa akan sangat berkurang.”</p>
+<p>	“Tunggu! Kalau begini… Heh heh heh heh.” Tiba-tiba ada kilatan di matanya, tetapi Fang Yuan segera mengalihkan pandangannya ke bawah, menyembunyikan perubahan di matanya.</p>
+<p>	Melihat Fang Yuan tidak mengatakan apa-apa, Chi Cheng terus berbicara. “Saat ini, aula urusan internal dan aula urusan eksternal keduanya telah memberikan perintah untuk memobilisasi, mereka menyatakan ini sebagai misi mendesak. Fang Yuan, jangan Anda berpikir untuk bermain-main. Grup Anda sudah pergi di pagi hari, Anda juga harus pergi. Tetapi…”</p>
+<p>	Saat dia berbicara sampai titik ini, Chi Cheng dengan sengaja mengeluarkan intonasinya, “Bahaya mengintai di mana-mana selama gelombang binatang buas. Semua jenis binatang buas berkeliaran, dan yang paling penting pertempuran di malam hari jauh lebih berbahaya daripada siang hari. Anda hanya seorang Master Gu peringkat satu kecil, tidak seperti peringkat dua seperti saya, Anda harus berhati-hati. Heh heh heh!”</p>
+<p>	Saat dia mengatakan ini, dia dengan sengaja mengangkat kepalanya tinggi-tinggi dan membusungkan dadanya, membelai ikat pinggangnya sendiri, ekspresinya dengan gembira puas dan bangga.</p>
+<p>	Sabuknya bukan lagi sabuk peringkat satu berwarna hijau, tetapi sabuk berwarna merah peringkat dua Guru Gu. Pada saat yang sama di atas pelat logam di sabuk, ada kata ‘2’.</p>
+<p>	Berkat bantuan kakeknya, Gu Yue Chi Lian, dia naik ke peringkat dua belum lama ini.</p>
+<p>	“Aku baru saja mendengar tentang berita ini, tetapi karena ini masalahnya.” Fang Yuan tiba-tiba tersenyum dan berkata, “Kalau begitu aku akan mengikuti kalian dan berangkat bersama. Begitu berada di garis depan, saya akan meninggalkan tim dan kembali ke tim saya.”</p>
+<p>	“Apa? Urgh, siapa yang mau membawamu!” Chi Cheng melipat tangannya, mulutnya berkedut menghina.</p>
+<p>	Nada bicara Fang Yuan jauh. “Aturan klan menyatakan: Master Gu yang tertinggal harus bergabung ke dalam kelompok terdekat dengan lokasi mereka, mereka memiliki kewajiban untuk terus bertarung. Chi Cheng, kamu bahkan tidak tahu hal ini?”</p>
+<p>	“Anda!” Chi Cheng melotot, hampir menyala.</p>
+<p>	“Memang, ini masalahnya,” Chi Shan yang telah menonton dengan tenang akhirnya berbicara.</p>
+<p>	Perawakan tubuhnya hampir dua meter, dan sosoknya kuat dan kuat. Tubuh bagian atasnya telanjang, otot-ototnya keras dan keras seperti logam. Seluruh tubuhnya ditutupi kulit merah menyala yang sepertinya samar-samar memancarkan udara panas.</p>
+<p>	Tidak diragukan lagi, dia adalah pemimpin kelompok ini.</p>
+<p>	Melihatnya berbicara, bahkan Chi Cheng yang merupakan pewaris faksi Chi, tutup mulut.</p>
+<p>	Chi Shan tanpa ekspresi menatap Fang Yuan, melanjutkan, “Mari kita pergi, ikuti saja.”</p>
+<p>	Suaranya rendah dan dalam, kata-katanya pendek dan sederhana. Ada aura dirinya yang membuat orang hampir tidak menanyainya.</p>
+<p>	Fang Yuan mengangkat bahu dengan acuh tak acuh, menganggapnya setuju.</p>
+<p>	Chi Cheng tertawa dingin, tatapannya menyembunyikan niat jahat saat dia melihat Fang Yuan, berbicara dengan nada yang tegas dan aneh, “Kalau begitu sebaiknya kamu teruskan!”</p>
+<p>	Fang Yuan tidak membalasnya.</p>
+<p>	“Hmph, kenapa kita harus menyeretnya kemana-mana. Hanya Guru Gu peringkat satu. ” Chi Cheng bergumam pada dirinya sendiri dengan marah, tetapi karena dia dihalangi oleh otoritas Chi Shan, dia tidak berani bertindak kurang ajar.</p>
+<p>	Seketika, sekelompok enam orang berangkat dari pintu masuk, mengikuti jalan gunung dan berlari menuruni lereng.</p>
+<p>	Gu Yue Chi Shan memimpin. Dia mungkin berukuran besar, tetapi kecepatannya juga tidak lambat. Selain dia dan Chi Cheng, ada juga dua pria dan satu wanita, ekspresi wajah mereka acuh tak acuh.</p>
+<p>	Saat mereka berlari, kelompok Chi Shan mulai menunjukkan sikap anggun sebagai salah satu dari tiga kelompok terkuat.</p>
+<p>	Masing-masing dari mereka memiliki pernapasan berirama, langkah kaki mereka cepat dan mudah. Hanya Chi Cheng yang tampaknya berada dalam situasi yang sulit, tetapi dia akan menggunakan Scarlet Pill Cricket Gu dari waktu ke waktu, mengejar dengan enggan. Namun juga terlihat bahwa dia telah menerima pengajaran yang baik, karena meskipun dia sering terhuyung-huyung di sepanjang jalan, setidaknya dia tidak pernah jatuh.</p>
+<p>	Ketika mereka mencapai kaki gunung, dengan satu gerakan tangan dari Chi Shan, kelompok itu dengan cepat menghentikan langkah mereka.</p>
+<p>	Huff huft…</p>
+<p>	Chi Cheng tertinggal tiga ratus meter, dan dia yang terakhir mengejar. Wajahnya pucat dan dia terengah-engah, tatapannya tak terbayangkan saat dia melihat Fang Yuan.</p>
+<p>	Selama perjalanan Fang Yuan selalu mengikuti di belakang, dan sampai sekarang napasnya hanya sedikit berat. Dia tidak terlihat sedikit pun seperti pendatang baru yang baru saja lulus.</p>
+<p>	“Chi Cheng, ingat, atur kekuatan fisikmu,” Chi Shan menoleh ke belakang dan menasihati Chi Cheng. Kemudian dia menyapu pandangannya melewati Fang Yuan, matanya menunjukkan sedikit pujian.</p>
+<p>	Tatapan yang diberikan beberapa anggota kelompok lainnya terhadap Fang Yuan juga sedikit melunak.</p>
+<p>	“Kita akan mendekati gelombang binatang buas di sana. Chi Cheng dan Fang Yuan, datang ke tengah tim.” Chi Shan melihat ke hutan pegunungan yang gelap gulita di hadapannya saat dia berbicara.</p>
+<p>	Kalimat ini membuat Fang Yuan mengevaluasi kembali Chi Shan.</p>
+<p>	Batu besar seorang pria ini benar-benar memiliki toleransi. Bagian tengah kelompok sering kali merupakan tempat yang paling aman. Meskipun Fang Yuan bukan orang dari garis keturunan Mo, Chi Shan masih mempertahankan cara melindungi pendatang baru. Untuk membandingkannya dengan ular sakit-sakitan Jiao San, yang terakhir akan segera pucat jika dibandingkan.</p>
+<p>	Langit sudah benar-benar gelap, dan awan hitam berlapis-lapis, menyebabkan akumulasi salju juga menjadi gelap dan suram.</p>
+<p>	Kelompok Chi Shan sudah mengubah formasi kelompok mereka. Kecepatan mereka menurun drastis saat mereka berlari perlahan melalui medan rumit di hutan pegunungan.</p>
+<p>	Fang Yuan dan Chi Cheng berada di bagian tengah kelompok, di mana di sisi kiri adalah Chi Shan yang besar, sedangkan sisi kanan adalah seorang lelaki tua. Di belakang mereka ada seorang wanita muda dengan rambut panjang berwarna biru berair.</p>
+<p>	Dan di depan mereka ada seorang Guru Gu laki-laki bernama Chi She.</p>
+<p>	Dia adalah Gu Master pengintai dari kelompok ini, dan dia mengeluarkan suara mendesis. Dari waktu ke waktu dia akan menjulurkan lidahnya ke udara.</p>
+<p>	Saat ini lidahnya memiliki celah kecil di antaranya, menjadi lidah ular bercabang merah cerah. Saat mereka masuk lebih dalam ke hutan pegunungan, lingkungan mereka mulai menunjukkan binatang buas berlarian liar.</p>
+<p>	Tiba-tiba Chi She membuka mulutnya dan berbicara, “Di depan kita, tiga hewan berukuran sedang telah muncul. Diduga rusa liar.”</p>
+<p>	“Usir itu.” Ekspresi Chi Shan tidak berubah saat dia segera memberi perintah.</p>
+<p>	Kelompok berawak enam tidak mengubah arah mereka; mereka terus mengejar ke depan. Tiga rusa liar muncul di hadapan mereka, dengan cepat mengubah arah dan membubarkan diri.</p>
+<p>	Tidak lama kemudian, ekspresi Chi She berubah. “Sekelompok makhluk berukuran sedang. Diduga sebagai kera penyu.”</p>
+<p>	“Bergeser,” kata Chi Shan.</p>
+<p>	Kelompok kecil itu segera menerobos ke sisi kiri, melewati kelompok kera yang merepotkan ini.</p>
+<p>	Ini adalah manfaat memiliki Gu Master pengintai, dia dapat mengantisipasi dan memberi tahu lebih awal, membiarkan mereka membuat keputusan yang akurat darinya.</p>
+<p>	“Chi Dia mungkin menggunakan Gu Lidah Ular. Cacing Gu peringkat dua ini dapat merasakan suhu panas. Tetapi ia memiliki tiga kelemahan yang sangat jelas — pertama, radius persepsinya kecil, kedua ia mudah terganggu. Ketiga tidak bisa mendeteksi makhluk berdarah dingin. Namun tidak peduli apa, itu lebih baik daripada tidak memiliki deteksi apapun. Saya telah mencapai Peringkat dua sekarang, dan di masa depan untuk bertahan hidup di alam liar, saya juga membutuhkan tipe deteksi Gu, ”pikir Fang Yuan.</p>
+<p>	Tiba-tiba Chi She segera berbicara, “Makhluk berukuran sedang, diduga harimau putih. Ia menemukan kita dan dengan cepat mendekat!”</p>
+<p>	“Mengikutsertakan.” Nada bicara Chi Shang tenang dan tenang.</p>
+<p>	Mengaum!</p>
+<p>	Seekor harimau ganas melompat keluar dari semak-semak di depan mereka, dan kelompok itu bertemu langsung. Tanpa peringatan Chi She sebelumnya, mungkin mereka akan ketahuan tidak siap.</p>
+<p>	Tapi sekarang, kelompok itu sudah lama mengantisipasi.</p>
+<p>	Pertama, Guru Gu tua di sebelah kanan tiba-tiba menepuk pipinya dan kemudian memuntahkan zat kental berwarna putih.</p>
+<p>	Zat itu tiba-tiba mengembang di udara, menjadi jaring laba-laba besar. Itu menggunakan viskositasnya yang kuat dan menjebak harimau putih penuh di wajah.</p>
+<p>	Harimau putih berjuang keras di jaring, dan Chi Shan segera melangkah maju dan mengacungkan tinjunya, memukul kepala harimau.</p>
+<p>	Tinjunya berkilau keemasan, dan dengan keras, kepala harimau itu hancur berkeping-keping. Harimau putih mati dalam satu napas.</p>
+<p>	Rombongan itu tidak berhenti untuk tetap di belakang, melainkan berjalan di atas tubuh harimau dan terus maju. Chi She mengambil tempat Chi Shan lagi dan berlari di depan, memimpin.</p>
+<p>	Melalui seluruh proses itu seperti awan yang bergerak dan air yang mengalir. Semua anggota kelompok menunjukkan saling pengertian.</p>
+<p>	“Seluruh proses itu tidak memakan waktu lebih dari tiga detik. Jika saya sekarang yang menghadapi harimau itu sendirian, saya akan membutuhkan setidaknya lima menit untuk bersaing. ” Tatapan Fang Yuan berkedip.</p>
+<p>	Master Gu ini juga peringkat dua seperti dia, tetapi perbedaan utama masih cacing Gu.</p>
+<p>	Mereka semua menggunakan cacing peringkat dua Gu, dan ini memungkinkan mereka untuk mengeluarkan yang terbaik satu sama lain. Namun, semua Gu di tangan Fang Yuan masih peringkat satu.</p>
+<p>	Gu Master, Gu Master, kata Gu sebelum kata Master, menandakan bahwa cacing Gu memiliki dampak besar pada kekuatan bertarung Master Gu. (1)</p>
+<p>	“Meskipun saya telah naik ke peringkat dua, saya masih perlu memiliki peringkat dua Gu untuk dapat menampilkan kekuatan bertarung dari Master Gu peringkat dua. Namun saat ini saya tidak memiliki banyak batu purba pada saya, saya telah menggunakan sebagian besar dari membobol Peringkat dua. Memurnikan dua cacing Gu bersama-sama juga akan menghabiskan banyak batu purba. ”</p>
+<p>	Saat Fang Yuan memikirkan hal ini, Chi She yang berada di depannya tiba-tiba berkata, “Aku menemukan kelompok ular yang sakit-sakitan itu.”</p>
+<p>	(1) Orang Cina suka mengulang sesuatu kadang-kadang ketika menekankan sesuatu. Tuan Gu, Tuan Gu … Gu dan Tuan! Gu ada di hadapan Guru, Gu sangat penting.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

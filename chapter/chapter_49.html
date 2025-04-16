@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 49 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 49";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_48.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 49">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_50.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 49</h1>
+        <div class="text-left">
+<p>	Bab 49</p>
+<p>	Bab 49: Tidak takut Fang Yuan lepas dari genggaman mereka</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Sepasang mata serius menatap tempat latihan yang jauh.</p>
+<p>	Tetua akademi berdiri di jendela lantai tiga, melihat semua yang terjadi di arena.</p>
+<p>	Dia mengerutkan kening dalam-dalam.</p>
+<p>	Begitu Fang Yuan meninggalkan panggung, dia merasakan keanehan di hatinya, tidak mengharapkan Fang Yuan melakukan ini.</p>
+<p>	“Anak ini, dia agak sulit ditangkap. Dia mahir dalam aturan akademi, dan biasanya tidak akan melakukan kesalahan. Meskipun dia tidur di kelas, begitu dia ditanyai pertanyaan, dia bisa menjawab dengan benar, meninggalkan orang lain tanpa kekurangan untuk dipilih. Mencoba menguasai kelemahannya untuk menekan dominasinya akan sulit. ”</p>
+<p>	Penatua akademi tidak bisa membantu tetapi mengembangkan rasa benci yang samar terhadap Fang Yuan.</p>
+<p>	Sebagai seorang guru, dia secara alami menyukai siswa yang patuh dan pintar, dan membenci siswa nakal yang tidak mematuhi aturan.</p>
+<p>	Tetapi sebagai penatua akademi selama bertahun-tahun, pengalamannya sangat kaya, dia telah melihat banyak tipe siswa yang berbeda. Di antara mereka dia telah melihat orang-orang yang sangat patuh yang mengikuti perintah tanpa pertanyaan. Ada juga yang menyebabkan masalah siang dan malam, terus-menerus melanggar aturan.</p>
+<p>	Hatinya telah menjadi tenang seperti air, tidak memihak kepada semua orang. Pada saat yang sama, dia mengukir kalimat “sebagai guru, seseorang harus memperlakukan semua siswa dengan adil” di sudut kanan mejanya, memperlakukannya sebagai mottonya.</p>
+<p>	Dia tidak pernah merasa jijik seperti itu pada seorang siswa.</p>
+<p>	Merasakan rasa benci di hatinya, sesepuh akademi juga sedikit terkejut.</p>
+<p>	Pada tahun-tahun sebelumnya, bahkan terhadap siswa yang paling nakal, ia mampu menanganinya dengan hati yang besar, menoleransi tindakan mereka. Tetapi ketika sampai pada Fang Yuan, mengapa dia kehilangan rasa ketidakberpihakan ini?</p>
+<p>	Dia memikirkannya lagi dan lagi, dan akhirnya menyadari alasannya.</p>
+<p>	Anak laki-laki ini bernama Fang Yuan, dia memiliki bentuk arogansi dalam darahnya!</p>
+<p>	Tampaknya dari dasar bahwa Fang Yuan tidak menghormati gurunya karena status mereka. Terhadap instruktur seni bela diri sebelumnya, dia tidak hanya tidak mematuhinya, tetapi bahkan menegurnya di depan umum.</p>
+<p>	Sebenarnya kasus retort terhadap guru seperti itu sudah biasa terlihat pada tahun-tahun sebelumnya. Namun, anak-anak itu selalu memiliki keadaan pikiran yang gelisah. Mereka memberontak, marah atau keras kepala, dll.</p>
+<p>	Penatua akademi jelas bahwa semakin gelisah anak-anak itu, semakin tersirat bahwa mereka takut di dalam hati mereka.</p>
+<p>	Tapi Fang Yuan tidak.</p>
+<p>	Dia tidak memiliki rasa takut di hatinya sama sekali, seolah-olah dia telah melihat melalui trik akademi.</p>
+<p>	Ekspresinya menyendiri, dan bahkan setelah dia meninggalkan panggung, ekspresinya tidak menunjukkan tanda-tanda berubah, seolah-olah dia telah melakukan sesuatu yang tidak penting.</p>
+<p>	Ya, dia memperlakukan masalah tidak mematuhi gurunya sebagai masalah sepele yang tidak penting!</p>
+<p>	Secara sederhana ——-</p>
+<p>	Dia tidak takut.</p>
+<p>	Hanya titik inilah yang menyebabkan sesepuh akademi sudah merasa tidak bahagia, mengembangkan rasa jijik padanya.</p>
+<p>	Penatua akademi dapat menanggung seorang siswa yang lebih memberontak daripada Fang Yuan, atau seorang remaja sepuluh kali lebih nakal darinya. Itu karena para siswa ini tahu rasa takut dan bergerak berdasarkan emosi mereka yang gelisah.</p>
+<p>	Selama mereka takut, selama mereka impulsif, mereka akan mudah dimanipulasi dan tidak akan lepas kendali.</p>
+<p>	Tapi Fang Yuan tidak.</p>
+<p>	Dia tenang dan tidak peduli, tidak memperlakukan gurunya dengan hormat.</p>
+<p>	Dia tidak hormat!</p>
+<p>	Seseorang yang tidak menghormati klan, bahkan jika mereka diasuh, bagaimana mereka bisa berguna untuk klan?</p>
+<p>	“Begitu mereka muncul, orang semacam ini, mereka harus ditekan, mereka harus ditekan! Jika tidak, keberadaannya akan menciptakan rasa tak tertahankan pada diri siswa. Dalam jangka panjang, itu akan mempengaruhi yang lain, menyebabkan mereka kehilangan rasa hormat kepada guru mereka, dan sebagai akademi, bagaimana lagi kita akan mengelola siswa?</p>
+<p>	Penatua akademi menyipitkan matanya, membuat keputusan dalam pikirannya.</p>
+<p>	Tapi kemudian, wajahnya menunjukkan ekspresi bermasalah dengan sangat cepat.</p>
+<p>	Bagaimana dia akan menekan Fang Yuan?</p>
+<p>	Fang Yuan tidak melakukan kesalahan, tidak ada kelemahan yang bisa dia manfaatkan.</p>
+<p>	Sikap licik Fang Yuan memberinya rasa tidak berdaya. Dia belum pernah bertemu siswa seperti ini, yang begitu akrab dengan peraturan dan peraturan akademi.</p>
+<p>	Sebagai penatua akademi, dia selalu tidak memihak kepada semua siswa. Dia tidak bisa seperti gangster kumuh dan sengaja mencari masalah dengan anak muda seperti Fang Yuan.</p>
+<p>	Dia telah menaruh harapannya pada instruktur seni bela diri, tetapi sekarang dia sangat kecewa.</p>
+<p>	“Sepertinya untuk menekan dominasi Fang Yuan, kita hanya bisa menunggu sampai semua siswa lain naik ke peringkat satu tahap tengah.”</p>
+<p>	Kemajuan seorang Guru Gu sebagian besar dipengaruhi oleh bakat mereka.</p>
+<p>	Dengan pengalamannya yang kaya sebagai sesepuh akademi, dia telah menghitung sebelumnya di dalam hatinya: orang-orang yang memiliki kesempatan terbesar untuk maju lebih dulu adalah Gu Yue Fang Zheng, Chi Chen dan Mo Bei.</p>
+<p>	Mereka masing-masing adalah peringkat A dan dua nilai B, dan dengan bantuan orang tua mereka di belakang mereka, mereka tidak kekurangan batu purba. Tidak peduli yang mana dari ketiganya, mereka kemungkinan besar akan menjadi yang pertama untuk maju ke peringkat satu budidaya tingkat menengah.</p>
+<p>	“Gu Yue Fang Zheng, Chi Chen dan Mo Bei, ketiganya adalah benih harapan kami musim ini.” Penatua akademi melihat ke arena dan menghela nafas.</p>
+<p>	Dengan tatapannya yang berpengalaman, dia bisa tahu: di arena, meskipun para siswa tampak berdiri dengan santai, mereka secara halus telah terpecah menjadi tiga faksi.</p>
+<p>	Dalam satu lingkaran adalah Gu Yue Chi Chen dan sekelompok klan yang berusia sama, semua berkerumun di sekelilingnya.</p>
+<p>	Inti lingkaran kedua adalah Gu Yue Fang Zheng, dan generasi muda pemimpin klan secara halus mendukung jenius bakat kelas A ini.</p>
+<p>	Lingkaran ketiga dipimpin oleh Gu Yue Mo Bei. Dia sudah dirawat karena cedera internalnya dan berdiri di arena dengan wajah pucat. Teman-teman sekelas di sampingnya bertanya tentang kondisinya.</p>
+<p>	“Inilah artinya membiarkan mereka bersaing satu sama lain.” Melihat ketiga faksi, sesepuh akademi sangat gembira dan tertawa.</p>
+<p>	Membiarkan para siswa bebas memerintah untuk bersaing, ini bukan hanya untuk memelihara indra pertempuran mereka, tetapi juga untuk memilih karakter tipe pemimpin sebelum waktunya.</p>
+<p>	Di musim-musim lalu, mereka harus menunggu hingga akhir tahun untuk bisa mengembangkan lingkarannya sendiri. Tetapi di tahun ini, karena penampilan Fang Yuan, pemerasannya telah menghasilkan perbedaan yang jauh lebih cepat.</p>
+<p>	Melawan Fang Yuan, satu-satunya yang berani bersaing dengannya adalah Fang Zheng, Mo Bei dan Chi Chen.</p>
+<p>	Setelah waktu yang lama di bawah pengaruh yang tidak terlihat, anak-anak muda lainnya secara otomatis akan menganggap ketiganya sebagai pemimpin.</p>
+<p>	Selama tidak ada kecelakaan, ketiga lingkaran sosial ini akan menjadi tata letak petinggi keluarga masa depan.</p>
+<p>	“Tapi faksi-faksi ini masih belum stabil. Di dalamnya, masih ada siswa yang bergerak. Setelah ketiganya memimpin dan maju ke panggung tengah terlebih dahulu, saya akan memberi mereka posisi ketua kelas dan wakil ketua kelas. Dengan diferensiasi itu, mereka akan mendapatkan otoritas, dan ini akan memperkuat lingkaran sosial mereka, ”pikir sesepuh akademi.</p>
+<p>	Tentu saja, ada seseorang yang tidak berada dalam kedua faksi tersebut.</p>
+<p>	Hanya satu orang, dan itu adalah Fang Yuan.</p>
+<p>	Mendekati orang yang lebih kuat adalah sifat manusia. Faktanya, meskipun Fang Yuan memeras para siswa dan bertindak melawan para siswa, ada sejumlah anak muda yang ingin melekatkan diri padanya.</p>
+<p>	Namun, mereka ditolak oleh Fang Yuan. Baginya, hanya mereka yang berguna yang menjadi pion, dan anak-anak muda ini memiliki nilai yang terlalu kecil.</p>
+<p>	Ini juga alasan lain mengapa tetua akademi membenci Fang Yuan. Dia terlalu antisosial, tidak mau berintegrasi ke dalam tim. Bagi orang-orang seperti dia, kendali klan atas mereka tidak sebanyak anak-anak muda lainnya.</p>
+<p>	Tatapan sesepuh akademi sekali lagi melesat ke arah Fang Yuan di arena.</p>
+<p>	Fang Yuan berdiri sendirian di satu sudut dengan tangan di belakang, kelopak matanya sedikit tertutup, memungkinkan para siswa untuk memperjuangkan hadiah mereka. Bahkan dengan persaingan yang panas, ekspresinya tidak berubah sedikit pun.</p>
+<p>	Lingkungannya kosong, tidak ada anak muda yang mau berdiri bersamanya.</p>
+<p>	Sangat jelas, dia juga tidak ingin orang-orang ini berada di dekatnya.</p>
+<p>	Fang Yuan berdiri di sana sendirian, diselimuti kesepian.</p>
+<p>	Dia melayang di luar faksi.</p>
+<p>	“Tapi aku tidak perlu terlalu khawatir. Fang Yuan ini masih muda dan bisa diubah secara perlahan.” Tatapan sesepuh akademi bersinar dan dia berpikir dalam-dalam.</p>
+<p>	“Selanjutnya adalah penetapan ketua kelas dan wakil ketua kelas. Setahun kemudian, kami akan dibagi menjadi beberapa kelompok, menciptakan pemimpin tim dan asisten pemimpin. Setiap tahun akademik juga memiliki segala macam kehormatan dan penghargaan, seperti Penghargaan Bunga Merah Kecil, Hadiah Kain Leher Biru, dan Hadiah Lima Siswa Berprestasi. Dia ingin berkultivasi sehingga dia membutuhkan sumber daya, sehingga dia harus bersaing untuk posisi dan hadiah ini. Seiring berjalannya waktu, dengan interaksi di antara para siswa, ia terikat untuk memiliki kekerabatan, persahabatan dan cinta sebagai pengekangannya. Saya tidak perlu khawatir tentang dia melampaui kendali klan. ”</p>
+<p>	Tahun-tahun ini, sesepuh akademi secara bertahap memahami sesuatu.</p>
+<p>	Ketika anggota klan baru lahir, mereka akan dicuci otak oleh klan.</p>
+<p>	Pertama, mereka akan diajari sistem nilai tertinggi klan. Selanjutnya mereka akan masuk ke pendidikan moral dan belajar tentang keindahan dan pentingnya kekerabatan, persahabatan, cinta.</p>
+<p>	Setelah itu, mereka akan diajari kehormatan, dan dalam proses tumbuh dewasa, banyak sumber daya seperti hadiah akan digunakan untuk menarik mereka. Menggunakan peran yang diberikan keluarga, mereka akan memilih dan merekrut anggota klan yang paling setia ke dalam faksi mereka.</p>
+<p>	Jangan meremehkan peran kecil seperti ketua atau wakil ketua, karena begitu mereka menjadi salah satu dari peran ini, mereka akan menjadi bagian dari administrasi klan.</p>
+<p>	Di bawah sistem seperti itu dengan pengaruh yang konstan, di satu sisi itu membawa manfaat memiliki otoritas dan manisnya kekuasaan, sementara di sisi lain, itu membawa masalah melepaskan diri dari sistem. Wortel di tangan dan tongkat di tangan lain, siapa yang bisa melepaskan diri dari sistem ini?</p>
+<p>	Bahkan orang yang paling liar atau yang paling kesepian secara bertahap akan menjadi bagian dari keluarga. Seseorang yang tidak memiliki loyalitas juga akan dibina menjadi seseorang yang memiliki loyalitas. Tanpa kekerabatan, persahabatan atau cinta, mereka akan tetap berkembang.</p>
+<p>	Ini adalah kekuatan sistem.</p>
+<p>	Inilah kekuatan aturan.</p>
+<p>	Ini adalah cara klan untuk bertahan hidup!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

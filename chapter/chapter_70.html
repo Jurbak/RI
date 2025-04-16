@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 70 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 70";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_69.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 70">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_71.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 70</h1>
+        <div class="text-left">
+<p>	Bab 70</p>
+<p>	Bab 70: Menggunakan Babi Putih Gu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di kegelapan malam, bulan berbentuk seperti piring perak, menggantung tinggi di langit memuntahkan cahaya bulan yang berair ke bawah.</p>
+<p>	Hutan lebat dengan ringan membuka daun dan cabang hijau lebat mereka di angin musim panas. Air terjun jatuh saat mengalir, tetapi suaranya tidak dapat menutupi suara jangkrik cendana yang berkicau.</p>
+<p>	Fang Yuan melangkah ke rumput hijau, diam-diam mendekati babi hutan.</p>
+<p>	Babi gunung ini kepalanya terkubur, terengah-engah dan mendengus saat menggali tanah zamrud dengan moncongnya, mengaduk-aduk tanah dan rumput untuk mencari cacing.</p>
+<p>	Babi hutan adalah hewan omnivora. Ia tidak hanya memakan cacing, tetapi juga mencuri telur burung dan mahir berburu kelinci liar, tikus, bahkan makhluk berbisa seperti ular dan kalajengking.</p>
+<p>	Fang Yuan merayap perlahan dari belakang babi hutan.</p>
+<p>	Di bawah sinar bulan yang cerah, mantel bulu babi hutan hitam keabu-abuan bisa terlihat dengan jelas. Tubuhnya kuat dan kokoh, keempat tungkainya pendek dan kasar. Di punggungnya ada surai yang panjang dan kaku, sementara di atas telinganya terdapat bulu tipis yang tegak seperti jarum. Dengan keempat anggota badan di tanah, masing-masing kaki memiliki empat jari kaki tetapi hanya dua jari tengah yang menggali tanah. Punggungnya tipis dan pendek, kadang-kadang berhamburan, mengusir nyamuk yang beterbangan.</p>
+<p>	Tiba-tiba ia berhenti menggali untuk makan, mengangkat kepalanya. Pada saat yang sama, telinga babi hutan yang tajam dan tegak dengan cepat bergetar beberapa kali. Meskipun Fang Yuan telah berhasil menghentikan jejaknya tepat waktu, babi gunung ini masih menemukannya. Itu segera berbalik dan mengerang dengan suara peringatan.</p>
+<p>	Fang Yuan tidak terkejut dengan ini. Hewan liar tidak seperti hewan peliharaan, mereka semua sangat waspada. Terutama babi hutan, mereka memiliki bau yang tajam dan dapat menemukan sarang burung yang sering disembunyikan dengan sangat baik.</p>
+<p>	Bahkan jika babi hutan ini tidak mendengar suara apa pun, ketika Fang Yuan mendekati sekitar seratus meter darinya, ia akan dapat mencium bau tubuhnya dan masih dapat merasakan kehadiran Fang Yuan.</p>
+<p>	Meskipun Fang Yuan memiliki lima cacing Gu pada dirinya saat ini — Jangkrik Musim Gugur Musim Semi, Cacing Minuman Keras, Gu Cahaya Bulan, Gu Cahaya Kecil dan Gu babi hutan putih, Gu ini semua tidak dapat cocok satu sama lain, dan tidak cocok.</p>
+<p>	Jika Fang Yuan memiliki Smell Lock Gu yang bisa menutupi bau tubuhnya, dan Quiet Steps Gu lainnya yang menyembunyikan suara langkah kaki, dia bisa sepenuhnya dan diam-diam menjangkau jarak sepuluh langkah dari babi gunung.</p>
+<p>	Namun jika dia memiliki dua Gu ini maka Fang Yuan akan menyimpan tujuh cacing Gu, ini akan menyebabkan penggunaan esensi purba menjadi terlalu besar dan dia akan kesulitan mendukung mereka.</p>
+<p>	Master Gu pada umumnya hanya dapat memberi makan empat hingga lima cacing Gu dengan peringkat yang sama. Jadi Master Gu biasanya tidak bergerak sendiri, melainkan membentuk kelompok kecil yang terdiri dari lima orang, atau paling tidak dengan tiga orang.</p>
+<p>	Di antara kelompok-kelompok itu, akan ada seseorang yang secara khusus bertanggung jawab atas pendeteksian, yang satu bertanggung jawab untuk kemajuan, yang satu memegang peran pelanggaran, yang lain bertanggung jawab atas perawatan medis dan seseorang yang bertugas melawan dan menahan musuh.</p>
+<p>	Fang Yuan melanjutkan tanpa henti, semakin dekat dengan babi hutan.</p>
+<p>	Babi hutan memekik rendah, bulu putih di lehernya berdiri, simbol kegelisahannya.</p>
+<p>	Akhirnya ketika Fang Yuan sudah cukup dekat, lebih dekat dari jangkauan babi hutan yang dapat diterima, kuku babi hutan menggali tanah tiga kali sebelum merentangkan empat anggota tubuhnya yang berotot, menundukkan kepalanya dan berlari ke arah Fang Yuan.</p>
+<p>	Rahang atasnya ditarik, rahang bawahnya menghadap ke atas, membentuk dua gading putih. Di bawah sinar bulan, gading bersinar dengan cahaya saat menusuk ke arah Fang Yuan.</p>
+<p>	Fang Yuan tidak memiliki jenis cacing Gu yang bertahan, dan jika dia ditusuk oleh gadingnya, perutnya akan ditembus, ususnya akan tertusuk dan dia akan terluka parah jika tidak mati.</p>
+<p>	“Cahaya Bulan Gu.” Wajah Fang Yuan tenang saat dia berpikir dalam benaknya, menyebabkan Moonlight Gu di telapak tangannya menyerap esensi purba dan memancarkan cahaya cahaya bulan yang menakutkan, menjalin dengan cahaya bulan dari langit malam.</p>
+<p>	Babi hutan menyerbu ke arah Fang Yuan saat telapak tangan kanannya menyapu udara.</p>
+<p>	Dengan swoosh, moonblade terbang keluar dan mengenai wajah babi hutan itu, menyebabkan darah berceceran di mana-mana.</p>
+<p>	Babi hutan berteriak keras, mengubah amarahnya menjadi bahan bakar saat muatannya menjadi lebih cepat, dan dalam sekejap mata, ia mencapai beberapa langkah di depan Fang Yuan.</p>
+<p>	Fang Yuan dengan gesit melompat ke samping, berguling dan mematahkan kejatuhannya.</p>
+<p>	Babi hutan menyerbu melewati Fang Yuan, dan dengan ledakan, menabrak pohon di belakangnya.</p>
+<p>	Pohon kecil itu hanya setebal lengan manusia, setelah dihantam oleh babi hutan, ia menerima kerusakan yang menghancurkan ketika batang pohon itu robek dan terbelah menjadi dua.</p>
+<p>	Fang Yuan berdiri, dengan cepat mendekati babi hutan itu sementara pedang bulan melesat keluar dari tangan kanannya pada saat yang bersamaan.</p>
+<p>	Moonblade biru yang menakutkan itu menarik garis lurus di udara saat mendarat di babi hutan.</p>
+<p>	Bulu hitam babi hutan itu memiliki beberapa luka tipis. Lukanya sangat dalam dan darah merah cerah mengalir keluar darinya.</p>
+<p>	Moonblade yang diaktifkan Fang Yuan menggunakan esensi purba tingkat atas, sehingga mampu mematahkan bahkan tulang terberat manusia dalam satu tembakan. Tapi pada babi hutan, itu hanya bisa menyebabkan luka dangkal seperti itu, dan tidak merusak tulang.</p>
+<p>	Seekor babi hutan kecil seperti ini sangat kuat, ini menunjukkan betapa kejamnya lingkungan hidup di dunia ini!</p>
+<p>	Babi hutan menggeram, dan menyerang Fang Yuan lagi.</p>
+<p>	Dalam proses berlari, lukanya yang meneteskan darah terus merobek, dan darahnya yang hangat mengalir seperti air.</p>
+<p>	Fang Yuan menggunakan trik yang sama, jatuh ke samping dan menghindari serangannya.</p>
+<p>	Babi hutan, meskipun kuat dan sangat ganas, memiliki satu kelemahan — tidak dapat mengubah arah dengan mudah. Kecepatannya cepat, tapi itu berarti dia tidak bisa mengubah arah dengan mudah, jadi dengan cara ini, setiap muatannya berada dalam garis lurus. Selama seorang Guru Gu cukup perhatian, tidak sulit untuk mengelak.</p>
+<p>	Bum, bum, bum.</p>
+<p>	Setiap kali babi hutan menyerang, Fang Yuan akan menembakkan beberapa bilah bulan, menyebabkan luka lamanya tumpang tindih dengan luka baru, dan semakin marah, semakin banyak darah yang mengalir.</p>
+<p>	Setelah beberapa kali, gerakannya melambat dan geramannya juga menunjukkan sedikit kelemahan.</p>
+<p>	“Gu ringan kecil.”</p>
+<p>	Kali ini, Fang Yuan tidak hanya mengaktifkan Moonlight Gu, tetapi juga mengerahkan esensi purba dan menyuntikkannya ke dalam Little Light Gu.</p>
+<p>	Moonlight Gu setelah disempurnakan selalu berada di telapak tangan kanan Fang Yuan, berubah menjadi tato bulan sabit biru. Setelah cahaya kecil Gu disempurnakan, itu juga berada di telapak tangan kanannya, berubah menjadi bentuk bintang lima sisi.</p>
+<p>	Pada titik ini, esensi purba hijau gelapnya memasuki dua Gu, cahaya bulan memancarkan cahaya bulan biru yang menakutkan sementara cahaya kecil Gu memancarkan cahaya putih susu.</p>
+<p>	Cahaya putih susu menyatu dengan cahaya bulan, dan gumpalan cahaya bulan yang awalnya kecil langsung menjadi dua kali lebih besar.</p>
+<p>	“Pergi.”</p>
+<p>	Tangan kanan Fang Yuan menyapu, dan pedang bulan raksasa yang disempurnakan terbang keluar.</p>
+<p>	Hanya menggunakan Moonlight Gu, ukurannya hanya seukuran telapak tangan. Tetapi dengan tambahan dan bantuan dari Gu Cahaya Kecil, ukuran pedang bulan berlipat ganda, dan jangkauan serangannya juga berlipat ganda.</p>
+<p>	Astaga!</p>
+<p>	Pedang bulan menghantam leher babi hutan, merayap ke bulu abu-abu hitamnya. Itu muncul dari ujung yang lain dan terbang sekitar tiga hingga empat meter sebelum menghilang di udara.</p>
+<p>	Gpp glu…</p>
+<p>	Babi hutan itu berdiri di tempat, membeku sesaat, lalu darah mengalir keluar dari luka-lukanya seperti air mancur.</p>
+<p>	Tiba-tiba ambruk, setengah kepalanya terpenggal, hanyut oleh darah yang mengalir, dan hanya sepotong kecil daging yang menyatukannya dengan tubuhnya.</p>
+<p>	Bau darah yang kental menyembur ke hidungnya.</p>
+<p>	Fang Yuan tidak berani ragu, menunjuk babi hutan dengan jarinya, dan White Boar Gu yang berada di lubangnya langsung berubah menjadi cahaya putih susu dan memasuki tubuh babi hutan itu.</p>
+<p>	Fang Yuan berdiri di tempat, dengan gugup tetap waspada terhadap lingkungan sekitar. Meskipun peta kulit binatang mengatakan bahwa daerah itu relatif aman, selalu ada kecelakaan di alam, bagaimana jika binatang tertarik dengan bau darah?</p>
+<p>	Setelah beberapa saat, White Boar Gu terbang kembali dengan selamat.</p>
+<p>	Seluruh babi hutan telah menyusut menjadi dua, hanya menyisakan bulu abu-abu hitam dan usus di bawah kulitnya. Adapun dagingnya, sebagian besar dimakan oleh Gu Babi Putih.</p>
+<p>	Tapi anehnya, meskipun White Boar Gu memakan daging babi hampir seribu kali ukurannya, itu tidak berubah secara fisik.</p>
+<p>	Bahkan tidak ada tetesan darah di atasnya, karena mempertahankan penampilan cacing putih susu itu.</p>
+<p>	“Setelah makan ini, aku akan datang lima hari kemudian untuk berburu babi hutan.” Fang Yuan menyimpan Gu Babi Putih, tetapi tidak segera pergi. Sebagai gantinya, dia mengeluarkan pisaunya dan mengeluarkan dua gading babi hutan.</p>
+<p>	Tubuh babi hutan memiliki beberapa hal yang berharga.</p>
+<p>	Yang pertama adalah babi, yang kedua adalah bulu, dan yang ketiga adalah giginya.</p>
+<p>	Tapi sekarang daging babi hutan kebanyakan dimakan oleh Gu Babi Putih; kulitnya penuh lubang karena pedang bulan, tidak ada artinya bahkan jika diambil.</p>
+<p>	Hanya sepasang gading ini yang memiliki nilai. Itu bisa digunakan sebagai makanan untuk cacing Gu tertentu yang memakan gigi sebagai makanan, atau digunakan sebagai katalis untuk kemajuan beberapa cacing Gu.</p>
+<p>	Fang Yuan menyembunyikan gigi di gua rahasia retakan batu sebelum kembali ke asrama.</p>
+<p>	Dia tidak langsung tidur, tetapi duduk di tempat tidurnya dan mulai berkultivasi.</p>
+<p>	Di dalam celah, laut purba bertindak seperti ombak, naik dan turun.</p>
+<p>	Fang Yuan sekarang adalah Master Gu tingkat menengah, jadi setelah menggunakan pemurnian cacing Liquor, dia memiliki esensi purba tingkat atas.</p>
+<p>	Jadi, sementara orang-orang seusianya memiliki esensi purba hijau pucat tahap menengah, esensi purba Fang Yuan berwarna hijau tua.</p>
+<p>	Sekarang setelah dia membunuh babi hutan, hanya ada 23% esensi purba di lubangnya.</p>
+<p>	Seorang Master Gu peringkat satu tidak begitu kuat dalam pertempuran. Atau lebih tepatnya, lingkungan alam terlalu keras. Bahkan jika moonblade bisa mematahkan tulang, untuk membunuh babi hutan biasa, Fang Yuan harus menggunakan 20% dari esensi purba tingkat atasnya.</p>
+<p>	“Gu Babi Putih.”</p>
+<p>	Matanya tertutup rapat, rohnya terbenam ke dalam lubangnya.</p>
+<p>	Di aperture, semburan esensi purba hijau tua bergegas melawan arus, menyuntikkan ke White Boar Gu.</p>
+<p>	White Boar Gu segera memancarkan cahaya putih terang, dan cahaya itu menyelimuti tubuh Fang Yuan. Jika seseorang melihat dari luar, mereka akan melihat bahwa tubuh Fang Yuan memancarkan cahaya putih bersih dari dalam.</p>
+<p>	Setiap otot dan setiap inci kulit Fang Yuan, direndam dalam cahaya putih ini.</p>
+<p>	Rasa kebas dan gatal-gatal dirasakan olehnya. Saat cahaya putih memodifikasi otot-ototnya, itu memungkinkan kekuatan untuk perlahan-lahan dimasukkan ke dalam tubuhnya, sehingga mendapatkan akar dan tidak pernah hilang lagi.</p>
+<p>	Namun, setelah beberapa saat, perasaan mati rasa menjadi sakit. Rasa sakit ini seperti tersengat listrik, dari mati rasa hingga rasa sakit yang tajam seperti tertusuk pisau silet.</p>
+<p>	Fang Yuan buru-buru menghentikan White Boar Gu.</p>
+<p>	Sesuatu yang berkepanjangan itu tidak baik.</p>
+<p>	White Boar Gu tidak bisa digunakan secara berlebihan, itu bisa diterapkan sekitar lima belas menit sehari. Melebihi itu, dan rasa sakit yang luar biasa akan terasa, semakin menyakitkan.</p>
+<p>	Jika dia terus menggunakannya meskipun begitu, seseorang bahkan mungkin mati karena kesakitan!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 209 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 209";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_208.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 209">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_210.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 209</h1>
+        <div class="text-left">
+<p>	Bab 209</p>
+<p>	Bab 209: Menghadapi Guru Gu iblis</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Air danau masih tenang, memantulkan langit biru jernih dan awan putih.</p>
+<p>	Bahkan setelah kalah dalam perburuan lebah jarum, suasana hati Fang Yuan dan Bai Ning Bing sungguh-sungguh.</p>
+<p>	Karena di depan mereka terdapat bekas-bekas bekas yang menandakan kawasan ini pernah digunakan orang untuk menyalakan api dan memasak daging.</p>
+<p>	Komunikasi Bumi Rumput telinga!</p>
+<p>	Fang Yuan berkehendak dan akar tumbuh dari telinganya, saat mereka menjulur ke tanah dan menggali jalan masuk, pendengaran Fang Yuan menjadi berkali-kali lebih kuat.</p>
+<p>	Setelah mendengarkan sebentar, ekspresinya mengendur, karena tidak ada orang yang menyergap di sekitarnya.</p>
+<p>	Segera setelah itu, dia pergi ke sisa-sisa api dan menyentuh abunya, tidak melepaskan bukti apa pun yang bisa dia temukan.</p>
+<p>	“Kebakaran dimulai setengah bulan yang lalu, pihak lain sendirian dan tidak boleh berada di dekatnya.” Setelah beberapa saat, Fang Yuan menyimpulkan dari temuannya.</p>
+<p>	“Sendiri? Master Gu dari klan harus melakukan perjalanan berlima. Sepertinya orang ini adalah Gu Master iblis. ” Bai Ning Bing mengerutkan kening saat dia menghela nafas.</p>
+<p>	Jika itu adalah Master Gu dari klan, mereka akan menjadi Master Gu yang benar, dan ada harapan untuk berinteraksi. Jika itu adalah Gu Master iblis, begitu mereka bertemu pertempuran pasti akan terjadi.</p>
+<p>	Situasi ini, bukan karena “orang benar itu baik, sedangkan orang jahat itu jahat”.</p>
+<p>	Tetapi karena ketika seseorang sendirian, mereka akan menunjukkan sifat asli mereka, tidak ada pengekangan di alam liar, sehingga mereka bertindak tanpa syarat.</p>
+<p>	Master Gu yang Benar, bergerak dalam kelompok. Ketika mereka menangani masalah, mereka akan memikirkan pendapat orang-orang dengan mereka, sehingga mereka akan bertindak lebih dekat dengan norma masyarakat.</p>
+<p>	Master Gu Iblis sering bergerak sendiri, dan sangat waspada, memiliki naluri yang kuat terhadap bahaya. Tanpa siapa pun untuk diandalkan, mereka akan selalu bertindak untuk menentukan dan memastikan keselamatan mereka sendiri.</p>
+<p>	Ini bukan kabar baik bagi Fang Yuan dan Bai Ning Bing.</p>
+<p>	Saat bertemu Master Gu berbasis klan yang saleh, mereka bisa menghindari pertempuran. Tetapi jika mereka bertemu dengan Gu Master iblis, pasti akan ada pertarungan, kecuali mereka menunjukkan kekuatan yang cukup yang akan menyebabkan Gu Master iblis menyusut ketakutan dan kecurigaan.</p>
+<p>	Sayangnya, Master Gu yang bisa berkeliaran di sekitar hutan belantara ini sendirian memiliki sekitar peringkat empat budidaya, dan metode khusus mereka sendiri. Berapa banyak orang lemah yang akan ada?</p>
+<p>	Untuk Fang Yuan dan Bai Ning Bing, satu adalah peringkat tiga baru sementara yang lain adalah peringkat satu tahap awal. Tanpa cacing Gu yang cukup untuk menutupi semua tanah, bahkan ketika mereka melakukan perjalanan di hutan, itu penuh dengan bahaya dan setiap langkah adalah pertaruhan yang sulit.</p>
+<p>	Jika mereka bertemu dengan Gu Master iblis, kemungkinan besar mereka akan tamat.</p>
+<p>	“Syukurlah kami menemukan jejak api unggun ini, jadi mulai sekarang kami tidak harus terburu-buru dalam perjalanan kami, tetapi memulihkan diri dan setidaknya menyembuhkan luka kami saat ini kembali ke kesehatan penuh,” kata Fang Yuan.</p>
+<p>	Bai Ning Bing mengangguk. Setelah diingatkan, dia juga merasakan punggungnya sakit.</p>
+<p>	Fang Yuan memanggil bunga tusita, mengeluarkan perban dan obat-obatan, memberikan sebagian besar kepada Bai Ning Bing.</p>
+<p>	Meskipun area pertahanan Carapace Gu kecil, biasanya tidak berguna, kali ini sangat membantu Fang Yuan.</p>
+<p>	Dan karena Bai Ning Bing menarik sebagian besar daya tembak, Fang Yuan nyaris tidak mengalami cedera.</p>
+<p>	Dia dengan cepat menangani lukanya, dan bergegas untuk membantu Bai Ning Bing.</p>
+<p>	Bai Ning Bing melepas baju atasnya. Banyak lubang seukuran ujung jari memenuhi punggungnya, menyebabkan ketakutan bagi siapa pun yang melihatnya.</p>
+<p>	Frenzy needle bee berada di peringkat tiga, jumlahnya banyak dan juga memiliki kemampuan penetrasi; itu membalas Sky Canopy Gu. Tapi Bai Ning Bing juga menggunakan Gu Otot Es sebelumnya, jadi dengan dua lapis pertahanan, nyawanya terselamatkan.</p>
+<p>	Ck ck…</p>
+<p>Bai Ning Bing menggertakkan giginya, menarik napas dalam-dalam sambil menahan rasa sakit saat membersihkan lukanya. Segera setelah itu, lukanya dibalut.</p>
+<p>	Fang Yuan meletakkan kaleng obat kosong dan sisa perban terakhir ke dalam bunga tusita.</p>
+<p>	“Kami memiliki sedikit barang obat yang tersisa, sama dengan perban. Meskipun kami telah berhemat dan bahkan menggunakan kembali perban ketika kami bisa, sepertinya kami benar-benar perlu menemukan Gu yang menyembuhkan sesegera mungkin. ” Fang Yuan berdiri dengan ekspresi serius.</p>
+<p>	Obat adalah barang habis pakai, dan sulit dibuat, serta membutuhkan waktu untuk dikumpulkan. Jika mereka memiliki Gu penyembuhan, tidak hanya efeknya akan lebih baik, itu juga menggunakan esensi purba yang dapat dipulihkan secara alami.</p>
+<p>	Dengan perbandingan ini, yang superior menonjol dengan mudah.</p>
+<p>	Tapi cacing Gu yang ideal terlalu sulit ditemukan.</p>
+<p>	Sebenarnya, dalam setengah bulan ini, mereka menghadapi banyak peluang, tetapi mereka tidak memiliki kekuatan yang cukup, atau itu adalah lingkungan yang tidak tepat, kurang persiapan yang tepat untuk menangkap Gu.</p>
+<p>	“Kita harus mendapatkan Gu yang menyembuhkan! Tapi sebelum itu, saya punya masalah di sini, ”kata Bai Ning Bing tiba-tiba.</p>
+<p>	“Apa masalahnya?” Fang Yuan mengangkat alisnya.</p>
+<p>	Bai Ning Bing telanjang di atas dan dia berbalik dan menunjuk ke dadanya, “Eh, dua gumpalan daging ini, mereka menghalangi. Ketika saya lari mereka akan melompat ke mana-mana, dan bahkan dalam pertempuran mereka menjadi beban. Saya ingin memotongnya, tetapi saya khawatir cederanya akan terlalu parah. Tanpa cacing Gu yang menyembuhkan, aku mungkin akan mendapat lebih banyak masalah.”</p>
+<p>	Dia adalah jenius klan Bai, fokus pada kultivasi. Dia hampir tidak tahu apa-apa di luar itu, sehingga memiliki kepedulian yang lebih kecil terhadap wanita.</p>
+<p>	Meskipun Bai Ning Bing telah berubah menjadi seorang gadis, dia telah hidup sebagai seorang pria sepanjang hidupnya, sehingga dia tidak peduli dalam pikirannya dan tidak memperlakukan tubuh ini sebagai sesuatu yang suci.</p>
+<p>	Lagi pula, dia tahu bahwa Yang Gu yang dimiliki Fang Yuan bisa mengembalikannya tubuh laki-laki.</p>
+<p>	Dengan demikian, Bai Ning Bing tidak pernah menganggap dirinya sebagai seorang gadis.</p>
+<p>	Fang Yuan menatapnya tanpa emosi. “Akan ada terlalu banyak masalah dengan memotongnya, kamu bisa membungkusnya.”</p>
+<p>	“Membungkus apa?” Bai Ning Bing bertanya.</p>
+<p>	“Gunakan perban untuk membungkus dadamu dan perlakukan mereka seperti cedera. Kemudian mereka akan diperbaiki di tempatnya, ”kata Fang Yuan.</p>
+<p>	Ekspresi Bai Ning Bing tidak berdaya dan sedih, menghela nafas, “Huh, itu yang terbaik yang bisa saya lakukan sekarang.”</p>
+<p>	Matahari berangsur-angsur tenggelam saat langit malam turun.</p>
+<p>	Ada aliran binatang buas yang datang ke danau untuk minum air, dan keduanya tidak berani tinggal lama di sana.</p>
+<p>	Fang Yuan menemukan gua yang terbentuk secara alami di tebing curam di dekatnya. Meskipun sedikit sempit, itu aman. Setelah membersihkan burung-burung yang hidup di dalamnya, tempat itu menjadi tempat tinggal sementara mereka.</p>
+<p>	Beberapa hari kemudian, sebagian besar luka Bai Ning Bing pulih.</p>
+<p>	Keduanya melanjutkan perjalanan mereka, menuju gunung Bai Gu.</p>
+<p>	Tetapi mengingat Guru Gu iblis misterius itu, dalam perjalanan ini Fang Yuan ekstra hati-hati, terus-menerus berhenti dan menggunakan rumput Telinga Komunikasi Bumi untuk memeriksa sekeliling.</p>
+<p>	Pada hari kedua perjalanan mereka, kehati-hatian mereka menuai hasil yang baik.</p>
+<p>	Dia menemukan kayu yang terbakar di bawah pohon, yang ternyata disebabkan oleh Guru Gu yang jahat.</p>
+<p>	Pada hari ketiga, mereka memeriksa jejak pertempuran sengit di dekat sungai.</p>
+<p>	Mayat ular sanca hijau besar tergeletak di sana, dagingnya dimakan sepenuhnya oleh binatang buas, hanya menyisakan kerangka.</p>
+<p>	Tanah penuh dengan sisiknya, dan sungai bahkan bergerak di jalur baru, setelah banyak pohon ditumbangkan dan ditebang.</p>
+<p>	Fang Yuan mengamati sebentar, nadanya santai, “Gu Master iblis itu pernah bertarung sengit di sini dengan ular piton hijau. Ini adalah ular sanca hijau seratus raja binatang. Untuk menjalani pertarungan seperti itu, tampaknya Master Gu iblis ini juga memiliki kultivasi Peringkat tiga. ”</p>
+<p>	Namun meski begitu, Fang Yuan tidak ingin bertemu dengan Gu Master iblis ini. Dia lebih suka berurusan dengan binatang buas yang tidak cerdas atau Master Gu.</p>
+<p>	Master Gu memiliki kecerdasan, dan akan menggunakan setiap kekuatan dengan bijak. Master Gu iblis peringkat tiga memiliki ancaman yang jauh lebih besar terhadap Fang Yuan dan Bai Ning Bing dibandingkan dengan lebah jarum Frenzy.</p>
+<p>	Tetapi hal-hal tidak berjalan sesuai keinginan, dan pada sore hari itu, keduanya menemukan jejak Guru Gu iblis sekali lagi.</p>
+<p>“Tuan Gu iblis ini terluka. Ada beberapa daging yang terpotong, di tanah di sini, jadi sepertinya Tuan Gu diracuni, ”kata Fang Yuan.</p>
+<p>	Di Bumi, tidak ada ular sanca beracun. Tapi di sini, mereka sangat umum.</p>
+<p>	Setelah mendengarnya, mata Bai Ning Bing bersinar terang.</p>
+<p>	Tidak dapat disangkal bahwa ini adalah kabar baik. Semakin lemah Gu Master iblis, semakin menguntungkan bagi mereka.</p>
+<p>	Selama beberapa hari berikutnya, jejak yang ditinggalkan oleh Guru Gu iblis meningkat.</p>
+<p>	Dengan pengalamannya selama 500 tahun, Fang Yuan menyimpulkan bahwa mereka semakin dekat dengan Guru Gu iblis yang terluka.</p>
+<p>	“Berhati-hatilah, saya dapat menyimpulkan bahwa cedera Guru Gu ini semakin parah, dan racun ular sanca hijau telah menginfeksi tubuhnya dengan parah. Tetapi karena ini, sikap Guru Gu yang jahat akan dengan mudah menjadi lebih ekstrem,” Fang Yuan mengingatkan Bai Ning Bing.</p>
+<p>	Pertempuran pasti akan ditangani oleh Bai Ning Bing. Budidaya tahap awal Peringkat satu Fang Yuan tidak berguna.</p>
+<p>	Keuntungan terbesar sekarang adalah musuh berada di tempat terbuka, sementara Fang Yuan dan Bai Ning Bing disembunyikan.</p>
+<p>	Keduanya bergerak dengan lebih waspada dari sebelumnya.</p>
+<p>	Mereka bergerak lebih lambat, dan bergerak dengan jarak yang lebih sedikit dari sebelumnya.</p>
+<p>	Akhirnya, pada suatu sore, Fang Yuan membuka matanya, membiarkan akarnya keluar dari telinganya, “Saya menemukan Guru Gu yang jahat itu! Orang itu ada di gua itu, pada nafas terakhir mereka!”</p>
+<p>	Baru saja, dia mendengar suara napas manusia di gua itu.</p>
+<p>	“Serang saat musuh lemah!” Bai Ning Bing bercita-cita untuk berperang, menunjukkan kekejaman di matanya.</p>
+<p>	Tapi dia dihentikan oleh Fang Yuan.</p>
+<p>“Sabar. Kita tidak perlu menyerang. Dengan situasi ini, hanya dalam beberapa hari dia akan mati karena racun.”</p>
+<p>	“Jadi begitu.” Niat membunuh Bai Ning Bing berkurang.</p>
+<p>	Tapi saat ini.</p>
+<p>“Dua di luar, mengapa repot-repot bersembunyi. Aku sudah menemukanmu.” Suara lemah datang dari gua.</p>
+<p>	Mendengar ini, jelas bahwa Gu Master iblis itu adalah perempuan.</p>
+<p>	Ekspresi Fang Yuan berubah, segera mundur.</p>
+<p>	“Apakah kamu tidak menginginkan batu purba saya, cacing Gu saya?” Suara itu datang dari gua lagi.</p>
+<p>	Fang Yuan dan Bai Ning Bing bergerak lebih cepat.</p>
+<p>	Meskipun pihak lain lemah, nada suaranya tegas. Pasti ada beberapa jebakan yang dipasang yang membuatnya tidak takut.</p>
+<p>	Selain itu, tidak ada yang cukup bodoh untuk mengambil risiko dengan orang yang sekarat.</p>
+<p>	“Pergi setelah datang ke sini? Hehe, tidak ada jalan keluar yang mudah, kalian semua harus tinggal!” Tiba-tiba, sesosok tubuh keluar dari gua.</p>
+<p>	“Semua terserah Anda.” Tubuh Fang Yuan berkedip, menyembunyikan kehadirannya.</p>
+<p>	Bai Ning Bing mendecakkan lidahnya, mengaktifkan Sky Canopy Gu dan memanggil Chainsaw Golden Lipan, menyerang musuh.</p>
+<p>	Keduanya bertarung selama tiga ronde, dan Gu Master iblis ditekan.</p>
+<p>	Dia adalah seorang wanita paruh baya tanpa sepatu, memiliki kaki besar dan bulu hitam tebal tumbuh di telapak kakinya. Wajah dan anggota tubuhnya memiliki warna hijau yang aneh; itu disebabkan oleh racun ular sanca hijau.</p>
+<p>	Setelah beberapa saat, Master Gu wanita iblis secara bertahap tidak bisa bertarung. Tiba-tiba, dia menginjak tanah dengan kuat dan melompat kembali ke dalam gua.</p>
+<p>	Bai Ning Bing mengejar tanpa henti.</p>
+<p>	“Jangan mengejarnya!” Fang Yuan tiba-tiba mengingatkan, tetapi tidak tepat waktu.</p>
+<p>	Bam!</p>
+<p>	Sebuah ledakan keras terjadi tepat di bawah kaki Bai Ning Bing saat seluruh tubuhnya terhempas.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

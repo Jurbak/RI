@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 156 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 156";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_155.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 156">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_157.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 156</h1>
+        <div class="text-left">
+<p>	Bab 156</p>
+<p>	Bab 156: Resep Naungan Digital, Misteri Anggur Bunga</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Tuan Fang Yuan, lewat sini menuju ruang rahasia, silakan masuk.” Di terowongan gelap yang menakutkan, seorang Guru Gu tua peringkat dua berjalan di depan, memimpin jalan bagi Fang Yuan.</p>
+<p>	Ruang rahasia yang menyimpan semua resep kombinasi cacing Gu dari klan, tidak jauh di depan.</p>
+<p>Fang Yuan naik ke Peringkat tiga, sehingga statusnya berubah 180 derajat. Semua resep fusi disimpan di klan – selama itu bukan resep peringkat empat atau lima, dia memiliki wewenang untuk memeriksanya.</p>
+<p>	Jika itu adalah Master Gu peringkat satu atau dua, untuk melihat resepnya, mereka perlu membayar batu purba atau menukar menggunakan poin prestasi.</p>
+<p>Ruang rahasia ini berada di ruang bawah tanah desa, di lokasi yang sangat tersembunyi. Bahkan jika desa itu dimusnahkan, ruang rahasia ini akan tetap ada.</p>
+<p>	Saat itu, pencipta klan Gu Yue, pemimpin klan generasi pertama, menemukan mata air esensi purba di dalam gua bawah tanah ini, sehingga memutuskan untuk membangun desanya di sini.</p>
+<p>	Melalui generasi pembangunan dan pertumbuhan oleh para pemimpin klan, gua bawah tanah klan Gu Yue telah menjadi pangkalan rahasia klan Gu Yue.</p>
+<p>	Biasanya, Master Gu biasa tidak memiliki hak untuk muncul di lokasi ini. Hanya tetua klan, pemimpin klan, dan Master Gu Aula Kegelapan yang bertugas melindungi tempat itu yang memiliki otoritas seperti itu.</p>
+<p>Banyak Master Gu hanya pernah ke sana sekali dalam hidup mereka.</p>
+<p>	Itu selama upacara kebangkitan, di mana anak-anak akan datang ke laut musim semi purba, berharap untuk membangunkan lubang mereka.</p>
+<p>	Selain itu, kecuali ada alasan khusus, masuk ke gua bawah tanah ini dilarang untuk semua orang. Bahkan Master Gu yang menjaga tempat itu dipilih setelah mempertimbangkan dengan cermat.</p>
+<p>	Bagaimanapun, mata air purba di gua bawah tanah ini adalah fondasi seluruh desa Gu Yue. Dari pusat mata air, sejumlah besar batu purba diproduksi, dan itu menopang budidaya Master Gu dari seluruh klan.</p>
+<p>	Di terowongan, dua set langkah kaki bisa terdengar.</p>
+<p>	Di kejauhan, terdengar suara air sungai yang mengalir — itu adalah sungai bawah tanah di dalam gua.</p>
+<p>	Sesaat kemudian, Guru Gu yang memimpin membawa Fang Yuan ke pintu batu.</p>
+<p>	Dia menepuk perutnya, dan cacing Gu terbang keluar dari lubangnya. Saat bunga api beterbangan, itu mengetuk pintu batu.</p>
+<p>Permukaan pintu batu itu beriak, seperti batu yang dilemparkan ke dalam air. Segera setelah itu, dinding batu berkedip dan berangsur-angsur menghilang, menunjukkan ruang rahasia di belakang.</p>
+<p>	Ukuran ruang rahasia agak kecil, hanya 666 m². Setiap beberapa langkah, akan ada meja batu setinggi setengah dari seseorang. Puluhan meja batu memiliki piring batu giok putih di atasnya, dan di piring itu ada cacing Gu yang diam-diam beristirahat.</p>
+<p>	Cacing-cacing Gu ini memiliki berbagai macam warna, seukuran kepalan tangan; mereka memiliki penampilan yang sangat mirip, seperti ulat sutra. Di kepalanya, ada dua mata majemuk seperti lebah atau capung, berwarna-warni dan tampak seperti kaca mengkilap. Namun permukaannya tidak lembut, tetapi ditutupi lapisan cangkang serangga, dan cangkangnya bahkan memiliki kilau emas.</p>
+<p>	“Tuan Fang Yuan, ini adalah pertama kalinya Anda ke ruang rahasia, jadi izinkan saya menjelaskan. Ini adalah Peringkat dua Digital Shade Gu, semuanya memiliki resep yang tercatat di dalamnya. Di cacing Digital Shade Gu hijau, hampir semua resep Peringkat satu dapat ditemukan di dalamnya. Adapun Gu berwarna merah-hitam, ada Peringkat dua resep. Putih berisi resep peringkat tiga, dan oranye memiliki resep peringkat empat. Adapun Peringkat lima, itu terkandung dalam cacing Digital Shade Gu ungu paling sentral. ”</p>
+<p>	Di sampingnya, Guru Gu tua memperkenalkan dengan tepat.</p>
+<p>Digital Shade Gu adalah jenis rekaman cacing Gu. Hanya satu langkah lebih maju, dan itu akan menjadi Gu Foto-audio Peringkat tiga.</p>
+<p>	Setelah Photo-audio Gu disempurnakan, ia tidak hanya dapat menyimpan rekaman, tetapi juga dapat merekam suara. Di gua rahasia retakan batu, Biksu Anggur Bunga menggunakan Gu Foto-audio untuk memberi tahu Fang Yuan tentang detail warisan.</p>
+<p>	Tetapi untuk merekam resep, suara tidak diperlukan, sehingga Digital Shade Gu sudah cukup.</p>
+<p>	Resep fusi, ini sangat berharga. Menggunakan kertas bambu biasa untuk merekamnya, jika mereka dicuri, mereka tidak hanya dapat memperbaiki cacing Gu khusus klan Gu Yue, itu juga merupakan kebocoran besar informasi klan.</p>
+<p>	Mengetahui musuh mengarah ke pertempuran yang lebih mudah, dan Master Gu yang berpengalaman dapat belajar tentang kekuatan dan kelemahan cacing Gu dari resep penyempurnaan.</p>
+<p>	Setelah bocor, terhadap klan kerugiannya akan parah. Di masa depan ketika mereka bertempur, Master Gu dari klan itu mungkin juga dirugikan dalam cacing Gu.</p>
+<p>	Dengan demikian, resep dikontrol secara ketat, dan sebagaimana diklasifikasikan berdasarkan peringkat, disimpan dengan tepat.</p>
+<p>Digital Shade Gu lebih mudah untuk disuling dan memiliki biaya rendah, jadi itu adalah metode umum untuk memuat resep.</p>
+<p>	“Lord Fang Yuan, Digital Shade Gu ini semua milik tetua klan Aula Rahasia. Tapi itu tidak akan menghalangi Anda untuk menggunakan esensi purba dan menjelajah. Hanya saja dengan identitas Anda saat ini, Anda tidak dapat menelusuri resep Peringkat empat dan lima. Ada juga dua hal lagi — ruang rahasia adalah zona merah klan, setiap tindakan Anda di sini diamati sepenuhnya secara rahasia. Setiap hari, Anda hanya bisa tinggal di sini selama lima belas menit. Setelah waktunya habis, Anda harus pergi, “Gu Master terus berbicara.</p>
+<p>	“Mm, aku mengerti.” Fang Yuan mengangguk.</p>
+<p>	“Tuan Fang Yuan, bawahan ini tidak memiliki wewenang untuk masuk, jadi saya akan menunggu di pintu. Setelah waktunya habis, aku akan membawamu keluar, ”pria tua itu membungkuk.</p>
+<p>	Fang Yuan berjalan ke ruang rahasia. Begitu dia masuk, pintu batu berubah dari virtual menjadi padat, menjebaknya di dalam ruangan sendirian.</p>
+<p>Berjalan di ruang rahasia, itu damai. Gema langkah kakinya bisa terdengar memantul dari dinding karena dinding di sekitarnya memiliki Water Light Gu di dalamnya.</p>
+<p>	Tubuh mereka memancarkan cahaya, goyah seperti air, bertukar antara cahaya dan bayangan, dengan lapisan demi lapisan bersinar tanpa batas.</p>
+<p>	Fang Yuan mengambil cacing Gu berwarna merah-hitam dan menyuntikkan esensi purba perak putihnya ke dalam. Segera dua berkas cahaya melesat keluar dari mata majemuk Digital Shade Gu.</p>
+<p>	Dia mengangkat Gu, dan mengarahkan matanya ke piring batu giok putih di atas meja.</p>
+<p>	Dua sinar cahaya mengenai lempeng batu giok putih, dan setelah beberapa fluktuasi, kata-kata mulai muncul.</p>
+<p>Ini adalah resep tentang cara memperbaiki Moonscar Gu.</p>
+<p>	Pertama, daftar kekuatan Moonscar Gu, yang merupakan peningkatan jarak serangan, dua kali lipat dari Moonlight Gu. Kelemahannya adalah serangan di bawah standar.</p>
+<p>	Berikutnya adalah resep penyempurnaan — Moonscar Gu disempurnakan dari menggabungkan Moonlight Gu dan Scar Rock Gu.</p>
+<p>Berikutnya adalah poin penting untuk menyempurnakan Gu ini, intinya adalah — jika selama penyempurnaan, beberapa batu giok ditambahkan, atau dilakukan pada malam hari ketika ada banyak cahaya bulan dan terpapar, akan ada peluang keberhasilan yang lebih tinggi.</p>
+<p>	Terakhir, pengalaman para Master Gu yang mencoba menggabungkan Gu ini. Ini memiliki konten terbesar, hampir mencapai sepuluh ribu kata.</p>
+<p>	Fang Yuan melihat dan mengingat beberapa hal dalam hati.</p>
+<p>	Itu setelah semua eksperimen dan percobaan orang yang tak terhitung jumlahnya, dan yang berpengalaman dikumpulkan dari berbagai upaya. Beberapa informasi, bahkan Fang Yuan tidak tahu.</p>
+<p>	Bagaimanapun, Moonlight Gu adalah Gu yang unik dari klan Gu Yue. Dalam kehidupan sebelumnya, dia tidak pernah menjadi tetua klan atau datang ke sini untuk menelusuri resep.</p>
+<p>	Waktu terbatas, jadi Fang Yuan dengan cepat melihat dan menempatkan Digital Shade Gu kembali ke tempatnya, lalu mengambil Gu berwarna putih untuk diamati.</p>
+<p>	Di Digital Shade Gu putih, ada resep fusion Peringkat tiga.</p>
+<p>Sebagian besar resep tidak sesuai dengan Fang Yuan, karena mereka membutuhkan cacing Gu seperti Moonwhirl atau Moonscar Gu sebagai dasarnya.</p>
+<p>	Fang Yuan tidak melihat dari dekat; untuk menghemat waktu, dia membaca sekilas.</p>
+<p>	Dia pertama kali menggunakan Moonlight Gu untuk bergabung dengan Little Light Gu untuk membentuk Moonglow Gu. Atas dasar itu, hanya ada tiga resep penyempurnaan yang layak digunakan.</p>
+<p>	Pertama adalah Bulan Emas Peringkat tiga, dengan sepuluh langkah jarak tembak yang sama, tetapi kekuatan serangannya meningkat sekali lagi. Setelah ditembakkan, bulan sabit berwarna emas hampir setinggi setengah pria, dan memiliki aura yang kuat.</p>
+<p>	Kedua adalah Frost Moon Gu. Moonblade menjadi putih menakutkan dan sedingin es, memiliki elemen es di dalamnya. Siapa pun yang terluka akan diserang oleh rasa dingin, bergerak perlahan.</p>
+<p>	Yang ketiga adalah Illusory Moon Gu. Gu ini lebih unik — tidak digunakan untuk menyerang, tetapi setelah diaktifkan, Gu Master dapat membuat klon bayangan untuk menarik serangan dan membingungkan musuh.</p>
+<p>	Terutama ketika Gu bulan Ilusi ini, setelah disempurnakan, dapat digunakan sebagai dasar untuk Gu Moonshadow Peringkat empat.</p>
+<p>“Moonshadow Gu dapat ditanamkan ke dalam lubang Master Gu dan menekannya agar tidak menggunakan esensi purba.” Dalam informasi tentang Gu Bulan Ilusi, hanya ada beberapa informasi yang dijelaskan secara samar tentang Gu Bayangan Bulan, sebagai referensi.</p>
+<p>	“Moonshadow Gu … bukankah itu cacing Gu yang digunakan oleh pemimpin klan generasi keempat untuk menyelinap menyerang Biksu Anggur Bunga?” Fang Yuan melihat ini, mengerutkan kening dalam-dalam.</p>
+<p>Di dunia ini, ada cacing Gu yang tak terhitung jumlahnya, dan bahkan dengan pengalamannya selama lima ratus tahun, ia hanya tahu kurang dari 0,001% dari semua cacing Gu di dunia ini.</p>
+<p>	Dia awalnya memiliki gambaran kasar tentang Moonshadow Gu, tetapi sekarang dia tahu efek cacing Gu, kecurigaan muncul di hatinya.</p>
+<p>	Moonshadow Gu memiliki kegunaan yang unik. Itu mampu menekan 30% dari esensi purba dalam aperture Peringkat empat Gu Master, 15% dari Peringkat lima, dan 60% dari Master Gu Peringkat tiga. Itu berarti, dengan bakat kelas C seperti Fang Yuan, hanya memiliki 40~50%, jika mereka terkena Moonshadow Gu ini, mereka tidak akan dapat menggunakan satu ons pun esensi purba, kehilangan semua kekuatan pertempuran mereka dan sama baiknya. sebagai lumpuh.</p>
+<p>	Tentu saja, jika itu Fang Yuan, jika Moonshadow Gu digunakan padanya, itu akan menjadi ‘melempar roti daging ke anjing’ – apa yang hilang tidak akan pernah bisa kembali.</p>
+<p>	Itu karena begitu Moonshadow Gu memasuki aperture-nya, Spring Autumn Cicada akan menunjukkan dominasinya, dan di bawah auranya, Moonshadow Gu akan langsung disempurnakan olehnya, dan menjadi miliknya.</p>
+<p>	Yang membingungkan Fang Yuan, bukanlah efek Moonshadow Gu, tetapi Biksu Bunga Anggur.</p>
+<p>	“Saya ingat bahwa di dinding bayangan, Biksu Anggur Bunga bermandikan darah, penuh luka. Pertama, pertempurannya dengan pemimpin klan generasi keempat dan tetua hanya memberinya luka ringan. Saya pikir luka parah itu disebabkan oleh Moonshadow Gu ini, tetapi untuk berpikir bahwa Moonshadow Gu ini hanya digunakan untuk menekan esensi purba, melumpuhkan Gu Master. Lalu dari mana Biksu Anggur Bunga mendapatkan luka parahnya? ”</p>
+<p>	Pikiran Fang Yuan sangat teliti, sehingga menjadi lebih curiga. Saat itu, ketika Biksu Anggur Bunga kalah dari tetua klan dan melarikan diri, apa yang sebenarnya terjadi?</p>
+<p>	Moonshadow Gu bukanlah penyebab kematiannya. Jadi, apa itu?</p>
+<p>	Sekaligus, warisan Biksu Anggur Bunga yang awalnya jelas, menjadi misteri lengkap bagi Fang Yuan lagi.</p>
+<p>	“Tuan Fang Yuan, sudah lima belas menit, saya yakin Anda telah memperoleh beberapa keuntungan. Tidak peduli apa, silakan datang lagi besok. ” Pada titik ini, pintu berubah menjadi keadaan astral lagi, saat Tuan Gu tua berdiri di luar dan berkata dengan hormat.</p>
+<p>	“Oke.” Tatapan Fang Yuan bersinar saat dia meletakkan Digital Shadow Gu, meninggalkan ruang rahasia.</p>
+<p>	Terlepas dari apakah itu Bulan Emas, Bulan Frost, atau Bulan Ilusi, resep penyempurnaan ini bukanlah yang dia inginkan. Itu karena mereka semua mengkonsumsi kelopak bunga anggrek bulan dalam jumlah besar.</p>
+<p>	Kelopak bunga anggrek bulan sulit disimpan, hanya mampu hidup beberapa hari. Dalam rencana Fang Yuan, dia ingin meninggalkan klan Gu Yue dan menjelajahi dunia. Jika dia memurnikan Gu ini, tanpa makanan apa pun mereka akan mati dalam waktu setengah tahun. Dia mungkin juga tidak memperbaikinya.</p>
+<p>	Namun, masih ada resep peringkat tiga yang tidak berhasil dia lihat.</p>
+<p>	“Aku akan datang lagi besok, kurasa.” Pikiran seperti itu melintas di benaknya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

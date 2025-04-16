@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 253 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 253";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_252.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 253">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_254.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 253</h1>
+        <div class="text-left">
+<p>	Bab 253</p>
+<p>	Bab 253: Hanya orang mati yang bersih</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Awan gelap memenuhi langit memunculkan suasana yang berat dan tanda-tanda hujan lebat.</p>
+<p>	Karavan bergerak di sepanjang jalur gunung dengan suasana khusyuk.</p>
+<p>	Semua kumbang besar gemuk kulit hitam di karavan itu mati; dua ular bersayap tetap ada tetapi dalam keadaan lumpuh; melainkan kodok bagasi yang bertahan sebagian besar, semua karena mereka berukuran kecil dan bergerak cukup cepat, dengan mudah bersembunyi dari serangan binatang buas. Adapun burung unta, ukurannya mirip dengan kodok ransel, tetapi mereka memiliki kebiasaan mengubur kepala mereka di tanah begitu mereka merasakan ancaman, jadi ini menyebabkan korban mereka menjadi yang tertinggi.</p>
+<p>	Shang Xin Ci bercampur di antara kerumunan, tatapannya agak rumit saat dia melihat selusin kodok bagasi di sampingnya.</p>
+<p>	Barang-barang yang dibawa kodok bagasi ini semuanya milik Zhang Clan.</p>
+<p>	Fang Yuan dan Bai Ning Bing tidak berpartisipasi dalam diskusi, tetapi para pemimpin karavan masih mengirim barang dalam jumlah besar kepadanya.</p>
+<p>	“Semua ini karena kekuatan…” Shang Xin Ci menghela nafas.</p>
+<p>	Sebelumnya, ketika Zhang Zhu ada di sini, para pemimpin karavan ini menunjukkan sikap acuh tak acuh; tapi sekarang, mereka sopan sampai-sampai mereka tampak menjilatnya.</p>
+<p>	Terlebih lagi, ketika para Master Gu dan para pelayan ini memandangnya sekarang, tatapan mereka membawa rasa hormat dan ketakutan.</p>
+<p>	“Semua perubahan ini karena mereka.” Shang Xin Ci memberikan tatapan kompleks ke arah Fang Yuan dan Bai Ning Bing yang tidak terlalu jauh.</p>
+<p>	Di satu sisi, dia menerima perasaan aman dari Fang dan Bai; sementara di sisi lain, dia yang baik hati merasa takut bagaimana mereka dapat dengan mudah membunuh orang.</p>
+<p>	“Hahaha, sepertinya kita benar-benar menakuti gadis itu.” Bai Ning Bing sedang berjalan berdampingan dengan Fang Yuan dan merasakan tatapan Shang Xin Ci, dia tertawa pelan.</p>
+<p>	Tujuh sampai delapan hari telah berlalu sejak mereka membunuh ayah dan anak Ou Clan.</p>
+<p>	Ini telah mempengaruhi seluruh karavan, termasuk Shang Xin Ci dan Xiao Die.</p>
+<p>	Xiao Die bahkan tidak berani bernapas dengan keras di depan Fang dan Bai, sementara Shang Xin Ci juga tidak berani lagi menandingi tatapan Fang Yuan.</p>
+<p>	Reaksi seperti itu semuanya sesuai dengan harapan Fang Yuan.</p>
+<p>	Pasangan tuan dan pelayan ini tumbuh di Klan Zhang sejak muda, ideologi jalan lurus telah mendarah daging ke dalam diri mereka. Tidak dapat dihindari bagi mereka untuk menyadari perbedaan ketika Fang dan Bai menunjukkan sifat iblis mereka. Mereka harus mengubah proses berpikir mereka untuk menerima dua sosok jalur iblis ini.</p>
+<p>	Fang Yuan tidak khawatir.</p>
+<p>	Mereka tidak punya pilihan selain menerima dan berkompromi ketika mereka menghadapi tekanan eksternal. Bagaimanapun, manusia ingin terus hidup. Setelah beberapa serangan kelompok binatang, kerenggangan di hati mereka secara bertahap akan hilang.</p>
+<p>	“Masalahnya sekarang adalah dia.” Fang Yuan memandang Chen Xin.</p>
+<p>	Tuan Gu muda ini adalah orang yang melarikan diri bersama Zhang Zhu. Fang Yuan mengira dia sudah dihancurkan menjadi pasta daging oleh gajah terbang bulu putih, tetapi untuk berpikir dia benar-benar hidup.</p>
+<p>	Master Gu yang memiliki cacing Gu yang tidak biasa, bahkan jika budidaya mereka tidak tinggi, tidak dapat dipandang rendah.</p>
+<p>	Fang Yuan telah kehilangan telinga telinga yang mendengar dan tidak memiliki metode pengintaian lain, menyebabkan dia mengabaikan Chen Xin. Dia juga tidak tahu berapa banyak yang terakhir diketahui. Tapi terlepas dari itu, dia memiliki tindakan balasan untuk semuanya.</p>
+<p>	Dia berhati-hati dan selalu mempertimbangkan kegagalan terlebih dahulu. Pada saat itu, dia sudah menyiapkan tindakan jika seseorang mengetahuinya.</p>
+<p>	Jadi, setelah dia membunuh Zhang Zhu, dia dengan sengaja menunjukkan kekuatan yang luar biasa. Jika seseorang benar-benar mengetahuinya, mereka akan ditakuti oleh kekuatan ganas Fang dan Bai; dan akan menyembunyikan diri mereka.</p>
+<p>	Ayah dan anak Klan Ou berlari sendiri ke dalam garis api; jika bukan karena Ou Fei datang untuk mencari masalah, Fang Yuan akan mencari masalah sendiri atau menunjukkan metodenya yang tangguh selama serangan kelompok binatang buas.</p>
+<p>	Secara alami Fang Yuan memiliki banyak metode untuk menyerang balik bahkan jika dia terekspos. Pemimpin karavan Jia Long adalah salah satu bidak catur tersebut.</p>
+<p>	Dia adalah bawahan Jia Fu dan Fang Yuan telah menerima token dari Jia Fu di desa Gu Yue. Selama dia menunjukkan token perintah, dia bisa mendapatkan kepercayaan Jia Long untuk beberapa tindakan.</p>
+<p>	Namun, untuk setiap rencana, tidak peduli seberapa sempurna rencana itu, kecelakaan selalu bisa terjadi ketika diimplementasikan.</p>
+<p>	Juga dikenal sebagai: Manusia mengusulkan tetapi Tuhan yang menentukan 1 .</p>
+<p>	Bahkan jika Fang Yuan memiliki banyak pengalaman, cerdik dan memiliki pandangan jauh ke depan, dia juga memiliki kemungkinan untuk gagal. Tapi karena ini, hidup bisa begitu cemerlang dan penuh ketidakpastian.</p>
+<p>	Pertimbangan pertama Fang Yuan adalah hasil terburuk.</p>
+<p>	Jika peruntungannya sangat buruk dan seseorang melihatnya atau dia meninggalkan bukti kuat ketika dia membunuh Zhang Zhu; dan itu menyebabkan Shang Xin Ci menyadari kebenaran, dia akan merasakan kebencian yang mendalam terhadapnya; seseorang yang menggigit tangan yang memberinya makan.</p>
+<p>	Apa yang harus dilakukan?</p>
+<p>	Sederhana, bunuh Shang Xin Ci.</p>
+<p>	Dia hanya manusia sekarang dan membunuhnya sangat sederhana. Pemimpin klan Shang Clan juga tidak tahu bahwa dia adalah putrinya sendiri; tidak akan ada dampak dari Klan Shang jika dia membunuhnya secara diam-diam.</p>
+<p>	Melihat hasilnya sekarang, Zhang Zhu sudah mati tetapi keberuntungan Fang Yuan bukan yang terbaik karena dia meninggalkan jejak. Tapi itu juga bukan yang terburuk, setidaknya Shang Xin Ci masih dalam kegelapan.</p>
+<p>	Fang Yuan yakin akan hal ini karena Shang Xin Ci masih muda dan emosinya benar-benar terekspos di matanya.</p>
+<p>	“Ada kelompok buaya-gajah 2 di depan!”</p>
+<p>	“Sekelompok buaya-gajah menyerbu ke arah kita!!”</p>
+<p>	“Awas, waspada!”</p>
+<p>	Seorang Guru Gu investigasi bergegas menuju karavan dari depan, membawa kabar buruk.</p>
+<p>	Gangguan terjadi di karavan sebelum dengan cepat berubah tenang.</p>
+<p>	“Itu hanya buaya-gajah, tidak perlu panik.”</p>
+<p>	“Kami tidak memiliki cukup tenaga untuk mempertahankan diri di sini.”</p>
+<p>	“Benar. Semua orang bubar, masuki hutan hujan!”</p>
+<p>	Gu Masters memberikan perintah yang paling masuk akal; orang-orang sudah dalam keadaan sangat tegang dan dapat dengan cepat bubar ke segala arah.</p>
+<p>	Jika mereka menghadapi situasi seperti itu sebelum gunung Fei Hou, mereka mungkin khawatir tentang barang-barang mereka dan terus ragu-ragu. Namun sekarang, mereka dengan tegas menyerahkan barang-barang itu tanpa melirik mereka lagi, berkonsentrasi untuk melarikan diri.</p>
+<p>	Fang Yuan dan Bai Ning Bing langsung menyerbu ke dalam hutan hujan sambil melindungi Shang Xin Ci dan Xiao Die.</p>
+<p>	Ia tidak kaget dengan kedatangan rombongan buaya-gajah karena memang itu rencananya.</p>
+<p>	Gemuruh…</p>
+<p>	Rombongan buaya-gajah itu melangkah masuk, tak lama kemudian terdengar jeritan darah dan suara pohon tumbang.</p>
+<p>	Fang Yuan dengan hati-hati memimpin Shang Xin Ci dan yang lainnya melewati hutan hujan, tetapi ada terlalu banyak buaya-gajah; mereka masih berlari menjadi satu.</p>
+<p>	Buaya-gajah berukuran kecil, kira-kira seukuran yak, yang memungkinkan mereka lebih lincah. Seluruh tubuh mereka ditutupi sisik seperti buaya dengan pertahanan yang jauh melampaui gajah terbang berbulu putih. Ekor mereka yang mirip dengan buaya, membuntuti di tanah.</p>
+<p>	“Ah!” Xiao Die menjerit saat melihat buaya-gajah seperti bukit ini menyerang mereka.</p>
+<p>	Shang Xin Ci juga pucat.</p>
+<p>	“Siapa Takut.” Fang Yuan dengan acuh tak acuh berkata, sebelum menyerbu ke arah buaya-gajah.</p>
+<p>	Satu manusia dan satu gajah bertabrakan di tengah jalan; tabrakan mereka menghasilkan suara keras.</p>
+<p>	Fang Yuan mundur dua langkah, dan armor cahaya putih di tubuhnya berkedip tiga kali. Tapi buaya-gajah itu, tengkoraknya langsung hancur dan darah menyembur keluar saat jatuh ke tanah, didorong mundur selusin langkah sebelum menabrak batang pohon besar dan berhenti.</p>
+<p>	“Luar biasa!” Mata Xiao Die terbuka lebar karena terkejut.</p>
+<p>	Ini adalah gajah buaya biasa dan bukan seratus raja binatang, sementara Fang Yuan memiliki esensi purba perak salju bersama dengan kekuatan dua babi hutan dan seekor buaya; menanganinya secara alami sangat mudah.</p>
+<p>	Namun, Shang Xin Ci dan Xiao Die belum pernah melihat pemandangan yang begitu sengit.</p>
+<p>	Zhang Zhu tidak memiliki kekuatan fisik yang besar dan juga seorang Master Gu yang menyembuhkan, jadi dia hanya mengandalkan menghindar dan membantu selama pertempuran.</p>
+<p>	Fang Yuan, bagaimanapun, menghadapi serangan itu, bertarung tanpa menahan diri; ini secara alami meninggalkan kesan mendalam pada pasangan tuan dan pelayan.</p>
+<p>	Sekitar dua jam kemudian, kelompok buaya-gajah berangsur-angsur pergi dan kelompok karavan mulai berjalan keluar dari hutan hujan.</p>
+<p>	Setelah korban dihitung, mereka hanya kehilangan seorang Guru Gu dan selusin pelayan; itu bukan kerugian besar.</p>
+<p>	Kafilah memulai perjalanan mereka lagi setelah mengatur ulang semua barang.</p>
+<p>	Beberapa hari kemudian, mereka keluar dari wilayah pegunungan Xiang Ya, dan memulai perjalanan mereka ke gunung Mu Bei.</p>
+<p>	Dalam setengah bulan berikutnya, karavan diserang oleh beruang batu hitam, rusa mahkota besi, dan kelompok binatang buas lainnya.</p>
+<p>	Dan karena Fang dan Bai bertindak sebagai pengawal yang tak terpisahkan, Shang Xin Ci dan Xiao Die tidak dirugikan. Kontak dekat ini sepanjang waktu mulai mengubah sikap tuan dan pelayan.</p>
+<p>	Shang Xin Ci mulai lebih dekat dengan Fang Yuan, dengan riang berbicara dengannya dan tidak lagi menghindari tatapannya. Xiao Die telah benar-benar berubah menjadi pemuja Fang Yuan dan Bai Ning Bing.</p>
+<p>	Menyembah yang kuat adalah karakter semua makhluk hidup, karena kekuatan berarti kemungkinan bertahan hidup yang lebih tinggi.</p>
+<p>	Selain itu, Fang Yuan dan Bai Ning Bing adalah orang-orang dengan prinsip meskipun mereka dari jalur iblis. Dalam perspektif kedua gadis itu, keduanya tidak meminta apa pun atau mengambil keuntungan dari mereka, hanya membalas budi. Perilaku ini penuh dengan aura heroik, dan bahkan di antara jalan lurus, berapa banyak orang yang memiliki karakter seperti itu?</p>
+<p>	Tidak peduli seberapa jelek rupa Fang Yuan, di hati tuan dan pelayan, dia jauh lebih disukai daripada banyak orang jalan lurus yang munafik dan licik.</p>
+<p>	Beberapa hari kemudian, karavan memasuki wilayah pegunungan Mu Bei.</p>
+<p>	Zombie mulai muncul.</p>
+<p>	Gunung Mu Bei tidak selalu memiliki nama yang sama. Lebih dari seratus tahun yang lalu, ada klan besar di gunung ini.</p>
+<p>	Seorang Guru Gu iblis mengubah segalanya.</p>
+<p>	Dia dulunya adalah pelayan klan ini. Pada hari pernikahannya, istrinya yang cantik telah ditangkap oleh Gu Master klan dan dipermalukan sampai mati.</p>
+<p>	Dia mengubur kebencian ini jauh ke dalam hatinya dan seperti keberuntungan, dia memperoleh warisan ‘Zombie King’, seorang kepala iblis.</p>
+<p>	Setelah mengalami kesulitan selama hampir seratus tahun, dengan kultivasi peringkat lima, ia memerintahkan pasukan zombie dan menyerang klan, membantai semua orang. Dia tidak menyayangkan mayat mereka, mengubahnya menjadi zombie.</p>
+<p>	Setelah menyelesaikan semua ini, dia mendirikan batu nisan besar di reruntuhan klan.</p>
+<p>	Di batu nisan itu, dia mengukir nama istrinya.</p>
+<p>	Peristiwa ini mengguncang seluruh Perbatasan Selatan.</p>
+<p>	Gunung ini telah disebut gunung Mu Bei sejak saat itu. Zombie berkeliaran bebas di gunung, membunuh binatang buas atau orang yang lewat, menyerap darah sebagai makanan mereka. Dan ptomaine pada mereka akan menginfeksi mayat, menghasilkan zombie baru.</p>
+<p>	Seperti ini, ada banyak zombie di gunung Mu Bei.</p>
+<p>	Untuk melindungi keamanan rute perdagangan, klan mengorganisir skuadron pemburu zombie setiap tahun untuk membersihkan zombie ini.</p>
+<p>	Tetapi tidak peduli berapa banyak mereka membersihkan, mereka tidak dapat membunuh semua zombie karena jumlah mereka yang tak ada habisnya.</p>
+<p>	Bagaimanapun, skuadron pemburu zombie terbatas ukurannya, dengan begitu banyak gunung di Perbatasan Selatan dan bahaya di jalan, mereka harus mengeluarkan banyak uang untuk ekspedisi panjang ini. Itu adalah situasi di mana mereka harus berinvestasi banyak tetapi mendapatkan lebih sedikit, dan bahkan pada saat itu tidak mungkin untuk membalikkan gunung Mu Bei. Selama zombie lolos, pasukan zombie akan muncul lagi setelah beberapa saat. Setelah gagal beberapa kali bahkan setelah ekspedisi skala besar, antusiasme masyarakat mulai menghilang.</p>
+<p>	Karavan memutuskan untuk berkemah di kaki gunung Mu Bei untuk bermalam.</p>
+<p>	Bintang-bintang bersinar terang di langit. Fang Yuan menatap gunung Mo Bei yang gelap, tatapan penuh perhatian melintas di matanya.</p>
+<p>	“Sudah waktunya, orang-orang ini tidak lagi berharga. Sudah waktunya untuk menyelesaikan semua masalah ini.”</p>
+<p>	Chen Xin harus mati, tetapi hanya membuangnya saja bisa membuat situasinya semakin merepotkan. Berapa banyak yang dia ketahui, kepada siapa dia mengungkapkan, dan apakah ada orang lain yang telah melihat pembunuhan itu? Fang Yuan tidak tahu semua ini.</p>
+<p>	Namun, Fang Yuan tidak punya niat untuk mencari tahu. Karena dalam rencananya, Chen Xin akan mati dan yang lainnya juga akan mati.</p>
+<p>	Hanya orang mati yang bersih</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

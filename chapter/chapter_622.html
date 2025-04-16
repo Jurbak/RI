@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 622 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 622";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_621.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 622">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_623.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 622</h1>
+        <div class="text-left">
+<p>	Bab 622 – Memahami kelemahan terbesar!</p>
+<p>	Bab 622: Memahami kelemahan terbesar!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Situasi di Eighty-Eight True Yang Building berputar dan berputar tanpa akhir yang terlihat.</p>
+<p>	Setelah makhluk tak terkalahkan mendominasi seluruh dunia, penguasa era, peringkat sembilan Immortal Venerable Giant Sun; keinginan mengerikan yang secara khusus dia tinggalkan untuk bertanggung jawab atas Eighty-Eight True Yang Building….</p>
+<p>	Pemenang kontes Pengadilan Kekaisaran terakhir, pemimpin suku saat ini dari kekuatan super, suku Hei, yang memiliki Fisik Bela Diri Sejati Kekuatan Besar dari sepuluh fisik ekstrem, Hei Lou Lan….</p>
+<p>	Berdiri tegak di atas pusat dataran utara saat bertahun-tahun mengalami perubahan yang tak terhitung jumlahnya, namun dipenjara selama ratusan ribu tahun – roh tanah Frost Jade Peacock …</p>
+<p>	Seorang legenda hidup, membantu yang terluka selama hampir sepanjang hidupnya, kebajikan dan namanya terkenal jauh dan luas, memiliki warisan Gu Immortal, naik ke peringkat enam Gu Immortal, memiliki dua Immortal Gu misterius, Tai Bai Yun Sheng …</p>
+<p>	Sebaik.</p>
+<p>	Pemilik Spring Autumn Cicada, peringkat ketujuh di antara sepuluh Gu mistis teratas, pemilik tanah yang diberkati Hu Immortal, seorang manusia yang memiliki beberapa Immortal Gu, iblis berusia lima ratus tahun yang terlahir kembali, Gu Yue Fang Yuan …</p>
+<p>	Disukai oleh peringkat delapan kekayaan menyaingi surga Gu, Gu Immortal dalam kehidupan sebelumnya Fang Yuan yang telah berturut-turut mewarisi warisan Giant Sun dan kesempatan yang ditinggalkan oleh Pencuri Surga Iblis Venerable, menjadi pahlawan besar dataran utara yang menolak invasi benua tengah, Ma Hong Yun…</p>
+<p>	Dilihat sebagai ‘iblis dunia lain’ oleh kehendak Giant Sun, istri Ma Hong Yun di kehidupan sebelumnya Fang Yuan yang menjadi jalur kebijaksanaan Gu Immortal dan memberikan bantuan yang tak terhitung banyaknya kepada suaminya, wanita legendaris Zhao Lian Yun…</p>
+<p>	Dan juga.</p>
+<p>	Mantan peringkat tujuh Gu Immortal, grandmaster jalur penyempurnaan, peri generasi ketiga puluh enam dari Spirit Affinity House – Mo Yao yang telah bersekongkol melawan Eighty-Eight True Yang Building; wasiat misterius yang dia tinggalkan setelah kematiannya…</p>
+<p>	Semua eksistensi ini memiliki pemikirannya masing-masing dengan tujuannya masing-masing. Dan di platform tanah terberkati Pengadilan Kekaisaran yang runtuh ini, mereka bertabrakan dan bersaing satu sama lain.</p>
+<p>	Mereka memiliki kelebihan, kemampuan dan juga memiliki kelemahan dan kekurangan masing-masing.</p>
+<p>	Ini semua adalah individu yang dipenuhi dengan bakat, mereka adalah elit atau pahlawan dari generasi mereka. Mereka mahir dalam merencanakan dan menyusun strategi, menjadi ahli taktik, atau memiliki kekuatan luar biasa atau keberuntungan yang tidak masuk akal.</p>
+<p>	Stimulasi intens hidup dan mati, bujukan manfaat besar, menyebabkan keberadaan ini tampil dengan kekuatan penuh mereka, menggunakan semua kemampuan dan kartu truf mereka, mungkin mempertaruhkan semuanya dan mempertaruhkan segalanya dalam satu saat, atau menyusun strategi untuk mengendalikan situasi. .</p>
+<p>	Dengan demikian, keadaan menjadi jelas dari waktu ke waktu, sementara menjadi tidak jelas pada saat berikutnya.</p>
+<p>	Mereka telah berdebat sampai sekarang, tetapi situasinya masih kacau. Hanya Frost Jade Peacock yang ditarik keluar dari permainan, sementara yang lain bisa memiringkan seluruh rangkaian keadaan dengan setiap gerakan mereka dan bukan keberadaan yang bisa diremehkan dalam pengaruhnya terhadap hasil akhir.</p>
+<p>	Sekarang –</p>
+<p>	Bagian utama dari wasiat Giant Sun telah dipaksa keluar dari Eighty-Eight True Yang Building untuk saat ini oleh kartu truf Fang Yuan, menderita serangan intens dari kesusahan surgawi dan bencana duniawi.</p>
+<p>	Kehendak Giant Sun adalah keberadaan yang paling kuat di antara mereka yang hadir. Di satu sisi, bagian utamanya mencoba untuk kembali ke Eighty-Eight True Yang Building, dan di sisi lain, dia mengambil risiko mengeluarkan surat wasiat dari warisan sejati untuk merebut kembali kendali putaran, dan kemudian dengan sepenuh hati mencoba. untuk melenyapkan iblis dunia lain Zhao Lian Yun.</p>
+<p>	Ma Hong Yun dan Zhao Lian Yun telah menjadi penguasa negeri yang diberkahi Pengadilan Kekaisaran dengan beberapa putaran nasib; mereka juga dilindungi oleh jalur keberuntungan warisan sejati dan aman untuk saat ini.</p>
+<p>	Fang Yuan dan Tai Bai Yun Sheng telah membuat aliansi sementara, terlibat dalam putaran penyelidikan konfrontasi dengan Hei Lou Lan.</p>
+<p>	Niat pertempuran Hei Lou Lan melonjak dengan hebat dan dia baru saja akan melawan Fang Yuan secara langsung, ketika wasiat Giant Sun memintanya untuk pergi dan berurusan dengan Ma Hong Yun untuk mengambil kembali jalur keberuntungan warisan sejati.</p>
+<p>	Hei Lou Lan ragu-ragu, tetapi pada akhirnya memilih untuk mendengarkan wasiat Giant Sun.</p>
+<p>	“Aku akan membiarkan kalian pergi untuk saat ini!” Dia memelototi Fang Yuan sebelum berbalik dan pergi dengan cepat.</p>
+<p>	Fang Yuan melihat saat Hei Lou Lan pergi, melayang di langit tanpa mengejar.</p>
+<p>	“Huff huff …” Tai Bai Yun Sheng menghela nafas dari udara keruh, terbang menuju Fang Yuan.</p>
+<p>	Dia mungkin seorang Gu Abadi, tetapi dia hanya berspesialisasi dalam penyembuhan dan tidak memiliki banyak Gu fana; kekuatan pertempurannya dibandingkan dengan Dewa Gu biasa masih memiliki perbedaan besar. Melalui pertempuran yang berkepanjangan, dia perlahan-lahan melemahkan hantu kekuatan manusia itu sampai mati.</p>
+<p>	“Hei Lou Lan akan berurusan dengan Ma Hong Yun untuk mendapatkan kembali jalur keberuntungan warisan sejati! Haruskah kita campur tangan dalam hal ini?” Surat wasiat Mo Yao segera disarankan.</p>
+<p>	Warisan sejati jalur keberuntungan ini adalah harta terpendam tertinggi yang ditinggalkan oleh Giant Sun Immortal Venerable. Saat itu, Giant Sun Immortal Venerable menggunakannya sebagai bagian dari perjalanannya untuk menjadi penguasa sebuah era, tak terkalahkan di dunia.</p>
+<p>	Warisan sejati jalur keberuntungan ini memiliki godaan yang sangat besar bagi Master Gu mana pun!</p>
+<p>	Tatapan Fang Yuan sedikit berkedip, tetapi dia tidak bergerak, malah mengalihkan pandangannya untuk melihat ke kiri.</p>
+<p>	Tidak jauh darinya, angin puyuh terbentuk.</p>
+<p>	“Hati-hati, qi tinju Hei Lou Lan masih bisa mengembun kembali bahkan setelah dihancurkan!” Tai Bai Yun Sheng memperingatkan.</p>
+<p>	Fang Yuan mendengus, dan dengan satu langkah, muncul di depan badai, meninjunya.</p>
+<p>	Ledakan.</p>
+<p>	Suara teredam terdengar dan qi tinju tersebar lagi.</p>
+<p>	Aura pertama sebagian besar hilang, tetapi qi tinju yang tersisa masih bertahan dalam kondensasi kembali. Tapi kuantitas ini agak kecil dan tidak bisa mengembun menjadi bentuk.</p>
+<p>	“Langkah pembunuh jalur kekuatan ini …” Ekspresi Fang Yuan berat.</p>
+<p>	Hantu jalur kekuatan adalah metode serangan jarak jauh dari jalur kekuatan, namun ini adalah pertama kalinya Fang Yuan melihat hantu kekuatan manusia yang memiliki spiritualitas seperti itu.</p>
+<p>	Ini tampaknya merupakan inovasi yang tidak ada catatan dalam semua sejarah Guru Gu yang diketahui Fang Yuan.</p>
+<p>	Itu bahkan bisa disebut sebagai ‘hantu jalur kekuatan Hei Lou Lan’.</p>
+<p>	Lebih penting lagi, ‘hantu jalur kekuatan Hei Lou Lan’ ini bisa mengembun kembali bahkan setelah dihancurkan.</p>
+<p>	Ini memberi perasaan ‘sumber pelecehan yang tidak pernah berakhir’!</p>
+<p>	“Hei Lou Lan tentu saja tidak menggunakan kekuatan penuhnya, jika dia bisa menyerang dengan dua puluh hantu kekuatan manusia pada saat yang sama, dan qi tinju yang tersisa dapat mengembun lagi, kekuatan itu akan menakutkan. Jika dia bisa mengirimkan tiga puluh hantu kekuatan manusia, maka langkah pembunuh jalur kekuatan ini benar-benar dapat bersaing dengan raja zombie surgawi enam lenganmu! ” Surat wasiat Mo Yao dievaluasi dengan nada serius.</p>
+<p>	“Langkah pembunuh apa ini, apakah kamu punya kesan tentang itu?” Fangyuan bertanya.</p>
+<p>	Kehendak Mo Yao perlahan menggelengkan kepalanya: “Saya bukan jalur kekuatan Gu Immortal, gerakan pembunuh ini juga sangat melibatkan jalur jiwa dan jalur qi, selain itu ia memiliki mekanisme penting lainnya. Ini harus menjadi inovasi modern karena sangat berbeda dari gaya kuno, saya menduga ini adalah inovasi dari generasi saat ini.”</p>
+<p>	Raja zombie surgawi enam lengan diteliti oleh Fang Yuan dan disempurnakan oleh Mo Yao.</p>
+<p>	Tapi tidak ada kekurangan jenius di dunia ini, bukan hanya Fang Yuan saja yang bisa berinovasi dengan gerakan pembunuh jalur kekuatan.</p>
+<p>	Tentu saja, Fang Yuan berspesialisasi dalam jalur darah di kehidupan sebelumnya, dan hanya mengembangkan jalur kekuatan di samping.</p>
+<p>	Treemen berbondong-bondong satu demi satu, membentuk gelombang hijau megah yang berusaha menenggelamkan Ma Hong Yun dan Zhao Lian Yun.</p>
+<p>	Namun, warisan sejati jalur keberuntungan Giant Sun seperti telur emas raksasa yang dengan kuat melindungi keduanya.</p>
+<p>	Surat wasiat Giant Sun prihatin dengan konsekuensi dari tindakannya; dia benar-benar ingin membunuh iblis dunia lain Zhao Lian Yun, tetapi juga ingin melindungi keberadaan unik ini yang merupakan warisan sejati jalur keberuntungan Giant Sun.</p>
+<p>	Ketika dia melihat Hei Lou Lan di dekat, dia buru-buru mentransmisikan suaranya: “Saya akan membuka jalan ke domain terpencil warisan sejati, bantu saya mendorong jalur keberuntungan warisan sejati ke dalamnya!”</p>
+<p>	Hei Lou Lan mengangguk. Seluruh tubuhnya bergetar saat dia meninju dengan kedua tinjunya; tinju qi melonjak dengan keras!</p>
+<p>	Boom boom boom…</p>
+<p>	Ledakan teredam terdengar di udara tanpa henti, tinju qi mengembun satu demi satu menjadi hantu jalur kekuatan Hei Lou Lan.</p>
+<p>	Sepuluh, dua puluh, tiga puluh… empat puluh!</p>
+<p>	Murid Fang Yuan tidak bisa membantu tetapi menyusut setelah melihat ini.</p>
+<p>	Ekspresi Tai Bai Yun Sheng menjadi pucat, mengungkapkan ketakutan yang intens di matanya.</p>
+<p>	Empat puluh hantu jalur kekuatan Hei Lou Lan bergerak turun bersama dan mengelilingi jalur keberuntungan warisan sejati hanya dalam beberapa saat.</p>
+<p>	Retakan gelap perlahan muncul di udara di atas jalur keberuntungan warisan sejati. Retakan itu membesar hingga membentuk lorong yang besar dan bulat.</p>
+<p>	Bagian yang dalam dan gelap ini secara langsung terkait dengan domain terpencil warisan sejati.</p>
+<p>	Hantu jalur kekuatan berteriak bersama sebelum benar-benar mengangkat warisan sejati Giant Sun sedikit!</p>
+<p>	Para treemen di sekitarnya juga menggerakkan tangan mereka yang besar untuk membantu. Tanaman merambat hijau seperti python melingkar bersama untuk membantu dalam hal ini.</p>
+<p>	Warisan Sejati Matahari Raksasa meletus dengan cahaya yang intens dan menyilaukan; pohon-pohon meleleh seperti salju, tanaman merambat yang melingkar bahkan tidak bisa bertahan selama dua napas sebelum dihancurkan sepenuhnya.</p>
+<p>	Hantu jalur kekuatan juga terus runtuh tetapi mengembun kembali beberapa saat setelahnya.</p>
+<p>	Hei Lou Lan berdiri di pinggiran luar; dia seperti sumber kekuatan yang tak ada habisnya, menyerang dengan sejumlah besar hantu jalur kekuatan satu demi satu.</p>
+<p>	Di bawah usahanya, warisan sejati Giant Sun perlahan meninggalkan tanah.</p>
+<p>	Pada saat yang sama, lorong bundar di udara juga meletus dengan kekuatan hisap yang kuat, seperti mulut raksasa yang mencoba mengambil kembali warisan sejati Matahari Raksasa ke dalam perutnya.</p>
+<p>	“Dia benar-benar bisa membentuk begitu banyak hantu jalur kekuatan secara bersamaan! Jurus pembunuh macam apa ini?” Tai Bai Yun Sheng berteriak tanpa sadar melihat pemandangan yang menakjubkan ini.</p>
+<p>	Surat wasiat Mo Yao juga mengatakan kepada Fang Yuan: “Gerakan pembunuh jalur kekuatanmu dikhususkan untuk pertempuran jarak dekat. Namun, gerakan pembunuh Hei Lou Lan adalah kebalikan dari Anda, yang mengkhususkan diri dalam pertempuran jarak jauh! Gerakan pembunuh ini sama-sama cocok dengan raja zombie surgawi enam lengan Anda. Tapi di tangan Hei Lou Lan, kekuatan yang bisa meledak jauh melebihi milikmu beberapa kali.”</p>
+<p>	Hei Lou Lan adalah pemilik Fisik Bela Diri Sejati Kekuatan Besar dari sepuluh fisik ekstrem, dan Fang Yuan tidak.</p>
+<p>	Dalam legenda, Master Gu yang memiliki Kekuatan Besar Fisik Bela Diri Sejati tidak hanya memiliki kekuatan yang luar biasa, stamina mereka juga tidak akan pernah habis. Pada saat yang sama, kemampuan pemulihan diri mereka juga sangat mencengangkan!</p>
+<p>	Setiap gerakan pembunuh jalur kekuatan akan meletus dengan kekuatan yang jauh melampaui kekuatan mereka yang biasa di bawah tangan Fisik Bela Diri Sejati Kekuatan Besar.</p>
+<p>	“Apa yang harus kita lakukan sekarang?” Tai Bai Yun Sheng berdiri di samping Fang Yuan, memusatkan pandangannya pada kontes kekuatan antara Hei Lou Lan dan warisan sejati Giant Sun.</p>
+<p>	Dia melanjutkan dengan nada menyesal: “Ini adalah warisan sejati tertinggi! Surat wasiat Giant Sun akan membawanya kembali ke wilayah warisan yang sebenarnya, sayangnya Hei Lou Lan ada di sana, jadi kami tidak bisa mendapatkan bagian dari tindakan itu.”</p>
+<p>	Nada suaranya mengandung arti tidak mampu bersaing dengan Hei Lou Lan.</p>
+<p>	Ini tidak mengherankan, Tai Bai Yun Sheng memiliki sifat pasif; orang bijak menjaga kulitnya sendiri, dia tidak akan mengambil tindakan ekstrim kecuali dipaksa ke sudut.</p>
+<p>	Fang Yuan memandang Tai Bai Yun Sheng dan tersenyum.</p>
+<p>	“Apa yang harus dilakukan?” Dia bertanya dan menjawab dirinya sendiri, “Tentu saja kita pergi ke domain terpencil warisan sejati!”</p>
+<p>	Tai Bai Yun Sheng terkejut: “Domain terpencil warisan sejati?”</p>
+<p>	Kehendak Mo Yao bergetar sebelum bereaksi, hampir menampar pahanya sendiri pada kesadaran yang tiba-tiba: “Benar, tidak ada lagi wasiat Giant Sun yang tersisa di wilayah terpencil warisan sejati. Warisan sejati itu telah menjadi objek tak bertuan!”</p>
+<p>	Sebelumnya, warisan sejati ini berisi wasiat Giant Sun, sehingga seseorang hanya bisa mendapatkan kualifikasi untuk warisan sejati dengan menggunakan token pemilik.</p>
+<p>	Tapi itu berbeda sekarang, wasiat Giant Sun telah memindahkan semua sub-wasiat. Liar muda akan segera tumbuh di warisan yang sebenarnya, dan mereka hanya perlu dimanipulasi dengan tepat untuk memperbaikinya dengan mudah.</p>
+<p>	“Tapi kamu tidak punya banyak waktu, wasiat utama Giant Sun di luar menara akan segera kembali. Anda hanya akan dapat memilih satu warisan sejati saat ini. ” Surat wasiat Mo Yao mengingatkan, “Fang Yuan, kamu harus segera mempertimbangkan warisan mana yang akan kamu pilih!”</p>
+<p>	Tai Bai Yun Sheng juga menyadari hal ini dan mengajukan pertanyaan penting lainnya: “Putaran ini sudah dikendalikan oleh kehendak Giant Sun, bagaimana kita memasuki domain terpencil warisan yang sebenarnya?”</p>
+<p>	Dia bahkan belum selesai berbicara ketika Fang Yuan mengeluarkan Fixed Immortal Travel Immortal Gu.</p>
+<p>	Tai Bai Yun Sheng telah menahan Gu Abadi ini untuk diamankan sebelumnya, jadi dia tidak terkejut; tetapi tatapannya berubah serius ketika dia melihat Fang Yuan: “Jika saya tidak salah, Perjalanan Abadi Tetap hanya dapat membawa satu orang, kan?”</p>
+<p>	“Kamu benar.” Fang Yuan mengangguk, “Jadi, buka aperture abadimu dan biarkan aku masuk. Aku akan mengirimimu gambar domain terpencil warisan sejati melalui transmisi pikiran.”</p>
+<p>	Tai Bai Yun Sheng tiba-tiba menyadari: “Saya hampir lupa bahwa saya adalah Gu Immortal!”</p>
+<p>	Aperture abadi peringkat enam dan peringkat tujuh Dewa Gu disebut ‘tanah yang diberkati’.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran, tanah yang diberkati Lang Ya dan tanah yang diberkati Hu Immortal adalah lubang abadi; mereka memiliki ruang yang luas dan mirip dengan dunia kecil. Tanah yang diberkati Tai Bai Tai Bai Yun Sheng tentu saja tidak terkecuali.</p>
+<p>	Fang Yuan meminjamkan Fixed Immortal Travel ke Tai Bai Yun Sheng dan memasuki aperture abadinya, lalu mengirimkan pikirannya yang merekam citra domain terpencil warisan sejati.</p>
+<p>	Tai Bai Yun Sheng mengaktifkan Fixed Immortal Travel, wasiat Giant Sun tidak memiliki energi cadangan untuk menghentikannya dan hanya bisa membiarkannya pergi ke domain terpencil warisan sejati satu langkah lebih awal.</p>
+<p>	Dalam domain terpencil warisan sejati adalah adegan kekacauan.</p>
+<p>	Lusinan warisan sejati diperintah oleh kehendak liar baru dan seperti ayam tanpa kepala, terbang dengan kacau. Dari waktu ke waktu, mereka bertabrakan satu sama lain, mengeluarkan percikan api dan menyebabkan keausan tanpa henti.</p>
+<p>	Mo Yao merasakan sakit hati yang luar biasa pada adegan ini: “Buat pilihanmu dengan cepat. Warisan sejati ini saling menghancurkan, jika situasinya semakin buruk, bahkan jika Anda bisa mendapatkan warisan, itu mungkin sudah kehilangan esensinya. ”</p>
+<p>	Fang Yuan tidak punya banyak waktu lagi dan hanya bisa memilih satu warisan sejati. Dia sudah membuat rencana untuk ini.</p>
+<p>	Dia berkata dengan suara yang dalam: “Mo Yao, aku butuh bantuanmu.”</p>
+<p>	“Bicaralah dengan cepat.”</p>
+<p>	“Tunjukkan padaku lokasi warisan sejati tertinggi terakhir!”</p>
+<p>	Mo Yao bingung dengan kata-kata Fang Yuan.</p>
+<p>	Segera, mata dan mulutnya terbuka lebar, pikirannya sangat terguncang!</p>
+<p>	Eighty-Eight True Yang Building berisi tiga warisan sejati tertinggi. Mo Yao sangat jelas tentang mereka dan dia telah memperkenalkan mereka kepada Fang Yuan ketika dia telah masuk ke domain terpencil warisan yang sebenarnya sebelumnya.</p>
+<p>	Warisan sejati tertinggi pertama adalah peringkat sembilan kebijaksanaan Gu.</p>
+<p>	Warisan sejati tertinggi kedua adalah warisan jalur keberuntungan Giant Sun Immortal Venerable.</p>
+<p>	Warisan sejati tertinggi ketiga adalah Eighty-Eight True Yang Building itu sendiri!</p>
+<p>	Artinya, orang yang memperoleh warisan sejati ini dapat mengendalikan Eighty-Eight True Yang Building!!</p>
+<p>	“Kenapa aku tidak memikirkannya?” Mo Yao bergumam linglung, “Surat wasiat Giant Sun telah memindahkan semua surat wasiat, sekarang adalah waktu terbaik untuk merebut otoritas atas Eighty-Eight True Yang Building!”</p>
+<p>	“Benar! Kehendak Raksasa Sun telah mengabaikan ini dalam memenuhi keinginannya untuk berurusan dengan Zhao Lian Yun, dengan demikian mengungkap kelemahan terbesarnya, dan memberi kita kesempatan untuk membalikkan krisis ini!” Mata Fang Yuan bersinar dengan kecemerlangan yang tajam.</p>
+<p>	Dia melihat sekelilingnya, api ambisi membubung tinggi di hatinya.</p>
+<p>	Dia benar-benar memahami kelemahan musuh!</p>
+<p>	Menang atau kalah, semuanya tergantung pada langkah ini; selama dia bisa mengambil Eighty-Eight True Yang Building untuk dirinya sendiri, dia akan memiliki keuntungan teritorial!</p>
+<p>	Pada saat itu, bahkan jika keinginan utama Giant Sun menjadi lebih hebat, dia hanya akan menjadi anjing putus asa yang terkunci di luar rumah, berdiri di pintu dan menggonggong tanpa daya!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

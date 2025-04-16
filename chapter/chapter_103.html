@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 103 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 103";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_102.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 103">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_104.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 103</h1>
+        <div class="text-left">
+<p>	Bab 103</p>
+<p>	Bab 103: Semakin besar ambisimu, semakin kecil dunia</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Kedai anggur tidak besar, tapi lokasinya bagus; itu di sisi timur desa dekat gerbang timur.</p>
+<p>	Arus orang adalah yang terbesar di gerbang timur dan utara. Dengan demikian, bisnis kedai anggur cukup bagus apakah itu siang atau malam.</p>
+<p>	“Tuan muda, silakan duduk.” Seorang lelaki tua menundukkan kepalanya ke Fang Yuan.</p>
+<p>	Beberapa pelayan menyeka bangku dan meja dengan senyum menjilat dan menyanjung ke arah Fang Yuan.</p>
+<p>	Fangyuan menggelengkan kepalanya. Dia tidak duduk, tetapi berjalan di sekitar kedai, mengukur segalanya. Dia berpikir dalam hati, “Ini adalah kedai anggur saya.”</p>
+<p>	Kedai anggur ini hanya memiliki satu lantai, tetapi memiliki gudang anggur bawah tanah.</p>
+<p>	Ubin hitam besar dan persegi menutupi lantai. Ada delapan meja persegi; dua meja diletakkan di dinding dan enam meja lainnya dikelilingi oleh empat bangku.</p>
+<p>	Konter penjualan panjang berwarna coklat tua dapat terlihat segera setelah memasuki kedai anggur. Ada kertas, kuas, batu tinta dan juga sempoa di meja. Di belakang konter ada lemari minuman keras di mana semua ukuran toples anggur dipajang. Beberapa di antaranya adalah toples anggur besar dari tembikar hitam, dan beberapa botol anggur porselen kecil dan cerah.</p>
+<p>	Fang Yuan sedang berjalan-jalan sesuai keinginannya; orang tua dan pelayan tidak berani duduk, mereka hanya bisa mengikuti dari belakang.</p>
+<p>	Mereka resah, berita pergantian tuan tanah terlalu mendadak. Tuan tanah sebelumnya, Gu Yue Dong Tu, licik seperti hantu, dia tegas dan keras; mereka berada di bawah banyak tekanan. Anak laki-laki di depan mereka ini benar-benar dapat mengambil kedai anggur dari tangan Gu Yue Dong Tu. Metode menyambar seperti itu mengejutkan. Jadi tatapan orang-orang ini ke arah Fang Yuan membawa kegelisahan dan ketakutan.</p>
+<p>	Fang Yuan tiba-tiba berhenti, “Bagus. Tapi toko ini agak kecil.”</p>
+<p>	Orang tua itu segera berjalan ke depan dan membungkuk untuk menjawab, “Tuan muda, kami menempatkan gudang di luar setiap musim panas dan meletakkan meja dan bangku. Tapi sekarang musim dingin dan anginnya sangat dingin, tidak ada yang akan duduk di luar bahkan jika kita mendirikan gudang. Jadi kami menurunkan mereka.”</p>
+<p>	Fang Yuan sedikit berbalik. Dia melirik lelaki tua ini, “Kamu penjaga toko?”</p>
+<p>	Orang tua itu membungkukkan pinggangnya lebih rendah lagi dan berkata dengan lebih hormat, “Saya tidak berani, saya tidak berani. Tuan muda, kedai anggur ini milikmu, siapa pun yang kamu pilih sebagai penjaga toko adalah penjaga toko. ”</p>
+<p>	Fang Yuan mengangguk lalu melirik para pelayan; mereka semua tampaknya kompeten.</p>
+<p>	Jika itu ada di bumi, dia akan cemas bahwa penjaga toko ini dan para pelayan akan bekerja sama dan bersekongkol melawan dia, pemiliknya. Tetapi di dunia ini, Master Gu tinggi dan perkasa, membunuh manusia hanya membutuhkan pemikiran. Bahkan jika Paman dan Bibi mengerami mereka, manusia ini tidak akan berani melawan Fang Yuan.</p>
+<p>	“Baiklah, bawakan buku akuntansi dan bawakan aku sepoci teh.” Fang Yuan duduk.</p>
+<p>	“Ya, tuan muda.” Penjaga toko dan pelayan bergerak dengan tergesa-gesa.</p>
+<p>	Ada sebanyak enam belas buku rekening, dan setiap buku menggunakan kertas bambu yang berwarna hijau muda. Kertas bambu lebih rapuh daripada kertas Xuan dan cocok untuk suasana lembab di Perbatasan Selatan.</p>
+<p>	Fang Yuan dengan santai mengambil beberapa buku dan membacanya sekilas, sesekali mengajukan beberapa pertanyaan.</p>
+<p>	Penjaga toko memberikan balasan yang cepat; segera, dahinya dipenuhi keringat.</p>
+<p>	Fang Yuan telah menciptakan Sekte Setan Bloodwing dan mengajar banyak orang di kehidupan sebelumnya. Dia kaya akan pengalaman dan matanya cerdas. Orang lain mungkin bingung dan terpesona ketika mereka melihat buku rekening; tetapi di matanya, semua poin yang meragukan itu sejelas kristal.</p>
+<p>	Kedai anggur ini adalah aset terbesar kedua setelah Rumput Vitalitas Sembilan Daun; Fang Yuan secara alami ingin menggenggamnya dengan kuat.</p>
+<p>	Hanya ada beberapa masalah kecil dalam pembukuan yang dapat dikaitkan dengan kesalahan dan kelalaian. Manusia fana ini tidak berani lancang.</p>
+<p>	Namun, ketika Fang Yuan membuka halaman terakhir, dia melihat bahwa pendapatan bulan ini telah diambil oleh Gu Yue Dong Tu.</p>
+<p>	“Tuan muda, pemilik sebelumnya secara pribadi mengambilnya. Kami tidak berani melawan.” Penjaga toko menjawab sambil menyeka keringatnya. Tubuhnya yang tua sudah gemetar dan wajahnya menjadi sangat pucat.</p>
+<p>	Fang Yuan terdiam, dia meletakkan buku rekening di atas meja dan melirik penjaga toko.</p>
+<p>	Penjaga toko segera merasakan tekanan besar seolah-olah sebuah gunung menekannya. Dia ketakutan setengah mati, berlutut di tanah.</p>
+<p>	Melihat penjaga toko berlutut, para pelayan juga dengan cerdik berlutut satu per satu.</p>
+<p>	Fang Yuan dengan tenang duduk dan mengalihkan pandangannya ke arah mereka.</p>
+<p>	Para pelayan segera merasa seperti berada di dunia es, mereka tidak bisa menahan aura Fang Yuan. Mereka semua diam.</p>
+<p>	Bagi manusia ini, pekerjaan kedai anggur itu stabil dan aman, pekerjaan yang ideal. Mereka tidak ingin kehilangan pekerjaan ini.</p>
+<p>	Fang Yuan berhenti setelah melihat bahwa otoritasnya telah ditetapkan, melangkah terlalu jauh bisa berakhir dengan merugikan. Dia perlahan berbicara, “Saya tidak akan peduli tentang hal-hal masa lalu. Saya melihat bahwa upah Anda agak rendah; gaji pelayan akan dinaikkan dua puluh persen dan penjaga toko empat puluh persen mulai sekarang. Bekerjalah dengan benar dan Anda akan mendapatkan lebih banyak manfaat.”</p>
+<p>	Fang Yuan berdiri dan berjalan ke pintu masuk.</p>
+<p>	Sekelompok orang yang berlutut di tanah tertegun untuk beberapa saat sebelum kembali sadar. Semua mata mereka dipenuhi dengan air mata yang mengalir di wajah mereka.</p>
+<p>	“Terima kasih tuan muda atas kebaikanmu yang luar biasa!”</p>
+<p>	“Tuan muda berbelas kasih, kami pasti akan bekerja dengan seluruh kekuatan kami!”</p>
+<p>	“Tuan muda, Anda adalah dermawan kami, harap berhati-hati.”</p>
+<p>	Suara tangisan datang dari belakang, ada juga suara garing dahi yang pecah di ubin hitam dari kowtow terus menerus.</p>
+<p>	Gunakan kekuatan di samping belas kasihan, ini adalah satu-satunya cara atasan mengendalikan bawahannya tidak peduli di dunia mana. Kekuatan adalah fondasinya dan di bawah kekuatan ini, kebaikan sekecil apa pun akan diperbesar berkali-kali.</p>
+<p>	Manfaat tanpa kekuatan hanya akan memberikan gelar samaria yang baik. Namun seiring berjalannya waktu, orang-orang tidak lagi merasa bersyukur atas kebaikan seperti itu dan malah akan mengakibatkan keserakahan dan bencana.</p>
+<p>	“Tetapi cara-cara untuk mengendalikan orang ini semuanya adalah metode yang tidak ortodoks. Itu akan sangat dihargai di Bumi, tetapi di dunia ini, meningkatkan kekuatan sendiri adalah satu-satunya cara yang benar. Tidak, bahkan di Bumi, kekuatan adalah yang utama.”</p>
+<p>	Fang Yuan memikirkan Leluhur Kekaisaran Merah Merah. (1)</p>
+<p>	Pada masa itu, Leluhur Kekaisaran Merah Merah telah melalui dan mengalami cobaan dan dia sampai pada kesimpulan: Kekuatan politik berasal dari senjata!</p>
+<p>Ini adalah kebenaran yang sebenarnya — kekuatan adalah fondasi dari kekuatan politik apa pun. Apa yang disebut otoritas hanyalah pelengkap kekuatan.</p>
+<p>	Sebenarnya bukan hanya otoritas, kekayaan dan kecantikan juga merupakan turunan dari kekuatan.</p>
+<p>	Fang Yuan menuju ke tiga rumah bambu setelah meninggalkan kedai anggur.</p>
+<p>	Ketiga rumah bambu ini disewa oleh paman dan bibi; mereka praktis penuh.</p>
+<p>	Dunia ini lebih memperhatikan kelahiran. Untuk populasi besar yang terus bertambah, ruang di desa tampak sempit.</p>
+<p>	Klan memiliki sistem putra tertua yang mewarisi properti. Putra dan putri lainnya harus mengandalkan usaha mereka. Bahkan jika banyak orang mengandalkan politik klan untuk mendapatkan sedikit bagian dari aset keluarga dan bekerja keras di luar, mereka bahkan mungkin tidak dapat menabung cukup untuk membeli rumah bambu sepanjang hidup mereka.</p>
+<p>	Di satu sisi, membesarkan Gu menghabiskan banyak waktu dan di sisi lain, desa memiliki ruang terbatas, sehingga harga rumah sangat mahal.</p>
+<p>	Mereka secara alami dapat membangun rumah di luar desa tetapi itu tidak aman. Binatang buas dan ular akan selalu berkeliaran dan bisa masuk ke dalam rumah. Di atas segalanya, setiap kali gelombang binatang buas terjadi, semua rumah di luar desa akan dihancurkan.</p>
+<p>	Memperluas desa adalah satu-satunya cara untuk menyelesaikan ini.</p>
+<p>	Tetapi memperluas berarti area yang harus dipertahankan akan meningkat dan desa tidak akan mampu bertahan dari serangan pasang surut binatang buas. Apalagi jika wilayahnya besar maka akan sulit untuk menjaga dan mencari infiltrasi Gu Master dari desa lain.</p>
+<p>	Desa Gu Yue telah diperpanjang beberapa kali dalam sejarah tetapi telah dihancurkan oleh pasang surut binatang buas. Setelah belajar dari pelajaran ini, ukuran desa saat ini sudah menjadi yang terbesar.</p>
+<p>	Fang Yuan membaca sekilas dan setelah memahami beberapa situasi, dia sudah mendapatkan gambarannya.</p>
+<p>	Ketiga rumah bambu ini dioperasikan dengan sangat baik oleh Paman dan Bibi. Sewanya juga disesuaikan untuk mendapatkan lebih banyak keuntungan, jadi dia mungkin membiarkannya berjalan seperti itu. Ia menghitung bahwa penghasilan dari ketiga rumah bambu ini tidak sebanyak kedai anggur tetapi perbedaannya tidak banyak.</p>
+<p>	Situasi keseluruhan jauh lebih baik daripada harapan asli Fang Yuan.</p>
+<p>	Sehari sebelum kemarin, dia tidak memiliki apa-apa dan menjadi sangat miskin sehingga jumlah batu purbanya bahkan tidak mencapai lima. Tapi sekarang, tiba-tiba, dia naik ke daftar orang terkaya di klan.</p>
+<p>	Penyewa wanita di rumah kontrakan ini semuanya adalah peringkat dua Master Gu wanita dalam kesulitan. Setelah mengetahui identitas Fang Yuan, tatapan mereka ke arahnya berubah menjadi asmara.</p>
+<p>	Jika mereka bisa dekat dengan Fang Yuan dan menikah dengannya, maka mereka tidak perlu lagi terburu-buru menghadapi bahaya; hidup mereka akan lancar dan stabil.</p>
+<p>	Kehidupan seperti itu adalah apa yang mereka kejar dan menggunakan semua kekuatan mereka untuk diperjuangkan.</p>
+<p>	Artinya, jika Fang Yuan menginginkannya, dia bisa pensiun dan menjalani kehidupan yang kaya sekarang seperti pamannya dulu.</p>
+<p>	Dengan satu ketukan jari, banyak Master Gu wanita akan berduyun-duyun kepadanya.</p>
+<p>	“Tapi bukan itu yang aku inginkan.” Fang Yuan berdiri di lantai dua rumah bambu, membiarkan tatapan provokatif Master Gu wanita jatuh ke tubuhnya. Dia mengerutkan kening saat dia memegang pagar dan menatap jauh.</p>
+<p>	Di kejauhan, terbentang pegunungan hijau terus menerus, tampak seperti raksasa tidur dengan langit biru keabu-abuan sebagai selimutnya.</p>
+<p>	Sungai tak berujung dan bumi tak terbatas, kapan saya bisa bergerak tanpa hambatan di atasnya?</p>
+<p>	Di tengah angin perubahan, naga dan ular muncul dari daratan (2), kapan aku bisa memandang rendah semua makhluk hidup?</p>
+<p>	“Sejak kelahiran kembali, saya telah hanyut dengan ombak seperti duckweed tanpa akar. Saya berusaha keras untuk mendapatkan aset keluarga; dengan basis ini, saya bisa dikatakan telah mandiri dan mendapatkan pijakan saya. Selanjutnya adalah menggali warisan Biksu Anggur Bunga dan mengerahkan semua upayaku untuk berkultivasi ke Peringkat tiga, lalu aku bisa meninggalkan desa ini dan pergi ke dunia luas!” Api menyala di mata hitam pekat Fang Yuan.</p>
+<p>	Gunung Qing Mao adalah salah satu gunung yang tak terhitung jumlahnya di Perbatasan Selatan. Dan Perbatasan Selatan hanyalah sudut dunia ini.</p>
+<p>	Terlalu kecil, terlalu kecil! Bagaimana tempat seperti itu dapat menopang ambisinya yang tinggi?</p>
+<p>	Dibandingkan dengan ambisinya, aset keluarga ini – yang ingin diperoleh orang lain, yang merupakan kerinduan – sangat kecil seperti debu.</p>
+<p>	“Kakak, turun, aku perlu bicara denganmu.” Pada suatu saat, Gu Yue Fang Zheng telah mencapai rumah bambu. Dia menatap Fang Yuan dan berteriak.</p>
+<p>	“Hmm?” Pikiran Fang Yuan hancur, dia menatap Fang Zhen dengan tatapan acuh tak acuh.</p>
+<p>	Mata bersaudara itu bertemu; itu diam…</p>
+<p>	Adik laki-laki Fang Zheng ada di bawah dan diselimuti bayangan rumah lain. Dia menghadap ke atas; alisnya terangkat dan kedua matanya berkedip-kedip dengan cahaya.</p>
+<p>	Kakak Fang Yuan ada di atas; sinar matahari menyinarinya, matanya yang sedikit terkulai memiliki pupil yang gelap seperti malam.</p>
+<p>	Wajah serupa tercermin di mata masing-masing.</p>
+<p>	Mengenai penampilan adik laki-lakinya, Fang Yuan tidak terkejut. Fang Zheng adalah senjata Paman dan Bibi untuk memperjuangkan aset keluarga.</p>
+<p>	Namun, jadi apa?</p>
+<p>	Fang Yuan menatap Fang Zheng, menghela nafas dalam hati, “Kecakapan kelas, tetapi tidak lebih dari pion … benar-benar tidak penting.”</p>
+<p>	(1) Ini mengacu pada Ketua Mao. Menulis namanya langsung dalam teks Cina adalah tabu, sepertinya.</p>
+<p>	(2) – Di sepanjang makna ‘gempa akan terjadi, dan semua jenis makhluk hidup merasa resah dan gelisah, mereka mulai bergerak dengan lincah. Ini adalah deskripsi visualisasi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 73 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 73";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_72.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 73">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_74.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 73</h1>
+        <div class="text-left">
+<p>	Bab 73</p>
+<p>	Bab 73: Tanda lingkaran merah misterius</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Kamu mengatakan bahwa selama pemerasan Fang Yuan kali ini, meskipun dia mengalahkan Fang Zheng, Chi Cheng dan Mo Bei, dia meninggalkan mereka dan tidak mengambil batu purba mereka?” Mendengar laporan penjaga, sesepuh akademi mengungkapkan ekspresi yang sedikit terkejut.</p>
+<p>	“Saya tidak berani berbohong kepada tuan, memang seperti ini.” Penjaga yang berlutut di tanah segera merespons.</p>
+<p>	“Mm.” Penatua akademi tidak mengungkapkan pendapatnya, dan melambaikan tangannya, “Saya telah memahami masalah ini, Anda boleh pergi.”</p>
+<p>	“Bawahanmu pergi.”</p>
+<p>	Begitu penjaga itu pergi, sesepuh akademi segera berpikir keras.</p>
+<p>	Dia awalnya prihatin dengan masalah ini karena dia takut Fang Yuan akan merebut tiga puluh batu purba yang didapat Fang Zheng sebagai hadiah. Jika itu masalahnya, sistem penghargaan akademi tidak akan ada artinya, mereka mungkin juga memberikan segalanya kepada Fang Yuan.</p>
+<p>	Jika Fang Yuan benar-benar melakukan itu, akademi tidak akan mengizinkannya, dan sesepuh akademi sudah siap untuk menghukum Fang Yuan.</p>
+<p>	Tapi dia tidak menyangka bahwa Fang Yuan tidak hanya tidak punya niat untuk mengambil tiga puluh batu purba dari Fang Zheng, dia bahkan melepaskan Mo Bei dan Chi Cheng juga.</p>
+<p>	“Fang Yuan memiliki ratusan batu purba di tangan, dia mungkin tidak terlalu peduli dengan tiga puluh batu purba, itu bisa dimengerti. Tapi menyerah untuk memeras Mo Bei, Chi Cheng dan Fang Zheng, apa alasannya?”</p>
+<p>	Penatua akademi merenung, alisnya berangsur-angsur mereda. Dia telah memahami sesuatu.</p>
+<p>	Mo Bei, Chi Cheng dan Fang Zheng, mereka bisa dikatakan mewakili tiga faksi klan. Melepaskan mereka, artinya dia menarik tiga faksi yang berbeda. Ini bisa dimengerti, karena perubahan sikap Fang Yuan berarti dia akhirnya mau menundukkan kepalanya ke klan.</p>
+<p>	“Dapat dimengerti. Saat dia berkultivasi, Fang Yuan mungkin memiliki cacing Liquor, tetapi situasinya menjadi lebih jelas baginya. Ketidakmampuan bakat kelas C, setelah beberapa ledakan, dan melepaskan sebagian besar perasaan negatifnya, dia mungkin agak putus asa dan tertekan sekarang. ”</p>
+<p>	“Sepertinya kata-kata pemimpin klan masuk akal, Fang Yuan bagaimanapun juga berusia lima belas tahun, bagaimana dia bisa melawan sistem klan? Sekarang dia sudah mulai menerima kenyataan, begitu dia menemukan posisinya, dia akan bergabung dengan klan secara alami. ”</p>
+<p>	Memikirkan hal ini, sesepuh akademi menghela nafas lega, perasaannya menjadi lebih ceria.</p>
+<p>	Tiga hari berlalu dalam sekejap. Segera, ujian tengah tahun telah tiba.</p>
+<p>	“Lebih cepat, lebih cepat, aku telah memancing babi hutan keluar!” Seorang anak muda berlari saat dia berteriak dengan panik.</p>
+<p>	Di kedua kakinya, ada lingkaran angin yang berputar-putar berwarna hijau muda. Dengan dua cincin ini, itu membuatnya memiliki kecepatan di atas rata-rata di usia yang begitu muda.</p>
+<p>	Namun, babi hutan yang mengejarnya menjadi semakin cepat, dan jarak di antara mereka semakin pendek.</p>
+<p>	Matahari yang terik menembus hutan dan terpantul pada babi hutan, menyebabkan kedua giginya bersinar terang.</p>
+<p>	“Babi hutan datang, pegang talinya erat-erat!” Keempat anak muda yang menyergap dengan cepat bersembunyi di semak-semak dan menarik tali dengan erat, langsung membentuk tali yang tersandung.</p>
+<p>	Anak muda yang ngebut melompat ringan, melompati jalan dan terus berlari.</p>
+<p>	Tetapi babi hutan di belakangnya tersandung tali dan jatuh dengan keras ke tanah, menabrak lima hingga enam meter sebelum berhenti.</p>
+<p>	“Aduh!” Keempat anak itu ditarik dengan tali, dan jatuh ke tanah bersama dengan babi hutan itu.</p>
+<p>	“Memukul!” Anak muda yang berlari di depan berbalik dan berteriak.</p>
+<p>	Beberapa orang yang tergeletak di tanah dengan panik berdiri, dan mengepung babi hutan itu.</p>
+<p>	Kacha!</p>
+<p>	Sebuah pohon tunas kecil, di bawah pengaruh babi hutan, patah menjadi dua dan mahkota pohon jatuh ke tanah.</p>
+<p>	“Cukur yang sangat dekat!” Gu Yue Chi Cheng menyeka keringat di dahinya, merasa takut. “Untungnya saya berhasil menggunakan Gu kriket Dragonpill dan melompat tiga meter ke kiri, kalau tidak pohon ini akan menjadi hasil saya.”</p>
+<p>	bangku bangku bangku!</p>
+<p>	Moonblade menari-nari di udara saat mengenai tubuh babi hutan, menyebabkan luka yang panjang dan dangkal.</p>
+<p>	Wajah Gu Yue Mo Bei bersemangat, matanya bersinar, semangatnya tenggelam dalam pertempuran ini.</p>
+<p>	Setengah jam kemudian, babi hutan itu pingsan karena kehilangan banyak darah.</p>
+<p>	Gu Yue Mo Bei bernapas dengan kasar dan juga duduk di tanah, seluruh tubuhnya penuh dengan lumpur dan rumput, pada saat yang sama penuh dengan keringat.</p>
+<p>	“Bertarung melawan makhluk hidup seperti babi hutan memang berbeda dengan wayang kayu, wayang rumput saat latihan pertarungan. Saya menghabiskan tiga puluh menit hanya untuk membunuh babi hutan, saya bertanya-tanya bagaimana kabar orang lain? ”</p>
+<p>	Di sebuah bukit kecil yang tersembunyi, ada tenda yang dibangun sementara. Tenda itu menghalangi sinar matahari yang menyengat dan menebarkan area teduh gelap yang sejuk.</p>
+<p>	Di bawah penutup, ada beberapa kursi dan meja, dengan sesepuh akademi duduk di kursi utama. Di sampingnya, ada tetua klan lainnya. Beberapa Master Gu berdiri di belakang mereka.</p>
+<p>	Di hutan sekitar tenda, ada juga beberapa Master Gu yang tersembunyi.</p>
+<p>	Pada saat ini, hutan di depan mengalami gangguan yang tidak normal.</p>
+<p>	Suara mendesing!</p>
+<p>	Seorang Guru Gu muncul dari hutan seperti bayangan dan dengan cepat berlari keluar, berlutut di luar tenda.</p>
+<p>	“Bagaimana situasinya?” Penatua akademi bertanya.</p>
+<p>	“Melaporkan kepada Tuan Penatua, pada titik ini, tidak ada korban di antara para siswa.” Master Gu dengan cepat menjawab.</p>
+<p>	“Bagus.”</p>
+<p>	“Suatu sore telah berlalu sejak ujian tengah tahun dimulai. Agar tidak ada cedera, ini berbeda dari tahun-tahun sebelumnya. ”</p>
+<p>	“Sepertinya ini semua upaya sesepuh akademi.”</p>
+<p>	Para tetua klan lainnya mengangguk puas, memuji secara bergiliran.</p>
+<p>	Tetua akademi menggelengkan kepalanya sedikit, dia tahu alasannya. Ini karena kemunculan Fang Yuan, memeras teman-teman sekelasnya, menyebabkan mereka berlatih keras dalam seni bela diri dasar, sehingga memiliki penampilan seperti itu.</p>
+<p>	Dia melihat ke arah Gu Master yang berlutut, dan terus bertanya, “Lalu pada titik ini, hasil siapa yang terbaik?”</p>
+<p>	Guru Gu segera menjawab, “Melapor kepada Tuhan, pada titik ini, Gu Yue Fang Yuan, Fang Zheng, Mo Bei, Chi Cheng, memimpin. Chi Cheng membunuh tiga babi hutan, Fang Zheng dan Mo Bei membunuh lima, dan Fang Yuan memiliki paling banyak, delapan.”</p>
+<p>	“Oh? Memikirkan Fang Yuan memimpin! ”</p>
+<p>	“Selama bertahun-tahun, adalah pemandangan yang sangat langka bahwa talenta kelas A dan B ditekan oleh kelas C.”</p>
+<p>	“Dia memiliki cacing Liquor kan? Itu berarti dia memiliki esensi purba tembaga hijau tingkat atas, jadi untuk mendapatkan hasil seperti itu, bisa dimengerti. ”</p>
+<p>	“Aku yakin mulai sekarang, Fang Zheng, Mo Bei dan Chi Cheng akan melampaui dia. Meskipun dia memiliki cacing Liquor, tingkat pemulihan esensi purbanya tidak dapat dibandingkan dengan talenta kelas A, B. ”</p>
+<p>	Para tetua klan lainnya berdiskusi.</p>
+<p>	“Kamu boleh pergi.” Penatua akademi melambaikan tangannya ke arah Master Gu yang berlutut. “Instruksikan yang lain, fokus pada pekerjaan melindungi mereka. Terutama Fang Zheng, Chi Cheng dan Mo Bei, lebih perhatikan dan pastikan keselamatan mereka!”</p>
+<p>	“Ya, Tuan.” Tuan Gu mundur.</p>
+<p>	Pertarungan luar ruangan ini bagi sebagian besar siswa, ini benar-benar pertama kalinya bagi mereka. Jadi, ada bahaya dan klan secara alami memiliki rencana. Lusinan Master Gu Peringkat dua disembunyikan di hutan, mengendalikan keamanan seluruh pemeriksaan ini. Pada saat yang sama, beberapa tetua klan peringkat tiga tinggal di sini untuk mengantisipasi kecelakaan mendadak.</p>
+<p>	Matahari yang terik perlahan turun dari titik tertinggi di langit, perlahan-lahan mendekati pegunungan timur laut.</p>
+<p>	Cahaya matahari terbenam menyalakan awan; itu adalah aliran gairah terakhir matahari.</p>
+<p>	Saat sinar matahari terakhir menyinari hutan, babi hutan lainnya jatuh ke tanah.</p>
+<p>	“Ke-dua puluh tiga.” Fang Yuan menghitung dalam hatinya, dan kemudian berjongkok, dengan terampil mengukir gigi babi hutan.</p>
+<p>	Ada tas di punggungnya, di dalamnya ada banyak gigi babi hutan.</p>
+<p>	Pada saat yang sama, dia memiliki tas lain, membawa gigi babi hutan yang dia bunuh terakhir kali. Gigi ini awalnya disimpan di gua rahasia retakan batu, dan diambil oleh Fang Yuan malam sebelumnya, disimpan ke dalam tas dan dikubur di lokasi rahasia.</p>
+<p>	“Saya akrab dengan medan dan distribusi babi hutan, pada saat yang sama saya memiliki esensi purba tingkat atas untuk menggunakan Moonlight Gu bersama dengan Little light Gu. Efisiensi yang lain pasti tidak bisa dibandingkan dengan saya. Hanya dengan tas ini, saya bisa mendapatkan nomor satu dengan mudah. Saya ingin tahu ekspresi apa yang akan mereka tunjukkan ketika saya mengeluarkan tas lainnya nanti? Hehe.”</p>
+<p>	Fang Yuan melihat ke langit; sudah waktunya untuk mengambil tas lainnya.</p>
+<p>	Memikirkan hal ini, di kepalanya, sebuah peta muncul.</p>
+<p>	Hari-hari ini, dia telah menghafal peta kulit binatang. Fang Yuan jelas dari posisinya saat ini. Jika dia berbelok ke kiri dan berjalan di sepanjang sungai selama lima belas menit, dia akan mencapai lokasi di mana dia mengubur tasnya.</p>
+<p>	Tapi ketika dia hendak bergerak, dia ragu-ragu.</p>
+<p>	“Dengan lokasi saya saat ini, saya hanya berjarak lima hingga enam ratus meter dari tanda lingkaran merah terdekat. Kesempatan yang sangat langka, haruskah aku pergi melihatnya?”</p>
+<p>	Begitu dia memiliki pikiran, itu tak terbendung.</p>
+<p>	Karena dia sudah menang, Fang Yuan punya banyak waktu tersisa.</p>
+<p>	“Peta kulit binatang itu memiliki tiga tanda lingkaran merah, ketiga lokasi ini sangat penting bagi orang tua Wang. Itu juga satu-satunya makna yang tidak bisa saya uraikan di peta. Aku akan pergi melihat!”</p>
+<p>	Fang Yuan secara alami tahu bahwa ada Master Gu yang mengendalikan adegan itu, tetapi ini juga mengapa dia membutuhkan bukti.</p>
+<p>	Segera, dia bertindak seolah-olah dia akan terus membunuh babi hutan, dan bergerak lebih dalam ke hutan.</p>
+<p>	Tujuh menit kemudian, dia tiba di lokasi tanda merah.</p>
+<p>	Sebuah rumah pohon tersembunyi di antara semak-semak di pohon besar, dan jika seseorang tidak mengamati dengan cermat, mereka tidak akan dapat menemukannya.</p>
+<p>	“Ini adalah tempat tinggal sementara orang tua Wang saat berburu?” Fang Yuan mengerutkan kening, hatinya menjadi bingung.</p>
+<p>	Dia naik ke rumah pohon.</p>
+<p>	Ketika dia melihat pemandangan di rumah pohon, ekspresinya berubah!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

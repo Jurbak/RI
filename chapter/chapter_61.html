@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 61 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 61";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_60.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 61">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_62.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 61</h1>
+        <div class="text-left">
+<p>	Bab 61</p>
+<p>	Babak 61: Hidup tergantung di tali rumput</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari pagi yang cerah bersinar di Gunung Qing Mao.</p>
+<p>	Di akademi, penatua berbicara tentang detail penting. “Besok, kami memilih cacing Gu kedua untuk disempurnakan. Semua orang di sini memiliki pengalaman dalam menyempurnakan cacing Gu, dan kali ini Anda dapat memperkuat pengalaman Anda. Untuk pemilihan worm Gu kedua, pertimbangkan baik-baik. Dengan pengalaman berkultivasi beberapa hari ini dan pemahaman tentang tubuh Anda sendiri, pertimbangkanlah secara keseluruhan. Biasanya, yang terbaik adalah jika Anda memasangkan Gu kedua dengan baik dengan Gu vital Anda. ”</p>
+<p>	Gu pertama Master Gu dikenal sebagai Gu vital, dan begitu dipilih, itu akan menjadi batu pijakan perkembangan mereka. Setelah itu, cacing Gu kedua dan ketiga akan dipelihara di atas batu pijakan ini dan memutuskan arah kultivasi Guru Gu.</p>
+<p>	Setelah mendengar kata-kata tetua akademi, anak-anak mulai merenung, dan hanya Fang Yuan yang tidur nyenyak di atas meja.</p>
+<p>	Dia telah bekerja keras selama setengah malam kemarin, dan setelah kembali ke asrama, dia masih melanjutkan kultivasi Master Gu-nya, memelihara aperture-nya. Ketika matahari terbit, barulah dia tidur.</p>
+<p>	Penatua akademi memandang Fang Yuan dan mengerutkan kening, tetapi tidak mengatakan apa-apa.</p>
+<p>	Sejak pemimpin klan berbicara kepadanya, dia telah mengadopsi sikap ‘biarkan Fang Yuan melakukan apa yang dia inginkan, aku tidak akan peduli’.</p>
+<p>	“Cacing Gu mana yang harus saya pilih?” Saat para siswa memikirkannya, mereka tanpa sadar melihat ke arah Fang Yuan.</p>
+<p>	“Omong-omong, Fang Yuan sudah memiliki cacing Gu keduanya.”</p>
+<p>	“Ya, itu hanyalah cacing Liquor; untuk benar-benar mengeluarkan cacing Liquor dari batu judi, peruntungannya tidak masuk akal!”</p>
+<p>	“Jika saya memiliki cacing Liquor, saya akan maju ke tahap tengah dulu juga ya?”</p>
+<p>	Pikiran siswa bervariasi, memiliki pengagum dan orang-orang cemburu di antara mereka.</p>
+<p>	Sejak hari itu setelah interogasi, cacing Minuman Keras Fang Yuan berhasil diungkap. Asal usul cacing minuman keras tidak menimbulkan kecurigaan. Klan sama-sama tercerahkan dan juga jengkel pada keberuntungan Fang Yuan.</p>
+<p>	“Kenapa aku tidak beruntung, huh!” Gu Yue Chi Cheng yang juga merupakan bakat kelas C menghela nafas dalam-dalam di dalam hatinya.</p>
+<p>	Beberapa waktu yang lalu, kakeknya bertanya-tanya dan mencoba membelikan cacing Liquor untuknya. Untuk berpikir bahwa bahkan sebagai pewaris cabang keluarga, dia tidak dapat memilikinya; untuk berpikir Fang Yuan berhasil mendapatkan cacing Liquor di depannya.</p>
+<p>	Dibandingkan dengan kecemburuan dan depresi Chi Cheng, wakil ketua Fang Zheng penuh semangat.</p>
+<p>	“Saudaraku, aku pasti akan melampauimu.” Dia memandang Fang Yuan dan berkata dalam hatinya sebelum membuang muka.</p>
+<p>	Hari-hari ini matanya bersinar dengan cahaya, dan dia merasakan semacam kegembiraan terhadap kehidupan. Wajahnya memerah dan dahinya bersinar, bahkan langkahnya lebih cepat dan lebih ringan.</p>
+<p>	Tetua akademi melihat semua itu, dan segera mengerti bahwa pemimpin klan Gu Yue mulai diam-diam mengajar Fang Zheng.</p>
+<p>	Metode curang ini jelas tidak diketahui publik.</p>
+<p>	Tetua akademi menutup mata terhadap ini.</p>
+<p>	Segera itu malam sekali lagi.</p>
+<p>	Fang Yuan memasuki gua rahasia lagi.</p>
+<p>	Cincin cincin cincin……</p>
+<p>	Di tangannya, seekor kelinci liar sedang berjuang, dan ada bel di lehernya.</p>
+<p>	Ini adalah kelinci liar yang ditangkap Fang Yuan di gunung, bel itu secara alami dilampirkan olehnya.</p>
+<p>	Setelah sehari, bau pengap di gua rahasia telah hilang, dan udara menjadi segar.</p>
+<p>	Pintu masuk lorong gua terbuka; itu diam di dalam. Fang Yuan setengah berlutut di lantai saat dia memeriksa lantai. Kemarin dia telah menyemprotkan bubuk batu ke seluruh area, dan lapisan tipis bubuk ini tidak mencolok.</p>
+<p>	“Bubuk batu pintu masuk lorong itu utuh, jadi sepertinya selama aku tidak ada, tidak ada yang aneh yang merangkak keluar darinya. Pintu masuk retakan batu memang memiliki jejak, tapi itu milikku, jadi jelas tidak ada orang lain yang datang ke sini.” Fang Yuan merasa nyaman setelah diperiksa.</p>
+<p>	Dia berdiri, menggunakan tangannya untuk menarik tanaman merambat yang mati dari dinding. Selanjutnya dia duduk di tanah dan kakinya digunakan untuk menahan kelinci liar di tempatnya, membiarkan kedua tangannya bebas untuk menenun tanaman merambat.</p>
+<p>	Ini adalah pekerjaan yang tidak akan diketahui oleh Master Gu normal, tetapi Fang Yuan memiliki terlalu banyak pengalaman hidup. Dalam kehidupan masa lalunya, sering kali dia sangat miskin sehingga dia tidak mampu memberi makan cacing Gu-nya, meninggalkan mereka mati kelaparan satu per satu.</p>
+<p>	Untuk sementara waktu, dia memiliki esensi purba tetapi tidak memiliki cacing Gu; dia menjadi seperti manusia fana, bahkan hidup pun sulit. Karena tidak punya pilihan, dia belajar menenun tali rumput menjadi sandal jerami, topi, dll. Dan menjualnya dengan imbalan pecahan batu purba untuk memberi makan dirinya sendiri.</p>
+<p>	Sambil memutar tali rumput di tangannya, ingatan Fang Yuan muncul kembali.</p>
+<p>	Kesedihan dan penderitaan saat itu telah berubah menjadi tawa tanpa suara sekarang. Kelinci di bawah kakinya terus meronta, bel berbunyi tanpa henti.</p>
+<p>	Sepasang dua senar bersentuhan untuk waktu yang lama, sepuluh ribu liku dan ribuan pengembalian membuat cinta mereka yang tak terpisahkan banyak. (1)</p>
+<p>	Dengan lembut dan perlahan, dengan berlalunya tahun, membiarkan mereka bertemu. Komplikasi, keterikatan dan belokan hadir.</p>
+<p>	Menenun tali rumput, bukankah seperti mengalami hidup?</p>
+<p>	Di gua rahasia, lampu merah menyinari wajah Fang Yuan, menunjukkan kemudaan dan pengalamannya yang terjalin di wajahnya.</p>
+<p>	Waktu sepertinya telah berhenti juga, diam-diam menghargai pemuda yang menganyam talinya.</p>
+<p>	Cincin cincin cincin…</p>
+<p>	Satu jam kemudian, kelinci liar dengan cepat memasuki lorong, bel di lehernya berdering terus menerus. Dalam beberapa napas, itu meninggalkan bidang penglihatan Fang Yuan.</p>
+<p>	Fang Yuan memegang tali rumput improvisasi yang dia tenun sementara, dan di salah satu ujungnya diikatkan ke kaki belakang kelinci, menyeretnya ke dalam terowongan.</p>
+<p>	Setelah beberapa saat, tali menghentikan semua gerakan.</p>
+<p>	Tapi ini tidak berarti kelinci telah mencapai ujung terowongan. Itu bisa saja terbunuh oleh jebakan atau hanya memutuskan untuk beristirahat di tengah jalan.</p>
+<p>	Fang Yuan mulai menarik tali, mengambilnya. Tali itu berangsur-angsur mengencang saat dia menariknya.</p>
+<p>	Di ujung lain, sebuah kekuatan tiba-tiba menarik kembali saat tali mulai bergerak menuju gua lagi.</p>
+<p>	Rupanya kelinci di sisi lain telah merasakan gaya tarikan dan dalam kebingungannya, mulai bergerak lebih dalam ke dalam gua.</p>
+<p>	Setelah banyak upaya, kelinci akhirnya mencapai ujung jalan, dan tidak peduli bagaimana Fang Yuan menarik talinya, itu hanya mengencang dan rileks.</p>
+<p>	Mungkin kelinci itu telah mencapai ujung terowongan, atau mungkin ia telah jatuh ke dalam jebakan dan tersangkut.</p>
+<p>	Itu sederhana untuk menguji dan menemukan jawabannya.</p>
+<p>	Fang Yuan mulai mengambil tali itu. Kekuatannya melampaui kelinci sejauh satu mil, dan akhirnya dia menyeret kelinci keluar dengan paksa.</p>
+<p>	Kelinci berjuang di ujung yang lain, tetapi tali itu terbuat dari bahan yang diperoleh dari Gu Bunga Karung Anggur dan Gu Rumput Kantong Nasi. Meskipun telah mati selama bertahun-tahun, ia tetap kokoh tidak seperti rumput biasa.</p>
+<p>	Kelinci liar sekali lagi berada di tangan Fang Yuan sambil melompat-lompat. Fang Yuan memeriksa kelinci liar itu dan melihat bahwa kelinci itu tidak terluka, lalu dia akhirnya bernafas lega.</p>
+<p>	“Untuk saat ini, sepertinya segmen lorong ini aman.”</p>
+<p>	Dengan hasil ini, kelinci kehilangan nilainya dan Fang Yuan langsung membunuhnya, melemparkan mayatnya ke tanah.</p>
+<p>	Dia tidak bisa membiarkan kelinci pergi, karena hewan juga memiliki ingatan. Jika itu kembali lagi, dan seperti cacing Liquor, menarik orang luar, itu akan sangat buruk.</p>
+<p>	Dia menarik napas dalam-dalam. Setelah beberapa kali mencoba dan menyelidiki, dia akhirnya melangkah ke lorong dengan hati-hati.</p>
+<p>	Bahkan dengan penjelajahan kelinci liar, ada banyak jebakan dan mekanisme yang secara khusus hanya menargetkan manusia. Hewan kecil seperti kelinci liar tidak akan bisa memicunya. Jadi, Fang Yuan masih harus berhati-hati.</p>
+<p>	Terowongan itu lurus, miring secara diagonal ke bawah. Semakin dalam, semakin lebar dan tinggi lorong itu.</p>
+<p>	Fang Yuan harus menundukkan kepalanya saat masuk pada awalnya, tetapi setelah lebih dari lima puluh langkah, dia mampu mengambil langkah besar dengan punggung tegak, dan setelah seratus langkah, dia bisa berjalan sambil mengangkat lengan atasnya dan mengacungkannya ke kiri dan Baik.</p>
+<p>	Terowongan itu tidak terlalu panjang, hanya sekitar 300 meter. Tapi Fang Yuan menghabiskan sekitar dua jam menjelajah sebelum akhirnya mencapai ujung jalan.</p>
+<p>	Dalam perjalanan, dia waspada dan menjelajah selangkah demi selangkah. Di ujung jalan, dia sudah berkeringat deras.</p>
+<p>	“Ini sangat merepotkan tanpa mendeteksi cacing Gu.” Fang Yuan menyeka keringat di dahinya dan setelah memastikan keselamatannya, menjadi tenang dan memeriksa area tersebut.</p>
+<p>	Kali ini sekilas, dia tercengang.</p>
+<p>	Di ujung terowongan, ada batu besar. Permukaan batu itu halus dan menonjol ke arah Fang Yuan, menyerupai perut Jia Fu.</p>
+<p>	Batu ini sendiri menghentikan perkembangan Fang Yuan.</p>
+<p>	Selain batu besar ini, tidak ada apa pun di sekitar Fang Yuan.</p>
+<p>	“Apakah karena kecelakaan jalur terowongan diblokir, menyebabkan ini?” Fang Yuan menyipitkan mata saat memikirkan kemungkinan.</p>
+<p>	Sebelum Biksu Bunga Anggur meninggal, dia sangat ingin mengatur warisan. Dia menggunakan Thousand Li Earthwolf Spider dan menciptakan jalur terowongan. Jalan itu menuju jauh di dalam pegunungan dan untuk membimbing pewaris masuk.</p>
+<p>	Setelah ratusan tahun, lorong itu tidak mampu menahan korosi waktu dan pada satu titik, salah satu area runtuh karena kurangnya perawatan.</p>
+<p>	Segala macam kecelakaan sering terjadi dalam hidup.</p>
+<p>	“Jika ini masalahnya, bukankah aku akan terjebak pada titik ini?” Dia maju dan menyentuh batu itu. Batu ini menghentikan perkembangannya, ukurannya seperti pintu, orang hanya bisa membayangkan ketebalan keseluruhannya.</p>
+<p>	Fang Yuan bisa menggunakan Moonlight Gu untuk mengukir di dinding batu, tetapi jika dia ingin menggiling batu besar ini, itu akan memakan waktu setidaknya satu atau dua tahun.</p>
+<p>	“Sepertinya aku terpaksa menggunakan alat, aku harus menggunakan sekop dan beliung untuk memecahkan batu. Kecuali jika saya melakukan ini, saya mungkin mengungkapkan beberapa jejak. Suara konstruksi mungkin juga keluar. ” Memikirkan hal ini, Fang Yuan mengerutkan kening dalam-dalam. Dia menimbang pro dan kontra.</p>
+<p>	Jika risikonya terlalu besar, dia lebih suka menyerahkan warisan kekuatan ini.</p>
+<p>	Lagi pula, jika orang lain mengetahui rahasia ini, semua rencana dan tindakan yang dilakukan Fang Yuan akan sia-sia, dan hidupnya bahkan akan dalam bahaya!</p>
+<p>	(1) Tampaknya menjadi baris dari sebuah puisi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

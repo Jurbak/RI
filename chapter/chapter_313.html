@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 313 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 313";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_312.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 313">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_314.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 313</h1>
+        <div class="text-left">
+<p>	Bab 313</p>
+<p>	Bab 313: Bai Ning Bing vs Yan Tu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Waktu perlahan berlalu, penonton secara bertahap tergerak oleh pertandingan.</p>
+<p>	“Tidak disangka Bai Ning Bing sebenarnya sangat kuat, mampu bertarung dengan seimbang melawan Lord Yan Tu.”</p>
+<p>	“Dia menggunakan Gu peringkat dua es melawan Yan Tu, tetapi tidak dirugikan.”</p>
+<p>	“Mampu menggunakan cacing Gu untuk menyerang dengan benar saat bergerak adalah dasar dalam pertempuran Gu Master, tapi Bai Ning Bing mengeksekusinya dengan sempurna.”</p>
+<p>	“Tidak diragukan lagi, Bai Ning Bing adalah seorang jenius dan fondasinya juga sangat kokoh. Tidak heran, dia belum dikalahkan sampai sekarang. ”</p>
+<p>	Fang Yuan ada di antara kerumunan dan menonton pertandingan dengan tenang.</p>
+<p>	Wei Yang dan Shang Xin Ci juga datang, dan berdiri di sampingnya.</p>
+<p>	Ketiganya menyamar, bersembunyi di antara kerumunan.</p>
+<p>	“Bai Ning Bing bertarung dengan sangat kuat. Meskipun dia menggunakan es Gu, setelah jumlah es naik, konsumsi esensi purbanya juga akan naik. ” Wei Yang khawatir.</p>
+<p>	“Ada perbedaan antara esensi purba peringkat tiga dan peringkat empat. Tapi Yan Tu juga menggunakan pelet api Gu dan esensi purbanya juga terus menipis. Dia mungkin peringkat empat tetapi dia hanya memiliki bakat kelas B. Bai Ning Bing menggunakan kecepatan pemulihan esensi purba dari bakat kelas A-nya untuk bersaing dengan kultivasi peringkat empat Yan Tu. ” Fang Yuan memahami taktik pertempuran Bai Ning Bing dengan sekali pandang.</p>
+<p>	“Jika demikian, maka ini akan menjadi perjuangan berat bagi Bai Ning Bing.” seru Shang Xin Ci.</p>
+<p>	Sekarang, dia juga seorang Guru Gu. Dengan ajaran hati-hati Shang Yan Fei, visinya diperluas dan dia bisa melihat melalui banyak hal.</p>
+<p>	Saat ketiganya berbicara, situasi di panggung pertempuran tiba-tiba berubah.</p>
+<p>	“Gadis kecil, kamu sangat suka melompat-lompat.” Bibir Yan Tu melengkung menjadi senyuman yang tidak menyerupai senyuman. Dia tiba-tiba mengangkat tangan kanannya dan meraih Bai Ning Bing dari puluhan langkah jauhnya.</p>
+<p>	Saat tangan kanannya membuat gerakan mencakar, jejak cacing Gu di telapak tangannya melintas.</p>
+<p>	Suara mendesing!</p>
+<p>	Terdengar suara kobaran api dan dalam sekejap mata, sebuah cakar api raksasa terbentuk dan terbang menuju Bai Ning Bing.</p>
+<p>	Cakar raksasa itu hanya memiliki tiga jari, tampak seperti cakar elang, hanya saja warnanya oranye-merah. Api membakar dan bahkan sebelum cakar mencapainya, Bai Ning Bing sudah bisa merasakan panas yang hebat.</p>
+<p>	Ini adalah peringkat tiga cakar berapi Gu!</p>
+<p>	Bai Ning Bing segera menggunakan gerakannya Gu untuk meningkatkan kecepatannya dan memisahkan jarak di antara mereka.</p>
+<p>	Dia sudah menanyakan informasi tentang Yan Tu dan membuat persiapan. Dia tahu jangkauan serangan cakar api ini lebih kecil dari pelet api; itu hanya bisa bergerak beberapa meter dari Yan Tu.</p>
+<p>	Namun, Yan Tu terkekeh dan menggunakan gerakannya Gu juga, dengan cepat mendekati Bai Ning Bing.</p>
+<p>	Gerakannya Gu berada di peringkat empat dan memiliki efek superior dibandingkan dengan Bai Ning Bing. Jadi, bukan saja Bai Ning Bing tidak bisa memperlebar jarak mereka, Yan Tu malah semakin mendekat.</p>
+<p>	Cakar yang berapi-api terus turun ke arahnya dan membuat gerakan meraih.</p>
+<p>	Sulit bagi Bai Ning Bing untuk menghindari cakar yang berapi-api karena cepat dan stabil di bawah manipulasi terampil Yan Tu.</p>
+<p>	Situasi Bai Ning Bing menjadi lebih menyedihkan saat dia berulang kali berguling di padang rumput.</p>
+<p>	Ledakan.</p>
+<p>	Cakar yang berapi-api melewati bahu Bai Ning Bing dan jatuh di padang rumput, segera membakar bagian padang rumput itu. Api berkobar dengan ganas dan mulai menyebar.</p>
+<p>	Yan Tu menghendakinya dan cakar yang berapi-api sekali lagi muncul dari dalam api, hanya saja itu terlihat kurang mengancam daripada ketika baru saja dipanggil.</p>
+<p>	Namun, dengan sedikit penurunan permukaan laut purba Yan Tu, cakar yang berapi-api itu langsung mendapatkan kembali kemegahannya, menghapus semua kelesuan.</p>
+<p>	Panah beku Gu!</p>
+<p>	Bai Ning Bing mendapatkan kembali pijakannya dan mengulurkan jari kelingkingnya; panah beku Gu berada di dalamnya dan telah membentuk tato biru.</p>
+<p>	Bola uap biru es mengembun.</p>
+<p>	Dalam sekejap mata, uap es terbentuk menjadi panah.</p>
+<p>	Panah itu mengenai cakar yang berapi-api dan menekan nyala apinya yang luar biasa.</p>
+<p>	Frost arrow Gu adalah peringkat empat Gu yang dibeli oleh Bai Ning Bing selama pelelangan. Itu segera membangun dominasinya setelah digunakan.</p>
+<p>	Cakar yang berapi-api itu tampak seperti akan padam; Yan Tu sedikit mengerutkan alisnya, lalu tanpa mempertimbangkan pengeluarannya, dia menuangkan esensi purba dan cakar yang berapi-api menunjukkan tanda-tanda pulih.</p>
+<p>	Namun, bagaimana Bai Ning Bing bisa membiarkannya melakukan apa yang dia inginkan?</p>
+<p>	wussssss</p>
+<p>	Dia mengaktifkan Gu es dan pada saat yang sama, secara diam-diam mengaktifkan ledakan es Gu.</p>
+<p>	Bang , es meledak saat mereka menabrak cakar yang berapi-api. Ledakan hebat itu benar-benar memadamkan cakar yang berapi-api itu.</p>
+<p>	Cakar api Gu terbang kembali, Yan Tu tidak ingin kehilangannya sehingga dia segera mengambil beberapa langkah dan menggunakan tangannya untuk menangkap cakar api Gu saat berubah kembali menjadi jejak.</p>
+<p>	Bai Ning Bing tidak melewatkan kesempatan ini; dia membentuk dua bilah es panjang, memegangnya ganda saat dia menebas ke arah Yan Tu.</p>
+<p>	Sebelum bilah mencapai tubuhnya, Yan Tu merasakan niat membunuh yang intens bertiup di wajahnya seperti angin sedingin es.</p>
+<p>	“Itu pedang yang bagus!” Yan Tu tersenyum aneh dan kemudian tiba-tiba mendengus, dua ular berapi keluar dari hidungnya.</p>
+<p>	Ular api itu awalnya hanya seukuran kalung tetapi dengan cepat berkembang, dan dalam sekejap mata, berubah menjadi dua ular sanca besar yang panjangnya beberapa meter dan memiliki lebar ember.</p>
+<p>	Seekor ular berapi bergerak ke depan di depan Bai Ning Bing dan memblokir dua bilah Bai Ning Bing; sementara ular api lainnya menggeliat dari samping ke belakang Bai Ning Bing dan memulai serangannya.</p>
+<p>	“Mereka muncul, serangan ular kembar Lord Yan Tu!”</p>
+<p>	“Huh, aku dikalahkan oleh gerakan ini.”</p>
+<p>	“Kontrol Yan Tu atas kedua ular itu benar-benar luar biasa; lawan dibiarkan tidak dapat bertahan melawan keduanya, mereka benar-benar sulit untuk dihadapi. ”</p>
+<p>	Ular yang menyala-nyala menyebabkan kegemparan di antara penonton.</p>
+<p>	Ekspresi Bai Ning Bing serius, niat bertarung di pupil birunya berkumpul menjadi es. Ular yang berapi-api memberinya tekanan yang luar biasa, tetapi ini malah merangsang semangat juangnya lebih jauh.</p>
+<p>	Bai Ning Bing memegang kedua pedangnya dan melawan dua ular yang berapi-api sementara Yan Tu berdiri di luar jangkauan pertempuran dan memanipulasi ular-ular itu.</p>
+<p>	Yan Tu mampu menggunakan pikirannya untuk melakukan tiga tugas sekaligus; meskipun dia hanya mengendalikan dua ular yang berapi-api sekarang, gerakannya sangat indah dan kontrolnya tepat, ini malah menyebabkan dia mengeluarkan lebih banyak energi mentalnya.</p>
+<p>	Ular api Gu adalah peringkat empat Gu dan di bawah serangan menjepit dari dua peringkat empat Gu, Bai Ning Bing perlahan-lahan jatuh ke dalam kerugian.</p>
+<p>	Dia merasa semakin sulit untuk bertahan melawan serangan, setelah semua gerakannya Gu dan Gu defensif tidak luar biasa.</p>
+<p>	Bai Ning Bing adalah tipe penyerang Gu Master dan Gu set-nya menempatkan serangan sebagai prioritas utama, sementara pergerakan dan pertahanan berada di sisi yang lebih lemah.</p>
+<p>	Tidak ada yang bisa dia lakukan tentang ini.</p>
+<p>	Esensi purba Gu Master memiliki batas dan tidak terbatas. Dengan demikian, seseorang perlu mengalokasikan penggunaan esensi purba mereka dengan benar. Bai Ning Bing memproporsikan sebagian besar esensi purbanya ke dalam aspek serangan sementara esensi purba yang tersisa untuk gerakan dan pertahanan relatif lebih rendah.</p>
+<p>	Karena itu, Gu gerakan dan Gu defensif yang dia kumpulkan adalah Gu yang mengonsumsi lebih sedikit esensi purba.</p>
+<p>	Cacing Gu yang mengonsumsi lebih sedikit esensi purba secara alami sedikit kurang efektif. Setelah semua, Anda mendapatkan apa yang Anda bayar.</p>
+<p>	“Dua ular api ini membatasi pilihan Bai Ning Bing. Lihat saja, jika ular api itu rusak karena serangan Bai Ning Bing, Yan Tu hanya akan mengeluarkan esensi purba dan menyembuhkan mereka. Tidak akan baik jika ini terus berlanjut. ” Wei Yang berdiri di samping panggung, alisnya berkerut.</p>
+<p>	Tatapan Fang Yuan melintas, dia tidak berbicara tetapi menantikan tanggapan Bai Ning Bing.</p>
+<p>	Bai Ning Bing tiba-tiba meledak dengan serangan.</p>
+<p>	Dia menggunakan Gu nafas beku dan panah beku Gu satu demi satu.</p>
+<p>	Aura es yang terus menerus melambat dan menahan serangan ular api.</p>
+<p>	Namun, rentetan serangan ini secara tajam meningkatkan pengeluaran esensi purbanya.</p>
+<p>	“Gadis kecil, berhenti berjuang.” Yan Tu tertawa dan menembakkan bola pelet api.</p>
+<p>	Beberapa pelet api ini menembak ke arah Bai Ning Bing, memaksanya untuk menghindar dan membuang energinya. Pelet lainnya menembak ke arah ular yang berapi-api dan menyatu ke dalamnya, menyebabkan ular api yang lemah menjadi lebih kuat.</p>
+<p>	Ini adalah kombinasi taktik pertempuran Gu pelet api dan Gu ular api.</p>
+<p>	Yan Tu telah menyempurnakan dan menyempurnakan taktik ini setelah melalui ratusan pertempuran di tahap pertempuran.</p>
+<p>	Dibandingkan dengan dia, meskipun Bai Ning Bing memiliki bakat, cerdas dan memiliki pemahaman yang tinggi, waktu yang dia habiskan terlalu singkat dan tidak memiliki akumulasi pengalaman sebanyak Yan Tu.</p>
+<p>	Bai Ning Bing ingin melakukan serangan eksplosif dan mengalahkan dua ular berapi, tapi ini dilihat oleh Yan Tu dan dia segera membalas, menggagalkan upaya Bai Ning Bing dan menunjukkan kelihaian serta pengalamannya.</p>
+<p>	“Bagaimana dia akan menghadapi ini?” Alis Wei Yang terjalin erat.</p>
+<p>	“Situasinya tidak terlihat bagus …” Shang Xin Ci juga perlahan menganalisis pertandingan.</p>
+<p>	Murid biru tua Bai Ning Bing bersinar dengan cahaya yang menentukan.</p>
+<p>	Kristal es Gu!</p>
+<p>	Dia menggunakan Gu vitalnya, kartu trufnya yang sebenarnya!</p>
+<p>	Dia tidak bermaksud menggunakannya sepagi ini, tapi dia tidak bisa berbuat apa-apa; sejak pertandingan dimulai, selain kebuntuan di awal, Yan Tu secara bertahap mendapatkan inisiatif dan menekannya.</p>
+<p>	Bai Ning Bing adalah tipe serangan Gu Master, jika dia ingin mengambil kembali inisiatif, dia harus meningkatkan serangannya lebih banyak lagi!</p>
+<p>	Berderak…</p>
+<p>	Seluruh tubuh Bai Ning Bing mengeluarkan suara berderit seperti air yang membeku menjadi es.</p>
+<p>	Dalam sekejap mata, dia berubah menjadi kristal es humanoid. Tubuhnya sedikit melebar dan rambut peraknya tertutup es, menjadi kaku. Kristal es menyebar ke arah dua bilah es, membuatnya lebih tajam, lebih dingin, dan bahkan lebih kokoh.</p>
+<p>	“Oh, gadis kecil, kamu akan keluar sekarang?” Yan Tu berbicara tetapi segera senyumnya membeku di wajahnya.</p>
+<p>	Seluruh tubuh Bai Ning Bing berubah menjadi kristal es dan tidak ragu lagi karena serangan dan pertahanannya telah terintegrasi menjadi satu. Dia langsung menyerang melalui serangan ular api, menuju Yan Tu.</p>
+<p>	Untuk menembak penunggang kuda, pertama tembak kudanya. Untuk menangkap bandit, pertama-tama tangkap pemimpinnya.</p>
+<p>	Yan Tu segera memobilisasi ular api lainnya dan memblokir Bai Ning Bing.</p>
+<p>	Nafas beku Gu.</p>
+<p>	Bai Ning Bing menghembuskan es biru.</p>
+<p>	Dalam bentuk esnya, aura es yang dia hembuskan memiliki tingkat yang lebih tinggi.</p>
+<p>	Ular berapi-api segera menyusut dari aura nafas es ini.</p>
+<p>	Bai Ning Bing terus menyerang Yan Tu: “Orang tua Yan Tu, ayo bertarung denganku jika kamu punya nyali!”</p>
+<p>	Yan Tu berubah serius, dia tidak berspesialisasi dalam pertempuran jarak dekat. Kekuatan Bai Ning Bing sangat menakjubkan, dia pasti akan berada dalam masalah jika dia bertarung dengannya dalam pertempuran jarak dekat.</p>
+<p>	Dia mungkin berada di peringkat empat dan berjalan di jalur api yang kuat, tetapi gaya bertarung Yan Tu adalah tabrak lari dan karena sifatnya yang cerdik, dia tidak terprovokasi oleh ucapan Bai Ning Bing dan mulai mundur dengan gerakannya Gu.</p>
+<p>	Hati Bai Ning Bing tenggelam.</p>
+<p>	Tubuhnya telah berubah menjadi kristal es, jadi gerakannya Gu kurang efektif dari sebelumnya.</p>
+<p>	Dia harus memperlambat Yan Tu jika dia ingin mengejarnya.</p>
+<p>	Setelah itu, Bai Ning Bing berulang kali menembakkan panah beku; aura dingin dan beku dari panah es memiliki efek membekukan otot dan darah, sehingga memperlambat gerakan target.</p>
+<p>	Namun, Yan Tu dengan mudah mengelak dengan tekniknya yang luar biasa; tidak ada panah es yang mendarat padanya.</p>
+<p>	Panah es tidak bisa mengenai Yan Tu, menyebabkan jarak antara Bai Ning Bing dan dia menjadi lebih besar.</p>
+<p>	Yan Tu tertawa dingin, dia tidak merasa malu saat dikejar oleh seorang junior.</p>
+<p>	Dia membuat penilaian terbaik.</p>
+<p>	Gu kristal es tidak bisa sering digunakan; jika digunakan untuk jangka waktu yang lebih lama, itu dapat menyebabkan pengguna berubah sepenuhnya menjadi kristal es dan menjadi patung es.</p>
+<p>	Dengan demikian, Bai Ning Bing menggunakan vitalitas Gu pada saat yang sama dengan Gu kristal es, untuk mempertahankan kekuatan hidupnya.</p>
+<p>	Namun, bahkan vitalitas Gu hanya dapat memperpanjang waktu penggunaan kristal es Gu.</p>
+<p>	Yan Tu tahu ini dengan jelas. Bai Ning Bing telah menyelidikinya, dia juga menyelidiki Bai Ning Bing. Selama dia memperpanjang pertandingan ini, kemenangan pasti akan menjadi miliknya.</p>
+<p>	Meskipun metode seperti itu tidak menunjukkan sedikit pun dominasi jalur api Gu Masters, ini tidak diragukan lagi merupakan taktik yang paling optimal.</p>
+<p>	Bai Ning Bing berhenti.</p>
+<p>	“Aku tidak bisa menyerang orang tua ini, hanya gerakan itu yang bisa mengubah situasi sekarang.”</p>
+<p>	Matanya berkedip dengan sedikit keraguan.</p>
+<p>	“Haruskah saya menggunakan gerakan ini atau tidak?”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

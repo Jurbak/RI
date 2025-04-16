@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 169 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 169";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_168.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 169">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_170.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 169</h1>
+        <div class="text-left">
+<p>	Bab 169</p>
+<p>	Bab 169: Menemukan jalan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Tubuh Bai Ning Bing sarat dengan luka. Dia bernapas terengah-engah dan tampak berantakan.</p>
+<p>	Ketika Fang Yuan sampai di sana, keduanya tercengang.</p>
+<p>	Takdir memang, hal yang misterius. Belum lama ini, mereka masih musuh bebuyutan, ingin saling membunuh. Tetapi pada saat ini, mereka harus bekerja sama untuk mendapatkan kesempatan untuk bertahan hidup.</p>
+<p>	Bekerja sama dengan Bai Ning Bing?</p>
+<p>	Mata Fang Yuan bersinar seperti jurang, mengevaluasi, “Meskipun Bai Ning Bing benar-benar gila, bersama dengan fakta bahwa dia juga mengenali nasibnya sendiri, itu tidak berarti dia menyerah untuk hidup.”</p>
+<p>	Keinginan untuk hidup adalah naluri alami seseorang, kebutuhan paling dasar dari semuanya.</p>
+<p>	Yang benar adalah, karena keinginan kuat Bai Ning Bing untuk hidup dan karena dia menghadapi jalan kehancuran yang tak terhindarkan, dia mengembangkan kepribadian seperti itu.</p>
+<p>	Di dunia ini, tidak ada musuh abadi. Bekerja sama dengan Bai Ning Bing adalah solusi terbaik. Tapi bagaimana dia bisa menanyakannya dengan cara yang bisa meyakinkannya?</p>
+<p>	“Hehehe, Fang Yuan, untuk berpikir itu sebenarnya kamu!” Bai Ning Bing berbicara lebih dulu, tertawa terbahak-bahak, nada suaranya menjadi agresif, “Kalau begitu matilah bersamaku. Dengan kematianmu di sampingku, itu akan menjadi akhir yang menarik dalam hidupku.”</p>
+<p>	“Menarik?” Fang Yuan punya pikiran. Sambil tersenyum ringan, dia mendekati Bai Ning Bing.</p>
+<p>	Serigala petir di sekitarnya menyerang, tetapi Fang Yuan mengangkat tangannya, kelabang gergaji berayun dan membunuh tiga serigala petir di tempat, mengirim mereka terbang.</p>
+<p>	Sampai sekarang, dua baris pisau cukur Chainsaw Golden Centipede sudah sangat rusak. Kekuatan pemotongannya sangat berkurang. Itu hanya bisa digunakan sebagai benda tumpul.</p>
+<p>	“Di bawah tekanan serigala-serigala ini, mari kita lakukan pertarungan hidup dan mati yang intens, bukankah itu lebih menyenangkan?” Fang Yuan semakin dekat dengan Bai Ning Bing, mulutnya membentuk senyuman kejam.</p>
+<p>	Kelopak mata Bai Ning Bing bergetar, dia tidak menyangka Fang Yuan menjadi maniak yang lebih hebat darinya.</p>
+<p>	Tapi ini sejalan dengan keinginannya. Jika sikap Fang Yuan menjadi lebih lembut, dan untuk bertahan hidup, Fang Yuan ingin bekerja sama dan melarikan diri, dia malah akan memandang rendah Fang Yuan, bahkan merasa terhina dan ingin membunuh Fang Yuan sendiri.</p>
+<p>	Di dunia ini, beberapa orang seperti ini. Jika Anda bersikap baik kepada mereka, mereka akan merasa bahwa Anda mudah diganggu, dan memandang rendah Anda. Dengan memiliki sikap yang kuat terhadap mereka, Anda bisa mendapatkan rasa hormat sebagai gantinya.</p>
+<p>	“Kamu benar-benar ingin mati? Kalau begitu aku akan mengabulkan keinginanmu!” Bai Ning Bing menyipitkan matanya, memancarkan aura berbahaya.</p>
+<p>	Fang Yuan tertawa terbahak-bahak, langkahnya lambat saat dia berbicara dengan nada tua dan berpengalaman, “Manusia hanya hidup selama seratus tahun, itu sama tidak nyatanya dengan mimpi yang berakhir dalam sekejap. Apa gunanya seseorang yang hidup di dunia ini? Tidak lebih dari sekedar berada di perjalanan, dan menyaksikan hal-hal menarik. Meskipun saya tidak ingin mati, saya tidak takut mati. Saya sudah berada di jalan yang benar, saya tidak menyesal bahkan jika saya mati.”</p>
+<p>	Ini adalah perasaan Fang Yuan yang sebenarnya.</p>
+<p>	Sejak awal waktu itu sendiri, siapa yang bisa hidup selamanya?</p>
+<p>	Bahkan jika itu adalah Master Gu peringkat sembilan. Atau bahkan Ren Zu sendiri yang hanya bisa hidup lebih lama, tapi tidak selamanya. Mereka akhirnya menghadapi kehancuran.</p>
+<p>	Jadi jika seseorang mati, apa masalahnya? Bahkan jika pada saat berikutnya, Fang Yuan mati dalam gelombang serigala ini, dia tidak akan menyesal.</p>
+<p>	Karena dia sudah bekerja keras untuk tujuannya. Dia telah memberikan segalanya, dan hidup sesuai dengan keinginannya!</p>
+<p>	Mampu melihat melampaui hidup dan mati. Hanya dengan demikian seseorang dapat hidup tanpa kendali, hanya dengan demikian kehidupan dapat memiliki kebebasan sejati.</p>
+<p>	Bai Ning Bing mendengar ini, dan seluruh tubuhnya bergidik.</p>
+<p>	Dia terus mengatakan dia tidak takut mati, tetapi dia masih tidak pernah bebas dan nyaman. Karena dia tidak dapat melihat melampaui kematian, dan tidak dapat melepaskan kehidupan ini.</p>
+<p>	Ketika seseorang takut, dia menjadi budak.</p>
+<p>	Bai Ning Bing sendiri hanyalah budak hidup dan mati.</p>
+<p>	Namun, ini bukan salahnya, karena dia masih terlalu muda. Banyak hal yang perlu dialami sendiri; hanya dengan demikian seseorang dapat memperoleh pencerahan.</p>
+<p>	Tapi sekarang, kata-kata Fang Yuan memberinya jalan baru, untuk melampaui kebenaran yang sedang dia perjuangkan.</p>
+<p>	“Menyaksikan hal-hal menarik… sudah di jalanmu… tidak ada penyesalan bahkan jika kamu mati?” Bai Ning Bing bergumam, lalu tiba-tiba bertanya, “Jalan, apa itu jalan?”</p>
+<p>	Fang Yuan tertawa dingin, semakin dekat, “Setiap orang memiliki jalan mereka sendiri, aku tidak perlu memberitahumu jalanku, dan bagaimana aku tahu jalanmu?”</p>
+<p>	Di dunia ini, banyak orang tidak memiliki jalan sepanjang hidup mereka, sementara beberapa orang berjalan di jalan mereka terus-menerus berjuang, mencoba menemukan tempat perlindungan di dalam kegelapan.</p>
+<p>	Mata biru Bai Ning Bing tiba-tiba bersinar dengan cahaya yang menyilaukan.</p>
+<p>	“Jalan… itu benar, aku harus menemukan jalanku!”</p>
+<p>	Pada saat ini, kegembiraan di hatinya tidak mungkin dipahami oleh orang lain.</p>
+<p>	Dia seperti laki-laki, dengan susah payah mencari seorang gadis tetapi tidak berhasil, namun suatu hari dia menemukan metode yang tepat. Atau seperti seorang pemburu harta karun, diblokir pada teka-teki terakhir untuk waktu yang lama, tetapi suatu hari dia menemukan metode untuk memecahkan teka-teki itu. Atau seperti pertanyaan yang sulit, berpikir bertahun-tahun tanpa jawaban, tetapi tiba-tiba menemukan cara untuk menyelesaikannya.</p>
+<p>	Bai Ning Bing tidak memiliki jalan dan tidak dapat menemukan makna hidupnya, sehingga ia merasa tersesat.</p>
+<p>	Fang Yuan tidak bisa menyelesaikan perasaan tersesatnya, tetapi dari sela-sela dia bisa memberinya harapan. Memberinya penghiburan untuk menghadapi kematian – selama Anda berada di jalan Anda, bahkan jika Anda mati tidak ada penyesalan. Dengan demikian, kematian tidak lagi menakutkan.</p>
+<p>	“Saya merasa bahwa saya akan menemukan jalan saya sendiri!” Bai Ning Bing mengepalkan tinjunya, ekspresinya menjadi sangat bersemangat.</p>
+<p>	Dia melihat ke arah Fang Yuan, berkata dengan penuh arti, “Aku akhirnya mengerti perbedaan kita. Anda berada di jalan Anda sendiri, tetapi saya masih berusaha menemukan jalan saya sendiri.”</p>
+<p>	“Hehehe!” Dia tiba-tiba tertawa, ekspresinya berubah gila, “Fang Yuan, jika kamu ingin bertarung, aku mendukungnya. Tapi tidak sekarang! Mari bekerja bersama. Saya memiliki Gu Mata Petir, tetapi penglihatan saya terhalang, hanya bisa melihat tiga puluh langkah di depan. Setelah kita melarikan diri dari sini, mari kita bertarung di lain hari. Mampu bekerja sama dengan musuh bebuyutanku, tidakkah menurutmu itu lebih menarik, lebih menyenangkan?”</p>
+<p>	“Oh, bagaimana aku bisa mempercayaimu?”</p>
+<p>	“Aku tidak memintamu untuk percaya padaku. Anda dapat memilih untuk mempercayai saya, atau tidak. Anda dapat mempercayakan punggung Anda kepada saya, atau Anda dapat menyerang kapan saja, dan menyelinap menyerang saya. Hehe, itu semua tergantung pada suasana hati Anda! ” Bai Ning Bing mengangkat bahu sambil tersenyum, menunjukkan sikap acuh tak acuh.</p>
+<p>	Asap tebal ada di mana-mana, dan lingkungan mereka diterangi dengan teriakan serigala.</p>
+<p>	Mata Fang Yuan menyipit saat dia mempertimbangkan saran Bai Ning Bing.</p>
+<p>	Meyakinkan seseorang sangat sulit, namun sangat sederhana. Yang penting adalah memahami pikiran mereka secara akurat.</p>
+<p>	“Baik.” Fang Yuan mengulurkan tangannya dan membelai baju besi Chainsaw Golden Centipede, mengangkat kepalanya, “Tapi waspadalah terhadap serangan diam-diamku kapan saja!”</p>
+<p>	“Hehehe.” Mulut Bai Ning Bing melengkung, tersenyum sangat licik. Gelombang udara bertiup saat asap hitam menyebar, dan lengan lengan yang patah bergoyang tertiup angin.</p>
+<p>	Dalam asap tebal, untuk menentukan arah, itu sulit. Semakin sempit pandangan mereka, semakin mudah tersesat.</p>
+<p>	Bai Ning Bing memiliki Lightning Eye Gu dan bisa melihat hingga lima puluh langkah ke depan. Tapi sekarang, itu dibatasi oleh asap tebal, jadi dia bisa melihat kurang dari tiga puluh langkah di depan. Namun, ini sudah jauh lebih baik daripada penglihatan normal Fang Yuan.</p>
+<p>	Sementara Bai Ning Bing memiliki Gu Mata Petir, dia tidak dapat melihat seluruh topografi, dan tidak memiliki pemahaman yang jelas tentang situasinya.</p>
+<p>	Dia hanya bisa melihat apa yang ada di depannya, dan kadang-kadang dia bahkan berlari ke sekawanan serigala dan dikelilingi oleh mereka.</p>
+<p>	Fang Yuan di sisi lain, memiliki Rumput Telinga Komunikasi Bumi.</p>
+<p>	Asap mengurangi penglihatan, tetapi tidak dapat menghalangi transmisi suara.</p>
+<p>	Lingkungannya berisik, dan Rumput Telinga Komunikasi Bumi dapat mendengar hingga dua ratus langkah jauhnya, tetapi Fang Yuan hanya bisa bergerak sesuai dengan kebisingan. Penglihatannya terlalu sempit, hanya bisa melihat pohon atau batu tepat di depannya. Tanpa apa pun untuk dibandingkan, dia tidak bisa membedakan arahnya.</p>
+<p>	Kerja sama!</p>
+<p>	Gu Mata Petir Bai Ning Bing, bersama dengan Rumput Telinga Komunikasi Bumi Fang Yuan.</p>
+<p>	Kedua Gu bersama, saling melengkapi, menyebabkan situasi menjadi lebih mudah.</p>
+<p>	“Ini adalah sisi selatan. Pergi ke arah ini, kita akan sampai ke desa Gu Yue.” Mata Bai Ning Bing bersinar dengan kilat saat dia berkata.</p>
+<p>	“Tidak, ada terlalu banyak kawanan serigala di sana, kita harus mengambil jalan memutar.” Telinga kanan Fang Yuan memiliki akar yang beterbangan.</p>
+<p>	“Hehe… kalau begitu kita akan berkeliling ke arah tenggara, bagaimana dengan itu?” Bai Ning Bing menjilat bibirnya.</p>
+<p>	Fang Yuan berjongkok, menjulurkan akar ke tanah dan mendengarkan dengan penuh perhatian.</p>
+<p>	Selama periode itu, serigala petir yang bergegas semuanya dibunuh oleh Bai Ning Bing.</p>
+<p>	Fang Yuan mendengarkan sebentar, sebelum berdiri, “Ada lubang di arah tenggara, tapi kita harus cepat, lubangnya akan terisi!”</p>
+<p>	“Kalau begitu mari kita isi daya.” Bai Ning Bing berkata, tetapi tidak segera bergerak.</p>
+<p>	Dia masih waspada terhadap Fang Yuan. Dia tidak berani menyerang ke depan dan mengungkapkan punggungnya ke Fang Yuan.</p>
+<p>	Fang Yuan tertawa dingin; dia juga penuh keraguan terhadap Bai Ning Bing.</p>
+<p>	Akhirnya, keduanya membunuh jalan bahu-membahu, dengan jarak lima langkah di antara mereka.</p>
+<p>	Serigala petir melolong, berusaha membunuh mereka.</p>
+<p>	Tetapi mengandalkan Lightning Eye Gu dan Earth Communication Ear Grass, Fang Yuan dan Bai Ning Bing dapat menghindari musuh yang kuat dan terus berkeliaran, menemukan peluang untuk menerobos.</p>
+<p>	Keuntungan memiliki informasi diungkapkan di sini.</p>
+<p>	Bai Ning Bing dan Fang Yuan, jika sendirian, mereka akan terjebak oleh banyak serigala. Tetapi sekarang setelah mereka bekerja bersama, mereka dapat mengendalikan inisiatif dan mulai bersenang-senang.</p>
+<p>	Setelah mengisi beberapa saat, jalan di depan mereka tiba-tiba menjadi cerah, dan sinar matahari yang cerah menyebabkan keduanya menyipitkan mata.</p>
+<p>	“Kami keluar!” Bai Ning Bing tertawa keras.</p>
+<p>	Fang Yuan melihat ke belakang, hanya untuk melihat kerudung hitam tebal di belakangnya, seolah-olah pot hitam telah menutupi seluruh gunung.</p>
+<p>	Asap pekat terus mengeluarkan suara ledakan dan jeritan. Ternyata kedua pemimpin klan itu masih bertarung melawan lycan petir.</p>
+<p>	“Memikirkan bahwa bekerja denganmu sebenarnya cukup menyenangkan.” Bai Ning Bing membalikkan tubuhnya, tersenyum ringan.</p>
+<p>	“Aku juga merasakan hal yang sama,” Fang Yuan juga tersenyum ringan.</p>
+<p>	Tetapi pada saat berikutnya, kedua mata mereka bersinar tajam.</p>
+<p>	Pedang Es Gu!</p>
+<p>	Gergaji Kelabang Emas!</p>
+<p>	Pisau es panjang memotong udara dengan cahaya dingin.</p>
+<p>	Kelabang emas tebal menyerang langsung dan membawa deru angin.</p>
+<p>	Bam.</p>
+<p>	Kedua belah pihak bertabrakan. Iceblade memotong luka di tubuh kelabang emas, tapi langsung patah.</p>
+<p>	Fang Yuan dan Bai Ning Bing sama-sama mundur selangkah, kedua mata mereka memancarkan niat membunuh yang intens.</p>
+<p>	Kerja sama sementara mereka tidak dapat mengubah status musuh mereka.</p>
+<p>	Rambut hitam Fang Yuan menari-nari tertiup angin, sementara kemeja putih Bai Ning Bing bergoyang; keduanya memiliki terlalu banyak kesamaan. Justru mengapa mereka menjadi musuh alami.</p>
+<p>	Iris hitam melawan bola biru, hampir menciptakan percikan di udara.</p>
+<p>	Kedua niat membunuh mereka perlahan-lahan bubar.</p>
+<p>	“Hmph, ini hanyalah orang yang sekarat. Bahkan tanpa campur tangan saya, surga akan mengambil nyawanya. Yang paling penting sekarang bukanlah Bai Ning Bing tetapi Lotus Harta Karun Esensi Surgawi! Setelah lycan petir menyerang desa Gu Yue, kemungkinan besar permainan berakhir. Aku harus menyerang sebelum itu, selagi aku punya kesempatan…” Fang Yuan menganalisis, matanya menyipit.</p>
+<p>	Mata Bai Ning Bing menjadi lebih cerah, bergumam, “Jalan… tidak ada penyesalan… itu benar, bahkan Ren Zu harus mati. Manusia hidup dan mati. Jadi selama aku bisa menjalani kehidupan yang menarik, apa salahnya bahkan jika aku mati?”</p>
+<p>	Berpikir demikian, matanya bersinar dengan kecemerlangan yang intens.</p>
+<p>	“Ha ha ha. Saya akhirnya menemukan jalan saya, dan itu adalah untuk menyaksikan kecemerlangan dunia ini! Fang Yuan, kita akan bertarung di lain hari. Saya harap pada saat itu, kematian Anda dapat membawa cahaya ke dalam hidup saya! ”</p>
+<p>	Mengatakan demikian, dia melompat mundur terus menerus. Setelah menarik diri agak jauh, dia berbalik, pergi.</p>
+<p>	Meskipun dia berantakan, tubuhnya penuh luka dan wajahnya tertutup jelaga, dengan hanya satu tangan yang tersisa, tetapi punggungnya lurus seperti pedang; dia tidak lagi tersesat.</p>
+<p>	Dia telah menemukan jalannya.</p>
+<p>	Dengan kata lain, dia benar-benar menjadi dirinya sendiri!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

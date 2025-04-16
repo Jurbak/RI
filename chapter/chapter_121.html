@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 121 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 121";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_120.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 121">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_122.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 121</h1>
+        <div class="text-left">
+<p>	Bab 121</p>
+<p>	Bab 121: Cacing Minuman Keras Empat Rasa</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Klan Gu Yue ….” Xiong Li berdiri di lereng gunung dan menatap desa Gu Yue yang jauh; ekspresi rumit di wajahnya.</p>
+<p>	Angin musim gugur yang sejuk berhembus lembut.</p>
+<p>	Warna musim gugur mewarnai gunung.</p>
+<p>	Daun pohon adalah campuran kuning dan merah, dengan buah-buahan liar tumbuh di mana-mana. Hanya bambu Qing Mao yang tetap hijau dan tegak.</p>
+<p>	“Belum lama ini, Klan Gu Yue seperti bambu Qing Mao ini, hijau sepanjang tahun, penguasa gunung Qing Mao. Sekarang, mereka benar-benar tertinggal,” bibir Xiong Li melengkung dengan senyum mengejek yang dingin.</p>
+<p>	Tapi dengan cepat, dia memikirkan desa Bai dan lekukan bibirnya menjadi halus; suasana hatinya berubah serius.</p>
+<p>	Pemberontakan desa Bai telah merusak keseimbangan lama gunung Qing Mao. Landak tradisional, klan Gu Yue telah melemah; Operasi desa Xiong tidak berjalan dengan baik; semua ini mendorong situasi di gunung Qing Mao menuju pergolakan.</p>
+<p>	Xiong Li tahu pergolakan ini belum meletus karena tekanan dari gelombang serigala. Ketiga desa perlu berkolaborasi jika ingin mengatasi gelombang serigala ini, sehingga mereka diam-diam menjaga perdamaian dan membuang keluhan untuk saat ini.</p>
+<p>	“Setelah gelombang serigala hilang, struktur lama gunung Qing Mao akan hancur. Bai Ning Bing telah mencapai Peringkat tiga hanya dalam beberapa tahun. Ini benar-benar menakutkan…..” Xiong Li mengingat sosok pemuda berpakaian putih, dan dia merasa tertahan seolah-olah dia ditekan oleh batu besar.</p>
+<p>	Dia, Xiong Li, adalah yang teratas di antara Master Gu peringkat dua desa Xiong. Dia telah berjuang dalam segala macam pertempuran dan memenangkan sebagian besar dari mereka, membangun namanya. Dia memegang Grand Bear Gu dan bisa meletus dengan kekuatan beruang. Dia juga dikenal sebagai orang terkuat di gunung Qing Mao.</p>
+<p>	Dia telah melakukan debutnya dan secara pribadi telah melihat munculnya Bai Ning Bing yang seperti roket, jadi dia lebih jelas daripada yang lain mengenai teror pemuda ini.</p>
+<p>	“Pemimpin kelompok, itu adalah desa Gu Yue! Masih jauh, kenapa kita berhenti di sini?” Dari samping, Xiong Lin mengangkat kedua tangannya dan menggenggamnya di belakang kepalanya saat dia bertanya dengan rasa ingin tahu.</p>
+<p>	Dalam grup beranggotakan lima orang ini, Xiong Lin adalah yang termuda dan merupakan seorang pemula yang baru saja memulai debutnya. Dia seusia dengan Fang Yuan dan merupakan jenius teratas desa Xiong tahun ini.</p>
+<p>	Perawakannya pendek dan dia telah mencukur kepalanya yang tampak bersinar di bawah sinar matahari.</p>
+<p>	Xiong Li melihat bakat baru klan ini, suasana hatinya yang berat sedikit mereda. Dia menjawab dengan suara yang dalam, “Kami di sini untuk misi diplomatik dan bukan untuk misi kepanduan. Area ini sudah menjadi area peringatan dari klan Gu Yue, dan kita mungkin akan diperlakukan sebagai musuh jika kita berani masuk.”</p>
+<p>	“Oh, jadi seperti itu.” Xiong Lin menyadari.</p>
+<p>	“Kami memiliki dua tujuan kali ini. Salah satunya adalah menyerahkan surat pribadi kepala klan kepada kepala klan Gu Yue. Lain adalah untuk menyelidiki masalah tentang Kodok Menelan Sungai. Desa Gu Yue bukan wilayah kami, jadi pastikan untuk tetap tenang saat kami tiba di sana. Namun, Anda benar-benar tidak dapat menurunkan prestise desa Xiong kami, mengerti? ” Tatapan Xiong Li menyapu sekeliling dan berteriak.</p>
+<p>	Ekspresi Guru Gu lainnya berubah menjadi serius dan diam-diam mengangguk.</p>
+<p>	“Pemimpin kelompok, seseorang di sini,” Master Gu kepanduan dalam kelompok itu tiba-tiba berbicara.</p>
+<p>	“Kami telah mengungkapkan gerakan kami begitu lama, mereka seharusnya sudah ada di sini sekarang. Tapi siapa itu…… hmm? Jadi itu Chi Shan.” Segera setelah itu, Xiong Li juga menemukan kelompok Chi Shan; matanya berkilat.</p>
+<p>	“Wow! Orang itu sangat tinggi, apakah dia Chi Shan? Dia bahkan lebih tinggi dari pemimpin kelompok. Otot-otot seperti itu, sepotong demi sepotong … pemimpin kelompok, bukankah dia orang yang lahir dengan kekuatan super yang telah berusaha merebut gelar orang terkuat di gunung Qing Mao?” Xiong Lin segera menatap lurus ke arah Chi Shan.</p>
+<p>	“Hmph, itu pasti dia ….” Xiong Jiang berbicara dengan muram dan memutar bibirnya dengan jijik.</p>
+<p>	“Xiong Li!”</p>
+<p>	“Chi Shan.”</p>
+<p>	Kedua kelompok itu berjarak lima puluh langkah satu sama lain. Kedua pemimpin kelompok itu berhadap-hadapan, tatapan mereka beradu di udara dan seperti membentuk percikan api.</p>
+<p>“Sepertinya kamu adalah utusan khusus desa Xiong kali ini,” Chi Shan mendengus dingin; dia telah bertarung berkali-kali dengan Xiong Li.</p>
+<p>	“Betul sekali. Apakah utusan khusus dari desa Bai sudah tiba?” Ekspresi Xiong Li menegang.</p>
+<p>	“Kenapa banyak bertanya? Ikuti saya, ”Chi Shan dengan hati-hati berbalik dan mengundang.</p>
+<p>	Sementara itu.</p>
+<p>Di ruang rahasia kedua, empat toples anggur berada di depan Fang Yuan.</p>
+<p>	Asam, manis, pahit dan pedas, empat rasa anggur. Manis milik anggur madu emas; pedas adalah cairan biji-bijian putih; asam berasal dari anggur redberry; pahit berasal dari anggur cangkang pahit.</p>
+<p>	Fang Yuan duduk bersila di tanah. Dia kemudian menghendaki dua cacing Liquor untuk terbang keluar dari lubangnya.</p>
+<p>	Proses peleburan cacing Four Flavours Liquor sedikit berbeda dengan peleburan biasa.</p>
+<p>	Kedua cacing Liquor mengikuti kehendak Fang Yuan dan memasuki toples anggur redberry.</p>
+<p>	Mereka memulai perpaduan dalam anggur redberry. Bola cahaya putih terbentuk di toples anggur, cahayanya yang megah menembus keluar dari toples anggur dan bersinar di dinding.</p>
+<p>	Fang Yuan melemparkan batu purba ke dalam toples anggur; satu potong, sepuluh potong, lima puluh keping…..</p>
+<p>	Ketika mencapai potongan keseratus, bola cahaya itu menyusut menjadi seukuran kepalan tangan dan melayang di toples anggur.</p>
+<p>	Anggur redberry benar-benar habis. Fang Yuan mengambil toples anggur kedua – anggur madu emas – dan menuangkannya ke dalam toples.</p>
+<p>	Bola cahaya putih direndam dalam anggur madu, tiba-tiba membengkak hingga ukuran aslinya.</p>
+<p>	Kepala Fang Yuan basah oleh keringat; dia terus-menerus mempertahankan perpaduan kesadaran dua cacing Liquor, dan multitasking seperti itu sangat membebani pikiran.</p>
+<p>	Dia terus melemparkan batu purba ke arah toples anggur.</p>
+<p>	Setiap potongan batu purba menyebabkan bola cahaya menyusut sedikit, sampai mengembun ke ukuran kepalan tangan lagi, mencapai batasnya.</p>
+<p>	Fang Yuan mengikuti polanya dan berturut-turut menuangkan anggur cangkang pahit, lalu cairan butiran putih.</p>
+<p>	Ketika empat jenis anggur benar-benar habis, cahaya di toples anggur tiba-tiba berkembang sebelum menghilang sepenuhnya.</p>
+<p>	“Kesuksesan.” Fang Yuan tahu dia telah berhasil bahkan tanpa melihat ke dalam toples anggur.</p>
+<p>	Dia menghendaki dan seorang Gu dengan gemetar terbang keluar dari toples anggur.</p>
+<p>	Itu adalah cacing Four Flavours Liquor.</p>
+<p>	Membandingkannya dengan cacing Liquor, tidak ada banyak perubahan dalam bentuk luarnya, kecuali bahwa itu sedikit lebih besar.</p>
+<p>	Itu juga menyerupai ulat sutera dan memiliki sepasang mata hitam mengkilap.</p>
+<p>	Perbedaannya adalah bahwa tubuh cacing Liquor itu benar-benar putih, tetapi tubuh cacing Liquor Empat Rasa ini terus menerus berkedip dengan empat warna; merah melambangkan pedas, biru melambangkan pahit, hijau melambangkan asam dan kuning melambangkan manis. Fang Yuan tidak bisa tidak mengaitkannya dengan lampu neon di Bumi.</p>
+<p>	“Huff …” Fang Yuan menghela nafas lega. Keberuntungannya bagus kali ini dan tidak menemui kegagalan, berhasil pertama kali.</p>
+<p>	Jika gagal, cacing Liquor bisa mengalami kerusakan serius dan salah satu dari mereka bahkan bisa mati, atau anggur cangkang pahit mungkin habis. Salah satu dari hasil ini akan merepotkan.</p>
+<p>	Untungnya, situasi ini tidak terjadi.</p>
+<p>	Seorang Guru Gu perlu menggunakan, memelihara, dan memperbaiki Gu; tidak satupun dari mereka yang mudah. Dan dalam aspek menggabungkan cacing Gu, banyak Master Gu akan melalui banyak hal untuk mencari resep dan mengumpulkan bahan.</p>
+<p>	Ada berbagai resep dan mungkin belum tentu cocok. Adapun mengumpulkan bahan, Gu Masters bahkan mungkin menghabiskan lebih dari sepuluh tahun upaya untuk itu. Bahkan jika mereka menemukan resep dan mengumpulkan semua bahan, jika fusi gagal, bahan akan habis, dan semua upaya dan persiapan mereka sebelumnya akan sia-sia.</p>
+<p>	“Kultivasi Guru Gu itu sulit….” Fang Yuan menghela nafas.</p>
+<p>	Menggabungkan cacing Gu mudah dilakukan pada tahap awal kultivasi. Tetapi tingkat keberhasilan untuk fusi Peringkat empat dan Peringkat lima seringkali tidak mencapai satu dari sepuluh kali.</p>
+<p>	Tingkat keberhasilan fusi peringkat enam bahkan serendah satu persen. Setiap kegagalan saat menggabungkan cacing Gu peringkat tinggi berarti hilangnya sejumlah besar sumber daya.</p>
+<p>	Namun, begitu berhasil, manfaatnya akan sangat tinggi.</p>
+<p>	Dengan mempertimbangkan cacing Four Flavours Liquor Fang Yuan yang baru disempurnakan, itu bisa memperbaiki esensi purba peringkat dua dan meningkatkannya dengan ranah kecil.</p>
+<p>	Fang Yuan menggunakan Relic Gu baja merah untuk maju ke tahap tengah. Sekarang, dengan cacing Four Flavours Liquor, dia akan memiliki esensi purba tingkat atas.</p>
+<p>	Kekuatan bertarungnya sekarang berlipat ganda. Pada saat yang sama, cacing Four Flavours Liquor akan memelihara aperture-nya yang berarti kecepatan kultivasi lebih cepat.</p>
+<p>	Namun, dengan keuntungan datang kerugian.</p>
+<p>	Menggunakan cacing Four Flavours Liquor untuk memperbaiki esensi purbanya pasti akan menyebabkan peningkatan konsumsi batu purba. Hanya dengan mengandalkan pendapatan dari penjualan daun vitalitas saja sudah tidak cukup untuk mempertahankan pengeluaran budidayanya.</p>
+<p>	“Selanjutnya, saya perlu menggabungkan Stealth Rock Gu menjadi Stealth Scales Gu. Ini akan menambah pengeluaran lain.”</p>
+<p>	Penggabungan, apakah berhasil atau gagal, menghabiskan batu purba setiap saat. Fang Yuan telah menggunakan lebih dari empat ratus batu purba sebelumnya untuk memperbaiki cacing Minuman Keras Empat Rasa.</p>
+<p>	Klan telah memberinya lima ratus batu purba karena mengusir Kodok Menelan Sungai. Lima ratus batu purba sudah cukup untuk dihabiskan oleh Master Gu lainnya untuk waktu yang lama, tetapi Fang Yuan hampir menggunakannya sepenuhnya.</p>
+<p>	Untungnya, dari penjualan kembali aset, setelah menghabiskan sebagian besar untuk membeli Relic Gu baja merah, sebagian masih tersisa. Tidak perlu khawatir untuk waktu yang singkat.</p>
+<p>	Tapi itu perlu untuk memperbaiki Scales Stealth Gu.</p>
+<p>	Fang Yuan telah memperoleh Stealth Rock Gu setelah dia membunuh raja monyet batu. Namun, itu tidak memiliki kegunaan praktis.</p>
+<p>	Itu hanya bisa menyembunyikan tubuh. Itu berarti, begitu Fang Yuan menggunakannya, tubuhnya akan disembunyikan dan tidak terlihat oleh orang.</p>
+<p>	Tapi pakaian di tubuhnya – pelindung pergelangan tangannya, balutan kaki dan sepatu bambu masih terlihat dengan mata telanjang.</p>
+<p>	Raja monyet batu tidak khawatir tentang ini; itu adalah binatang buas dan tidak membutuhkan pakaian.</p>
+<p>	Tapi Fang Yuan akan berada dalam situasi yang canggung. Untuk menggunakan Stealth Rock Gu dengan kemampuan terbaiknya dan tidak terlihat, dia harus melepas semua pakaian di tubuhnya. Jika tidak, bahkan jika dia menyembunyikan tubuhnya, orang lain akan melihat satu set seragam Guru Gu peringkat dua ‘berjalan’.</p>
+<p>	Stealth Rock Gu adalah cacing Gu peringkat satu. Setelah naik ke Peringkat dua Stealth Scales Gu, masalah ini akan teratasi.</p>
+<p>	Sisik Siluman Gu bahkan bisa menyembunyikan pakaiannya. Jika raja monyet batu memiliki Sisik Siluman Gu, maka bahkan jika kemeja Fang Yuan menutupi tubuhnya, kemeja itu juga akan menjadi tidak terlihat.</p>
+<p>	Misalkan raja monyet batu memiliki Sisik Siluman Gu, maka masalah apakah Fang Yuan bisa mengalahkannya agak menegangkan.</p>
+<p>	Menyempurnakan Stealth Scales Gu secara alami membutuhkan material lain selain Stealth Rock Gu. Bahan-bahan ini cukup umum dan Fang Yuan telah meminta bantuan Jiang Ya untuk mengumpulkannya.</p>
+<p>	“Jika saya bisa memperbaiki Stealth Scales Gu, akan sangat mudah bagi saya untuk memasuki gua rahasia. Selain itu, selama gelombang serigala, saya dapat dengan mudah menyerang dan mundur dengan metode ini, ”renung Fang Yuan.</p>
+<p>	Hari semakin larut, dia mengambil cacing Four Flavours Liquor ke dalam lubangnya dan keluar dari gua, berjalan menuju desa.</p>
+<p>	Dia langsung menarik banyak perhatian setelah berhasil mengusir River Swallowing Toad. Tidak mudah bergerak akhir-akhir ini, jadi dia sedikit khawatir jika dia tinggal lama di gua rahasia, orang akan curiga.</p>
+<p>	Di gerbang desa, pertarungan kekuatan telah berakhir.</p>
+<p>	Kelompok Xiong Li dengan bangga berdiri sedangkan kelompok Chi Shan bersama dengan Master Gu yang menjaga gerbang memiliki wajah yang berat.</p>
+<p>	Xiong Li tidak setinggi Chi Shan tapi tatapannya seolah mengabaikan segalanya saat ini. Dia perlahan berbicara, “Chi Shan, kamu memang diberkati dengan kekuatan super. Tapi saya memiliki kekuatan bawaan beruang coklat dan saya memiliki kekuatan beruang. Anda melihat dari pertempuran tadi bahwa Anda masih bukan lawan saya. ”</p>
+<p>	“Hmph, ingin mendapatkan gelar yang terkuat di gunung Qing Mao, bermimpilah,” Xiong Jiang mencibir dari samping.</p>
+<p>	Wajah Chi Shen pucat, dia tahu pihak lain sengaja menantangnya dan perilaku mereka dipenuhi dengan niat politik. Kehilangannya sekarang bukan lagi hanya urusan pribadinya; sebaliknya, itu menodai nama klan Gu Yue.</p>
+<p>	“Apa yang kamu banggakan karena mengalahkanku? Anda tidak tahu bahwa saya bukan lagi orang terkuat di klan. Jika Anda memiliki keterampilan, maka berbicaralah setelah mengalahkan Fang Yuan, “Chi Shan tidak punya pilihan selain menyebutkan Fang Yuan.</p>
+<p>	“Oh, Fang Yuan? Saya mendengar seorang jenius kelas A muncul di klan Gu Yue dan namanya adalah Fang Zheng. Tapi siapa Fang Yuan ini?” Xiong Li bertanya dengan ragu.</p>
+<p>	Chi Shan mencibir, “Fang Yuan adalah kakak laki-laki Fang Zheng, dia juga diberkahi dengan kekuatan super bawaan dan juga memiliki cacing Gu yang meningkatkan kekuatan. Sebelumnya, dia sendiri mendorong Kodok Menelan Sungai Peringkat lima lebih dari seratus meter, akhirnya mengusirnya. Jika kamu tidak percaya padaku, kamu bisa bertanya kepada siapa pun di desa. ”</p>
+<p>Ekspresi kelompok Xiong Li mau tidak mau berubah.</p>
+<p>Peringkat lima Kodok Menelan Sungai!</p>
+<p>Fangyuan!</p>
+<p>	Nama ini langsung terukir di benak mereka.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

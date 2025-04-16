@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 171 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 171";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_170.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 171">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_172.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 171</h1>
+        <div class="text-left">
+<p>	Bab 171</p>
+<p>	Bab 171: Sifat iblis bawaan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Apa, ayah, kamu ingin aku menyelesaikan kasus ini?” Gadis itu menunjuk dirinya sendiri, wajahnya sangat terkejut.</p>
+<p>	“Kenapa, kamu tidak mau?” Tie Xue Leng tersenyum lembut.</p>
+<p>	“Tidak, tidak, tentu saja aku bersedia!” Tie Ruo Nan akhirnya bereaksi, melompat kegirangan.</p>
+<p>	Tie Xue Leng mengangguk, mendesah dengan nada yang rumit, “Kamu bercita-cita untuk berjalan di jalan yang sama denganku. Beberapa tahun ini di mana Anda berada di sisi saya, Anda telah sangat dipengaruhi oleh saya dan belajar banyak. Seekor elang hanya bisa belajar terbang dengan sendirinya, baru setelah itu ia bisa benar-benar tumbuh dewasa. Ayahmu sudah tua, lukaku tidak bisa disembuhkan. Saya tidak bisa terus bersamamu saat Anda menjalani hidup Anda, dan ketika generasi yang lebih baru menggantikan yang lama, apa yang terjadi selanjutnya terserah Anda. ”</p>
+<p>	“Ayah… jangan menyerah dulu, bukankah masih ada harapan untuk berobat?” Suara gadis muda itu bergetar saat dia menahan air mata.</p>
+<p>	“Kamu dan aku sama-sama tahu bahwa peluangnya sangat tipis. Orang harus belajar menghadapi fakta, Ruo Nan,” Tie Xue Leng tertawa, lalu menoleh ke arah Gu Yue Bo, “Jangan khawatir pemimpin klan Gu Yue, putriku ini telah mempelajari setidaknya 80% dari kemampuanku. Dengan bimbingan saya di sepanjang jalan, dia tidak akan membiarkan klan Anda menderita ketidakadilan apa pun. ”</p>
+<p>	“Tentu saja, tentu saja.” Gu Yue Bo dengan cepat menangkupkan tinjunya, “Pahlawan muda setara dengan laki-laki; watak yang elegan dan anak seorang pahlawan, tidak ada alasan bagiku untuk khawatir. Silakan datang ke desa dan biarkan kami berpesta setelah kedatangan Anda. ”</p>
+<p>	……</p>
+<p>	Piring memenuhi seluruh meja, dengan aroma yang menyelimuti sekeliling. Anggur bening dituangkan dari toples anggur dalam garis lurus ke dalam cangkir Tie Xue Leng.</p>
+<p>	Gelombang serigala baru saja berakhir, dan desa Gu Yue berada dalam periode terberatnya. Sejumlah besar sumber daya telah dikeluarkan, menyebabkan kekurangan pangan dan kekurangan komoditas. Banyak manusia akan mati kelaparan.</p>
+<p>	Namun meski begitu, untuk menyambut Tie Xue Leng, klan Gu Yue tetap mengadakan perjamuan ini.</p>
+<p>	Sebagai pemimpin klan, Gu Yue Bo duduk di kursi kepala klan, sementara Tie Xue Leng dan Tie Ruo Nan berada di sampingnya.</p>
+<p>	Selain itu, Gu Yue Chi Zhong, Gu Yue Ge Yan, Gu Yue Mo Chen, Gu Yue Yao Ji, serta Fang Yuan dan yang lainnya, semuanya adalah penatua, hadir.</p>
+<p>	Sebelum gelombang serigala, klan Gu Yue memiliki lebih dari selusin tetua klan. Tapi sekarang, hanya satu meja yang tersisa, dan ada kurang dari sepuluh tetua.</p>
+<p>	Selain itu, para tetua klan yang hadir semuanya terluka pada tingkat yang berbeda-beda.</p>
+<p>	Terutama dalam kasus Gu Yue Mo Chen — dua minggu lalu ketika dia melawan gelombang serigala, dia terluka parah dan bersembunyi di kamar pribadinya untuk memulihkan diri. Dia sedang beristirahat di tempat tidur, tetapi ketika dia mendengar tentang kedatangan Tie Xue Leng, dia memaksa tubuhnya dan menghadiri perjamuan ini.</p>
+<p>	Tapi ini juga membuatnya lolos dari krisis, sementara saingan lamanya Gu Yue Chi Lian telah mengikuti pemimpin klan dalam menyerang serigala mahkota guntur dan dibunuh oleh lycan petir.</p>
+<p>	“Jika bukan karena bantuan Brother Tie hari ini, aku mungkin sudah menjadi santapan siang Lightning Lycan. Untuk menyelamatkan hidup saya, saya bersulang untuk Brother Tie cangkir ini! Gu Yue Bo berdiri, memegang cangkir dengan kedua tangan dan menekuk punggungnya, dengan tulus mengucapkan terima kasih.</p>
+<p>	“Saya hanya melakukan apa yang saya bisa.” Tie Xue Leng mengangkat cangkirnya, meminum anggur sekaligus.</p>
+<p>	Dia memiliki gaya hidup yang waspada dan ketat, menolak berjudi atau mencari pelacur, mempertahankan moralnya dan tidak pernah serakah untuk minum. Karena itu, dia tidak pernah mabuk.</p>
+<p>	Setelah minum cangkir ini, Gu Yue Bo melihat orang-orang di perjamuan, matanya memerah, menghela nafas dan duduk.</p>
+<p>	Tie Xue Leng telah melihat situasi seperti itu berkali-kali, dan dia menghibur, “Pemimpin klan Gu Yue, turut berduka cita. Selama klan Anda masih ada, desa pasti akan berkembang lagi suatu hari nanti. Lycan petir itu juga terluka parah, dan serigala petir telah sangat rusak, mereka tidak akan menyerang selama beberapa tahun ke depan. Gelombang serigala ini telah bertahan dengan aman. ”</p>
+<p>	Periode paling keras dari gelombang serigala memang telah berakhir. Selama beberapa bulan ke depan, meskipun serigala petir masih akan muncul, jumlahnya akan terus berkurang, dan tidak ada kelompok besar yang akan terbentuk. Paket serigala tidak lagi memiliki kemampuan untuk menyerang secara langsung di desa.</p>
+<p>	Lycan petir akan kembali ke sarang serigala dan memulihkan diri di sana, sambil perlahan-lahan mengatur serigala yang tersisa. Banyak serigala akan dipanggil kembali, dan banyak serigala petir akan mati, menyebabkan kebutuhan kawanan serigala akan makanan berkurang drastis.</p>
+<p>	Paket serigala akan menjadi mandiri, dan dalam beberapa tahun ke depan, mereka secara bertahap akan menjadi lebih kuat, di mana seratus raja binatang baru – serigala petir yang berani, seribu raja binatang buas – serigala petir yang gila, dan banyak sekali raja binatang – serigala mahkota guntur akan muncul.</p>
+<p>	Pada puncaknya, ia mulai melemah, dan pada titik terlemahnya, ia mulai makmur.</p>
+<p>	Terlepas dari manusia atau serigala, mereka mengikuti hukum seperti itu.</p>
+<p>	Tetapi meskipun kata-kata Tie Xue Leng benar, manusia bukanlah rumput atau pohon, mereka memiliki perasaan. Pemimpin klan Gu Yue memahami fakta ini jauh lebih baik daripada Tie Xue Leng, tetapi kesengsaraan dan rasa sakit di hatinya tidak dapat dihindari.</p>
+<p>	Pengorbanannya terlalu besar……</p>
+<p>	Hanya tetua klan yang lebih tinggi yang sudah pergi setidaknya setengah. Adapun Peringkat dua dan Peringkat satu Gu Masters, mereka memiliki jumlah korban yang lebih besar. Kekuatan seluruh desa Gu Yue telah jatuh ke titik terendah, dan tidak bisa lagi menanggung bencana lagi.</p>
+<p>	“Mengapa kalian tidak menyerang balik, dan menghancurkan sarang mereka?” Di satu sisi, Tie Ruo Nan tidak bisa mengerti dan bertanya dengan bingung.</p>
+<p>	“Itu karena di dalam sarang serigala, ada lebih dari lusinan kelompok cacing gas guntur, totalnya berjumlah lebih dari satu juta. Ada juga sejumlah besar Gu liar yang bercampur. Sulit untuk menyebabkan kerusakan pada mereka, kecuali jika ketiga klan bekerja sama, ”jelas Gu Yue Yao Ji.</p>
+<p>	Mengatakan demikian, dia tiba-tiba mendengus, menatap Fang Yuan, “Tapi kemungkinan ini terlalu kecil. Bahkan di dalam klan kita, ada tetua klan yang menyusut ketakutan, dan selama serangan gelombang serigala, Tuhan tahu di mana mereka bersembunyi!”</p>
+<p>	Mengatakan demikian, semua tetua klan lainnya mengalihkan pandangan mereka ke arah Fang Yuan.</p>
+<p>	Sebelumnya, Fang Yuan berada di dalam gua rahasia retakan batu yang menjelajahi warisan Biksu Anggur Bunga, menyebabkan dia melewatkan pertempuran besar dalam melawan gelombang serigala. Di mata semua orang, ini licik dan mengelak, serta menjadi pemalu dan takut mati.</p>
+<p>	Dengan demikian, ekspresi tetua klan terhadap Fang Yuan semuanya penuh dengan ketidakbahagiaan, penghinaan, dan beberapa kemarahan tersembunyi.</p>
+<p>	Bahkan ekspresi Gu Yue Bo terlihat jelek.</p>
+<p>	Sebagai pemimpin klan, dia paling dibenci oleh orang-orang seperti Fang Yuan, melakukan hal-hal sesuai keinginan mereka sendiri, misterius dan memiliki skema kecil mereka sendiri. Dia tidak bisa merasa aman dengan orang seperti itu di sekitar.</p>
+<p>	Suasana di perjamuan segera berubah.</p>
+<p>	Ayah dan anak Tie juga merasakan perubahan ini, mengikuti pandangan semua orang dan melihat ke arah Fang Yuan.</p>
+<p>	Penampilan muda Fang Yuan telah menarik perhatian Tie Ruo Nan yang seumuran dengannya.</p>
+<p>	Fang Yuan meminum anggurnya dengan tenang. Meskipun tatapan semua orang tertuju padanya, dia bertindak seolah-olah dia tidak merasakan apa-apa.</p>
+<p>	Ekspresinya tenang, karena dia sudah mengantisipasi situasi seperti itu dari orang-orang yang menemukan masalah dengannya.</p>
+<p>	“Segalanya menjadi merepotkan,” desahnya dalam hatinya. Meski khawatir, dia tidak takut.</p>
+<p>	Penampilan Tie Xue Leng telah menghancurkan rencananya untuk pergi. Jika dia mengambil Teratai Harta Karun Esensi Surgawi dan menghancurkan fondasi desa Gu Yue, ini akan menyebabkan ayah dan anak Tie menangkapnya.</p>
+<p>	Nama penyelidik ilahi bukan hanya mitos. Dengan kemampuan dan kekuatannya, selama Tie Xue Leng memulai pengejarannya, tidak ada kemungkinan gagal.</p>
+<p>	Bahkan jika dia tidak mengambil Lotus Harta Karun Esensi Surgawi, kepergiannya yang misterius akan menyebabkan klan untuk menyelidikinya. Karena melibatkan kematian Jia Jin Sheng, bahkan ayah dan anak Tie akan terlibat.</p>
+<p>	Jika dia pergi tanpa pemberitahuan, di mata mereka itu akan menjadi pencuri yang mencoba melarikan diri, lari dari kejahatannya.</p>
+<p>	Tanpa pilihan, Fang Yuan hanya bisa memilih untuk tinggal dan mengamati situasi.</p>
+<p>	Meskipun semua orang menegurnya, situasinya sekarang masih belum dalam kondisi terburuknya. Jika dia pergi sekarang, itu akan menjadi langkah panik, dan itu akan menyebabkan seluruh situasi memburuk.</p>
+<p>	“Apakah anggurnya enak?” Gu Yue Yao Ji tertawa sinis, menatap Fang Yuan, “Apakah kamu tidak akan menjelaskannya?”</p>
+<p>	Fang Yuan perlahan meletakkan cangkirnya, mengangkat kepalanya dan melihat lengan Gu Yue Yao Ji yang patah.</p>
+<p>	Yang lama adalah yang paling licik, ini sangat benar.</p>
+<p>	Untuk mempertahankan hidupnya, Gu Yue Yao Ji mematahkan lengannya sendiri, dan atas nama terluka, dia menghindari misi klan memasuki medan perang.</p>
+<p>	Ini juga terjadi di kehidupan Fang Yuan sebelumnya, tetapi untuk berpikir dia melakukan hal yang sama sekali lagi.</p>
+<p>	Tindakannya mengorbankan satu anggota tubuh untuk menyelamatkan hidupnya, memang efektif. Itu mencegahnya terbunuh oleh serigala mahkota guntur dan tidak berpartisipasi dalam pengejaran, sehingga membuat dirinya tetap hidup. Namun, saat ini dia menemukan masalah dengan Fang Yuan — satu aspek adalah karena dendam lama, tetapi sebagian besar karena dia ingin menarik perhatian Fang Yuan dan mengurangi perhatian orang pada dirinya sendiri.</p>
+<p>	“Apa yang kamu ingin aku jelaskan? Jelaskan bagaimana Anda mematahkan anggota tubuh Anda sendiri hanya untuk mempertahankan hidup Anda yang menyedihkan?” Fang Yuan mencibir.</p>
+<p>	“APA?!” Gu Yue Yao Ji terkejut dan marah, berdiri dari tempat duduknya.</p>
+<p>	Dia menatap dengan kedua mata terbuka lebar, menunjuk hidung Fang Yuan, melengking, “Dasar bajingan kecil! Beraninya kau menuduhku seperti ini, ini fitnah terang-terangan, fitnah!! Bagaimana Anda bisa begitu tak tahu malu? Bagaimana klan Gu Yue kita bisa memiliki lelucon sepertimu?”</p>
+<p>	“Gu Yue Yao Ji!” Ekspresi Gu Yue Bo berubah, berteriak, “Duduklah segera, kami memiliki tamu penting di sini, bagaimana kamu bisa berteriak dan berteriak dengan bebas seperti ini?”</p>
+<p>	Gu Yue Yao Ji ingin terus memarahi, tapi melihat ekspresi suram Gu Yue Bo, dia hanya bisa menelan kata-kata yang akan dia keluarkan.</p>
+<p>	Dia menatap marah pada Fang Yuan, duduk dengan enggan.</p>
+<p>	Gu Yue Bo menyelesaikan masalah Yao Ji, lalu berbalik untuk melihat Fang Yuan, “Penatua Fang Yuan, aku butuh penjelasan. Selama serangan gelombang serigala, di mana kamu?”</p>
+<p>	“Fang Yuan … dia Fang Yuan?” Mata Tie Xue Leng bersinar karena terkejut. Dalam hilangnya misterius Jia Jin Sheng, Fang Yuan telah memainkan peran penting. Sebelum datang ke sini, Tie Xue Leng sudah mendapatkan banyak informasi dari Jia Fu. Tetapi untuk berpikir bahwa tetua muda ini adalah Fang Yuan sendiri. Seketika, hati Tie Xue Leng menjadi tertarik.</p>
+<p>	Dia telah memecahkan banyak kasus dan bisa melihat keanehan dari semua jejak bukti, untuk menebak fakta yang sebenarnya. Dari ekspresi semua orang, dia bisa mengatakan kebenaran di balik penghindaran tiba-tiba Fang Yuan dari pertempuran.</p>
+<p>	Tetapi kebenaran yang diketahui semua orang hanya menggores permukaan, apa kenyataan sebenarnya?</p>
+<p>	Terlepas dari apa kebenarannya, jawaban Fang Yuan akan mengungkapkan sebagian dari pemikiran batinnya. Itu akan sangat membantu dalam memecahkan kasus nanti.</p>
+<p>	Merasakan perhatian Tie Xue Leng padanya, hati Fang Yuan menegang, tetapi ekspresinya tetap sama.</p>
+<p>	Dia menatap semua orang dengan jelas, dan senyum mengejek muncul di wajahnya, “Tidak banyak yang bisa dijelaskan. Karena tetua klan bertanya, saya hanya akan mengatakannya. Aku sangat ketakutan saat itu. Stres menumpuk selama periode yang luas ini, serta ketakutan saya akan kematian yang telah mencapai batasnya. Saya tidak tahan, saya pengecut dan lemah, saya bersembunyi di sudut dan tidak lagi berani memasuki garis depan.”</p>
+<p>	Begitu dia berkata begitu, semua orang tercengang.</p>
+<p>	Mereka mengharapkan Fang Yuan menggunakan segala macam alasan dan alasan, dan siap untuk mengungkapkan kebohongannya dan mengkritik Fang Yuan. Tetapi untuk berpikir dia mengakuinya secara langsung!</p>
+<p>	“Kebohongan apa pun, selama itu tidak benar, akan memiliki celah. Selanjutnya, Tie Xue Leng ada di sini…” Ekspresi Fang Yuan tenang, menunduk dan menatap anggur di cangkirnya.</p>
+<p>	Ekspresi Tie Xue Leng berubah aneh. Dia tanpa sadar mengerutkan kening, dan rasa benci dan antipati muncul di hatinya.</p>
+<p>	“Pemuda ini, dia memiliki sifat iblis bawaan!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

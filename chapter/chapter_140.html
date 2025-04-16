@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 140 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 140";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_139.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 140">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_141.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 140</h1>
+        <div class="text-left">
+<p>	Bab 140</p>
+<p>	Bab 140: Gu Yue Qing Shu vs Bai Ning Bing (Bagian 1)</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Waktu yang dibutuhkan Bai Ning Bing untuk keluar dari es lebih pendek dari yang dibayangkan siapa pun.</p>
+<p>	Dengan retakan yang keras, kristal es itu mulai retak, retakannya semakin kuat hingga benar-benar pecah dari dalam.</p>
+<p>	Tetua klan, Gu Yue Qing Shu, Gu Yue Yao Hong dan yang lainnya, berjumlah hingga lima orang, telah mengelilinginya. Gu Yue Fang Zheng berdiri jauh di lereng gunung, menatap pertempuran dari tempat yang lebih tinggi sambil tetap waspada. Begitu kelompok Master Gu klan Bai muncul, dia harus segera mengirimkan peringatan.</p>
+<p>	“Bai Ning Bing, kamu berani membunuh Master Gu di klan kami, menghancurkan aliansi tiga klan secara terbuka. Membayar kehidupan untuk kehidupan adalah hukum alam! Apa lagi yang harus kamu katakan?” kata tetua klan dengan mendengus angkuh.</p>
+<p>	Bai Ning Bing tidak memedulikannya, tetap diam dan menatap lengan kanannya sebagai gantinya.</p>
+<p>	Lengan kirinya menggelepar dengan sia-sia, tidak menggenggam apa pun saat meraih sesuatu yang bahkan tidak ada di sana sejak awal.</p>
+<p>	Dia mulai mengerutkan kening, wajahnya redup seperti air saat kilat mulai tumbuh di antara matanya.</p>
+<p>	“Sebenarnya memaksaku untuk melepaskan lengan kananku, orang ini bernama Fang Yuan, kan…” Mendengarkan kata-kata Xiong Li dan Qing Shu, dia sudah mengetahui nama Fang Yuan.</p>
+<p>	Bergumam, sepasang mata biru kristal Bai Ning Bing dipenuhi dengan niat membunuh yang sangat tidak berperasaan.</p>
+<p>	Tubuhnya memancarkan aura menindas dari Guru Gu Peringkat tiga. Seperti yang telah diprediksi Fang Yuan sebelumnya, dengan kemampuan untuk menyegel kultivasinya sendiri, Bai Ning Bing juga dapat melepaskan batasannya. Hanya saja dalam pertempuran tadi, dia tidak memiliki cukup waktu untuk membukanya.</p>
+<p>	Sekarang, esensi purba perak putih dari Peringkat tiga memenuhi aperture-nya sepenuhnya. Esensi purba yang padat memberi tekanan besar pada dinding aperture di sekitarnya; Bai Ning Bing tahu bahwa dia sedang bergerak menuju jalan kehancuran.</p>
+<p>	Bukaan Guru Gu menghasilkan esensi purba, dan esensi purba pada gilirannya, memelihara bukaan.</p>
+<p>	Sebenarnya, selama esensi purba ada di dalam aperture, ia bertindak sebagai bentuk pengasuhan menuju aperture. Hanya saja efek ini tidak terlalu nyata, jauh lebih tidak efektif daripada Guru Gu yang menggunakan esensi purba untuk melakukannya.</p>
+<p>	Ini mirip dengan bagaimana air laut yang tenang masih akan memiliki efek korosif terhadap batuan di sekitarnya, tetapi efek ini kurang jelas dibandingkan dengan gelombang yang menghantam bebatuan.</p>
+<p>	Tetapi untuk fisik Jiwa Es Gelap Utara, setelah mencapai Peringkat tiga, bahkan jika mereka tidak mengeluarkan esensi purba, selama esensi purba disimpan di lubang, efek pengasuhan akan sama seperti jika Guru Gu secara aktif menggunakan esensi purba untuk memelihara aperture mereka.</p>
+<p>	Ini adalah rahasia di balik kemampuan fisik Jiwa Es Gelap Utara untuk meningkatkan budidaya Master Gu dengan kecepatan roket.</p>
+<p>	Selain itu, efek pengasuhan ini akan menjadi lebih kuat saat esensi purba disempurnakan. Pada Peringkat empat, selama esensi purba ada di dalam bukaan, mereka akan memelihara bukaan dan efeknya akan beberapa kali lebih baik daripada Guru Gu biasa yang menggunakan esensi purba untuk memelihara bukaan mereka.</p>
+<p>	Dengan Master Gu biasa, semakin tinggi kultivasi mereka, semakin lambat kecepatan kultivasi. Namun, sepuluh fisik ekstrem adalah kebalikannya — semakin tinggi kultivasi, semakin kuat bakat mereka dan semakin cepat kultivasi mereka, sampai mereka meledak terlupakan.</p>
+<p>	Sebagai analogi, ini mirip dengan seseorang yang jatuh bebas, tergantung pada postur dan kualitas orang itu, mereka akan terus berakselerasi saat mereka turun, meskipun sekarat dengan kematian yang mengerikan begitu mereka mencapai tanah.</p>
+<p>	Teknik budidaya sepuluh fisik ekstrim jatuh dari titik tertinggi dengan kondisi yang paling cocok untuk jatuh lebih cepat dari orang lain. Saat kultivasi mereka semakin cepat, itu hanya memberi mereka kemuliaan sementara yang mereka capai sebelum mereka menghadapi ancaman kematian yang mendekat. Seperti meteor yang mendarat di Bumi, bergerak menuju kehancurannya sendiri; titik di mana ia bersinar paling terang datang hanya pada saat ia terbakar sepenuhnya di atmosfer.</p>
+<p>	Sebelumnya, alasan Bai Ning Bing telah mengencerkan esensi purba perak putihnya menjadi esensi purba baja merah adalah karena ini.</p>
+<p>	Saat ini, aperture-nya benar-benar dipenuhi dengan esensi purba perak putih lagi, dan dia bisa merasakan bahwa setiap detik, kultivasinya terus meningkat dan meningkat.</p>
+<p>	“Sebenarnya memaksaku untuk menggunakan esensi purba perak putih, dan bahkan membuatku pergi sejauh mengorbankan Frost Demon Gu! Di mana Fang Yuan?” Niat membunuh Bai Ning Bing meningkat saat dia bertanya. Iris birunya menyapu sekeliling, tetapi tidak dapat menemukan jejak Fang Yuan.</p>
+<p>	Frost Demon Gu yang dia korbankan adalah worm Gu peringkat tiga, yang hanya berhasil dia perbaiki setelah tiga kali gagal dan menghabiskan banyak sumber daya. Sekarang setelah hilang, itu benar-benar sia-sia.</p>
+<p>	Meskipun Bai Ning Bing berada di peringkat tiga, itu hanya terjadi baru-baru ini, dan bahkan dengan dukungan klan, dia tidak dapat memonopoli semua sumber daya untuk dirinya sendiri. Dengan demikian, dia hanya memiliki dua cacing Gu peringkat tiga. Sekarang setelah Frost Demon Gu hilang, dia hanya memiliki Blue Bird Ice Coffin Gu yang tersisa.</p>
+<p>	Semakin dia memikirkannya, semakin dia merasa marah! Sejak awal masa mudanya, dia tidak pernah menderita kerugian seperti itu!</p>
+<p>	Jika Fang Yuan ada di sini, dia akan menyerang dengan gila-gilaan tanpa ada yang bisa menghentikannya.</p>
+<p>	Pengabaian Bai Ning Bing menyebabkan tetua klan Gu Yue merasa sangat terhina.</p>
+<p>	“Anak muda yang sombong, makanlah tebasan moonblade-ku!” Dia berteriak, dan melompat.</p>
+<p>	“Hmph!” Lengan kiri Bai Ning Bing menyapu, dan udara beku yang menyembur keluar membentuk bilah es yang panjang.</p>
+<p>	Bilah es asli yang dia buat hanya memiliki panjang lebih dari satu meter, tetapi sekarang panjangnya dua meter, dengan tepi yang lebih mematikan dan energi es yang lebih besar.</p>
+<p>	Ching!</p>
+<p>	Tetua Klan mengangkat kedua tangannya yang bersinar dengan cahaya bulan untuk bertabrakan dengan bilah es, mengeluarkan suara logam.</p>
+<p>	Namun, wajah tetua Klan itu penuh kejutan saat dia mundur selangkah, dan kedua telapak tangannya bertepuk tangan dan menebas.</p>
+<p>	Tebasan bulan emas!</p>
+<p>	Pedang bulan melengkung, lebih dari satu meter panjangnya dengan tubuh emas, memancarkan aura yang mendominasi saat terbang keluar.</p>
+<p>	Cahaya bulan keemasan terpantul di wajah pucat Bai Ning Bing. Dia tertawa saat dia mengangkat pisau es di tangan kirinya, menyerang langsung.</p>
+<p>	Mendering!</p>
+<p>	Bilah bulan dan bilah es bertabrakan, bulan emas menghilang, dan bilah es pecah menjadi pecahan es kecil.</p>
+<p>	“Ini adalah pertarungan antara Master Gu peringkat tiga? Sangat kuat, tidak hanya bilah es, tetapi juga bilah bulan emas itu, saya juga tidak bisa memblokirnya! ” Jauh di sana, Fang Zheng menyaksikan dengan terpesona, dengan pengetahuannya yang kurang.</p>
+<p>	“Bagaimana ini bisa? Gu Pedang Es peringkat dua, berhasil memblokir bilah tangan Bulan peringkat tiga saya, serta bulan emas! ” Tetua klan menatap dengan mata melotot, tidak percaya pada nada suaranya.</p>
+<p>	Fisik Jiwa Es Gelap Utara memiliki efek penguatan terhadap Gu Es, variasi dari Gu tipe air. Selain itu, dorongan ini semakin kuat saat kultivasi Guru Gu meningkat.</p>
+<p>	Bai Ning Bing, di peringkat tiga dalam budidaya, dapat membuat cacing peringkat dua Gu menampilkan kekuatan peringkat tiga. Ketika dia berada di peringkat empat, jika dia menggunakan cacing Gu peringkat empat, itu akan memiliki efek yang bahkan dapat melampaui peringkat lima.</p>
+<p>	Pertama, dia menekan kultivasinya, sehingga hanya efek pemulihan esensi purba yang tersisa. Sekarang pembatasnya mati dan dia kembali ke Peringkat tiga, kemampuan sejati fisik Jiwa Es Gelap Utara mulai muncul.</p>
+<p>	“Hmph, pak tua, kamu tidak tahu banyak hal.” Kaki Bai Ning Bing berhenti, memegang bilah esnya secara horizontal, saat dia mulai berputar.</p>
+<p>	Hu hu hu……</p>
+<p>	Suara angin yang kencang menyelimutinya saat dia menjadi semakin cepat.</p>
+<p>	Melolong!</p>
+<p>	Angin tampaknya telah berubah menjadi lolongan binatang, badai pedang setinggi lima meter terbentuk setelah beberapa menit.</p>
+<p>	Angin seperti tornado berwarna putih, mencambuk dan menyebabkan orang-orang di dekatnya mati rasa.</p>
+<p>	“Cepat menghindar!” Bahkan seorang tetua klan, setelah melihat ini, tidak berani menantangnya — dia dengan cepat menghindar.</p>
+<p>	Tapi Master Gu peringkat dua lainnya tidak bisa mengelak tepat waktu.</p>
+<p>	Badai bilah es datang sekaligus, dengan kecepatan tiga kali lipat atau bahkan lebih besar dari sebelumnya.</p>
+<p>	Ah–!</p>
+<p>	Begitu dua Master Gu laki-laki terperangkap dalam badai, tangisan mereka berhenti. Dalam hitungan detik, mereka sudah dicincang menjadi pasta oleh bilah es dan kehilangan nyawa mereka di tempat.</p>
+<p>	“Selamatkan aku!” Gu Yue Yao Hong berteriak ketakutan, melihat bahwa dia akan tersapu tornado dan binasa.</p>
+<p>	Gu Anggur Hijau!</p>
+<p>	Gu Yue Qing Shu menembakkan tanaman merambat hijau, yang dengan cepat melingkari pinggang Gu Yue Yao Hong seperti ular.</p>
+<p>	Tepat saat dia hendak menyeretnya kembali, badai bilah es telah mencapainya, melahapnya dalam satu tembakan.</p>
+<p>	Desir desir desir.</p>
+<p>	Bilah es langsung bekerja, memotong Master Gu wanita ini menjadi lima atau enam bagian. Udara sedingin es telah membekukan darahnya sebelum dia berdarah.</p>
+<p>	Segera setelah itu, potongan-potongan ini dipotong lagi menjadi potongan-potongan kecil, membentuk potongan-potongan mayat beku seukuran telapak tangan.</p>
+<p>	“Yao Hong!” Melihat adegan ini, Qing Shu berduka dengan mata sedih.</p>
+<p>	“Saudari Yao Hong …” Di lereng, Fang Zheng tidak bisa mengambil adegan yang begitu intens, berlutut di tanah dengan tatapan tanpa jiwa, air mata mengalir dari matanya.</p>
+<p>	“Sialan, Gu Baju Baja!” Tetua klan mengambil napas dalam-dalam saat tubuhnya bersinar dengan cahaya hitam, tampak seperti dia ditutupi baju besi baja.</p>
+<p>	Dia menggunakan kedua tangannya untuk menutupi wajahnya saat kakinya berlari, menyerbu ke arah badai bilah es berwarna biru es.</p>
+<p>	Cak cik cetek.</p>
+<p>	Dia menyerang ke dalam dengan berani.</p>
+<p>	Dalam beberapa saat, bilah es menggores tubuhnya berkali-kali, mengeluarkan suara yang tajam.</p>
+<p>	Sesaat kemudian, badai berakhir.</p>
+<p>	Bai Ning Bing dan tetua klan saling berhadapan.</p>
+<p>	“Hal lama, kamu meminta kematian.” Iris biru Bai Ning Bing lebih murni, melengkapi rambut putih dan pakaian putihnya sambil berdiri diam di angin dingin.</p>
+<p>	Bilah es tangan kirinya sudah pecah menjadi dua. Tapi ini tidak menghentikannya untuk menembus hati sesepuh.</p>
+<p>	“Hah …” tetua klan menundukkan kepalanya, menatap dada kirinya, mulutnya mengeluarkan suara ketidakberdayaan dan keterkejutan.</p>
+<p>	Bai Ning Bing melepaskan tangan kanannya, meninggalkan bilah es ini. Dia berjalan melewati tetua klan, terus mendekat.</p>
+<p>	Di belakangnya, wajah tetua klan ditutupi dengan es biru muda, dan segera dia jatuh ke tanah untuk tidak pernah bangun lagi.</p>
+<p>	Jauh di sana, Fang Zheng melihat pemandangan ini dan iris matanya menyusut seukuran pin, ketakutan yang intens menyebar ke seluruh tubuhnya.</p>
+<p>	Ini di luar mimpi terliarnya.</p>
+<p>	Seorang tetua klan peringkat tiga besar benar-benar mati seperti ini. Bai Ning Bing ini sangat kuat?!</p>
+<p>	“Di mana Fang Yuan? Katakan padaku, dan aku bisa membiarkanmu mati dengan damai.” Bai Ning Bing berjalan menuju Gu Yue Qing Shu.</p>
+<p>	“Bai Ning Bing …” Gu Yue Qing Shu menghela nafas dalam-dalam, menatap Bai Ning Bing tanpa rasa takut, “Kamu dan aku telah bertarung lebih dari sepuluh kali, kamu semakin kuat, dan sekarang aku harus mengakui bahwa kamu telah melampaui aku. Tapi kekuatanmu tidak bisa membuatku mengkhianati klanku. Ayo, lawan aku!”</p>
+<p>	“Hanya kamu? Hehe.” Bai Ning Bing mendengus jijik, berbalik untuk melihat Fang Zheng, mengangkat alis. “Itu saudara laki-laki Fang Yuan?”</p>
+<p>	Ekspresi Gu Yue Qing Shu berubah, mengambil langkah besar dan menghalangi Bai Ning Bing. “Jangan berpikir untuk menemukan masalah dengannya!”</p>
+<p>	Wajah Bai Ning Bing tenggelam. “Kamu adalah lawan yang cukup menarik, membuatmu tetap hidup dapat menambah warna dalam hidupku. Tapi suasana hatiku sangat buruk sekarang, jangan anggap remeh kesabaranku. Katakan dengan baik, ke arah mana Fang Yuan pergi. ”</p>
+<p>	Gu Yue Qing Shu membalasnya dengan cara yang paling langsung dengan tindakan.</p>
+<p>	Dia menutup matanya, dan membukanya lagi.</p>
+<p>	Pesona Kayu Gu!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

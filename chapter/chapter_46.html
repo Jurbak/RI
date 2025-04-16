@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 46 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 46";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_45.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 46">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_47.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 46</h1>
+        <div class="text-left">
+<p>	Bab 46</p>
+<p>	Bab 46: Jangan terlalu banyak berpikir saat membunuh orang</p>
+<p>	Penerjemah: Sigma Editor: Sigma</p>
+<p>	Mengikuti ingatannya, Fang Yuan membawa Jia Jin Sheng ke gua di gunung.</p>
+<p>	Keduanya memasuki celah di batu, dan jalan menjadi lebih sempit karena penglihatan mereka diwarnai kegelapan. Jia Jin Sheng menjadi lebih waspada karena dia berada di lingkungan yang tidak dikenalnya.</p>
+<p>	Akhirnya, dia tidak bisa menahannya lebih jauh, “Saya punya pertanyaan, Jia Fu selalu memperlakukan orang dengan jujur ​​dan ramah dengan reputasi yang baik. Di sisi lain, saya berbohong dan menipu, memaksa transaksi melalui paksaan. Mengapa Anda memilih untuk berurusan dengan saya dan bukan dia?</p>
+<p>	Suara Fang Yuan melewati celah batu. “Karena kultivasinya terlalu tinggi, jadi jika dia melihat dinding gambar, dia dapat memilih untuk berurusan dengan saya, atau mengabaikan kesepakatan dan hanya memberikan dinding gambar kepada kepala klan Gu Yue. Saya tidak suka memberikan pengambilan keputusan kepada orang lain, apalagi saya tidak percaya pada integritas. Apa yang disebut reputasi bergengsi hanya karena keuntungannya kecil dan tidak dapat menimbulkan keserakahannya. ”</p>
+<p>	Lebih penting lagi, itu karena posisi Jia Jin Sheng istimewa, karena kultivasinya lemah dan dia mudah dimanipulasi. Fang Yuan tentu saja tidak akan menyebutkan ini.</p>
+<p>	“Hehe.” Jia Jin Sheng tertawa datar, kecurigaannya sebagian besar langsung hilang. “Kalimat terakhir itu benar-benar bergema di dalam diriku.”</p>
+<p>	Keduanya akhirnya masuk ke gua rahasia.</p>
+<p>	Jia Jin Sheng melihat dinding gambar sekaligus, dan tidak bisa menahan tawa keras, “Haha, tebakanku benar, kamu tidak berbohong padaku!”</p>
+<p>	Fang Yuan berdiri di belakangnya, tertawa ringan, tidak mengatakan apa-apa.</p>
+<p>	Jia Jin Sheng melihat ke dinding, melihat gambar yang berubah dan permusuhan antara Biksu Anggur Bunga dan pemimpin klan generasi ke-4.</p>
+<p>	Dia melihatnya sekali dan menarik kembali pandangannya, menatap Fang Yuan, mengejek, “Leluhur generasi ke-4mu tidak terlihat sekuat itu ya.”</p>
+<p>	Fang Yuan menjawab, “Ini bukan apa-apa. Klan Gu Yue membutuhkan pahlawan, sehingga generasi ke-4 menjadi pahlawan. Tidak lama kemudian, keluarga Bai membutuhkan sampah tercela, sehingga generasi ke-4 akan menjadi merosot. Pahlawan, sampah, semua ini hanya pendapat orang. ”</p>
+<p>	“Katanya bagus!” Jia Jin Sheng tertawa saat dia mengamati gua.</p>
+<p>	Pandangannya tertuju pada mayat Biksu Anggur Bunga, dan dia berhenti sejenak sebelum berkata, “Sayang sekali, pembangkit tenaga listrik peringkat lima. Kamu mendapat banyak manfaat darinya ya? ”</p>
+<p>	Warisan Guru Gu peringkat lima sangat penting. Jantung Jia Jin Sheng berdetak lebih cepat setelah memikirkan hal ini, dan dia tidak bisa menahan diri untuk bertanya.</p>
+<p>	Fangyuan menggelengkan kepalanya. “Sudah lama sekali, sebagian besar Gu mati, aku hanya mendapat cacing Liquor.”</p>
+<p>	Jia Jin Sheng tidak percaya padanya. “Jangan membohongi saya saudara, selama kesepakatan ini berjalan, kami adalah kaki tangan, saya tidak akan mengungkapkan informasi apa pun. Katakan dengan jujur, apa yang kamu dapatkan dari ini? ”</p>
+<p>	Fang Yuan tertawa dingin dan tidak repot-repot membalasnya.</p>
+<p>	Tanggapan Jia Jin Sheng sudah diantisipasi, dan ini juga mengapa Fang Yuan memilihnya daripada Jia Fu.</p>
+<p>	Jia Jin Sheng terus berkata: “Setidaknya, aku tahu Biksu Anggur Bunga memiliki laba-laba Serigala Bumi Seribu Li(1). Itu adalah Gu tipe kuda peringkat lima, dengan tubuh besar dan mahir menggali bawah tanah. Biksu Anggur Bunga adalah seorang pembudidaya iblis, dan kemampuannya untuk bergerak dengan bebas sebagian besar disebabkan oleh laba-laba Serigala Bumi Seribu Li ini, yang memungkinkannya untuk melarikan diri dari pembudidaya yang saleh. ”</p>
+<p>	“Oh, ada yang seperti itu?” Fang Yuan mengerutkan kening. Mengenai Biksu Bunga Anggur, dia tidak memiliki banyak informasi.</p>
+<p>	Jia Jin Sheng dengan angkuh berkata, “Saya datang ke desa Anda tahun lalu dan mendengar legenda ini, dan menurut saya itu menarik, maka saya pulang dan menelitinya. Laba-laba Thousand Li Earthwolf dan Flower Wine Monk tidak dapat dipisahkan, dan menurut saya, gua ini seharusnya digali oleh laba-laba. Jika tidak, dengan tanah yang kaya dan berat di Gunung Qing Mao, bagaimana bisa sebuah gua seperti ini terbentuk? Saudara, Anda tidak perlu menyembunyikannya lagi. Biksu Anggur Bunga mati di sini jadi pasti ada laba-laba Serigala Bumi Seribu Li-nya di sini!”</p>
+<p>	Fang Yuan mengerutkan kening lebih dalam, merasakan ketidaknyamanan, tatapannya muram, “Ya, tidak ada jalan keluar lain di sini. Laba-laba Thousand Li Earthwolf sangat besar, dia tidak akan bisa keluar dari celah yang baru saja kita lewati. Namun, ada kemungkinan bahwa Seribu Li Earthwolf diplot dan dibunuh oleh generasi ke-4. Melihat dinding gambar itu, bahkan ketika Biksu Anggur Bunga bertarung, dia tidak memanggil laba-laba Serigala Bumi Seribu Li. ”</p>
+<p>	“Itu membuat situasinya semakin aneh. Gua ini tidak terbentuk secara alami, sehingga harus dibuat oleh Biksu Anggur Bunga. Tanpa laba-laba Thousand Li Earthwolf, mungkinkah ada metode lain?” Jia Jin Sheng menatap Fang Yuan dengan curiga.</p>
+<p>	Kerutan Fang Yuan membengkak menjadi simpul saat dia merasa semakin tidak yakin. Dari informasi Jia Jin Sheng, dia menemukan sesuatu: sepertinya ada poin penting yang dia lewatkan.</p>
+<p>	Dia tidak bisa membantu tetapi jatuh ke dalam pikiran yang dalam.</p>
+<p>	Jia Jin Sheng juga berpikir, dinding gambar tidak lagi cukup baginya. Begitu dia memastikan bahwa situasinya nyata, dia ingin menggali warisan Biksu Anggur Bunga dari Fang Yuan.</p>
+<p>	Tetapi pada saat ini, sesuatu yang tidak terduga terjadi pada mereka berdua!</p>
+<p>	Dinding gambar yang diputar tanpa henti, tiba-tiba berubah gambarnya.</p>
+<p>	Seorang Guru Gu botak pucat yang terluka parah menggantikan video asli dan muncul di dinding.</p>
+<p>	Dia dengan lemah tergeletak di tanah, punggungnya menghadap ke dinding. Dada dan anggota tubuhnya terpotong dalam, tapi anehnya lukanya tidak berdarah, seolah-olah darah seluruh tubuhnya telah terkuras habis.</p>
+<p>	“Aku adalah Biksu Anggur Bunga.” Tuan Gu yang botak tertawa, ekspresinya berubah menjadi gila, “Orang yang akan datang, tidak peduli siapa kamu, untuk menahan video ini dan membiarkannya diputar selama hampir seratus hari, itu membuktikan bahwa kamu tidak memiliki niat baik terhadap keluarga Gu Yue. Baiklah, Anda akan menjadi penerus saya! Seluruh warisanku adalah milikmu, tapi aku punya syarat. Anda harus memusnahkan klan Gu Yue untuk saya. Bunuh seluruh klan dan jangan biarkan seorang pun hidup!”</p>
+<p>	Jia Jin Sheng tertegun di tempat, wajahnya membeku karena terkejut.</p>
+<p>	“Pembangkit tenaga listrik peringkat lima, warisan Biksu Anggur Bunga!”</p>
+<p>	Dia tercengang, dan untuk sesaat otaknya berputar dan berpikir.</p>
+<p>	“Tuhanku! Pembangkit tenaga listrik peringkat lima, apa artinya itu? Peringkat tiga adalah tetua keluarga, Peringkat empat adalah penguasa desa, dan peringkat lima adalah penguasa gunung, mampu memerintah gunung dan melakukan apa yang dia inginkan! Untuk berpikir bahwa di tempat kecil ini, ada warisan kekuatan Guru Gu peringkat lima. ”</p>
+<p>	“Tunggu, Biksu Anggur Bunga adalah pembudidaya iblis, jadi jika saya mewarisi kekuatannya, apakah itu tidak pantas? Tidak, kekuatan tidak ada hubungannya dengan kebaikan atau kejahatan. Biksu Anggur Bunga ingin penerusnya menghancurkan klan Gu Yue, tetapi apakah saya benar-benar harus melakukannya? Dia sudah mati, aku hanya perlu mengambil warisannya dan mengabaikan masalah itu.”</p>
+<p>	“Ini adalah kesempatan berkah. Bahkan dengan bakat kelas D saya, jika saya mewarisi warisan Biksu Anggur Bunga, saya mungkin dapat meningkatkan bakat saya. Cacing-cacing Gu penambah bakat yang langka itu, mereka mungkin menjadi bagian dari warisan. Jika saya mewarisi kekayaan ini dan menjadi Guru Gu peringkat empat atau lima, saya akan bisa bersaing dengan Jia Fu! ”</p>
+<p>	“Tunggu! Saya hampir lupa, ada orang luar, apa yang harus saya lakukan?”</p>
+<p>	“Haruskah aku membagi warisan dengannya? Tidak, bunuh dia! Hanya dengan membunuhnya aku bisa melindungi rahasia ini. Ya, aku harus menenangkannya dulu, dan berbohong bahwa kita akan membagi harta itu. Menyingkirkan pengawalnya, lalu menyerangnya dan membunuhnya di sini. Tempat ini sangat tersembunyi, sangat bagus. Bahkan jika aku membunuhnya, tidak ada yang akan tahu.”</p>
+<p>	Meskipun dia memikirkan semua ini, itu hanya sesaat dalam kehidupan nyata.</p>
+<p>	Memiliki rencana, dia menyipitkan mata dan mengungkapkan senyum palsu.</p>
+<p>	Dia perlahan berbalik dan menghadap Fang Yuan tetapi tepat ketika dia akan berbicara, dia melihat dua bilah bulan biru terbang ke arahnya.</p>
+<p>	Pupil matanya melebar hingga seukuran peniti; jaraknya terlalu kecil, dia tidak bisa merespon tepat waktu!</p>
+<p>	“Kamu ……” Suaranya terhenti.</p>
+<p>	Pedang bulan membidik lehernya dengan akurat, dan dalam sekejap, tengkoraknya terbang ke udara, darah segar mengalir seperti air mancur.</p>
+<p>	Setelah dua detik, mayatnya jatuh ke tanah.</p>
+<p>	Darah panas mengalir di dinding gunung, mewarnai tanaman merambat yang layu menjadi merah.</p>
+<p>	“Jangan terlalu banyak berpikir saat membunuh orang.” Fang Yuan menatap mayat itu dengan jelas dan kemudian mengalihkan pandangannya ke dinding gambar.</p>
+<p>	“Untuk berpikir ada twist seperti itu di sini. Sangat menarik, ”gumamnya saat matanya memancarkan cahaya yang menakutkan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

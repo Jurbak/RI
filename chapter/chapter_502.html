@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 502 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 502";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_501.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 502">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_503.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 502</h1>
+        <div class="text-left">
+<p>	Bab 502 – Zhao Lian Yun</p>
+<p>	Bab 502: Zhao Lian Yun</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di ruang belajar, pemimpin suku Zhao meletakkan dokumen itu dengan lelah.</p>
+<p>	Sinar matahari menembus jendela dan menyinari wajahnya.</p>
+<p>	Karena menangani urusan suku untuk waktu yang lama, Guru Gu peringkat lima tahap awal yang berusia lima puluh tahun ini sudah memiliki rambut putih dan wajah penuh kerutan.</p>
+<p>	Hari-hari ini, karena ekspedisi skala besar suku Hei dan undangan pribadi dari Dong Fang Yu Liang, suku itu terbagi menjadi dua faksi.</p>
+<p>	Kedua faksi ini berdebat tanpa henti; satu pihak ingin berpihak pada suku Dong Fang dan menyelesaikan dendam lama, sementara pihak lain ingin berpihak pada suku Hei karena suku Hei jauh lebih besar.</p>
+<p>	Bisakah berpihak pada suku Dong Fang benar-benar menyelesaikan dendam lama? Ketika dia memikirkan kebencian mendalam yang telah terakumulasi selama beberapa generasi antara suku mereka dan suku Dong Fang, pemimpin suku Zhao tidak dapat berbicara dengan pasti.</p>
+<p>	Dan berpihak pada suku Hei juga tidak benar.</p>
+<p>	Markas utama suku Zhao adalah di wilayah Cao Fu ini sementara suku Hei mewakili tiran Yu Tian dan telah menjalani sumpah dengan sekutu mereka. Sebagai suku yang bergabung kemudian, suku Zhao mau tidak mau akan diganggu dan berapa banyak keuntungan yang bisa mereka peroleh? Mereka bahkan mungkin diperlakukan sebagai umpan meriam.</p>
+<p>	Dengan demikian, pemimpin suku Zhao sangat berkonflik. Terutama hari-hari ini, petinggi suku selalu sibuk berdebat; Pemimpin suku Zhao harus waspada terhadap skema licik Dong Fang Yu Liang, sementara juga perlu menekan situasi internal dan memimpin suku. Dia sudah sangat kelelahan.</p>
+<p>	“Mendesah…”</p>
+<p>	Dia menghela napas dalam-dalam dan bersandar di kursi, menatap debu yang mengambang di bawah sinar matahari.</p>
+<p>	Di bawah sinar matahari yang menyilaukan ini, debu kecil dapat terlihat dengan jelas dan pemimpin suku Zhao merasa dia seperti salah satu dari debu ini, ragu-ragu; sekarang itu mengambang di udara, tetapi siapa yang mengatakan bahwa itu tidak akan jatuh ke tanah ketika angin bertiup.</p>
+<p>	Pertempuran antara suku Hei dan suku Dong Fang justru merupakan angin kencang yang akan menyapu segalanya.</p>
+<p>	Menghadapi angin seperti itu, jalan apa yang harus diambil sukunya?</p>
+<p>	Tepat saat pemimpin suku Zhao merasa panik, suara tangisan tiba-tiba datang dari luar jendela.</p>
+<p>	Mendengar suara yang familier ini, alis pemimpin suku Zhao sedikit berkerut dan menunjukkan ekspresi prihatin saat dia segera bertanya: “Ada apa?”</p>
+<p>	Penjaga di luar pintu segera menjawab: “Pemimpin suku tuan, nona besar terpeleset di tangga dan kepalanya terbentur saat berlari ke sini.”</p>
+<p>	“Ah!” Pemimpin suku Zhao berdiri dengan ekspresi sedih, “Bagaimana mungkin kekasih kecilku jatuh? Berapa banyak darah yang dia keluarkan? Cepat, bawa dia ke sini.”</p>
+<p>	Pemimpin suku Zhao memiliki beberapa putra tetapi mereka semua ditipu dan dibunuh oleh Dong Fang Yu Liang, hanya menyisakan seorang putri.</p>
+<p>	Putrinya baru berusia sekitar lima atau enam tahun dengan sifat yang sangat nakal, tetapi penampilannya sangat mirip dengan mendiang istrinya sehingga pemimpin suku Zhao sangat menyayanginya.</p>
+<p>	Segera, pintu ruang belajar didorong terbuka.</p>
+<p>	Penjaga itu mendukung seorang gadis kecil ke kamar.</p>
+<p>	Gadis itu tampak seperti diukir dari batu giok dan terlihat sangat imut dengan pakaian bordirnya. Saat ini, dia, bagaimanapun, menangis, menutupi dahinya dengan tangannya.</p>
+<p>	“Sayang kecilku, Yunyun kecilku, di mana kamu terluka?” Pemimpin suku Zhao dengan cepat berjalan mendekat dan memeluk gadis kecil itu, bertanya dengan prihatin.</p>
+<p>	‘Ayah, apakah kamu buta? Lukanya ada di dahiku…’ Gadis kecil itu berteriak dalam hati, tapi di permukaan, dia dengan mulus bersandar di dada pemimpin suku Zhao dan bertingkah seperti anak manja, “Ayah, kepala Yunyun sakit…”</p>
+<p>	“Oh oh, biarkan ayah melihatnya.” Pemimpin suku Zhao dengan lembut membelah rambut yang menutupi dahi gadis kecil itu dan melihat goresan kecil di dahinya, goresan itu sedikit memerah tetapi masih jauh dari pendarahan.</p>
+<p>	Namun meski begitu, hati pemimpin suku Zhao sangat sakit.</p>
+<p>	Dia menghibur putrinya dengan kata-kata hangat sebelum memarahi penjaga tua yang bergegas: “Pengasuh Wu, apa yang kamu lakukan? Aku menyuruhmu untuk menjaganya dengan cermat dan melindunginya setiap saat, lihat, dahinya terluka!”</p>
+<p>	‘Wanita tua ini harus mati! Tolong maafkan saya tuan pemimpin suku. ” Penjaga tua itu segera berlutut ketakutan, keringat dingin memenuhi wajahnya. Tapi hatinya penuh dengan keluhan, anak ini adalah anak paling licik yang pernah dia lihat sepanjang hidupnya, dan iblis kecil yang paling merepotkan. Biasanya, jika dia kehilangan konsentrasinya sedikit pun, anak itu akan menghilang entah kemana. Anak itu sangat licik, mempermainkan wanita dewasa ini sampai dia berharap dia mati. Tetapi di depan pemimpin suku, anak itu menunjukkan ekspresi yang patuh dan menyedihkan, aktingnya sangat brilian sehingga sepertinya dia dilahirkan dengan itu. Penjaga tua tidak dapat menemukan sedikit pun bukti tentang iblis kecil ini!</p>
+<p>	“Ayah, jangan salahkan pengasuh, ini salah Yunyun karena berlarian sembarangan.” Gadis kecil itu berkata dengan suara lembut.</p>
+<p>	Menambahkan kalimat dalam hati: ‘Wanita tua ini terlalu menyebalkan, selalu mengikutiku sepanjang hari. Saya harus melukai diri sendiri untuk memasuki ruang belajar ini, apakah mudah bagi saya ya!’</p>
+<p>	Pemimpin suku Zhao menghela nafas dan membelai rambut hitam lembut gadis kecil itu dengan ekspresi puas: “Putri, kamu baik hati seperti ibumu.”</p>
+<p>	Namun penjaga tua itu meraung dalam hati: ‘Pemimpin suku, Anda telah tertipu, putri Anda benar-benar iblis …’</p>
+<p>	Tapi dia hanya bisa berteriak dalam pikirannya karena dia tahu, sangat sedikit orang selain dia yang mau mempercayai fakta ini. Dia secara alami tidak berani mengatakannya, jika dia mengatakannya, siapa yang tahu bagaimana gadis ini akan menggoda dan melecehkannya nanti.</p>
+<p>	“Hal yang tidak berguna, jika bukan karena Yunyun meminta keringanan hukuman… hmph, pergilah.” Pemimpin suku Zhao melambaikan tangannya ke arah penjaga tua untuk memerintahkannya pergi sebelum melihat putrinya dengan ekspresi lembut, “Sayang kecil, mengapa kamu datang ke sini untuk bermain?”</p>
+<p>	“Ayah, Yunyun mengkhawatirkanmu, aku mendengar orang lain mengatakan bahwa para tetua itu berdebat dengan ayah akhir-akhir ini dan bahwa kamu marah dan mengunci dirimu di ruang kerja.” Gadis kecil itu menatap pemimpin suku Zhao dengan penuh perhatian dengan mata hitamnya yang besar berkilau.</p>
+<p>	Tetapi sebenarnya, dia berteriak dalam pikirannya: ‘Sampah, jika saya tidak datang, hidup saya akan dalam bahaya. Nyaman ayah Anda terlalu bimbang, dengan situasi seperti sekarang, Anda masih belum segera melarikan diri? Untuk apa kau bermalas-malasan?!’</p>
+<p>	Pemimpin suku Zhao merasakan kesemutan di hidungnya, matanya memerah, hampir mengeluarkan air mata: “Gadis yang baik, kamu akhirnya tahu untuk merawat ayahmu, cinta ayah untukmu selama ini tidak sia-sia. Jangan khawatir, kesehatan ayah cukup baik dan suasana hati saya jauh lebih baik sekarang setelah saya melihat Anda.</p>
+<p>	‘Ayah yang nyaman, ini adalah masalah hidup dan mati sekarang dan kamu masih sangat optimis, sangat tidak bisa ditoleransi! Untuk kehidupan bahagiaku di masa depan, aku harus pamer sedikit apapun konsekuensinya!’</p>
+<p>	Gadis itu meraung dalam pikirannya dan berkata dengan ekspresi ‘tidak peduli’ sambil melambaikan tangan kecilnya yang halus: “Ayah, Yunyun berpikir orang-orang yang bertengkar denganmu itu idiot. Suku Zheng kami seperti domba, suku Dong Fang adalah serigala sedangkan harimau dari Yu Tian akan datang. Serigala tidak bisa mengalahkan harimau, jadi ia ingin mencari domba untuk membantu, tetapi di sisi mana pun domba membantu, harimau atau serigala pada akhirnya tidak akan membiarkannya pergi.”</p>
+<p>	Kata-kata gadis kecil itu mengejutkan pikiran pemimpin suku Zhao. Orang di tempat itu bingung, sementara yang melihatnya melihat dengan jelas; terkadang orang yang terlibat perlu dicerahkan dengan kata-kata seperti itu dari para penonton.</p>
+<p>	‘Itu benar, apakah kita berpihak pada suku Dong Fang atau suku Hei, itu akan seperti menerima bantuan dari harimau. Tapi bisakah suku Zhao kita menghindari ini?’</p>
+<p>	‘Tidak, bencana badai salju setiap sepuluh tahun telah memutuskan tidak ada utopia di dataran utara. Perjuangan untuk Pengadilan Kekaisaran sangat signifikan, selama seseorang dapat memasuki tanah yang diberkati Pengadilan Kekaisaran, mereka dapat menerima manfaat yang luar biasa. Tapi pihak mana yang harus diambil oleh suku Zhao?’</p>
+<p>	Gadis kecil itu telah mengamati ekspresi pemimpin suku selama ini dan ketika dia merasa waktunya tepat, dia menambahkan: “Ayah, saya mendengar suku Ma [1] sangat kuat dan juga memperlakukan orang-orangnya dengan baik. Domba dan kuda sama-sama vegetarian tetapi harimau dan serigala adalah karnivora, lebih baik kita bersekutu dengan suku Ma!”</p>
+<p>	Tubuh pemimpin suku Zhao bergidik.</p>
+<p>	‘Benar, mengapa tidak?’</p>
+<p>	Suku Ma berbeda dari suku Hei dan suku Dong Fang, dua suku terakhir memiliki leluhur Gu Immortal dan dukungan dari tanah yang diberkati. Mereka memiliki sejarah yang bertahan lama dan merupakan suku super dengan fondasi yang dalam.</p>
+<p>	Suku Ma juga merupakan bagian dari keluarga Huang Jin, tetapi mereka tidak memiliki dukungan Gu Immortal dan sedang maju ke tingkat suku super saat ini. Pemimpin suku Ma dan pemimpin suku mudanya adalah pahlawan yang luar biasa, mereka pasti akan menyambut suku Zhao. Kecuali untuk pergi ke Tian Chuan, itu akan menjadi perjalanan yang panjang…</p>
+<p>	‘Ayah yang nyaman, mengapa kamu masih ragu-ragu? Putuskan dengan cepat!’ Gadis kecil yang telah mengamati ekspresi ayahnya sering berubah, merasa sangat cemas dalam hati.</p>
+<p>	Tapi pemimpin suku Zhao sedang memikirkan jarak jauh yang harus mereka tempuh ke Tian Chuan untuk berpihak pada suku Ma. Jarak ini dipenuhi dengan bahaya yang membuatnya ragu.</p>
+<p>	Tak berdaya, gadis kecil itu hanya bisa menambahkan: “Ayah, kita harus segera pergi. Ini adalah waktu terbaik untuk pergi, harimau dan serigala saling berhadapan, mereka tidak memiliki kekuatan cadangan untuk peduli pada kita. ”</p>
+<p>	Hati pemimpin suku Zhao bergetar.</p>
+<p>	“Benar, kenapa aku masih ragu? Jika saya ragu lagi, bahkan kesempatan terbaik untuk melarikan diri akan hilang! Apakah itu suku Hei atau suku Dong Fang, mereka berdua tidak baik. Jika sukuku ingin mendapatkan keuntungan dalam pertempuran untuk Pengadilan Kekaisaran, bertaruh pada mereka bukanlah hal yang baik!”</p>
+<p>	“Gadis yang baik, kamu sangat benar. Suku Zhao kami tidak bisa ikut campur dalam pertempuran besar seperti itu, juga tidak bisa menceburkan diri ke pusaran air ini. Benar, kita akan pergi!” Pemimpin suku Zhao membuat keputusan.</p>
+<p>	Gadis kecil yang bersandar di dadanya hampir menangis karena kegembiraan saat ini, saat dia menghela nafas dalam hati: ‘Orang tua, kamu akhirnya membuka matamu. Ah, tidak sia-sia aku bersusah payah berlari ke sini untuk membujukmu…’</p>
+<p>	“Tapi Yunyun, apakah kamu memikirkan semua ini? Apakah seseorang memberitahu Anda untuk mengatakan begitu? Siapa itu, beri tahu ayah. ” Pemimpin suku Zhao akhirnya merasakan sesuatu yang salah dan menatap putrinya.</p>
+<p>	Jantung gadis kecil itu berdebar, dia segera mengedipkan matanya yang besar dan menunjukkan ekspresi polos: “Tidak ada yang mengajariku. Ayah, ini semua dipikirkan oleh Yunyun. Ayah bekerja sangat keras setiap hari, Yunyun tidak ingin ayah begitu lelah, jadi Yunyun ingin membantu ayah.”</p>
+<p>	Dia kemudian dengan hati-hati berkata dengan ekspresi menyedihkan: “Ayah, apakah Yunyun salah?”</p>
+<p>	Mata pemimpin suku Zhao bersinar dengan ekspresi terkejut yang menyenangkan. Dia tidak mengira malaikat kecil di hadapannya ini akan menipunya.</p>
+<p>	Berapa umur anak ini?</p>
+<p>	Dan dia telah menyaksikannya tumbuh dewasa!</p>
+<p>	Karena dia sangat cerdas di usia yang begitu muda, bakat kultivasinya mungkin juga luar biasa.</p>
+<p>	Melihat putrinya takut dimarahi, perasaan sayang muncul di hati pemimpin suku Zhao.</p>
+<p>	Dia mengelus rambut gadis kecil itu: “Yunyun, untungnya aku memilikimu. Ayah sangat senang memiliki putri yang begitu baik!”</p>
+<p>	‘Huh, harus seperti ini, karena aku sudah pindah ke sini. Dalam hidup, teman bisa dipilih, tetapi orang tua sudah ditakdirkan. Melihat bagaimana Anda memperlakukan saya dengan baik, saya secara alami akan membalas budi …’</p>
+<p>	Gadis kecil itu berkata dalam hati, tetapi di permukaan, dia memeluk leher pemimpin suku Zhao dan mencium pipi ayah yang nyaman ini: “Ayah, anak perempuan paling menyukaimu.”</p>
+<p>	“Hahaha, gadis yang baik, kamu benar-benar kesayangan ayah.” Pemimpin suku Zhao tertawa keras.</p>
+<p>	[1] Juga dibaca sebagai kuda dalam bahasa Cina.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

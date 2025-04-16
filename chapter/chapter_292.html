@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 292 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 292";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_291.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 292">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_293.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 292</h1>
+        <div class="text-left">
+<p>	Bab 292</p>
+<p>	Bab 292: Fragmen Hukum, Jejak Dao Besar</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di ruang rahasia, Fang Yuan duduk di bantal, matanya tertutup rapat.</p>
+<p>	Esensi purba perak muda terus mengalir ke dalam kemandirian Gu.</p>
+<p>	Kemandirian Gu sedang menyelam di laut purba di celah Fang Yuan.</p>
+<p>	Bentuknya seperti kecoa, tubuh rata berwarna coklat tua. Ada perasa di kepalanya, dan sayap di punggungnya.</p>
+<p>	Ini adalah Gu penyembuhan peringkat tiga yang dibeli Fang Yuan dengan sejumlah besar batu purba.</p>
+<p>	Kemandirian Gu bisa dikatakan sebagai Gu terbaik untuk kultivasi kekuatan Master Gu.</p>
+<p>	Semakin besar kekuatan fisik Master Gu, semakin baik efek penyembuhan kemandirian Gu. Sebaliknya, semakin lemah Master Gu, semakin lemah efek penyembuhannya.</p>
+<p>	Kemandirian, mengandalkan diri sendiri, itu berarti memperoleh kemampuan untuk regenerasi dan menyembuhkan menggunakan kekuatan sendiri.</p>
+<p>	Fang Yuan memiliki kekuatan dua babi hutan, satu beruang dan seekor buaya, sekarang dia menggunakan Gu kemandirian, efek penyembuhannya setara dengan Gu tulang-daging. Ini belum menjadi batasnya, ketika Fang Yuan memperoleh kekuatan baru dari lebih banyak Gu, efeknya akan melampaui Gu tulang-daging, terus meningkat.</p>
+<p>	Tapi kemandirian Gu memiliki kelemahan.</p>
+<p>	Itu tidak bisa menyembuhkan orang lain, hanya Guru Gu sendiri.</p>
+<p>	Ini sangat membatasi penggunaannya.</p>
+<p>	Selain itu, itu mahal, sebagai Gu yang langka, harganya empat puluh lima ribu batu purba! Bahkan lebih mahal dari bayangan pedang Gu. Jadi, meskipun ada banyak jalur kekuatan Gu Masters, hanya sedikit yang mampu membelinya.</p>
+<p>	Berbeda dari zaman kuno, jalur kekuatan Gu Masters sekarang adalah dari kelas sosial terendah, memegang pekerjaan yang melibatkan pekerjaan fisik. Ada banyak yang berperingkat rendah, sedikit yang berperingkat tinggi, dan bahkan yang kurang menonjol. Hampir tidak ada yang berdiri di puncak, di seluruh perbatasan selatan, hanya Permaisuri Wu Ji yang sukses. Tetapi bahkan dia mengandalkan warisan jalur kekuatan kuno untuk melakukannya.</p>
+<p>	Ini adalah era di mana jalur kekuatan menurun.</p>
+<p>	Sekarang, Fang Yuan menggunakan kemandirian Gu untuk memulihkan luka-lukanya.</p>
+<p>	Dalam pertempuran dengan Li Hao, dia terluka.</p>
+<p>	Pelaku terbesar bukanlah Li Hao, bukan katak punggung gunung, tetapi Fang Yuan sendiri.</p>
+<p>	Saat dia menyerang dengan kekuatan yang begitu ganas, dan untuk waktu yang lama, itu menyebabkan otot dan tendonnya bekerja terlalu keras, dan beberapa di antaranya robek, bahkan kanopi Gu dalam kondisi buruk, perlu waktu untuk pulih.</p>
+<p>	Untungnya, dia telah menggunakan tulang besi Gu sebelumnya, jadi tidak ada masalah dengan tulangnya. Jika tidak, bahkan tulangnya akan patah.</p>
+<p>	Biasanya, ketika orang mengerahkan terlalu banyak kekuatan, mereka akan menarik otot. Jika meriam ditembakkan terlalu sering, akan mudah macet.</p>
+<p>	Setiap jenis kekuatan membutuhkan fondasi untuk menahannya. Pada aspek ini, jalur kekuatan Gu Masters mengikuti aturan yang sama.</p>
+<p>	Fang Yuan memiliki kanopi Gu dan tulang besi, tetapi kekuatannya terlalu besar, melepaskan serangan yang begitu cepat, bahkan otot-ototnya tidak dapat menahannya, ada tekanan besar pada organ, darah, dll.</p>
+<p>	Setelah pertempuran ini, ada banyak luka tersembunyi di tubuhnya.</p>
+<p>	Bahkan keringatnya memiliki jejak darah.</p>
+<p>	“Sejak saya mulai menggunakan kemandirian Gu untuk menyembuhkan, ini sudah jam kesepuluh. Sebagian besar karena tendon baja Gu, itu membuat penyembuhan saya sulit. ” Fang Yuan memiliki pemahaman tentang situasinya.</p>
+<p>	Sebelum ini, dia telah menggunakan tendon baja Gu untuk mengubah dan melatih tubuhnya. Itu menyebabkan tendon di ototnya mendapatkan lapisan warna hitam, bersinar dengan cahaya metalik, menjadi lebih keras.</p>
+<p>	Saat ini, tendonnya ditarik atau robek, untuk menyambung kembali dan menyembuhkannya, itu akan jauh lebih sulit daripada otot dan tendon orang biasa.</p>
+<p>	Mengapa begitu?</p>
+<p>	Orang biasa mungkin tidak tahu mengapa, hanya memperlakukan ini sebagai fenomena alam. Tapi Fang Yuan tahu dengan jelas, bagaimanapun juga dia adalah Gu Immortal, dia tahu ini melibatkan hukum alam langit dan bumi.</p>
+<p>	Manusia adalah roh dari semua makhluk, Gu adalah inti dari langit dan bumi.</p>
+<p>	Apakah tubuh cacing Gu besar atau kecil, itu akan berisi fragmen hukum dari Dao Besar.</p>
+<p>	Tendon baja Efek Gu adalah untuk memperkuat tendon di tubuh Master Gu sampai sekuat baja. Ini menyebabkan tendon Fang Yuan mengandung kekuatan hukum alam yang sesuai, jejak Great Dao.</p>
+<p>	Agar kemandirian Gu dapat sembuh, ia tidak hanya harus memulihkan tendon tubuh, tetapi juga harus mengatasi dan menimpa lapisan hukum alam ini.</p>
+<p>	Tapi untungnya, hukum ini tidak berbenturan dengan hukum penyembuhan. Kalau tidak, Fang Yuan tidak hanya tidak akan sembuh, dia juga akan rusak.</p>
+<p>	Demikian pula, kekuatan bawaan beruang coklat Gu, Gu babi hutan hitam dan putih, dan kekuatan buaya Gu adalah sama.</p>
+<p>	Mereka berisi fragmen hukum Dao Besar tentang “kekuatan fisik”, ketika kekuatan mereka mengintai di tubuh Fang Yuan, mereka membentuk menjadi hantu binatang dan menyembunyikan diri. Hanya setelah dia melepaskan kekuatan sejati mereka, mereka dapat dilihat dengan mata telanjang.</p>
+<p>	Yang disebut hantu binatang, esensinya adalah tanda Dao dari “kekuatan fisik”— jejak Dao Besar di langit dan bumi.</p>
+<p>	Ambil sumpah racun Gu sebagai contoh lain.</p>
+<p>	Itu berisi hukum pembatasan, itu tetap di tubuh Master Gu untuk membatasi mereka.</p>
+<p>	Tanda Dao ini biasanya tidak terlihat, tetapi di bawah pengaruh kata-kata makan Gu, itu akan dipaksa untuk muncul, dan kemudian dimusnahkan.</p>
+<p>	Hukum yang terkandung dalam kata-kata makan Gu adalah kebalikan dari sumpah racun Gu. Tapi yang pertama sedikit lebih kuat, sehingga bisa menimpa yang lain.</p>
+<p>	Atau lebih jauh lagi, mengapa Gu cahaya pelangi, posisi bertukar Gu, mengharuskan Master Gu bebas dari modifikasi kekuatan?</p>
+<p>	Itu adalah alasan yang sama.</p>
+<p>	Hukum kekuatan akan mengganggu hukum cahaya dan hukum ruang. Jika tanda kekuatan Dao terlalu kuat, itu akan menyebabkan kedua Gu gagal saat digunakan.</p>
+<p>	“Gu Masters menggunakan Gu, tetapi kenyataannya adalah mereka menggunakan fragmen hukum Great Dao di dalam Gu. Gu adalah pembawa fragmen, alat surga dan bumi. Ketika Master Gu memurnikan Gu, mereka menggabungkan hukum, dan membentuk hukum. Memelihara Gu, menggunakan Gu dan menyempurnakan Gu… Kultivasi Gu bukanlah Dao kecil, tetapi Dao Besar sejati. Dalam kultivasi, Guru Gu belajar tentang alam, dan belajar tentang langit dan bumi. Inilah sebabnya mengapa harapan untuk keabadian, dan menjadi keberadaan yang abadi masih tetap ada.”</p>
+<p>	Fang Yuan jelas di hatinya.</p>
+<p>	…</p>
+<p>	“Karena kesulitan memperkuat tekad, orang yang berpikiran kuat tidak akan terpikat oleh urusan duniawi. Hari ini saya menginjak rumput; nanti aku akan menginjak gunung dan sungai!”</p>
+<p>	Di ruang belajar, Shang Yan Fei bergumam, memikirkan puisi yang dibacakan Fang Yuan, menunjukkan minat di wajahnya.</p>
+<p>	“Karena kesulitan, seseorang memperoleh aspirasi dan tekad. Daya pikat dunia fana tidak dapat membatasi hati seseorang. Apa aspirasi besar! Terutama baris terakhir itu, apakah Anda memperlakukan klan Shang saya sebagai rumput?</p>
+<p>	“Pemimpin klan tuan, seperti yang saya lihat, Fang Zheng mengacu pada lawannya Li Hao, terlalu lemah untuknya.” Wei Yang menangkupkan tinjunya dan berkata.</p>
+<p>	Shang Yan Fei menggelengkan kepalanya: “Tidak apa-apa, saya tidak berpikiran sempit. Tapi sayang sekali saya melewatkan pertunjukan yang bagus. Meskipun saya tidak melihatnya secara pribadi, saya dapat membayangkan adegan Fang Zheng melepaskan kemampuannya, menyerang dengan aura agung. ”</p>
+<p>	Shang Yan Fei berdiri di titik yang tinggi, dia memiliki visi yang luas, dan tentu saja berpikiran luas. Terhadap aspirasi Fang Yuan, dia bisa mengerti, dan menghargainya.</p>
+<p>	Diingatkan oleh Shang Yan Fei, Wei Yang mengingat kembali adegan pertempuran itu, dan berseru: “Memang begitu. Medan perang saat itu, Fang Zheng sangat ganas, memukau para penonton, semua orang didominasi oleh auranya dan tidak ada yang mengucapkan sepatah kata pun!</p>
+<p>	Shang Yan Fei bangkit dari tempat duduknya, berjalan perlahan ke jendela: “Tentara mudah dibangun, tetapi jenderal sulit didapat. Sayang sekali jenderal ini terlalu sombong, bahkan tidak menempatkan klan Shang di matanya. Tetapi, dia telah melalui masa-masa sulit, berhasil bertahan, dan memperoleh banyak darinya, karena kultivasinya meningkat pesat. Ini menyebabkan sifatnya berkembang ke arah itu.”</p>
+<p>	“Analisis pemimpin klan Lord sangat tepat. Pria muda pasti akan memiliki ambisi seperti itu, tanpa hukum dan tanpa rasa takut.” Wei Yang menundukkan kepalanya, menambahkan.</p>
+<p>	Shang Yan Fei melihat ke luar jendela, menyipitkan mata.</p>
+<p>	Fang Yuan menyamakan kota klan Shang dengan rumput, ini adalah aspirasi yang luar biasa, dia pasti seseorang dengan ambisi besar. Tapi Shang Yan Fei sendiri tidak mempermasalahkannya.</p>
+<p>	Dia adalah seorang pria yang berdiri di puncak, di atas seluruh perbatasan selatan, dia pasti bisa menerima orang-orang dengan ambisi. Selanjutnya, kota klan Shang tidak akan benar-benar menjadi rumput hanya karena seseorang berkata begitu.</p>
+<p>	Apa yang dia pikirkan adalah kalimat pertama.</p>
+<p>	Karena kesulitan memperkuat tekad, orang yang berpikiran kuat tidak akan terpikat oleh urusan duniawi…</p>
+<p>	Di dunia ini, ada banyak orang dengan ambisi besar tetapi tidak memiliki kemampuan, sementara orang dengan aspirasi dan bakat hanya sedikit, satu dari sejuta. Mereka yang tidak hanya memiliki bakat dan aspirasi, tetapi juga kemauan yang kuat, hampir tidak ada!</p>
+<p>	Aspirasi dan bakat tidak menakutkan, tetapi jika mereka memiliki kemauan dan tekad yang gigih, itu akan menimbulkan kekhawatiran.</p>
+<p>	Orang seperti itu, dalam sejarah, dia akan disebut pahlawan, penjahat, atau penakluk.</p>
+<p>	Orang-orang seperti itu, dapat mengubah sejarah, dan menciptakan sejarah!</p>
+<p>	Orang seperti itu, bagaimana dia akan tunduk kepada orang lain? Bagaimana dia membiarkan dirinya digunakan oleh klan Shang? Jika dia tidak bisa digunakan, dan orang ini berjalan di jalan iblis, dia pasti akan meninggalkan jejaknya di dunia ini, menyebabkan badai dan bencana dalam hidupnya. Ini bukanlah sesuatu yang ingin dilihat oleh jalan lurus…</p>
+<p>	Berpikir demikian, Shang Yan Fei tiba-tiba berkata: “Saya mendengar, Fang Zheng mengambil kesempatan Li Ran, jadi dia memberi kompensasi kepadanya dua ratus ribu batu purba untuk membalas budi. Berapa dia masih berutang? ”</p>
+<p>	Wei Yang menjawab: “Dia sudah membayar seratus tiga puluh ribu, hanya tujuh puluh ribu yang tersisa. Tapi harus segera dilunasi.”</p>
+<p>	Mendengar ini, kekhawatiran Shang Yan Fei mereda.</p>
+<p>	Dia mengangguk: “Itu benar. Seseorang dengan ambisi tidak akan keberatan dengan detail kecil, jadi bagaimana jika itu adalah dua ratus ribu batu purba. Hehehe.”</p>
+<p>	Memikirkan bagaimana Fang Yuan menyelamatkan Shang Xin Ci, Shang Yan Fei tertawa.</p>
+<p>	Dia benar-benar menarik, melakukan sesuatu dengan prinsipnya sendiri, membalas kebaikan dan membalas dendam atas kebencian. Tetapi dia tidak memiliki moral yang benar atau pengekangan apa pun, sifat seperti itu berbahaya, tetapi masih ada harapan untuk merekrut dan mengendalikannya.</p>
+<p>	Saat ini dia berada di puncak ketenarannya, hanya ada sedikit harapan untuk merekrutnya, mereka harus menunggu.</p>
+<p>	Setelah dia menghadapi kesulitan dari kenyataan, mereka akan menggunakan kebaikan untuk memindahkannya, dan merekrutnya di bawah sayap Shang Xin Ci. Dengan pembantu seperti itu, Shang Yan Fei akan merasa yakin akan keselamatannya.</p>
+<p>	“Sudahlah, Fang Zheng, biarkan aku melihat seberapa jauh kamu bisa pergi …” pikir Shang Yan Fei dalam hatinya.</p>
+<p>	Dia memiliki pandangan ke depan yang tajam, sepenuhnya jelas dari situasi.</p>
+<p>	Setelah Fang Yuan membunuh Li Hao, seluruh zona pertempuran menjadi keributan.</p>
+<p>	Kekuatan upaya habis-habisan Gu terlihat oleh semua orang.</p>
+<p>	Banyak yang mulai menyadari bahwa Fang Yuan adalah lawan yang tangguh. Namun di sisi lain, hal itu membuat banyak ahli mulai memperhatikan dan menginginkan usaha habis-habisan Gu.</p>
+<p>	Fang Yuan akan memiliki waktu yang damai untuk sementara waktu, tetapi segera, hari-hari itu akan berakhir.</p>
+<p>	Menurut sifatnya, dia pasti akan sangat menderita. Pada saat itu, dia akan tahu betapa lemahnya dia sebenarnya.</p>
+<p>	Menggunakan tahap pertempuran, dia akan ditekan dan dipoles.</p>
+<p>	Seperti yang diprediksi Shang Yan Fei, hari-hari Fang Yuan menjadi lebih mudah, karena dia menang tanpa perlawanan di pertandingan berikutnya.</p>
+<p>	Siapa Li Hao?</p>
+<p>	Dia adalah yang terkuat nomor satu di tahap pertempuran kota terdalam kelima, seseorang yang akan naik ke kota terdalam keempat.</p>
+<p>	Bahkan dia mati oleh tangan besi Fang Yuan, siapa yang bisa menghentikannya?</p>
+<p>	Tetapi tantangan yang kuat tidak dapat dibatalkan, para Master Gu iblis yang berpikir untuk mengambil keuntungan dari situasi itu dipaksa untuk memasuki arena.</p>
+<p>	Pada awalnya, beberapa memikirkan reputasi mereka dan mencoba berdebat dengan Fang Yuan.</p>
+<p>	Tapi Fang Yuan melukai beberapa orang, dan setelah dia membunuh satu orang, mereka tidak berani memikirkan diri mereka sendiri lagi, begitu pertempuran dimulai, mereka menyerah.</p>
+<p>	Sembilan belas, dua puluh, dua puluh satu kemenangan…</p>
+<p>	Fang Yuan naik ke panggung tidak lagi untuk berperang, tetapi hanya untuk mengumpulkan batu purba.</p>
+<p>	Itu bisa dikatakan sebagai waktu termudah dalam hidupnya.</p>
+<p>	Dan selama periode ini, sekelompok Master Gu yang mengejar klan Bai tiba di kaki kota klan Shang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

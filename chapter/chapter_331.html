@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 331 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 331";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_330.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 331">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_332.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 331</h1>
+        <div class="text-left">
+<p>	Bab 331</p>
+<p>	Bab 331: Naik ke Peringkat Empat</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Wei De Xin tahu dia hamil dari reaksi tubuhnya sendiri baru-baru ini.</p>
+<p>	Kehidupan baru di dalam rahimnya memberinya harapan besar.</p>
+<p>	Ini adalah rahasia terbesarnya dan dia tidak pernah menyangka bahwa hanya beberapa hari kemudian, orang luar akan mengungkapkannya secara langsung.</p>
+<p>	Bagaimana ini tidak mengejutkannya, bagaimana mungkin dia tidak panik?</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, Wei De Xin yang membantu Shang Pu Lao menang melawan Shang Qiu Niu dan menjadi kandidat paling populer untuk posisi pemimpin klan muda pada satu waktu.</p>
+<p>	Namun, dalam pertempuran besar antara orang benar dan iblis, Wei De Xin dan Wei Shen Jing diam-diam menghubungi satu sama lain, dan membantu klan Wu untuk bersekongkol melawan klan Shang; membasmi klan Wei dalam satu gerakan dan membalas dendam atas pembunuhan suaminya. Setelah ini terungkap, Wei De Xin mendapatkan ketenaran karena menjadi orang pertama yang membuat Shang Yan Fei menderita kerugian.</p>
+<p>	Shang Pu Lao dengan demikian terlibat dan dibuang dari klan, memiliki akhir yang menyedihkan. Bisa dikatakan kesuksesan dan kekalahannya adalah karena Wei De Xin.</p>
+<p>	Bakat Wei De Xin luar biasa dan kini telah jatuh ke tangan Fang Yuan. Mengontrolnya dan membuatnya bekerja untuk Shang Xin Ci bukanlah hal yang sulit bagi Fang Yuan.</p>
+<p>	“Wei De Xin, kamu tidak perlu takut. Selama Anda melakukan yang terbaik untuk membantu Shang Xin Ci, saya tidak akan melakukan apa pun untuk Anda. Saya bahkan mungkin membantu Anda membesarkan anak di rahim Anda dengan benar. Juga, saya menyarankan Anda untuk tidak pergi mencari adik laki-laki Anda Wei Shen Jing untuk beberapa waktu. Dia telah direkrut oleh klan Wu sekarang dan sedang dipantau sepanjang waktu. Jika Anda tidak percaya, Anda dipersilakan untuk mencari tahu sendiri.”</p>
+<p>	Fang Yuan mengelus jari-jarinya, dia duduk di kursi batu dengan punggung lurus, dan nadanya memberi perasaan bahwa semuanya ada di telapak tangannya.</p>
+<p>	Wei De Xin sepenuhnya didominasi oleh sikapnya.</p>
+<p>	Ekspresi wajahnya saat dia berlutut di tanah, berubah. Dia membuka mulutnya beberapa kali seolah ingin mengatakan sesuatu, tetapi akhirnya memilih untuk diam.</p>
+<p>	Pada akhirnya, dia menundukkan kepalanya ke arah Fang Yuan, dahinya menyentuh tanah dan dia berbicara dengan nada hormat: “Aku …”</p>
+<p>	Namun, dia baru saja membuka mulutnya ketika dia diinterupsi oleh Fang Yuan: “Tidak perlu mengatakan apa-apa lagi, tidak ada gunanya. Kinerja Anda dan klan Anda akan menjadi jawaban terbaik. Kamu bisa pergi sekarang.”</p>
+<p>	Fang Yuan melambaikan tangannya.</p>
+<p>	Wei De Xin hanya bisa pergi.</p>
+<p>	Fang Yuan duduk di dalam paviliun tanpa bangun selama beberapa waktu.</p>
+<p>	Dia melihat sosok Wei De Xin yang perlahan menghilang di antara barisan pepohonan hijau. Dia tahu bahwa setelah pembicaraan ini, dia akan membantu Shang Xin Ci dengan seluruh kekuatannya.</p>
+<p>	Lagi pula, di kehidupan sebelumnya, Shang Pu Lao juga memanfaatkan anak di dalam rahimnya untuk membujuknya agar sepenuhnya membantunya.</p>
+<p>	Angin dingin bertiup. Fang Yuan menatap permukaan danau. Danau yang berkilauan tercermin dalam matanya yang gelap seperti jurang.</p>
+<p>	Dia diam.</p>
+<p>	“Sekarang, Shang Xin Ci memiliki klan Wei untuk bertindak sebagai fondasi menengah dan bawahnya. Dengan Wei De Xin, dia dapat mengatur penjaga wanita dan membentuk angkatan bersenjata yang kuat dan stabil. Ada juga tiga saudara Xiong yang akan menjadi jenderalnya. Dan dia memiliki pelayan pribadinya Xiao Die dan Xiao Lan sebagai asisten yang dapat dipercaya.”</p>
+<p>	“Dengan ini, kerangka umum pasukannya telah dibangun. Cukup untuk menghadapi kompetisi tuan muda ini. Tetapi jika kita dapat merekrut Zhou Quan dan menjadikannya pelayan, posisi tuan muda ini pasti akan ada di kantong! Wei De Xin, tiga saudara klan Xiong, Xiao Die, Xiao Lan semuanya adalah jenderal sementara Zhou Quan akan menjadi komandannya.”</p>
+<p>	Fang Yuan sangat jelas bahwa dengan bantuan Zhou Quan yang memiliki banyak pengalaman dan bakat luar biasa, Shang Xin Ci pasti akan memenangkan posisi tuan muda dan bahkan akan lebih stabil. Bahkan jika Shang Xin Ci tidak bekerja keras, dengan bantuan Zhou Quan, kekuatannya akan menjadi lebih kuat dan perlahan-lahan meningkat menjadi ukuran yang sangat besar.</p>
+<p>	Hanya Zhou Quan yang bisa mengendalikan bawahan Shang Xin Ci ini.</p>
+<p>	Saat ini, Shang Xin Ci tidak bisa mengagumi bakat ini. Bagaimanapun, dia masih terlalu muda, bakatnya tidak tinggi dan kultivasinya tidak cukup.</p>
+<p>	Di dunia Guru Gu, aturan itu kejam dan nyata, hal pertama yang dilihat adalah kekuatan. Sisanya adalah pelengkap.</p>
+<p>	Namun, menaklukkan Zhou Quan tidak akan semudah itu. Apalagi sekarang desas-desus tentang kegagalan Shang Xin Ci dalam merekrut Zhou Quan lebih dari selusin kali telah menyebar dan diberi gambaran yang jelas.</p>
+<p>	Fang Yuan tahu seseorang diam-diam melakukan ini untuk menimbulkan masalah dan menyerang reputasi Shang Xin Ci.</p>
+<p>	Tetapi meskipun Fang Yuan mengetahuinya, dia tidak menghentikannya.</p>
+<p>	Waktunya masih belum matang dan dia sudah punya rencana.</p>
+<p>	Beberapa hari kemudian, pada malam hari, di ruang rahasia taman Nan Qiu.</p>
+<p>	Desir desir desir…</p>
+<p>	Gelombang melonjak di celah dan ribuan kepingan salju perak putih berputar-putar.</p>
+<p>	Di bawah kehendak Fang Yuan, esensi purba peringkat tiga tahap puncak bergegas ke dinding aperture.</p>
+<p>	Seperti jingkrak sepuluh ribu binatang atau pergerakan galaksi, sembilan puluh persen laut purba menyapu segala sesuatu dengan kekuatan yang agung dan tak terbatas, jauh di atas bakat kelas menengah dan bawah.</p>
+<p>	Esensi purba terus menerus membersihkan dinding aperture.</p>
+<p>	Pembersihan perlahan dan diam-diam menyebabkan perubahan tersembunyi di dinding aperture Fang Yuan.</p>
+<p>	Ketika perubahan ini terakumulasi ke tingkat tertentu, itu akan menyebabkan transformasi kualitatif dan menyebabkan kultivasinya menembus dengan cepat ke alam lain.</p>
+<p>	Ranah ini berada di peringkat empat!</p>
+<p>	Fang Yuan menggunakan relik Gu untuk naik ke peringkat tiga tahap puncak. Dan kemudian dengan bantuan Bai Ning Bing dan Gu kesatuan daging tulang, kultivasinya telah membuat kemajuan pesat. Setiap hari, dia membuat kemajuan sedemikian rupa sehingga melampaui imajinasi orang normal.</p>
+<p>	“Peringkat empat, aku hanya selangkah lagi …” Sensasi ini menjadi semakin kuat di hati Fang Yuan.</p>
+<p>	Namun, permukaan laut purba terus menurun.</p>
+<p>	Esensi purba perak salju dengan keras menyerang perbatasan alam peringkat empat, memakan esensi purba dalam jumlah besar. Sembilan puluh persen laut purba tidak membantu dan dinding bukaan sudah dibersihkan hingga berkilau murni, tetapi tidak ada perubahan.</p>
+<p>	Meskipun peringkat empat hanya selangkah lagi, langkah ini seperti jurang yang dalam yang sangat sulit untuk dilintasi.</p>
+<p>	Tidak ada yang tahu berapa banyak Master Gu yang bingung di perbatasan antara peringkat tiga dan peringkat empat dan berapa banyak ambisi besar yang tertahan.</p>
+<p>	Saat Fang Yuan melihat lubang kosong, tepat pada saat itu, aliran air terjun emas kuning jatuh dari lubang.</p>
+<p>	Ini datang dari dunia luar; itu adalah bala bantuan oleh Bai Ning Bing melalui kesatuan daging tulang Gu!</p>
+<p>	Meskipun itu hanya peringkat empat esensi purba emas tahap awal, tetapi saat itu muncul, aperture Fang Yuan bergetar.</p>
+<p>	Di bawah kehendak Fang Yuan, esensi purba seperti air terjun berubah menjadi gelombang pasang dan menyerbu ke arah dinding aperture, mengikuti langkah-langkah esensi purba salju perak.</p>
+<p>	Semua akumulasi sebelum ini meledak pada saat ini!</p>
+<p>	Retakan.</p>
+<p>	Mengikuti suara lembut, retakan kecil mulai muncul di dinding aperture.</p>
+<p>	Cahaya putih menyilaukan meledak dari celah-celah.</p>
+<p>	Retakan terus membesar dan dinding kristal mulai runtuh seperti runtuhnya gunung es; potongan mulai jatuh ke dasar laut purba dan berubah menjadi ketiadaan.</p>
+<p>	Dua jam kemudian, di bawah dukungan Bai Ning Bing yang tak henti-hentinya terhadap esensi purba, transformasi ini berakhir.</p>
+<p>	Dinding kristal tidak lagi terlihat, digantikan oleh lapisan membran tipis yang tipis. Namun, cahaya putih ini bahkan lebih menyilaukan dan menyinari seluruh bukaan.</p>
+<p>	Setetes esensi purba emas muda melayang dari dasar laut.</p>
+<p>	Esensi purba emas kuning!</p>
+<p>	Fang Yuan naik ke peringkat empat ranah!</p>
+<p>	“Saya akhirnya mencapai peringkat empat! Dengan hanya dua hingga tiga tahun di kota klan Shang, saya membuat kemajuan besar. ” Fang Yuan perlahan membuka matanya; cahaya terang dan tajam melintas di antara mereka dan memancarkan sinar petir melalui ruang rahasia yang gelap.</p>
+<p>	Dia senang dengan hasil ini.</p>
+<p>	Untuk dapat naik ke peringkat empat menggunakan waktu singkat dua hingga tiga tahun, dia harus terlebih dahulu memberikan penghargaan kepada kesatuan daging tulang Gu, Bai Ning Bing dan kemudian lingkungan yang menguntungkan di kota klan Shang.</p>
+<p>	Pada saat yang sama, pujian juga diberikan kepada pengalamannya yang berlimpah dari kehidupan sebelumnya dan usahanya sendiri.</p>
+<p>	Maju ke peringkat empat berarti melangkah ke dunia yang sama sekali baru! Di dunia fana, peringkat satu dan dua hanya level rendah, peringkat tiga adalah level menengah, sedangkan peringkat empat dan lima adalah level tinggi.</p>
+<p>	Tetua dari banyak klan semuanya berada di peringkat empat ranah. Jika gunung Gu Yue masih ada, Fang Yuan sekarang bisa memperjuangkan posisi pemimpin klan!</p>
+<p>	Apakah itu Perbatasan Selatan, Benua Tengah atau tempat lain, kultivasi peringkat empat sudah cukup untuk membiarkan seorang Guru Gu berkeliaran di mana-mana.</p>
+<p>	Master Gu dengan kultivasi peringkat empat adalah kekuatan yang harus diperhitungkan.</p>
+<p>	Banyak klan hanya memiliki satu atau dua peringkat empat Master Gu.</p>
+<p>	Setelah mencapai tahap ini, Fang Yuan bisa dikatakan telah tumbuh dan melampaui sebagian besar Master Gu.</p>
+<p>	“Sejak kelahiran kembali, kultivasi saya sekarang telah mencapai peringkat empat. Dibandingkan dengan kehidupanku sebelumnya, kecepatan ini lebih cepat berkali-kali. Dengan mengambil langkah pertama dan kemudian bergerak selangkah demi selangkah, saya telah mengumpulkan keuntungan saya terus menerus dan mencapai pencapaian hari ini. Semua ini karena bantuan dari pengalaman hidup saya sebelumnya. Semua berkat Spring Autumn Cicada…”</p>
+<p>	Fang Yuan semakin menyadari betapa tangguhnya peringkat enam Gu Spring Autumn Cicada.</p>
+<p>	Karena Musim Semi Musim Gugur Jangkrik dia bisa memiliki kesempatan lagi.</p>
+<p>	“Namun, meskipun saya telah naik ke peringkat empat, kecepatan pemulihan Cicada Musim Semi Musim Gugur juga semakin cepat. Tekanan yang diberikannya pada aperture juga menjadi lebih besar.”</p>
+<p>	“Peringkat empat adalah titik awal yang baru, saya dapat menggunakan lebih banyak peringkat empat Gu dengan esensi purba emas muda. Selanjutnya, saya perlu memperbaiki pengisian crash Gu. Tetapi sebelum ini, saya masih memiliki sesuatu yang harus saya lakukan …. ”</p>
+<p>…</p>
+<p>	Kota terdalam keempat.</p>
+<p>	“Ini adalah manor yang menjadi tanggung jawab Zhou Quan?” Fang Yuan berdiri di dalam halaman dengan tangan di belakangnya dan nadanya acuh tak acuh.</p>
+<p>	Seketika, dia mendapat jawaban dari bawahannya: “Ya, Tuan Fang Zheng.”</p>
+<p>	Saat ini, berdiri di belakang Fang Yuan adalah Bai Ning Bing, Xiao Die, saudara Xiong bersama dengan Wei De Xin dan orang-orangnya yang telah memulihkan sebagian kekuatan mereka setelah menyempurnakan beberapa Gu baru-baru ini.</p>
+<p>	“Ini adalah tempat ini. Missy dan saya datang ke sini berkali-kali, tetapi kami selalu bersikap dingin.” Xiao Die menambahkan dengan marah dari samping.</p>
+<p>	“Tuhan, jika Anda ingin melihat tuanku, tolong berikan kami surat kunjungan Anda. Tuanku saat ini sedang tidur siang.” Penjaga pintu berjalan mendekat dan berkata dengan arogan.</p>
+<p>Dia mengenali Xiao Die dan mengerti bahwa ini adalah orang-orang Shang Xin Ci.</p>
+<p>	“Tidur siang? Surat kunjungan? Hehehe.” Fang Yuan tertawa dingin sebelum ekspresinya langsung menjadi gelap; dia melambaikan tangannya: “Pergi, hancurkan pintunya!”</p>
+<p>	“Hehehe …” Semua orang tercengang untuk sementara waktu, ketika tiga bersaudara Xiong memimpin dan berjalan maju dengan langkah besar.</p>
+<p>	“Kamu … apa yang kamu coba lakukan ?!” Penjaga pintu merasa sangat panik dan tidak bisa menahan diri untuk tidak berteriak.</p>
+<p>	“Kamu makhluk kecil yang berani menghalangi jalan kami, tersesat!” Xiong Huo menyeringai jahat dan menendang, membuat penjaga pintu itu terbang.</p>
+<p>	Bang!</p>
+<p>	Xiong Tu menggunakan kekuatan kasarnya untuk dengan paksa menghancurkan pintu rumah besar itu.</p>
+<p>	“Apa yang sedang kamu lakukan?” Beberapa pelayan berlari ke arah keributan itu, tetapi dengan sekali melihat kelompok Master Gu yang jahat, mereka berdiri diam ketakutan.</p>
+<p>	Kecelakaan Bang Kecelakaan Bang…</p>
+<p>	banting banting…</p>
+<p>	Kelompok Fang Yuan menyusup ke rumah Zhou Quan dan mulai menyerang dengan kasar; menghancurkan semua yang mereka lihat dan memukuli orang. Xiong Feng bahkan mengambil kebebasan dengan beberapa pelayan yang tampak cantik.</p>
+<p>	Manor berada dalam kekacauan. Beberapa pelayan berlarian dengan panik dan ketakutan, sementara beberapa lainnya menangis, berteriak minta tolong dan pengampunan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

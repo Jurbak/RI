@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 85 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 85";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_84.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 85">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_86.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 85</h1>
+        <div class="text-left">
+<p>	Bab 85</p>
+<p>	Bab 85: Berdarah panas dan berdarah dingin</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Kedua saudara ini benar-benar tidak berhubungan baik,” gumam Yao Hong.</p>
+<p>	“Fang Yuan ini terlalu kejam, memperlakukan saudaranya seperti ini,” banyak orang mengerutkan kening dengan sedih.</p>
+<p>	“Fang Yuan terlalu biadab, memeras batu purba kami selama satu tahun penuh! Sekarang dia memperlakukan saudaranya seperti ini,” para siswa menggertakkan gigi. Sikap dingin Fang Yuan memaksa kebencian mereka terhadap musuh bersama.</p>
+<p>	“Fang Zheng, berdiri, berdiri! Kalahkan Fang Yuan.” Beberapa siswa yang tidak dikenal berteriak.</p>
+<p>	“Kalahkan Fang Yuan, kalahkan Fang Yuan!” Seketika, banyak anak muda berteriak.</p>
+<p>	“Fang Yuan ini, memang orang yang dibenci.” Mo Yan mendengus, menikmati kesulitannya.</p>
+<p>	“Fang Zheng, tunggu di sana, berdiri! Kalahkan monster ini Fang Yuan!”</p>
+<p>	“Fang Zheng, berdiri. Kami bersamamu.”</p>
+<p>	“Fang Zheng, kamu bisa melakukannya, kamu bisa melakukannya!”</p>
+<p>	Kerumunan bersorak dengan keras, dan suara dorongan memasuki telinga Fang Zheng.</p>
+<p>	Huff! Huff! Huff! Huff!</p>
+<p>	Fang Zheng terengah-engah. Saat suara memasuki hatinya, itu memberinya kekuatan yang tak terbayangkan!</p>
+<p>	Adegan masa lalu diputar di kepalanya.</p>
+<p>	Di jalanan, komentar para anggota klan.</p>
+<p>	“Itu Fang Yuan, jenius masa depan, dia tidak bisa diremehkan!”</p>
+<p>	“Siapa itu di belakangnya?”</p>
+<p>	“Oh, mungkin saudaranya, siapa yang tahu siapa namanya.”</p>
+<p>	Paman dan bibi tertawa, “Fang Yuan, sekarang seluruh desa sedang mendiskusikan puisi baru yang kamu tulis! Ini sangat bagus, paman dan bibi bangga padamu.”</p>
+<p>	Fang Yuan melambaikan tangannya, berkata dengan tenang, “Aku hanya membuatnya dengan iseng.”</p>
+<p>	Paman dan bibi mengangguk, berkata kepada Fang Zheng, “Belajarlah dengan baik dari saudaramu, jika kamu setengah berbakat seperti saudaramu, kami tidak perlu khawatir.”</p>
+<p>	Di bawah sinar bulan, jauh di halaman.</p>
+<p>	Pemimpin klan Gu Yue Bo memandang Fang Zheng, berkata dengan lembut, “Fang Zheng, percayalah. Anda harus menemukan tujuan Anda, percaya pada diri sendiri.”</p>
+<p>	“Tapi, tuan pemimpin klan …”</p>
+<p>	Gu Yue Bo menepuk bahunya, menyemangati, “Bayangan di hatimu, orang lain tidak bisa menghilangkannya untukmu. Anda hanya bisa mengandalkan diri sendiri. Aku menunggu hari itu.”</p>
+<p>	Malam sebelum ujian akhir tahun.</p>
+<p>	Shen Cui memandang Fang Zheng dengan cinta dalam tatapannya di bawah lampu lampu, “Tuan muda, saya percaya Anda bisa mendapatkan nomor satu. Saya selalu percaya itu! Bekerja keras!”</p>
+<p>	Pagi hari sebelum keberangkatan.</p>
+<p>	Paman dan bibi berdiri di ambang pintu, “Fang Zheng, setelah ujian akhir tahun, kamu akan meninggalkan akademi. Melihat pertumbuhan Anda, kami sangat senang! Pergi, pergi dan tunjukkan kepada semua orang kekuatan nilai A! ”</p>
+<p>	Dan……</p>
+<p>	Di bawah matahari terbenam, di sudut yang gelap, seorang teman sekelas perempuan menangis dengan deras, “Tunjangannya hanya tiga batu purba, tetapi Fang Yuan mengambil sepotong, meninggalkan saya dengan dua. Saya hampir tidak dapat memberi makan Moonlight Gu saya pada tingkat ini. ”</p>
+<p>	Hati Fang Zheng melunak, “Ini adalah batu purba saya, saya akan meminjamkannya kepada Anda.”</p>
+<p>	Teman sekelas perempuan mengambil batu purba, berkata dengan air mata, “Fang Zheng, kamu terlalu baik, tolong kalahkan saudaramu dan akhiri tirani di akademi!”</p>
+<p>	Fang Zheng terdiam.</p>
+<p>	Sekelompok teman sekelas muncul di depannya.</p>
+<p>	“Fang Zheng, kamu adalah bakat kelas A, kamu bisa melakukannya.”</p>
+<p>	“Fang Yuan terlalu banyak, terus-menerus menggertak kami, kamu adalah satu-satunya harapan kami.”</p>
+<p>	“Fang Zheng, mulai hari ini dan seterusnya, kami bersamamu, kami akan selalu mendukungmu!”</p>
+<p>	“Semuanya …” Fang Zheng mengamati sekeliling, melihat sepasang mata yang peduli, dan merasa sangat tersentuh.</p>
+<p>	Setiap orang…</p>
+<p>	Setiap orang memiliki harapan terhadap saya.</p>
+<p>	Teman sekelasku, paman, bibi, Shen Cui, dan pemimpin klan tuan!</p>
+<p>	Semua orang menungguku, menatapku, mendukungku ……</p>
+<p>	Bagaimana saya bisa kalah? Bagaimana saya bisa jatuh di sini? Bagaimana bisa saya!</p>
+<p>	Bum, bum, bum, bum.</p>
+<p>	Jantungnya berdebar kencang di dadanya, dan mata Fang Zheng bersinar dengan cemerlang.</p>
+<p>	Aku tidak bisa jatuh di sini!</p>
+<p>	Aku akan menghilangkan bayangan itu dan berdiri!!</p>
+<p>	Tinju Fang Zheng terkepal erat, tidak lagi merasakan sakit pada saat ini. Dia merasakan seekor singa di dadanya, terbangun dari tidurnya dan membuka mulutnya yang besar untuk mengaum!</p>
+<p>	Darah panas mendidih di tubuhnya.</p>
+<p>	Berdiri, berdiri!</p>
+<p>	Hancurkan bayang-bayang, hancurkan kegelapan!</p>
+<p>“ARGHHHHHHH!” Fang Zheng membuka mulutnya lebar-lebar untuk berteriak, tubuhnya mulai memancarkan cahaya giok hijau.</p>
+<p>	“Apa itu?” Kerumunan terdiam.</p>
+<p>“Gu Kulit Giok!” Seseorang berteriak.</p>
+<p>Bam!</p>
+<p>	Para siswa meraung menuju langit.</p>
+<p>“Fang Zheng, kamu bisa melakukannya!”</p>
+<p>	“Fang Zheng, kami mendukungmu!”</p>
+<p>	Akhirnya hanya tersisa satu sorakan terakhir—“Berdiri! Berdiri!”</p>
+<p>	“Semuanya….. aku bisa mendengar suaramu.” Fang Zheng mengepalkan tinjunya, giginya hampir hancur. Tekanan Fang Yuan tidak lagi begitu besar, dia akhirnya bisa bangun, perlahan dan mantap.</p>
+<p>	Teriakan itu semakin intensif.</p>
+<p>	“Dia terbakar amarah !!”</p>
+<p>“Dia akan melakukan comeback.”</p>
+<p>	Gu Masters yang mendengar sorakan dan kegembiraan dari kerumunan, semuanya mulai merasa tergerak.</p>
+<p>	“Itu benar, Fang Zheng, itu benar! Berdiri, berdiri, tinggalkan masa lalu, hilangkan bayangan dan berdiri, kamu akan menjadi orang baru!” Mata pemimpin klan bersinar dengan cahaya terang saat dia menyemangati Fang Zheng di dalam hatinya.</p>
+<p>	“Kulit Giok Gu …” Kelopak mata Fang Yuan terkulai. Dia menarik kembali kakinya dan melihat Fang Zheng berdiri perlahan, pancaran Jade Skin Gu mengubah wajahnya menjadi hijau.</p>
+<p>	Fang Zheng selalu menyembunyikan kartu truf ini sampai sekarang dan tidak mengungkapkannya kepada siapa pun, jadi tidak ada yang mengetahuinya.</p>
+<p>	“Fang Zheng bangun!” Sorak-sorai orang banyak meledak.</p>
+<p>	“Dia berdiri!” Pemimpin klan tergerak, berdiri tak terkendali dari tempat duduknya. Pada saat ini, dia melihat munculnya bakat kelas A! Dia melihat masa depan klan Gu Yue!</p>
+<p>	“Aku berdiri, saudaraku, aku akan mengalahkanmu!” Mata Fang Zheng terbakar dengan tekad, seluruh tubuhnya diselimuti cahaya hijau terang seperti dia mengenakan baju besi giok!</p>
+<p>	“Oh wow, pertahanan ini, bahkan moonblade tidak bisa menembusnya. Sepertinya Fang Zheng menang. ” Yao Hong mengangkat alisnya, meniup peluit.</p>
+<p>	“Memang, bahkan dengan penguatan Little Light Gu, mengenai penghalang ini, itu hanya akan menyebabkan esensi purba Fang Zheng dikonsumsi lebih cepat. Tetapi membandingkan pengeluaran esensi purba, Fang Yuan bukan tandingan Fang Zheng. Setelah pertandingan ini, Fang Zheng akan bangkit!” Qing Shu tertawa ringan.</p>
+<p>	“Fang Zheng memiliki Jade Skin Gu, tetapi baru menggunakannya sekarang. Tampaknya serangan Fang Yuan sebelumnya membuatnya bingung. Tapi sekarang, kemenangan sudah melambai ke arahnya.” Mo Yan melipat tangannya, tatapannya sedikit tidak pasti.</p>
+<p>	Waktu seolah berhenti.</p>
+<p>	Di atas panggung, saudara-saudara saling berhadapan.</p>
+<p>	Jarak keduanya begitu dekat namun begitu jauh.</p>
+<p>	Tekad teguh Fang Zheng, ketidakpedulian abadi Fang Yuan.</p>
+<p>	“Adik laki-laki …” Dia memandang Fang Zheng dengan damai, bibirnya melengkung menjadi seringai, “Berpikir untuk mengalahkanku, kamu masih jauh dari itu.”</p>
+<p>	Dia mengangkat tangan kanannya, lengan kanannya tertekuk, menarik ke dalam bentuk busur.</p>
+<p>	“Kakak, kamu kalah!” Fang Zheng merasa geli di hatinya melihat tinju Fang Yuan yang terangkat.</p>
+<p>	Selama dia memiliki esensi purba, bahkan dengan penguatan Little Light Gu, moonblade tidak bisa menembus penghalang warna giok, belum lagi tinjunya? Kecuali dia menggunakan Flower Boar Gu atau Brute Force Longhorn Beetle Gu untuk meningkatkan kekuatannya. Tapi meski begitu, dia akan membutuhkan Gu tipe defensif……</p>
+<p>	Fang Yuan tidak mengatakan apa-apa, tetapi dia menggunakan tinjunya untuk memberikan jawaban yang paling mudah.</p>
+<p>	Saat berikutnya, tinju kanan terbang di udara dan memukul pipi Fang Zheng dengan keras.</p>
+<p>	Bam!</p>
+<p>Setelah tabrakan keras, darah tumpah saat cahaya batu giok hancur berkeping-keping seperti pecahan cermin yang menari di langit sebelum menghilang.</p>
+<p>	“Apa?!” Fang Zheng terkena kejutan seperti itu sekali lagi, dan setelah beberapa saat tertegun, lehernya hampir patah saat dia buru-buru mundur.</p>
+<p>	Fang Yuan mengikuti dengan cermat, menggunakan langkah busur dan mengangkat tinju kirinya, menarik ke belakang dan menyerang lagi ke atas!</p>
+<p>	Bam!!</p>
+<p>	Separuh wajah Fang Zheng yang lain terkena dampak, kepalanya terangkat tinggi dengan darah dan cahaya batu giok yang pecah beterbangan di udara.</p>
+<p>	Bam, bam, bam!</p>
+<p>	Dia mundur tiga langkah, telinganya berdengung seperti pusing sepuluh kali lebih besar dari sebelumnya menyerangnya.</p>
+<p>“Bagaimana ini … bisa!” Penglihatannya menjadi gelap, dan dia pingsan di arena—</p>
+<p>	Celepuk.</p>
+<p>	Fang Zheng jatuh ke tanah, cahaya menghilang di tubuhnya saat dia pingsan di saat berikutnya.</p>
+<p>	Teriakan dan sorakan tiba-tiba berakhir.</p>
+<p>	Ekspresi senang dan bersemangat para siswa masih menempel di wajah mereka, tidak dapat berubah karena keterkejutan seperti itu.</p>
+<p>	Seluruh arena terdiam.</p>
+<p>Tinju Fang Yuan berdarah, sampai-sampai tulang jarinya yang berdarah bisa terlihat. Tetesan darah jatuh dan menetes di atas panggung.</p>
+<p>	Swoosh…</p>
+<p>	Angin musim dingin yang dingin bertiup, membekukan semua darah panas.</p>
+<p>	Rambut Fang Yuan goyah di udara saat dia berdiri diam di atas panggung. Seolah-olah orang yang terluka parah dengan kedua tinjunya hampir lumpuh bukanlah dia!</p>
+<p>	Dia melihat dengan dingin ke sekeliling dengan ekspresi tenang.</p>
+<p>	Semua orang terdiam.</p>
+<p>Di tenda, pemimpin klan masih berdiri, menatap tercengang.</p>
+<p>“Maaf, aku membuat kalian semua kecewa,” kata Fang Yuan ringan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

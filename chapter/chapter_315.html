@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 315 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 315";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_314.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 315">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_316.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 315</h1>
+        <div class="text-left">
+<p>	Bab 315</p>
+<p>	Bab 315: Qi Gu yang Keras</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Apakah kamu melihat pertempuran itu? Itu benar-benar luar biasa!”</p>
+<p>	“Bai Ning Bing menderita kekalahan pertamanya dan kemenangan Yan Tu juga tidak mudah.”</p>
+<p>	“Hati saya sakit ketika saya menghabiskan dua puluh batu purba untuk menonton pertempuran, tetapi setelah pertandingan, saya merasa bahwa itu benar-benar sepadan.”</p>
+<p>	Pertempuran Bai Ning Bing dan Yan Tu seperti batu besar yang jatuh ke danau, riaknya menyebar ke seluruh kota klan Shang.</p>
+<p>	Di setiap jalan, orang-orang mendiskusikan pertandingan itu.</p>
+<p>	” Jahe tua lebih pedas dari jahe muda , Lord Yan Tu pada akhirnya menang.”</p>
+<p>	“Tapi Bai Ning Bing kalah dengan gemilang. Berjuang ke level itu, itu menunjukkan bahwa masa depannya tidak terbatas.”</p>
+<p>	“Sayang sekali saya tidak bisa melihat pertandingan itu.”</p>
+<p>	“Bai Ning Bing mungkin telah kehilangan Gu vitalnya dan menderita serangan balasan, tetapi kristal es Gu mudah ditemukan, ini tidak akan terlalu berpengaruh padanya.”</p>
+<p>	“Aku sekarang sangat menantikan pertandingan antara Fang Zheng dan Ju Kai Bei.”</p>
+<p>	“Benar, itu pasti pertarungan antara naga dan harimau!”</p>
+<p>	Pertandingan antara Fang Yuan dan Ju Kai Bei dijadwalkan tujuh hari kemudian. Dan karena penampilan luar biasa Bai Ning Bing, pertandingan mereka mendapat banyak perhatian.</p>
+<p>	Bai Ning Bing, bagaimanapun, hilang.</p>
+<p>	Setelah pertandingan itu, dia tidak kembali ke taman Nan Qiu.</p>
+<p>	“Apakah sesuatu terjadi padanya?” Shang Xin Ci khawatir.</p>
+<p>	“Jangan khawatir, aku mengerti dia. Dia memiliki sifat yang sangat sombong, setelah menderita kekalahan seperti itu, dia membutuhkan waktu sendiri.” Fang Yuan menghibur Shang Xin Ci.</p>
+<p>	Bai Ning Bing mungkin memiliki tubuh perempuan tapi hatinya adalah laki-laki.</p>
+<p>	Semua manusia seperti singa dan serigala; ketika mereka menerima luka, mereka akan mencari tempat terpencil dan diam-diam menjilat luka mereka.</p>
+<p>	Wanita berbeda; ketika mereka merasa dirugikan, mereka ingin mencurahkan keluhan mereka. Mereka haus akan perlindungan dan kenyamanan.</p>
+<p>	Shang Xin Ci mengangguk, matanya yang indah dan lembut menatap Fang Yuan dengan prihatin: “Apakah mungkin untuk tidak bertarung? Bahwa Ju Kai Bei setenar Yan Tu. Kakak Bai Yun kalah dan harus melepaskan Gu kristal esnya. Ju Kai Bei adalah jalan kekuatan Gu Master, jika Kakak Hei Tu kehilangan upaya habis-habisan Gu…”</p>
+<p>	Bai Ning Bing kehilangan kristal es Gu tetapi bisa diisi ulang. Namun, jika Fang Yuan kehilangan upaya habis-habisan Gu, dia tidak punya cara untuk mendapatkan yang lain.</p>
+<p>	Fang Yuan tersenyum: “Justru karena itu, saya tidak bisa kalah. Baiklah, saya akan kultivasi terpencil selama beberapa hari untuk memperbaiki Gu. Anda harus kembali dulu. ”</p>
+<p>	Fang Yuan sudah menanyakan kekuatan Ju Kai Bei. Setelah pertandingan Bai Ning Bing dan Yan Tu, dia mampu membuat lebih banyak dugaan.</p>
+<p>	Ju Kai Bei adalah Master Gu tahap awal peringkat empat dan sama-sama cocok dengan Yan Tu. Fang Yuan memperkirakan dia hanya memiliki tiga puluh persen peluang untuk menang melawan Ju Kai Bei dengan kekuatannya saat ini.</p>
+<p>	Peluang kemenangan tiga puluh persen tidak terlihat tinggi. Tetapi pada kenyataannya, jika Anda mempertimbangkan kesenjangan antara dua alam besar, tiga puluh persen sudah agak luar biasa.</p>
+<p>	“Jika saya berhasil memperbaiki Gu itu, saya akan memiliki kesempatan enam puluh persen dengan bantuannya! Saya hanya bisa berharap bahwa penyempurnaan berhasil. ”</p>
+<p>	Fang Yuan memasuki ruang rahasia dan mulai menyempurnakan.</p>
+<p>…</p>
+<p>	Kota terdalam pertama.</p>
+<p>	Di ruang belajar, lampu terang dan lembut menyala.</p>
+<p>	Shang Yan Fei diam-diam melihat bola asap berwarna-warni yang mengambang di udara. Asap warna-warni bergejolak dan membuka adegan pertandingan antara Bai Ning Bing dan Yan Tu.</p>
+<p>	Shang Yan Fei menyaksikan pertempuran ini dari awal hingga akhir dan kemudian menyingkirkan asap berwarna-warni.</p>
+<p>	Bai Ning Bing telah kalah.</p>
+<p>	Dia kehilangan Gu vitalnya dan juga menderita serangan balasan.</p>
+<p>	Menurut intel dari Feng Yu Manor, Bai Ning Bing sedang memulihkan diri di tempat Dokter Su Shou.</p>
+<p>	Dengan ini, dia telah menerima hukuman dan pelajaran karena licik terhadap putra keduanya.</p>
+<p>	Shang Yan Fei memejamkan mata dan bersandar di sandaran kursi.</p>
+<p>	Bai Ning Bing kalah, dia tidak lulus ujian, tetapi bakat dan bakat bawaannya sudah diakui oleh publik. Mengingat beberapa waktu, dia pasti akan melampaui Yan Tu dan memiliki prestasi besar.</p>
+<p>	Ini adalah seorang jenius sejati.</p>
+<p>	Shang Yan Fei menghargai dan menyukai orang-orang berbakat.</p>
+<p>	Melihat penampilan Bai Ning Bing, dia memiliki keinginan yang lebih besar untuk merekrutnya untuk Shang Xin Ci.</p>
+<p>	“Selanjutnya, giliran Fang Zheng. Aku ingin tahu kejutan apa yang akan dia berikan padaku. Hmm, kudengar dia mungkin memiliki lotus harta karun esensi surgawi…”</p>
+<p>	Teratai harta karun esensi surgawi, ada dua di antaranya di pintu harta karun kota klan Shang. Ada juga lotus raja harta karun esensi surgawi juga.</p>
+<p>	Namun, mereka harus membayar harga yang lebih besar untuk mengeluarkan teratai harta karun ini.</p>
+<p>	Pintu harta karun hidup menjaga harta karun dan bahkan Shang Yan Fei, pemimpin klan, harus mematuhi aturan yang ditetapkan oleh leluhurnya.</p>
+<p>	“Fang Zheng adalah jalan kekuatan Gu Master, lotus harta karun esensi surgawi tidak akan bisa menunjukkan nilai sebenarnya di tangannya. Lebih baik bagi Xin Ci untuk memilikinya.”</p>
+<p>	Shang Yan Fei merenung sejenak sambil duduk tegak. Setelah memikirkannya, dia mengirimkan surat rahasia bangau kertas.</p>
+<p>	Bangau kertas mengikuti jalan gelap dan terbang di dalam ruang rahasia.</p>
+<p>	Ju Kai Bei dan Yan Tu segera merasakan reaksi dan berkumpul di ruang rahasia.</p>
+<p>	“Tuan telah mengirim surat rahasia lagi!” Yan Tu membuka lipatan surat rahasia itu dan setelah melihatnya sekilas, dia memberikannya pada Ju Kai Bei, “Ini untukmu.”</p>
+<p>	Ju Kai Bei membaca sekilas surat rahasia itu dan bergumam: “Tuan mengira Fang Yuan mungkin memiliki teratai harta karun esensi surgawi. Jika saya memenangkan pertempuran ini, dia ingin saya mencoba dan meminta Gu rumput ini. Selanjutnya, bahkan jika dia tidak memilikinya, saya tidak diizinkan untuk memilih upaya habis-habisan Gu. ”</p>
+<p>	Alis Ju Kai Bei berkerut setelah dia membaca ini.</p>
+<p>	Dia telah merencanakan untuk menuntut upaya habis-habisan Fang Yuan, Gu. Gu legendaris ini sangat menarik bagi jalur kekuatan Gu Master seperti dia.</p>
+<p>	Sayangnya, Shang Yan Fei mengirim perintah seperti itu.</p>
+<p>	“Tuan menyukai bakat dan ingin melindungi pertumbuhan Fang Zheng itu.” Yan Tu menganalisis.</p>
+<p>	Dia mengangkat kepalanya dan melihat kening Ju Kai Bei, dan menengahi: “Saudara Ju, perhatikan kondisi mentalmu. Kami adalah tetua tersembunyi dari klan Shang dan harus mengikuti perintah pemimpin klan. Waktu berbeda dari saat kita bebas menjelajahi dunia dan melakukan apapun yang kita inginkan.”</p>
+<p>	Ju Kai Bei menganggukkan kepalanya dengan sungguh-sungguh dan berkata sambil mengingat-ingat: “Itu adalah saat-saat yang tak terlupakan. Berjalan di dunia sendirian, bebas dan tidak terkendali.”</p>
+<p>	“Mungkinkah Saudara Ju berpikir untuk menjadi Guru Gu iblis lagi?” Nada bicara Yan Tu sungguh-sungguh.</p>
+<p>	Ju Kai Bei mencibir: “Saudara Yan Tu, apakah Anda masih belum mengenal saya? Itu hanya komentar biasa. Demonic Gu Masters mungkin bebas dan tidak terkendali, tetapi tekanan dan risikonya sangat besar. Mayat mereka mungkin ditemukan di alam liar suatu hari dan bahkan tidak akan ada orang yang mengambil mayatnya.”</p>
+<p>	Ekspresi Yan Tu santai saat ini.</p>
+<p>	Ju Kai Bei dan Yan Tu dulunya adalah Master Gu iblis yang soliter.</p>
+<p>	Mereka bahkan telah membuat nama untuk diri mereka sendiri saat berkeliaran di sekitar perbatasan selatan dan telah bertahan selama sepuluh tahun. Namun, mereka menjadi lelah seiring berjalannya waktu; Master Gu iblis menjalani kehidupan yang sangat bebas, tetapi ada tekanan besar pada mereka, mereka harus terus mengkhawatirkan makanan untuk Gu mereka, batu purba, keselamatan mereka sendiri, dan hal-hal lain.</p>
+<p>	Keduanya perlahan muak dengan kehidupan seperti itu, tetapi mereka tidak memiliki keberanian untuk mengubah cara mereka.</p>
+<p>	Hingga suatu hari, ketika keduanya bertemu di alam liar.</p>
+<p>	Ada sangat kurangnya kepercayaan antara Master Gu iblis. Saat keduanya memperhatikan yang lain, mereka segera menyerang untuk memastikan mereka memegang inisiatif.</p>
+<p>	Siapa sangka kedua orang ini serasi dan bertarung dari siang hingga malam. Mereka menggunakan kecerdasan, jebakan, dan segala jenis trik yang mereka ketahui dengan seluruh kekuatan mereka.</p>
+<p>	Ketika fajar tiba, keduanya tidak memiliki kekuatan untuk melanjutkan pertempuran mereka; esensi purba mereka sepenuhnya dikeluarkan dan tubuh mereka dipenuhi luka. Mereka berdua berada dalam jangkauan satu sama lain, tetapi mereka tidak memiliki kekuatan untuk melakukan serangan terakhir dan membunuh yang lain.</p>
+<p>	Ketika cahaya pagi menyinari wajah mereka, keduanya membuat keputusan yang sama.</p>
+<p>	“Aku lelah dengan hidup ini. Sigh, jika saya bisa selamat dari pertempuran ini, saya akan pergi ke kota klan Shang dan bergabung dengan jalan yang benar. Yan Tu bergumam pelan.</p>
+<p>	“Saya sangat muak, setelah pertempuran ini, saya akan pergi ke kota klan Shang dan berjuang untuk posisi penatua eksternal!” Ju Kai Bei mengutuk keras.</p>
+<p>	Mereka tidak tahu mengapa, tetapi keduanya berbicara pada saat yang bersamaan.</p>
+<p>	Setelah mereka selesai berbicara, keduanya saling memandang.</p>
+<p>	Setelah hening sejenak, keduanya tertawa terbahak-bahak pada saat bersamaan.</p>
+<p>	Ini adalah takdir, itu seperti kehendak surga. Pada hari ini, dua Master Gu iblis veteran dengan sedikit kepercayaan, mendapatkan sahabat seumur hidup.</p>
+<p>	Seolah-olah mereka ingin benar-benar membuang masa lalu mereka, mereka mulai berubah dan memilih untuk saling percaya.</p>
+<p>	Amanah ini adalah amanah tanpa syarat apapun. Keduanya pergi dari satu ekstremitas ke ekstrem yang lain.</p>
+<p>	“Kembali ke topik, Saudara Yan Tu, kamu menderita kerugian besar kali ini, kamu berakhir dalam keadaan yang menyedihkan.” Ju Kai Bei mengejek sambil mengedipkan mata.</p>
+<p>	Tidak ada orang luar yang akan membayangkan dia bisa membuat ekspresi seperti itu. Biasanya, Ju Kai Bei serius seperti besi dan sangat teliti. Tapi kenyataannya, ini hanya topeng yang dia pakai saat dia berjalan di jalur iblis.</p>
+<p>	Hanya di depan Yan Tu, sahabatnya, dia menunjukkan sifat aslinya.</p>
+<p>	Yan Tu mendengus dingin, dia menghela nafas saat alisnya mengendur: “Bai Ning Bing ini tidak sederhana, suatu hari dia akan melampaui kita. Saya hanya menang dengan selisih kecil, jika dia peringkat empat, pertempuran bisa berjalan dengan baik. ”</p>
+<p>	Ju Kai Bei mengangguk: “Aku menyamar untuk menonton pertandinganmu. Ini memang kebangkitan generasi muda.”</p>
+<p>	Yan Tu menepuk bahu Ju Kai Bei: “Fang Zheng itu setenar Bai Ning Bing. Mereka datang ke kota klan Shang bersama dan juga hidup bersama, hubungan mereka jelas tidak normal. Mereka disebut bintang kembar dari panggung pertempuran dan beberapa orang bahkan menyebut mereka setan hitam dan putih. Bai Ning Bing sudah memiliki kekuatan seperti itu, Fang Zheng pasti tidak akan lebih lemah. Saudara Ju, momen terkuatmu juga terlemah, kamu harus berhati-hati. ”</p>
+<p>	Ju Kai Bei dengan bangga tersenyum: “Saudaraku, coba tebak ini apa.”</p>
+<p>	Dia mengeluarkan Gu dari aperture-nya.</p>
+<p>	Gu ini seperti kumbang, hitam seperti besi dan seukuran kepalan tangan.</p>
+<p>	“Eh, qi Gu keras!” Yan Tu tercengang sebelum kegembiraan memenuhi wajahnya, “Ini bagus, Saudara Ju. Pertahanan Anda jatuh ketika Anda menggunakan gerakan pembunuh Anda. Gu ini akan menebus kelemahanmu. Gu ini sangat berharga dan langka, kamu harus membesarkannya dengan hati-hati.”</p>
+<p>	Ju Kai Bei mengangguk dan meletakkan kembali qi Gu yang keras, dia kemudian menghela nafas: “Sayang sekali itu hanya qi Gu yang keras dan bukan qi Gu yang kuat. Jika itu adalah kekuatan qi Gu, kekuatan pertempuranku akan mengalami transformasi kualitatif dan melonjak dua atau tiga kali…”</p>
+<p>	Yan Tu tertawa keras: “Ini hanya keserakahanmu, seperti ular yang mencoba menelan gajah! Jalur qi kuno telah menghilang, kekuatan qi Gu telah punah. Ini adalah keberuntungan besar Anda bahwa Anda bisa mendapatkan qi Gu yang keras, jangan serakah. ”</p>
+<p>	Ju Kai Bei juga tertawa: “Ya, tapi keserakahan tanpa akhir juga sifat manusia, hahaha…”</p>
+<p>	Jalur qi kuno telah muncul lebih awal dari jalur kekuatan.</p>
+<p>	Jalur Qi Cacing Gu bisa bergantian antara bentuk dan tanpa bentuk, kemampuan mereka sangat menakjubkan. Di zaman kuno, ketika jalur qi berkembang, delapan dari sepuluh Master Gu akan berjalan di jalur qi.</p>
+<p>	Namun, bunga mekar dan layu, kekuatan naik dan turun; ini adalah hukum alam dan jalur qi tidak dikecualikan darinya.</p>
+<p>	Setelah puncaknya, jalur qi secara bertahap menurun dan digantikan oleh jalur kekuatan.</p>
+<p>	Vitalitas Gu Bai Ning Bing, Gu qi keras Ju Kai Bei dan atmosfer Gu Fang Yuan semuanya terkait dengan jalur qi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 131 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 131";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_130.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 131">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_132.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 131</h1>
+        <div class="text-left">
+<p>	Bab 131</p>
+<p>	Bab 131: Kesepian adalah kegelapan terdalam</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hujan turun deras dari atas, dan kilat seperti ular menari-nari di langit secara acak. Ini berlanjut sepanjang malam.</p>
+<p>	Fang Yuan berbaring di tempat tidurnya, mendengar teriakan Guru Gu di luar rumahnya dan suara langkah kaki mereka di tengah hujan.</p>
+<p>	Dia menyipitkan matanya, visi kehidupan masa lalunya berkelebat di kepalanya lagi.</p>
+<p>	Dalam kehidupan sebelumnya ketika gelombang serigala menyerang, dia masih seorang Master Gu Peringkat satu, dan menjadi bagian dari kelompok pendukung, dia bersembunyi di dalam desa dan berhasil lolos dari nasib buruk.</p>
+<p>	Tapi kali ini, dia sudah menjadi peringkat dua tingkat menengah, dan dia memiliki cacing Minuman Keras Empat Rasa, saat ini sedang bergerak menuju tahap atas. Jadi, dia harus seperti Master Gu lainnya, melawan gelombang serigala di malam yang begitu gelap.</p>
+<p>	“Hujan turun deras di luar, dan mereka masih harus melawan sejumlah besar serigala petir dalam penglihatan yang buruk ini, ini benar-benar siksaan,” dengus Fang Yuan dalam hatinya.</p>
+<p>	Dia tidak tidur di apartemen sewaan, melainkan di penginapan.</p>
+<p>	Jika Fang Yuan ada di rumah kontrakan, dia pasti akan dipaksa untuk berpartisipasi.</p>
+<p>	“Para petinggi klan pasti meremehkan keparahan gelombang serigala ini, metode yang benar adalah bersembunyi di desa dan bertahan sampai akhir. Sayangnya, mereka dibutakan oleh pengalaman masa lalu … “Fang Yuan membalik-balik di tempat tidurnya sambil memikirkan hal ini.</p>
+<p>	Di luar jendela, hujan memercik ke mana-mana, itu pasti badai.</p>
+<p>	Suara guntur terus-menerus memasuki telinganya.</p>
+<p>	Di jalanan, Gu Masters dengan tergesa-gesa bergerak, suara langkah kaki dan teriakan marah mereka tidak pernah berhenti.</p>
+<p>	Seketika, tangisan serigala mencapai desa.</p>
+<p>	Ini ditakdirkan untuk menjadi malam tanpa tidur.</p>
+<p>	Apakah itu para Master Gu yang mempertaruhkan nyawa mereka untuk bertarung, atau manusia yang bersembunyi di desa yang menggigil, atau bahkan Fang Yuan. Setelah tidur sampai tengah malam, mereka secara alami terbangun.</p>
+<p>	Dia tidak bangun, tetapi membuka matanya dalam kegelapan sambil berbaring di tempat tidurnya.</p>
+<p>	Suara-suara di luar jendela memasuki telinganya. Pertempuran hidup dan mati orang-orang, dia bisa membayangkan, bersama dengan badai di luar desa. Gu Masters dan gerombolan serigala membentuk panggung yang luar biasa hidup. Tidak peduli karakter apa, mereka menampilkan esensi kehidupan.</p>
+<p>	Hidup itu seperti pertunjukan, ini pertunjukan yang bagus. Tapi Fang Yuan tidak punya niat untuk bergabung.</p>
+<p>	Sebaliknya, dia merasakan kesepian yang tidak bisa dijelaskan.</p>
+<p>	Kesepian dengan batas.</p>
+<p>	Ini bukan karena dia seorang transmigrator, reinkarnasi, atau fakta bahwa dia membawa rahasia yang tak terkatakan.</p>
+<p>	Tapi karena, semua orang terlahir kesepian!</p>
+<p>	Manusia seperti pulau-pulau terpencil, mengambang di lautan takdir.</p>
+<p>	Pertemuan manusia seperti tabrakan pulau-pulau kesepian ini, dan begitu mereka bersentuhan, akan ada efeknya.</p>
+<p>	Terkadang, pulau-pulau itu saling menempel, atas nama ‘minat’, ‘kekerabatan’, ‘persahabatan’, ‘cinta’ dan ‘benci’.</p>
+<p>	Tapi akhirnya, mereka akan berpisah, berjalan menuju jalan kehancuran.</p>
+<p>	Inilah kebenaran di balik kehidupan.</p>
+<p>	Sayangnya orang selalu takut sendirian, mereka mendambakan keaktifan kerumunan manusia, dan mereka menolak untuk melakukan apa-apa dengan waktu mereka.</p>
+<p>	Karena begitu mereka menghadapi kesepian, itu berarti menghadapi rasa sakit dan kesulitan.</p>
+<p>	Tapi begitu mereka bisa menghadapi rasa sakit ini, orang akan mendapatkan bakat dan keberanian. Jadi, ada pepatah – Orang yang berprestasi tinggi pasti kesepian.</p>
+<p>	“Ini adalah perasaan kesepian. Setiap kali aku menikmati ini, itu memperkuat tekadku untuk mengejar jalan iblis!” Tatapan Fang Yuan bersinar, memikirkan kisah Ren Zu.</p>
+<p>	Legenda mengatakan, Ren Zu telah memperoleh Sikap Gu. Sikap Gu seperti topeng, dan tanpa hati Ren Zu tidak bisa memakainya.</p>
+<p>	Karena sebelum ini, Ren Zu telah memberikan hatinya kepada Gu Harapan, dan sejak saat itu dia tidak pernah takut akan kesulitan.</p>
+<p>	Tetapi jika Ren Zu ingin menggunakan Attitude Gu, dia harus memiliki hati.</p>
+<p>	Ren Zu bermasalah, jadi dia bertanya pada Attitude Gu; dia berkata, “Oh Gu, terkadang sikap mengatakan itu semua. Sekarang saya mengalami masalah, Anda tahu itu, jadi saya di sini untuk mencari nasihat. ”</p>
+<p>	Sikap Gu berkata, “Ini tidak sulit. Ren Zu, kamu tidak punya hati, jadi kamu hanya perlu mencari yang baru.”</p>
+<p>	Ren Zu bingung, bertanya lagi, “Lalu bagaimana saya bisa menemukan hati yang baru?”</p>
+<p>	Attitude Gu menghela nafas, “Hati, tidak ada di mana-mana. Menemukan hati, itu mudah dan sulit. Dengan situasi Anda, Anda bisa mendapatkan hati sekarang. ”</p>
+<p>	Ren Zu sangat gembira, “Cepat, katakan padaku, bagaimana?”</p>
+<p>	Sikap Gu memperingatkannya, “Hati ini, disebut kesepian. Manusia, apakah Anda yakin menginginkannya? Setelah Anda mendapatkannya, Anda akan menghadapi rasa sakit, kesepian, dan bahkan ketakutan yang tak ada habisnya! ”</p>
+<p>	Ren Zu tidak mendengarkan peringatannya, dia terus bertanya.</p>
+<p>	Sikap Gu tidak bisa menentang perintah Ren Zu, jadi dia berkata, “Kamu hanya perlu menatap langit di malam berbintang, dan tidak mengatakan apa-apa. Begitu Anda mencapai siang hari, Anda akan mendapatkan hati kesepian.”</p>
+<p>	Malam itu, langit dipenuhi bintang.</p>
+<p>	Menurut instruksi Attitude Gu, Ren Zu duduk sendirian di puncak gunung, menatap langit malam.</p>
+<p>	Sebelum ini, hidupnya sangat sulit, terus berjuang untuk bertahan hidup, dia tidak punya waktu untuk mengagumi langit yang indah namun misterius ini.</p>
+<p>	Tapi sekarang, saat dia menatap langit berbintang, pikirannya mulai melayang. Terus-menerus memikirkan dirinya sendiri, makhluk yang begitu kurus dan lemah seperti dirinya, menjalani kehidupan yang terus-menerus ketakutan dan tidak aman.</p>
+<p>	“Huh, meskipun aku memiliki Hope Gu, Strength Gu, Rules and Regulation Gu, dan Attitude Gu, untuk bertahan hidup di negeri ini, masih sulit seperti biasanya. Bahkan jika saya mati besok, itu tidak mengejutkan. Jika aku mati, akankah dunia mengingatku? Akankah ada yang bersukacita atas keberadaanku, dan berduka atas kematianku?”</p>
+<p>	Memikirkan hal ini, Ren Zu menggelengkan kepalanya.</p>
+<p>	Di dunia ini, dia adalah satu-satunya manusia, bagaimana mungkin ada orang lain?</p>
+<p>	Bahkan dengan Gu yang menemaninya, dia masih merasakan perasaan yang kuat—</p>
+<p>	Kesendirian.</p>
+<p>	Hati kesepian!</p>
+<p>	Pada saat ini, ketika Ren Zu merasa kesepian, tubuhnya tiba-tiba memiliki hati yang baru.</p>
+<p>	Matahari terbit dari cakrawala, dan menyinari wajahnya. Tapi Ren Zu tidak merasakan kebahagiaan, dan malah merasakan rasa sakit, putus asa, kebingungan, dan bahkan ketakutan yang tak ada habisnya.</p>
+<p>	Dia tidak bisa menahan kesepian dan ketakutan ini, karena yang dia rasakan hanyalah munculnya kegelapan dan kiamat!</p>
+<p>	Karena itu, dia menangis dengan kesakitan, merentangkan jari-jarinya dan mencongkel matanya.</p>
+<p>	Mata kirinya jatuh ke tanah dan berubah menjadi seorang pemuda. Dia memiliki rambut emas dan tubuh yang kuat. Begitu dia muncul, dia berlutut di kaki Ren Zu, berkata: “Oh Ren Zu, ayahku, aku putra sulungmu, Verdant Great Sun.”</p>
+<p>	Pada saat yang sama, mata kanannya berubah menjadi seorang gadis muda, dan dia memegang tangan Ren Zu, berkata, “Oh Ren Zu, ayahku, aku adalah putri keduamu, Bulan Kuno yang Sunyi.”</p>
+<p>	Ren Zu tertawa keras, air mata mengalir dari rongganya yang kosong. Dia berkata ‘baik’ tiga kali dan melanjutkan, “Saya punya anak sekarang, saya akhirnya bisa menahan rasa sakit hati kesepian. Mulai sekarang, akan ada orang yang merayakan keberadaanku, dan berduka atas kematianku, bahkan jika aku mati sekarang, kamu akan mengingatku.”</p>
+<p>	“Hanya itu…” Akhirnya, dia menghela nafas, “Aku kehilangan kedua mataku, dan tidak bisa lagi melihat cahaya. Mulai sekarang, kalian berdua akan mengamati dunia ini untukku.”</p>
+<p>	Hujan turun sepanjang malam, hanya saat fajar hujan berhenti.</p>
+<p>	Fang Yuan meninggalkan penginapan. Sepanjang jalan para pejalan kaki membawa ekspresi berat dan sedih.</p>
+<p>	Malam ini, klan menderita kerugian besar.</p>
+<p>	Sebenarnya, untuk tiga klan di gunung Qing Mao, tidak ada satupun dari mereka yang lolos dari nasib ini; semuanya menderita kerugian besar.</p>
+<p>	Fang Yuan bisa tahu dari melihat papan prestasi.</p>
+<p>	Setelah satu malam, dewan prestasi pertempuran kehilangan dua puluh lima kelompok kecil, semuanya dikorbankan dalam gelombang serigala. Bahkan jika ada satu atau dua yang selamat, mereka terluka atau lumpuh.</p>
+<p>	Grup tempat Gu Yue Peng berada, termasuk di antara ini.</p>
+<p>	Selusin hari setelah ini, situasinya memburuk dari hari ke hari.</p>
+<p>	Pertama, seratus raja binatang serigala petir yang berani telah muncul, dan kemudian segera setelah itu, laporan masuk bahwa ada seribu raja binatang serigala petir gila!</p>
+<p>	Informasi seperti ini, menyebabkan peringkat dua Gu Masters yang bertarung menjadi ketakutan.</p>
+<p>	Jika mereka bertemu dengan serigala petir yang gila, mereka akan membutuhkan setidaknya tiga kelompok untuk bekerja sama untuk menghadapinya. Ini tidak termasuk kelompok serigala normal bersama dengan serigala petir yang gila.</p>
+<p>	Tiga klan harus mengirim peringkat tiga tetua mereka untuk menghadapi situasi ini.</p>
+<p>	Dalam situasi ini, kehidupan sehari-hari Master Gu menjadi sangat berbahaya dan panjang.</p>
+<p>	Bahkan dengan Stealth Scales Gu, Fang Yuan harus berhati-hati dan teliti. Lagipula, dia mungkin akan bertemu dengan serigala petir kelas raja binatang dengan Gu Mata Petir.</p>
+<p>	Kabar baiknya adalah dia sebelumnya telah membayar harga untuk dapat menggunakan Earth Communication Ear Grass.</p>
+<p>	Jangkauan Gu investigasi ini sangat besar, memungkinkan dia untuk menghindari gerombolan serigala berukuran besar.</p>
+<p>	Akhirnya, cuaca menjadi lebih hangat karena Juli sudah berakhir. Meskipun situasi tidak optimis, di bawah kerjasama tiga klan, situasi terkendali.</p>
+<p>	Di suatu tempat di dekat lereng gunung.</p>
+<p>	Tiga Master Gu yang telah mengalami pertempuran sengit menghadapi serigala petir berani yang baru saja tiba.</p>
+<p>	Aura kematian sudah dekat.</p>
+<p>	“Sialan, esensi purba tidak mencukupi, jika saya memiliki 60%, tidak hanya 30%, kita tidak harus dikejar seperti ini!” Pemimpin kelompok Xiong Zhan menatap serigala petir berani yang perlahan mendekat, seperti kucing mengejar tikus, dia memuntahkan seteguk air berdarah.</p>
+<p>	“Tebing gunung ada di depan, tidak ada jalan tersisa, apa yang harus kita lakukan?” Seorang anggota kelompok bertanya dengan ekspresi pucat.</p>
+<p>	“Apa yang bisa kita lakukan? Kami hanya bisa menaruh harapan kami pada bala bantuan. Saya mendengar tuan Bai Ning Bing dari klan saya telah keluar dari pintu tertutup budidaya dan bergegas ke pertempuran.</p>
+<p>	Kedua kelompok asli, baik dari klan Xiong dan klan Bai, menghadapi gelombang serigala bersama dan bekerja sama, tetapi sekarang hanya tiga orang yang tersisa.</p>
+<p>	“Daripada mengandalkan Bai Ning Bing yang tidak bisa ditemukan, saya lebih suka berjuang untuk kesempatan untuk bertahan hidup!” Xiong Zhan menggertakkan giginya, “Alasan mengapa raja binatang sangat berbahaya, adalah karena Gu di tubuhnya. Saya memiliki Gu Plunder, itu dapat dengan paksa mencuri cacing Gu dari musuh saya. Tapi itu perlu dipertahankan ketika diaktifkan dan saya tidak bisa bergerak. Selama periode ini, Anda harus melindungi saya. ”</p>
+<p>	“Oke!” Dua lainnya saling memandang dan berdiri di depan Xiong Zhan, membantunya memblokir serigala petir yang berani.</p>
+<p>	Meskipun mereka tahu bahwa hanya ada sedikit harapan, tidak ada yang mau mengundurkan diri sampai mati.</p>
+<p>	“Jika penjarahan berhasil, kita memiliki kesempatan untuk hidup! Surga memberkati kita!” Wajah Xiong Zhan ditentukan saat dia mengangkat lengan kanannya.</p>
+<p>	Hidup dan mati tergantung pada ini!</p>
+<p>	Tiga manusia dan satu serigala tidak tahu bahwa, jauh di atas tebing, seorang pemuda berambut putih mengenakan kemeja putih sedang menatap pemandangan ini.</p>
+<p>	“Hidup ini sangat membosankan …” Dia duduk di tanah, satu tangan menopang dirinya sendiri, sementara yang lain menuangkan cairan dari botol anggurnya.</p>
+<p>	Apa yang dia curahkan bukanlah anggur, tetapi mata air pegunungan yang manis.</p>
+<p>	Dia tidak minum anggur, tetapi hanya menyukai air.</p>
+<p>	Saat pemuda ini minum, dia menatap pertunjukan di depannya.</p>
+<p>	“Bertarung, dan mati. Kehidupan duniawi seperti itu terlalu membosankan. Hanya dengan pertempuran yang intens seperti ini, hidup Anda dapat memiliki sedikit kegembiraan dan warna. Dengan cara ini, hidup Anda memiliki beberapa makna. ”</p>
+<p>	Dia tertawa ringan di dalam hatinya, tidak menunjukkan kecenderungan untuk membantu.</p>
+<p>	Bahkan jika dia memiliki kemampuan, bahkan jika anggota klan Bai-nya ada di sana.</p>
+<p>	Terus?</p>
+<p>	Baginya, kesepian adalah kegelapan terdalam, dan cahaya kekerabatan hanyalah fasad.</p>
+<p>	He Bai Ning Bing tidak akan melakukan sesuatu yang membosankan seperti menyelamatkan seseorang!</p>
+<p>	– Matahari Besar yang Menghijau</p>
+<p>	– Bulan Kuno yang Sunyi</p>
+<p>	Catatan Penting: Nama-nama ini sangat sulit untuk diterjemahkan, sebenarnya karena mereka adalah nama yang seharusnya menggunakan pinyin, Tai Ri Yang Mang dan Gu Yue Yin Huang.</p>
+<p>	Namun nama-nama tersebut relevan dengan masalah plot-bijaksana lainnya… jadi mereka harus diterjemahkan ke dalam bahasa Inggris, yang sangat sulit. Bagi Gu Yue Yin Huang, Gu Yue di sini sama persis dengan klan Gu Yue.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

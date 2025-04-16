@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 218 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 218";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_217.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 218">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_219.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 218</h1>
+        <div class="text-left">
+<p>	Bab 218</p>
+<p>	Bab 218: Melakukan pertunjukan yang hebat</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Pada hari ketiga, pemimpin klan Bai memanggil Fang Yuan lagi dan memberinya banyak batu purba atas nama berburu.</p>
+<p>	Selama perjamuan, selain mencuri pandang ke Bai Lian, Fang Yuan berinisiatif untuk bersulang kepada pemimpin klan Bai dengan ekspresi tulus dan berterima kasih.</p>
+<p>	Pemimpin klan Bai tidak berbicara tetapi dalam hati sangat puas.</p>
+<p>	Malam ini, Bai Lian mengunjungi Fang Yuan atas kemauannya sendiri. Temannya telah diracuni dan menghilangkan panas Gu akan sangat efektif untuk itu. Namun, membersihkan panas Gu jarang terjadi, jadi dia datang ke Fang Yuan untuk meminjamnya.</p>
+<p>	“Tidak tahan lagi ya?” Fang Yuan mencibir ke dalam sambil meminjamkan Gu panas yang bersih tanpa keberatan.</p>
+<p>	Bai Lian tampaknya sangat berterima kasih untuk ini.</p>
+<p>	Fang Yuan kemudian berinisiatif untuk mengobrol dengannya dengan antusias; keduanya mulai menjadi lebih dekat dan hubungan mereka meningkat dengan cepat.</p>
+<p>	Hari kelima, di perjamuan.</p>
+<p>	Pemimpin Bai Clan tiba-tiba bertanya: “Junior, apakah klan Gu Yue Anda berpikir untuk menetap di gunung Bai gu?”</p>
+<p>	Fang Yuan segera berdiri, dia mencoba untuk terlihat tenang, tetapi tidak bisa menyembunyikan kepanikan di matanya: “Gunung Bai gu terletak dekat dengan desa Bai, kita bisa mengatakan itu wilayah klanmu yang terhormat. Bagaimana kita bisa berani melanggar batasnya? ”</p>
+<p>	Pemimpin Bai Clan tersenyum dalam hati, dia menjadi lebih yakin bahwa tujuan klan Gu Yue adalah gunung Bai Gu.</p>
+<p>	Namun, dia dengan munafik berkata: “Junior mungkin tidak sepenuhnya menyadari situasi rumit di sini. Tekanan pada klan Bai kami sangat besar, akan sangat bagus jika klan Gu Yue bisa tinggal di sini di gunung Bai gu sebagai sekutu klan kami.</p>
+<p>	Fang Yuan segera membantah.</p>
+<p>	Bai Mo Xing juga membujuk, Fang Yuan sepertinya tergerak tapi dia tidak mengalah.</p>
+<p>	Setelah perjamuan, Bai Lian juga datang untuk membicarakannya secara tidak langsung; Ekspresi Fang Yuan menjadi rumit, tetapi dia masih tidak mengakuinya.</p>
+<p>	“Hmph, anak ini, mulutnya sangat rapat.” Setelah perjamuan, di tenda, Bai Mo Xing menggertakkan giginya dan menghela nafas.</p>
+<p>	“Ini adalah sikap tuan muda dari sebuah klan, saya tidak terkejut. Kita hanya perlu menaikkan panasnya.” Tatapan pemimpin klan Bai termenung.</p>
+<p>	Keesokan harinya, subuh.</p>
+<p>	Fang Yuan masih tidur, ketika dia dibangunkan oleh suara pertengkaran dari luar tenda.</p>
+<p>	Dia berjalan keluar tenda untuk melihatnya, hanya untuk melihat Bai Zhan Lie dengan agresif menarik tangan Bai Lian.</p>
+<p>	“Bai Zhan Lie, sudah kubilang berkali-kali untuk berhenti menggangguku. Cinta tidak bisa dipaksakan!” Bai Lian mengayunkan tangan Bai Zhan Lie dan berkata dengan ekspresi dingin, “Aku masih memiliki banyak hal yang harus dilakukan, pergilah.”</p>
+<p>	“Kompetisi berburu hari ini akan segera dimulai, apa yang harus kamu lakukan? Atau apakah kamu akan mencari gigolo itu dari desa Gu Yue?” Bai Zhan Lie dengan marah meraung.</p>
+<p>	“Katakan apapun yang kamu mau! Tuan muda Fang Zheng sangat baik dan bahkan meminjamkan Gu panas ketika saya memintanya. Jika bukan karena bantuannya, bisakah Bai Sheng Jing pulih begitu cepat?”</p>
+<p>	“Lian Er, bisakah kamu tidak berpikiran sederhana? Membersihkan panas Gu, haha, menurutku dia hanya berpikir untuk berhubungan intim denganmu. Jangan bilang kamu tidak merasakan tatapannya?” Bai Zhan Lie berkata dengan cemas.</p>
+<p>	Bai Lian melotot: “Bai Zhan Lie, cukup sudah! Ah, tuan muda Fang Zheng…”</p>
+<p>	Saat keduanya bertengkar, mereka melihat Fang Yuan yang berdiri di luar tenda.</p>
+<p>	Fang Yuan tampak sedikit malu dan tatapannya menunjukkan kekhawatiran saat dia berkata kepada Bai Lian: “Jadi itu Nona Bai Lian. Silakan masuk jika Anda memiliki sesuatu untuk dikatakan. ”</p>
+<p>	“Kamu anak!” Bai Zhan Lie menjadi marah dan sepertinya akan mencari masalah untuk Fang Yuan, tetapi dihentikan oleh Bai Lian di tengah jalan.</p>
+<p>	“Bai Zhan Lie, menurutmu apa yang sedang kamu lakukan? Kamu gila? Ini adalah tamu terhormat klan kami!”</p>
+<p>	“Tamu yang terhormat, dia tidak lebih dari seekor anjing liar.” Bai Zhan Lie meludah dengan jijik saat dia menunjuk Fang Yuan, “Nak, jika kamu punya nyali maka mari kita lakukan kontes nyata! Yang kalah harus berhenti mengganggu Lian Er.”</p>
+<p>	“Hmph, aku hanya peringkat satu sedangkan kamu peringkat tiga dan kamu berani mengatakan ini. Mungkinkah klan grand Bai tidak memiliki keadilan? ” Ekspresi Fang Yuan berubah jelek.</p>
+<p>	“Di dunia ini tidak pernah ada keadilan, yang ada hanya kuat dan lemah. Kamu pengecut jika tidak berani bersaing! Jadi ternyata klan Gu Yue menghasilkan pengecut, hahaha….” Bai Zhan Lie melemparkan kepalanya ke belakang dan tertawa, suaranya menarik banyak orang.</p>
+<p>	“Apa yang sedang terjadi?” Bai Mo Xing bergegas pada saat ini.</p>
+<p>	Bai Lian menjelaskan semuanya padanya, Bai Mo Xing segera mengkritik Bai Zhan Lie: “Berhentilah main-main, kamu benar-benar berani bersikap kasar kepada tamu terhormat!”</p>
+<p>	Bai Zhan Lie mengangkat kepalanya: “Dia tidak berani menerima tantanganku, dia bukan seorang pejuang. Karena dia bukan seorang pejuang, mengapa aku harus bersikap sopan padanya?”</p>
+<p>	“Anda!” Bai Mo Xing menatap dengan marah.</p>
+<p>	Bai Lian berkata: “Siapa pun yang menerima tantangan seperti itu akan menjadi idiot. Kultivasi tuan muda Fang Zheng telah jatuh karena cedera. Jika dia berada di kondisi puncaknya, Anda mungkin bukan lawannya. ”</p>
+<p>	Seorang wanita muda mengatakan hal seperti itu kepada Fang Yuan, jika Fang Zheng benar-benar ada di sini, hatinya akan dipenuhi dengan penghargaan.</p>
+<p>	Fang Yuan, bagaimanapun, mencibir: Pertunjukan yang bagus!</p>
+<p>	“Aku akan bersaing denganmu menggantikan tuan muda Fang Zheng.” Bai Lian melanjutkan.</p>
+<p>	Bai Zhan Lie tersentak marah: “Mengapa kamu membelanya, selain atas dasar apa kamu mewakilinya? Dia hanya seorang gigolo, seorang pengecut yang tak berdaya, aku sendiri yang bisa memenangkan sepuluh darinya! Saya tidak akan bersaing dengan Anda. Nak, jika kamu punya nyali maka berdirilah. Bahkan tidak mengatakan apa-apa, apakah kamu masih laki-laki? ”</p>
+<p>	“Jika Anda ingin bersaing, maka mari kita bersaing, siapa yang takut pada siapa!” Fang Yuan tampaknya didorong oleh pernyataan itu, saat dia menegakkan lehernya dan berkata dengan impulsif.</p>
+<p>	“Tuan tetua, apakah kamu mendengarnya? Dia setuju!” Bai Zhan Lie segera berteriak dengan gembira di seluruh wajahnya.</p>
+<p>	Bai Mo Xing mengerutkan alisnya: “Seseorang harus selalu cukup berani untuk menerima tantangan. Junior Fang Zheng, kami semua melihat keberanian Anda, tetapi Anda adalah tamu terhormat klan kami, bagaimana kami akan menjelaskan kepada klan Gu Yue jika ada kecelakaan? Dan kultivasi Anda tidak pada level yang sama, jadi tantangannya kehilangan keadilannya. ”</p>
+<p>	“Tuan tetua benar, junior tidak berpikir …” Fang Yuan sengaja ragu-ragu.</p>
+<p>	Melihat Fang Yuan tampaknya akan mundur, Bai Zhan Lie dan Bai Lian dengan cepat berkomunikasi dengan tatapan mereka.</p>
+<p>	Bai Zhan Lie terus berbicara, memprovokasi kemarahan Fang Yuan dan mendorongnya.</p>
+<p>	Bai Lian menggigit bibirnya, sebelum berjalan di depan Fang Yuan. Dia membuka matanya yang besar dan berair dan berbicara dengan lembut: “Tuan muda Fang Zheng, jika saya berani meminta bantuan.”</p>
+<p>	“Oh, permintaan apa?”</p>
+<p>	“Saya sangat berharap tuan muda menerima tantangan ini dan membantu saya menyingkirkan kegigihan Bai Zhan Lie. Saya benar-benar tidak tahan dengan pelecehannya. ” Bai Lian berkata dengan mata berkaca-kaca.</p>
+<p>	Seorang gadis muda memohon kepada anak laki-laki seperti ini, untuk mengusir seorang pengejar yang jahat.</p>
+<p>	Apalagi jika anak laki-laki ini juga memiliki perasaan yang baik terhadap gadis muda ini.</p>
+<p>	Katakan padaku, anak laki-laki mana yang bisa menolak?</p>
+<p>	Setelah itu, Fang Yuan segera menepuk dadanya dan setuju: “Jangan khawatir Nona Bai Lian, urusanmu adalah urusanku, aku akan memberikan semuanya.”</p>
+<p>	Fang Yuan berhenti sejenak sebelum berbicara dengan sedikit ragu, “Hanya saja kultivasiku lebih lemah daripada miliknya saat ini. Kalau-kalau saya kalah …. ”</p>
+<p>	“Tolong tenang tuan muda, saya sudah punya rencana.” Senyum Bai Lian seperti mekarnya bunga bakung.</p>
+<p>	Dia berbalik dan berkata kepada Bai Mo Xing: “Tuan tetua, tuan muda Fang Zheng mungkin telah menyetujui kontes, tetapi jika kita benar-benar ingin melanjutkan duel, kita mungkin melukai harmoni kita dan itu juga tidak adil. Saya punya proposal; kompetisi berburu sedang berlangsung saat ini, bagaimana kalau kita mengambil kesempatan ini untuk membagi mereka menjadi kelompok lima orang dan bersaing dengan prestasi berburu? ”</p>
+<p>	“Ya, itu proposal yang bagus.” Bai Mo Xing merasakan janggutnya dan sedikit mengangguk, “Oke, kamu akan memilih timmu sendiri. Tetapi agar adil, tingkat kultivasi tim Anda harus proporsional. ”</p>
+<p>	Bai Zhan Lie mendengus kesal.</p>
+<p>	“Ya.” Bai Lian segera membungkuk dalam kebahagiaan.</p>
+<p>————————————————————————</p>
+<p>	Setelah satu jam, kedua belah pihak berangkat.</p>
+<p>	Di pihak Fang Yuan, ada peringkat tiga Bai Ning Bing, Bai Lian dan dua Master Gu wanita lainnya dengan usia yang sama dengan Bai Lian, keduanya memiliki kultivasi peringkat dua.</p>
+<p>	Di antara mereka adalah Bai Sheng Jing yang sangat berterima kasih kepada Fang Yuan. Dia adalah orang yang diracuni dan telah disembuhkan oleh Gu panas kliring Fang Yuan.</p>
+<p>	Kelompok itu harmonis, dan meskipun Fang Yuan memiliki kultivasi terendah, dia adalah inti dari kelompok itu.</p>
+<p>	“Tuan muda, Anda tidak perlu khawatir, kami telah mendapatkan informasi rinci tentang lokasi mangsa yang lebih berharga. Anda hanya perlu mengikuti kami. ” Bai Sheng Jing bertanggung jawab untuk kepramukaan, dan dia cukup bersemangat.</p>
+<p>	Kelompok itu mengikutinya, dan tentu saja, mereka mampu membunuh banyak mangsa yang unik.</p>
+<p>	Fang Yuan tidak perlu memaksakan diri dan semuanya terasa seperti sedang bertamasya daripada berburu.</p>
+<p>	“Tuan muda Fang Zheng, saya mendengar orang lain mengatakan klan Gu Yue Anda bermigrasi ke gunung Bai Gu, apakah itu benar?” Bai Sheng Jing sepertinya bertanya dengan santai ketika mereka kembali dari perburuan mereka yang berharga.</p>
+<p>	“Pembicaraan itu semua tidak berdasar.” Fang Yuan tersenyum.</p>
+<p>	“Tuan muda, Anda lembut dan halus, seorang pria yang jujur, jauh lebih baik daripada Bai Zhan Lie itu. Sigh, jika Anda bisa tinggal di gunung Bai gu maka kita bisa bertemu lebih sering di masa depan. Bai Sheng Jing melanjutkan.</p>
+<p>	Fang Yuan tertawa dan diam-diam melirik Bai Lian yang berjalan di sampingnya.</p>
+<p>	Bai Lian tampak khawatir: “Menetap dan membangun desa bukanlah hal yang mudah. Syarat terpenting adalah menemukan mata air roh. Namun, energi purba di sekitar mata air roh sangat padat, jadi pasti akan ada kawanan binatang buas atau cacing Gu liar tangguh yang tinggal di dekatnya. Untuk membangun desa, kelompok eksplorasi pertama harus melalui pertempuran yang intens, baik membunuh paket binatang atau cacing Gu liar. Proses ini pasti akan disertai dengan pertumpahan darah dan pengorbanan.”</p>
+<p>	Setelah berkata demikian, dia memandang Fang Yuan, “Sebenarnya, ada banyak tulang Gu yang tinggal di gunung Bai Gu. Gu tulang ini memiliki fisik yang keras dan sulit untuk dihadapi. Juga tidak ada tanah di gunung Bai Gu, tanahnya terbuat dari tulang dan batu. Bukan tidak mungkin untuk membangun desa dan bertahan hidup di gunung ini, tetapi harga yang harus dibayar sangat tinggi.”</p>
+<p>	“Oh, begitu?” Senyum Fang Yuan mengandung sedikit keengganan dan tatapannya tampak mengungkapkan kekhawatiran yang mendalam.</p>
+<p>	Kemudian, dia berpura-pura bersikap acuh tak acuh, bertanya: “Saya cukup tertarik dengan gunung Bai Gu. Bai Lian, klanmu bisa dikatakan setengah dari pemiliknya, bisakah kamu memberitahuku bahaya apa yang ada di gunung ini?”</p>
+<p>	Bai Lian tersenyum: “Kalau begitu tolong dengarkan, tuan muda.”</p>
+<p>	Dia berbicara secara berlebihan sambil diam-diam mengaktifkan Gu Akumulasi Kecemasan di dalam lubangnya.</p>
+<p>	Gu ini bekerja setenang angin musim semi dan diam-diam akan mempengaruhi semua orang dalam sepuluh langkah. Ini memperburuk pikiran orang dan meningkatkan kekhawatiran mereka.</p>
+<p>	Ekspresi tersenyum Fang Yuan berangsur-angsur memudar dan kekhawatiran di matanya menjadi lebih terlihat.</p>
+<p>	“Tuan muda Fang Zheng tidak perlu khawatir, kita pasti akan menang melawan Bai Zhan Lie kali ini.” Bai Sheng Jing sengaja meredakan kekhawatiran Fang Yuan.</p>
+<p>	Fang Yuan mengangguk dan setelah menjawab beberapa kalimat, dia tampak linglung.</p>
+<p>	Mengikuti, dia terus mengajukan banyak pertanyaan.</p>
+<p>	Mereka semua tentang gunung Bai Gu, terutama tentang daerah-daerah tertentu di belakang gunung.</p>
+<p>	Bai Lian dengan sabar menjawab semua pertanyaannya.</p>
+<p>	Adegan ini diputar secara real time di kamp.</p>
+<p>	“Ikan telah mengambil umpannya.” Pemimpin klan Bai menunjukkan senyum puas, “Di belakang gunung …”</p>
+<p>	Dia mulai melihat peta di atas meja.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

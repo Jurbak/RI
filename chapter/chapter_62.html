@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 62 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 62";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_61.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 62">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_63.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 62</h1>
+        <div class="text-left">
+<p>	Bab 62</p>
+<p>	Babak 62: Memilih Gu lagi di ruang penyimpanan Gu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari terbit, menandakan datangnya hari lain.</p>
+<p>	Para siswa berbaris dengan benar, wajah memerah karena kegembiraan saat mereka berdiri di depan ruang penyimpanan Gu akademi.</p>
+<p>	Hari ini adalah hari di mana mereka akan memilih Gu kedua mereka!</p>
+<p>	Sebagai yang pertama maju ke tahap tengah, Fang Yuan memiliki prioritas dalam memilih, sehingga ia berdiri di depan antrian.</p>
+<p>	Di belakangnya ada Gu Yue Mo Chen, Gu Yue Fang Zheng dan Gu Yue Chi Cheng.</p>
+<p>	Berderak.</p>
+<p>	Pintu ruang penyimpanan Gu dibuka oleh para penjaga, dan Fang Yuan adalah yang pertama menginjakkan kaki ke dalamnya.</p>
+<p>	Kamar Gu tidak besar, tetapi merupakan pemandangan yang indah untuk dilihat. Dinding di sekitarnya memiliki lubang persegi, beberapa besar tetapi yang lain kecil, menampung segala macam wadah di dalamnya.</p>
+<p>	Ada pot batu, pot batu giok, kandang yang terbuat dari rumput yang dianyam, dan beberapa barang porselen.</p>
+<p>	Semua jenis cacing Gu, semuanya peringkat satu, disimpan dalam wadah ini. Akademi mungkin menghabiskan lebih dari 1000 batu purba setiap hari hanya untuk memberi makan cacing Gu ini.</p>
+<p>	Fang Yuan melirik dan menemukan bahwa di banyak wadah, mereka sudah kosong, tidak ada cacing Gu di dalamnya.</p>
+<p>	Cacing Gu di ruang penyimpanan diisi ulang setahun sekali. Sebelumnya ketika mereka memilih Gu vital mereka, sebagian besar anak muda memilih Moonlight Gu, sehingga ruang penyimpanan tidak memiliki Moonlight Gu yang tersisa saat ini.</p>
+<p>	Ruang penyimpanan tidak memiliki jendela, hanya ada skylight kecil di atap.</p>
+<p>	Sinar matahari bersinar dari langit-langit dan membentuk gambar emas persegi panjang di tanah.</p>
+<p>	Pertama kali ketika dia memasuki ruang Gu, Fang Yuan sudah memiliki tujuan dan segera memilih Moonlight Gu. Tapi sekarang, dia memiliki beberapa kemungkinan target dalam pikirannya.</p>
+<p>	Namun target ini juga tergantung pada apakah ada stok di ruang penyimpanan.</p>
+<p>	Fang Yuan bergerak di sepanjang dinding kiri dan berjalan masuk perlahan sambil memeriksa katalog.</p>
+<p>	Lima langkah kemudian, dia berhenti.</p>
+<p>	Bingkai kotak persegi di dekat bahunya memiliki mangkuk perunggu di dalamnya, dan di dalamnya ada cacing Gu.</p>
+<p>	Cacing Gu ini seperti kutu busuk, pipih dan lebar dengan kepala kecil, memiliki tubuh oval. Itu berwarna kuning-oranye di seluruh, dan memancarkan cahaya seperti perunggu yang samar.</p>
+<p>	Ini adalah Gu Kulit Perunggu, pilihan untuk sebagian besar Master Gu pertempuran jarak dekat. Instruktur seni bela diri akademi mengangkat Gu seperti itu, dan sekali diaktifkan, menyebabkan tubuh bersinar kuning, sangat meningkatkan pertahanan.</p>
+<p>	Pengetahuan Fang Yuan sangat dalam dan luas, jadi tentu saja dia tidak memiliki keinginan untuk Gu ini. Dia terus maju dan melihat Gu Kulit Batu.</p>
+<p>	Gu Kulit Batu dan Gu Kulit Perunggu mirip dalam penampilan, tetapi tubuh Gu Kulit Batu berwarna abu-abu, seperti karya seni yang terbuat dari batu.</p>
+<p>	Setelah enam Gu Kulit Batu, ada Gu Kulit Besi.</p>
+<p>	Iron Skin Gu dan Bronze Skin Gu secara lahiriah serupa tetapi hanya dengan perbedaan kecil. Itu diam-diam tinggal di mangkuk besi, tidak bergerak. Itu memancarkan cahaya seperti besi hitam di sekitar tubuhnya.</p>
+<p>	Karena manusia memiliki klan, begitu juga Gu.</p>
+<p>	Tiga Gu yang dilihat Fang Yuan secara bersamaan semuanya dari seri yang sama. Mereka serupa dalam penampilan dan memiliki efek yang serupa.</p>
+<p>	“Kulit Besi, Kulit Perunggu, Kulit Batu, Gu Kulit Giok….. jika ada Gu Kulit Giok, aku mungkin juga memilihnya.” Fang Yuan bergumam ketika hatinya merasakan sedikit harapan meningkat, dan dia terus berjalan.</p>
+<p>	Namun dia ditakdirkan untuk kecewa, karena setelah Gu Kulit Besi, dia melihat Gu Kulit Binatang.</p>
+<p>	Gu Kulit Giok dan Gu Kulit Binatang berasal dari seri yang sama dengan Gu Kulit Perunggu dll. Tetapi mereka memiliki perbedaan nilai yang besar – Gu Kulit Binatang adalah yang paling umum, bahkan lebih murah daripada Gu Kulit Batu, tetapi lebih evolusioner. garis dan bisa menyatu dengan lebih banyak varietas Gu.</p>
+<p>	Gu Kulit Giok adalah Gu paling langka di seri ini. Nilai pasarnya hanya kedua setelah cacing Liquor, dan kadang-kadang harganya akan berfluktuasi dan menyaingi cacing Liquor itu sendiri.</p>
+<p>	Fang Yuan melihatnya, tetapi dia tidak menemukan Gu Kulit Giok. Dia tidak kecewa, tetapi tertawa lega, “Desa Gu Yue hanyalah klan menengah, ruang penyimpanan akademi Gu hanya berkualitas tingkat menengah. Untuk memiliki Gu Kulit Giok, itu agak mustahil.”</p>
+<p>	Sisi kiri dinding sudah diperiksa, jadi Fang Yuan bertukar ke dinding lain dan terus berjalan.</p>
+<p>	Di dinding ini, sebagian besar ada Gu Kumbang Longhorn.</p>
+<p>	Mirip dengan seri Skin Gu, Longhorn Beetle Gu adalah klan besar di antara cacing Gu peringkat satu.</p>
+<p>	Penampilan luar mereka serupa – mereka memiliki sosok silinder panjang dan melingkar, area belakang memiliki banyak garis. Sebagian besar tubuhnya berwarna hitam, memberikan kilau metalik. Itu memiliki sepasang antena yang panjang dan melebihi ukuran tubuh; dagunya kuat dan mengeluarkan suara melengking, seperti suara kayu yang digergaji. Dengan ini, beberapa Master Gu dari beberapa tempat akan menyebut mereka sebagai ‘gergaji pohon’.</p>
+<p>	Apa yang pertama kali memasuki visi Fang Yuan adalah Gu Kumbang Longhorn Brute Force.</p>
+<p>	Seluruh tubuhnya berwarna merah metalik, dan memiliki sepasang antena yang lebih kasar daripada antena Kumbang Longhorn biasanya. Di permukaan atas antena ada pertumbuhan seperti sambungan bambu dengan setiap interval kecil.</p>
+<p>	Gu Kumbang Longhorn Brute Force ini sangat dicari di pasar; sebelumnya karavan yang datang ke desa Gu Yue memiliki orang-orang yang menjual Gu ini dalam jumlah besar.</p>
+<p>	Brute Force Longhorn Beetle Gu memberikan kekuatan super sementara kepada Master Gu. Itu memiliki reputasi kekuatan seekor banteng, dan dapat bertahan selama lima napas.</p>
+<p>	Tapi itu memiliki dua kelemahan.</p>
+<p>	Salah satunya adalah bahwa setiap aktivasi mengkonsumsi terlalu banyak esensi purba. Peringkat satu tahap tengah membutuhkan 10% esensi purba, tetapi jika dikonversi ke tahap awal, itu akan mengkonsumsi 20%.</p>
+<p>	Lainnya adalah sekuel. Jika Master Gu memiliki konstitusi yang lemah, menggunakan Gu ini banyak akan menyebabkan otot mereka terluka, bahkan mengalami robekan otot. Hanya Gu Masters dengan tubuh yang kuat yang akan memilih untuk menggunakan Gu ini. Orang berukuran kecil seperti Fang Yuan tidak cocok untuk itu.</p>
+<p>	Fang Yuan tahu ini juga, dan berjalan melewati Brute Force Longhorn Beetle Gu, terus melihat sekeliling.</p>
+<p>	“Oh? Ini tidak buruk.” Dia menghentikan langkahnya.</p>
+<p>	Itu adalah Gu Kumbang Longhorn Unta Kuning.</p>
+<p>	Sosok kumbang itu sedikit lebih kurus dan lebih panjang dari Brute Force Longhorn Beetle Gu, seluruh tubuhnya dilapisi warna kuning tua. Sepasang antena panjangnya tidak memiliki sambungan bambu, dan akarnya berwarna kuning, perlahan-lahan memudar menjadi hitam di ujungnya.</p>
+<p>	Brute Force Longhorn Beetle Gu dapat memberikan kekuatan sementara kepada Master Gu, dan jenis kekuatan ini langsung, hanya bertahan selama lima napas. Tetapi Gu Kumbang Longhorn Unta Kuning dapat memberikan daya tahan kepada Master Gu dan memungkinkan pengeluaran stamina mereka sangat berkurang, namun itu hanya dapat bertahan selama lima belas menit. Pada saat yang sama itu tidak memiliki dampak.</p>
+<p>	Di antara cacing Gu Peringkat satu, Kumbang Longhorn Unta Kuning memiliki nilai pasar yang tinggi, sebanding dengan Gu Cahaya Bulan dan hanya kalah dari Gu Kulit Giok dan cacing Liquor.</p>
+<p>	Fang Yuan memeriksa sekeliling dan menemukan bahwa hanya ada satu Kumbang Longhorn Unta Kuning.</p>
+<p>	“Gu itu tidak buruk, tapi tidak cocok denganku.” Fang Yuan menggelengkan kepalanya, menyerahkan Gu ini.</p>
+<p>	Sangat cepat dia berjalan dan mencapai sudut dinding, setelah selesai melihat dinding kedua, tetapi dia tidak puas.</p>
+<p>	Gu di ruang penyimpanan hanya dengan kualitas ini, dan jika dia ingin beruntung atau mendapatkan kejutan Gu, kemungkinannya tipis.</p>
+<p>	Fang Yuan menoleh ke dinding ketiga dan terus memeriksa.</p>
+<p>	Di dinding ini, Gu Boar sangat dominan.</p>
+<p>	Boar Gu adalah seri di antara cacing Gu.</p>
+<p>	Ada Flower Boar Gu, Pink Boar Gu, Black Boar Gu dan White Boar Gu.</p>
+<p>	Pink Boar Gu memiliki nilai paling rendah, hampir tidak ada Master Gu yang memilihnya. Itu hanya memiliki satu kemampuan, dan itu adalah untuk menambah berat badan. Setelah Guru Gu menyuntikkan esensi purba mereka, Gu Babi Merah Muda akan mengubah konstitusi mereka dan menyebabkan mereka menjadi gemuk. Tidak peduli seberapa kurus mereka, mereka akan bisa menjadi orang yang gemuk.</p>
+<p>	Hanya ada dua hingga tiga Pink Boar Gu di ruang penyimpanan, jelas tidak memiliki nilai pengasuhan.</p>
+<p>	Flower Boar Gu adalah yang paling melimpah, memiliki selusin setidaknya berjajar. Cacing Gu ini memiliki pola bunga di permukaan, baik putih dan hitam, hitam dan merah muda, atau putih dan merah muda. Bahkan ada yang memiliki ketiga warna tersebut.</p>
+<p>	Penggunaan Flower Boar Gu mirip dengan Brute Force Longhorn Beetle Gu, untuk sementara menambah kekuatan pada master Gu.</p>
+<p>	Brute Force Longhorn Beetle Gu memberikan kekuatan satu banteng, dan Flower Boar Gu memberikan kekuatan satu babi hutan. Flower Boar Gu menghabiskan jumlah esensi purba yang sama dengan Brute Force Longhorn Beetle Gu tetapi dapat bertahan selama sepuluh napas, dua kali dari Brute Force Longhorn Beetle Gu.</p>
+<p>	Ini karena Master Gu memperoleh kekuatan yang lebih rendah, sehingga efek sampingnya lebih sedikit.</p>
+<p>	“Flower Boar Gu adalah cacing Gu yang paling umum, dan paling banyak dijual di pasar. Harganya setengah dari Brute Force Longhorn Beetle Gu, benar-benar bernilai uang. Tetapi di antara klan Boar Gu, hanya dua Gu terakhir yang memiliki nilai lebih besar, bahkan lebih mahal daripada Jade Skin Gu dan cacing Liquor!” Mata Fang Yuan menunjukkan cahaya pemikiran yang mendalam.</p>
+<p>	Gu Babi Hitam atau Gu Babi Putih bisa dijual seharga 600 batu purba di pasar. Begitu muncul, sering langsung dijual.</p>
+<p>	Kemampuan Gu Black and White Boar adalah untuk mengubah konstitusi tubuh Master Gu dan meningkatkan kekuatan mereka secara permanen.</p>
+<p>	Meskipun Kumbang Longhorn Brute Force bisa memberikan kekuatan banteng, itu hanya bisa bertahan lima napas, menggunakan terlalu banyak energi untuk mempertahankan dan memiliki efek samping yang kuat.</p>
+<p>	Peningkatan kekuatan Black and White Boar, meskipun sedikit demi sedikit, akan terakumulasi dari waktu ke waktu dan setelah diperoleh, kekuatan akan menjadi milik Gu Master sepenuhnya. Bahkan jika Gu mati, kekuatan ini akan tetap ada di tubuh Gu Master.</p>
+<p>	Inilah alasan mengapa nilai Black and White Boar Gu lebih tinggi daripada Liquor</p>
+<p>	Cacing.</p>
+<p>	Publik mengakui bahwa nilai cacing Liquor harus sedikit lebih rendah daripada Gu Babi Hitam atau Putih.</p>
+<p>	Cacing Liquor hanya dapat memurnikan esensi purba, dan setelah pertempuran sengit, esensi purba Master Gu mudah habis. Untuk sisa pertempuran, mereka hanya bisa mengandalkan seni bela diri dan kekuatan fisik mereka. Ini adalah saat Gu Putih dan Hitam menunjukkan nilai mereka; mereka lebih dapat diandalkan daripada cacing Liquor.</p>
+<p>	“Jika aku bisa memperbaiki Gu Babi Hitam atau Gu Babi Putih, itu bagus.” Fang Yuan hanya membayangkan skenarionya, tetapi dengan jenis ruang penyimpanan Gu yang hanya memiliki satu Kumbang Longhorn Unta Kuning, bagaimana bisa ada Gu Babi Putih atau Hitam yang sangat langka?</p>
+<p>	Dia berjalan memutar lagi dan melihat semua cacing Gu yang ditawarkan ruangan itu. Seperti yang diharapkan, tidak ada yang benar-benar memikatnya.</p>
+<p>	Akhirnya, dia mengambil Little Light Gu di sudut dinding.</p>
+<p>	Ada lima Gu Cahaya Kecil di ruang penyimpanan.</p>
+<p>	Gu ini berbentuk aneh, tampak seperti pentagram, dan hanya setengah sebesar kuku.</p>
+<p>	The Little Light Gu terutama dipasangkan dengan Moonlight Gu, cacing Gu tipe bantuan umum untuk Moonlight Gu. Bagi Fang Yuan telah memilih Gu ini, itu hanyalah pilihan rata-rata, tapi setidaknya itu cocok dengan jalur perkembangannya.</p>
+<p>	“Fang Yuan keluar.”</p>
+<p>	“Ya ampun, akhirnya keluar setelah sekian lama.”</p>
+<p>	“Aku ingin tahu Gu apa yang dia pilih?”</p>
+<p>	“Dia sudah memiliki cacing Liquor, ini Gu ketiganya, mungkin dia tidak akan bisa membesarkan mereka dengan benar. Hehe.”</p>
+<p>	Fang Yuan dengan santai berjalan keluar dari ruang penyimpanan. Para siswa berada di luar untuk waktu yang lama dan mulai gelisah.</p>
+<p>	“Giliranku! Aku ingin tahu apa yang Gu pilih Fang Yuan?” Begitu Gu Yue Mo Chen melihat Fang Yuan melangkah keluar, dia buru-buru mengambil langkah besar dan memasuki ruang penyimpanan.</p>
+<p>	Dia memeriksa dan menemukan bahwa satu-satunya Kumbang Longhorn Unta Kuning masih ada di sana. Mo Chen tidak bisa menahan diri untuk tidak terlalu gembira, segera mengambilnya.</p>
+<p>	Setelah itu, Fang Zheng masuk.</p>
+<p>	“Saya memiliki Moonlight Gu untuk menyerang, tetapi saya tidak memiliki cacing Gu tipe defensif.” Gu Yue Fang Zheng setelah pertimbangan panjang, memutuskan untuk memilih Gu Kulit Perunggu.</p>
+<p>	Gu Yue Chi Cheng adalah orang keempat yang masuk.</p>
+<p>	“Saya membutuhkan kemampuan penghindaran, jadi dalam pertempuran di masa depan saya akan dapat mengenai orang lain, tetapi orang lain tidak dapat memukul saya. Saya hampir tidak terkalahkan.” Dia melihat ke kiri dan ke kanan, dan akhirnya memilih Gu kriket Dragonpill.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 555 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 555";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_554.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 555">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_556.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 555</h1>
+        <div class="text-left">
+<p>	Bab 555</p>
+<p>	Bab 555: Menari cakar salju, Penampilan gedung</p>
+<p>	Lokasi untuk membuat mata air roh sudah diputuskan.</p>
+<p>	Shi Wu membawa Gu telur musim semi dan pergi bersama Man Duo, setelah membuat persiapan, dia mulai menggunakan esensi purba dan mengirimkannya ke Gu yang langgeng dan melanjutkan Gu, sebelum menyuntikkannya ke dalam telur musim semi Gu.</p>
+<p>	Telur musim semi Gu melayang di udara, menyerap esensi purba saat bergerak naik dan turun perlahan.</p>
+<p>	Selama delapan belas hari berikutnya, Shi Wu tidur tiga jam sehari, bergegas makan dan menyelesaikan ekskresinya. Meskipun sulit, efeknya terlihat.</p>
+<p>	Saat dia terus menyuntikkan esensi purba, telur musim semi Gu bersinar dengan cahaya yang cemerlang.</p>
+<p>	Hari-hari ini, Man Duo datang untuk memeriksa lagi, dan setelah melihat ini, dia sangat gembira: “Kita hampir sampai. Sudah ada retakan ringan pada telur pegas Gu, begitu pecah, kita akan berhasil. Sudah sulit bagi tetua Shi Wu. ”</p>
+<p>	“Tidak sama sekali, tidak sama sekali.” Shi Wu menyempurnakan Gu sambil dengan rendah hati menjawab.</p>
+<p>	Dia lelah secara mental, tubuhnya semakin kurus. Dengan kultivasinya, dengan paksa mengaktifkan peringkat lima Gu sangat melelahkan. Tetapi jika dia berhasil, itu akan menjadi layanan besar bagi suku tersebut.</p>
+<p>	Man Duo melanjutkan: “Selama pertemuan tetua ini, ayah tuan secara khusus menyebutkannya. Kerja keras Lord Shi Wu terlihat jelas di mata semua orang, jika Anda memiliki permintaan, kami akan berusaha untuk memenuhinya.”</p>
+<p>	Shi Wu sangat berterima kasih: “Saya malu, dengan kepedulian pemimpin suku, bagaimana saya bisa berlebihan dan meminta lebih. Tapi aku punya pertanyaan.”</p>
+<p>	“Oh? Tolong bicara.”</p>
+<p>	“Tuan muda Man Duo, saya merasa lembah Hong Yan semakin dingin akhir-akhir ini. Vegetasi dan binatang di sekitarnya telah mati kedinginan. ”</p>
+<p>	Ekspresi Man Duo berubah jelek. Lembah Hong Yan memang menghadapi masalah. Itu telah disebutkan selama beberapa pertemuan suku terakhir. Hasilnya, magma bawah tanah yang mendukung lembah Hong Yan telah berkurang karena alasan yang tidak diketahui.</p>
+<p>	Ini berbeda dengan catatan sejarah.</p>
+<p>	Dalam pertemuan sebelumnya, pemimpin suku Man Tu menjadi marah, ingin semua orang memikirkan solusi. Pada saat yang sama, mereka harus menyembunyikan masalah ini untuk mencegah moral mereka tenggelam.</p>
+<p>	“Penatua Shi Wu berada pada saat penting untuk menyempurnakan mata air roh, saya seharusnya tidak memberi tahu dia berita buruk ini, atau pikirannya akan goyah dan merusak masalah penting ini.”</p>
+<p>	Berpikir demikian, Man Duo berbohong dan meyakinkan Shi Wu.</p>
+<p>	Shi Wu tidak merasakan ada yang salah, dia akan berbicara tetapi tiba-tiba, ekspresinya berubah, berteriak: “Oh tidak, itu salju tangan yang terbang!”</p>
+<p>	Man Duo berbalik dan terkejut: “Bagaimana bisa ada salju terbang di lembah Hong Yan ?!”</p>
+<p>	Hanya untuk melihat bahwa di langit, angin kencang bertiup saat kepingan salju seukuran telapak tangan yang membawa aura peringkat lima Gu turun perlahan.</p>
+<p>	“Oh tidak, cepat datang dan lindungi telur musim semi Gu!” teriak Man Duo, memanggil Master Gu terdekat.</p>
+<p>	Tetapi badai salju sangat kuat, angin memotong seperti pisau cukur dan kekuatan langit dan bumi turun, setelah menahannya untuk sementara waktu, semua orang mulai jatuh ke dalam kerugian.</p>
+<p>	“Monster salju!”</p>
+<p>	“Monster salju telah muncul!”</p>
+<p>	Masalah datang berpasangan, badai salju berkumpul dan membentuk monster salju setinggi enam meter.</p>
+<p>	Pertahanan para Master Gu mudah dipatahkan. Di langit, sejumlah besar salju tangan yang terbang berkumpul menjadi telapak tangan yang besar. Di bawah semua orang yang marah dan marah, sementara tatapan yang benar-benar tak berdaya, tangan salju raksasa itu meraih telur musim semi Gu di udara dan meremasnya.</p>
+<p>	Retakan!</p>
+<p>	Dengan suara ringan, tangan salju itu hancur.</p>
+<p>	Kepingan salju mendarat di tanah, telur musim semi peringkat lima Gu di dalamnya sudah lenyap.</p>
+<p>	…</p>
+<p>	Cahaya perak bersinar seperti racun yang dengan lembut menghujani tanah yang diberkati Pengadilan Kekaisaran.</p>
+<p>	melolong melolong…</p>
+<p>	Kelompok serigala Azure berlari di tanah, beberapa berlari di udara, sementara yang lain berlari dengan cakar mereka.</p>
+<p>	Meskipun ada master Gu yang memberi mereka makan di istana suci, serigala-serigala ini masih menginginkan kebebasan. Mereka ingin menjadi binatang buas yang berkeliaran di langit, dan bukan burung kenari yang terperangkap dalam sangkar.</p>
+<p>	Sebagai tuan mereka, Fang Yuan membiarkan mereka melakukan apa yang mereka inginkan. Dia sendiri membentangkan sayap elangnya saat dia terbang di langit, melihat ke tanah di bawahnya.</p>
+<p>	Itu adalah warisan Di Qiu.</p>
+<p>	“Cahaya di tanah, bersinar hingga ketinggian seratus ribu kaki, berenang di langit sejauh seratus li, memuji salju harum plum … apa arti kalimat ini?” Fang Yuan merenung.</p>
+<p>	Dia telah datang untuk menjelajahi tanah warisan setiap beberapa hari.</p>
+<p>	Naluri memberitahunya bahwa warisan Di Qiu ini tidak sederhana.</p>
+<p>	Jadi, setiap kali dia keluar, dia menggunakan alasan untuk mengajak serigala-serigalanya berjalan-jalan, untuk melatih mereka dan melatih keterampilan manipulasinya.</p>
+<p>	Namun meski begitu, dia tidak bisa tinggal lama.</p>
+<p>	Fang Yuan sekarang adalah orang dengan status tinggi, kedua setelah Hei Lou Lan. Setiap gerakannya diawasi oleh semua orang. Dia tidak lagi tidak terlihat seperti sebelumnya.</p>
+<p>	Kali ini, dia tidak memiliki temuan, dan untuk mencegah kecurigaan, dia hanya bisa pergi untuk saat ini.</p>
+<p>	Meskipun dia dapat sepenuhnya menempati seluruh area ini menggunakan statusnya sekarang, Fang Yuan tidak melakukan itu.</p>
+<p>	Jika warisan ini memiliki nilai tinggi, bahkan jika dia memiliki kekuatan besar, orang lain akan bersaing dengannya.</p>
+<p>	Dia tidak memiliki garis keturunan Huang Jin, untuk memasuki Eighty-Eight True Yang Building, dia membutuhkan token tamu Hei Lou Lan.</p>
+<p>	Namun, dia telah mengirim orang untuk mengintai daerah tersebut.</p>
+<p>	Alasannya secara alami adalah kelompok serigala biru.</p>
+<p>	Setiap kali dia pergi berburu dengan kelompok serigala biru, akan ada rute. Sebelum pindah, dia akan mengirim Master Gu untuk mencari jalan untuknya, dan pergi ke jalan yang memiliki mangsa paling banyak.</p>
+<p>	Ada lima hingga enam rute untuk dipilih setiap kali, tetapi masing-masing dari mereka akan dekat dengan warisan Di Qiu.</p>
+<p>	Seseorang harus bertindak dengan sempurna, Fang Yuan mengikuti rute yang dia rencanakan dan terus berburu dengan kelompok serigala biru.</p>
+<p>	Ada banyak binatang buas dan sumber daya di dalam tanah yang diberkati Pengadilan Kekaisaran. Terutama di dekat menara kecil, ada kawanan cacing dan Gu liar yang tak terhitung jumlahnya.</p>
+<p>	Eighty-Eight True Yang Building adalah sesuatu yang hanya bisa dimasuki oleh segelintir Master Gu. Sebagian besar Master Gu akan berkeliaran di tanah terberkati yang luas, menaklukkan Gu liar, atau menemukan warisan.</p>
+<p>	Fang Yuan mengikuti jejaknya dan menemukan banyak Guru Gu.</p>
+<p>	Adapun daerah dekat warisan Di Qiu, secara alami ada banyak Guru Gu yang lewat.</p>
+<p>	Fang Yuan tidak takut gunung Di Qiu akan diambil oleh seseorang. Bahkan, dia berharap seseorang akan menemukannya dan memicunya. Dia akan mendapatkan berita tentang itu pada saat itu dan akan dapat menyerang dengan mudah.</p>
+<p>	Bagaimanapun, dia sudah menggunakan kekuatannya untuk merebut kembali warisan di puncak Xing Jiu.</p>
+<p>	Gemuruh gemuruh…</p>
+<p>	Ada beberapa suara keras yang datang dari tanah.</p>
+<p>	Fang Yuan mengendarai segudang raja serigala biru, dan melihat ke bawah, melihat sebuah menara kecil bersinar dengan cahaya terang, perlahan-lahan tenggelam ke tanah.</p>
+<p>	Fang Yuan tidak terkejut.</p>
+<p>	Dalam kemajuan penampilan Eighty-Eight True Yang Building secara bertahap, menara-menara kecil di tanah yang diberkati Pengadilan Kekaisaran perlahan-lahan akan tenggelam ke dalam tanah.</p>
+<p>	Menara kecil ini seperti sarang yang dipenuhi dengan semua Gu liar yang telah tumbuh dalam sepuluh tahun terakhir.</p>
+<p>	Banyak orang menebak: Gu liar di menara kecil ini adalah sumber energi untuk membentuk Eighty-Eight True Yang Building. Di satu sisi, menara kecil ini adalah bagian dari Eighty-Eight True Yang Building.</p>
+<p>	Dugaan ini tidak pernah mendapat konfirmasi.</p>
+<p>	Dewa Gu yang bisa memastikan ini tidak dapat memasuki tanah yang diberkati Pengadilan Kekaisaran. Dan manusia fana yang bisa masuk terlalu lemah dibandingkan dengan Giant Sun Immortal Venerable, mereka tidak bisa menguraikannya.</p>
+<p>	Tapi Fang Yuan adalah pengecualian.</p>
+<p>	“Gedung Eighty-Eight True Yang memiliki desain yang menarik, ini benar-benar karya surga. Menara kecil ini memang merupakan bagian dari True Yang Building.” Fang Yuan jauh lebih berpengetahuan daripada Dewa Gu lainnya dalam aspek ini, karena dia mengendalikan informasi paling lengkap mengenai Eighty-Eight True Yang Building.</p>
+<p>	Sumber informasi ini adalah roh tanah Lang Ya. Roh tanah dalam hidupnya adalah peringkat delapan Leluhur Rambut Panjang Abadi Gu yang menciptakan Eighty-Eight True Yang Building.</p>
+<p>	“Eh? Tunggu!” Tubuh Fang Yuan bergetar, kilasan inspirasi muncul di hatinya, menyapu kebingungan di hatinya.</p>
+<p>	Saat ini, dia akhirnya menemukan hal aneh tentang Di Qiu — tidak ada menara kecil di dekat Di Qiu!</p>
+<p>	“Memang, itu masalahnya.” Mata Fang Yuan bersinar dengan kecemerlangan, dalam beberapa kali terakhir dia membawa serigala biru untuk berburu, dia akan berada di langit dekat Di Qiu, atau tanah di dekatnya.</p>
+<p>	Sekarang dia mengingatnya, dia menyadari kekhasan Di Qiu.</p>
+<p>	“Secara logika, setiap delapan li seharusnya memiliki menara kecil. Dan setiap menara kecil sesuai dengan daerah di dataran utara. Tapi di dekat Di Qiu, tidak ada apa-apa!”</p>
+<p>	Berpikir begitu, Fang Yuan menjadi bersemangat.</p>
+<p>	Ini adalah terobosan besar!</p>
+<p>	Mengikuti petunjuk ini, dia berpotensi mengungkap misteri warisan Di Qiu.</p>
+<p>	Tapi Fang Yuan tidak berbalik.</p>
+<p>	Bergegas dengan cara yang bersemangat seperti ini meminta untuk dicurigai.</p>
+<p>	Dia mengendalikan emosinya yang bersemangat, dan melanjutkan rute yang telah dia persiapkan. Serigala biru pindah dari istana suci, dan setelah satu putaran, kembali.</p>
+<p>	Istana suci itu seperti puncak gunung, Gedung Delapan Puluh Delapan Yang Sejati di puncaknya masih memelihara. Aurora yang dipancarkannya menutupi seluruh istana suci. Istana suci yang megah dan indah diselimuti aura misterius dan kuat.</p>
+<p>	Fang Yuan pergi berburu setiap enam atau tujuh hari dengan kelompok serigala biru.</p>
+<p>	Tapi rencana tidak bisa mengikuti keadaan, tiga hari kemudian, aurora berkumpul di satu titik dan mulai terbentuk.</p>
+<p>	Lapisan pertama dari Eighty-Eight True Yang Building telah terbentuk!</p>
+<p>	Ini adalah berita gembira, menyebabkan istana suci menjadi keributan. Seketika, topik hangat semua orang adalah tentang gedung ini.</p>
+<p>	Tentu saja, sebagian besar Master Gu hanya bisa menonton.</p>
+<p>	Hei Lou Lan masuk dengan penuh semangat, beberapa jam kemudian, dia kembali dalam keadaan menyedihkan, luka menutupi tubuhnya.</p>
+<p>	Luka-lukanya tidak ringan, tetapi mereka tidak bisa menyembunyikan keterkejutan di matanya.</p>
+<p>	Selama ekspedisi kedua, dia membawa banyak Master Gu suku Hei.</p>
+<p>	Suku Hei memiliki garis keturunan Giant Sun Immortal Venerable, mereka dapat dengan bebas masuk dan keluar dari True Yang Building tanpa batasan.</p>
+<p>	Selama masa seperti itu, anggota suku adalah yang paling dapat diandalkan. Mengapa ada kebutuhan untuk berbagi dengan orang luar apa yang bisa dimakan sendirian?</p>
+<p>	Ketika Hei Lou Lan kembali, dia terlihat sangat lelah. Adapun Master Gu yang masuk, hanya enam puluh persen yang kembali.</p>
+<p>	Setelah itu, segala macam rumor dan informasi menyebar, semuanya tentang True Yang Building.</p>
+<p>	Beberapa orang mengatakan bahwa Gedung Yang Sejati adalah karya surga, sangat spektakuler; beberapa mengatakan bahwa sulit untuk dijelajahi, setiap langkah berbahaya; beberapa mengatakan bahwa hadiah untuk lulus sangat menggiurkan…</p>
+<p>	Sekarang, semua orang tergerak.</p>
+<p>	ChibiGeneral Ini seperti ketika game Anda memiliki pembaruan baru dan Anda berusaha keras sendirian dengan bos.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

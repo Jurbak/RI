@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2012 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2012";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2011.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2012">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2013.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2012</h1>
+        <div class="text-left">
+<p>	Bab 2012 – Kematian Fang Di Chang</p>
+<p>	Bab 2012 Kematian Fang Di Chang</p>
+<p>	Divine Emperor City, dunia lukisan.</p>
+<p>	Di alun-alun yang luas, Xiao Qi Xing memimpin sekelompok besar pasukan dan menghadapi sekelompok tentara kacang dewa.</p>
+<p>	Skala kelompok tentara kacang ilahi ini lebih besar dari sisi Xiao Qi Xing.</p>
+<p>	“Bagaimana kita melawan mereka?” Sun Yuan Hua baru saja bertanya kapan tentara kacang dewa menyerang.</p>
+<p>	Xiao Qi Xing menghentikan sisinya dari menyerang dan tersenyum: “Semuanya, tolong tetap diam untuk saat ini dan lihat bagaimana aku melawan mereka.”</p>
+<p>	Mengatakan ini, Xiao Qi Xing menjentikkan jarinya berulang kali, sejumlah besar cacing Gu terbang keluar dari lubangnya.</p>
+<p>	Cacing Gu ini jatuh ke tanah dan berubah menjadi bentuk manusia. Sebagian besar dari mereka adalah tentara biasa, beberapa jelas tampak seperti elit, dan sejumlah kecil dari mereka tampak jauh lebih berani dan gagah berani.</p>
+<p>	“Ini adalah prajurit Gu, sersan Gu, letnan Gu?” Gu Ting menyipitkan matanya.</p>
+<p>	“Mereka seharusnya.” Wei Wu Shang menghitung dengan kasar: “Ada lebih dari lima ratus dari mereka, sepertinya Xiao Qi Xing berkembang sangat baik di kamp militer untuk dapat mengumpulkan begitu banyak cacing jalur manusia Gu.”</p>
+<p>	“Pembentukan!” Xiao Qi Xing berteriak sambil mengaktifkan formasi panah Gu.</p>
+<p>	Para prajurit ini segera berkumpul, kapten memimpin letnan, letnan memimpin sersan, dan sersan memimpin prajurit.</p>
+<p>	Dan seluruh pasukan membentuk panah raksasa yang bergegas menuju ke arah tentara kacang ilahi yang masuk.</p>
+<p>	“Mengenakan biaya-!”</p>
+<p>	Tentara Xiao Qi Xing meraung keras, sebaliknya, para prajurit kacang dewa terdiam seperti tidak ada kehidupan.</p>
+<p>	Kedua belah pihak seperti gelombang bertabrakan yang mulai bercampur satu sama lain.</p>
+<p>	Tatapan Xiao Qi Xing seperti kilat saat dia memusatkan seluruh perhatiannya untuk mengendalikan pasukannya.</p>
+<p>	Dalam pertempuran yang kacau balau itu, pasukannya terbagi lagi tetapi mereka selalu mempertahankan formasi militer paling dasar.</p>
+<p>	Sebaliknya, para prajurit kacang ilahi adalah kelompok yang berantakan dan tidak teratur.</p>
+<p>	Setelah kebuntuan awal, situasi mulai perlahan-lahan jatuh ke dalam genggaman Xiao Qi Xing. Begitu dia berada di atas angin, keunggulan ini menjadi bola salju dan segera, itu berubah menjadi dominasi mutlak.</p>
+<p>	Akhirnya, pihak Xiao Qi Xing memenangkan kemenangan penuh dengan semua prajurit kacang dewa terbunuh.</p>
+<p>	“Bagaimana itu?” Xiao Qi Xing kembali dengan kemenangan dan memamerkan benih Gu Immortal lainnya.</p>
+<p>	Zhao Shu Ye memutar matanya, tidak repot-repot menjawab.</p>
+<p>	“Saudara Xiao benar-benar luar biasa!” Chen Da Jiang mengangkat ibu jarinya.</p>
+<p>	“Ha ha ha.” Xiao Qi Xing tertawa terbahak-bahak dan berkata kepada Chen Da Jiang: “Jika Anda telah berjalan di jalan yang sama seperti saya saat itu, Anda juga akan memiliki prestasi seperti itu hari ini.”</p>
+<p>	“Kita harus melanjutkan. Kami hanya menyelesaikan satu lukisan.” Kata Wei Wu Shang.</p>
+<p>	“Jangan ceroboh. Prajurit ini hanyalah prajurit dewa kacang kuning, mereka adalah tipe prajurit kacang dewa yang paling dasar. ” kata Gu Ting.</p>
+<p>	Mereka terus berbaris maju dan melawan tentara kacang ilahi.</p>
+<p>	Setelah beberapa saat, mereka tiba di jalan yang paling berkembang di Kota Kaisar Ilahi.</p>
+<p>	Tentara kacang surgawi dengan ceroboh membunuh orang-orang di kota dan itu adalah adegan kekacauan.</p>
+<p>	Mata Sun Yao memerah karena marah. Pertama kali dia masuk ke sini, dia telah tiba di jalan ini dan menikmati pemandangannya yang berkembang. Dia tidak pernah menyangka pemandangan yang begitu indah akan dihancurkan sepenuhnya oleh para prajurit kacang ilahi, di mana-mana dipenuhi dengan mayat dan darah mengalir ke sungai.</p>
+<p>	“Ini akan membutuhkan bantuan semua orang.” Xiao Qi Xing sederhana sekali: “Jalannya sempit dan penglihatannya tidak jelas, pasukanku tidak akan bisa bergerak dengan benar.”</p>
+<p>	Benih Gu Immortal lainnya tidak keberatan saat mereka menyerang garis depan dan menyerang.</p>
+<p>	Xiao Qi Xing tetap di belakang, mengamati situasi sambil mengendalikan para prajurit untuk bergerak maju.</p>
+<p>	Dia sangat sadar bahwa dia datang untuk bersaing memperebutkan warisan sejati Genesis Lotus, para Master Gu di sampingnya ini adalah pesaing terbesarnya. Kenali diri Anda dan musuh Anda, dan Anda tidak akan pernah dikalahkan, ini adalah kesempatan terbaik untuk mendapatkan informasi tentang orang-orang ini.</p>
+<p>	Para elit Guru Gu dari sepuluh sekte kuno besar Benua Tengah ini memang luar biasa.</p>
+<p>	Xiao Qi Xing telah membuat banyak kemajuan, para Master Gu ini juga tidak kalah hebatnya.</p>
+<p>	Ying Sheng Ji terus menerus mengeluarkan dokter Gu, yang mengambil bentuk manusia dan menyelamatkan orang di mana-mana.</p>
+<p>	Chen Da Jiang melewati gerbang luar, sekelompok petugas bergerak di sekelilingnya saat ia bergabung dengan garis depan dengan pedang panjang dan rantai baja.</p>
+<p>	Sun Yao memberikan kejutan yang lebih besar kepada Xiao Qi Xing, tiga penari wanita bergerak di sekelilingnya, lengan panjang mereka berkibar tertiup angin dan melemahkan para prajurit kacang dewa. Selain itu, Sun Yao juga mengadakan gerakan pembunuh jalur manusia — Joy in Helping People; langkah ini memperkuat sekutunya.</p>
+<p>	Adapun Wei Wu Shang, dia muncul dan menghilang saat dia bergerak dalam pertempuran yang kacau seperti ikan di air.</p>
+<p>	“Orang ini sudah menguasai pencuri Gu.” Xiao Qi Xing menyadari.</p>
+<p>	Para elit ini segera bersinar terang saat mereka bergerak. Xiao Qi Xing juga merasakan tekanan berat saat dia memperingatkan dirinya sendiri: “Saya benar-benar tidak bisa meremehkan orang-orang ini!”</p>
+<p>	Pertempuran kacau ini berlangsung selama lima menit sebelum seluruh jalan dibersihkan.</p>
+<p>	Tanpa tinggal lebih lama lagi, kelompok Xiao Qi Xing berbaris menuju lukisan lain sekali lagi.</p>
+<p>	Prajurit kacang ilahi di jalan mereka semua dimusnahkan.</p>
+<p>	Secara alami, mereka bukan satu-satunya kelompok yang melakukan serangan balik. Para pejuang di dunia lukisan juga mengorganisir banyak kelompok dan berpartisipasi dalam pertempuran, membunuh para prajurit kacang dewa.</p>
+<p>	Ye Fan dan Hong Yi juga bercampur di antara kelompok lain, mereka diam-diam berbicara.</p>
+<p>	“Prajurit kacang surgawi ini benar-benar aneh, ada begitu banyak tipe dari mereka.”</p>
+<p>	“Anggota sepuluh sekte kuno besar juga telah tumbuh, kita perlu menyembunyikan diri kita dan tidak ditemukan oleh mereka.”</p>
+<p>	Mereka adalah orang-orang paling awal yang memasuki dunia lukisan.</p>
+<p>	Pada saat ini, akumulasi mereka jauh melampaui elit Benua Tengah, tetapi Ye Fan dan Hong Yi hanya bisa bergerak diam-diam. Bagaimanapun, dunia lima wilayah adalah dunia utama, begitu mereka ditemukan oleh Pengadilan Surgawi, situasinya akan menjadi berantakan.</p>
+<p>	Kelompok serangan balik menjadi lebih cepat semakin mereka membunuh, efisiensi mereka meningkat terus menerus dan korban berkurang.</p>
+<p>	Setelah mereka memiliki pengalaman yang cukup, mereka benar-benar melihat melalui jenis tentara kacang ilahi. Prajurit dewa kacang kuning hanyalah umpan meriam, prajurit kacang hijau bisa menembakkan panah terbang, prajurit kacang merah bisa meledak sendiri, prajurit kacang hitam memiliki pertahanan terbesar.</p>
+<p>	Setelah memahami karakteristik dari prajurit kacang ilahi yang berbeda, mereka mulai meluncurkan serangan yang ditargetkan. Prajurit kacang ilahi ini jauh lebih lemah daripada penampilan luar mereka.</p>
+<p>	Kelompok-kelompok serangan balik terus meraih kemenangan dan merebut kembali lebih banyak wilayah.</p>
+<p>	Akhirnya, mereka berkumpul di tembok kota Divine Emperor City.</p>
+<p>	Ada lautan tentara kacang ilahi di luar tembok kota, Xiao Qi Xing tidak bisa menahan napas ketika dia melihat ini.</p>
+<p>	Kekuatan musuh luar biasa, itu bukan sesuatu yang bisa ditangani oleh kelompok mereka. Mereka hanya bisa memiliki kesempatan untuk mempertahankan kota dengan bersekutu dengan kelompok lain.</p>
+<p>	Prajurit kacang surgawi bergegas maju tanpa formasi apa pun.</p>
+<p>	Kelompok Xiao Qi Xing menyerang dengan keterampilan jarak jauh dari atas tembok kota.</p>
+<p>	Prajurit kacang surgawi seperti semut ketika mereka mulai memanjat tembok kota.</p>
+<p>	Orang-orang yang menjaga kota mempertaruhkan hidup mereka untuk melakukan serangan balik, tidak mundur selangkah pun.</p>
+<p>	Seluruh medan perang seperti penggiling daging besar, sejumlah besar nyawa hilang setiap detik.</p>
+<p>	Pertempuran ini berlangsung selama tiga hari tiga malam.</p>
+<p>	Xiao Qi Xing pingsan dan duduk lemah di tanah. Jubah militernya yang seputih salju sudah diwarnai merah dengan darah.</p>
+<p>	Sorak-sorai menyebar terus menerus di sekitarnya, mereka telah menang. Kelompok terbesar tentara kacang ilahi ini benar-benar dimusnahkan oleh mereka.</p>
+<p>	Kemenangan sudah pasti!</p>
+<p>	Selanjutnya adalah membersihkan kelompok kecil yang tersisa dari prajurit kacang dewa di setiap lukisan.</p>
+<p>	“Tunggu sebentar, sepertinya kita bisa keluar dari Divine Emperor City.”</p>
+<p>	“Kita bisa mengikuti jalan yang diambil oleh para prajurit kacang dewa dan menyerang markas mereka!”</p>
+<p>	Ketika mereka membersihkan medan perang, banyak yang membuat penemuan besar.</p>
+<p>	Pasukan mulai berkumpul sekali lagi dan berjuang menuju Fang Di Chang.</p>
+<p>	Di dunia lukisan ini, kekuatan Fang Di Chang sangat berkurang tetapi dia masih memiliki sekelompok tentara kacang ilahi di sekitarnya.</p>
+<p>	“Jadi kamu adalah penyebab utama di balik semua ini!”</p>
+<p>	“Kamu akan membayar dosa-dosamu!”</p>
+<p>	“Mengapa, mengapa Anda perlu membunuh orang-orang yang tidak bersalah ini, dendam apa yang Anda miliki terhadap mereka?”</p>
+<p>	Emosi melonjak, tetapi kelompok Xiao Qi Xing saling melirik dan bergerak ke belakang tanpa suara.</p>
+<p>	“Jadi penyebab malapetaka prajurit kacang surgawi adalah dia.”</p>
+<p>	“Dia adalah Gu Immortal dari klan Fang, Fang Di Chang, yang pernah menyempurnakan Istana Kacang Ilahi.”</p>
+<p>	“Aku tidak menyangka dia masih hidup, dan dia menciptakan kekacauan di dunia lukisan!”</p>
+<p>	“Jangan bilang, apakah sekte kami mengirim kami ke sini untuk menyingkirkannya?”</p>
+<p>	“Aneh, mengapa Pengadilan Surgawi tidak menyerang dan membunuh Fang Di Chang secara langsung? Mungkin ini ujian bagi kita, atau mungkin kita hanya bisa menghadapinya sambil mengikuti aturan dunia lukisan?”</p>
+<p>	Kelompok Xiao Qi Xing berbicara dengan cepat, ekspresi mereka sangat serius. Mereka adalah orang-orang yang dipilih dan diasuh oleh sekte masing-masing, sehingga mereka memiliki banyak informasi tentang dunia Abadi Gu, mereka memiliki informasi rinci tentang para peserta perang nasib.</p>
+<p>	“Membunuh!”</p>
+<p>	“Balas dendam untuk teman dan keluarga kita!”</p>
+<p>	“Aku akan memotongnya menjadi ribuan keping!!”</p>
+<p>	Master Gu dari dunia lukisan menyerang Fang Di Chang.</p>
+<p>	“Sekelompok sampah.” Fang Di Chang berdiri di tengah dan memerintahkan pasukannya dengan tenang. Prajurit kacang ilahi di sampingnya mengubah formasi mereka dan bergerak dengan lancar seperti air. Kerja sama antara berbagai jenis tentara sangat lancar dan lancar.</p>
+<p>	Seketika, para pejuang dunia lukisan menderita banyak korban.</p>
+<p>	Kelompok Xiao Qi Xing juga terkejut.</p>
+<p>	“Skala tentara kacang surgawi ini cukup kecil, bagaimana mereka bisa mendapatkan hasil seperti itu?”</p>
+<p>	“Dengan Gu Immortal yang memerintahkan mereka, mereka benar-benar berbeda dari sebelumnya.”</p>
+<p>	“Apa yang harus kita lakukan? Pertempuran atau mundur?”</p>
+<p>	“Bertarung! Kami memiliki angka di pihak kami, Fang Di Chang mungkin kuat, tetapi kesenjangan di antara kami bukanlah kesenjangan antara abadi dan fana. Kami memiliki peluang sukses yang tinggi! ”</p>
+<p>	“Bunuh yang abadi !!”</p>
+<p>	Seseorang meneriakkan slogan yang membuat kelompok Xiao Qi Xing sangat bersemangat.</p>
+<p>	Saat mereka bergabung dalam pertempuran, Master Gu di garis depan merasa seperti mereka telah menerima bala bantuan yang kuat.</p>
+<p>	Faktanya, tidak hanya mereka, bahkan Ye Fan dan Hong Yi juga terlibat dalam pertempuran, membantu secara diam-diam.</p>
+<p>	Fang Di Chang mendengus dingin. Di bawah komandonya, formasi prajurit kacang ilahi terus berubah sementara menjadi sangat stabil.</p>
+<p>	Kelompok Xiao Qi Xing berjuang keras untuk waktu yang lama, tetapi yang membuat mereka ngeri, mereka menemukan bahwa perbedaan korban antara musuh dan pihak mereka telah mencapai tingkat yang menakutkan. Hanya ada kerugian yang dapat diabaikan pada prajurit kacang ilahi.</p>
+<p>	“Apa yang harus kita lakukan?”</p>
+<p>	“Yang abadi tetaplah yang abadi pada akhirnya!”</p>
+<p>	“Apalagi ketika Fang Di Chang adalah jalan kebijaksanaan Gu Immortal.”</p>
+<p>	Semangat kelompok Xiao Qi Xing turun tajam dan mereka berpikir untuk mundur, tidak berani bertarung dengan Fang Di Chang.</p>
+<p>	Tetapi pada saat ini, tubuh Fang Di Chang tiba-tiba bergetar saat dia batuk seteguk darah. Dia mendengus dingin dan menatap ke langit, tertawa dingin: “Kehendak Genesis Lotus, kamu tidak bisa menahannya dan mengambil tindakan.”</p>
+<p>	Fang Di Chang ditekan oleh kehendak Genesis Lotus, kendalinya atas tentara kacang ilahi tidak lagi semulus sebelumnya.</p>
+<p>	Kelompok Xiao Qi Xing segera merasakan tekanan pada mereka berkurang tajam, mereka terkejut dan senang saat mereka menyerang sekali lagi.</p>
+<p>	Prajurit kacang dewa Fang Di Chang terus berjatuhan sampai mereka semua dimusnahkan.</p>
+<p>	Fang Di Chang tidak punya pilihan selain menyerang secara pribadi, dia mengamuk melalui tentara, membunuh semua orang di jalannya tanpa ada yang bisa menyaingi dia.</p>
+<p>	Ini tidak berlangsung lama, kondisinya terus memburuk saat ia mulai menerima cedera.</p>
+<p>	Setelah beberapa waktu, Fang Di Chang berlumuran darah dan mulai terhuyung-huyung.</p>
+<p>	“Tidak kusangka aku, Fang Di Chang, benar-benar akan mati di tempat seperti itu!” Fang Di Chang berteriak dalam kesedihan saat dia meledakkan diri dengan tegas.</p>
+<p>	Ledakan!</p>
+<p>	Master Gu yang mengelilinginya musnah tanpa mayat utuh.</p>
+<p>	Setelah beberapa saat terkejut, para Master Gu yang masih hidup berteriak kegirangan.</p>
+<p>	Baca di meionovel.id</p>
+<p>	“Kami menang!”</p>
+<p>	“Kami akhirnya membunuh iblis itu.”</p>
+<p>	“Hiks… ayah, ibu, aku telah membalaskan dendammu.”</p>
+<p>	Kelompok Xiao Qi Xing juga bersemangat dan wajah mereka memerah: “Kami membunuh yang abadi! Kami berhasil membantai yang abadi! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

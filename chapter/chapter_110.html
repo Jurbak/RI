@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 110 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 110";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_109.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 110">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_111.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 110</h1>
+        <div class="text-left">
+<p>	Bab 110</p>
+<p>	Bab 110: Wanita tua, kamu terlalu lembut!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Cacing minuman keras …” Fang Yuan bergumam ringan, berjalan ke sisi meja resepsionis pusat.</p>
+<p>	Dia hanya membutuhkan cacing Liquor ini, bersama dengan empat jenis anggur manis, pedas, asam, pahit — empat jenis, untuk memurnikan cacing Four Flavours Liquor. Tentu saja, perpaduan seperti itu juga mengandung kemungkinan kegagalan.</p>
+<p>	Tetapi jika Fang Yuan tidak memiliki cacing Liquor kedua, dia bahkan tidak memiliki kesempatan untuk mencoba.</p>
+<p>	Ini adalah hidup setelah semua, kerja keras tidak berarti hasil, atau kesuksesan. Tetapi jika seseorang tidak bekerja keras, mereka ditakdirkan untuk gagal.</p>
+<p>	Jalur Iblisnya sama, para pembudidaya iblis pandai membersihkan rintangan di jalan mereka, dengan berani maju di jalur mereka. Bagi kebanyakan orang di dunia, mereka dipandang sebagai ekstremis dan petualang.</p>
+<p>	“Saya masih khawatir sebelumnya di mana menemukan cacing Liquor kedua. Memikirkan bahwa takdir mengirim cacing Liquor ini tepat ke depan pintu saya. Kesempatan ada di depan saya, bagaimana saya bisa menyerah? Aku harus mendapatkan cacing Liquor ini!” Mata Fang Yuan bersinar dengan tekad.</p>
+<p>	“Jika kultivasi saya mencapai Peringkat empat atau lima, dengan kemampuan bertarung yang kuat, saya akan merebutnya tanpa berpikir, membunuh dewa dan membunuh Buddha dengan cara saya! Jika saya peringkat tiga atau empat, dengan pengalaman saya yang cukup, saya bisa mencurinya tanpa ada yang mengetahuinya. Sayangnya saya hanya peringkat dua sekarang, sebenarnya saya hanya tahap awal … ”</p>
+<p>	Fang Yuan menghela nafas dalam hatinya, “Aku hanya bisa membelinya dengan adil dan jujur ​​seperti ini.”</p>
+<p>	Dia melihat harga di konter.</p>
+<p>	“Cacing minuman keras – Lima ratus batu purba.”</p>
+<p>	Harga normal cacing Liquor adalah lima ratus delapan puluh batu purba. Harga di sini sebenarnya delapan puluh keping lebih murah dari pasar.</p>
+<p>	Tetapi jika Fang Yuan benar-benar berpikir dia dapat menghabiskan lima ratus batu purba untuk membeli cacing Liquor ini, maka lima ratus tahun hidupnya akan sia-sia.</p>
+<p>	Harga yang murah hanya untuk menarik pelanggan dan memicu mentalitas dan keserakahan orang untuk membelinya.</p>
+<p>	Rumah pohon ini jelas merupakan aset Jia Fu.</p>
+<p>	“Nenek, cacing Liquor ini hanya lima ratus batu purba!” Seorang gadis muda masuk, berteriak kaget.</p>
+<p>	Mata gadis muda itu bersinar, menjabat tangan neneknya, “Nenek, besok adalah upacara kebangkitan. Bukankah kamu berjanji untuk memberiku hadiah? Mengapa Anda tidak memberikan cacing Liquor ini kepada saya. ”</p>
+<p>	Nenek gadis muda itu memiliki ikat pinggang putih, dan ikat pinggang itu memiliki potongan perak persegi dengan nomor “3” di atasnya.</p>
+<p>	Setelah Master Gu mencapai kultivasi Peringkat tiga, mereka secara otomatis naik ke posisi tetua klan.</p>
+<p>	Hanya saja di antara tetua klan, ada perbedaan. Ada sesepuh yang berkuasa yang memegang kekuasaan politik yang besar. Sementara yang lain tidak, mereka hanya akan mengendalikan departemen dengan sedikit keuntungan.</p>
+<p>	Tapi tetua peringkat tiga ini bukanlah tetua klan yang lemah itu.</p>
+<p>	“Gu Yue Yao Ji …” Fang Yuan segera mengenalinya, ini adalah tetua klan ruang obat. Aula obat adalah faksi pendukung klan, dapat dikatakan sebagai departemen yang paling menguntungkan. Gu Yue Yao Ji memiliki pengaruh yang sangat besar karena senioritasnya, bahkan terhadap pemimpin klan, dia bisa melakukan dengan memberi hormat dan membalas sambil duduk. Dia adalah Master Gu penyembuhan nomor satu di klan dan telah menyelamatkan banyak nyawa para tetua klan, sehingga memiliki jaringan yang sangat kuat di klan.</p>
+<p>	“Baiklah baiklah. Jika cucuku yang penurut menginginkannya, nenek akan membelikannya untukmu.” Wajah wanita tua itu penuh kerutan. Dia adalah seorang bungkuk dan memiliki tongkat berjalan di satu tangan, tak berdaya mendesah dan berkata dengan wajah baik hati.</p>
+<p>	“Nenek adalah yang terbaik, aku tahu nenek paling menyayangiku,” Gadis muda itu dengan gembira meraih Gu Yue Yao Ji, dengan gembira menempelkan bibirnya di pipi neneknya.</p>
+<p>	“Kalau begitu nenek, ayo panggil asisten toko dan beli cacing Liquor ini segera!”</p>
+<p>	Gu Yue Yao Ji menggelengkan kepalanya, “Cucuku yang cantik, cacing Gu di sini tidak dibeli seperti itu. Biarkan nenek mengajari Anda, Anda melihat tumpukan kertas dan pena di atas meja?</p>
+<p>	Gadis muda itu mengangguk, “Aku melihatnya.”</p>
+<p>	Gu Yue Yao Ji berkata, “Ambillah secarik kertas dan gunakan pena untuk menuliskan harga cacing Liquor. Setelah itu, masukkan ke dalam lubang. Jika di antara semua penawar, harga Anda adalah yang tertinggi, cacing Liquor ini akan menjadi milik Anda.”</p>
+<p>	“Jadi begitu, sangat menarik.” Gadis muda itu mengambil kertas bambu dan memegang pena, tetapi ragu-ragu saat menulis.</p>
+<p>	Alisnya yang indah mengerutkan kening saat dia berpikir keras sejenak, lalu akhirnya cemberut bibirnya, dia berkata, “Nenek, berapa harga yang pantas? Jika saya mengaturnya terlalu rendah, orang lain akan mendapatkan worm Liquor, tetapi jika saya mengaturnya terlalu tinggi, saya akan merugi.”</p>
+<p>	Gu Yue Yao Ji tertawa, menggodanya, “Bagaimana bisa begitu mudah membeli cacing Liquor? Mari kita lihat keberuntunganmu…”</p>
+<p>	“Nenek!” Gadis muda itu berkata dengan genit, memonopoli lengan Gu yue Yao Ji yang lemas dan gemetar.</p>
+<p>	“Baiklah, baiklah, berhenti berayun, tubuhku akan runtuh.” Wanita tua itu menghela nafas, “Nenek akan mengisinya untukmu.”</p>
+<p>	Gadis muda itu dengan cepat melompat, berkata, “Saya tahu nenek adalah yang terbaik!”</p>
+<p>	Gu Yue Yao Ji menulis harga sebelum memasukkan namanya sendiri saat gadis muda itu menyaksikan dengan antisipasi.</p>
+<p>	Setelah selesai, dia melipat kertas itu dan memberi isyarat kepada gadis itu, “Pergilah, masukkan kertas itu.”</p>
+<p>	Gadis muda itu dengan patuh mengambil kertas itu dan menemukan lubang di konter dan memasukkan kertas itu ke dalamnya.</p>
+<p>	Dia kembali ke samping Gu Yue Yao Ji, merasa tidak yakin, “Nenek, apakah ini bisa?”</p>
+<p>	Wanita tua itu mengangguk, “Itu saja. Tapi hidup ini sulit untuk diprediksi, seseorang mungkin memberikan harga yang lebih tinggi. Tapi harga itu akan terlalu tinggi. Jika mereka benar-benar menawar begitu banyak, orang yang membeli cacing Liquor ini adalah orang bodoh. Jangan khawatir, cacing Liquor ada di dalam tas. ”</p>
+<p>	“Oh.” Gadis muda itu mengangguk dengan ekspresi lucu.</p>
+<p>	“Ayo pergi. Ayo temani nenek ke atas dan lihat-lihat.”</p>
+<p>	“Oke, nenek.”</p>
+<p>	Melihat mereka pergi, mata Fang Yuan bersinar dengan keras.</p>
+<p>	Gu Yue Yao Ji ini, baginya, adalah pesaing yang tangguh, tidak bisa diremehkan.</p>
+<p>	Tetapi situasi ini, Fang Yuan telah mempersiapkan dan mengantisipasinya.</p>
+<p>	Cacing Liquor sangat berharga. Meskipun hanya dapat digunakan untuk Master Gu Peringkat satu, cacing Liquor dapat memperbaiki esensi purba dan itu sangat berguna. Memperbaiki esensi purba dan meningkatkannya dengan satu tahap kecil — ini berarti bahwa penyimpanan esensi purba meningkat dan ini memiliki kekuatan pendorong yang besar menuju budidaya Guru Gu.</p>
+<p>	Satu-satunya kelemahan adalah bahwa cacing Liquor tidak memiliki prospek yang baik di masa depan.</p>
+<p>	Menurut resep populer, cacing Liquor hanya digunakan sebagai bahan fusi, dan cacing Gu baru yang dibuat tidak memiliki kemampuan pemurnian esensi purba.</p>
+<p>	Ini terlalu sia-sia. Bahkan, itu tidak layak.</p>
+<p>	Dengan demikian, sebagian besar klan memiliki cacing Liquor dan tidak menggunakannya untuk menjalani fusi, tetapi digunakan oleh akademi untuk memungkinkan siswa bergiliran menggunakannya.</p>
+<p>	Jika Fang Yuan mengekspos resep kemajuannya, nilai pasar cacing Liquor akan meningkat drastis.</p>
+<p>	“Huh, tidak mudah untuk mendapatkan cacing Liquor ini. Nenek dan cucu ini hanyalah salah satu pesaing. Saya ingin tahu berapa banyak orang lain yang telah menempatkan kertas ke dalam lubang ini?</p>
+<p>	Cacing minuman keras adalah hal yang baik, dan orang-orang secara alami menginginkan hal-hal yang baik.</p>
+<p>	Hanya saja di antara para pesaing ini, ada yang tulus membelinya, sementara yang lain hanya mencoba peruntungan. Beberapa kaya, seperti Gu Yue Yao Ji, sementara beberapa miskin, seperti Fang Yuan.</p>
+<p>	“Untungnya, saya mendapatkan kembali aset keluarga, dan beberapa hari ini saya telah menjual beberapa daun vitalitas peringkat satu, ditambah kedai anggur dan bangunan bambu semuanya disewakan. Jadi saya bisa mengumpulkan beberapa tabungan. Jika tidak, saya bahkan tidak akan bisa bersaing. ”</p>
+<p>	Tapi dia punya terlalu sedikit waktu untuk menabung. Di satu sisi dia punya banyak cacing Gu untuk diberi makan, dan dalam hal keberuntungan dia tidak bisa bersaing dengan wanita tua seperti Gu Yue Yao Ji.</p>
+<p>	“Huh, ayo pergi. Tuan Yao Ji baru saja melemparkan kertas.”</p>
+<p>	“Aku juga melihatnya, sepertinya aku tidak ditakdirkan untuk memiliki cacing Liquor ini.”</p>
+<p>	Master Gu yang mengelilingi konter ini semuanya merasa sedih.</p>
+<p>	Hanya Fang Yuan yang masih berdiri di sana.</p>
+<p>	Matanya seperti sungai jurang, bersinar dengan cahaya dingin.</p>
+<p>	Para Master Gu yang pergi semua ketakutan oleh aura Gu Yue Yao Ji dan mundur atas kemauan mereka sendiri. Tapi bagaimana mungkin Fang Yuan ditakuti?</p>
+<p>	“Beberapa peluang ada di depan Anda, hanya saja orang-orang memilih untuk menyerah. Aku masih punya kesempatan!” Otak Fang Yuan bekerja dengan intens saat dia berpikir keras.</p>
+<p>	Untuk memperebutkan peruntungan, Fang Yuan bukanlah lawannya.</p>
+<p>	Bahkan kemudian……</p>
+<p>	Itu tidak berarti bahwa jumlah penawaran Gu Yue Yao Ji pasti lebih tinggi dari Fang Yuan!</p>
+<p>	Meskipun cacing Liquor itu berharga, itu masih cacing Gu peringkat satu. Harga komoditas apa pun akan berfluktuasi, tetapi pasti tidak akan naik atau turun melampaui batas tertentu. Dengan demikian, semua penyimpangan harga memiliki kisaran.</p>
+<p>	Poin penting sekarang adalah, berapa harga yang diberikan Gu Yue Yao Ji!?</p>
+<p>	Dia tidak kekurangan uang, dan untuk cucu perempuan yang dia sayangi, berapa banyak yang bersedia dia bayar?</p>
+<p>	Selama harga Fang Yuan, jika bahkan satu poin, lebih tinggi, dia menang.</p>
+<p>	Ini adalah jenis pertempuran yang berbeda! Yang kuat belum tentu menang, yang lemah belum tentu kalah. Menebak dan berjudi membuat pertarungan menjadi lebih seru.</p>
+<p>	“Jika itu orang lain, mereka mungkin tidak bisa menebaknya. Gu Yue Yao Ji, kamu sengaja mengatakan beberapa hal sebelumnya untuk menakut-nakuti pesaing? Tapi di depanku, kamu masih terlalu lembut!” Bibir Fang Yuan melengkung ke sudut saat dia tersenyum percaya diri.</p>
+<p>	Di dunia ini, transaksi sangat menarik.</p>
+<p>	Jika itu di Bumi, penjual pasti akan mengadopsi gaya lelang saat menjual cacing Gu langka seperti cacing Liquor.</p>
+<p>	Tapi di dunia ini, lelang tidak berjalan dengan baik.</p>
+<p>	Alasan penting adalah bahwa kekerabatan adalah nilai terbesar di sini, itu adalah kekompakan klan.</p>
+<p>	Jika lelang diadakan, anggota klan akan memiliki permusuhan bawah sadar terhadap orang luar seperti Jia Fu.</p>
+<p>	Begitu barang lelang dihargai terlalu tinggi, mereka akan keluar dari persaingan dan bahkan mencoba menenangkan penjual, membuat beberapa kelonggaran untuk ditukar dan dikompensasi.</p>
+<p>	Orang-orang di dunia ini memiliki satu sudut pandang — Kalah dari keluarga tidak apa-apa, tetapi bagi orang luar untuk mendapatkannya, itu merupakan penghinaan bagi seluruh klan!</p>
+<p>	Kecuali, beberapa klan bergabung dalam pelelangan bersama. Dalam hal ini, ada persaingan, dan itu akan penuh dengan persaingan.</p>
+<p>	Tapi lelang ini sulit dilakukan.</p>
+<p>	Karena transportasi tidak nyaman.</p>
+<p>	Transportasi adalah basis perdagangan, dan jika sistem transportasi tidak dikembangkan, bisnis dan perdagangan akan menyusut. Karena dalam perdagangan, pergerakan komoditaslah yang penting.</p>
+<p>	Setiap desa menempati sebuah gunung dan tinggal berjauhan satu sama lain. Jalan yang menghubungkan mereka sulit untuk dilalui, terus-menerus memiliki binatang buas, tebing, ditambah dengan medan dan cuaca yang berbahaya, dan bahkan cacing Gu liar yang berbahaya — itu benar-benar penuh dengan kesulitan.</p>
+<p>	Sistem transportasi yang tidak nyaman seperti itu menyulitkan klan yang berbeda untuk berkumpul untuk pelelangan.</p>
+<p>	Bahkan di Gunung Qing Mao dengan tiga klannya, Jia Fu tidak berani mengadakan pelelangan.</p>
+<p>	Pertama, di mana akan diadakan? Tidak aman di alam liar, dan jika diadakan di Desa Gu Yue, dua klan lainnya tidak akan merasa aman.</p>
+<p>	Dia hanya peringkat empat, dan kepala tiga desa lainnya juga peringkat empat. Dia tidak bisa menekan situasi. Dibandingkan dengan Bumi, perdagangan di sini tidak berkembang dan memiliki aturannya sendiri.</p>
+<p>	Menggunakan pengetahuannya tentang bisnis dan perusahaan dari Bumi, Fang Yuan berhasil mendapatkan dan juga kehilangan uang. Setelah beberapa pengalaman menyakitkan, dia akhirnya belajar dari pengalaman.</p>
+<p>	Menggabungkan pengetahuan bisnis lengkap dari Bumi, bersama dengan pengalaman pribadinya, tanpa membual, Fang Yuan memiliki pengetahuan tingkat atas dalam industri bisnis di seluruh dunia ini.</p>
+<p>	Hanya seorang wanita tua yang telah tinggal di desa Gunung Qing Mao sepanjang hidupnya, dia berani menghalangi saya untuk mendapatkan cacing Liquor?</p>
+<p>	Wanita tua, kamu terlalu lembut!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 82 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 82";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_81.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 82">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_83.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 82</h1>
+        <div class="text-left">
+<p>	Bab 82</p>
+<p>	Babak 82: Awal ujian akhir tahun</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari cerah setelah salju berlalu.</p>
+<p>	Gu Masters mengalir ke akademi di pagi hari.</p>
+<p>	“Ujian akhir tahun sudah dimulai lagi. Hehehe, saya ingin tahu apakah adegan yang saya lihat dari lebih dari satu dekade yang lalu ketika saya lulus akan terlihat lagi. ” Seorang Master Gu setengah baya dengan rambut hijau panjang mengalir di punggungnya berdiri di luar akademi, mengenang.</p>
+<p>	“Pemimpin, masuk, kamu suka mengenang.” Master Gu wanita muda di sampingnya memiliki bibir merah darah, tangannya dimasukkan ke dalam saku celananya. Ada sehelai rumput di mulutnya, dan dia memutar matanya.</p>
+<p>	“Hehehe, Yao Hong, jangan terburu-buru. Bagaimanapun kita harus masuk. Karena pemimpin klan sudah mengaturnya, anggota baru kami telah diputuskan sejak lama. ” Guru Gu berambut hijau tertawa.</p>
+<p>	“Bakat kelas A Fang Zheng?” Master Gu wanita Gu Yue Yao Hong mengerutkan mulutnya, berkata dengan sedih, “Ide pemimpin klan adalah membuat kita mengasuhnya!”</p>
+<p>	“Tapi misi menjaga anak ini tidak mudah untuk dicapai.” Tuan Gu laki-laki berambut hijau menghela nafas, “Sudahlah, ayo masuk.”</p>
+<p>	Seiring berjalannya waktu, semakin banyak Master Gu memasuki pintu akademi, dan berdiri di arena.</p>
+<p>	Ini adalah Master Gu pria dan wanita. Ada wajah-wajah muda, setengah baya, dan orang tua juga.</p>
+<p>	Master Gu setelah lulus akan keluar dan membentuk tim kecil untuk menyelesaikan misi klan. Master Gu yang datang ke arena adalah semua perwakilan dari kelompok mereka, untuk menilai penampilan para siswa dan menyerap mereka ke dalam tim mereka sendiri.</p>
+<p>	Bagi kelompok kecil, ini menyuntikkan darah segar dan memperluas kelompok mereka.</p>
+<p>	Untuk anggota yang baru bergabung, di bawah bimbingan dan pengajaran anggota yang lebih tua, mereka dapat dengan cepat beradaptasi dengan lingkungan baru dan lebih efektif menyelesaikan misi klan dan mengakibatkan kematian yang lebih rendah.</p>
+<p>	Matahari berangsur-angsur naik, saat para siswa memasuki keributan.</p>
+<p>	“Begitu banyak orang hari ini.” Anak-anak muda menyatakan.</p>
+<p>	“Cepat lihat, itu adalah Tuan Qing Shu. Dia adalah orang nomor satu klan Gu Yue kami di antara peringkat dua, dan dia dikenal karena sifatnya yang lembut dan ramah.” Seseorang menunjuk ke arah Tuan Gu laki-laki berambut hijau dan berteriak.</p>
+<p>	“Chi Shan senior juga ada di sini.”</p>
+<p>	“Itu adalah nona kecil keluarga Mo, Mo Yan!”</p>
+<p>	Qing Shu, Chi Shan, dan Mo Yan adalah bintang yang sedang naik daun dari Master Gu, yang dikenal oleh semua siswa.</p>
+<p>	“Huh, tim mereka terlalu sulit untuk masuk. Aku hanya kelas D, dan Gu vitalku adalah Laba-laba Sutra Lembut, aku ditakdirkan untuk menjadi staf pendukung.” Seorang anak muda menghela nafas, lalu bertanya kepada temannya, “Kamu?”</p>
+<p>	“Oh, aku sudah menyelesaikannya dengan hubungan. Melalui anak baptis dari saudara sepupu pamanku.”</p>
+<p>	…</p>
+<p>	Saat para siswa mengamati Guru Gu, Qing Shu, Chi Shan dan Mo Yan juga mengamati para siswa.</p>
+<p>	“Oh? Ada dua Gu Yue Fang Zheng.” Yao Hong melihat Fang Yuan dan Fang Zheng, berteriak tanpa sadar.</p>
+<p>	Pria berambut hijau Gu Master Gu Yue Qing Shu menghela nafas tanpa daya, “Apakah Anda melihat informasi yang saya berikan kemarin? Fang Zheng memiliki saudara kembar, mereka terlihat sangat mirip dalam penampilan, tetapi saudaranya hanya bakat kelas C. ”</p>
+<p>	“Oh jadi begitu. Sepertinya saya pernah mendengar bahwa orang yang membuat puisi ketika dia masih muda adalah Fang Yuan? Apakah kita memasukkannya ke dalam tim?” Yao Hong menepuk dahinya dengan telapak tangannya, mengatakan apa pun yang dia pikirkan.</p>
+<p>	Qing Mao menggelengkan kepalanya, “Pemimpin klan secara khusus menyebutkan, jangan merekrutnya. Dia sepertinya ingin mengamati sesuatu. Saudara-saudara tidak memiliki hubungan yang baik pula. Bahkan jika kita ingin merekrutnya, Fang Yuan mungkin tidak akan bergabung.”</p>
+<p>	Yao Hong tidak terlalu memikirkannya, bergumam, “Di antara grup, kami adalah yang diakui secara publik nomor satu, bergabung dengan kami berarti masa depan yang cerah. Setiap siswa akan tertarik. Bagaimana mungkin dia tidak mau?”</p>
+<p>	Qing Shu tertawa ringan, “Itu karena kamu tidak mengenalnya, lihat informasi yang aku kirimkan padamu dulu.”</p>
+<p>	Pada saat ini, pemimpin klan Gu Yue Bo, dan tetua klan otoritatif Gu Yue Chi Lian dan Gu Yue Mo Chen masuk, masuk ke kursi di bawah tenda.</p>
+<p>	“Tidak hanya pemimpin klan, tetapi juga Tuan Chi Lian dan Tuan Mo Bei hadir tahun ini.”</p>
+<p>	Melihat ini, tidak hanya para siswa tetapi juga para Master Gu yang bersemangat, ini tidak terjadi di tahun-tahun sebelumnya.</p>
+<p>	“Tidak ada yang aneh, cucu Chi Lian dan Mo Chen semuanya ada di kelas tahun ini.”</p>
+<p>	“Fang Zheng adalah penerus pemimpin klan, harapan masa depan untuk melawan Bai Ning Bing. Pemimpin klan secara alami harus mengamati dengan cermat. ”</p>
+<p>	Diskusi banyak sekali di antara orang-orang.</p>
+<p>	“Lakukan dengan baik saudara.” Mo Yan memandang Mo Bei di antara orang-orang, diam-diam berdoa di dalam hatinya. Kelompoknya memiliki orang paling banyak, itu adalah skala terbesar. Jadi ada sekelompok Master Gu di sekitarnya, menunjukkan auranya yang mengesankan.</p>
+<p>	Sebagai saingan terberatnya, Gu Yue Chi Shan dari faksi Chi berdiri sendiri, sosoknya yang besar dengan mudah bertindak seperti menara merah raksasa di lautan manusia, menonjol secara luas.</p>
+<p>	Setelah memeriksa Chi Cheng, dia menarik kembali pandangannya.</p>
+<p>	Dengan pidato dari pemimpin klan, ujian akhir tahun dimulai.</p>
+<p>	Tiga tahap mengadakan pertarungan pada saat yang bersamaan.</p>
+<p>	Seketika, suara teriakan, suara pedang bulan terbang, dan suara pukulan dan tendangan serta diskusi para Master Gu di bawah panggung menyatu menjadi olok-olok keras.</p>
+<p>	“Keterampilan bertarung fisik tahun ini tinggi.” Segera, Yao Hong melihat perbedaannya.</p>
+<p>	“Hehehe, semua berkat Fang Yuan.” Gu Yue Qing Shu tertawa.</p>
+<p>	“Maksud kamu apa?” Yao Hong tidak mengerti.</p>
+<p>	Qing Shu menjelaskan padanya.</p>
+<p>	Yao Hong berseru kaget setelah mendengarkan, “Fang Yuan anak ini, dia benar-benar berani, hampir tak kenal takut. Hehehe, bahkan mem-bully saudaranya sendiri. Ini menarik.”</p>
+<p>	Dia melihat ke arah Fang Yuan dan Fang Zheng dari kerumunan, berpikir dalam hati — Mana yang kakak laki-laki dan mana yang lebih muda.</p>
+<p>	“Selanjutnya, Gu Yue Jin Zhu melawan Gu Yue Mo Bei.” Di arena, tuan rumah Gu Master berteriak.</p>
+<p>	Gu Yue Mo Bei melompat ke atas, dan Jin Zhu berjalan ke atas panggung dengan ekspresi serius.</p>
+<p>	Keduanya saling menghormati dan tidak berkata apa-apa lagi, langsung bertarung. Moonblade menari-nari di udara.</p>
+<p>	Keduanya terus menembak dan pada saat yang sama, bergerak dan menghindari tanpa henti.</p>
+<p>	Meskipun seorang gadis, Jin Zhu memiliki keterampilan dasar yang baik dan mampu bertarung setara dengan Mo Bei untuk sementara waktu. Tapi seiring berjalannya waktu, staminanya tidak bisa mengimbangi, dan dia mulai tertekan.</p>
+<p>	Akhirnya, dengan tubuh penuh keringat dan tidak memiliki energi tersisa, dia menyerah.</p>
+<p>	Mo Bei di sisi lain bahkan tidak terganggu.</p>
+<p>	“Meningkatkan daya tahan Gu ya, mungkin Gu Kumbang Longhorn Unta Kuning ….” Di bawah panggung, Fang Yuan mengamati, dengan cepat melihat melalui Mo Bei.</p>
+<p>	Fang Yuan memiliki enam cacing Gu, tapi itu pengecualian. Di antara orang-orang seusianya, mereka semua memiliki satu atau dua cacing Gu.</p>
+<p>	Bukan hanya karena tekanan finansial untuk memberi makan cacing Gu, tetapi juga karena penggunaan cacing Gu membutuhkan latihan terus-menerus untuk mengumpulkan pengalaman.</p>
+<p>	Keserakahan untuk lebih akan menjadi bumerang. Para siswa baru mulai berinteraksi dengan cacing Gu, dan baru saja memulai perjalanan kultivasi mereka. Dua cacing Gu sudah cukup bagi mereka untuk berlatih.</p>
+<p>	Hanya pengecualian seperti Fang Yuan dengan pengalamannya yang kaya dari kehidupan sebelumnya, yang dapat dengan mudah menangkap setiap cacing Gu yang dimilikinya dan menggunakannya sebaik mungkin.</p>
+<p>	Ujian berlanjut.</p>
+<p>	“Sial, melompat seperti kelinci!” Di panggung lain, seorang anak muda dengan marah berteriak, “Gu Yue Chi Cheng, kamu bukan laki-laki, apakah kamu berani bertarung denganku secara fisik?!”</p>
+<p>	“Tsk, hanya orang bodoh yang akan bertarung jarak dekat denganmu.” Di atas panggung, Gu Yue Chi Cheng tertawa meremehkan. Dia menggunakan Scarlet Pill Cricket Gu dan melompat-lompat, tubuhnya sangat lincah.</p>
+<p>	Lawannya hanya memiliki Flower Boar Gu. Bahkan jika dia bisa sementara meningkatkan kekuatannya dengan satu babi hutan, itu tidak berguna. Chi Cheng tidak mau bergandengan tangan dengannya.</p>
+<p>	Akhirnya, dia terkena moonblade dari Chi Cheng dan kehilangan terlalu banyak darah, mengundurkan diri dari pertarungan.</p>
+<p>	Penyembuhan Gu Masters di bawah panggung dengan cepat bergegas dan merawat luka-lukanya.</p>
+<p>	Seiring berjalannya waktu, semakin banyak siswa tanpa ampun tersingkir, dan banyak anak muda juga mulai menunjukkan kemampuan mereka.</p>
+<p>	Chi Cheng, Mo Bei, Fang Yuan, Fang Zheng……</p>
+<p>	Sampai siang.</p>
+<p>	Bakat kelas D semuanya dihilangkan. Mereka memiliki bakat yang terbatas dan semuanya memilih cacing Gu tipe pendukung untuk jalur produksi atau transportasi, yang sesuai dengan kehidupan mereka. Dengan demikian, mereka memiliki sedikit bantuan dalam pertempuran.</p>
+<p>	“Adik perempuan junior, Gu vitalmu adalah Rumput Nafas Kehidupan, kelompokku membutuhkan Master Gu penyembuh.”</p>
+<p>	“Senior, saya ingin bergabung dengan grup Anda, Gu vital saya adalah Moonlight Gu.”</p>
+<p>	“Maaf, kami tidak kekurangan Master Gu tipe serangan.”</p>
+<p>	…</p>
+<p>	Kelompok-kelompok kecil dengan cepat merekrut pemula, dan para siswa juga memilih kelompok yang mereka inginkan.</p>
+<p>	Perkelahian di atas panggung tidak memiliki banyak daya tarik visual, dan setelah beberapa ronde, tidak banyak sorotan, bahkan membosankan. Ini karena kebanyakan orang memilih Moonlight Gu, dan bagi kebanyakan orang, pertarungan akan dimulai dengan menembakkan moonblade. Siapa pun yang menghabiskan esensi purba mereka terlebih dahulu akan kalah.</p>
+<p>	Jika kedua belah pihak tidak memiliki esensi purba lagi, mereka akan bertarung dengan pukulan dan tendangan. Pada akhirnya, seseorang akan jatuh.</p>
+<p>	Baik itu siswa, Master Gu, atau tetua klan, mereka bosan menonton dan beberapa akan tertidur.</p>
+<p>	Hingga sore hari, hanya ada kurang dari sepuluh siswa yang tersisa di atas panggung.</p>
+<p>	“Akhirnya berakhir.” Beberapa Master Gu mengangkat semangat mereka, mengabaikan rasa kantuk.</p>
+<p>	Pada saat ini, Gu Master berteriak, “Babak selanjutnya, Gu Yue Fang Zheng vs Gu Yue Mo Bei!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

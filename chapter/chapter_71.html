@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 71 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 71";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_70.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 71">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_72.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 71</h1>
+        <div class="text-left">
+<p>	Bab 71</p>
+<p>	Bab 71: Tetap rendah hati bahkan jika kekuatan seseorang dapat membawa babi hutan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Waktu berlalu, dan dengan sekejap mata, itu sudah pertengahan Juni.</p>
+<p>	Malam musim panas, dengan busur emas bulan yang menggantung tinggi di langit, memancarkan cahayanya di tanah pegunungan yang hijau.</p>
+<p>	Angin bertiup dan dedaunan menari dengan cahaya bulan. Nyanyian jangkrik dan kodok saling bersahutan. Kadang-kadang suara serigala melolong bisa terdengar dari jauh, bergema di seluruh gunung hijau.</p>
+<p>	Di tepi sungai, sebuah sungai mengalir di atas sepotong batu tebing yang halus. Di samping bank ini, pertempuran sedang berlangsung.</p>
+<p>	Seekor babi hutan yang ditutupi luka halus dan dalam di sekujur tubuhnya menendang kakinya dan bergegas maju sekali lagi menuju Fang Yuan. Darah mengalir dari lukanya, menandai jalan cairan merah segar.</p>
+<p>	Fang Yuan bergulat dengannya, tidak menunjukkan tanda-tanda panik.</p>
+<p>	Babi hutan berada di ambang kematian, tetapi justru saat-saat inilah binatang buas adalah yang paling berbahaya. Menggunakan potensi terakhir yang tersisa dari hidup mereka, kegilaan dan keuletan mereka, dapat menyebabkan seseorang terluka parah pada saat yang ceroboh.</p>
+<p>	Fang Yuan damai, iris hitamnya bersinar menakutkan di bawah sinar bulan, menunjukkan cahaya ketenangan mutlak.</p>
+<p>	Dia memiliki pengalaman 500 tahun, sebagian dari dirinya asyik dengan pertempuran, sementara yang lain melepaskan diri dari pertempuran, dan tetap waspada terhadap sekitarnya.</p>
+<p>	Berkali-kali ketika dia berburu babi hutan, hewan lain datang untuk menghancurkan malapetaka. Terkadang, babi hutan, serigala liar, dan bahkan harimau yang berkeliaran.</p>
+<p>	Seiring waktu berlalu, serangan babi hutan secara bertahap melambat.</p>
+<p>	Mata Fang Yuan bersinar terang saat dia mengambil beberapa langkah ke depan, mendekati babi hutan itu. Mengangkat kekuatan di bahu dan lengannya, dia membawa dan mengangkat babi hutan itu dalam satu napas.</p>
+<p>	Huff!</p>
+<p>	Fang Yuan menggeram saat wajahnya memerah, lengannya terentang dan mengangkat babi hutan itu tinggi-tinggi di atas kepalanya.</p>
+<p>	Babi hutan dengan lemah meronta.</p>
+<p>	Tubuh Fang Yuan tidak stabil, dia menggunakan seluruh kekuatannya untuk melempar babi hutan.</p>
+<p>	Dengan dentuman, babi hutan itu terlempar ke batu besar di tepi sungai. Ia menangis dengan menyedihkan saat suara tulangnya patah bisa terdengar.</p>
+<p>	Itu jatuh dari batu besar, darah mengalir keluar dari telinga, hidung, dan mulutnya.</p>
+<p>	Itu berjuang beberapa kali sebelum menarik napas terakhirnya.</p>
+<p>	Lingkungan sekitar kembali damai.</p>
+<p>	Air sungai mengalir tanpa henti, membawa darah babi hutan di sepanjang sungai ke suatu tempat yang jauh.</p>
+<p>	“Kekuatanku sekarang bisa bersaing dengan babi hutan! Malam ini saya akan mencoba batu raksasa di lorong itu.” Fang Yuan berdiri di tempat, menarik napas berat dengan sedikit kegembiraan melintas di matanya.</p>
+<p>	Hari-hari ini dia telah menggunakan White Boar Gu tanpa henti untuk meningkatkan kekuatan tubuhnya. Dia bisa merasakan dengan kuat sekarang bahwa kekuatannya semakin besar.</p>
+<p>	Saat itu ketika dia melawan babi hutan, dia hanya bisa menggunakan teknik layang-layang dengan moonblade, tapi sekarang dia bahkan bisa membawa babi hutan, jadi peningkatan kekuatannya telah menunjukkan kemajuan yang besar.</p>
+<p>	Tentu saja, White Boar Gu tidak akan habis-habisnya memberinya kekuatan. Batasnya adalah kekuatan babi hutan, dan begitu dia mencapai batasnya, itu tidak akan lagi memberinya kekuatan tambahan.</p>
+<p>	“Saya bisa menggendong babi hutan sekarang, tapi bukan berarti saya bisa berhadapan langsung dengan babi hutan, seperti bagaimana orang kuat bisa menggendong orang kuat lainnya, tapi bukan berarti mereka memiliki kekuatan yang sama. Kekuatan saya dapat terus tumbuh. ”</p>
+<p>Memberi makan semua babi ke Gu Babi Putih, Fang Yuan menggunakan pisau berburunya untuk mengambil gigi babi hutan, dan akhirnya memotong kulit babi hutan yang sudah sangat robek, sebelum pergi ke gua rahasia di celah batu.</p>
+<p>	Adapun mayat babi hutan, tidak perlu dia melakukan apa pun. Selama malam musim panas, binatang buas berkeliaran dengan bebas, dan tidak lama kemudian, harus ada binatang buas yang mencium aroma darah dan bergegas ke sini untuk membersihkan tempat untuk Fang Yuan.</p>
+<p>	Atau lebih tepatnya, bahkan jika seseorang mengetahuinya, itu tidak penting. Cedera babi hutan semuanya ‘diedit’ oleh Fang Yuan, tidak terlihat seperti potongan pedang bulan.</p>
+<p>	Kembali ke gua rahasia yang diselimuti cahaya merah, Fang Yuan melemparkan dua gigi babi hutan ke sudut.</p>
+<p>	Gigi babi hutan bertabrakan, menyebabkan suara renyah.</p>
+<p>	Di sudut ini, sudah ada setumpuk gigi babi hutan. Itu adalah hasil perburuan Fang Yuan.</p>
+<p>	Fang Yuan menggeliat ke lorong, sekali lagi sampai ke ujung terowongan.</p>
+<p>	Berjalan di terowongan, langkah kakinya bisa terdengar bergema di dalam gua, penglihatannya diwarnai merah karena cahaya.</p>
+<p>	Semuanya tidak berubah; batu raksasa itu masih ada, diam-diam menghalangi jalannya. Adapun lubang yang dibuat setelah menggali bunga perbendaharaan bumi, itu sudah diisi oleh Fang Yuan.</p>
+<p>	Haa!</p>
+<p>	Fang Yuan berjalan di depan batu raksasa, mengangkat kedua tangannya dan mendorong.</p>
+<p>	Meskipun wajahnya menjadi merah karena tenaga, dan dia menggunakan seluruh kekuatannya, batu raksasa itu tidak bergerak satu inci pun.</p>
+<p>	“Dengan kekuatanku saat ini, aku hanya bisa membawa babi hutan. Tapi batu raksasa ini, setidaknya seberat lima hingga enam babi hutan. Tidak heran saya tidak bisa memindahkannya. Warisan kekuatan Flower Wine Monk tidak semudah itu diperoleh!” Tatapan Fang Yuan bersinar saat dia memperkirakan di dalam hatinya.</p>
+<p>	Dia tidak menyerah, tetapi malah keluar dari terowongan dan kembali ke ruang rahasia di lantai atas.</p>
+<p>	Mengambil tabung bambu dari sudut dinding, Fang Yuan duduk di tanah dan membuka tutupnya, mengeluarkan peta kulit binatang dan lembaran kertas bambu.</p>
+<p>	Dia membuka peta kulit binatang dan mulai menghafalnya, menggunakan jari-jarinya untuk menggambar jejak di peta untuk membantu menghafalnya.</p>
+<p>	Sejak dia mendapatkan peta, dia telah melakukan ini setiap hari.</p>
+<p>	Fang Yuan tidak memiliki tipe penyimpanan Gu, dia tidak bisa membawa peta kulit binatang ke mana-mana. Membawa tabung bambu padanya saat bertarung juga tidak nyaman. Dengan demikian, Fang Yuan berusaha dan bersiap untuk memasukkan seluruh konten peta kulit binatang ke dalam kepalanya.</p>
+<p>	Beberapa hal, bahkan jika merepotkan, harus dilakukan. Dalam kehidupan seseorang, mereka yang tidak secara aktif menyelesaikan masalah karena takut akan masalah, akan selalu menghadapi kesulitan yang berbahaya pada akhirnya. Fang Yuan memahami logika ini dari kehidupan sebelumnya.</p>
+<p>	“Ketika seseorang masih muda, ingatannya pasti bagus. Saya sudah hafal lebih dari setengah peta ini. Jika saya sudah tua, saya mungkin akan melupakan konten saat menghafal ini. Hehehe… tentu saja jika saya memiliki Kutu Buku, saya akan memasukkan peta ini ke dalamnya, dan sejak saat itu, selama saya tidak kehilangan Kutu Buku, saya akan dapat mengingat peta ini dengan jelas selamanya.”</p>
+<p>	Fang Yuan memiliki cacing Liquor, Gu Babi Putih, dan sekarang mulai memiliki keserakahan yang tak terpuaskan, mulai mendambakan Kutu Buku.</p>
+<p>	Nilai dari Kutu Buku cukup dekat dengan cacing Liquor dan Gu Babi Putih, semuanya merupakan spesies langka di antara cacing Gu peringkat satu. Harga pasarnya mahal dan mereka sering terjual habis dalam beberapa saat.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan tidak mendapatkan worm Liquor atau White Boar Gu, tetapi dia secara tidak sengaja mendapatkan Bookworm. Kutu Buku ini akhirnya naik peringkat bersamanya, dan menemaninya selama enam puluh tahun penuh.</p>
+<p>	“Lupakan saja, Kutu Buku itu langka dan jumlahnya sedikit, aku tidak akan bisa mendapatkannya dalam waktu dekat. Sejujurnya, tahap saya saat ini jauh lebih baik daripada kehidupan saya sebelumnya pada saat ini. Terakhir kali pada periode ini, saya masih peringkat satu tahap awal, sementara yang lain seperti Fang Zheng, Chi Cheng, Mo Bei sudah tingkat atas, jauh melampaui saya. Fang Yuan bukanlah seseorang yang mengkhawatirkan apa pun, dengan cepat melupakannya.</p>
+<p>	Dia agak puas dengan kemajuannya saat ini.</p>
+<p>	Dia adalah panggung tengah, dan yang lainnya juga panggung tengah. Dengan bakat kelas C-nya, dia bisa mempertahankan kecepatan yang sama dengan nilai A dan B ini, itu tidak mudah. Banyak upaya diberikan kepada cacing Liquor, serta pengalaman kultivasi Fang Yuan yang kaya.</p>
+<p>	Aspek lainnya, juga karena Fang Yuan.</p>
+<p>	Tindakan pemerasannya telah menyebabkan teman-teman sekelasnya melatih keterampilan bertarung fisik mereka di bawah bantuan para tetua mereka. Tanpa sadar, itu menyebabkan mereka terganggu, mengurangi waktu yang mereka habiskan untuk memelihara lubang mereka. Hal ini mengakibatkan tingkat kultivasi setiap orang menjadi lebih rendah dari kehidupan masa lalu Fang Yuan.</p>
+<p>	Namun meski begitu, mereka tidak begitu jauh dari panggung atas sekarang.</p>
+<p>	Tahap awal kultivasi Master Gu agak mudah, melihat efeknya dalam waktu singkat. Terutama Gu Yue Fang Zheng, Mo Chen dan Chi Cheng, tingkat kultivasi mereka sudah merayap dan bahkan tampaknya melampaui Fang Yuan.</p>
+<p>	Dengan kultivasi yang konstan, ketiganya dengan bakat mereka, atau dukungan di belakang mereka, sudah mulai menunjukkan keunggulan mereka. Petunjuk yang dimiliki Fang Yuan karena cacing Liquor mulai menghilang.</p>
+<p>	Tentu saja, ada juga alasan dia berburu baru-baru ini dan menggunakan Gu Babi Putih untuk meningkatkan kekuatannya, atau menghabiskan banyak waktu dan usahanya untuk melakukannya.</p>
+<p>	“Pada tingkat ini, tak lama, seseorang akan maju ke tahap atas. Orang pertama yang mencapai tahap atas akan mendapatkan hadiah tiga puluh batu purba. Tetapi hadiah ini, saya tidak bermaksud untuk memperebutkannya. ” Fang Yuan telah memutuskan sejak lama.</p>
+<p>	Jika dia meninggalkan Gu Babi Putih sekarang dan bergegas ke panggung atas, dia mungkin memiliki beberapa harapan untuk menang. Tapi itu bukan tujuan Fang Yuan. Tiga puluh batu purba mungkin bagus tapi dia tidak kekurangan batu purba saat ini.</p>
+<p>	Alasan yang lebih besar adalah dia harus tetap tersembunyi dan tidak menonjolkan diri untuk mengurangi perhatian orang lain terhadapnya, sehingga dia bisa mewarisi warisan kekuatan Biksu Anggur Bunga dengan sukses.</p>
+<p>	Ini adalah motifnya yang sebenarnya.</p>
+<p>	“Akademi memiliki segala macam penghargaan, tetapi hanya wortel untuk menarik minat siswa, dan yang paling penting, itu adalah bagian dari sistem keluarga. Berjuang untuk hadiah kecil ini, bukanlah hal yang akan dilakukan orang bijak.”</p>
+<p>	Fang Yuan mengumpulkan semangatnya dan menatap peta kulit binatang lagi.</p>
+<p>	Peta kulit binatang itu memiliki dua halaman; satu mencatat hari sementara yang lain merekam malam. Banyak garis warna berbeda terjalin di atasnya.</p>
+<p>	Garis-garis ini, ada yang lurus, ada yang melengkung, tetapi semuanya memiliki makna tersendiri. Hanya lelaki tua Wang yang akan mengerti artinya, tetapi sangat disayangkan dia meninggal. Tetapi bahkan jika dia masih hidup, dengan memaksanya untuk berbicara, dia mungkin tidak mengatakan yang sebenarnya.</p>
+<p>	Hari-hari ini, Fang Yuan mengandalkan pengetahuan dan pengalamannya, dan menurut perbandingan kertas bambu, dia sudah menguraikan semuanya.</p>
+<p>	“Palang merah melambangkan bahaya, zona terlarang. Daerah dengan palang merah tampaknya dikelilingi oleh babi hutan, mungkin raja babi hutan di sana. Dengan kekuatanku saat ini, aku sama saja sudah mati jika menemuinya. Hmph!”</p>
+<p>	Memikirkan lelaki tua Wang, Fang Yuan tidak bisa menahan diri untuk tidak mendengus lagi.</p>
+<p>	Daerah ini ditandai dengan salib tidak ditandai pada kertas bambu. Jika Fang Yuan benar-benar mempercayai kertas bambu, dia mungkin akan mati oleh taring raja babi hutan suatu hari nanti. Orang tua Wang ini memang berpengalaman. Untuk membalaskan dendam putranya, dia tidak harus bertindak sendiri, tetapi meminjam kekuatan raja babi hutan. Dengan cara ini, bahkan jika Fang Yuan mati, dia akan dapat menghindari tanggung jawab.</p>
+<p>	“Tapi tiga titik ini ditandai dengan lingkaran merah, apa artinya?” Fang Yuan gelisah.</p>
+<p>	Ini adalah titik mencurigakan terakhir peta kulit binatang itu.</p>
+<p>	Tiga lingkaran merah, menunjukkan tiga daerah yang sangat terisolasi. Mereka juga sangat berjauhan, dan memiliki sedikit binatang buas di sekitarnya, yang dianggap sebagai daerah yang lebih aman di alam liar.</p>
+<p>	“Palang merah melambangkan daerah terlarang, tapi apa yang dilambangkan oleh lingkaran merah?” Fang Yuan berpikir keras, “Biasanya, merah adalah warna yang paling waspada. Orang tua Wang menandai ketiga area ini, artinya mereka penting. Sangat disayangkan daerah-daerah ini jauh, jika tidak saya akan memeriksanya sendiri dan menemukan alasannya. ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

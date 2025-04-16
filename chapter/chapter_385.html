@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 385 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 385";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_384.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 385">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_386.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 385</h1>
+        <div class="text-left">
+<p>	Bab 385 – Kebaikan, Dendam, Kasih Sayang, Kebencian</p>
+<p>	Bab 385: Kebaikan, Dendam, Kasih Sayang, Kebencian</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Oh? Metode apa?” Alis Fang Yuan terangkat.</p>
+<p>	“Mengenai masalah ini, aku harus memulainya dari dulu…” Chou Jiu menghela nafas panjang saat dia mengingatnya; kebencian, kesedihan, cinta yang mendalam dan ekspresi rumit lainnya muncul di wajahnya.</p>
+<p>	“Aku tidak punya waktu untuk mendengarkan ceritamu.” Fang Yuan dengan kejam menyela.</p>
+<p>	Chou Jiu tersedak: “Kalau begitu aku akan mempersingkatnya.”</p>
+<p>	“Nama asli saya adalah Zeng Ah Niu. Saya adalah seorang petani yang mencari nafkah dengan mengumpulkan tumbuhan, suatu kali saya tidak beruntung jatuh dari tebing tetapi saya mendapat untung darinya dan memasuki tanah berkah Sekte Bayangan. Dengan lulus ujian roh tanah, aku bisa menjadi murid Sekte Bayangan. Sekte itu hanya memiliki dua murid, aku dan seorang kakak perempuan.”</p>
+<p>	“Nama belakang kakak perempuan adalah Chen dan nama depannya adalah Jiu, dia secantik peri abadi. Dia dibesarkan oleh roh tanah sejak muda dan tidak pernah meninggalkan tanah yang diberkati, sehingga sifatnya benar-benar polos. Sejak lahir, saya sangat jelek dan selalu mengalami intimidasi dan ejekan. Tapi kakak senior selalu ramah dan hangat padaku. Perlahan aku mulai memiliki perasaan padanya setelah berhubungan dengannya sepanjang waktu. Kami bersumpah di depan laut tanah yang diberkati, untuk saling melindungi dan berdiri. Kami berkultivasi bersama dan masuk jauh ke dalam pintu hidup dan mati, menangkap Gu kehidupan dan Gu kematian….”</p>
+<p>	“Itu adalah saat paling bahagia dalam hidup saya dan saya pikir itu bisa berlanjut selamanya. Setelah bencana bumi, roh tanah menderita luka dan masuk ke hibernasi; sebuah lubang muncul di tanah yang diberkati dan menghubungkannya ke dunia luar, memungkinkan bajingan untuk menyelinap masuk. ”</p>
+<p>	“Bajingan ini terluka parah pada waktu itu, dan jika aku tahu apa yang akan terjadi nanti karena dia, aku pasti akan membunuhnya di tempat! Tapi saya tidak melakukan itu dan malah menyelamatkannya. Dia mengklaim nama keluarganya adalah Shang, dan memiliki rambut merah darah. Dia memiliki kefasihan yang luar biasa, dan menggunakan kata-kata berbunga-bunga, dia perlahan-lahan menipu kakak perempuan selama masa penyembuhannya. Penampilannya memang sedikit lebih baik dariku dan menggunakan wajah laki-lakinya yang cantik untuk memenangkan hati kakak perempuannya. Kakak perempuan senior tidak bersalah dan bodoh, semakin dia berbicara dengannya, semakin bahagia dia; pada akhirnya, dia mengambil inisiatif untuk merawatnya dengan segala cara yang mungkin.”</p>
+<p>	“Kami berdebat berkali-kali tentang ini, sering berselisih satu sama lain. Setelah pencuri itu pulih, saya ingin mengusirnya dan terus menjalani kehidupan dongeng dengan kakak perempuan senior. Tapi siapa sangka hatinya sudah berubah dan benar-benar melanggar sumpah yang kita ambil saat itu, melukaiku dan membelot dengan bajingan itu!”</p>
+<p>	“Aku benar-benar menyesal! Saya menyesali belas kasih saya yang menyebabkan bencana, dan saya membenci kakak senior Chen Jiu karena jatuh cinta dengan orang lain, dan bahkan lebih membenci bajingan tercela itu karena merampok apa yang saya hargai. Setelah saya pulih dari luka-luka saya, saya meninggalkan tanah yang diberkati dan berkeliaran di sekitar Perbatasan Selatan, mencari pasangan yang berzinah ini. Tapi yang tidak saya ketahui adalah, bajingan ini memiliki status yang sangat tinggi dan merupakan pemimpin klan Shang! ”</p>
+<p>	Chou Jiu berhenti dan menatap Fang Yuan.</p>
+<p>	Fang Yuan tanpa ekspresi, dia tahu banyak detail di balik layar karena ingatan hidupnya sebelumnya dan sudah tahu siapa yang dibicarakan Chou Jiu di tengah percakapannya.</p>
+<p>	Chou Jiu hanya bisa memberikan senyum paksa pada ketidakpedulian Fang Yuan: “Sepertinya kamu sudah menebak identitas mereka. Itu benar, pencuri itu adalah pemimpin klan Shang saat ini, Shang Yan Fei dan kakak perempuanku Chen Jiu adalah Dokter Su Shou. Klan Shang adalah klan super sementara saya adalah kekuatan tunggal, saya berkeliaran di sekitar Perbatasan Selatan selama ini dan berusaha keras untuk berurusan dengan pasangan yang berzinah ini! Sayangnya … sayangnya saya akan mati di sini hari ini dan tidak memiliki cara untuk mencapai keinginan saya.</p>
+<p>	“Hehehe.” Fang Yuan diam-diam mendengarkan sampai akhir dan tiba-tiba tertawa.</p>
+<p>	Dia memandang Chou Jiu yang sedang duduk di tanah, matanya bersinar terang: “Dokter hantu pembunuh, kamu membuat rencana yang cukup bagus. Menurut kata-kata Anda, Shadow Sect hanya memiliki Anda dan Chen Jiu, jika Anda mati, saya harus mendapatkan informasi tentang pintu hidup dan mati dari Shang Yan Fei dan Dokter Su Shou. Tetapi mengapa mereka memberi tahu saya tentang hal-hal tentang tanah yang diberkati dari Sekte Bayangan dengan begitu mudah? Pada saat itu, kita harus bertarung, dan tidak peduli siapa yang menang, keduanya akan menguntungkanmu.”</p>
+<p>	“Hahaha… raja binatang kecil, kamu sangat blak-blakan dan lugas. Orang-orang yang hanya membuat plot dan skema akan selalu bertindak di bawah radar, tetapi pemikiran Anda sangat teliti dan cara Anda melakukan sesuatu mendominasi, Anda benar-benar orang yang tangguh yang belum mengguncang dunia. Anda benar, itu adalah rencana saya. Ini adalah skema terbuka dan kamu telah melihatnya, jadi apakah kamu masih akan bertanya tentang tanah berkah Sekte Bayangan dari mereka?” Dokter hantu pembunuh tertawa terbahak-bahak.</p>
+<p>	Fang Yuan melihat Master Gu peringkat lima ini untuk sementara waktu sebelum menghela nafas: “Tentu saja.”</p>
+<p>	Pintu hidup dan mati adalah tanah terlarang sejak dahulu kala seperti sungai waktu.</p>
+<p>	Ada banyak Gu unik yang menghuni tempat itu.</p>
+<p>	Musim Semi Musim Gugur Jangkrik ada di sungai waktu; pintu hidup dan mati secara alami juga memiliki Gu Abadi yang serupa.</p>
+<p>	Tidak mungkin bagi Fang Yuan untuk tidak tergerak oleh manfaat yang begitu besar. Jadi, dia jelas tahu skema Chou Jiu, tapi masih akan lebih dulu masuk ke dalamnya.</p>
+<p>	Qiu tertawa keras dengan air mata muncul di matanya: “Raja binatang kecil, meskipun kamu adalah bakat dari generasi muda, aku sangat mengagumimu. Saya sangat menantikan masa depan di mana Anda bertabrakan dengan pasangan yang berzinah itu. Sayang sekali aku tidak bisa melihatnya.”</p>
+<p>	“Sekte Bayangan kami memiliki pandangan yang berbeda tentang hidup dan mati. Kami bertemu satu sama lain di antara lautan manusia yang tak terhitung jumlahnya karena kehidupan, namun kematian saya akan terjadi karena Anda, ini adalah takdir yang benar-benar luar biasa. Mungkin, Anda benar-benar ditakdirkan untuk menemukan tanah terberkati Shadow Sect dan pintu hidup dan mati. Saya mungkin juga memberikan nasib misterius ini kepada Anda dan berharap Anda dapat memahaminya. ”</p>
+<p>	Chou Jiu menjadi tenang dan tatapannya dalam seolah-olah dia telah melihat melalui hidup dan mati: “Tidak masalah jika aku mati sekarang, lagipula di dunia ini, siapa yang bisa hidup selamanya? Seseorang dapat memperoleh umur panjang tetapi keabadian adalah prospek tanpa harapan. Bahkan Yang Mulia Abadi dan Yang Mulia Iblis hanya akan berubah menjadi abu pada akhirnya. Raja binatang kecil, aku akan mengakhiri hidupku sendiri, kamu tidak perlu melakukannya. ”</p>
+<p>	Mengatakan demikian, dia bunuh diri dengan menggigit lidahnya!</p>
+<p>	Darah menyembur keluar saat hidupnya hilang, dokter hantu, kepala empat dokter hebat di masa depan mati seperti ini.</p>
+<p>	“Saya tidak menyangka mendapatkan informasi penting seperti itu dengan membunuh dokter hantu ini. Tanah terberkati Shadow Sect, pintu hidup dan mati… Jika aku bisa memerintah mereka, mereka pasti akan menjadi fondasi hegemoniku. Sepertinya aku harus mengubah rencanaku lagi.”</p>
+<p>	Setiap Master Gu yang berkultivasi ke peringkat lima harus melalui survival of the fittest dan banyak kompetisi sebelum mereka dapat membedakan diri mereka sendiri; tak satu pun dari mereka adalah karakter yang sederhana.</p>
+<p>	Mereka semua memiliki peluang, keuntungan, kartu truf, dan rahasia masing-masing.</p>
+<p>	Saat ini, semua Master Gu peringkat lima di tanah yang diberkati dimusnahkan oleh Fang Yuan.</p>
+<p>	Tie Mu Bai, Wu Gui, Ku Mo, Wu Lan Shan dan Chou Jiu memiliki individualitas yang berbeda, fondasi yang dalam dan kekuatan yang kuat. Jika Fang Yuan saat ini melawan mereka sendirian, salah satu dari mereka dapat dengan mudah menekannya; dia sama sekali bukan tandingan mereka.</p>
+<p>	“Jadi nama asli Dokter Su Shou adalah Chen Jiu sedangkan dokter hantu pembunuh bernama Chou Jiu, sepertinya kebencian itu lahir dari cinta. Tidak heran dalam kehidupan saya sebelumnya, selama pertempuran gunung Yi Tian, ​​​​dia mengambil inisiatif untuk pergi ke sana dan melemparkan dirinya ke dalam pusaran air itu, menantang Shang Yan Fei dan menghadapi Dokter Su Shou. Dan setelah dia dibawa sebagai tahanan, dia mengungkap masalah itu saat itu dan dibunuh oleh Shang Yan Fei. ”</p>
+<p>	Adapun kebaikan, dendam, kasih sayang, dan kebencian yang menjerat ketiganya, Fang Yuan tidak ingin menghakimi.</p>
+<p>	Bersimpati dengan Chou Jiu? Tapi pilihan Dokter Su Shou juga sepenuhnya bisa dimengerti. Menyukai orang kaya dan meremehkan orang miskin, membenci keburukan dan mencintai keindahan, ini adalah hal biasa di dunia.</p>
+<p>	Shang Yan Fei adalah pria tampan yang terkenal di Perbatasan Selatan; membandingkannya dengan Chou Jiu, yang satu siang dan yang lain malam.</p>
+<p>	Alasan utama Dokter Su Shou merasa sangat dekat dengan Chou Jiu adalah karena dia murni dan Chou Jiu adalah pria pertama yang dia lihat. Dan kemudian ketika dia bertemu Shang Yan Fei, matanya terbuka dan memiliki perbandingan.</p>
+<p>	Terlebih lagi, Chen Jiu adalah seseorang yang secara bawaan mengejar kecantikan.</p>
+<p>	Ketika seorang pasien datang mengunjunginya, dia pertama-tama akan melihat penampilan mereka. Jika mereka jelek, dia tidak akan memperlakukan mereka. Jika mereka rata-rata, itu akan tergantung pada suasana hatinya saat itu dan biaya pemeriksaan pasien. Jika mereka tampan dan cantik, dia akan memperlakukan mereka di tempat dan bahkan tidak memungut biaya.</p>
+<p>	Seseorang mencelanya karena ini dan dia berargumen dengan benar: “Kamu makhluk jelek, fakta bahwa kamu hidup hanyalah menodai keindahan hidup, kamu semua harus mati dan itu akan menyelesaikan semua masalah. Adapun hal-hal indah, tentu saja kita perlu menghargai dan melindunginya dengan segala cara.”</p>
+<p>	Kata-kata ini telah menyebabkan kegemparan di kota klan Shang pada waktu itu. Pada akhirnya, Shang Yan Fei secara pribadi muncul dan menekan acara ini.</p>
+<p>	Posisi Dokter Su Shou di kota klan Shang adalah unik.</p>
+<p>	Kembali ketika Fang Yuan dan Bai Ning Bing melihat Dokter Su Shou bersama di kota klan Shang, perbedaan sikapnya sangat jelas. Dia acuh tak acuh terhadap Fang Yuan sedangkan dia sangat lembut dan ramah pada Bai Ning Bing.</p>
+<p>	“Tapi ngomong-ngomong, keempat dokter hebat itu semuanya punya kekhasan masing-masing. Mengesampingkan dokter hantu pembunuh dan Dokter Su Shou, Dokter Perjalanan Jiu Zhi suka menyamar sebagai pengemis tua dan berkeliaran tanpa tujuan. Dokter Ilahi Sheng Shou adalah pria yang menyukai pria lain. ”</p>
+<p>	Fang Yuan berpikir dengan santai sambil mengeluarkan semua Gu dari dokter hantu pembunuh.</p>
+<p>	Chou Jiu memiliki banyak cacing Gu.</p>
+<p>	Kebanyakan dari mereka menyembuhkan Gu dan selain itu adalah gerakan Gu.</p>
+<p>	Dia tidak memiliki Gu peringkat lima yang menyembuhkan, tetapi memiliki gerakan Gu peringkat lima yang disebut Gu warp.</p>
+<p>	Bentuk Warp Gu abstrak dan tampak seperti adonan goreng yang dipilin. Tubuh emas gelapnya dipelintir sekitar tujuh hingga delapan kali, kepalanya dipelintir di sekitar tubuhnya, mata dan sayapnya tidak sejajar; seolah-olah penciptanya telah menciptakannya secara tiba-tiba.</p>
+<p>	Namun, penampilan ini malah serasi dengan penampilan pemilik aslinya.</p>
+<p>	Fang Yuan sedikit mengukurnya sebelum menyimpannya. Kemudian dia menggunakan kekuatan binatang buas plasenta Gu untuk menelan lubang Chou Jiu.</p>
+<p>	Melihat mayat Chou Jiu, dia terkekeh: “Chou Jiu… Chou Jiu, kamu benar-benar licik. Jika saya tidak memiliki ingatan kehidupan saya sebelumnya, saya akan benar-benar tertipu oleh Anda. ”</p>
+<p>	Meskipun Chou Jiu sudah mati, dia menyembunyikan kesempatan untuk bangkit.</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, tenggorokan Chou Jiu telah dipotong dan dibunuh selama tahap tengah pertempuran di gunung Yi Tian. Tetapi tidak lama kemudian, dia hidup kembali, menyebabkan jalan lurus dan iblis menjadi sangat terkejut.</p>
+<p>	Ternyata, dia telah menggunakan sisa kehidupan Gu.</p>
+<p>	Sisa kehidupan Gu adalah Gu peringkat lima yang dapat dibuang, dan selama tubuh Guru Gu masih utuh setelah kematian, mereka perlahan dapat pulih setelah beberapa waktu dan bangkit kembali.</p>
+<p>	Namun, karena Chou Jiu berada di tanah yang diberkati, fragmen hukum kehidupan Gu yang tersisa di tubuhnya ditekan oleh kekuatan surgawi dan tidak dapat diaktifkan untuk saat ini. Tetapi selama tanah yang diberkati perlahan-lahan runtuh, kekuatan penindasannya akan melemah dan sisa kehidupan kekuatan Gu dapat diaktifkan kembali dan membangkitkannya kembali.</p>
+<p>	Chou Jiu telah berulang kali memuji dan menyanjung Fang Yuan dan menunjukkan bahwa dia dengan hati-hati menghadapi kematian; itu semua untuk memberikan kesan yang baik kepada Fang Yuan agar setelah kematiannya, jenazahnya tidak akan dicabik-cabik oleh Fang Yuan.</p>
+<p>	Sebenarnya, Fang Yuan juga tidak memiliki kebiasaan memutilasi mayat.</p>
+<p>	“Tapi hari ini, aku akan membuat pengecualian untukmu.” Fang Yuan dengan kejam menyerang dan segera mengubah mayat Chou Jiu menjadi daging cincang.</p>
+<p>	Dia ragu-ragu untuk sementara waktu dan masih belum puas, jadi dia membakar genangan darah dan daging menjadi abu.</p>
+<p>	Dengan lambaian telapak tangannya, abunya berkibar dan melayang kemana-mana.</p>
+<p>	“Chou Jiu, jika kamu masih bisa bangkit dari ini, aku akui kamu memiliki keterampilan! Ha ha ha ha…”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

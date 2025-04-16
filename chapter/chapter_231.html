@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 231 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 231";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_230.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 231">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_232.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 231</h1>
+        <div class="text-left">
+<p>	Bab 231</p>
+<p>	Bab 231: Kecanduan berkultivasi!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan dengan cepat berhenti karena takut.</p>
+<p>	Meskipun dia menggunakan cacing minuman keras sebelumnya, itu digunakan untuk memperbaiki esensi purba dan meningkatkan kualitasnya dengan satu ranah kecil. Kapan dia pernah menggunakan esensi purba perak salju yang kualitasnya jauh lebih tinggi?</p>
+<p>	Tanpa pilihan, Fang Yuan hanya bisa mengurangi jumlah yang digunakan setiap kali, dan juga memperlambat ombak yang menabrak dinding aperture-nya.</p>
+<p>	“Untuk berpikir juga akan ada masalah ketika kualitas esensi purba terlalu tinggi.” Fang Yuan sedikit diperparah.</p>
+<p>	Dalam kegelapan, Bai Ning Bing mendengar ini dan memutar matanya.</p>
+<p>	Kesempatan anugerah macam apa ini!</p>
+<p>	Jika ada orang lain yang tahu, mereka mungkin akan menamparnya sampai mati karena marah.</p>
+<p>	Ini benar-benar kekhawatiran yang membahagiakan.</p>
+<p>	Setelah empat jam, esensi purba perak salju 6% ini akhirnya dikeluarkan.</p>
+<p>	Dinding lubang batu kasarnya sudah menunjukkan secercah hanya dari satu putaran kultivasi ini. Itu seperti batu giok kasar yang mulai mengeluarkan kilau yang sepadan dengan kualitasnya setelah diproses.</p>
+<p>	“Cepat, transfer 10% lagi.” Fang Yuan mendesak.</p>
+<p>	Seperti ini, mereka berkultivasi sepanjang malam.</p>
+<p>	Ketika ayam jantan berkokok di pagi hari, cahaya mulai bersinar melalui jendela, dan Fang Yuan perlahan membuka matanya.</p>
+<p>	Matanya bersinar dengan kegembiraan yang tak bisa disembunyikan.</p>
+<p>	Dia melihat telapak tangannya dan mengepalkan tinjunya: “Peringkat satu tahap puncak!”</p>
+<p>	Hanya semalam kultivasi, menyebabkan dia naik dari peringkat satu tahap atas ke peringkat satu tahap puncak.</p>
+<p>	Apa kecepatan ilahi ini!</p>
+<p>	Sejak Fang Yuan mulai berkultivasi, dia tidak pernah merasa begitu nyaman dan riang, bahkan di kehidupan sebelumnya!</p>
+<p>	Perasaan seperti itu hampir membuat ketagihan.</p>
+<p>	Sebagai contoh-</p>
+<p>	Ketika dia memiliki bakat kelas C, dia berkultivasi seperti siput. Menggunakan cacing minuman keras, dia berjalan. Dengan bakat kelas A dan lotus harta karun esensi surgawi, dia berlari.</p>
+<p>	Tapi apa-apaan ini! Dengan kesatuan daging tulang ini Gu, rasanya seperti dia terbang dengan dua sayap!</p>
+<p>	Bahkan Bai Ning Bing tercengang.</p>
+<p>	Dia cerdas dan dengan cepat menyadari bahwa Gu ini memiliki kegunaan lain yang lebih besar.</p>
+<p>	“Gu ini juga bisa membantu menembus ranah besar!”</p>
+<p>	Cacing minuman keras hanya dapat meningkatkan kultivasi dengan ranah kecil, dan Master Gu harus mengandalkan esensi purba mereka sendiri ketika menembus ranah besar, sehingga bakat sangat penting.</p>
+<p>	Tapi dengan kesatuan daging tulang ini Gu, mereka bisa menggunakan esensi purba orang lain saat menerobos ke alam lain.</p>
+<p>	Ini adalah keuntungan yang gila!</p>
+<p>	“Dengan Gu ini, gunung Bai Gu benar-benar sukses, bahkan jika aku mengorbankan lotus harta karun esensi surgawi, itu akan sia-sia.”</p>
+<p>	Pada saat ini, cahaya pagi memasuki rumah pertanian, dan Bai Ning Bing menghela nafas dengan keras: “Dunia ini menyimpan begitu banyak orang jenius yang hebat!”</p>
+<p>	Sarjana tulang abu-abu hanya seorang Master Gu peringkat 4, tetapi dia berhasil menemukan Gu kesatuan daging tulang, dia adalah seorang jenius sejati!</p>
+<p>	Semua Master Gu dengan gelar memiliki spesialisasi mereka. Sebagai perbandingan, Fang dan Bai hidup dalam ketidakjelasan.</p>
+<p>	…</p>
+<p>	Di bawah terik matahari, di ladang.</p>
+<p>	“Bibi, istirahatlah, aku akan membantumu!” Fang Yuan meraih cangkul dari tangan wanita tua itu.</p>
+<p>	Wanita tua itu tidak bisa bersaing dalam kekuatan melawan Fang Yuan yang muda dan kuat, dia merasa senang melihat cangkulnya direnggut, tersenyum sampai giginya terbuka: “Ah, di mana saya bisa menemukan anak yang begitu hebat.”</p>
+<p>	Sejak kultivasi ganda pertama, dua hari telah berlalu.</p>
+<p>	Rencana awalnya adalah untuk bermalam dan pergi, tetapi setelah menggunakan kesatuan daging tulang Gu, Fang Yuan menikmati kecepatan kultivasi yang cepat dan memutuskan untuk mengubah rencananya, untuk pergi hanya setelah dia mencapai peringkat dua setidaknya.</p>
+<p>	Lagi pula, masih ada dua hingga tiga tahun sebelum batu itu ditemukan, dia tidak terburu-buru.</p>
+<p>	Bai Ning Bing tidak keberatan, ada perbedaan besar antara peringkat satu dan peringkat dua. Menjadi peringkat dua Gu Master akan sangat membantu perjalanan mereka.</p>
+<p>	Jadi, mereka tinggal di desa dan tidak pergi.</p>
+<p>	Wanita tua itu juga tidak mengusir mereka.</p>
+<p>	Yang benar adalah dia ingin keduanya tinggal di sana selamanya. Mereka bekerja dengan sangat rajin, dan meskipun yang satu agak bodoh sementara yang lain jelek, mereka adalah anak-anak yang jujur.</p>
+<p>	Fang dan Bai bekerja pada siang hari, yang satu memiliki kekuatan dua babi hutan, sementara yang lain memiliki kekuatan seekor buaya; di antara manusia itu seperti memiliki kekuatan ilahi. Pekerjaan pertanian sangat mudah, semudah kue. Selain itu, itu adalah rumah seorang wanita tua, pekerjaan berat apa yang bisa dilakukan?</p>
+<p>	Setiap hari Fang dan Bai hanya tidur sebentar, tapi masih penuh energi.</p>
+<p>	Gaya hidup seperti itu – dibandingkan dengan bergerak di alam liar dan hidup dalam kondisi yang keras, sambil mengkhawatirkan keselamatan mereka – seperti surga.</p>
+<p>	Fang Yuan menggunakan seluruh waktu luangnya untuk berkultivasi, seperti dia kecanduan.</p>
+<p>	Dengan kesatuan daging tulang Gu, kecepatannya hanya bisa digambarkan dengan pepatah, seribu mil sehari!</p>
+<p>	Dia mencapai peringkat satu tahap puncak di malam pertama. Dan dalam beberapa hari terakhir, dia terus membangun di atas fondasinya, dan dinding aperture-nya telah menjadi sangat jernih. Pada tingkat ini, dia akan mencapai peringkat dua dalam beberapa hari.</p>
+<p>	Seiring bertambahnya jumlah yang mereka kultivasi, status kesatuan daging tulang Gu meningkat di hati Fang Yuan, melampaui tengkorak darah Gu dan teratai harta karun esensi surgawi, hanya lebih rendah dari jangkrik musim semi musim gugur.</p>
+<p>	Bahkan tidak perlu menyebutkan cacing Liquor yang hanya bisa membangkitkan satu ranah kecil, itu tidak seberapa dibandingkan dengan kesatuan daging tulang Gu.</p>
+<p>	Adapun Gu tengkorak darah, itu membutuhkan terlalu banyak investasi dan waktu. Meskipun lotus harta karun esensi surgawi itu bagus, itu hanya bisa memberikan bantuan kepada Master Gu yang sendirian.</p>
+<p>	Adapun Gu kesatuan daging tulang ini, menurut ungkapan Bai Ning Bing, itu adalah Gu yang dapat mengubah bahkan struktur masyarakat.</p>
+<p>	Ini tidak berlebihan dan sangat diakui oleh Fang Yuan.</p>
+<p>	Kesatuan daging tulang Gu adalah Gu peringkat rendah, bahkan peringkat satu atau dua Master Gu bisa menggunakannya. Meskipun memiliki banyak persyaratan penyempurnaan, standarnya benar-benar tidak tinggi, dan klan dengan sumber daya yang cukup dapat dengan mudah memperbaiki Gu ini.</p>
+<p>	Gu ini tidak berguna bagi seorang penyendiri, tetapi bagi klan atau sekte, ini adalah senjata ilahi!</p>
+<p>	Dengan menggunakan jalan pintas ini, tetua klan dapat mengasuh junior, mengurangi waktu dan dana yang dibutuhkan untuk membesarkan Gu Master, berkali-kali lipat.</p>
+<p>	Dengan kesatuan daging tulang ini Gu, itu tidak lagi memelihara Gu Masters, tetapi menciptakan Gu Masters secara berkelompok.</p>
+<p>	Itu adalah perbedaan antara langit dan bumi.</p>
+<p>	Karena Gu ini, Fang Yuan bahkan berubah pikiran pada malam sebelumnya, mendapatkan dorongan untuk mengubah rencananya untuk bertarung sendirian menjadi membangun kekuatannya sendiri.</p>
+<p>	Pada topik itu, kekuatan terorganisir hanyalah alat untuk digunakan.</p>
+<p>	Fang Yuan telah menciptakan sekte iblis sayap darah di kehidupan sebelumnya, dan jika dia ingin mendirikan organisasi dalam kehidupan ini, itu akan jauh lebih mudah karena dia sudah mengalaminya.</p>
+<p>	Tetapi untuk mendirikan sebuah organisasi, hal yang paling penting adalah — menduduki wilayah yang penuh dengan sumber daya. Dan di bawah kendali, kumpulkan orang-orang dan gunakan kekuatan mereka untuk berkultivasi bersama.</p>
+<p>	Kultivasi Guru Gu seperti berenang ke hulu, itu adalah perjalanan akumulasi dan sumber daya yang dibutuhkan secara alami.</p>
+<p>	Jadi untuk memberi peringkat lima Master Gu ke bawah, memiliki bantuan organisasi akan membantu dalam kultivasi mereka. Namun, begitu mereka mencapai peringkat enam dan mengalami perubahan kualitatif, berubah dari fana menjadi abadi, dengan kekuatan surga dan bumi berkumpul di dalamnya, sebuah organisasi menjadi tidak berguna bagi mereka.</p>
+<p>	Mengetahui hal ini, mudah untuk memahami rencana Fang Yuan.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan mendirikan sekte iblis sayap darah untuk mengumpulkan sumber daya. Dalam kehidupan ini, dengan pengetahuannya tentang banyak warisan dan rahasia, dia bisa dengan mudah melahap sumber daya ini dan naik ke peringkat enam lebih cepat. Mengapa dia perlu membuang waktu dan usaha untuk menciptakan kekuatannya sendiri?</p>
+<p>	Tapi sekarang dia memiliki Gu kesatuan daging tulang, itu akan jauh lebih cepat daripada yang dia duga sebelumnya jika dia menciptakan sebuah organisasi. Akan ada lebih sedikit investasi, tetapi imbalan yang lebih besar, menciptakan Master Gu dalam batch dan dengan cepat membentuk kekuatan besar.</p>
+<p>	Tetapi setelah Fang Yuan memikirkannya sampai pagi, dia menghilangkan gagasannya untuk menciptakan kekuatan.</p>
+<p>	Jika dia benar-benar mengandalkan kesatuan daging tulang Gu untuk menciptakan sebuah organisasi, itu akan menjadi kematian.</p>
+<p>	Senjata ilahi seperti itu pasti akan menarik keserakahan semua kekuatan besar, jika terungkap.</p>
+<p>	Belum lagi dia memulai dari awal, bahkan seorang pemimpin klan dengan beberapa fondasi tidak akan berani menggunakan kesatuan daging tulang Gu secara terbuka.</p>
+<p>	Itu benar-benar menarik kecemburuan orang lain!</p>
+<p>	Bahkan klan Wu, klan nomor satu di perbatasan selatan, tidak akan berani menggunakannya sendiri.</p>
+<p>	Fang Yuan memperkirakan perlu ada aliansi setidaknya klan Wu, klan Fei, klan Tie, dan klan Shang untuk menjaga dari keserakahan semua Master Gu di seluruh dunia, jika mereka ingin menggunakan kesatuan daging tulang Gu dalam skala besar.</p>
+<p>	“Jika saya ingin menciptakan kekuatan, bahkan jika itu mulai terlihat cerah, saya akan dimusnahkan dari semua sisi. Pada saat itu, bahkan jika saya melarikan diri, fondasi yang saya buat akan hilang. Pada akhirnya, saya bahkan akan menjadi pecundang total, dikejar oleh semua orang. ”</p>
+<p>	Fang Yuan telah benar-benar tenang, mengetahui bahwa ini adalah jalan mati, jadi dia menegaskan keinginannya untuk bertarung sendirian dalam pertempuran skala besar.</p>
+<p>	“Tapi sejujurnya, Bai Sheng dan Bai Hua cukup cerdas. Dalam kehidupan mereka sebelumnya, meskipun mereka menggunakan kesatuan daging tulang Gu dan menjadi bintang kembar yang benar, mereka tidak menggunakan kekuatan ini untuk menumbuhkan kekuatan klan mereka. Dengan penyesatan yang disengaja, meskipun reputasi gGu kesatuan daging tulang telah mapan, orang-orang sangat meremehkan kemampuannya. ”</p>
+<p>	Fang Yuan mengingat, dan merasakan kebijaksanaan dalam dua bintang kembar ini. Mampu datang ke gunung Bai Gu kali ini dan membunuh saudara kandung sebelum waktunya, bisa dianggap sebagai pencapaian besar.</p>
+<p>	Tapi Fang Yuan berpikir lagi: “Kesatuan daging tulang Gu ini hanya bisa digunakan oleh dua orang. Bai Hua dan Bai Sheng pasti menggunakan metode penyempurnaan pada gulungan itu. Tanpa perubahan unik saya, kesulitan dalam mendefinisikan kesatuan daging tulang Gu sangat meningkat. Mungkin saja mereka bahkan tidak memikirkan prospek ini…”</p>
+<p>	Setelah berpikir terlalu lama, kepala Fang Yuan mulai sakit.</p>
+<p>	Dia membajak ladang di bawah terik matahari saat dia menggelengkan kepalanya, mengumpulkan pikirannya yang tersebar.</p>
+<p>	Lagi pula, hal-hal ini tidak penting dan tidak ada gunanya memikirkannya.</p>
+<p>	“Sayangnya, saya tidak memiliki cacing Gu yang membantu dalam berpikir seperti Gu berpikir kreatif, Gu hati yang cerdas, Gu yang bijaksana dan Gu yang berpikir kilat. Bahkan paling tidak, kutu buku sudah cukup. Sepertinya saya hanya bisa membelinya ketika saya sampai di kota klan Shang. ”</p>
+<p>	Ladang wanita tua itu kecil, Fang Yuan dengan cepat membajak setengahnya, ketika Bai Ning Bing tertarik dan mulai membantu atas kemauannya sendiri.</p>
+<p>	Dia telah melihat petani membajak ladang di gunung Qing Mao, tetapi saat itu dia masih bingung, dan sekarang dia dalam keadaan ini, dia ingin mengalami keajaiban di dalamnya.</p>
+<p>	Baru ketika malam menjelang, mereka mulai makan di depan rumah wanita tua itu.</p>
+<p>	Kamu pasti lapar, masih ada ubi di dalam panci, itu pasti akan membuatmu kenyang!” Wanita tua itu menyeringai sambil menyendok dua mangkuk nasi.</p>
+<p>	Beras ini bukanlah beras unggulan dari beras karung rumput, melainkan butiran kasar.</p>
+<p>	Namun, keduanya tidak pilih-pilih makanan.</p>
+<p>	“Makan perlahan, aku punya kabar baik untuk dibagikan dengan kalian berdua.” Di atas meja, wanita tua itu tersenyum misterius.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

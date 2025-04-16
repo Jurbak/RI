@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 549 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 549";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_548.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 549">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_550.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 549</h1>
+        <div class="text-left">
+<p>	Bab 549</p>
+<p>	Bab 549: Menaklukkan serigala biru dengan bantuan kelelawar salju</p>
+<p>	Sama seperti ini, Fang Yuan terbang selama tiga hari lagi, tetapi tidak bisa melihat sekilas istana suci di dataran.</p>
+<p>	Fang Yuan berpikir dalam hati: “Sepertinya aku diangkut sangat jauh setelah memasuki tanah yang diberkati Pengadilan Kekaisaran. Kalau tidak, dengan kecepatanku, aku akan mencapai istana suci dalam tiga hari.”</p>
+<p>	Dalam perjalanan, Fang Yuan bertemu dengan banyak Guru Gu dan manusia.</p>
+<p>	Mereka adalah anggota aliansi suku Hei, setelah memasuki tanah yang diberkati, mereka yang memiliki kemampuan akan berkumpul di istana suci. Mereka yang tidak akan memilih tempat dan menetap.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran tidak aman, ada sejumlah besar cacing Gu liar dan binatang buas.</p>
+<p>	Tentara suku Hei datang ke sini dan menghancurkan pesanan mereka, mengganggu binatang buas dan cacing yang telah memilah wilayah mereka.</p>
+<p>	Jadi, konflik dan pembunuhan itu wajar.</p>
+<p>	Tapi secara keseluruhan, lingkungan jauh lebih baik daripada dunia luar, yang menghadapi badai salju yang ganas.</p>
+<p>	Fang Yuan telah melihat beberapa adegan pembantaian di sepanjang jalan. Beberapa adalah mayat kelompok binatang buas, beberapa adalah manusia dengan anggota tubuh yang patah.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran memiliki fondasi yang jauh lebih besar daripada tanah yang diberkati Hu Immortal. Tidak ada perubahan cuaca di tanah yang diberkati Hu Immortal, tetapi tanah yang diberkati Pengadilan Kekaisaran memilikinya.</p>
+<p>	Faktanya, tanah yang diberkati Pengadilan Kekaisaran memiliki pagi dan malam!</p>
+<p>	Ini mungkin tidak spektakuler di mata manusia, karena di dataran utara, ada juga siang dan malam, mereka sudah terbiasa.</p>
+<p>	Hanya seseorang seperti Fang Yuan yang akan memahami nilai sebenarnya dari ini.</p>
+<p>	Sangat jarang tanah yang diberkati mengalami perubahan cuaca. Jika ada siang dan malam, itu berarti langit dan bumi ini memiliki fondasi yang cukup dalam, setidaknya, hukum jalur waktu di sini cukup lengkap.</p>
+<p>	Biasanya, tanah yang diberkati dengan fenomena astronomi adalah tanah yang diberkati tingkat pertama. Tanah terberkati Hu Immortal milik Fang Yuan belum mencapai level ini.</p>
+<p>	Siang dan malam adalah karakteristik gua-surga.</p>
+<p>	Tanah yang diberkati adalah dunia kecil. Di atas tanah yang diberkati, bahkan ada dunia kecil yang lebih lengkap dan halus, mereka adalah surga gua.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran sudah memiliki karakteristik surga gua, bisa dikatakan sebagai surga gua semu. Tanah yang diberkati Lang Ya awalnya adalah surga gua yang jatuh, sekarang, ia telah kehilangan sifat siang dan malamnya.</p>
+<p>	Malam turun.</p>
+<p>	Fang Yuan melihat ke langit, itu berubah dari warna emas yang mulia menjadi perak yang ringan dan elegan.</p>
+<p>	Siang hari di tanah yang diberkati Pengadilan Kekaisaran adalah hari emas yang mempesona. Pada malam hari, tidak sepenuhnya gelap, karena cahaya perak bersinar di langit.</p>
+<p>	Terbang di udara, Fang Yuan menyaksikan perubahan langit.</p>
+<p>	Cahaya perak menghujani, dibandingkan dengan sinar keemasan yang panas dan menyilaukan di siang hari, itu memiliki jejak ketajaman.</p>
+<p>	Kecepatan terbang Fang Yuan melambat, dia melihat ke bawah dan setelah mencari beberapa saat, dia menemukan lereng yang landai.</p>
+<p>	Dengan pengalaman bertahun-tahun, dia tahu bahwa lereng yang landai adalah tempat yang bagus untuk mendirikan kemah.</p>
+<p>	Tapi dia tidak terburu-buru untuk turun, dia berputar di sekitar lereng beberapa kali, seperti burung yang terbang bebas.</p>
+<p>	Akhirnya, ketika dia memastikan bahwa area ini aman, dia mendarat dan mempertahankan sayapnya.</p>
+<p>	Sayap elang yang kuat berwarna hitam pekat seperti baja. Setelah Fang Yuan berhenti menggunakan elang naik Gu, sayapnya menghilang ke udara tipis, karena satu atau dua bulu hitam dibiarkan mengambang di udara, mendarat di rumput.</p>
+<p>	Fang Yuan menghendaki dan mengaktifkan Gu rumah kadal besar.</p>
+<p>	Segera, cahaya mistis keluar dari lubangnya, mendarat di depannya.</p>
+<p>	Cahaya meluas dan tumbuh, saat rumah kadal besar Gu akhirnya muncul.</p>
+<p>	Kadal itu membuka mulutnya dan menjulurkan lidahnya, menunjukkan pintu di mulutnya.</p>
+<p>	Lidah itu seperti tangga karpet merah, saat Fang Yuan menginjaknya, pintu terbuka secara otomatis. Setelah dia memasuki rumah kadal Gu, pintunya tertutup dengan sendirinya, saat kadal itu menutup mulutnya yang besar tanpa celah.</p>
+<p>	Meskipun Fang Yuan energik, dia masih tubuh fana, ketika kelelahan menumpuk sampai tingkat tertentu, dia perlu istirahat untuk memastikan bahwa dia tetap pada kondisi puncak dalam hal pikiran dan tubuh.</p>
+<p>	Chichichichi…</p>
+<p>	Setelah Fang Yuan masuk ke rumah kadal, dia mendengar beberapa suara di luar.</p>
+<p>	Tatapannya terkonsentrasi saat dia bergumam: “Seperti yang diharapkan, itu adalah kelelawar salju yang bahagia …”</p>
+<p>	Fang Yuan sudah memahami aturannya, ketika hari berubah menjadi malam, sekelompok besar kelelawar salju yang bahagia akan terbang keluar.</p>
+<p>	Kelelawar salju yang bahagia itu putih bersih seperti salju, mereka berbulu dan tidak terlihat jelek seperti kelelawar biasa, bahkan mereka agak lucu.</p>
+<p>	Kelompok binatang seperti itu sangat besar dalam skala, setiap kelompok memiliki sekitar beberapa ratus ribu kelelawar. Di antara mereka adalah raja binatang buas, dan banyak sekali raja binatang buas yang sangat umum, bahkan ada kaisar binatang kelelawar salju.</p>
+<p>	Bahkan dengan bukaan ganda Fang Yuan dan gerakan pembunuh seperti raja angin empat lengan, dia tidak bisa melawan mereka, dia hanya bisa menghindarinya.</p>
+<p>	Kelelawar salju hanya berburu di udara, memakan partikel di udara atau cacing terbang. Rumah kadal besar Gu bukan bagian dari rantai makanan mereka. Tetapi karena kewaspadaan Fang Yuan, dia memindahkan rumah kadal besar Gu ke belakang lereng.</p>
+<p>	Kadal besar itu meringkuk menjadi bola, dari langit, itu menyerupai batu besar.</p>
+<p>	Fang Yuan berada di tempat tidur saat dia tidur, tetapi tak lama kemudian, tangisan kelelawar salju yang bahagia menjadi sangat tidak menentu, karena lolongan serigala juga bisa terdengar.</p>
+<p>	“Apa yang sedang terjadi?” Fang Yuan terbangun oleh suara ini, dia membuka matanya dan bangkit dari tempat tidur, pergi ke jendela.</p>
+<p>	Hanya untuk melihat bahwa di latar belakang keperakan, dua kelompok binatang sedang bertarung.</p>
+<p>	Benjolan putih salju memiliki skala besar, itu adalah kelelawar salju yang bahagia. Adapun gumpalan hijau tua, itu adalah sekawanan serigala biru, meskipun jumlahnya lebih sedikit, mereka bertarung dengan sengit dan memiliki kerja sama yang hebat.</p>
+<p>	Meskipun mereka banyak kelelawar salju, di bawah serangan serigala, mereka menderita kerugian besar.</p>
+<p>	Alis Fang Yuan terangkat, merasa sedikit terkejut.</p>
+<p>	Serigala Azure memiliki jejak garis keturunan serigala surgawi binatang buas, sehingga bisa melayang di udara bahkan saat masih kecil. Serigala biru dewasa dapat menggunakan bakat ini hingga batasnya, mampu berlari bebas di udara.</p>
+<p>	Serigala Azure adalah elit, mereka berbeda dari kelompok serigala biasa. Di antara kelompok serigala biru, setiap serigala biru setidaknya adalah seratus raja binatang!</p>
+<p>	Kelompok serigala Azure seringkali kecil, tetapi mereka memiliki kekuatan pertempuran yang hebat. Tetapi terlepas dari seberapa kuat kelompok serigala, mereka tidak dapat bertahan dalam ujian waktu, dan ujian kematian.</p>
+<p>	Saat ini, di langit dataran utara, hampir tidak ada serigala biru yang terlihat. Mereka semakin langka, akan segera punah.</p>
+<p>	Namun, sebagai tanah terberkati terbesar di dataran utara, tanah terberkati Pengadilan Kekaisaran memiliki kelompok serigala biru berskala besar, itu tidak mengejutkan.</p>
+<p>	Serigala menjadi lebih energik saat mereka bertarung, karena kelompok kelelawar secara bertahap mendapat kerugian, setelah meninggalkan beberapa puluh ribu mayat, mereka melarikan diri.</p>
+<p>	Serigala biru tidak memiliki banyak kematian, sebagian besar serigala biru mendarat di tanah dan mulai memakan mayat kelelawar. Beberapa dari mereka tetap di udara, melihat sekeliling dan tetap waspada.</p>
+<p>	Hati Fang Yuan tergerak: “Setelah memasuki tanah yang diberkati, kelompok serigala saya telah tersebar. Tanah yang diberkati Pengadilan Kekaisaran terlalu luas, saya tidak bisa mengumpulkannya di sini dalam waktu sesingkat itu. Kelompok serigala biru ini benar-benar tepat waktu, tidak hanya mereka dapat terbang untuk mengikuti kecepatan saya, mereka bahkan dapat melindungi saya, di masa depan ketika kita bertemu kelompok kelelawar, kita hanya dapat menyerbu.”</p>
+<p>	Pada saat yang sama, beberapa serigala menemukan rumah kadal besar Fang Yuan, Gu dan mengepungnya.</p>
+<p>	Fang Yuan segera meninggalkan rumah Gu dan menjaga rumah kadal besar Gu, menyerbu ke arah banyak sekali raja binatang di langit.</p>
+<p>	Kelompok serigala menjadi keributan saat mereka menyerang Fang Yuan dari segala arah.</p>
+<p>	Tapi serigala biru yang baru saja makan bergerak lamban, niat bertarung mereka juga menurun drastis. Ini adalah waktu terbaik bagi Fang Yuan untuk menaklukkan banyak sekali raja serigala.</p>
+<p>	Fang Yuan mencibir, dia berbelok ke kiri dan ke kanan, membuat lingkaran di udara. Dengan pencapaian master terbangnya, serigala biru ini hanya bisa mengejarnya tanpa hasil.</p>
+<p>	Segudang raja serigala yang dikejar Fang Yuan berbeda dari dua raja serigala lainnya, dalam pertempuran sebelumnya, ia telah menyerang ke depan dan menderita beberapa luka, serta kehilangan beberapa Gu liar di atasnya. Fang Yuan telah memperhatikannya dengan cermat sebelumnya, dan tahu semua cacing Gu liar saat ini.</p>
+<p>	Naik ke raja serigala yang tak terhitung jumlahnya, Fang Yuan mengaktifkan gerakan pembunuh empat tangan raja angin dan meronta-ronta raja serigala.</p>
+<p>	Raja serigala segudang yang tidak beruntung ini dipukuli hingga linglung oleh Fang Yuan.</p>
+<p>	Fang Yuan menggunakan kesempatan ini untuk mengaktifkan Gu perbudakan serigala peringkat lima, menundukkannya.</p>
+<p>	Setelah bergabung dengan Fang Yuan, ia melolong dan sepertiga dari kelompok serigala biru berubah sisi bersamanya.</p>
+<p>	Fang Yuan tertawa keras, berbahaya untuk menaklukkan segudang raja serigala di bawah serangan kelompok serigala, tetapi sekarang setelah dia berhasil, situasinya berbeda.</p>
+<p>	Dengan kelompok serigala, situasinya terbalik.</p>
+<p>	Di bawah manipulasi Fang Yuan, kelompok serigala menyerang dari kiri dan kanan, bekerja sama dengannya dan mengelilingi raja serigala biru kedua.</p>
+<p>	Kelompok serigala liar menyerang dengan ganas, saat Fang Yuan menggunakan kelompok serigalanya untuk membentuk garis pertahanan, melindungi dirinya sendiri. Dia sendiri, bertunangan dengan segudang raja serigala.</p>
+<p>	Setelah lima belas menit, Fang Yuan menaklukkan raja serigala kedua yang tak terhitung jumlahnya.</p>
+<p>	Kemenangan sudah pasti!</p>
+<p>	Raja serigala segudang terakhir melihat ini dan segera berlari, membawa bawahannya untuk melarikan diri bersamanya.</p>
+<p>	Fang Yuan pertama-tama menghentikan pendarahannya dan memeriksa lukanya sendiri. Setelah memeriksa medan perang, dia menyimpan rumah kadal besar Gu dan memindahkan tempat perkemahan.</p>
+<p>	Daerah ini dipenuhi dengan bau darah yang kuat, dengan cepat, gelombang dan gelombang kelompok binatang tertarik. Jika Fang Yuan terus tinggal di sana, dia akan terusik tanpa henti.</p>
+<p>	Sekitar sepuluh li jauhnya, dia beristirahat selama empat jam sebelum mengepakkan sayapnya dan melanjutkan perjalanannya.</p>
+<p>	Tetapi berbeda dari sebelumnya, Fang Yuan sekarang dikelilingi oleh dua raja serigala segudang biru, tiga puluh delapan ribu raja binatang, dan dua ratus lima puluh enam ratus raja binatang. Itu adalah kekuatan yang sangat besar.</p>
+<p>	Dalam sekejap mata, enam hari perjalanan berlalu.</p>
+<p>	Dalam proses ini, Fang Yuan menemukan tiga warisan. Mereka adalah warisan kecil namun, di mata Fang Yuan, mereka tidak ada artinya.</p>
+<p>	Yang perlu disebutkan adalah, kelompok serigala berkembang.</p>
+<p>	Dengan fondasi dua raja serigala biru, yang lain ditundukkan. Dengan cara ini, Fang Yuan memiliki tiga raja serigala biru di bawah kendalinya.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran adalah tanah harta karun sejati. Ada kelompok binatang besar di dalamnya, dan bahkan serigala biru langka adalah spesies umum di sini.</p>
+<p>	Selain serigala biru, Fang Yuan menaklukkan sekumpulan serigala malam, serigala angin, serigala penyu, dan serigala api merah terang di sepanjang jalan.</p>
+<p>	Serigala-serigala ini awalnya miliknya, kecuali bahwa mereka tersebar setelah memasuki tanah yang diberkati. Fang Yuan hanya menemukan sebagian kecil dari mereka sekarang.</p>
+<p>	ChibiGeneral Jadi sekarang dia pada dasarnya Santa, kecuali bahwa alih-alih memberikan hadiah, dia mengambilnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

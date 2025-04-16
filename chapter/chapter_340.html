@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 340 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 340";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_339.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 340">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_341.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 340</h1>
+        <div class="text-left">
+<p>	Bab 340</p>
+<p>	Bab 340: Dipukuli menjadi bubur</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Gunung San Cha awalnya adalah tempat yang tidak diminati oleh siapa pun; dan merupakan tempat klan Che dan klan Zuo berinteraksi.</p>
+<p>	Namun, sejak warisan dibuka, itu menjadi sangat hidup dan akan ada orang yang sering melewati hutan.</p>
+<p>	Bentrokan dan perselisihan sering terjadi, saat ini masih relatif damai.</p>
+<p>	Setiap kali pilar cahaya dibuka, kuota masuk dibatasi. Pada saat itu, itu akan menjadi adegan pembantaian di gunung San Cha.</p>
+<p>	Untuk memperjuangkan kesempatan memasuki warisan, semua Master Gu memilih untuk tetap tinggal di gunung.</p>
+<p>	Hal ini menyebabkan sebuah fenomena. Semakin kuat Gu Masters, semakin dekat ke puncak gunung mereka tinggal. Ini menyebabkan mereka berada dalam posisi yang menguntungkan ketika warisan itu muncul, karena mereka dapat dengan mudah bergegas ke sana.</p>
+<p>	Gua yang dipilih Fang Yuan berada di tengah gunung. Dari jejak di sekitar gua, jelas ada seseorang yang tinggal di dalamnya.</p>
+<p>	Benar saja, ketika mereka sampai di dekat gua, sebuah suara keras dan jelas terdengar dari dalam gua: “Ini adalah wilayah saya, Mang Kuang. Tersesat, atau kamu akan mati dengan kejam! ”</p>
+<p>	“Hahaha, Mang Kuang? Omong kosong apa itu! Tempat ini cukup bagus, saya menyukainya, tersesat. ” Fang Yuan tertawa di luar gua dan mengeluarkan ultimatum.</p>
+<p>	“Persetan dengan nenekmu, kamu menginginkannya dengan cara yang sulit! Karena kamu ingin mati, maka jangan salahkan aku karena kejam!”</p>
+<p>	Mengikuti suara itu, seorang pria kekar berjalan keluar dari gua.</p>
+<p>	Tubuh bagian atasnya telanjang; dia mengenakan celana pendek rajutan rami yang sudah usang; sisik ular cyan menutupi seluruh tubuhnya; wajahnya ditutupi janggut panjang; pembuluh darah terlihat di matanya; dan rambut hitamnya jatuh berantakan. Dia berjalan keluar dari gua tampak seperti iblis yang marah.</p>
+<p>	“Dua orang bodoh buta… eh?!”</p>
+<p>	Mang Kuang memandang Fang dan Bai, dia memaki dengan suaranya yang kasar ketika tiba-tiba pupil matanya mengecil dan rahangnya terbuka lebar. Tatapannya mengungkapkan ekspresi bingung.</p>
+<p>	“Kalian berdua, bisakah kamu menjadi iblis kembar hitam dan putih?”</p>
+<p>	“Bagaimana menurutmu?” Bai Ning Bing tertawa samar, mata birunya berkedip dengan niat membunuh.</p>
+<p>	Mang Kuang hanya merasakan hawa dingin naik dari punggungnya dan menyebar ke seluruh tubuhnya dalam hitungan detik.</p>
+<p>	Setan kembar hitam dan putih berada di peringkat empat Master Gu, sementara dia hanya berada di peringkat tiga tingkat atas. Selain itu, dia telah mendengar tentang bagaimana keduanya membunuh tanpa mengedipkan mata, dan betapa kejamnya metode mereka.</p>
+<p>	“Brengsek! Saya telah bersembunyi di sini tanpa melakukan apa-apa, apa yang saya lakukan untuk mendapatkan ini? Ini benar-benar malapetaka yang jatuh dari langit…” Pikiran Mang Kuang kacau balau.</p>
+<p>	Dalam sekejap, wajah jahat itu tiba-tiba berubah; alis terangkat terkulai, mata yang terbuka lebar menyempit menjadi celah, sudut bibirnya yang tertekuk segera terangkat menjadi senyuman; dia melakukan semua yang dia bisa untuk menunjukkan niat baiknya.</p>
+<p>	“Ini adalah keberuntungan terbesarku dalam hidup ini karena kedua tuan menyukai guaku!”</p>
+<p>	Mang Kuang membungkukkan punggungnya dan menggosok tangannya, memberikan senyum tersanjung ke arah Fang dan Bai.</p>
+<p>	Tubuhnya tinggi dan kuat tetapi ketika dia menyusut dan membungkukkan punggungnya, aura dominan aslinya yang merajalela segera menghilang; ini cocok dengan penampilannya yang kasar seperti pesta badut.</p>
+<p>	“Hmm, kamu masuk akal, kamu bisa tersesat sekarang.” Fang Yuan melambaikan tangannya.</p>
+<p>	“Ya ya ya.” Mang Kuang tampaknya telah menerima amnesti saat dia menyelinap keluar dan segera melarikan diri.</p>
+<p>	Setelah memaksa Mang Kuang keluar, Fang Yuan dan Bai Ning Bing memasuki gua bersama-sama.</p>
+<p>	Gua itu sudah diatur dengan baik oleh Mang Kuang dan mereka tidak perlu membuang energi mereka untuk membuat pengaturan apa pun.</p>
+<p>	“Gunung San Cha penuh dengan bahaya, kami akan bergiliran berjaga di malam hari selama delapan hari ke depan. Jika yang satu tidur, yang lain harus bangun.” Fang Yuan memperingatkan Bai Ning Bing.</p>
+<p>	“Tentu saja.” Bai Ning Bing mengangguk.</p>
+<p>	“Hui Mei Er tidak akan berhenti begitu saja, kita akan menghadapi masalah terus-menerus dalam delapan hari ini. Namun, bagus juga bahwa orang-orang ini mengirimkan diri mereka kepada kami, kami dapat membangun kekuatan kami dan itu sesuai dengan niat kami. ”</p>
+<p>	Fang Yuan baru saja selesai mengatakan ini ketika sebuah suara datang dari luar gua.</p>
+<p>	“Apakah iblis kembar hitam dan putih ada di dalam? Saya Tyrant Heng Mei, saya sudah lama menantikan untuk bertemu kalian berdua. Kali ini, saya terutama datang untuk berkunjung. ”</p>
+<p>	“Tiran Heng Mei? Bukankah dia bos dari Sepuluh Tiran? Saya mendengar dia sangat kejam, memupuk jalur kekuatan, suka makan daging anak kecil dan telah menyebarkan ketakutan ke Nanshan. ” Bai Ning Bing melirik Fang Yuan.</p>
+<p>	Fang Yuan mencibir ke dalam.</p>
+<p>	Dia telah merencanakan untuk mencari masalah dengan Tyrant Heng Mei ini, tetapi untuk berpikir yang terakhir benar-benar jatuh dalam dirinya sendiri.</p>
+<p>	Keduanya berjalan keluar dari gua dan melihat delapan orang yang berdiri di luar gua.</p>
+<p>	Di depan adalah tubuh yang kuat, dada telanjang dan rata, bulu dada hitam tumbuh di seluruh dadanya. Aura padat peringkat empat tahap tengah dikeluarkan dari seluruh tubuhnya.</p>
+<p>	Namun, sosok jalur iblis ini yang terkenal dengan kebiadabannya sedang tersenyum sekarang. Ketika dia melihat Fang dan Bai, dia segera menangkupkan tangannya dan orang hanya bisa menganggapnya sebagai beruang hitam yang elegan pada pandangan pertama.</p>
+<p>	“Tidak disangka setan kembar hitam dan putih memiliki latar belakang yang begitu besar.” Tyrant Heng Mei sengaja berbicara dengan suara keras dan menarik perhatian banyak Guru Gu di dekatnya.</p>
+<p>	“Bahkan Tyrant Heng Mei datang mengunjungi mereka secara pribadi.” Banyak yang terkejut.</p>
+<p>	“Untungnya, saya kehabisan …. kapan Tyrant Heng Mei menjadi begitu sopan?” Mang Kuang masih belum lari jauh, saat ini ia menyentuh dadanya dan merasakan ketakutan yang berlarut-larut.</p>
+<p>	“Tyrant Heng Mei, ada baiknya kamu datang, aku baru saja akan mengunjungimu.” Fang Yuan menjawab.</p>
+<p>	Senyum Tyrant Heng Mei menjadi lebih dalam, berpikir Fang Yuan akan mengunjunginya.</p>
+<p>	Tapi siapa yang tahu kata-kata Fang Yuan selanjutnya segera menyebabkan senyumnya menegang.</p>
+<p>	“Aku dengar kamu juga merupakan jalur kekuatan Gu Master, mari kita nikmati pertempuran hidup dan mati dan tentukan siapa yang lebih kuat. Saya, Fang Zheng, sedang berjalan di jalur kekuatan dan akan menjadi yang nomor satu di jalur kekuatan! Serahkan hidupmu!”</p>
+<p>	Selesai berbicara, Fang Yuan mengaktifkan Gu-nya dan langsung melancarkan serangan ke Tyrant Heng Mei.</p>
+<p>	“Apa?!” Tyrant Heng Mei kembali ke akal sehatnya, dia terkejut dan juga marah.</p>
+<p>	Dia telah melanggar tradisi dan datang berkunjung, tetapi untuk berpikir ‘Fang Zheng’ ini adalah pria yang tidak tahu berterima kasih dan menyerangnya tanpa mengatakan apa-apa lagi.</p>
+<p>	Ini, orang macam apa ini?</p>
+<p>	Apakah ini masih orang? Saraf di otaknya campur aduk, kan?!</p>
+<p>	Fang Yuan tidak peduli dengan pikirannya saat dia menyerang dengan cepat ke arah Tyrant Heng Mei.</p>
+<p>	Upaya habis-habisan Gu!</p>
+<p>	Tanpa mengucapkan sepatah kata pun, dia langsung menyerang.</p>
+<p>	Grr!</p>
+<p>	Sebuah hantu beruang coklat muncul dari belakangnya.</p>
+<p>	Kekuatan hebat Gu!</p>
+<p>	Tyrant Heng Mei membuka matanya dengan marah, dia tidak menghindar, meletakkan tangannya ke atas untuk menghalangi.</p>
+<p>	Dengan aktivasi kekuatan kekerasan Gu, tubuhnya membesar dan meningkatkan kekuatannya dengan tajam.</p>
+<p>	Bam!</p>
+<p>	Fang Yuan dengan keras menabrak Tyrant Heng Mei, mengirim yang terakhir mundur lima langkah sementara dia, sendiri, bangkit kembali dari kekuatan yang menakutkan.</p>
+<p>	Tyrant Heng Mei berada di peringkat empat tahap tengah dan memimpin sembilan anggota Sepuluh Tiran lainnya. Dia telah memerintah atas gunung Nan selama bertahun-tahun dan memiliki fondasi yang dalam.</p>
+<p>	“Hmph! Raja binatang kecil, saya memberi Anda wajah tetapi Anda tidak tahu apa yang baik untuk Anda. ” Tyrant Heng Mei berteriak, tetapi dia tidak mengambil inisiatif untuk menyerang.</p>
+<p>	Dia berada di peringkat empat tahap tengah dan tahu dia lebih kuat setelah melewati satu langkah dengan Fang Yuan karena yang terakhir hanya di peringkat empat tahap awal.</p>
+<p>	Namun, tidak hanya ada satu peringkat empat di tempat kejadian, ada juga Bai Ning Bing yang berdiri di sana.</p>
+<p>	Tyrant Heng Mei yakin akan menang melawan Fang Zheng, tetapi akan sangat sulit baginya untuk bertarung melawan dua.</p>
+<p>	“Tiran Heng Mei, mengapa kamu begitu berhati-hati? Bai Ning Bing, kamu berurusan dengan yang lain, Tyrant Heng Mei adalah milikku!” Fang Yuan tertawa keras dan mengangkat bahunya sebelum menyerang Tyrant Heng Mei lagi.</p>
+<p>	“Aku akan memberimu lima menit, jika kamu tidak bisa menyelesaikannya saat itu, aku akan mengambil alih.” Bai Ning Bing sedikit mengangkat alisnya, mata birunya berkedip dengan cahaya yang tajam.</p>
+<p>	“Junior yang sombong!” Mendengar percakapan santai Fang dan Bai, Tyrant Heng Mei merasa amarahnya akan meledak.</p>
+<p>	Dia memiliki temperamen yang keras, dia sudah mengalahkan dirinya sendiri dengan mempertahankan kesabarannya sampai sekarang. Mengetahui bahwa situasinya sulit untuk diperbaiki, dia membuang pikirannya yang lain dan membiarkan aura pembunuh di benaknya muncul.</p>
+<p>	Bertarung!</p>
+<p>	Dua sisi bertabrakan.</p>
+<p>	Fang Yuan melawan Tyrant Heng Mei sementara Bai Ning Bing menekan sisa anggota Sepuluh Tyrant.</p>
+<p>	Itu adalah medan perang yang kacau!</p>
+<p>	Batu-batu besar pecah, sungai-sungai pegunungan mengering, gua-gua runtuh, dan terdengar suara ledakan seperti guntur.</p>
+<p>	Tyrant Heng Mei menjadi lebih takut. Fang Yuan memiliki kekuatan pahit Gu, kekuatan dan kekuatan bertarungnya tumbuh semakin banyak luka yang dideritanya.</p>
+<p>	Ketika dia melewati gerakan melawan Fang Yuan sebelumnya, dia mengira yang disebut raja binatang kecil tidak lebih dari itu.</p>
+<p>	Mencapai tahap setengah jalan, ekspresinya berubah serius.</p>
+<p>	Dan ketika Fang Yuan meledak dengan enam hantu binatang pada saat yang sama, wajah Tyrant Heng Mei kehilangan warna.</p>
+<p>	“Raja binatang kecil ini, bagaimana dia bisa begitu kuat?! Tidak hanya kombinasi cacing Gu-nya lebih unggul dari milikku, dia juga memiliki pengalaman pertempuran yang berlimpah. Bagaimana dia hidup untuk memiliki gerakan yang begitu terampil dan kejam, bahkan tidak ada bayangan anak muda di dalam dirinya. Dia hanyalah monster berusia seratus tahun!”</p>
+<p>	“Tidak heran dia bertindak begitu sombong, dengan kekuatan seperti itu, bahkan aku tidak akan khawatir dalam bertindak seperti ini. Saya telah gagal buruk kali ini! Aku harus mundur!”</p>
+<p>	Fang Yuan menghadapi serangan frontal dengan serangan cepat dan ganas, seperti harimau ganas yang meninggalkan gunung atau naga banjir yang menjungkirbalikkan lautan. Tyrant Heng Mei terengah-engah dan energi serta darahnya kacau balau akibat serangan Fang Yuan.</p>
+<p>	Poin utamanya adalah, setiap kali Fang Yuan menderita cedera, dia akan menjadi lebih kuat.</p>
+<p>	Sekarang, Tyrant Heng Mei sudah tidak bisa terus bertarung melawan Fang Yuan. Jika Fang Yuan menjadi lebih kuat, itu akan terlalu mengerikan!</p>
+<p>	Setiap kali Tyrant Heng Mei memikirkan hal ini, semangat juangnya berkurang sedikit.</p>
+<p>	Saat pertarungan berlanjut, dia tidak berani menyerang sama sekali. Ada peluang yang jelas untuk menyerang Fang Yuan, tetapi dia mulai ragu-ragu.</p>
+<p>	“Apa yang harus saya lakukan, menyerang atau tidak?”</p>
+<p>	Dengan pemikiran seperti itu, bagaimana dia bisa bertarung dengan baik?</p>
+<p>	Tyrant Heng Mei perlahan-lahan jatuh ke dalam situasi pasif; Namun Fang Yuan, telah melepaskan semua ketakutannya, serangannya seperti ombak, datang gelombang demi gelombang, terus menerus dan tanpa akhir.</p>
+<p>	Hantu binatang melintas satu demi satu di udara, akan ada suara keras setiap kali Fang Yuan menyerang.</p>
+<p>	Suara ledakan datang lagi dan lagi, semua orang yang mendengarnya merasakan jantung mereka berdebar ketakutan.</p>
+<p>	“Pelanggaran sengit macam apa ini ?!”</p>
+<p>	“Bahkan senior yang tangguh seperti Tyrant Heng Mei bukanlah tandingan Fang Zheng…”</p>
+<p>	“Fang Zheng jelas berada di peringkat empat tahap awal tetapi dia menekan tahap tengah Tyrant Heng Mei.”</p>
+<p>	“Raja binatang kecil …” Banyak orang diam-diam mengamati pertempuran dan memikirkan nama panggilan Fang Yuan ini.</p>
+<p>	“Siapa tiran di sini?” Mang Kuang merasa sangat tidak berdaya. Dia tahu Fang Yuan lebih brutal dan tidak masuk akal daripada Tyrant Heng Mei. Tyrant Heng Mei yang jahat memucat dibandingkan dengan Fang Zheng.</p>
+<p>	“Fang Zheng, jangan pergi terlalu jauh!” Tiran Heng Mei menyemburkan darah; dada, lengan dan kakinya semuanya benar-benar retak. Dia ingin mundur, tetapi Fang Yuan sudah melihat rencananya. Bai Ning Bing membunuh anggota Sepuluh Tiran lainnya dan dengan tegas menguncinya.</p>
+<p>	melolong melolong melolong!</p>
+<p>	melolong melolong melolong!</p>
+<p>	Fang Yuan mengarahkan jarinya, enam hantu binatang besar berubah menjadi bentuk padat dan jatuh dari langit, menenggelamkan Tyrant Heng Mei.</p>
+<p>	Bam!</p>
+<p>	Suara keras bergema dan debu bertebaran di mana-mana.</p>
+<p>	Tiran Heng Mei dipukuli hingga babak belur, organ dalam dan pecahan tulangnya berceceran di tanah.</p>
+<p>	Terkesiap…</p>
+<p>	Suara menghirup tajam yang tak terhitung jumlahnya bisa terdengar dari sekitarnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

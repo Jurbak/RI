@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 175 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 175";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_174.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 175">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_176.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 175</h1>
+        <div class="text-left">
+<p>	Bab 175</p>
+<p>	Bab 175: Meningkatkan tekanan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Kamu bertanya padaku mengapa Guru Gu itu datang untuk membunuhku? Bagaimana saya tahu!” Menghadapi pertanyaan Tie Ruo Nan, Fang Zheng berkedip polos.</p>
+<p>	“Jika Anda telah melakukan sesuatu, saya harap Anda tidak menyembunyikan kebenaran. Karena kata-kata Anda, meskipun mungkin tampak tidak penting, dapat sangat membantu dalam menyelesaikan kasus ini, ”kata gadis muda itu dengan tulus.</p>
+<p>	Fang Zheng menggelengkan kepalanya. “Saya juga sangat bingung. Selama periode itu, saya berkultivasi tanpa henti, jadi bagaimana saya bisa menarik pembunuhan? Tetapi setelah itu, orang-orang di sekitar saya menyadari bahwa Gu Master iblis ini bisa saja disewa oleh dua klan lainnya, untuk membunuh bintang yang sedang naik daun seperti saya. Anda juga tahu persaingan antara kami dan klan Bai dan klan Xiong. Terutama klan Xiong, mereka adalah tersangka terbesar karena mereka pernah merekrut Master Gu iblis ke dalam klan mereka.”</p>
+<p>	“Klan Xiong ya …” Tie Ruo Nan menjadi sedikit putus asa setelah mendengar ini, karena klan Xiong telah tersingkir oleh gelombang serigala. Tampaknya petunjuk ini juga hilang.</p>
+<p>	Tiba-tiba, gumaman datang dari luar ruangan.</p>
+<p>	“Cepat, lihat di sana, bukankah itu orang-orang dari klan Xiong?”</p>
+<p>	“Saya pikir klan Xiong telah dimusnahkan, bagaimana mungkin ada utusan yang datang ke sini ?!”</p>
+<p>	Penampilan utusan klan Xiong menyebabkan diskusi yang hidup di antara desa, karena orang-orang berbicara satu sama lain.</p>
+<p>	Segera, berita datang dari paviliun pemimpin klan.</p>
+<p>	“Klan Xiong masih memiliki banyak orang yang selamat.”</p>
+<p>	“Mereka mundur sendiri, menggunakan Gu yang ditinggalkan leluhur mereka, menyembunyikan banyak orang pada saat yang sama, menipu kematian!”</p>
+<p>	“Bajingan-bajingan ini, mundur dan menghindari pertempuran, menyebabkan gelombang serigala datang kepada kita.”</p>
+<p>	“Hmph, orang-orang klan Xiong ini mungkin terlihat kasar dan besar, tetapi hati mereka licik di dalam. Ingin meminjam kekuatan gelombang serigala untuk melemahkan kita, mereka terlalu hina!”</p>
+<p>	Klan Gu Yue sangat marah.</p>
+<p>	Munculnya utusan klan Xiong telah menyebabkan distribusi politik gunung Qing Mao mengalami pergeseran total.</p>
+<p>	Apa yang dianggap sebagai kompetisi dua sisi antara klan Bai dan klan Gu Yue pada akhirnya tetap menjadi kompetisi tiga arah.</p>
+<p>	Tapi orang akan mengerti begitu mereka memikirkannya. Klan Xiong telah bertahan selama ratusan tahun tanpa jatuh, mereka juga memiliki fondasinya sendiri. Klan mana yang tidak memiliki leluhur, dan kartu truf?</p>
+<p>	Setelah utusan klan Xiong pergi, Gu Yue Bo segera mengadakan pertemuan tetua klan.</p>
+<p>	“Bajingan klan Xiong ini, mereka benar-benar tidak baik. Untuk berpikir mereka segera mundur! ”</p>
+<p>	“Memang tidak bisa memandang rendah siapa pun. Klan Xiong selalu berada di peringkat di belakang klan kami dan klan Bai, dan merupakan yang terlemah di antara kekuatan di gunung Qing Mao. Tetapi untuk berpikir mereka memiliki skema seperti itu, kita harus lebih berhati-hati mulai sekarang. ”</p>
+<p>	“Mereka ingin meminjam kekuatan gelombang serigala untuk melenyapkan kita. Mereka hampir menangkap kita kali ini, jika bukan karena lycan petir itu, kita mungkin tidak akan kehilangan begitu banyak tetua. Orang-orang ini pantas mati!”</p>
+<p>	“Jika bukan karena penyelidik ilahi Tie muncul, dua pemimpin klan mungkin sudah mati. Kita tidak bisa membiarkan mereka pergi begitu saja.”</p>
+<p>	“Meminta kompensasi adalah suatu keharusan. Kami dan klan Bai bekerja sama untuk menyelesaikan masalah lycan petir. Tetapi untuk meminta kompensasi, kita perlu mendiskusikan dan merumuskan jumlah terlebih dahulu. ”</p>
+<p>	Para tetua klan berbicara satu demi satu, berdiskusi sampai mereka memiliki kesimpulan.</p>
+<p>	Klan Gu Yue akan mengirim utusan ke klan Xiong. Mereka harus mengamati sisa kekuatan klan Xiong.</p>
+<p>	Jika klan Xiong kuat, mereka akan bergabung dengan klan Bai. Jika klan Xiong lemah, mereka mungkin mengirim orang untuk melenyapkan mereka dan mencuri mata air roh.</p>
+<p>	“Jadi, siapa yang cukup cocok untuk dikirim ke klan Xiong?” Gu Yue Bo melihat sekeliling, bertanya, “Tetua klan mana yang akan memikul tanggung jawab ini!”</p>
+<p>	Aula segera menjadi sunyi.</p>
+<p>	Para tetua klan saling memandang. Tidak ada yang mau pergi.</p>
+<p>	Konflik internal berada di puncaknya sekarang, dan itu adalah saat yang paling penting bagi faksi untuk membagi kue kepentingan. Jika mereka pergi ke klan Xiong, faksi mereka akan tanpa pemimpin dan yang lain akan memanfaatkan kesempatan itu. Ketika mereka kembali, semua sudah diputuskan, jadi pada siapa mereka akan mengadu?</p>
+<p>	“Orang tua ini merasa bahwa, untuk pergi ke klan Xiong, seseorang dengan senioritas dan pengalaman harus pergi, itu harus seseorang yang dapat bertahan. Di antara kita semua di sini, hanya Mo Chen yang lebih tua yang bisa mengambil peran ini!” Gu Yue Yao Ji tiba-tiba berkata.</p>
+<p>	Gu Yue Mo Chen mendengus, menegur, “Berbicara tentang kualifikasi, tuan Yao Ji memiliki lebih banyak pengalaman daripada saya. Terutama dalam hal ketenaran, saya tidak bisa bersaing sama sekali, saya mengakui kekalahan total. Pergi ke klan Xiong, sepertinya kita harus menyusahkan tuan Yao Ji. ”</p>
+<p>	“Penatua Mo Chen sangat benar, saya merekomendasikan tuan Yao Ji.” Seorang tetua klan berdiri.</p>
+<p>	“Saya merasa tuan Mo Chen adalah kandidat yang lebih cocok.” Penatua lain segera menegur.</p>
+<p>	Adegan itu kacau.</p>
+<p>	Gu Yue Bo berdiri di kursi pemimpin, menatap dingin tanpa bersuara.</p>
+<p>	Faksi obat sudah memiliki niat untuk memisahkan diri dengan kekuatannya sendiri, tidak lagi di bawah kendalinya. Jadi dia juga tidak mau membantu, dan hanya mengamati pemandangan itu.</p>
+<p>	Ini adalah kontes pertama antara faksi obat dan faksi Mo.</p>
+<p>	Keduanya memiliki sekutu politik masing-masing, tetapi situasi saat ini adalah bahwa kedua pemimpin membuat banyak kompromi serta pertukaran keuntungan. Tapi secara keseluruhan, faksi obat lebih kuat.</p>
+<p>	Reputasi Gu Yue Yao Ji serta kecenderungan faksi Chi, menyebabkan situasi ini.</p>
+<p>	Gu Yue Bo menatap dingin, mencatat di dalam hatinya faksi-faksi yang dimiliki setiap individu.</p>
+<p>	Sebagai pemimpin klan, dia tidak ingin otoritasnya berkurang, dan para tetua ini adalah pesaingnya. Tapi sekarang dia memutuskan untuk hanya mengamati, dan belum menyerang.</p>
+<p>	“Faksi Mo mengendalikan terlalu banyak kekuatan dan sumber daya, dan sekarang setelah mereka kehilangan pewaris mereka, faksi obat-obatan melompat keluar dengan tergesa-gesa dan mencoba menyerang mereka. Jadi, aspek terpenting dari kontes ini adalah semua pada satu orang.”</p>
+<p>	Gu Yue Bo berpikir dalam hati, mengalihkan pandangannya ke arah Fang Yuan.</p>
+<p>	Fang Yuan telah duduk di kursinya, tidak mengucapkan sepatah kata pun.</p>
+<p>	“Sepertinya Fang Yuan ini tidak terlalu dekat dengan faksi Mo, dan belum mendapatkan kesepakatan bersama tentang distribusi bunga. Kalau tidak, dia pasti sudah membantu. Apakah ini kesempatanku?” pikir Gu Yue Bo.</p>
+<p>	Tetapi pada saat ini, Fang Yuan tiba-tiba berdiri dari tempat duduknya.</p>
+<p>	Tindakan ini, menarik perhatian semua orang.</p>
+<p>	Apa yang dia katakan selanjutnya adalah kejutan. “Pergi sebagai utusan, ini adalah masalah penting yang melibatkan kelangsungan hidup klan kita. Saya bersedia untuk melangkah, memikul tanggung jawab seorang utusan, dan menyelidiki keadaan klan Xiong saat ini untuk klan kami!</p>
+<p>	“Apa?”</p>
+<p>	“Fang Yuan meminta untuk pergi?”</p>
+<p>	“Apa artinya ini? Apakah dia benar-benar bodoh atau bertindak bodoh? Bukankah dia takut ketika dia kembali, semua kepentingan sudah dibagikan! ”</p>
+<p>	Semua tetua klan menunjukkan ekspresi terkejut.</p>
+<p>	Fang Yuan punya rencananya sendiri. Jika dia pergi ke klan Xiong, dia mungkin bisa menemukan peluang dan memicu konflik di antara tiga klan. Bahkan jika dia tidak bisa, ini adalah kesempatan untuk pergi.</p>
+<p>	“Tunggu! Siapa pun di sini bisa menjadi utusan tetapi Fang Yuan sendirian! ” Pintu tiba-tiba terbuka dan Tie Ruo Nan masuk, menerobos masuk.</p>
+<p>	Fang Yuan membalikkan tubuhnya untuk melihat, dan irisnya sedikit menyusut. Dia melihat ayah dan anak perempuan keluarga Tie masuk, serta dua orang lain di belakang mereka. Yang satu tampak seperti Fang Yuan — itu memang saudaranya Gu Yue Fang Zheng, sementara yang lain adalah Gu Yue Jiang He.</p>
+<p>	“Apa yang harus dijelaskan oleh penyelidik ilahi Tie kepada kita hari ini?” Gu Yue Bo berdiri untuk menyambutnya, nada suaranya sedikit tidak senang. Ini adalah diskusi internal Gu Yue, bagaimana mereka bisa menerobos masuk seperti itu?</p>
+<p>	“Pemimpin klan Gu Yue, serta para tetua lainnya. Putriku sudah menyelidiki identitas Guru Gu iblis yang pernah menyerang Gu Yue Fang Zheng,” Tie Xue Leng berbicara.</p>
+<p>	“Oh? Apakah begitu…”</p>
+<p>	“Tuan Gu iblis itu, bukankah dia dihasut oleh klan Xiong?”</p>
+<p>	“Apakah ada cerita tersembunyi di balik ini?”</p>
+<p>	“Memang, identitas sejati Guru Gu iblis ini adalah seorang pemburu dari sebuah dusun di kaki gunung. Hanya secara kebetulan dia berhasil menjadi Guru Gu iblis, namanya Wang Er. Alasan mengapa dia menyerang Gu Yue Fang Zheng, adalah karena saudaranya Fang Yuan!” Mengatakan demikian, Tie Ruo Nan menatap tajam ke arah Fang Yuan.</p>
+<p>	“Saudaraku, untuk berpikir kamu adalah orang seperti itu!” Fang Zheng yang berdiri di satu sisi mengepalkan tinjunya, menunjukkan kemarahan di matanya.</p>
+<p>	“Apa maksudmu dengan ini, nona muda?” Gu Yue Mo Chen berkata dengan suara serius.</p>
+<p>	“Jangan bilang, Fang Yuan adalah orang yang menyewa Guru Gu iblis ini untuk membunuh saudaranya sendiri Fang Zheng?” Gu Yue Yao Ji menunjukkan ekspresi bersemangat.</p>
+<p>Bahkan Gu Yue Bo terkejut, saat dia menyesuaikan posturnya di tempat duduknya.</p>
+<p>	“Kalian semua salah.” Tie Ruo Nan menggelengkan kepalanya. “Yang benar adalah, Fang Yuan membunuh orang yang tidak bersalah, membunuh seluruh keluarga lelaki tua Wang, menyebabkan Wang Er membalas dendam. Tetapi Wang Er tidak tahu bahwa Fang Yuan memiliki saudara kembar, jadi dia mengira Fang Zheng sebagai Fang Yuan, dan menyerangnya untuk membalas dendam.</p>
+<p>	“Nona muda, semuanya perlu bukti,” seorang tetua klan berbicara.</p>
+<p>	“Tentu saja saya punya bukti. Gu Yue Jiang He, beri tahu kami semua yang Anda ketahui.” Tie Ruo Nan siap untuk ini, tidak panik.</p>
+<p>	Gu Yue Jiang Dia menghela nafas. Dia memandang ayah dan anak perempuan keluarga Tie dengan ketakutan, perlahan berjalan ke depan dan berlutut di tanah, menangis, “Ini adalah kelalaian tugas bawahan ini, saya mencari hukuman pemimpin klan!”</p>
+<p>	Wajah Gu Yue Bo muram seperti air, “Katakan semuanya dengan jelas terlebih dahulu, jangan sembunyikan apa pun dari kami!”</p>
+<p>	Saat itu, ketika Fang Yuan membunuh keluarga lelaki tua Wang, itu berada di bawah wilayah yurisdiksi Gu Yue Jiang He, dan hanya ketika dia sampai di tempat itu dia menemukannya. Karena evaluasi klan, dia menekan masalah ini dan tidak melaporkannya. Dia tidak akan pernah berpikir bahwa hari ini, masalahnya akan terungkap, digali oleh Tie Ruo Nan.</p>
+<p>	“Kebenarannya seperti ini …” Jiang He tergagap saat berbicara, tidak menambahkan detail apa pun ke dalam deskripsinya, sangat sederhana dan jujur.</p>
+<p>Pada waktu dan tempat ini, dia tidak berani berbohong. Fang Yuan juga seorang tetua klan, jadi dia tidak berani melebih-lebihkan fakta.</p>
+<p>	“Aku tidak akan pernah berpikir bahwa kebenarannya akan seperti ini!”</p>
+<p>	“Fang Yuan membunuh ayah Wang Er, dan Wang Er datang untuk membalas dendam, tetapi malah menemukan Fang Zheng. Jadi begitulah….”</p>
+<p>	“Fang Zheng tidak bersalah terlibat, dan memblokir krisis untuk Fang Yuan.”</p>
+<p>	Para tetua klan berbisik di antara mereka sendiri.</p>
+<p>	Tinju terkepal Fang Zheng bahkan lebih erat saat kemarahan tumbuh di hatinya. Dia tidak bisa menahan diri untuk tidak menggeram pada Fang Yuan, “Saudaraku, bagaimana kamu bisa mengambil nyawa orang dengan begitu mudah. Laki-laki dan perempuan tua itu, mereka adalah manusia yang tidak bersalah. Bagaimana Anda bisa memotongnya ?! ”</p>
+<p>	Menghadapi tuduhan saudaranya, Fang Yuan acuh tak acuh, seolah-olah dia tidak mendengarnya.</p>
+<p>	Gu Yue Fang Zheng bukanlah poin utama.</p>
+<p>	Fang Yuan memandang ayah dan anak keluarga Tie. Mampu menemukan kebenaran dalam waktu sesingkat itu, mereka memang penyelidik ilahi.</p>
+<p>	Terlepas dari cacing Gu apa yang mereka gunakan, metode apa pun untuk membuat Jiang He tunduk dan mengungkapkan rahasianya sendiri, mereka memiliki cara mereka sendiri.</p>
+<p>	Kemampuan ini membuat Fang Yuan semakin yakin bahwa masalah dia membunuh Jia Jin Sheng, pasti akan ditemukan oleh duo ayah dan anak Tie. Itu hanya masalah waktu. Bagaimanapun, ini adalah dunia Gu, di mana Gu dapat digunakan untuk melakukan kejahatan, dan juga digunakan untuk menyelesaikan kejahatan.</p>
+<p>	Tekanan semakin meningkat…</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 181 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 181";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_180.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 181">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_182.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 181</h1>
+        <div class="text-left">
+<p>	Bab 181</p>
+<p>	Bab 181: Dengan twist yang aneh (Bab panjang)</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Nona Tie, apa maksudmu?” Fang Zheng tidak mengerti.</p>
+<p>	Tie Ruo Nan mengulurkan jarinya, menunjuk ke dinding, “Lihat dia, Gu Yue Fang Yuan! Tidakkah menurutmu dia terlihat terlalu tenang? Ketika mengetahui bahwa dia memiliki bakat kelas C, sementara saudara lelakinya yang memiliki hubungan darah memiliki bakat kelas A, orang normal pasti akan bereaksi terhadapnya. Tapi dia? Tidak ada jejak emosi! Pujian dan ejekan di sekitarnya tidak bisa menggerakkan hatinya. Tidakkah menurutmu ini aneh? Sepanjang proses, dia terlalu tenang.”</p>
+<p>	Kata-kata Tie Ruo Nan, menarik perhatian semua orang.</p>
+<p>Saat adegan ini diputar ulang, semua tatapan di dinding mendarat di siluet Fang Yuan.</p>
+<p>	Fang Yuan berdiri di antara kerumunan, berdiri sendiri, tegak. Bayangan gelap menyelimuti separuh tubuhnya.</p>
+<p>	Dan skenario ini, sangat kontras dengan sisi lain.</p>
+<p>	Saudaranya sendiri, Gu Yue Fang Zheng, bergerak selangkah demi selangkah, tubuhnya bermandikan cahaya putih murni dari Hope Gu.</p>
+<p>	Pada saat ini, kakak laki-laki dan perempuan memiliki pertukaran identitas. Yang pertama jatuh dari kasih karunia, jatuh ke titik terendah dalam hidupnya, diliputi oleh bayang-bayang. Yang terakhir diberkati oleh takdir, bersinar dalam kecemerlangan, mendaki ke puncak.</p>
+<p>	“Seorang anak muda berusia lima belas tahun, mengalami perubahan besar dalam hidupnya. Namun, di tubuhnya tidak ada jejak kekecewaan, kebingungan, atau kecemburuan. Hanya ketenangan, dia berdiri di antara kerumunan, diam-diam menonton seperti dia adalah orang luar, seperti sedang menonton pertunjukan,” suara Tie Ruo Nan terdengar dengan tepat.</p>
+<p>	Ya.</p>
+<p>	Fang Yuan memperhatikan dalam diam.</p>
+<p>	Saat bayang-bayang menyelimuti separuh tubuhnya, wajahnya tanpa ekspresi, kecuali warna pucat kulit anak muda.</p>
+<p>	Gu Yue Bo menatap dinding, serius.</p>
+<p>	Fang Zheng merasakan hawa dingin yang kuat muncul dari dalam tubuhnya.</p>
+<p>	Saudaraku, apa sebenarnya kamu ……</p>
+<p>	“Bahkan jika dia memiliki prediksi terhadap hasil Upacara Kebangkitan, hatinya pasti akan merasakan perubahan emosi, dan dia pasti tidak akan setenang ini. Saya menggunakan Cactus Pointer sebelumnya, dan selalu berpikir bahwa kata ‘aptitude’ mengacu pada Gu Yue Chi Cheng. Tapi sekarang aku memikirkannya, itu mungkin tidak merujuk pada Chi Cheng, tetapi kemungkinan besar Fang Yuan! ” Kata Tie Ruo Nan.</p>
+<p>	“Nona Tie, apa maksudmu? Aku tidak mengerti sama sekali?” Fang Zheng lebih bingung.</p>
+<p>	Tie Ruo Nan mengangkat satu jari. “Hanya satu jenis situasi yang akan menyebabkan Fang Yuan begitu tenang. Artinya, dia memiliki kartu truf yang tidak ada yang tahu. Hanya satu situasi yang membuatnya tidak cemburu, dan itu karena dia memiliki sesuatu yang lebih besar. Jika dua orang berjalan bersama dan satu orang menemukan batu purba, hanya jika yang lain menemukan sepuluh atau seratus, mereka tidak akan cemburu, dan memiliki emosi yang tenang. Fang Yuan memang seperti itu.”</p>
+<p>	“Maksudmu, Fang Yuan menipu dan menyembunyikan bakatnya yang sebenarnya? Dia bukan bakat kelas C?” Gu Yue Bo mengerti kata-kata Tie Ruo Nan, “Tapi jika dia kelas A atau B, mengapa dia tidak langsung menunjukkannya?”</p>
+<p>	“Fang Yuan memiliki kebijaksanaan besar sejak muda!” Bibir Tie Ruo Nan melengkung, ekspresinya percaya diri saat dia memancarkan kepercayaan diri. “Beberapa hari ini, saya sudah membaca beberapa puisinya. Dengan visi dan aspirasi seperti itu, bahkan ayah pun memujinya. Jenius seperti itu, dia secara alami memiliki rencananya sendiri. ”</p>
+<p>Gu Yue Bo menggelengkan kepalanya, “Hanya dengan ini saja, masih belum mengkonfirmasi apapun. Menyembunyikan bakat dan mengungkapkan bakatnya memberikan dua perlakuan yang sama sekali berbeda. Bahkan jika Fang Yuan tidak mengetahui hal ini, setelah satu tahun di akademi, dia harus bebas dari itu.”</p>
+<p>	“Tentu saja dia tahu, itu sebabnya dia tidak berani mengungkapkannya.” Tie Ruo Nan tidak bertele-tele, berkata dengan percaya diri.</p>
+<p>	“Maksud kamu apa?” Gu Yue Bo juga tersesat sekarang.</p>
+<p>	“Pemimpin klan Gu Yue.” Tie Ruo Nan berbalik, menatap Gu Yue Bo dengan sungguh-sungguh. “Apakah kamu tahu tentang sepuluh anak Ren Zu?”</p>
+<p>	Gu Yue Bo pertama kali tercengang, sebelum dia langsung bereaksi, memahami arti sebenarnya dari Tie Ruo Nan.</p>
+<p>	DIA TERKEJUT!</p>
+<p>	Irisnya melebar, mulutnya menganga, tidak memiliki watak pemimpin klannya.</p>
+<p>	Ini adalah pertama kalinya Fang Zheng melihat Gu Yue Bo dalam keadaan seperti itu.</p>
+<p>	Sepuluh anak Ren Zu, putra sulung Verdant Great Sun, putri kedua Desolate Ancient Moon… sepuluh anak bakat menantang surga, sehingga surga waspada dan tidak memberi mereka umur panjang. Di dunia Gu, sepuluh anak juga mewakili sepuluh bakat paling ekstrem!</p>
+<p>	Yaitu — sepuluh fisik ekstrem!</p>
+<p>“Sepuluh anak Ren Zu meninggal satu per satu, dan Ren Zu hampir mati karena usia tua. Tetapi pada akhirnya, Ren Zu mengumpulkan mayat sepuluh anaknya dan mengorbankan dirinya, semuanya masuk ke perut Gu Turunan. Perut Derivasi Gu meledak, meledak, dan kehidupan yang tak terhitung jumlahnya menyebar ke seluruh negeri, menciptakan kumpulan manusia pertama. Manusia fana ini tidak memiliki Ren Zu atau bakat sepuluh anak, tetapi mereka dapat berkultivasi setelah membangkitkan bukaan mereka. Kemanusiaan dengan demikian tumbuh dan berkembang, membentuk ukuran hari ini. Tentu saja, itu semua adalah cerita mitologis.”</p>
+<p>	“Tapi menurut cerita, kita masing-masing memiliki Ren Zu dan garis keturunan sepuluh anaknya di dalam diri kita!” Tie Ruo Nan melanjutkan, “Satu-satunya hal adalah bahwa kebanyakan orang memiliki garis keturunan yang menipis, atau karena perkawinan campuran, saling membatasi dan menyebabkannya tetap tidak aktif. Tetapi beberapa orang ketika lahir memiliki garis keturunan yang lebih kuat, dan seiring bertambahnya usia atau berkultivasi, mereka akan mulai menuju ke arah yang ekstrim, dengan satu garis keturunan mendominasi sisanya. Ketika muncul, itu adalah sepuluh fisik ekstrem! ”</p>
+<p>	“Apa sepuluh fisik ekstrem ini?” Fang Zheng bertanya.</p>
+<p>	“Jangan bilang, Fang Yuan memiliki salah satu dari sepuluh bakat ekstrim ?!” Gu Yue Bo tercengang.</p>
+<p>	“Sangat mungkin begitu! Hanya sepuluh fisik ekstrem yang akan menyebabkan Fang Yuan begitu tenang, dan tidak membutuhkan banyak sumber daya kultivasi. Dan hanya sepuluh fisik ekstrem yang mendominasi bakat kelas A yang dapat menyebabkan Fang Yuan tidak memiliki sedikit kecemburuan atau iri hati, dan hanya sepuluh fisik ekstrem yang dapat menyebabkan Fang Yuan tidak mengungkapkan bakatnya, karena dia takut terbunuh lebih awal, dengan demikian memilih untuk menyembunyikan kebenaran!” Tie Ruo Nan berbicara dengan cepat.</p>
+<p>	Bahkan Tie Xue Leng tidak akan memikirkan kelahiran kembali. Belum lagi gadis muda itu. Di bawah segala macam kebetulan, dia berhasil menduga kesimpulan yang benar-benar kebalikan dari kebenaran.</p>
+<p>	Mendengar itu, semua orang tercengang.</p>
+<p>	Analisis Tie Ruo Nan memiliki bukti dan bukti, menyebabkan orang lain mempercayainya. Jika bukan karena alasan ini, apa ada penjelasan lain?</p>
+<p>	“Ya ya! Sepuluh fisik ekstrem, sepuluh fisik ekstrem … Itu pasti fisik Yin Desolate Yin Bulan Kuno! ”</p>
+<p>Hati Gu Yue Bo bergejolak, sangat bersemangat hingga tubuhnya bergidik.</p>
+<p>	Orang lain mungkin tidak mengetahui hal ini, tetapi dia memiliki sejarah rahasia klan dan mengetahui banyak rahasia kuno.</p>
+<p>	Ratusan tahun yang lalu, nenek moyang generasi pertama mendirikan desa di tempat ini dan menamakannya desa Gu Yue. Sebenarnya, Gen pertama sama sekali tidak bernama Gu Yue!</p>
+<p>	Mengapa dia memilih nama ‘Gu Yue’? Itu adalah sebuah misteri.</p>
+<p>	Tetapi sebelum Gen 1 meninggal, dia pernah menghela nafas, “Garis keturunan akan diturunkan, akan ada rencana besar selama berabad-abad, Bulan Kuno Desolate Yin, dunia akan bergidik!”</p>
+<p>	Dia meninggalkan kata-kata perpisahan itu, dan dalam wasiatnya, itu meramalkan bahwa klan Gu Yue suatu hari nanti di masa depan akan menghasilkan seorang Guru Gu dengan salah satu dari sepuluh bakat ekstrim, tubuh Yin Kuno Desolate Yin! Dia akan menyebabkan dunia bergetar dan membawa klan Gu Yue menuju zaman keemasan baru! Dia juga menyebutkan kepada keturunannya bahwa jika suatu saat tubuh seperti itu muncul, mereka harus dibawa ke kuburan kolam darah.</p>
+<p>	Sebagai pemimpin klan, Gu Yue Bo mengetahui kelemahan dari sepuluh fisik ekstrem, tetapi dia telah mempelajari wasiat ini secara mendalam, dan menemukan bahwa leluhur generasi pertama tampaknya mengetahui metode untuk mengekang kelemahan ini. Dan metode ini disimpan di peti matinya di kuburan, dalam tidur abadi bersamanya.</p>
+<p>Jika fisik Ancient Moon Desolate Yin benar-benar muncul, bawa dia ke peti mati……</p>
+<p>	“Untuk berpikir bahwa Gu Yue Fang Yuan adalah jenius yang dinubuatkan itu – fisik Yin Desolate Yin Kuno!” Gu Yue Bo berteriak dalam hatinya.</p>
+<p>	“Ini tak mungkin. Di bawah pengawasan semua orang, bagaimana kakak bisa menipu di bawah tatapan semua orang? ” Fang Zheng benar-benar terkejut, menggelengkan kepalanya, tidak dapat menerima teori ini.</p>
+<p>Tie Ruo Nan menatapnya dengan kasihan. “Jika bahkan Chi Cheng bisa menipu, mengapa Fang Yuan tidak bisa? Sepuluh fisik ekstrem memiliki potensi tak terbatas, kemungkinan tak terbatas. Mungkin Fang Yuan bangun lebih awal, dan mungkin dia menipu pria bambu itu, karena sepuluh fisiknya yang ekstrem. Atau mungkin Jia Jin Sheng dibunuh oleh Fang Yuan, karena dia mengetahui rahasia Fang Yuan ini.”</p>
+<p>	“Ikat nona muda keluarga, berbicara dengan hati-hati.” Ekspresi Gu Yue Bo tidak senang, berbicara dengan nada rendah, “Kata-kata tidak bisa diucapkan tanpa berpikir. Apakah Jia Jin Sheng dibunuh oleh Fang Yuan, itu belum dikonfirmasi. Fang Yuan adalah anggota klan saya, dan bahkan jika dia melakukan tindakan itu, bagaimana kami akan menjawab keluarga Jia juga merupakan masalah kami. Anda hanya di sini untuk menyelidiki kasus ini. ”</p>
+<p>	Sikap pemimpin klan Gu Yue telah berubah 180 derajat.</p>
+<p>	Sebelumnya, dia mengira Fang Yuan adalah bakat kelas C tanpa kemungkinan investasi. Tapi sekarang, Fang Yuan adalah fisik Bulan Kuno Desolate Yin?!</p>
+<p>Setelah itu melibatkan ramalan dan kehendak gen pertama, nilainya benar-benar berubah.</p>
+<p>	Dia harus dilindungi, dan bahkan jika keluarga Jia tersinggung, tidak akan ada penyesalan!</p>
+<p>	“Oh sial. Pemimpin klan Gu Yue ini baru saja menghidupkan kata-katanya. Betapa tidak tahu malunya dia, mengubah sikapnya begitu cepat! Saya seharusnya tidak mengungkapkan kebenaran dari sepuluh fisik ekstrem begitu cepat. Sepuluh bakat ekstrim menguasai bakat kelas A, jadi tampaknya pemimpin klan Gu Yue ingin melindungi Fang Yuan sekarang. Ini akan membawa hambatan besar untuk memecahkan kasus ini. Apa yang harus saya lakukan sekarang, ayah?”</p>
+<p>Hati Tie Ruo Nan tenggelam, dan menggertakkan giginya, dia tanpa sadar mencari sosok ayahnya.</p>
+<p>	“Eh, di mana ayah?” Gadis muda itu tercengang.</p>
+<p>	Penyelidik surgawi Tie masih ada sebelumnya, tetapi dalam sekejap mata dia sudah pergi.</p>
+<p>	Penemuan ini menyebabkan Gu Yue Bo tegang.</p>
+<p>Ke mana Tie Xue Leng bisa pergi saat ini? Pemimpin klan Gu Yue secara alami menghubungkannya dengan Fang Yuan.</p>
+<p>	“Fang Zheng, aku akan mencari kakakmu. Pergi beri tahu tetua klan lainnya, dan cepat berkumpul untuk mencari saya! ” Meninggalkan instruksinya, Gu Yue Bo mengaktifkan cacing Gu dan terbang keluar dari jendela.</p>
+<p>	Tie Ruo Nan mendengus, berlari keluar kamar menuju kediaman Fang Yuan.</p>
+<p>	Di seluruh aula, hanya Fang Zheng yang tersisa.</p>
+<p>	“Bagaimana … bagaimana ini bisa terjadi ?!”</p>
+<p>	Keadaan Fang Zheng saat ini tidak optimis. Wajahnya pucat, tubuhnya di ambang jatuh, tulang punggungnya tanpa kekuatan.</p>
+<p>	Dia merasa dunianya tertutup kegelapan.</p>
+<p>	Dia merasa dunianya runtuh!</p>
+<p>Bagaimana bisa menjadi seperti ini?</p>
+<p>	“Bakat saudara adalah sepuluh fisik ekstrem? Bakat kelas A saya tidak ada apa-apanya dibandingkan dengan dia, kegagalan total dibandingkan dengan dia! ”</p>
+<p>	Saat dia berpikir dan berpikir, air mata Fang Zheng jatuh.</p>
+<p>	Pada saat ini, semua semangatnya dibasahi.</p>
+<p>	Selama ini, pencapaian terbesarnya adalah mengalahkan Fang Yuan dalam hal bakat. Semua kepercayaan dirinya dibangun di atas ini. Tapi saat ini, dia diberitahu fakta kejam ini — bakatnya tidak ada apa-apanya dibandingkan dengan saudaranya!</p>
+<p>	Areanya yang paling membanggakan dan paling percaya diri telah ditekan oleh Fang Yuan.</p>
+<p>	Keyakinan yang dia bangun setelah sekian lama, runtuh dalam sekejap.</p>
+<p>	“KAKAK LAKI-LAKI!” Dia mengangkat kepalanya, membiarkan air matanya mengalir seperti sungai.</p>
+<p>	Dia berteriak dalam hatinya, “Dari awal sampai akhir, kamu telah menonton pertunjukan selama ini! Melihatku melompat-lompat, melihat penampilanku yang seperti badut?”</p>
+<p>	Sudut matanya melihat ke dinding lagi.</p>
+<p>	Gambar-gambar itu berputar dan bergerak, dan orang-orang bergerak ke mana-mana dengan suara yang tak terhitung jumlahnya memuji penampilan Fang Zheng. Namun, Fang Yuan sendirian berdiri di antara orang-orang, wajahnya tenang saat dia melihat.</p>
+<p>	Menonton dengan damai begitu saja ……</p>
+<p>	Fang Zheng tiba-tiba merasa bahwa dalam gambar ini, dia yang diselimuti cahaya harapan ini, sangat kekanak-kanakan, sangat menusuk mata. Di dalam hatinya, iris gelap Fang Yuan yang tenang menunjukkan ekspresi ilahi.</p>
+<p>	Bayangannya berangsur-angsur membesar, semakin tinggi dan tinggi sampai dia tidak bisa memanjat, setinggi gunung yang mencapai awan.</p>
+<p>	Mata tenang itu menatapnya dari gunung yang tinggi di langit, menatap penampilan menyedihkan Fang Zheng yang berada di kaki gunung.</p>
+<p>	Mata itu seperti yang mereka katakan — Fang Zheng, adik laki-lakiku yang menggelikan, kamu tidak akan melakukannya, kamu tidak akan melakukannya, tidak akan melakukan …</p>
+<p>	Seperti gema di lembah, bergema di hati Fang Zheng.</p>
+<p>	Dia merasakan depresi yang kuat.</p>
+<p>	Depresi yang tak terbayangkan, menekannya hingga tak bisa bernapas dengan baik.</p>
+<p>	Dia pikir dia telah menyingkirkan perasaan ini, tetapi untuk berpikir bahwa hari ini perasaan ini menyerang hatinya lagi.</p>
+<p>	Faktanya, itu lebih intens dari sebelumnya sebanyak seratus kali!</p>
+<p>	“AHHHHH! Aku akan mati, aku akan mati!” Wajah Fang Zheng berkedut, pembuluh darah muncul di dahinya. Dia tenggelam dalam delusinya, mencengkeram tenggorokannya sendiri dengan erat.</p>
+<p>	Dengan plop, dia jatuh ke tanah berlutut.</p>
+<p>	Karena kekurangan oksigen, wajahnya menjadi merah dan lidahnya terjulur, matanya berangsur-angsur keluar.</p>
+<p>	“Tidak! Saya tidak ingin mati, saya benar-benar tidak ingin mati!!” Tangannya yang lain meraih ubin di tanah, tetapi karena dia menggunakan terlalu banyak kekuatan, bahkan kukunya patah dan darah berdarah. Rasa sakit yang hebat meningkatkan keinginan Fang Zheng untuk hidup!</p>
+<p>	Tubuhnya tidak mengalami luka, tetapi di dalam hatinya, dia telah menerima luka yang fatal.</p>
+<p>	Dia tidak bisa bangun, karena kebanggaan yang menopangnya telah hancur.</p>
+<p>	Dia merasa bahwa dia tidak memiliki wajah untuk melihat siapa pun; dia tidak mampu menghadapi kenyataan, kepada kakak laki-lakinya. Dia telah menjadi lelucon besar, badut yang ironis.</p>
+<p>	Hatinya seperti abu yang sekarat, tetapi abu ini masih memiliki bara api kecil.</p>
+<p>	“Jadi bagaimana jika dia adalah sepuluh bakat ekstrim? Saudaraku, Anda melakukan sesuatu yang salah. Anda membunuh seseorang, Anda seharusnya tidak melakukannya! Benar, itu benar! Anda harus membayar dosa pembunuhan Anda, kakak, Jia Jin Sheng dibunuh oleh Anda kan? Anda berjalan di jalan yang salah, Anda melakukan sesuatu yang salah, jadi bagaimana jika bakat Anda lebih baik dari saya ?! ”</p>
+<p>	Ring……</p>
+<p>Sesuatu sepertinya terdengar di dekat telinganya.</p>
+<p>	Segumpal api mulai menyala di hati Fang Zheng.</p>
+<p>	Bara yang sekarat dibangkitkan!</p>
+<p>Tangan yang mencengkeram tenggorokannya, perlahan-lahan melepaskannya.</p>
+<p>	Tubuh Fang Zheng dipenuhi keringat saat dia berlutut di tanah, satu tangan menopang dirinya sendiri saat tangannya penuh luka karena meraih ubin.</p>
+<p>	Tetesan keringat mengalir di wajah dan hidungnya, dan ke file.</p>
+<p>	Wajah mengerikannya yang terdistorsi berangsur-angsur menjadi tenang.</p>
+<p>	Embusan angin bertiup di sepanjang pintu dan jendela, ke aula ini.</p>
+<p>	Angin dingin dari langit malam merangsang tubuhnya saat dia bergidik.</p>
+<p>“HEHEHEHEHEHEHE …” Fang Zheng setengah berbaring di tanah saat dia tertawa, suaranya melengking dan menakutkan.</p>
+<p>	Cahaya api menari-nari di sekitar wajahnya bersama dengan angin. Saat itu bersinar di wajah pemuda itu, itu bukan kehangatan dan kecerahan, tetapi menyerupai tarian iblis.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

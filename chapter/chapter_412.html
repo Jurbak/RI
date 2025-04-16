@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 412 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 412";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_411.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 412">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_413.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 412</h1>
+        <div class="text-left">
+<p>	Bab 412 – Aku suka ketakutanmu</p>
+<p>	Bab 412: Aku suka ketakutanmu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Hu Immortal tanah diberkati, distrik selatan.</p>
+<p>	“Yan Yong, Yan Yong, cepat bangun. Berhentilah tidur, kamu sudah tidur selama tiga tahun!”</p>
+<p>	Sebuah suara membangunkan Yan Yong dari tidurnya.</p>
+<p>	Gumpalan batu abu-abu dengan permukaan berlumut mulai bergetar, karena getarannya semakin kuat, menyebabkan debu menyebar. Dari batu oval besar, empat anggota badan dan kepala muncul seperti mekarnya bunga.</p>
+<p>	Selanjutnya, seorang rockman abu-abu berdiri — Yan Yong terbangun dari tidurnya.</p>
+<p>	“Kakek?” Yan Yong membuka matanya, melihat rockman yang membangunkannya, itu adalah kakeknya yang berusia delapan ratus tahun, pemimpin suku Hui Shi.</p>
+<p>	“Kakek, mengapa kamu membangunkanku, aku ingin tidur selama dua hingga tiga tahun lagi.” Yan Yong menghela nafas, menyesal.</p>
+<p>	Rockmen suka tidur. Saat mereka tidur, mereka meringkuk menjadi bola, membentuk batu oval besar. Setiap sesi tidur berlangsung tujuh hingga delapan tahun.</p>
+<p>	“Berhentilah tidur, cucuku, usiamu sudah seratus delapan puluh tahun. Ayahmu meninggal lebih awal, dan aku tidak bisa hidup lebih lama lagi. Dalam beberapa dekade, Anda akan menjadi pemimpin suku baru suku Hui Shi kami.”</p>
+<p>	Rockmen memiliki umur yang panjang, umumnya seribu tahun untuk hidup. Manusia biasa hampir tidak bisa hidup selama seratus tahun, tetapi Yan Yong berusia seratus delapan puluh tahun, dan baru saja mencapai usia dewasa.</p>
+<p>	“Kakek, saya tidak ingin menjadi pemimpin suku. Setelah menjadi pemimpin, saya tidak akan punya waktu untuk tidur santai lagi.” Yan Yong cemberut, tetapi melihat kakeknya menatap marah, dan memilih untuk diam.</p>
+<p>	Pemimpin suku Hui Shi menegur: “Mengapa kamu belum dewasa? Anda tidur selama bertahun-tahun dengan sia-sia. Cepat berkemas, dan bersihkan lumut dari Anda, cabut semua gulma yang tumbuh di tubuh Anda. Bawa persembahan bersamamu dan pergi dengan kakek ke tanah, kita harus bertemu yang abadi, kita tidak bisa tidak sopan! ”</p>
+<p>	“Ah? Sudah waktunya untuk membayar persembahan kepada yang abadi lagi? Tapi saya ingat masih ada satu tahun lagi.” Yan Yong berkata sambil mencabut rumput liar darinya.</p>
+<p>	Setelah tidur selama bertahun-tahun, ketiaknya, selangkangannya, dan punggungnya semua memiliki banyak rumput liar. Terutama rumput benang hitam di daerah selangkangannya, mereka keras seperti baja dan keriting. Setiap kali dia memetik satu, Yan Yong merasa sangat kesakitan.</p>
+<p>	“Huh, ada masalah kali ini. Yang abadi berubah, yang abadi ini datang belum lama ini, dia memanggil kita. ” Pemimpin klan tua menghela nafas dan berkata dengan khawatir.</p>
+<p>	“Pria abadi baru? Saya harap dia lebih mudah diajak bicara daripada wanita abadi itu. Mungkin kita bisa berdiskusi dengannya, lagipula, kita harus menyumbangkan begitu banyak persembahan setiap sepuluh tahun, itu melelahkan.”</p>
+<p>	“Mm, para pemimpin suku lainnya dan aku juga memiliki pemikiran ini.”</p>
+<p>	…</p>
+<p>	Di altar besar yang terbuat dari batu hijau, Fang Yuan mengenakan jubah hitamnya saat rambut hitam panjangnya dibiarkan terurai, duduk di kursi utama menatap orang-orang di bawah dengan pupil matanya yang gelap.</p>
+<p>	Ada puluhan rockman berlutut di bawah, di antaranya, delapan rockmen leader, dua grey rockmen, tiga granit rockman, satu iron rockman, satu green rockman, dan satu white rockman.</p>
+<p>	Pada saat yang sama, ada persembahan.</p>
+<p>	Sejumlah besar bijih yang mengandung emas, perak, perunggu, besi, serta permata dan permata lainnya, cacing Gu, dll.</p>
+<p>	Segala macam elemen logam akan tumbuh di tubuh rockmen seiring berjalannya waktu. Fang Yuan melihat persembahan ini, sekaligus mengerti mengapa istana Dang Hun dibangun begitu mewah.</p>
+<p>	Jika ini dibawa ke Bumi, mereka akan menjadi aset yang sangat besar, tetapi di sini, penggunaan terbesar mereka adalah menjadi bahan penyempurnaan Gu.</p>
+<p>	Hu Immortal menggunakan hal-hal ini sebagai hiasan hanyalah cinta wanitanya akan kecantikan. Jika dia bisa memilih untuk menukarnya dengan batu purba, dia akan menukar semua permata dan permata ini tanpa berpikir dua kali.</p>
+<p>	Di antara persembahan, yang paling berharga adalah cacing Gu.</p>
+<p>	Tapi Gu ini sebagian besar peringkat satu kulit batu Gu, peringkat dua Gu monolit. Hanya ada satu Gu peringkat tiga, Gu lubang batu.</p>
+<p>	Fang Yuan pernah menggunakan Gu ini, saat itu tekanan Spring Autumn Cicada pada aperture tidak bisa dihilangkan, jadi ketika dia putus asa, dia menggunakannya.</p>
+<p>	Para rockmen terampil menggali, mereka tinggal jauh di bawah tanah. Makanan mereka adalah tanah, dan terkadang ketika mereka menggali di bawah tanah, mereka akan menemukan cacing Gu.</p>
+<p>	“Apa katamu? Anda ingin mengurangi persembahan? ” Mata Fang Yuan menyipit saat dia berdiri, perlahan berjalan menuruni tangga, mendekati para pemimpin rockmen.</p>
+<p>	Para rockmen itu tinggi dan besar, bahkan ketika mereka berlutut di tanah, bahu mereka masih lebih tinggi dari kepala Fang Yuan.</p>
+<p>	“Tuan abadi yang terhormat, suku rockmen kami telah menyumbangkan begitu banyak persembahan selama tiga puluh tahun ini. Selama tahun-tahun ini, bumi bergemuruh, wilayah utara mengalami banjir, wilayah timur mengalami kebakaran, kehidupan sulit. Hal-hal yang berhasil kami peroleh ini semakin sulit ditemukan. Abadi, mohon ampun, dan maafkan ketidakmampuan kami, kurangi jumlah persembahan sedikit. ” Pemimpin suku rockmen tertua memohon.</p>
+<p>	“Itu benar, tuan abadi, tolong kurangi persembahan.”</p>
+<p>	“Tahun-tahun ini, kami telah berkurang jumlahnya.”</p>
+<p>	“Immortal, tolong mengerti, kami tidak akan pernah melupakan kebaikanmu!”</p>
+<p>	Para pemimpin rockmen lainnya mulai berkata.</p>
+<p>	“Kurangi persembahan? Hehehe, tentu saja bisa! Faktanya, saya dapat membebaskan Anda semua dari persembahan ini. ” Fang Yuan tersenyum ramah dan hangat.</p>
+<p>	Ekspresi para rockmen sangat gembira.</p>
+<p>	“Tapi aku punya syarat.” Selanjutnya, Fang Yuan berkata: “Saya ingin kalian semua menggali sungai, dari utara, mengangkut air ke timur, untuk menghentikan penyebaran api.”</p>
+<p>	“Apa?!” Mendengar ini, para rockman terkejut.</p>
+<p>	Dengan cepat, mereka bereaksi, berteriak keras.</p>
+<p>	“Tuan abadi yang terhormat, Anda tidak bisa melakukan ini!”</p>
+<p>	“Menggali sungai dari awal, ini adalah proyek besar, kami rockmen butuh tidur. Tanpa tidur yang cukup, kita akan mati.”</p>
+<p>	“Dan ada api besar dan air dalam jumlah besar. Anda meminta kami untuk menggali sungai, tetapi bukankah itu meminta kami untuk mati ?! ”</p>
+<p>	Seketika, semua orang menjadi marah. Banyak rockmen muda berlutut di satu sudut, tetapi mendengar ini, mereka bergegas, menatap Fang Yuan dengan waspada.</p>
+<p>	“Menguasai.” Roh tanah Hu Immortal di samping Fang Yuan melihat ini dan dia merasa sedikit khawatir.</p>
+<p>	Rockmen memiliki sifat keras kepala, mereka memiliki kebodohan, menekankan kebanggaan mereka dan tidak akan menyetujui tuntutan. Ketika mereka gegabah, mereka bahkan akan menyerang Demon Venerables atau Immortal Venerables, terlepas dari siapa pihak lainnya.</p>
+<p>	Hu Immortal hanya menahan rockmen ini karena pada awalnya, dia telah menghabiskan banyak usaha dan memberi mereka banyak manfaat.</p>
+<p>	“Tuan, rockmen ini tidak berdebat dengan orang-orang, meminta mereka untuk menawarkan hal-hal ini sudah menjadi batas mereka …” Little Hu Immortal mengirim pikirannya ke Fang Yuan secara diam-diam, mengingatkannya.</p>
+<p>	“Membatasi?” Fang Yuan mencibir, mulutnya terbuka saat dia menunjukkan gigi putihnya yang cerah, tertawa dengan kejam: “Kamu rockmen terlalu kurang ajar, kamu berani menawar denganku? Hmph! Tempat kamu tinggal adalah milikku. Kotoran yang kamu makan adalah milikku. Mata air roh di samping sukumu juga milikku. Anda tinggal di sini, Anda adalah budak saya! Saya ingin menggali sungai baru, itu bukan permintaan, dan bukan transaksi, itu perintah!”</p>
+<p>	Para rockmen mendengar ini dan mereka semua berdiri, tampak marah.</p>
+<p>	“Immortal, kamu tidak tahu apa yang baik untukmu, kamu berani memandang rendah kami rockmen!”</p>
+<p>	“Saat itu ketika kami pindah ke sini, itu karena seorang wanita abadi. Tapi lingkungan di sini semakin buruk, siapa yang mau tinggal di sini lagi?”</p>
+<p>	“Anda ingin kami menggali sungai, yang meminta kami mati. Apakah Anda pikir kami rockmen bodoh? ”</p>
+<p>	“Kami rockmen lahir dari surga dan bumi, kami tidak akan menjadi budakmu. Ayo pergi, pindah, aku sudah muak dengan tempat menyebalkan ini!”</p>
+<p>	Para pemimpin rockmen berteriak, langsung berselisih dengan Fang Yuan.</p>
+<p>	Para pengikut yang mereka bawa, para rockmen muda semuanya maju, mengepalkan tangan mereka saat mereka menatap Fang Yuan dengan tatapan berbahaya.</p>
+<p>	“Kau ingin pergi? Ha ha ha.” Fang Yuan melemparkan kepalanya ke belakang dan tertawa, seolah dia telah mendengar lelucon paling lucu di dunia. Selanjutnya, dia berhenti tertawa, menatap rockman ini dengan dingin, nadanya dingin: “Menurutmu di mana ini? Datang dan pergi sesukamu? Aturan lama tidak ada lagi, mulai hari ini dan seterusnya, saya adalah penguasa terbesar, kata-kata saya adalah kehendak surga! Anda akan mematuhi aturan saya, bahkan jika Anda tidak mau!”</p>
+<p>	“Ah!” Banyak rockmen muda mengepalkan tangan mereka dan melolong.</p>
+<p>	“Immortal, kamu mencoba untuk melangkahi garis dasar sukuku!”</p>
+<p>	“Immortal, kamu mungkin kuat, tapi kami tidak takut.”</p>
+<p>	“Kami rockmen tidak akan pernah menundukkan kepala kami dengan kekerasan, kami adalah pejuang alami, kami tidak takut mati!”</p>
+<p>	“Hanya cinta yang bisa membuat kita menggali hati kita. Hanya kehangatan yang bisa membuat kita menurunkan punggung kita.”</p>
+<p>	Mengaum!</p>
+<p>	Fang Yuan mendorong dengan tangannya dan seekor naga emas terbang keluar.</p>
+<p>	Naga emas meraung, membunuh rockman yang berteriak paling keras.</p>
+<p>	“Ah, dia membunuh pemimpin suku tua pembuat batu granit itu!”</p>
+<p>	“Pemimpin suku tua sudah mati, kita harus membalas dendam !!”</p>
+<p>	“Bahkan seorang abadi harus mati di bawah kemarahan suku kita!”</p>
+<p>	Kematian pemimpin suku tua granit seperti pemicunya, menyebabkan kemarahan para rockmen meletus.</p>
+<p>	Rockmen menyerang Fang Yuan dalam gelombang, setiap langkah membuat lekukan di tanah, karena mereka mengeluarkan aura yang mengesankan. Lusinan rockmen menyerang bersama, memberikan disposisi sepuluh ribu pasukan besar.</p>
+<p>	Dari tubuh mereka, banyak cahaya bersinar. Ada juga cacing Gu yang menghambat tubuh rockmen ini, mereka diaktifkan melalui kehendak mereka.</p>
+<p>	Tapi sesaat kemudian, lampu-lampu ini menghilang.</p>
+<p>	Little Hu Immortal menyerang, menyegel semua cacing Gu.</p>
+<p>	Fang Yuan mencibir saat dia memulai pembantaiannya.</p>
+<p>	Para rockmen tidak takut mati, tetapi kekuatan mereka lebih rendah daripada Fang Yuan, mereka semua hancur berkeping-keping, sekarat dengan kematian yang menyedihkan.</p>
+<p>	Tapi pecahan batu ini berkumpul seperti magnet, membentuk manusia batu baru.</p>
+<p>	“Membunuh!”</p>
+<p>	“Lawan tirani, balas dendam untuk ayah !!”</p>
+<p>	“Kita lahir dari surga dan bumi, kita mati karena langit dan bumi, jadi kita tidak takut!”</p>
+<p>	Rockmen kecil menyerbu, dan semuanya dibantai oleh Fang Yuan.</p>
+<p>	Tetapi pecahan batu ini berkumpul menjadi manusia batu yang lebih kecil lagi.</p>
+<p>	Jumlah rockman ini terus menyusut, tetapi setelah mereka terbentuk, mereka menyerang Fang Yuan dan meneriakkan hal-hal seperti membalas dendam untuk kakek, ayah, dll.</p>
+<p>	Ini adalah cara rockmen direproduksi. Itu adalah ras laki-laki saja, setelah rockmen tua meninggal, jiwa dan batu yang mereka pecah akan membentuk rockmen baru, dan mewarisi sebagian dari kenangan rockmen lama, atau beberapa pengalaman penting. Dalam beberapa kasus, rockmen tua tidur terlalu banyak dan fondasi jiwa mereka terakumulasi sampai tingkat tertentu, mereka akan membelah sebagian dari tubuh mereka untuk membentuk rockmen kecil baru.</p>
+<p>	Setelah Fang Yuan membunuh rockmen gelombang ketiga, dunia akhirnya hening sekali lagi.</p>
+<p>	Hanya satu rockman yang tersisa, tergeletak di tanah, menggigil.</p>
+<p>	“Siapa nama kamu?” Fang Yuan perlahan berjalan ke arahnya.</p>
+<p>	“Saya … nama saya Yan … Yan Yong.” Rockman muda itu tergagap.</p>
+<p>	“Apakah kamu tahu mengapa aku hanya membiarkanmu hidup?” Fang Yuan berdiri di atas kepala Yan Yong.</p>
+<p>	“Tidak saya tidak tahu…”</p>
+<p>	“Karena kamu ketakutan. Karena aku suka ketakutan dan kengerianmu terhadapku.” Fang Yuan tersenyum hangat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

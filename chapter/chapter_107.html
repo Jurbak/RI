@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 107 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 107";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_106.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 107">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_108.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 107</h1>
+        <div class="text-left">
+<p>	Bab 107</p>
+<p>	Bab 107: Dengan terampil mendapatkan batu purba, pelanggan yang berniat buruk datang untuk menghancurkan malapetaka</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Salju yang dingin berakhir, dan angin musim semi menggantikannya.</p>
+<p>	Tanpa disadari, musim dingin telah berlalu, dan hari-hari musim semi tiba.</p>
+<p>	Sungai gunung yang membeku mulai mengalir lagi. Kerucut es di bawah atap bangunan bambu dan pepohonan berkilau dan tembus cahaya, meneteskan air di bawah sinar matahari.</p>
+<p>	Di pagi hari, kedai anggur itu cukup kosong, tidak banyak peminum.</p>
+<p>	Fang Yuan duduk di dalam di kursi dekat jendela. Menurut permintaannya, sekelilingnya ditutupi oleh layar papan kayu, menciptakan ruangan kecil untuknya.</p>
+<p>	Embusan angin bertiup dari jendela, dan aroma bumi yang segar dan harum terjepit di antara udara, membuat orang yang menciumnya merasa riang dan senang.</p>
+<p>	Jiang Ya duduk di seberang Fang Yuan, wajahnya penuh senyuman.</p>
+<p>	“Ini adalah batu purba kali ini, tolong konfirmasikan.” Dia mengeluarkan empat kantong uang, meletakkannya di atas meja dan mendorongnya ke arah Fang Yuan.</p>
+<p>	Apa yang ada di dalam kantong uang itu secara alami adalah batu purba.</p>
+<p>	Fang Yuan tidak membukanya satu per satu, tetapi memeriksa beratnya dengan memegangnya di tangannya.</p>
+<p>	Dia memiliki lebih dari seratus tahun pengalaman membuat kesepakatan dan transaksi, sehingga dia dapat dengan mudah mengetahui jumlah batu purba di tangannya. Satu kurang dan dia bisa langsung tahu.</p>
+<p>	Ini tidak ada yang istimewa, jujur.</p>
+<p>	Di Bumi, ada seorang penjual minyak yang meletakkan koin di leher botol dan meneteskan minyak ke dalamnya, di mana minyak itu menetes dalam barisan dan masuk ke dalam botol melalui lubang kecil tanpa tumpahan. Ada penembak ilahi lain yang bisa menembak daun pohon dengan akurasi 100% dari jarak seratus meter. Ada juga seorang tukang daging yang bekerja selama bertahun-tahun, menggunakan tangannya untuk memeriksa beratnya, dia bisa mengetahui berat pastinya dan ketika ditimbang, persis seperti yang dia katakan.</p>
+<p>	Bagaimana cara melatih keterampilan seperti itu?</p>
+<p>	Tidak ada yang lain selain ‘latihan menjadi sempurna’!</p>
+<p>	Akumulasi pengalaman, bila cukup, dapat membangkitkan keajaiban.</p>
+<p>	Setelah kelahirannya kembali, pengalaman semacam ini secara alami juga terbawa. Fang Yuan menggunakan tangannya untuk memeriksa, dan karena tidak menemukan masalah, dia kemudian mengeluarkan tas kain kecil dan memberikannya kepada Jiang Ya.</p>
+<p>	Jiang Ya menerimanya dengan kedua tangan dan membuka tasnya, memeriksa jumlahnya dengan hati-hati.</p>
+<p>	Meskipun Fang Yuan memiliki sembilan daun vitalitas, dia tidak berencana untuk menjualnya sendiri. Jika itu Gu Yue Dong Tu, dia lebih suka melakukan ini untuk mempertahankan hubungan sosialnya dan meningkatkan pengaruhnya.</p>
+<p>	Tapi Fang Yuan enggan melakukan ini. Itu membuang terlalu banyak waktu dan usaha. Dengan demikian, dia menjual semuanya kepada Jiang Ya yang merupakan pemilik toko, sehingga Jiang Ya bisa menjual rumput penyembuhan Gu peringkat satu kepada klan.</p>
+<p>	Jiang Ya adalah saudara Jiang He, dan ketika Fang Yuan sedang mencari cacing Liquor, mereka bertemu sebelumnya. Kakaknya bahkan adalah pasangan setengah aliansi Fang Yuan, jadi, memintanya mengambil alih transaksi dan menjual ke klan, adalah metode yang dapat diandalkan.</p>
+<p>	“Satu, dua, tiga… sembilan. Memang, itu adalah sembilan daun vitalitas. ” Jiang Ya menghitung tiga kali sebelum menutup tas dan dengan hati-hati menjaga tas dekat dengan tubuhnya.</p>
+<p>	Selanjutnya, dia mengangkat cangkirnya, bersulang untuk Fang Yuan. “Tuan Fang Yuan, senang berbisnis dengan Anda, izinkan saya bersulang untuk Anda!”</p>
+<p>	Tatapannya ke arah Fang Yuan membawa kekaguman yang mendalam, bahkan berubah menjadi sedikit kecemburuan.</p>
+<p>	Setahun yang lalu, saat itu juga musim semi. Pertama kali dia bertemu Fang Yuan, yang terakhir masih menjadi siswa di akademi, bahkan tidak memiliki hak untuk mengenakan pakaian pertempuran Guru Gu.</p>
+<p>	Tapi sekarang, Fang Yuan tidak hanya mengenakan pakaian perang, ikat pinggangnya juga berwarna merah, dan sepotong baja persegi di tengah sabuk — Master Gu peringkat dua!</p>
+<p>	Namun, dia sendiri masih peringkat satu, membawa sabuk berwarna hijau.</p>
+<p>	Tidak peduli itu, yang membuatnya cemburu adalah, setelah mendapatkan warisan, Fang Yuan berubah dari orang miskin menjadi konglomerat.</p>
+<p>	Dia memiliki kedai anggur, bangunan bambu, serta rumput vitalitas sembilan daun. Itu semua keberuntungan yang Jiang Ya tidak akan pernah bisa dapatkan sepanjang hidupnya!</p>
+<p>	Tapi, Jiang Ya tidak berani menunjukkan emosi cemburu yang mendalam.</p>
+<p>	Fang Yuan menjual daun vitalitas kepadanya dan membiarkannya mendapatkan selisih harga. Fang Yuan sudah menjadi pohon uangnya, dan Jiang Ya tidak lagi berani menyinggung junior ini.</p>
+<p>	“Huh, membandingkan di antara orang-orang itu menjijikkan ….” Jiang Ya memegang cangkirnya. Wajahnya penuh senyuman, tapi di dalam hatinya, dia menghela nafas dalam-dalam.</p>
+<p>	Fang Yuan mengangkat cangkirnya dan meminumnya dalam sekali teguk.</p>
+<p>	Ekspresi Jiang Ya meskipun tertutup, dengan kecerdasan rubah tua Fang Yuan, bagaimana mungkin dia tidak tahu?</p>
+<p>	Fang Yuan tidak menaruh hati, karena jika Jiang Ya tidak cemburu, itu menunjukkan bahwa dia memiliki hati yang jauh lebih besar, dan itu akan membuat Fang Yuan lebih memikirkannya.</p>
+<p>	Tapi, dia menatap kekayaan kecil Fang Yuan dan cemburu, ini menunjukkan betapa kecilnya dunianya, tidak signifikan. Minum bersamanya semata-mata karena dia masih memiliki nilai untuk dieksploitasi.</p>
+<p>	Jiang Ya meletakkan cangkirnya, dengan penuh semangat berkata, “Daun vitalitas klan dijual seharga lima puluh lima buah batu purba. Saya mengikuti instruksi Anda dan hanya menjual Gu rumput kami dengan harga lima puluh batu purba, dan permintaannya luar biasa! Tuhan, mengapa Engkau tidak membuat lebih banyak daun setiap hari, dengan begitu kami dapat memperoleh lebih banyak lagi!”</p>
+<p>	Fang Yuan mendengarkan dan perlahan menggelengkan kepalanya, menolak mentah-mentah, “Tidak, membuat sembilan daun sudah menjadi batasku, itu sudah membuang banyak waktu kultivasiku.”</p>
+<p>	Ini adalah perbedaan antara Fang Yuan dan katak biasa seperti Jiang Ya.</p>
+<p>	Dalam perspektif Fang Yuan, batu purba hanyalah sumber daya budidaya, alat. Itu semua untuk kebutuhan budidayanya. Namun, Jiang Ya memperlakukan batu purba sebagai tujuan hidupnya, sehingga ia berkultivasi untuk mendapatkan lebih banyak batu purba.</p>
+<p>	Tetapi bahkan jika Fang Yuan hanya membuat sembilan daun sehari, dia bisa mendapatkan empat ratus batu purba setiap hari, dan dengan akumulasi, kekayaan di tangannya juga tumbuh ke tingkat yang luar biasa.</p>
+<p>	Melihat penolakan Fang Yuan, Jiang Ya tidak berani memaksakan keberuntungannya, hanya menggerakkan bibirnya dengan kasihan, lalu terus menuangkan anggur untuk Fang Yuan dengan antusias, dan kemudian untuk dirinya sendiri.</p>
+<p>	“Memang.” Dia berseru, “Tuhan memiliki kekayaan yang begitu besar, Anda tidak perlu membuang waktu dan usaha setiap hari. Menurut pendapat saya, mengapa tuan harus tinggal di flat sewaan tua yang malang itu? Mengapa Anda tidak mengosongkan bangunan bambu dan tinggal di sana sendiri. Kemudian menikahi seorang istri yang cantik, dan memiliki tujuh atau delapan pelayan keluarga untuk menjagamu. Itu benar-benar kehidupan impian. Hehe.”</p>
+<p>	Fang Yuan tertawa ringan, tidak mengatakan apa-apa.</p>
+<p>	Bagaimana mungkin seorang petani memahami ambisi sang penakluk!</p>
+<p>	Dia berbalik, melihat ke luar jendela.</p>
+<p>	Rumah demi rumah, atap bambu memiliki sisa salju, mandi di bawah cahaya musim semi yang cerah dan indah. Di kejauhan ada pohon willow, cabang-cabang daun lembut berwarna kuning-hijau bergulung-gulung, berayun lembut ditiup angin musim semi yang lembut.</p>
+<p>	Tatapan Fang Yuan sedikit kosong saat dia memikirkan kesulitannya saat ini.</p>
+<p>	Setelah menyelesaikan masalah Fang Zheng, aset keluarga bisa dikatakan ada di dalam tas.</p>
+<p>	White Jade Gu dan Moonglow Gu berhasil disempurnakan, dia sekarang menutupi serangan dan pertahanan. Apa yang terjadi selanjutnya adalah cacing Liquor.</p>
+<p>Tapi cacing Liquor itu merepotkan. Untuk memurnikan cacing Four Flavour Liquor, dia membutuhkan cacing Liquor kedua, serta manis, asam, pahit dan pedas — empat jenis anggur. Hal-hal ini, dia tidak tahu harus kemana.</p>
+<p>	“Saya pasti harus memperbaiki cacing Liquor. Tanpa itu, kemajuan saya akan lebih lambat setidaknya setengah. Tetapi untuk memperbaiki cacing Four Flavour Liquor, saya harus menunggu karavan dan meminjam kesempatan itu untuk memamerkan Gu Giok Putih saya. Dengan begitu, aku bisa memamerkan kekuatan bertarungku yang sebenarnya dan berhenti menyembunyikan kemampuanku.”</p>
+<p>	Fang Yuan memiliki Moonglow Gu dan White Jade Gu. Bersama dengan lima ratus tahun pengalaman tempurnya, dia lebih kuat dari kebanyakan Master Gu peringkat dua.</p>
+<p>	Pemimpin kelompok yang sedikit terkenal seperti ular sakit-sakitan Jiao San, jika bertarung satu lawan satu dengan Fang Yuan, mungkin bukan tandingannya.</p>
+<p>	Tapi melawan Chi Shan, Mo Yan dan Qing Shu, Fang Yuan masih lebih lemah.</p>
+<p>	Salah satunya adalah tingkat kultivasi yang tidak mencukupi, Fang Yuan hanya tahap awal Peringkat dua, tetapi mereka berada di atas atau bahkan tahap puncak. Berikutnya adalah kurangnya cacing Gu yang kuat. Fang Yuan hanya memiliki dua cacing Gu pertempuran, tetapi mereka semua memiliki setidaknya tiga dan bahkan kartu truf tersembunyi.</p>
+<p>	Di antara kelompok usia yang sama, Fang Zheng, Mo Bei dan Chi Cheng sudah menunjukkan dominasi mereka, tidak diragukan lagi.</p>
+<p>	Terutama Fang Zheng, sekarang dia telah memperoleh Raiment Bulan Peringkat dua, dia sudah memiliki kemampuan untuk bertarung dengan Fang Yuan. Seiring berjalannya waktu, tingkat kultivasinya akan semakin tinggi dan akhirnya dia akan meninggalkan Fang Yuan dalam debu.</p>
+<p>	Kecuali jika Fang Yuan dapat menggabungkan worm Four Flavour Liquor dan mempertahankan kecepatan kultivasi yang sama dengan Fang Zheng.</p>
+<p>	Adapun peringkat yang lebih tinggi, peringkat tiga atau peringkat empat Master Gu.</p>
+<p>	Bagi Fang Yuan, mengesampingkan hasil pertempuran, bahkan mempertahankan hidupnya adalah hal yang sulit, belum lagi menantang peringkat yang lebih tinggi.</p>
+<p>	Melampaui peringkat sangat sulit, salah satunya adalah Fang Yuan tidak memiliki kartu truf, dan dua dia tidak memiliki bakat. Bahkan dengan pengalaman bertarungnya yang kaya, seorang wanita tidak bisa memasak tanpa nasi, tanpa cacing Gu yang kuat, pengalamannya tidak dapat menunjukkan nilainya.</p>
+<p>	“Jika saya berhasil menggabungkan worm Four Flavour Liquor, kecepatan kultivasi saya akan memuaskan. Tapi saya juga harus mengisi ulang cacing Gu saya. Pertahanan Saya memiliki Gu Giok Putih, pelanggaran saya memiliki Gu Moonglow, penyembuhan Saya memiliki rumput vitalitas sembilan daun, tetapi saya membutuhkan Gu tipe gerakan dan tipe pengintaian, keduanya meskipun tipe pendukung, mereka dapat menutupi kelemahan saya dan setidaknya melipatgandakan kekuatan bertarungku!” Fang Yuan merenung.</p>
+<p>	Dia tidak perlu belajar selangkah demi selangkah, dengan pengalaman hidupnya yang kaya, dia sudah tahu arah yang harus diambil.</p>
+<p>	Di sampingnya, suara Jiang Ya terdengar, “Saya dengar, baru-baru ini seseorang menemukan masalah dengan Anda, Tuan? Sengaja menemukan masalah di gedung bambu dan kedai anggurmu?”</p>
+<p>	Fang Yuan mengerutkan kening, pikirannya hancur.</p>
+<p>	Tapi Jiang Ya benar.</p>
+<p>	Fang Yuan telah menyelidiki, ini adalah tindakan pamannya Gu Yue Dong Tu.</p>
+<p>	Setelah Gu Yue Qing Shu memperingatkan pamannya, dia tidak berani menggunakan Fang Zheng untuk menimbulkan masalah lagi. Tetapi setelah menunggu beberapa saat, kemarahan dan kemarahan di hatinya meningkat, dan menggunakan hubungannya, dia mendapatkan beberapa Master Gu untuk menemukan masalah di tempat Fang Yuan.</p>
+<p>	Orang yang berbisnis membenci masalah seperti ini.</p>
+<p>	Jadi, baru-baru ini, dia menemukan waktu untuk menjaga lokasi.</p>
+<p>	“Pemilik, seseorang menemukan masalah lagi.” Pada saat ini, seorang petugas membawa ekspresi ketakutan dan berjalan menuju Fang Yuan.</p>
+<p>	“Oh?” Alis Fang Yuan terangkat, tidak menyangka akan segera menemui ini.</p>
+<p>	Tidak menunggu Fang Yuan bereaksi, Jiang Ya tiba-tiba berdiri, dengan penuh semangat berkata, “Tunggu sebentar tuan, biarkan aku pergi melihat.”</p>
+<p>	Dia berjalan keluar dari partisi dan segera kembali.</p>
+<p>	“Itu Gu Yue Man Shi!” Ekspresi Jiang Ya pucat, menekan suaranya. Tatapannya mengungkapkan keterkejutan dan kekhawatiran.</p>
+<p>	Gu Yue Man Shi?</p>
+<p>	Fang Yuan melakukan banyak hal dengan hati-hati dan tahu pentingnya informasi. Selama periode ini, dia telah mendapatkan informasi dari semua Master Gu peringkat dua di klan, dan menghafal sebagian besar dari mereka.</p>
+<p>	Gu Yue Man Shi adalah Master Gu yang sedikit terkenal, mengkhususkan diri dalam pertahanan dan memiliki kekuatan yang besar, menjadi pemimpin kelompok Man Shi. Dalam hal ketenaran, dia sedikit lebih tinggi dari Jiao San.</p>
+<p>	Bam!</p>
+<p>	Suara ledakan datang dari luar.</p>
+<p>	Setelah itu, suara kasar dan arogan terdengar, “Blah, anggur macam apa ini? Rasanya seperti omong kosong, Anda berani menjual ini kepada saya? ”</p>
+<p>	“Hmph!” Tatapan Fang Yuan bersinar dengan cahaya dingin saat dia berdiri.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

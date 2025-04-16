@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 16 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 16";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_15.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 16">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_17.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 16</h1>
+        <div class="text-left">
+<p>	Bab 16</p>
+<p>	Bab 16 – Mengambil sebanyak mungkin yang bisa diambil</p>
+<p>	“Coba sentuh?”</p>
+<p>	“Kamu telah diracuni oleh Gu Racun Gerbang Tunggalku. Tanpa Gu saya yang lain yang bertindak sebagai lawannya, setelah tujuh hari Anda akan berubah menjadi nanah dan darah dan mati.</p>
+<p>	“Untuk membandingkan diriku dengan Sir Flower Wine, aku hanya kentut! Saya pasti sedang tidak enak badan, untuk benar-benar tidak mengenali orang yang begitu hebat dan menyinggung Tuan Bunga Anggur. Tuan Flower Wine, tolong ingat keramahan klan saya sebelumnya dan selamatkan hidup saya! ”</p>
+<p>	Adegan itu diputar ulang untuk kedua kalinya di dinding. Fang Yuan tetap diam; ketika film itu mulai berulang untuk ketiga kalinya, dia akhirnya menghela nafas pelan dan berkata, “Begitu.”</p>
+<p>	Metode meninggalkan gambar bergerak dengan suara di dinding ini mungkin dilakukan oleh Biksu Anggur Bunga dengan bantuan Foto-audio Gu . Ini Gu mampu merekam bawah citra dan memproyeksikannya kemudian.</p>
+<p>	Foto-audio Gu menggunakan cahaya dan suara untuk bertahan hidup. Untuk beberapa alasan yang tidak diketahui, gua rahasia ini memancarkan cahaya merah, sementara pada saat yang sama celah batu terhubung ke dunia luar, sehingga tidak akan sepenuhnya mengisolasi suara di luar. Saat ini Fang Yuan masih bisa mendengar deru air terjun yang lebih kecil. Dengan demikian, Gu Foto-audio dapat hidup di gua rahasia ini.</p>
+<p>	Beberapa saat yang lalu ketika Fang Yuan merobek tanaman merambat yang layu, dia mungkin telah membuat khawatir Foto-audio Gu yang bersembunyi di dinding batu. Selama seseorang tidak bodoh, hanya dengan menebak-nebak orang dapat mengatakan bahwa gambar bergerak ini asli.</p>
+<p>	Saat itu, kepala klan generasi keempat mencoba berkomplot melawan Biksu Anggur Bunga tetapi dia gagal. Setelah dia kalah dalam pertempuran, dia mencoba serangan diam-diam; meskipun menolak yang terakhir, dia akhirnya mati karenanya. Bagian dari sejarah ini dianggap memalukan, dan para tetua klan yang masih hidup memutuskan untuk mengutak-atik kebenaran.</p>
+<p>	Mereka membalikkan peran kepala klan generasi keempat dan Biksu Anggur Bunga.</p>
+<p>	Biksu Anggur Bunga menjadi orang yang dikalahkan dalam pertempuran dan mencoba serangan diam-diam, dan kemudian mati di tempat. Di sisi lain, pemimpin generasi keempat berubah menjadi pahlawan yang dibenarkan dan sempurna.</p>
+<p>	Tapi cerita ini sendiri memiliki celah besar – Biksu Anggur Bunga jelas telah mati di tempat, jadi mayatnya seharusnya berada di tangan klan Gu Yue, tapi mengapa tumpukan sisa ditemukan?</p>
+<p>	Dalam kehidupan sebelumnya, Master Gu yang menemukannya mungkin ketakutan setelah melihat gambar bergerak. Para tetua yang masih hidup itu telah lama mati, tetapi untuk mencegah kebenaran Biksu Anggur Bunga kembali, kebenaran ini mungkin dirahasiakan oleh petinggi klan.</p>
+<p>	Itu Gu Guru menyadari bahwa jika dia single handedly mengambil harta itu akan menjadi risiko yang sangat besar. Jika orang menyelidiki dan menemukan bahwa dia terlibat dengan Biksu Anggur Bunga di masa depan, petinggi secara alami akan mengeksekusinya. Jadi setelah membuat pilihannya, dia tidak berani menyembunyikan harta ini, tetapi malah membuat keputusan untuk memberi tahu petinggi.</p>
+<p>	Dengan melakukan itu akan membuktikan kesetiaannya kepada klan. Keadaan selanjutnya juga akan menunjukkan bahwa dia membuat pilihan yang bijaksana.</p>
+<p>	Namun bahkan jika dia melakukan itu, itu tidak berarti bahwa Fang Yuan akan melakukan hal yang sama.</p>
+<p>	“Aku melewati waktu yang cukup sulit untuk mencari harta karun ini, jadi aku harus mengambil semuanya untuk diriku sendiri. Mengapa saya harus membaginya dengan orang lain? Jadi bagaimana jika saya ketahuan? Tanpa berani menanggung risiko, dari mana Anda akan mendapat untung? Itu Gu master benar-benar pengecut,”Fang Yuan tersenyum dingin, tidak lagi peduli tentang gambar bergerak yang terus mengulangi di dinding batu. Dia berbalik dan mengulurkan tangannya, menggunakan kekuatannya untuk mencabut tanaman merambat dan akar yang mati.</p>
+<p>	Jenazah Flower Wine Monk juga terpengaruh. Awalnya utuh, tapi sekarang sedang dipecah menjadi beberapa bagian. Fang Yuan hampir tidak peduli; dia menendang sepotong tulang kaki yang menghalanginya dan berjongkok lagi, mencari di antara sisa-sisanya.</p>
+<p>	Pertama dia menemukan sekantong batu purba. Ketika dia membukanya, dia hanya menemukan lima belas buah.</p>
+<p>	“Orang tua yang kikir,” sembur Fang Yuan. Penampilan luar Biksu Anggur Bunga tampak mencolok, tetapi tiba-tiba dia hanya memiliki sedikit uang yang disisihkan.</p>
+<p>	Namun dia dengan cepat memikirkan alasannya – Biksu Bunga Anggur mengalami pertempuran sengit, ditambah fakta bahwa dia dinodai oleh Moonshadow Gu , jadi dia pasti akan menggunakan batu purba untuk menyembuhkan luka-lukanya. Untuk dapat meninggalkan lima belas keping sebenarnya sudah tidak buruk.</p>
+<p>	Setelah itu dia menemukan beberapa jenazah Gu yang mati . Kebanyakan dari mereka adalah varietas bunga dan rumput, dan semuanya benar-benar layu. Gu juga makhluk hidup, jadi mereka juga membutuhkan makanan untuk bertahan hidup, dan kebanyakan dari mereka pilih-pilih. Meskipun rumput Gu dan bunga Gu kebutuhan makanan kurang, tetapi dalam gua rahasia ini tidak ada bahkan sinar tunggal sinar matahari.</p>
+<p>	Dan setelah itu…</p>
+<p>	Setelah itu, tidak ada apa – apa .</p>
+<p>	The Flower Wine Monk berada di level yang sama dengan pemimpin klan generasi keempat. Setelah bertarung sengit, dia bertarung dengan sekitar sepuluh tetua setelahnya. Gu – nya sendiri sebagian besar dikonsumsi, dan sampai tahap ini karena dia ingin menyembuhkan luka-lukanya, dia menanam Gu Bunga Karung Anggur dan Gu Rumput Kantong Beras di sini. Namun pada akhirnya karena Moonshadow Gu dia diseret sampai mati.</p>
+<p>	Setelah tiga ratus tahun, Gu miliknya juga mati. Satu-satunya yang tersisa adalah Gu Foto-audio di dinding dan cacing Liquor.</p>
+<p>	Cacing Minuman Keras ini mungkin bergantung pada Gu Bunga Karung Anggur dan hampir tidak bertahan sampai hari ini. Tetapi saat Gu Bunga Karung Anggur layu satu per satu, ia juga kehilangan persediaan makanannya.</p>
+<p>	Ini mendorong cacing Liquor untuk pergi ke luar dan mencari Bunga Karung Anggur liar. Kemudian di malam ini, ia tertarik dengan aroma anggur bambu hijau dan datang ke hadapan Fang Yuan.</p>
+<p>	“Photo-audio Gu hanya dapat merekam sekali, karena ini adalah Gu sekali pakai . Sepertinya cacing Liquor adalah keuntungan terbesar saya di sini, tidak heran Gu Master memutuskan untuk melapor ke klan. Sepertinya itu karena keuntungannya terlalu kecil, dan tidak sebanding dengan risiko yang begitu besar.” Semacam pemahaman muncul di hati Fang Yuan.</p>
+<p>	Dalam ingatannya, Guru Gu itu sudah Peringkat tiga, sedangkan cacing Minuman Keras hanyalah Gu peringkat satu . Bagi Fang Yuan itu lebih berharga, tetapi bagi Guru Gu itu, itu bukan apa-apa.</p>
+<p>	Namun jelas bahwa karena laporannya, klan memberinya hadiah besar.</p>
+<p>	“Haruskah aku juga memberi tahu klan?” Fang Yuan berpikir sejenak, lalu dia menyingkirkan ide ini.</p>
+<p>	Harta Flower Wine Monk tampaknya hanya cacing Liquor dan batu purba, tapi bukan itu masalahnya. Hal yang paling berharga sebenarnya adalah dinding yang menyembunyikan Foto-audio Gu . Dengan kata lain, itu adalah gambar bergerak yang tidak berhenti berulang di dinding.</p>
+<p>	Gambar ini seluruhnya bisa dijual ke desa lain. Percayalah pada kenyataan bahwa para petinggi dari dua desa lain di Gunung Qing Mao pasti sangat tertarik dengan bukti semacam ini yang bisa menyerang keras keyakinan sebuah klan.</p>
+<p>	Apa?</p>
+<p>Anda mengatakan sesuatu tentang rasa kesetiaan dan kehormatan kepada klan?</p>
+<p>Saya sangat menyesal, Fang Yuan tidak memiliki sedikit pun dari itu.</p>
+<p>	Apalagi gambar bergerak ini bahkan bukan semacam kekuatan kuat yang bisa menghancurkan seluruh klan; itu tidak akan melakukan banyak kerusakan besar. Sifat klan yang acuh tak acuh juga tidak akan memandang Fang Yuan dengan penting. Dia perlu mengandalkan kerja kerasnya sendiri dan menemukan sumber daya kultivasi, pada tahap awal kultivasi dia perlu lebih banyak meminjam kekuatan di sekitarnya.</p>
+<p>	“Mengandalkan klan? Hehehe .” Fang Yuan mencibir dalam hatinya, “Bagaimana aku bisa begitu naif seperti kehidupan masa laluku.”</p>
+<p>	Jangan bergantung pada siapa pun; Anda harus mengandalkan diri sendiri pada segala sesuatu di dunia ini.</p>
+<p>	Setelah memastikan bahwa dia telah mengobrak-abrik setiap sudut gua, Fang Yuan mulai kembali mengikuti jalan pulang yang asli.</p>
+<p>	Bertahan melawan tekanan air dan meremas melewati batu besar, dia kembali ke luar gunung. Melihat kembali ke batu besar ini, Fang Yuan tiba-tiba memikirkan kehidupan masa lalunya. Dikatakan bahwa sisa-sisa itu ditemukan di sebuah gua rahasia bawah tanah. Tapi bagaimana tempat ini di bawah tanah? Itu jelas di bagian dalam tembok gunung.</p>
+<p>	Tidak heran dia tidak dapat menemukannya selama tujuh hari berturut-turut meskipun dia membuang begitu banyak usaha. Sepertinya di kehidupan masa lalunya setelah klan mengetahui tentang tempat ini, hal pertama yang mereka lakukan adalah menghancurkan tembok dengan gambar, dan kemudian menyebarkan kebenaran yang penuh dengan kebohongan untuk menyesatkan anggota klan.</p>
+<p>	Untuk dapat menemukan tempat ini malam ini sebagian karena keberuntungan, sebagian karena kerja keras, dan alasan terbesar adalah anggur bambu hijau.</p>
+<p>	Anggur bambu hijau ini sangat kaya, bisa dikatakan yang terbaik di Gunung Qing Mao. Mungkin di kehidupan masa lalunya, setelah itu Gu Master kehilangan kekasihnya, anggur yang dia minum adalah anggur ini.</p>
+<p>	Tapi semua ini tidak lagi penting. Harta Biksu Anggur Bunga telah digali dan digeledah oleh Fang Yuan; meskipun pada akhirnya agak mengecewakan, itu juga wajar. Yang paling penting adalah bahwa tujuan asli Fang Yuan (cacing minuman keras) ada di tangannya, dan barang yang paling dia butuhkan (batu purba) juga didapat.</p>
+<p>	“Selanjutnya, aku harus menetapkan hatiku untuk mengurung diri di penginapan untuk menyempurnakan Gu ini . Selama saya memiliki Gu yang vital, saya dapat kembali ke akademi dan memenuhi syarat untuk tinggal di asrama akademi. Saya juga bisa meminjam sumber daya klan untuk diolah. Saya hanya bisa tinggal di penginapan ini untuk satu atau dua kali; jika saya tinggal terlalu lama biayanya terlalu banyak. ” Fang Yuan merenung, langkah kakinya tidak pernah berhenti saat dia bergegas kembali ke desa.</p>
+<p>	Dia awalnya ditinggalkan dengan dua batu purba, tetapi sekarang dia memperoleh lima belas buah, jadi totalnya adalah tujuh belas buah. Tetapi bagi seorang Guru Gu , sejumlah kecil batu purba ini tidak berarti apa-apa.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

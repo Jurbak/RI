@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 158 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 158";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_157.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 158">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_159.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 158</h1>
+        <div class="text-left">
+<p>	Bab 158</p>
+<p>	Bab 158: Waktu telah berubah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Gu Yue Yao Ji telah merindukan Rumput Vitalitas Sembilan Daun Fang Yuan, dan dengan demikian, dia mengeksploitasi wewenangnya untuk menetapkan kebijakan transfer Rumput Vitalitas Sembilan Daun.</p>
+<p>	Namun, Fang Yuan naik ke peringkat tiga dan menjadi penatua, merespons dengan serangan balik yang kuat yang menyebabkan Gu Yue Yao Ji pingsan di tempat dan membiarkan Gu Yue Chi Zhong naik ke atas panggung.</p>
+<p>	Seorang perwira baru yang berkuasa harus menunjukkan otoritasnya, Gu Yue Chi Zhong mengambil inisiatif untuk menemukan Fang Yuan dan membujuknya untuk menyerahkan Rumput Vitalitas Sembilan Daun.</p>
+<p>	“Menyerahkan Rumput Vitalitas Sembilan Daun, bukan berarti itu tidak bisa dilakukan,” kata Fang Yuan setelah bergumam pada dirinya sendiri sebentar.</p>
+<p>	Ada pepatah: apa yang benar dulu tidak benar sekarang.</p>
+<p>	Dan sekarang, situasinya berbeda dari sebelumnya….</p>
+<p>Sebelumnya, Gu Yue Yao Ji ingin Fang Yuan menyerahkan Rumput Vitalitas Sembilan Daun; itu adalah perintah, Anda harus menyerahkannya apakah Anda mau atau tidak.</p>
+<p>	Namun, Fang Yuan sudah menjadi penatua sekarang dan statusnya setara dengan Gu Yue Yao Ji dan yang lainnya, dan hanya lebih rendah dari pemimpin klan Gu Yue Bo. Dengan demikian, Gu Yue Chi Zhong yang meminta Fang Yuan untuk menyerahkan Rumput Vitalitas Sembilan Daun bukanlah perintah, tetapi itu adalah jenis transaksi dengan manfaat yang sama.</p>
+<p>	Rumput Vitalitas Sembilan Daun memang sangat berharga; dengan kemampuannya untuk menghasilkan daun vitalitas, itu dengan sendirinya merupakan sumber pendapatan skala mikro dan sangat diminati. Fang Yuan sekarang memelihara banyak cacing Gu dan sebagian besar biaya makanan mereka hanya didukung olehnya.</p>
+<p>	Namun, dunia ini tidak memiliki apa pun yang tidak dapat dijual. Itu hanya masalah keuntungan yang terlalu kecil untuk menggerakkan hati.</p>
+<p>	Rumput Vitalitas Sembilan Daun sangat berharga tetapi jika harga yang sesuai diberikan, mengapa itu tidak bisa dijual?</p>
+<p>	Cacing Gu hanyalah alat; metode untuk mencapai keinginan dan ambisi seseorang. Jadi bagaimana jika itu adalah Jangkrik Musim Semi Musim Gugur? Selama situasinya cocok, mengapa tidak ada yang menyerah untuk ditukar dengan keuntungan yang lebih besar?</p>
+<p>	Jika seseorang ingin memperoleh manfaat, mereka harus belajar menyerah terlebih dahulu.</p>
+<p>	Secara alami, Fang Yuan menyadari hal ini dan memandang Gu Yue Chi Zhong.</p>
+<p>	Gu Yue Chi Zhong mengerti dan tersenyum, “Jika Baginda bersedia menyerahkan Rumput Vitalitas Sembilan Daun, saya akan dengan senang hati memberikan kompensasi kepada Anda dengan token perintah ini.”</p>
+<p>	Mengatakan demikian, dia mengeluarkan token.</p>
+<p>	Desain token ini sederhana; itu berbentuk segitiga dengan sudut-sudut halus. Ada kata-kata yang tertulis di bagian depan, menumpuk dalam bentuk piramida —’Token Hadiah’; demikian pula di bagian belakang tertulis —’Kontribusi Hadiah’.</p>
+<p>	Token Hadiah, Kontribusi Hadiah.</p>
+<p>	“Yang Mulia adalah penatua yang baru dipromosikan, dan mungkin tidak jelas dalam beberapa hal. Token Hadiah ini diberikan kepada Master Gu yang telah memberikan kontribusi besar kepada klan. Bahkan di antara para penatua, hanya sedikit yang memilikinya. Dengan token ini, Anda dapat pergi ke gua bawah tanah klan dan memilih cacing Gu yang Anda suka. Gua bawah tanah menyimpan banyak cacing Gu yang langka dan berharga. Di antara sepuluh cacing Gu teratas di papan pertukaran, empat di antaranya telah dipilih dari gua Gu bawah tanah, ”jelas Gu Yue Chi Zhong.</p>
+<p>	Fang Yuan langsung tergerak.</p>
+<p>	Dia tidak terkejut tentang ini, karena Klan Gu Yue telah berdiri tinggi selama berabad-abad dan tidak mungkin tidak ada kartu truf dan akumulasi.</p>
+<p>	Faktanya, setiap klan yang sudah lama berdiri juga akan memiliki tempat rahasia untuk menyimpan Gu seperti gua bawah tanah Gu.</p>
+<p>	Tetapi untuk mendapatkan cacing Gu seperti itu, seseorang harus memberikan kontribusi yang besar dan juga harus setia kepada klan.</p>
+<p>	Fang Yuan baru saja menjadi penatua, jadi dia sangat jauh dari memiliki kualifikasi seperti itu.</p>
+<p>	“Saya ingin meninggalkan klan jadi saya membutuhkan Gu penyimpanan. Token ini adalah pilihan yang bagus, tapi….” Fang Yuan memiliki beberapa kekhawatiran.</p>
+<p>	Jika dia harus menyerahkan Rumput Vitalitas Sembilan Daun, biarlah; itu sangat membantu Fang Yuan, tetapi dia tidak akan menggunakannya di masa depan.</p>
+<p>	Kemampuan penyembuhannya tidak luar biasa dan seseorang tidak dapat terus menerus menggunakan daun vitalitas untuk menyembuhkan.</p>
+<p>	Kekhawatiran Fang Yuan adalah bahwa mungkin tidak ada cacing Gu idealnya di gua bawah tanah Gu.</p>
+<p>	Gu Yue Chi Zhong telah mengamati ekspresi Fang Yuan dan dia salah memahami keraguan yang terakhir, dengan mengatakan, “Gua bawah tanah tidak hanya menampung cacing Gu peringkat tiga tetapi juga peringkat empat. Penatua Fang Yuan, Anda tidak akan dirugikan. Tapi, jika entah bagaimana Anda menyesalinya, kami bisa menukarnya kembali. Itu bisa dilakukan setelah beberapa waktu, secara diam-diam.”</p>
+<p>	Fang Yuan mengangkat matanya, tidak bisa menahan diri untuk tidak menatap Chi Zhong lagi.</p>
+<p>	“Ini adalah pria yang luar biasa,” desahnya dalam hati.</p>
+<p>	Seorang perwira baru yang berkuasa harus menunjukkan otoritasnya, Chi Zhong jelas mengerti mengapa dia dipromosikan; dia harus mencapai keseimbangan tidak hanya dengan pemimpin klan tetapi juga dengan faksi Chi dan obat-obatan. Dan pada saat yang sama, dia perlu menunjukkan kemampuannya.</p>
+<p>	Fang Yuan mentransfer Rumput Vitalitas Sembilan Daun, memiliki arti khusus baginya dan dia bersedia membayar harga tinggi untuk itu.</p>
+<p>	“Dunia ini luas, talenta luar biasa yang tak terhitung jumlahnya ada di mana-mana! Di bawah gelombang serigala, pengatur waktu lama dikorbankan dan pendatang baru maju. Dari titik tertentu, ini juga dapat dikatakan sebagai reformasi yang memungkinkan klan mempertahankan vitalitasnya dan berdiri tegak tanpa jatuh, ”pikir Fang Yuan dalam hati.</p>
+<p>	Terlalu banyak pengatur waktu lama hanya akan membuat organisasi yang membusuk. Dengan demikian proses eliminasi merupakan satu-satunya jalan bagi suatu organisasi untuk terus bekerja.</p>
+<p>	Gu Yue Chi Zhong adalah perwakilan dari ini.</p>
+<p>	Dunia adalah tentang survival of the fittest. Tubuh manusia terus hidup melalui proses metabolisme. Seorang Master Gu tidak boleh bertahan dengan cacing Gu yang sama, hanya dengan perubahan mereka bisa maju.</p>
+<p>	Pada pemikiran ini, Fang Yuan menerima token dari Gu Yue Chi Zhong dan kemudian menyerahkan Rumput Vitalitas Sembilan Daun. Karena dia telah mentransfernya sendiri, Chi Zhong dapat dengan cepat memperbaiki Rumput Vitalitas Sembilan Daun.</p>
+<p>	Hanya setelah menyimpan rumput ini, Gu ke dalam lubangnya, dia menghela nafas lega.</p>
+<p>	Dia memiliki ambisinya sendiri dan mampu bertindak sebagai tetua ruang pengobatan sementara adalah kesempatan yang sangat penting baginya. Jika dia bisa memahami ini, dia bahkan mungkin mengambil posisi resmi alih-alih sementara.</p>
+<p>	Namun, dia harus membuat kompromi dengan ketiga belah pihak jika dia ingin mencapai ini. Bagaimanapun, politik adalah seni berkompromi.</p>
+<p>	Yao Ji tidak bisa melakukan apa pun pada Fang Yuan saat dia memerintah. Tetapi setelah duduk, dia bisa membuat Fang Yuan menyerahkan Rumput Vitalitas Sembilan Daunnya. Ini tidak hanya menunjukkan niat baik kepada faksi obat, mampu menangani masalah politik yang ditinggalkan oleh Yao Ji dan secara halus menunjukkan kemampuannya sendiri.</p>
+<p>	Karena itu, dia tidak ragu untuk menyerahkan token hadiah yang dia dapatkan dengan susah payah.</p>
+<p>	“Lord Chi Zhong, sungguh menyenangkan mengobrol dengan Anda. Saya ingin tahu apakah Anda masih punya waktu sekarang? ” Fang Yuan bertanya sambil menyimpan token.</p>
+<p>	Mata Gu Yue Chi Zhong berkilat; dia bingung.</p>
+<p>	Setelah beberapa saat.</p>
+<p>	Di sebuah aula.</p>
+<p>	“Kami memberi hormat kepada kedua tetua!” Paman dan bibi Fang Yuan membungkuk dan memberi salam. Mereka sangat hormat dan bahkan sedikit takut.</p>
+<p>	Setelah berita tentang Fang Yuan menjadi penatua diumumkan, ia menjadi contoh teladan bagi Guru Gu muda, sedangkan itu membawa keheranan dan kepanikan bagi pasangan paman dan bibi.</p>
+<p>	Dia jelas merupakan bakat kelas C, bagaimana dia bisa naik ke peringkat tiga dan menjadi penatua begitu cepat?</p>
+<p>	Bahkan Gu Yue Fang Zheng yang merupakan bakat kelas A hanya berada di peringkat dua tingkat atas saat ini.</p>
+<p>	Setelah keheranan adalah ketakutan.</p>
+<p>	Mereka tidak bisa membantu tetapi takut.</p>
+<p>	Ketika mereka memikirkan bagaimana mereka telah menggertak dan begitu keras pada Fang Yuan, hati mereka bergetar ketakutan.</p>
+<p>	Apa yang terjadi akan kembali lagi!</p>
+<p>	Itu tidak sama setelah dia memiliki identitas seorang penatua.</p>
+<p>	Mereka takut Fang Yuan membalas dendam pada mereka setelah mencapai kesuksesan.</p>
+<p>	Tapi tetap saja, pada akhirnya Fang Yuan datang ke pintu mereka, dan juga membawa sesepuh lain bersamanya.</p>
+<p>	“Mereka datang dengan niat buruk, niat buruk!” Gu Yue Dong Tu menghela nafas dalam hatinya.</p>
+<p>	Fang Yuan terkekeh, “Paman, Bibi, tidak perlu terlalu sopan. Meskipun saya telah menjadi penatua, saya masih keponakan Anda. Ayo, mari kita semua duduk. ”</p>
+<p>	Mengatakan demikian, dia duduk di kursi utama.</p>
+<p>	Gu Yue Chi Zhong duduk di sampingnya.</p>
+<p>	Dua posisi ini biasanya tempat Paman dan Bibi duduk; kursi kepala keluarga.</p>
+<p>	Paman dan Bibi, bagaimanapun, tidak sedikit pun tidak puas dengan tempat duduknya. Mereka bahkan penuh keraguan dan ketakutan saat duduk di kursi bawah.</p>
+<p>	Ini adalah kekuatan para tetua klan.</p>
+<p>	Paman dan Bibi saling melirik, mereka gelisah saat mereka duduk dengan kaku; hanya duduk di dekat tepi kursi.</p>
+<p>	Para pelayan datang dengan teh.</p>
+<p>	Gu Yue Chi Zhong tetap diam dan tidak minum. Fang Yuan, bagaimanapun, menyesapnya dengan tenang dan bertanya, “Bagaimana kabar Paman dan Bibi akhir-akhir ini?”</p>
+<p>	Fang Yuan tersenyum ketika dia bertanya, tetapi di mata Paman dan Bibi itu terasa lebih menakutkan daripada dia yang marah.</p>
+<p>	Khususnya untuk Bibi; ketika dia memikirkan bagaimana dia menghina Fang Yuan, dia mulai gemetar ketakutan.</p>
+<p>	“Huh, hidup telah mengalami pergolakan karena gelombang serigala. Kedai terpaksa ditutup dan harga sewa rumah bambu menurun. Faktanya, kami sangat miskin sehingga kami mencapai titik kelaparan, ”kata Paman, dan kemudian air mata jatuh dari matanya tanpa diduga.</p>
+<p>	Dia dulu menjaga kesehatannya dengan sangat baik sebelumnya, tetapi sekarang wajahnya tidak lagi kemerahan, sementara rambut di dekat pelipisnya memutih dan kerutan di wajahnya bertambah. Kesulitannya bahkan lebih jelas karena pendaftaran paksa.</p>
+<p>	Namun, Fang Yuan tahu pamannya telah mengelola kedai selama bertahun-tahun, jadi dia pasti punya tabungan. Penampilan menyedihkan yang dia kenakan sekarang adalah karena dia takut akan balas dendam Fang Yuan, dan ingin menggunakan tampilan menyedihkannya untuk mendapatkan simpati Fang Yuan.</p>
+<p>	“Paman biasanya sangat cerdik, tetapi bagaimana dia bisa begitu bodoh ketika masalah itu melibatkan dirinya sendiri? Jika aku datang untuk membalas dendam, mengapa aku membawa Gu Yue Chi Zhong bersamaku?”</p>
+<p>	Fang Yuan mencibir dalam pikirannya. Dia sangat tidak menyukai dan tidak menghormati paman dan bibinya, tetapi ini tidak berarti mereka tidak berguna.</p>
+<p>	“Paman, Bibi, kamu telah merawatku dengan baik begitu lama, semua pencapaianku saat ini adalah karena pengasuhanmu. Saya baru saja menerima pembayaran yang lebih tua dari klan; tiga ratus batu purba ini, tolong ambil mereka.” Mengatakan demikian, Fang Yuan menyerahkan kantong uang itu kepada paman.</p>
+<p>	“Apa? Ini….” Ekspresi Gu Yue Dong Tu benar-benar luar biasa saat ini.</p>
+<p>	Keheranannya mengandung kegelisahan, kegelisahan itu dekat dengan ketakutan, dan di bawah ketakutan itu ada ketidakpercayaan.</p>
+<p>	Bibi yang berada di samping juga tercengang saat dia menatap kosong ke tas uang di tangan Fang Yuan.</p>
+<p>	Apa yang terjadi?</p>
+<p>	Tidak ada balas dendam yang mereka bayangkan, tetapi sebaliknya, mereka dihadiahi tiga ratus batu purba?</p>
+<p>	Kata-kata Fang Yuan menusuk telinga, tidak peduli bagaimana mereka melihatnya. Kata-kata ‘merawat dengan baik’ dan ‘mengasuh’ penuh dengan sarkasme yang membuat mereka merasa seluruh situasi menjadi lebih aneh.</p>
+<p>	“Apa yang dia rencanakan?”</p>
+<p>	“Apa sih yang ingin dia lakukan? Bagaimana dia ingin menyiksa kita!?”</p>
+<p>	Paman dan Bibi saling pandang. Keduanya ragu-ragu dan tidak berani menerima kantong uang itu.</p>
+<p>	“Ini adalah kesalehan berbakti Elder Fang Yuan, terimalah,” Gu Yue Chi Zhong tanpa ekspresi berbicara dari tempat duduknya.</p>
+<p>	“Ya ya ya.” Paman berulang kali menganggukkan kepalanya dan buru-buru menerima kantong uang itu. Bahkan jika dia disebut tetua tersembunyi, itu bukan apa-apa di depan tetua ruang obat.</p>
+<p>	Dia menggunakan kedua tangannya untuk memegang tas yang penuh dengan tiga ratus batu purba. Dia biasanya menyukai uang, tetapi sekarang, dia merasa kantong uang itu panas dan ingin segera membuangnya!</p>
+<p>	“Karena paman telah menerimanya, aku akan pergi,” kata Fang Yuan dan mulai pergi.</p>
+<p>	Paman dan Bibi segera mencoba untuk melihat mereka pergi, tetapi dihentikan oleh Fang Yuan.</p>
+<p>	“Jangan melihat lagi,” Di sudut, Ibu Shen menghela nafas lega dan berkata kepada putrinya Shen Cui.</p>
+<p>	Ekspresi Shen Cui suram, dan dia melihat sosok Fang Yuan dan Chi Zhong dari belakang sampai mereka benar-benar hilang.</p>
+<p>	“Ibu, apakah aku membuat pilihan yang salah?” Dia berkata.</p>
+<p>	Seorang penatua dapat menerima seorang istri dan dua selir; jika dia setia sejak awal, siapa yang mengatakan bahwa dia tidak bisa menjadi selir Fang Yuan saat ini.</p>
+<p>	“Saya benar-benar tidak mengharapkan ini. Fang Yuan ini maju ke panggung hari ini hanya dengan bakat kelas C!” Ibu Shen dengan tak berdaya menggelengkan kepalanya, “Putri, bergembiralah. Fang Zheng memiliki bakat kelas A, prestasinya tidak akan kurang!</p>
+<p>	“Ya,” jawab Shen Cui, dan beberapa kilau muncul di dalam pupilnya yang gelap.</p>
+<p>	Di dunia ini, status manusia biasa sangat kecil dan rendah!</p>
+<p>	Berapa banyak hal yang dia miliki yang bisa menggerakkan hati para Master Gu yang hebat?</p>
+<p>Dia sudah memberikan tubuhnya kepada Fang Zheng, itu adalah pertaruhan hidupnya dan dia tidak bisa kembali lagi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

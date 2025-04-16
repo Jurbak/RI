@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 44 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 44";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_43.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 44">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_45.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 44</h1>
+        <div class="text-left">
+<p>	Bab 44</p>
+<p>	Bab 44: Anggur Monyet, tidak menghasilkan kesempatan cacing Liquor</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Pada hari kedua di sore hari saat istirahat makan siang, Fang Yuan pergi ke distrik perbelanjaan di luar desa pegunungan lagi.</p>
+<p>	Karena banyak dari mereka harus bekerja di siang hari, tidak banyak penduduk desa di area tenda.</p>
+<p>	Fang Yuan berjalan ke area tempat penjual menjual Rumput Intim tadi malam, menurut ingatannya. Dia meraih hanya untuk melihat gerobak kosong, masih di tempat. Seekor burung unta sedang menyeret gerobak.</p>
+<p>	Itu berdiri di tempat dengan bangga, ukuran tubuhnya sebesar burung unta sementara memiliki penampilan ayam, bagian belakang makhluk itu menonjol ke sudut melengkung. Sepasang sayap lebar terkumpul di sisi tubuhnya, bulu-bulunya sangat cerah dalam tujuh warna. Kepala ayam itu terangkat tinggi, jengger merahnya yang besar seperti mahkota batu akik, berkilauan dengan kilau permata di bawah sinar matahari.</p>
+<p>	“Sepertinya aku masih terlambat, Rumput Intim sudah habis terjual. Sayang sekali, jika saya bisa membeli beberapa kati Rumput Intim, saya bisa menghemat sedikit batu purba. ” Langkah kaki Fang Yuan terhenti saat dia berjalan pergi dan terus menjelajah lebih dalam ke daerah itu.</p>
+<p>	“Ayo, cicipi anggur lezat dari semua desa yang berbeda. Ada lebih dari seratus jenis wine di sini, seperti Lantern Grass Wine, Nine Tune Wine dengan aftertaste yang kuat, Ancient Dragon Well yang ringan dan elegan, Flower Rock Tune yang manis dan asam, Hundred Spring Old Cellar yang menggiurkan. , Intoksikasi Tiga Musim Gugur yang kaya dan harum yang berat……” Di depan ember bundar biru di depan tenda, seorang asisten toko sedang menjajakan dengan penuh semangat.</p>
+<p>	Sebuah cahaya melintas di tatapan Fang Yuan saat dia segera menjadi tertarik. Dengan belokan, dia memasuki toko anggur.</p>
+<p>	Dekorasi di toko anggur itu sangat unik.</p>
+<p>	Di bagian paling dalam tenda, ada meja panjang. Seorang Master Gu ditempatkan di sana, dengan puluhan kepik kristal seukuran keranjang anyaman di belakangnya, menempel di dinding kain tenda.</p>
+<p>	Di lantai tidak ada karpet, melainkan bebatuan gunung dan tanah yang tidak tertutup. Di antara tanah, jamur berwarna cerah tumbuh.</p>
+<p>	Jamur ini memiliki berbagai macam warna, tampak bulat dan sedikit lucu. Ada yang sebesar meja, ada juga yang pendek seperti bangku. Mereka sering didistribusikan di mana jamur meja besar dikelilingi oleh beberapa jamur bangku yang lebih pendek.</p>
+<p>	“Ini adalah Innocent Mushroom, yang sengaja ditanam oleh seorang Gu Master. Ia memiliki kemampuan untuk menyerap debu dan partikel di udara untuk memurnikannya, dan itu adalah sejenis Gu rumput.” Fang Yuan bisa mengenali asal jamur segera setelah melihatnya.</p>
+<p>	Dia memilih salah satu jamur pendek dan duduk. Permukaan jamur segera tenggelam sedikit, membuat Fang Yuan merasa seperti sedang duduk di sofa seperti yang ada di Bumi.</p>
+<p>	“Tuan muda, ini katalog anggur, apakah Anda ingin melihatnya?” Seorang asisten toko berjalan mendekat.</p>
+<p>	Fang Yuan melirik katalog anggur dan menyadari bahwa anggur di sini lebih mahal daripada anggur bambu hijau.</p>
+<p>	“Aku akan minum secangkir anggur monyet.” Fang Yuan meletakkan katalognya.</p>
+<p>	“Secangkir anggur monyet!” Asisten toko berbalik dan berteriak.</p>
+<p>	Di konter, Guru Gu Pangkat satu mendengar dan segera membungkuk untuk mengambil cangkir anggur bambu.</p>
+<p>	Selanjutnya dia mengambil cangkir anggur dan berbalik, menghadap tenda. Di dinding tenda biru ada puluhan kepik kristal, kepala menghadap ke bawah dan ekor menghadap ke atas, diam-diam menempel di dinding seolah-olah itu hanya hiasan untuk tenda.</p>
+<p>	Kepik kristal ini juga merupakan tipe Gu. Perutnya kosong, karena sering digunakan oleh Master Gu untuk membawa cairan berharga.</p>
+<p>	Tubuh mereka transparan, seolah-olah terbuat dari kristal. Dari luar, orang dapat melihat bahwa di dalam perut kepik, berbagai jenis minuman keras dapat ditemukan.</p>
+<p>	Master Gu dengan cepat menemukan kepik kristal yang berisi anggur monyet di antara mereka.</p>
+<p>	Dia meletakkan cangkir anggur bambu di corong kepik, dan dengan lembut membelai kerangka luar kepik dengan tangannya yang lain.</p>
+<p>	Sejumlah kecil esensi purba memasuki tubuh kepik kristal, dan setelah itu membuka mulutnya dan semburan minuman keras mengalir ke cangkir anggur bambu.</p>
+<p>	Minuman keras itu berceceran di sekitar cangkir sampai penuh.</p>
+<p>	Master Gu meletakkan cangkir anggur bambu yang diisi dengan anggur monyet di meja. Asisten toko yang sudah menunggu beberapa saat dengan cepat mengangkat cangkir dengan cermat dan berjalan beberapa langkah untuk mengantarkannya ke Fang Yuan.</p>
+<p>	Fang Yuan hanya menyesap sedikit, anggur monyet memang minuman buah, manis dan menyegarkan dan lembut di langit-langit.</p>
+<p>	Dia berhenti minum, tetapi dengan pikiran, Fang Yuan memanggil cacing Liquor.</p>
+<p>	Cacing minuman keras putih dan gemuk berubah menjadi kilatan cahaya putih dan melengkung di udara. Dengan ‘plop’, itu mendarat di cangkir anggur.</p>
+<p>	Anggur berceceran di mana-mana, memercik ke meja jamur.</p>
+<p>	Cacing Liquor dengan gembira memukul-mukul di cangkir anggur, dan anggur monyet bisa terlihat berkurang dengan mata telanjang. Dalam beberapa saat, cangkir itu mengering, tanpa setetes pun tersisa.</p>
+<p>	“Ini cacing Liquor!” Master Gu di konter berteriak, matanya berbinar. Dia adalah Master Gu Peringkat satu dengan bakat Grade D, hanya bisa mengikuti karavan pedagang dan bekerja di toko anggur ini. Tujuannya adalah untuk melihat-lihat sambil menemukan peluangnya.</p>
+<p>	Cacing Liquor dapat memurnikan esensi purba dan meningkatkannya ke seluruh alam. Untuk Master Gu peringkat satu, dapat dikatakan sebagai cacing Gu yang sangat berharga. Bukankah ini kesempatan yang dia cari dengan susah payah?</p>
+<p>	“Tuan muda ini, apakah Anda punya rencana untuk menjual cacing Liquor ini?” Dia dengan bersemangat mendekat, ekspresi ketulusan di matanya.</p>
+<p>	Fang Yuan menggelengkan kepalanya, menolaknya dengan sikap tegas, bangkit untuk pergi setelah itu.</p>
+<p>	Motifnya kali ini adalah untuk mengungkapkan cacing Liquor yang dimilikinya; dia tidak pernah berpikir untuk menjualnya.</p>
+<p>	“Tuan muda, tuan muda, tolong tunggu. Saya sangat tulus tentang ini, mungkin kita bisa duduk dan berdiskusi. ” Tuan Gu dengan enggan mengikuti Fang Yuan ke pintu masuk tentage tetapi Fang Yuan tidak menunjukkan tanggapan apa pun padanya.</p>
+<p>	Pada akhirnya dia hanya bisa berdiri di tempat, ekspresinya sangat menyesal saat dia melihat pandangan belakang Fang Yuan berbelok di tikungan dan menghilang ke tengah cakrawala.</p>
+<p>	……</p>
+<p>	Tanpa disadari, matahari berangsur-angsur terbenam saat bulan sabit menggantikannya.</p>
+<p>	Di malam hari, cahaya bulan bersinar terang tetapi dikalahkan oleh banyak lampu jalan di toko-toko pedagang.</p>
+<p>	Toko pedagang malam ini dipenuhi dengan bisnis. Fang Yuan terjepit ke kiri dan ke kanan saat dia masuk, mendengar segala macam percakapan secara tidak sengaja.</p>
+<p>	“Toko biasanya buka selama tiga hari tiga malam. Malam ini sudah malam kedua, pada pagi hari berikutnya, karavan pedagang pasti sudah berangkat. Jadi, kita harus bergegas jika ingin membeli sesuatu.”</p>
+<p>	“Saya melihat Golden Bell Gu kemarin, duh, sayang sekali harganya terlalu mahal. Setelah tawar-menawar dengan penjaga toko untuk waktu yang lama, tidak ada yang lebih murah. Aku akan pergi dan melihatnya malam ini.”</p>
+<p>	“Apakah kalian mendengar? Tadi malam, seorang pria muda membuka Kodok Kulit Lumpur dan mendapat untung lima ratus batu purba!”</p>
+<p>	……</p>
+<p>	Fang Yuan mendengarkan dengan penuh perhatian, merasakan kekecewaan di hatinya karena dia tidak mendengar apa pun tentang cacing Liquor.</p>
+<p>	“Cacing Minuman Keras hanyalah cacing Gu peringkat satu tetapi sangat berarti bagi Guru Gu peringkat 1, namun tidak berguna bagi Guru Gu peringkat dua atau tiga karena mereka tidak dapat memperbaiki esensi purba mereka lebih jauh dengan itu. Jadi wajar jika tidak ada yang memperhatikan hal ini. Namun mengambil inisiatif untuk mengekspos masalah worm Liquor tidak bisa terburu-buru untuk jangka waktu tertentu. Jika saya berlebihan, itu mungkin akan membuat kucing keluar dari tas. ” Saat Fang Yuan berjalan, dia merenung dalam hati.</p>
+<p>	Pada titik ini, ada keramaian di depannya.</p>
+<p>	Selanjutnya, Fang Yuan mendengar seseorang berteriak, “Cepat datang dan lihat, ada pedagang tidak jujur ​​di sini yang menjual Gu palsu kepada klan kita!”</p>
+<p>	Kemarahan muncul di antara kerumunan.</p>
+<p>	“Oh? Ada hal seperti itu yang terjadi.”</p>
+<p>	“Pergi dan lihat dengan cepat, toko mana yang berani menipu klan kita!”</p>
+<p>	Fang Yuan mengikuti kerumunan dan bergerak menuju keributan juga.</p>
+<p>	Apa yang dilihatnya adalah sekelompok orang yang mengelilingi mulut tenda merah besar, kerumunan besar mengerumuninya. Beberapa orang ingin tahu menonton sementara yang lain menatap dengan dingin, tetapi sebagian besar orang diselimuti rasa marah.</p>
+<p>	Di luar tenda berdiri dua orang.</p>
+<p>	Salah satunya adalah Master Gu peringkat dua muda, yang pakaiannya menunjukkan bahwa dia jelas berasal dari klan Gu Yue.</p>
+<p>	Orang lain memiliki wajah yang familier – itu adalah pemilik sarang perjudian, Jia Jin Sheng.</p>
+<p>	Tuan Gu muda memegang cacing Gu hitam di tangannya, mengangkatnya dan berteriak kepada orang banyak, “Klan saya, orang di depan saya ini menjual saya Gu palsu kemarin. Berbohong padaku bahwa itu adalah Black Boar Gu, dan menjualnya kepadaku seharga dua ratus lima puluh batu purba. Memikirkan bahwa ketika saya sampai di rumah untuk memperbaikinya, saya menyadari bahwa itu bukan Black Boar Gu tetapi hanya cacing lemak bau biasa! ”</p>
+<p>	Jia Jin Sheng tertawa dingin, “Jangan salah menuduhku. Sejak kapan aku memberitahumu bahwa itu adalah Gu Babi Hitam? Bukti apa yang kamu punya?”</p>
+<p>	Tuan Gu muda saat melihat penyangkalan Jia Jin Sheng, menjadi marah dan meraih pergelangan tangan Jia Jin Sheng, “Kamu pedagang yang licik, kamu berani menyangkalnya! Anda benar-benar berani berbohong kepada saya tentang klan Gu Yue di Gunung Qing Mao sendiri, apakah Anda mencoba mencari kematian ?! ”</p>
+<p>	“Lepaskan saya!” Jia Jin Sheng juga sangat marah saat dia menjentikkan pergelangan tangannya, menampar tangan Tuan Muda Gu, “Jika kamu ingin mencari masalah dan memeras uang, kamu harus menemukan target yang lebih baik. Aku tidak takut padamu! Kakakku adalah Jia Fu, Guru Gu peringkat empat, apa yang bisa kamu lakukan padaku?”</p>
+<p>	“Anda!” Tuan Gu muda menatap dengan mata lebar, tetapi tidak berani mengambil tindakan. Nama Master Gu Peringkat empat sudah cukup untuk mengintimidasi dia.</p>
+<p>	“Bah!” Jia Jin Sheng meludah ke tanah, mengangkat kepalanya dan menatap Tuan Muda Gu, tertawa meremehkan, “Kaulah yang ingin mengambil keuntungan dari Gu murahan. Apakah Anda tidak menggunakan otak Anda untuk berpikir, mengapa Black Boar Gu yang dapat meningkatkan kekuatan master Gu, menjadi cacing Gu yang langka, dijual lebih murah daripada cacing Liquor? Biasanya dijual dengan harga enam ratus batu purba. Apakah Anda berpikir bahwa Anda dapat membeli satu hanya dengan dua ratus lima puluh batu purba? Bermimpilah!”</p>
+<p>	“Bajingan ……” Tuan Gu muda menggertakkan giginya, wajahnya memerah saat dia gemetar karena marah, dadanya terbakar oleh amarah penghinaan.</p>
+<p>	Ada obrolan di antara orang-orang saat mereka gelisah, berdiskusi dengan marah. Tapi tidak ada yang berani melangkah, karena status Master Gu Peringkat empat dari Jia Fu seperti bukit raksasa di depan mereka, menstabilkan kerumunan.</p>
+<p>	“Anak ini terlalu kejam, pedagang yang licik!”</p>
+<p>	“Tidak heran dia berani begitu sombong di Gunung Qing Mao, dia sebenarnya adalah adik laki-laki Jia Fu.”</p>
+<p>	“Saya mendengar bahwa mereka hanya saudara tiri, tetapi bahkan dengan kultivasi Peringkat satu itu, dia dapat menggunakan hubungan ini untuk bertindak tidak terkendali di karavan.”</p>
+<p>	“Apa yang sebenarnya terjadi di sini?” Pada saat ini, sebuah suara keras berbicara.</p>
+<p>	“Jia Fu ada di sini!”</p>
+<p>	“Pemimpin ada di sini untuk menyelesaikan perselisihan, semua orang memberi jalan.”</p>
+<p>	Diskusi terhenti ketika semua orang berpisah dan membentuk jalan sempit di antara mereka.</p>
+<p>	Seorang Master Gu setengah baya yang memiliki tubuh pendek berotot ditambah dengan perut raksasa, berjalan masuk. Dia mengenakan jubah kuning lengan panjang, menjadi pemimpin karavan pedagang, Jia Fu.</p>
+<p>	“Tuan Jia Fu, salamku.” Tuan Gu muda sangat marah tetapi tidak berani mengatakan apa-apa. Dia memaksa dirinya untuk menahan amarah dan memberi hormat kepada Jia Fu.</p>
+<p>	Jia Jin Sheng membeku di tempat, tidak mengharapkan saudaranya datang, wajahnya tiba-tiba pucat saat kemarahan melintas di matanya.</p>
+<p>	Ekspresi aneh ini ditangkap oleh Fang Yuan yang mengamati dari jauh saat dia merenungkan situasinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

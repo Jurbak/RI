@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 154 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 154";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_153.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 154">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_155.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 154</h1>
+        <div class="text-left">
+<p>	Bab 154</p>
+<p>	Bab 154: Muntah darah karena marah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hati Gu Yue Mo Chen sangat berat.</p>
+<p>Dia telah merencanakan untuk merekrut Fang Yuan, tetapi menghentikan dirinya sendiri karena bakat Fang Yuan.</p>
+<p>	Tapi sekarang saingan lamanya Gu Yue Chi Lian sebenarnya sudah berafiliasi dengan Fang Yuan. Semua bukti menunjuk pada Chi Lian yang memberikan dukungan untuk Fang Yuan sejak lebih dari setahun yang lalu.</p>
+<p>Sekarang, investasinya telah menerima hadiah yang begitu besar, dan faksi Chi memiliki tetua klan baru. Bagaimana mungkin hatinya tidak berat?</p>
+<p>	Kecuali, selain kekhidmatan, Mo Chen juga bingung.</p>
+<p>	Dia adalah saingan lama Gu Yue Chi Lian, telah berkompetisi sejak mereka masih muda. Dia memiliki pemahaman yang baik tentang saingannya sehingga dia bahkan tahu warna pakaian dalam yang disukai saingannya.</p>
+<p>	Berbicara secara logis, Gu Yue Chi Lian akan mulai menyombongkan diri sekarang, melemparkan pandangan mengejek dan sombong ke arah Mo Chen. Tapi sekarang, wajahnya muram seperti dia menderita ketidakadilan.</p>
+<p>	Ini terlalu aneh!</p>
+<p>	Apa yang terjadi antara dia dan Fang Yuan? Kesepakatan seperti apa yang mereka capai?</p>
+<p>Gu Yue Mo Chen tidak bisa mendapatkan jawaban.</p>
+<p>	“Fang Yuan ini, nyalinya lebih besar dari surga, untuk berpikir dia benar-benar akan mengancamku!” Hati Gu Yue Chi Lian dipenuhi dengan kemarahan dan kebingungan.</p>
+<p>	Tadi malam, Fang Yuan diam-diam mendekatinya dan menggunakan masalah ‘bakat palsu Gu Yue Chi Cheng’ untuk mengancamnya.</p>
+<p>	Surga!</p>
+<p>	Bagaimana rahasia penting yang hanya dia, Gu Yue Chi Lian dan cucunya Chi Cheng yang tahu, bisa mengetahui orang luar ini, Fang Yuan?!</p>
+<p>	Gu Yue Chi Cheng hanyalah talenta kelas C, tapi demi keuntungan faksi Chi, Chi Lian harus mengambil risiko dan menunjukkan fasad Chi Cheng sebagai kelas B.</p>
+<p>	Jika masalah ini terungkap, dampaknya terhadap faksi Chi tidak akan terduga. Integritas kepala keluarga faksi Chi akan dipertanyakan karena kecurangannya secara pribadi, dan ini akan merusak reputasinya sepenuhnya. Lebih penting lagi, pewaris fraksi Chi hanya kelas C, ini berarti fraksi Chi tidak akan memiliki pandangan politik lagi. Siapa yang cukup bodoh untuk mengandalkan faksi jenis ini?</p>
+<p>	Fang Yuan mengetahui rahasia ini, setara dengan memahami kelemahan fatal dari faksi Chi.</p>
+<p>Ketika Fang Yuan mengancamnya, Gu Yue Chi Lian hampir tidak bisa mengendalikan dirinya untuk menyerang dan melenyapkan ancaman ini di tempat!</p>
+<p>	Tetapi dia dengan paksa menghentikan dirinya sendiri, karena dia tidak tahu siapa lagi yang mengetahui rahasia ini, dan apakah Fang Yuan memberi tahu siapa pun atau meninggalkan bukti kertas di beberapa lokasi rahasia.</p>
+<p>“Tenangkan dia dulu, pahami situasinya, lalu singkirkan dia! Saya tidak bisa membiarkan ancaman ini menggantung!” Itulah pemikirannya saat itu.</p>
+<p>	Tetapi segera setelah itu, Fang Yuan menampilkan kultivasi Peringkat tiganya.</p>
+<p>	Chi Lian, meski sangat terkejut, hanya bisa mengubah rencananya menjadi kerja sama.</p>
+<p>	Peringkat tiga adalah tetua klan, dan jika dia membunuh seorang tetua klan, masalah ini akan sama seriusnya dengan kecurangan.</p>
+<p>	Selanjutnya, bertarung melawan Master Gu peringkat tiga akan memakan waktu, dan keributan yang diciptakannya bahkan lebih sulit untuk dihadapi.</p>
+<p>Perselisihan dengan Fang Yuan tidak akan bermanfaat bagi faksi Chi — bahkan risikonya bahkan lebih besar.</p>
+<p>	“Meskipun Fang Yuan menahanku, rahasia bersama juga merupakan bentuk kolaborasi.” Akhirnya, Chi Lian hanya bisa meyakinkan dirinya sendiri untuk menghibur hatinya. Ancaman Fang Yuan begitu tiba-tiba, jadi dia tidak tahu berapa banyak jaring pengaman yang dimiliki Fang Yuan, jadi dia hanya bisa mengikutinya.</p>
+<p>	Tapi sekarang, Fang Yuan tanpa rasa takut melibatkannya, membiarkannya menarik perhatian di tempat Fang Yuan, itu benar-benar melemparkannya ke bawah bus!</p>
+<p>	Namun, bahkan jika Gu Yue Chi Lian tahu ini, apa yang bisa dia lakukan?</p>
+<p>Kali ini, Fang Yuan perlahan berbicara lagi, “Gu Yue Yao Ji, aku tahu hatimu sedang kacau sekarang. Ya, cucu perempuanmu yang berbakat kelas B itu sudah mati, dan tanpa mayat yang layak, faksi obatmu sekarang tanpa pewaris. Tapi bakat kelas C sepertiku malah naik ke peringkat tiga, jadi kamu merasa cemas dan marah, jadi amarahmu diarahkan padaku. Aku mengerti itu.”</p>
+<p>	“Apa katamu?!” Gu Yue Yao Ji menatap lebar, kemarahan yang tak terkendali meningkat, “Kamu celaka kecil, aku memberitahumu Yao Le tidak mati.”</p>
+<p>	Fang Yuan tertawa keras, mengangkat bahu dengan acuh tak acuh, “Masalah hidup atau matinya, apa hubungannya denganku? Yao Ji, kamu tidak perlu menekankan itu.”</p>
+<p>	“Tetapi!” Dia tiba-tiba memelintir, “Gu Yue Yao Ji, untuk menemukan cucu perempuanmu, kamu mengumpulkan tim pencari dan membuang banyak sumber daya manusia dan material. Itu menyangkut saya, para tetua klan di sini, dan bahkan pemimpin klan. Gu Yue Yao Ji, membiarkan Anda memimpin ruang obat, itu karena kepercayaan kami. Tapi apa yang telah Anda lakukan? Anda mengirim Master Gu penyembuhan aula obat untuk mencari cucu Anda, meninggalkan Master Gu yang terluka dan lumpuh dalam kesulitan. Kamu terlalu egois! Pengorbanan Yao Le, itu memang kerugian klan. Tapi Anda semakin memperburuk kerugian kami, Anda sama sekali tidak cocok untuk menjadi tetua klan ruang obat kami !! ”</p>
+<p>	Kata-kata Fang Yuan membentur paku di kepala, merobek kelemahan Yao Ji, rasa sakitnya.</p>
+<p>	Tapi apa yang dia katakan, sangat benar.</p>
+<p>Setelah mendengar kata-kata Fang Yuan, banyak tetua klan mulai mengerutkan kening diam-diam.</p>
+<p>	Faksi siapa yang tidak terluka? Tindakan Gu Yue Yao Ji memang berlebihan, mengirim Master Gu sendirian dan tidak mengurusi urusan mendesak, tetapi malah mencari cucunya.</p>
+<p>	“Kamu… kamu!” Gu Yue Yao Ji sangat marah sehingga tubuhnya gemetar, jarinya menunjuk ke Fang Yuan, tidak bisa berkata apa-apa lagi. Matanya seperti meniup api, memiliki dorongan kuat untuk mencekik bajingan Fang Yuan ini di tempat.</p>
+<p>	Tatapan Fang Yuan dingin dan acuh tak acuh, menatapnya tanpa rasa takut.</p>
+<p>	Dia membalas budi padanya. Kata-kata Gu Yue Yao Ji sebelumnya semuanya benar dan menyebabkan banyak tetua klan penasaran tentang rahasia Fang Yuan untuk maju, menyebabkan keributan besar. Kata-kata Fang Yuan sama, dan dengan alasan yang mendukungnya, berdiri di titik tertinggi dari aturan klan, itu menyebabkan para tetua klan secara tidak sadar membelanya.</p>
+<p>	Bagi para tetua klan, melindungi aturan klan sama dengan melindungi kepentingan mereka sendiri.</p>
+<p>	Tindakan Gu Yue Yao Ji akhir-akhir ini memang melanggar kepentingan mereka!</p>
+<p>	“Fang Yuan ini… bajingan! Bajingan sialan! ” Gu Yue Yao Ji bergidik, tidak tahu bahwa Gu Yue Chi Lian juga marah sampai-sampai marah.</p>
+<p>	Fang Yuan menyinggung Gu Yue Yao Ji hingga batasnya, dan kebenciannya terhadapnya juga akan meluas ke faksi Chi karena Fang Yuan sekarang ‘bagian dari mereka’.</p>
+<p>	Tapi sebenarnya, faksi Chi tidak bersalah!</p>
+<p>Apakah dia, Gu Yue Chi Lian bodoh? Mengapa dia menyinggung Gu Yue Yao Ji yang paling senior dan memiliki jejaring sosial terbesar.</p>
+<p>	Gu Yue Chi Lian tanpa sadar menyusutkan tubuhnya, berdoa di dalam hatinya: Semoga para tetua klan lainnya tidak mengarahkan perhatian pada dirinya sendiri. Fang Yuan melakukan ini, adalah idenya sendiri, itu tidak ada hubungannya dengan faksi Chi!</p>
+<p>	Tapi kalimat Fang Yuan berikutnya, menghancurkan ilusinya menjadi berkeping-keping.</p>
+<p>	Dia berbalik dan melaporkan kepada pemimpin klan Gu Yue Bo, “Pemimpin klan, saya sangat meragukan kemampuan Gu Yue Yao Ji untuk terus memimpin ruang pengobatan. Saya sarankan, kami sementara mencabut gelarnya sebagai tetua klan ruang obat dan mengadakan penilaian menyeluruh terhadapnya. Masing-masing dari Master Gu penyembuhan klan sangat berharga bagi kami. Kita tidak bisa membiarkan dia menyia-nyiakan mereka seperti ini. Kalau tidak, yang paling menderita adalah Gu Master pemberani yang berjuang menggunakan hidup mereka untuk klan kita yang berharga!”</p>
+<p>	Berhenti sejenak, dia melanjutkan, “Saran saya ini, tetua Chi Lian juga sangat mendukung.”</p>
+<p>	“Apa?!” Iris Gu Yue Yao Ji menyusut saat wajahnya berubah warna.</p>
+<p>	“Apa?!” Para tetua klan semua terkejut. Mendengar sikap terus terang Gu Yue Chi Lian seperti ini, apakah itu berarti dia tidak senang dengan Yao Ji sejak lama dan telah bernafsu akan keuntungan besar dalam harta miliknya, ingin mendapatkan sepotong kue?</p>
+<p>	“APA?!” Sebagai orang yang dimaksud, Gu Yue Chi Lian hampir melompat dari tempat duduknya.</p>
+<p>	Bagaimana mungkin dia tidak marah?</p>
+<p>Dia akan menjadi gila karena kejenakaan Fang Yuan!</p>
+<p>	Fang Yuan ini tidak hanya menyinggung Gu Yue Yao Ji, dia bahkan menyeretnya ke dalam perahu.</p>
+<p>	Niat politik aslinya terhadap faksi kedokteran adalah kedekatan dan kerja sama. Tapi sekarang, usahanya semua digagalkan oleh satu kalimat dari Fang Yuan!</p>
+<p>	Fang Yuan menjebak dan menyakitinya. Di depan orang itu sendiri, membingkai, menyakiti, dan menyebarkan desas-desus palsu!</p>
+<p>Tapi dia, Gu Yue Chi Lian, kepala keluarga besar faksi Chi, disandera oleh Fang Yuan, dan tidak punya cara untuk melawan!!</p>
+<p>	“Oh, Penatua Chi Lian, Anda mendukung ini?” Tatapan Gu Yue Bo bersinar saat dia bertanya.</p>
+<p>	Gu Yue Chi Lian menggertakkan giginya, perlahan bangkit.</p>
+<p>Dia menegangkan lehernya, menahan keinginan untuk melihat Fang Yuan; dia takut dia tidak bisa menahan amarahnya.</p>
+<p>	Pada titik ini, dia tidak bisa melakukan apa pun pada Fang Yuan, dan hanya bisa melanjutkan pertunjukan.</p>
+<p>	“Mencabut gelar Yao Ji, ini adalah satu-satunya ide Fang Yuan. Dengan ancaman gelombang serigala, tiba-tiba mengubah orang tidak tepat. Namun, saya setuju bahwa penatua Yao Ji telah menyimpang dari peran Master Gu yang menyembuhkan karena perasaan pribadinya. Jika upaya ini ditempatkan di area yang tepat, itu akan mengurangi kerugian klan kami untuk sebagian besar. ”</p>
+<p>	Mengatakan demikian, hatinya berdarah.</p>
+<p>	Dia pasti tidak akan menindaklanjuti apa yang dikatakan Fang Yuan, karena dia memikirkan kepentingannya sendiri. Kata-kata ini, dia telah mengerahkan upaya terbesar untuk menemukan keseimbangan antara Fang Yuan dan Yao Ji.</p>
+<p>	Namun meski begitu, setelah dia selesai berbicara, dia mendengar bunyi gedebuk.</p>
+<p>	Dia menoleh dan melihat bahwa Gu Yue Yao Ji telah memuntahkan darah karena kemarahannya yang hebat, dan jatuh terlentang.</p>
+<p>	Ini sudah berakhir!</p>
+<p>“Aku benar-benar menyinggung Yao Ji!” Pada saat ini, Gu Yue Chi Lian merasa seperti dia telah jatuh ke dalam jurang, hatinya sedingin es.</p>
+<p>	“Tuan Yao Ji!”</p>
+<p>“Seseorang, cepat diagnosa dia.”</p>
+<p>	“Dia baru saja kehilangan kesadaran, ini bukan keadaan darurat. Tuan Yao Ji tidak beristirahat sama sekali selama tiga hari tiga malam ini, tubuh dan pikirannya lelah dan perlu istirahat.”</p>
+<p>	Aula itu berantakan, tetapi perlahan-lahan menjadi tenang.</p>
+<p>	Gu Yue Yao Ji dibawa pergi dengan tandu.</p>
+<p>	Dia sudah tua, dan telah khawatir selama berhari-hari. Dengan hati yang melemah, sekarang dia dipicu oleh Fang Yuan dan Chi Lian, menambah kesengsaraannya, tidak heran dia pingsan.</p>
+<p>	“Tuan Yao Ji telah memimpin ruang pengobatan selama bertahun-tahun, dia telah bekerja keras begitu lama, dia benar-benar lelah. Membiarkannya beristirahat juga untuk kebaikannya sendiri. Sekarang dia tidak sadar, aula obat tidak bisa tanpa seorang pemimpin. Saya menyarankan agar kita membiarkan Fang Yuan mengambil alih, ”kata Gu Yue Chi Lian tiba-tiba.</p>
+<p>	Orang tua ini berdiri di depan tempat duduknya. Melihat Gu Yue Yao Ji dibawa, matanya bersinar dingin.</p>
+<p>	Karena dia sudah menyinggung perasaannya, lalu mengapa tidak melanjutkan dan melanjutkan kesalahannya! Untuk mencegah balas dendam faksi obat, dia mungkin juga menekan mereka sepenuhnya. Ini adalah seseorang yang berkuasa, tekad dan kebijaksanaan seorang ahli dalam politik.</p>
+<p>	Aula jatuh ke dalam keheningan sementara.</p>
+<p>	Kematian Yao Le, kejatuhan Yao Ji, itu menunjukkan bahwa faksi obat sedang mengalami penurunan. Kekejaman politik bahkan lebih kejam dari gelombang serigala.</p>
+<p>	Fang Yuan juga terdiam.</p>
+<p>	Membiarkannya menjadi tetua klan ruang obat, heh heh, Gu Yue Chi Lian hanya mengatakannya dengan santai.</p>
+<p>	Membiarkan tetua klan muda yang baru maju memegang peran penting. Mungkin jika para tetua klan dan pemimpin klan semuanya terbelakang.</p>
+<p>	Gu Yue Chi Lian mengatakan ini dengan sengaja, memiliki makna yang dalam.</p>
+<p>	Seperti yang diharapkan, pada saat berikutnya, Gu Yue Bo menyatakan, “Peran ruang obat untuk sementara akan dipegang oleh tetua Chi Zhong. Kultivasi Fang Yuan memang telah mencapai Peringkat tiga, jadi menurut aturan klan, dia juga akan berperan sebagai tetua klan. Kirimkan berita, dan biarkan seluruh desa bersukacita. ”</p>
+<p>	Mengatakan demikian, Gu Yue Bo berdiri dan pergi.</p>
+<p>“Selamat, selamat …” Setelah pemimpin klan pergi, para tetua klan semua berjalan menuju Fang Yuan, menangkupkan tinju mereka dengan wajah penuh senyum.</p>
+<p>	Fang Yuan menangkupkan tinjunya juga, menjawab dengan senyum hangat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

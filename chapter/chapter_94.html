@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 94 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 94";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_93.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 94">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_95.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 94</h1>
+        <div class="text-left">
+<p>	Bab 94</p>
+<p>	Bab 94: Tiba-tiba menarik kekuatan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Menemukan kelompok ular yang sakit-sakitan di depan, mereka saat ini bertarung dengan binatang buas berukuran besar.” Hanya setengah detik kemudian, kata Chi She lagi, kali ini lebih spesifik.</p>
+<p>	“Bagaimana situasinya?” Chi Shan mengerutkan kening.</p>
+<p>	“Tidak salah lagi,” Lidah ular Chi She terus meregang dan menyusut, “Piton lava merah Jiao San adalah satu-satunya di seluruh desa, dan sekarang mereka bertarung melawan… raja babi hutan!”</p>
+<p>	Ekspresi semua orang berubah.</p>
+<p>	“Raja babi hutan… Jika saya ingin menggabungkan cacing Gu, saya membutuhkan taring babi hutan. Tidak diragukan lagi, gading raja babi hutan adalah yang paling cocok.” Hati Fang Yuan bergejolak, dan sebenarnya dia memiliki niat untuk membunuh raja babi hutan itu sejak awal.</p>
+<p>	“Raja babi hutan itu?” Gu Master wanita berambut biru berair mengangkat alisnya.</p>
+<p>	“Selain yang itu, tidak ada yang lain di sekitarnya. Tetapi hanya mengandalkan kekuatan kelompok ular yang sakit-sakitan untuk menuai raja babi hutan, nafsu makan mereka terlalu besar. ” Tuan Gu tua itu mencibir dengan jijik.</p>
+<p>	Jika Pak Tua Wang bisa memahami medan gunung itu sendiri, Master Gu peringkat dua yang selalu berkeliaran di gunung Qing Mao ini jelas akan lebih mengenalnya. Tidak menghilangkan raja babi hutan sebelum ini, mereka punya alasan.</p>
+<p>	Chi Shan merenung, lalu berkata, “Pergi dukung mereka.”</p>
+<p>	“Hehe, aku khawatir mereka mungkin tidak membalas.” Tuan Gu tua itu tertawa dingin.</p>
+<p>	“Bahkan jika kita tidak pergi dan mendukung mereka, kita masih harus mengirim seseorang, kan!” Chi Cheng memandang Fang Yuan, berkata dengan nada tidak senang.</p>
+<p>	Arah tim mengarah ke kiri.</p>
+<p>	Meskipun Chi Shan dan yang lainnya selalu melihat ke bawah dan tidak menyukai Gu Yue Jiao San, tetapi sebagai klan, terhadap musuh luar, bahkan jika mereka memiliki amnesti secara normal, mereka akan berkelompok dan bekerja sama.</p>
+<p>	Inilah kekompakan sebuah klan di dunia ini.</p>
+<p>	Dan terutama mengandalkan kekompakan ini, klan berusia seratus tahun dapat mempertahankan dirinya sendiri tanpa mati, bahkan menjadi klan berusia seribu tahun.</p>
+<p>	Semua orang bergerak melalui hutan dalam kegelapan, menuju ke dataran rendah.</p>
+<p>	Empat Master Gu kelompok ular yang sakit-sakitan mengepung raja babi hutan, terlibat dalam pertempuran sengit.</p>
+<p>	Di tengah, raja babi hutan yang mirip gajah sedang bertarung dengan ular piton yang kurus dan panjang berwarna merah.</p>
+<p>	Piton raksasa merah ini memiliki potongan batu merah tua di sekujur tubuhnya, suhunya sangat tinggi. Itu seperti rantai tebal yang melingkari raja babi hutan.</p>
+<p>	Raja babi hutan berteriak dengan marah, terus-menerus berguling-guling di tanah, taringnya yang putih salju menembus kegelapan dan menarik cahaya dingin ke udara.</p>
+<p>	Tubuhnya penuh luka besar dan kecil, ekornya sudah patah. Saat membalik, ia mengungkapkan luka merah segar, menempel di tubuh ular piton lava merah dan tersiram air panas oleh suhu tinggi.</p>
+<p>	Kelompok Chi Shan tidak mendekat, tetapi mengamati dari kejauhan.</p>
+<p>	Melihat beberapa kali, Guru Gu tua itu tercerahkan, “Saya katakan, bagaimana ular yang sakit-sakitan itu memiliki keberanian ini. Sepertinya raja babi hutan itu sebenarnya sudah terluka, ck, dia yakin mengambil barang murah, bajingan ini beruntung.</p>
+<p>	“Apakah kalian berpikir bahwa tubuh raja babi hutan ini akan memiliki Gu Babi Hitam?” Chi Cheng dengan bersemangat berkata dengan mata bersinar.</p>
+<p>	Ekspresi Fang Yuan tidak berubah saat dia menyaksikan dalam diam.</p>
+<p>	Pada saat ini, Jiao San dan gengnya juga menyadari situasi sedang diawasi, dan segera dukungan Gu Master Gu Yue Kong Jing yang terjauh dari raja babi hutan meninggalkan medan perang dan berlari.</p>
+<p>	“Oh, itu Tuan Chi Shan. Tidak ada masalah di sini sekarang, kita bisa mengatasinya. Ada banyak kelompok binatang buas di depan, mereka membutuhkan dukungan Anda. ” Kong Jing berkata kepada orang-orang.</p>
+<p>	“Hmph, apa maksudmu kamu bisa mengatasinya? Anda jelas berbohong melalui gigi Anda, saya dapat melihat bahwa python ini tidak akan bertahan lebih lama di sana. ” Tatapan berpengalaman Tuan Gu yang lama mengungkapkan situasinya sekaligus.</p>
+<p>	“Kamu hanya takut kami ingin membagi hadiah setelah membantu,” Master Gu wanita berambut panjang biru berair segera menunjukkan niat Jiao San dan gengnya.</p>
+<p>	“Raja babi hutan ini milikmu,” kata Chi Shan, menatap Guru Gu tua itu.</p>
+<p>	Tuan Gu tua itu mendengus, tetapi dia masih membungkuk, memuntahkan sepotong jaring laba-laba putih yang lengket.</p>
+<p>	Jaring laba-laba melebar di udara dan menyebar, menyelimuti raja babi hutan.</p>
+<p>	Raja babi hutan berjuang keras di jaring, memecahkan benang demi benang, tetapi ia tidak bisa bebas dengan cepat.</p>
+<p>	Selama periode ini, ular sakit-sakitan Jiao San dengan cepat membuat python lava merah mundur. Setelah itu, bersama dengan Master Gu wanita yang menyembuhkan dalam kelompok, mereka menjalani penyembuhan pertempuran darurat pada ular piton.</p>
+<p>	Dalam pertempuran sengit sebelumnya, tubuh batu python lava merah sudah memiliki beberapa retakan. Melalui penyembuhan, retakan diperbaiki, menyusut sampai menghilang.</p>
+<p>	“Fang Yuan, kamu harus kembali. Anda masih ingin bergantung pada kelompok kami? ” Chi Cheng berkata dengan kesal.</p>
+<p>	Fang Yuan melangkah keluar dan berjalan keluar dari belakang Chi Shan.</p>
+<p>	Gu Yue Kong Jing sebelumnya diblokir oleh tubuh besar Chi Shan dan tidak melihatnya. Pada saat dia melihat Fang Yuan, ekspresinya berubah aneh.</p>
+<p>	Jiao San menoleh dan saat melihat Fang Yuan, dia sangat gembira, “Fang Yuan, kamu akhirnya di sini! Cepat, jaring laba-laba tidak akan bertahan, Anda memiliki kekuatan besar, pergi dan tahan raja babi hutan dan beri kami waktu. Kita perlu waktu untuk menyembuhkan ular piton lava merah.”</p>
+<p>	Tanpa Gu defensif dan hanya dengan kultivasi Peringkat satu, mendekati raja babi hutan tidak lain adalah berisiko.</p>
+<p>	Chi Shan memandang Fang Yuan dan berkata, “Pergi.”</p>
+<p>	Mengatakan demikian, dia mengambil langkah besar dan meninggalkan tempat itu.</p>
+<p>	Dia menepati janjinya; meskipun raja babi hutan memiliki banyak nilai, dia berbalik dan pergi tanpa ragu-ragu.</p>
+<p>	Melihat rombongan Chi Shan pergi, Jiao San dan rombongan menghela napas lega. Dari awal hingga akhir, mereka tidak mengucapkan sepatah kata pun terima kasih.</p>
+<p>	Jiao San terus berteriak, “Fang Yuan, cepat, kekuatan raja babi hutan sangat besar, jaring laba-laba tidak akan bertahan. Jika Anda tampil baik kali ini, saya tidak akan melanjutkan masalah Anda meninggalkan tim sendirian. ”</p>
+<p>	“Oke.” Fang Yuan setuju, dengan cepat mendekati raja babi hutan dan meraih dua gadingnya yang besar.</p>
+<p>	Dia menggunakan semua kekuatannya dan menarik, menyebabkan raja babi hutan itu tertekan, perjuangannya tiba-tiba berkurang.</p>
+<p>	“Kerja yang baik!” Jiao San memuji, tetapi matanya bersinar dengan cahaya dingin.</p>
+<p>	Fang Yuan ini datang pada saat yang tepat, gerombolan binatang kecil itu adalah kesempatan yang sempurna!</p>
+<p>	Jiao San tidak pernah berpikir untuk membunuh Fang Yuan. Fang Yuan adalah anggotanya, dan jika dia meninggal, evaluasi klan tentang dia akan turun. Ini tidak sesuai dengan minatnya.</p>
+<p>	Dia hanya berjanji pada pamannya Gu Yue Dong Tu untuk memperlambat pertumbuhan Fang Yuan. Jika dia bisa menyeretnya melampaui usia enam belas tahun, dia akan mendapatkan kekayaan yang dijanjikan oleh Gu Yue Dong Tu.</p>
+<p>	Yang benar adalah, bahkan dengan sifatnya yang licik dan tidak toleran, dia tidak berpikir untuk membunuh Fang Yuan sebelumnya. Ini bukan hanya karena setelah seorang Guru Gu meninggal, aula hukuman akan mengadakan penyelidikan menyeluruh, sehingga berisiko, tetapi juga karena kepercayaan klan — Darah lebih kental daripada air, keluarga didahulukan. Gagasan ini mendarah daging di hati orang-orang. Kecuali ada perseteruan membunuh orang tua atau mencuri istri, tidak ada fenomena perselisihan seperti itu.</p>
+<p>	Seperti bagaimana pemimpin klan Gu Yue pernah mengajar tetua akademi, tidak hanya sistem dan aturan yang menyatukan klan, ada juga hubungan keluarga yang kental.</p>
+<p>	Setiap organisasi perlu memiliki sistem dan nilai-nilai sebagai inti dasar mereka.</p>
+<p>	“Menggunakan kesempatan ini, aku akan membiarkan Fang Yuan terluka dan kembali ke desa untuk merawat lukanya. Mari kita lihat apakah dia bisa berkultivasi ke Peringkat dua seperti itu! Tentu saja, saya tidak bisa menyerang secara pribadi, jika saya ketahuan itu akan buruk. Karena ada begitu banyak binatang buas di gerombolan itu, aku akan meminjam dari kekuatan mereka.”</p>
+<p>	Gu Yue Jiao San tertawa dingin di dalam hatinya, tetapi dia bertanya, “Fang Yuan, berapa lama kamu bisa bertahan?”</p>
+<p>	“Sebentar lagi, jangan khawatir pemimpin kelompok.” Fang Yuan menjawab dengan banyak kekuatan.</p>
+<p>	“Bagus, Hua Xing, pergi dan tanam rumput darah korosi Gu,” Jiao San menginstruksikan sambil menyembuhkan python lava merah.</p>
+<p>	“Ya!” Seorang Master Gu wanita berjalan.</p>
+<p>	Dia datang ke sisi raja babi hutan dan mengulurkan kedua tangannya, mengacungkan jempol di kedua tangannya. Kuku di ibu jarinya memiliki lambang anggur ungu melingkar.</p>
+<p>	Esensi purba baja merah berwarna merah muda menyembur keluar dan mengelilingi ibu jari putihnya, dan memasuki lencana.</p>
+<p>	Tanaman merambat segera dihidupkan, menjulurkan tentakel halus dari kukunya.</p>
+<p>	Tentakel bergerak seperti ular, memanjang ke mulut raja babi hutan, dan kemudian sepanjang giginya, masuk jauh ke dalam perutnya.</p>
+<p>	“Hehehe….” Fang Yuan menutupi mulutnya dalam kegelapan saat melengkung ke sudut yang licik.</p>
+<p>	Orang lain akan berpikir tentang kekerabatan dan tidak memiliki niat membunuh pada klan mereka, ini bertentangan dengan nilai-nilai moral tradisional klan. Tapi dia tidak memasukkan nilai-nilai ini ke dalam hatinya.</p>
+<p>	Kekuatan yang dia letakkan pada gading raja babi hutan tiba-tiba menghilang.</p>
+<p>	Raja babi hutan dengan marah menggeram dan mengerahkan seluruh kekuatannya. Taringnya berayun di udara saat Fang Yuan yang memegang kedua gading dibawa bersama dengan kekuatan dan dibuang.</p>
+<p>	Raja babi hutan sekali lagi menoleh, dan gadingnya menyapu. Master Gu perempuan ada di sampingnya dan tidak bisa bereaksi cukup cepat terhadap perubahan seperti itu. Dia dipukul oleh gading dan berteriak kesakitan.</p>
+<p>	Kemudian tubuh langsingnya, setelah terkena gading, pecah menjadi dua dengan sekejap.</p>
+<p>	Master Gu perempuan terbang seperti tas rusak; dia tersapu tinggi ke langit, dan kemudian menjatuhkan diri lagi.</p>
+<p>	Dia mendarat di tanah, matanya terbuka lebar. Dia sudah mati di tempat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

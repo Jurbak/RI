@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 407 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 407";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_406.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 407">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_408.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 407</h1>
+        <div class="text-left">
+<p>	Bab 407 – Tujuan Sekte Bangau Abadi</p>
+<p>	Bab 407: Tujuan Sekte Derek Abadi</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	He Feng Yang hanya tersenyum tanpa menjawab pertanyaan Lei Tan.</p>
+<p>	Penatua ketiga tertinggi yang tertawa dan menjawab: “Saya mengerti maksud Penatua Feng Yang. Jika kita tidak memilih untuk melindungi Fang Yuan ini, tanah yang diberkati Hu Immortal masih akan diperebutkan selama sepuluh sekte. Namun, dengan mengakui bahwa Fang Yuan adalah anggota Sekte Bangau Abadi kami, kami telah melenyapkan sembilan lawan lainnya, hanya membiarkan Sekte Bangau Abadi kami menguasai tanah yang diberkati ini. ”</p>
+<p>	Tatapan Lei Tan berkedip dan ekspresinya sedikit berubah, tapi dia tidak lagi bertanya.</p>
+<p>	Pada saat ini, He Feng Yang berdiri dari tempat duduknya.</p>
+<p>	Dia pertama-tama menangkupkan tinjunya ke arah tetua ketiga tertinggi yang menjelaskan alasannya: “Penatua ketiga bijaksana! Hal-hal terjadi terlalu tiba-tiba, siapa yang mengira manusia akan menggunakan perjalanan abadi Immortal Gu untuk muncul di puncak gunung Dang Hun dan mewarisi tanah yang diberkati Hu Immortal di depan semua orang.</p>
+<p>	“Warisan Hu Immortal ini ada di gunung Tian Ti. Semua orang mungkin tahu gunung Tian Ti adalah tangga yang menghubungkan ke pelataran surgawi. Meskipun dihancurkan dan telah ditinggalkan selama bertahun-tahun, itu masih mewakili kekuatan istana surgawi. Di satu sisi, menyerang tanah yang diberkati Hu Immortal adalah menyerang gunung Tian Ti; dan menyerang gunung Tian Ti adalah menyerang istana surgawi.”</p>
+<p>	“Jadi, meskipun ada banyak tanah yang diberkati di gunung Tian Ti, tidak pernah ada orang yang berani menyerangnya. Bahkan kali ini, kami menunggu tanah yang diberkati Hu Immortal untuk dibuka sebelum kami sepuluh Dewa Gu bergabung untuk memperbesar bagian itu, tanpa niat untuk menyerang. ”</p>
+<p>	“Bahkan jika kita benar-benar menyerang tanah yang diberkati Hu Immortal, tanah yang diberkati memiliki roh tanah yang akan membutuhkan setidaknya tiga peringkat enam Dewa Gu untuk bergandengan tangan dan bahkan mereka mungkin tidak akan berhasil. Terlebih lagi, area kontrol dari tanah yang diberkati dilindungi oleh gunung Dang Hun. Tanpa lima atau enam Dewa Gu yang bekerja sama dengan sungguh-sungguh, siapa yang berani mengatakan bahwa mereka bisa mendaki ke puncak? Lei Tan, kan?”</p>
+<p>	Lei Tan mendengus, dia ingin membalas tetapi pada akhirnya tetap diam.</p>
+<p>	Di tanah yang diberkati, roh tanah dapat dengan bebas memobilisasi semua sumber daya dan kecakapan pertempuran mereka dapat dibandingkan dengan Gu Immortal. Yang paling penting adalah roh tanah bisa menekan peringkat satu hingga peringkat lima cacing Gu.</p>
+<p>	Jika Gu Immortal ingin menyerang tanah yang diberkati, senjata mereka yang paling kuat adalah Immortal Gu karena roh tanah tidak bisa membatasi Immortal Gu.</p>
+<p>	Namun, Gu Abadi sulit ditemukan dan banyak Gu Abadi bahkan tidak memiliki satu Gu Abadi. Bahkan jika mereka punya, itu mungkin tidak cocok untuk menyerang.</p>
+<p>	Ini adalah situasi klasik dari pelanggaran rendah tetapi pertahanan tinggi.</p>
+<p>	Jika mereka bertekad untuk menyerang tanah yang diberkati, seringkali membutuhkan kerja sama dari beberapa Dewa Gu untuk menciptakan keunggulan numerik, dan kemudian bersaing melalui pengeluaran esensi abadi. Setelah esensi abadi tanah yang diberkati habis, mereka bisa memulai serangan mereka.</p>
+<p>	Namun sebenarnya, kecuali itu adalah situasi khusus, Dewa Gu jarang menyerang tanah yang diberkati.</p>
+<p>	Karena itu benar-benar tidak layak.</p>
+<p>	Tidak hanya esensi abadi yang berharga dan sulit untuk dikumpulkan, ada juga bahaya penghancuran diri dari tanah yang diberkati.</p>
+<p>	Dalam kasus di mana roh tanah tidak dapat bertahan dan memilih untuk menghancurkan tanah yang diberkati, angin asimilasi akan bertiup dan menghancurkan segalanya, menyebabkan para penyerang tidak mendapatkan keuntungan.</p>
+<p>	Ketika Dewa Gu menyerang tanah yang diberkati, mereka sering tidak mendapatkan apa-apa dan malah menderita kerugian besar. Kecuali jika itu adalah masalah kebencian yang mendalam, tidak ada yang akan setuju untuk melakukan transaksi yang hanya menimbulkan kerugian.</p>
+<p>	Melihat Lei Tan diam, He Feng Yang melanjutkan: “Fang Yuan itu naik ke puncak dan mendapatkan warisan, segera memerintahkan roh tanah untuk menutup tanah yang diberkati. Fang Yuan dan Fang Zheng terlihat hampir sama, Dewa Gu dari sembilan sekte lainnya menyadari hal ini dan secara tidak sadar mengira ini adalah gerakan tersembunyi Sekte Bangau Abadi kami dan menanyaiku satu demi satu. Pada saat itu, saya berpikir bahwa jika saya mengatakan yang sebenarnya, milik Hu Immortal Inheritance akan ragu-ragu sekali lagi karena sepuluh sekte masih akan bersaing dan memperebutkannya. Jadi, saya mengakuinya, dan bahkan jika kami harus membayar harga seperti itu, kami telah menghilangkan sembilan sekte besar lainnya dari kompetisi. Seperti ini, kita bisa diam-diam menyusun strategi tentang tanah yang diberkati Hu Immortal tanpa mengkhawatirkan kekuatan lain. ”</p>
+<p>	He Feng Yang menjelaskan keseluruhan cerita, Lei Tan mendengus dan bertanya: “Ada masalah besar dalam rencana ini! Tanah yang diberkati Hu Immortal ada di gunung Tian Ti dan juga ditutup sekarang, tanpa menyerang dan membuat celah, bagaimana kita bisa masuk?</p>
+<p>	He Feng Yang tertawa, sepertinya dia sudah meramalkan ini: “Bagaimana mungkin aku tidak punya rencana? Tanah yang diberkati menghadapi bencana dan kesengsaraan; Hu Immortal meninggal selama bencana duniawi kelima. Saya sudah menghitung waktu, tanah yang diberkati Hu Immortal akan menghadapi bencana duniawi keenam dalam waktu satu tahun dan tiga bulan. Fang Yuan hanya manusia biasa, bagaimana dia bisa tahu bagaimana melawan bencana duniawi? Bahkan dengan bantuan roh tanah, tanpa dukungan sekte, tanah yang diberkati akan mengalami kerusakan berat pada saat itu dan celah akan muncul. ”</p>
+<p>	Lei Tan mengejek: “Bahkan jika ada celah, apakah kamu berani menyerang? Bukankah Anda mengatakan sebelumnya bahwa warisan Hu Immortal ada di gunung Tian Ti! ”</p>
+<p>	He Feng Yang langsung menjawab: “Menyerang secara paksa adalah langkah yang mengerikan dan kami hanya akan menggunakannya jika semuanya gagal. Bahwa Fang Yuan hanyalah manusia biasa, selama celah muncul dan kita menggunakan beberapa rencana dan skema, apakah ada kekhawatiran gagal menangkapnya? Hehe, begitu bencana bumi berlalu, dia pasti akan mulai khawatir dan haus akan bantuan dari luar. Saya sudah merencanakannya, pertama kami menggunakan Fang Zheng dan menggunakan kekerabatan untuk bergerak dan membujuknya untuk bekerja sama untuk beberapa transaksi. Saat kami melakukan lebih banyak transaksi, penjagaannya terhadap kami secara alami akan mengendur, dan menggunakan logika untuk membujuknya, kami mungkin meyakinkannya untuk bergabung dengan Sekte Bangau Abadi!</p>
+<p>	“Jika dia terus keras kepala, kita bisa menggunakan beberapa metode rahasia. Perbudakan Gu adalah salah satu metode yang baik. Tidak banyak cara untuk berurusan dengan roh tanah, tetapi ada banyak cara untuk berurusan dengan manusia seperti dia. Jika kita bisa mendapatkan Gu perjalanan abadi tetap seperti ini, maka tidak diragukan lagi itu adalah hasil yang sempurna.”</p>
+<p>	Para tetua yang hadir merasakan gelombang kegembiraan saat menyebutkan perjalanan abadi Gu yang tetap. Banyak yang mulai berbisik dan berdiskusi satu sama lain; hasil yang digambarkan He Feng Yang benar-benar indah. Yang terpenting, rencananya memiliki peluang untuk berhasil.</p>
+<p>	Lei Tan bisa merasakan perubahan suasana saat dia duduk dengan marah: “Kamu mengucapkan kata-kata yang bagus, semoga itu berjalan sesuai keinginan kita.”</p>
+<p>	Tetua ketiga tertinggi bergumam: “Selain Gu khusus seperti sayap mimpi Gu yang perlu diaktifkan menggunakan jiwa, sebagian besar Gu Abadi lainnya membutuhkan esensi abadi untuk diaktifkan, dan Gu perjalanan abadi tetap ini tidak terkecuali. Fang Yuan ini telah memperbaiki Gu perjalanan abadi dan dengan bantuan roh tanah untuk menggunakan esensi abadi tanah yang diberkati, dia dapat melarikan diri kapan saja dia mau. Kita harus sangat berhati-hati untuk berurusan dengannya. Selain itu, ada satu hal yang perlu diperhatikan, dia hanyalah seorang fana namun dia memiliki Gu Abadi, dia harus memiliki latar belakang yang agak dalam. ”</p>
+<p>	He Feng Yang mengangguk: “Junior sudah memikirkan hal ini. Saat itu, ketika saya mengklaim Fang Yuan adalah murid sekte kami, saya memeriksa reaksi dari sembilan sekte lainnya. Tampaknya tidak satu pun dari sembilan sekte Benua Tengah berada di belakangnya. Saya menduga, karena Fang Yuan berasal dari Perbatasan Selatan, dia sangat mungkin memiliki klan super Perbatasan Selatan di belakangnya. Tapi apakah itu klan Wu, klan Shang, klan Tie, klan Yi atau klan super lainnya, mereka semua terletak jauh di Perbatasan Selatan dan tidak dapat membantunya di sini. Jika mereka memasuki Benua Tengah, kekuatan pertempuran mereka akan ditekan. Sekte Bangau Abadi kami adalah salah satu dari sepuluh sekte besar di Benua Tengah, kami memiliki peluang besar untuk menang melawan mereka. ”</p>
+<p>	Semua tetua mengangguk pada kata-kata ini dan memulai putaran diskusi lembut lainnya.</p>
+<p>	“Memang, naga yang perkasa tidak bisa menekan ular lokal.”</p>
+<p>	“Benua tengah adalah wilayah Sekte Derek Abadi kami!”</p>
+<p>	“Jika mereka ingin bergerak, hmph.”</p>
+<p>	“Bahkan jika kecakapan pertempuran mereka tidak ditekan, Sekte Bangau Abadi kami masih lebih kuat daripada kelompok super mana pun dari empat wilayah lain sejauh satu mil.”</p>
+<p>	Alis berkerut tetua ketiga mengendur: “Ada satu keraguan yang tersisa. Untuk menggunakan Gu perjalanan abadi tetap, pengguna harus memiliki ingatan yang jelas dan pemahaman yang jelas tentang medan yang dia teleportasi. Fang Yuan hanya manusia biasa dari Perbatasan Selatan yang jauh, bagaimana dia bisa tahu pemandangan di tanah yang diberkati Hu Immortal? Dan bagaimana waktunya bisa begitu tepat? Mungkinkah, Hu Immortal pernah menetapkan warisan di Perbatasan Selatan? Atau itu bisa menjadi salah satu trik dari jalur iblis gunung Tian Ti, Gu Immortals?”</p>
+<p>	He Feng Yang membungkuk: “Junior juga tidak jelas tentang ini. Hal ini aneh, awalnya hanya ada petunjuk tentang warisan laut darah. Pada saat itu, salah satu murid sekte kami membelot dan melarikan diri ke Perbatasan Selatan. Beberapa tahun yang lalu, saya mengirim Lord Sky Crane ke Perbatasan Selatan untuk membersihkan dan membuang sampah dan mengembalikan warisan. Tapi Lord Sky Crane gagal dan sebaliknya Fang Yuan yang memperoleh warisan, mendapatkan Gu tengkorak darah. Anak ini sangat kejam dan jahat, tiba-tiba membunuh semua anggota klannya di tempat dan menggunakan tengkorak darah Gu untuk meningkatkan bakatnya. Lord Sky Crane tidak mengundurkan diri dan membawa kembali Fang Zheng untuk rencana masa depan untuk mengambil Gu.</p>
+<p>	He Feng Yang secara alami tidak pernah mengharapkan seorang pun untuk secara keterlaluan mengganggu rencananya saat itu, menyebabkan masalah besar baginya.</p>
+<p>	Ini adalah perasaan yang aneh.</p>
+<p>	Seolah-olah orang sedang berjalan di jalan, ketika tiba-tiba seekor semut kecil melompat di hidung mereka dan mulai menggaruknya.</p>
+<p>	Dari mana semut ini berasal? nyali seperti itu!</p>
+<p>	Orang itu hanya bisa menghancurkannya dengan jari mereka tetapi karena situasi yang aneh, mereka tidak dapat menangkap semut dan hanya bisa membiarkan semut ini merasa menang untuk saat ini.</p>
+<p>	“Bukan warisan laut darah ini lagi …” Mendengar He Feng Yang menceritakan keseluruhan cerita, para tetua yang hadir mengerutkan kening, hati mereka menjadi kesal.</p>
+<p>	Warisan Laut Darah berasal dari tembakan besar jalur iblis, Leluhur Laut Darah.</p>
+<p>	Dia membunuh orang seperti memotong rumput dan keburukannya telah tercatat dalam sejarah. Dengan kekuatan peringkat tujuh Gu Immortal, dia secara tak terduga telah mendirikan ratusan ribu situs warisan yang tersebar di Benua Tengah, Perbatasan Selatan, Dataran Utara, Gurun Barat dan Laut Timur.</p>
+<p>	Sebelum kematiannya, dia tertawa dan menyatakan: “Jalan darah tidak sepi, tanda saya akan tetap untuk selama-lamanya!</p>
+<p>	Sekarang, seperti yang dia nyatakan, manusia yang tak terhitung jumlahnya telah diuntungkan. Warisan laut darah memang sudah dicanangkan sebagai warisan paling populer dengan jumlah terbesar di dunia. Tidak ada kompetisi! Sosok jalan lurus yang tak terhitung jumlahnya menjadi sakit kepala karenanya.</p>
+<p>	“Bukankah Xue Tu yang hanya seorang tukang daging, menjadi pembudidaya iblis yang terkenal setelah mendapatkan warisan laut darah?”</p>
+<p>	“Bertahun-tahun yang lalu, Song Zi Xing dari Myriad Dragon Dock memperoleh salah satu warisan laut darah sejati dan membelot dari sektenya, menyebabkan penghinaan besar bagi sepuluh sekte besar kita. Sekarang, dia sudah berada di peringkat tujuh Gu Immortal dengan gelar ‘Blood Dragon’. Untuk membunuh pembelot ini dan menghapus penghinaan mereka, Myriad Dragon Dock mengirim delapan Dewa Gu – lima peringkat enam dan tiga peringkat tujuh. Hasilnya adalah dia membunuh empat dari mereka, melumpuhkan tiga dari mereka dan memukuli satu untuk mundur!”</p>
+<p>	“Dikatakan bahwa Laut Darah memiliki sembilan warisan sejati. Mereka adalah: Gu tengkorak darah, Gu sidik jari darah, Gu qi darah, Gu keringat darah, Gu darah menstruasi, Gu bayangan darah, Gu pertempuran darah, serta kelelawar naga darah binatang buas kuno yang sunyi dan akhirnya, peringkat enam Immortal Gu dewa darah. Dia benar-benar seseorang yang mencapai sukses besar di jalur darah…”</p>
+<p>	“Omong-omong, empat warisan sebenarnya dari Leluhur Laut Darah telah muncul. Salah satunya adalah Gu tengkorak darah yang bersama Fang Yuan. Lain adalah Gu sidik jari darah yang dengan pemimpin klan Shang Perbatasan Selatan saat ini. Kelelawar naga darah yang kejam bersama Song Zi Xing. ”</p>
+<p>	“Dikatakan bahwa pemimpin klan Shang telah memperoleh warisan laut darah kedua …”</p>
+<p>	“Itu hanya rumor yang belum dikonfirmasi, tidak ada bukti untuk menyimpulkannya.”</p>
+<p>	Para tetua saling berbisik.</p>
+<p>	“Baiklah, tidak perlu membicarakan warisan sejati laut darah. Ini seperti mencari jarum di tumpukan jerami, semua jenis rumor meningkat dari hari ke hari. Telingaku sudah mendapatkan kapalan karena mendengarnya.” Grand Elder Tertinggi melambaikan tangannya dan segera menghentikan diskusi.</p>
+<p>	Dia mengalihkan pandangannya ke arah He Feng Yang: “Penatua He Feng Yang, karena Anda mengemukakan metode ini, maka Anda akan bertanggung jawab atasnya. Jika Anda mampu merebut tanah yang diberkati dan membangun jasa Anda, sekte tidak akan pelit dalam memberi Anda hadiah.</p>
+<p>	“Junior mengerti!” He Feng Yang menerima pesanan itu sambil tersenyum.</p>
+<p>	Melihat He Feng Yang mendapatkan tugas yang begitu menguntungkan, Lei Tan merasa tertahan, tetapi karena Penatua Agung Tertinggi yang mengatakan demikian, dia hanya bisa menyembunyikan kebenciannya di dalam.</p>
+<p>	Namun, Penatua Agung Tertinggi menambahkan: “Karena Anda yang bertanggung jawab atas hal itu, maka Penatua Feng Yang, Anda harus menyerahkan Gu dengan cara Anda sendiri, bukan? Dalam permintaan Feng Jiu Ge, dia telah meminta Gu Abadi. Anda adalah orang yang bertanggung jawab atas masalah ini, jadi Anda yang harus menyelesaikan ini. ”</p>
+<p>	Lei Tan langsung gembira.</p>
+<p>	He Feng Yang hanya bisa menerima pesanan dengan senyum pahit.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

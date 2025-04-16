@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 586 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 586";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_585.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 586">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_587.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 586</h1>
+        <div class="text-left">
+<p>	Bab 586</p>
+<p>	Bab 586: Menggunakan beruang terbang, Mo Yao berbicara tentang jalur hantu</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ketika Fang Yuan secara terbuka meminta hantu beruang terbang Gu, reaksi langsung Hei Lou Lan adalah segera menolak.</p>
+<p>	Ini adalah Gu Abadi!</p>
+<p>	Bahkan Gu Immortal biasa tidak akan mendapatkannya dengan mudah. Tidak peduli betapa menakjubkannya Raja Serigala, dia hanya manusia biasa, dia berani membuat permintaan yang tidak masuk akal?!</p>
+<p>	Selain itu, hantu beruang terbang Gu ini sangat mudah digunakan.</p>
+<p>	Hanya dengan satu pemikiran, dan melemparkan Gu, seseorang bisa membuat cacing Gu berubah menjadi hantu beruang terbang dan terlibat dalam pertempuran.</p>
+<p>	Meskipun kekuatan pertempuran hantu beruang terbang tidak menakutkan seperti beruang terbang binatang terpencil, itu pasti memiliki kekuatan pertempuran setengah abadi, dengan Gu ini, seseorang dapat dengan mudah mendominasi alam fana.</p>
+<p>	Jika selama kontes Pengadilan Abadi, Hei Lou Lan memiliki Gu Abadi seperti itu …</p>
+<p>	Tidak akan ada tempat bagi Fang Yuan untuk menunjukkan kemampuannya!</p>
+<p>	Fang Yuan membuka memintanya, itu sangat kasar. Namun, meskipun Hei Lou Lan sangat marah, dia merasa ini wajar saja.</p>
+<p>	Lagi pula, hanya orang seperti Chang Shan Yin yang berani mengajukan permintaan seperti itu di depan umum.</p>
+<p>	Melihat hantu beruang terbang Gu di tangannya, Hei Lou Lan perlahan menjadi tenang.</p>
+<p>	“Tidak bagus, hantu beruang terbang setengah dipukuli sampai mati oleh kami, kondisi Immortal Gu ini sangat buruk, tidak dapat digunakan sekarang, harus pulih untuk beberapa waktu.”</p>
+<p>	“Gu Abadi yang terluka membutuhkan Gu Abadi untuk menyembuhkannya. Selain itu, ia hanya dapat pulih sendiri, tetapi selama periode itu ia perlu mengonsumsi banyak makanan, tanpa henti. ”</p>
+<p>	“Jika saya tidak salah ingat, makanan hantu beruang terbang Gu ini adalah daging dan darah beruang terbang binatang yang sunyi itu. Ini bermasalah! Bagaimana saya bisa memiliki hal seperti itu? Saya harus mencari bantuan dari suku abadi. ”</p>
+<p>	Semakin Hei Lou Lan memikirkannya, semakin amarahnya mereda.</p>
+<p>	Dia adalah dari sepuluh Kekuatan Besar Fisik Bela Diri Sejati, dia membutuhkan jalur kekuatan Immortal Gu untuk naik ke ranah Abadi Gu dan melarikan diri dari ancaman kematian.</p>
+<p>	Hantu beruang terbang Gu bukanlah sesuatu yang dia butuhkan, yang sangat dia inginkan sekarang adalah jalur kekuatan Immortal Gu.</p>
+<p>	“Prioritas terpenting saya saat ini adalah menemukan jalur kekuatan Immortal Gu. Immortal Gu sering hanya diberikan pada putaran terakhir lantai, selama proses menyelesaikan ini, saya akan membutuhkan kekuatan semua orang.</p>
+<p>	Meskipun Hei Lou Lan tidak takut pada Chang Shan Yin, jika dia dengan paksa menyimpan hantu beruang terbang Gu, maka Raja Serigala pasti akan menjadi musuhnya. Dengan jarak di antara mereka, tidak mungkin dia bisa memanfaatkan kekuatan Raja Serigala lagi.</p>
+<p>	Dia mungkin juga memberikan Gu Abadi ini kepadanya, untuk menukar kekuatannya, dan benar-benar membantu dan menguntungkan Hei Lou Lan sendiri.</p>
+<p>	Dengan cara ini, reputasi Hei Lou Lan dapat dipertahankan juga, tidak ada yang akan mengatakan bahwa dia menarik kembali kata-katanya.</p>
+<p>	Hei Lou Lan membuat banyak pertimbangan, tapi ini hanya sesaat.</p>
+<p>	“Hmph hmph,” Sun Shi Han mencibir, “Tuan Serigala Raja, ini adalah Gu Abadi, Anda ingin mengambilnya begitu saja? Pemimpin suku saya menjanjikan Anda setengah dari hadiah sebelumnya, tetapi itu tidak berarti kami harus memberi Anda Gu Abadi. ”</p>
+<p>	“Sepertinya pelajaran yang kuberikan padamu sebelumnya tidak cukup.” Fang Yuan mendengar ini dan mengerutkan kening dengan ringan, tatapannya menjadi sedingin es saat niat membunuhnya dilepaskan sepenuhnya, ke arah Sun Shi Han.</p>
+<p>	Ekspresi Sun Shi Han langsung berubah, dan dia tidak bisa menahan diri untuk tidak mendekat ke Hei Lou Lan.</p>
+<p>	Tidak ada yang mempertanyakan apakah Fang Yuan akan memiliki nyali untuk langsung melakukan pukulan pembunuhan.</p>
+<p>	Keganasan Raja Serigala telah mendarah daging di hati semua orang.</p>
+<p>	“Ha ha ha.” Hei Lou Lan tertawa terbahak-bahak, berjalan menuju Fang Yuan sambil menepuk dadanya: “Seorang pria sejati tidak akan pernah menarik kembali kata-katanya! Sebelumnya, saya berjanji kepada Raja Serigala setengah dari hadiahnya, maka itu akan menjadi lima puluh persen. Itu semua karena rencana brilian saudara Shan Yin yang memungkinkan kita melewati babak ini, saya akan menambahkan sepuluh persen hadiah lagi, tetapi Gu Abadi itu unik, nilainya tidak terukur, bahkan dengan hadiah enam puluh persen Anda, dengan cara apa apakah Anda akan mengkompensasi empat puluh persen sisanya kepada kami? ”</p>
+<p>	“Itu benar, kami juga berusaha keras!”</p>
+<p>	“Saya mengalami luka berat sekarang, saya tidak mundur di tengah pertempuran sengit, semua orang bisa menjadi saksi saya. Bahkan Lord Water Demon Hao Ji Liu mati karena ini!”</p>
+<p>	“Saya percaya Lord Wolf King akan memberi kita solusi yang baik.”</p>
+<p>	Semua orang setuju, semuanya ditujukan pada Fang Yuan.</p>
+<p>	Meskipun Fang Yuan memiliki kekuatan besar, tetapi kekayaan menggerakkan hati orang, semua orang dipenuhi dengan rasa iri, iri dan benci saat melihat bahwa Gu Abadi akan jatuh ke tangannya. Dengan demikian, mereka mendorong semua ketidakbahagiaan mereka ke arah Fang Yuan.</p>
+<p>	Di bawah tatapan semua orang, Fang Yuan mengerutkan kening lebih dalam dan lebih dalam.</p>
+<p>	Hei Lou Lan tertawa diam-diam: “Raja Serigala, oh Raja Serigala, bahkan dengan reputasi ganas dan kekuatanmu yang luar biasa, kamu pada akhirnya akan tetap ditangkap olehku.”</p>
+<p>	Tujuh hari kemudian.</p>
+<p>	Lapisan ketujuh Eighty-Eight True Yang Building, ronde kesembilan puluh.</p>
+<p>	Di labirin, hantu beruang terbang mengaum di langit.</p>
+<p>	Tubuhnya penuh luka, darah mengalir di mulutnya, dan beberapa gigi tajamnya patah. Mata kanannya dibutakan, tergantung di luar rongganya seperti buah anggur, kondisinya buruk.</p>
+<p>	Tapi itu hanya memiliki satu musuh.</p>
+<p>	Dia melayang di udara, dengan enam tangan di punggungnya, dibandingkan dengan hantu beruang terbang seperti bukit yang memiliki tubuh besar, dia sangat kecil.</p>
+<p>	Tapi hantu beruang terbang itu serius dan waspada seperti sedang menghadapi musuh yang kuat. Setelah mereka bertarung selama lima belas menit, mereka bisa merasakan betapa kuatnya musuh ‘kecil’ ini.</p>
+<p>	“Gu hantu beruang terbang, itu memang pantas untuk Gu Abadi! Bahkan setelah berubah menjadi hantu beruang terbang, ia menyimpan banyak kebijaksanaan, dan cukup cerdik, di masa depan ketika saya menghadapi musuh yang kuat, saya dapat menggunakannya untuk menahan mereka dan itu dapat membantu saya menghemat banyak energi.</p>
+<p>	Fang Yuan melihat hantu beruang terbang di bawahnya saat dia mengevaluasi dalam hatinya.</p>
+<p>	Tujuh hari yang lalu, Hei Lou Lan mengumpulkan sekelompok ahli dan menerobos babak final lantai lima, mendapatkan hantu beruang terbang Immortal Gu.</p>
+<p>	Fang Yuan blak-blakan dan tidak terkendali, karena dia segera memintanya.</p>
+<p>	Meskipun Master Gu lainnya cemburu dan iri, mencoba mencari alasan yang tak ada habisnya untuk menentang ini, Fang Yuan mengumumkan bahwa dia bersedia untuk mengkompensasi sisa setengah dari nilai Gu, sambil memberikan sikap tak henti-hentinya. Akhirnya, Hei Lou Lan memberikan Gu ini kepada Fang Yuan.</p>
+<p>	Dengan Gu ini, Fang Yuan pergi ke Hei Lou Lan malam itu dan meminjam sumber daya, membuat kontrak dengannya secara rahasia.</p>
+<p>	Setelah kembali, dia menggunakan tanah yang diberkati Hu Immortal untuk terhubung ke surga kuning harta karun, menukar cacing dan makanan Gu yang relevan, dan selama hari keenam, hantu beruang terbang Gu dipulihkan ke keadaan sehatnya.</p>
+<p>	Pada hari ketujuh, Fang Yuan diam-diam memasuki lantai tujuh dari Eighty-Eight True Yang Building, secara pribadi menguji hantu beruang terbang Gu dan pembunuh terakhir menggerakkan enam lengan raja zombie surgawi.</p>
+<p>	Fang Yuan memerintahkan hantu beruang terbang Gu untuk menyerangnya tanpa menahan diri, sementara dia sendiri menggunakan raja zombie surgawi enam lengan untuk melawan.</p>
+<p>	Hantu beruang terbang Gu adalah Gu Abadi, ia memiliki setengah kekuatan pertempuran beruang terbang, tetapi itu bukan tandingan Fang Yuan ketika dia berada dalam mode raja zombie surgawi enam lengan.</p>
+<p>	Fang Yuan sangat puas dengan hasil ini.</p>
+<p>	Dia memikirkannya dalam benaknya: “Pembunuh bergerak enam lengan raja zombie surgawi memang tangguh! Itu menggunakan kekuatan pinjam Gu sebagai inti untuk meminjam kekuatan alami surga, bumi, api, air, dan lainnya, menopang dirinya sendiri dengan membiarkan aliran kekuatan yang stabil dan tak ada habisnya untuk dipasok. ”</p>
+<p>	“Yang paling menakjubkan, itu bisa mengubah tubuhku menjadi tubuh zombie untuk sementara waktu, dengan cara ini, tubuhku akan berada dalam keadaan setengah mati, kecepatan pemulihanku akan meningkat pesat dan rasa sakitku akan berkurang, aku akan berada dalam keadaan mati. energi dan kekuatan yang hampir tak terbatas, aku bisa melakukan apa saja!”</p>
+<p>	Jika itu adalah tubuh hidup biasa, terus-menerus menggunakan kekuatan akan membuatnya lelah. Tetapi dengan menjadi zombie surgawi, Fang Yuan bisa menghindari kelemahan seperti itu.</p>
+<p>	Kekuatan dan perasaan semacam ini memabukkan bagi Fang Yuan, tetapi itu juga membuatnya lebih waspada.</p>
+<p>	“Saya hanya bisa mempertahankan bentuk ini untuk waktu yang singkat, selama pertempuran yang intens, saya harus berkomitmen untuk pertempuran sepenuhnya dan saya tidak akan mengenali aliran waktu. Meskipun gerakan pembunuh ini hebat dan memberi saya perasaan yang baik, mudah untuk kecanduan dan hilang saat menggunakannya. Saya tidak boleh melupakan batas waktu dari gerakan pembunuh ini, jika tidak konsekuensinya akan parah! ”</p>
+<p>	Pembunuh memindahkan enam lengan raja zombie surgawi itu kuat, tetapi memiliki batas waktu. Setelah batas waktu terlampaui, Master Gu mungkin berubah menjadi zombie nyata dari penggunaan yang berlebihan.</p>
+<p>	Tingkat keparahan ini bahkan melampaui bencana sepuluh fisik ekstrem, bahkan jika dia menggunakan Gu rotasi yin-yang, dia tidak dapat pulih.</p>
+<p>	Fang Yuan ingin menyingkirkan kelemahan ini, tetapi persyaratan Mo Yao terlalu ketat, Fang Yuan tidak dapat menemukan orang yang cocok untuk menguji Gu.</p>
+<p>	“Sebenarnya, kamu belum sepenuhnya melepaskan kekuatan sebenarnya dari Gu hantu beruang terbang ini.” Pada saat ini, keinginan Mo Yao dalam pikiran Fang Yuan berbicara.</p>
+<p>	“O, apa maksudmu?”</p>
+<p>	Mo Yao memiliki beberapa pemahaman tentang jalur hantu: “Jalur hantu, ini berfokus pada bentuk hantu dan padat, selama tahap awal dari peringkat satu hingga lima, hantu adalah fondasinya, menggunakan bentuk hantu untuk menghindari serangan. Dengan demikian, jalur hantu master Gu sering kekurangan kekuatan menyerang, tetapi memiliki langkah-langkah defensif yang cukup. Tapi di peringkat enam ke atas, jalur hantu Gu Immortals memiliki serangan dan pertahanan, dengan berubah menjadi hantu dan bentuk padat sesuka hati, mereka bisa masuk ke mode hantu pertahanan, meniadakan semua bentuk serangan, dan juga mengubah hantu menjadi solid, menyerang orang ketika mereka tidak mengharapkannya.”</p>
+<p>	“Gu hantu beruang terbang adalah jalur hantu Gu Abadi, itu dibuat dengan membunuh beruang terbang binatang buas yang sunyi dan menggunakan semua kulit, tulang, daging, darah, dan jiwanya untuk memperbaikinya. Hanya hantu beruang terbang Gu saja yang memiliki setengah kekuatan beruang terbang asli. Tetapi jika diberikan cacing Gu yang menyertainya, seperti Gu ruang pertempuran, Gu tarian yang kacau balau, Gu kulit beruang lima elemen dan lainnya, kekuatan pertempurannya akan meningkat pesat.</p>
+<p>	Kata-kata Mo Yao membuat Fang Yuan mengangguk berulang kali.</p>
+<p>	Dia mengingat pertarungan ketika mereka berada di babak final, justru karena cacing Gu hantu beruang terbang itu dapat memiliki dorongan besar dalam kekuatan pertempuran, bahkan menyebabkan kelompok ahli menjadi tidak berdaya.</p>
+<p>	Tetapi setelah pertempuran, ruang pertempuran Gu diambil oleh Hei Lou Lan, dan cacing Gu yang tersisa juga diambil oleh orang lain.</p>
+<p>	Fang Yuan melawan hantu beruang terbang sendirian secara rahasia, hantu beruang terbang tidak memiliki cacing Gu yang tersisa, dengan demikian, Fang Yuan bisa lebih unggul saat bertarung.</p>
+<p>	Dia memiliki beberapa tingkat pemahaman dalam hal ini: “Melihatnya dari sudut lain, melengkapi hantu beruang terbang Gu dengan cacing Gu lainnya persis seperti menggunakan beberapa cacing Gu sekaligus. Bukankah ini langkah pembunuh?”</p>
+<p>	Gerakan pembunuh adalah ciptaan unik Master Gu, menggunakan banyak cacing Gu secara bersamaan untuk menciptakan efek yang lebih besar daripada saat digunakan secara individu, melepaskan kekuatan besar.</p>
+<p>	Mo Yao mengangguk setuju: “Pemahamanmu sepenuhnya benar, begitulah. Namun, yang benar-benar melengkapi Gu hantu beruang terbang hanyalah cacing jalur hantu Gu. Lupakan sisanya, hanya satu putaran hantu Gu akan memungkinkan hantu beruang terbang Gu berubah dari bentuk padat menjadi hantu, menghindari segala macam serangan.</p>
+<p>	“Ubah hantu Gu?” Hati Fang Yuan bergetar tak terkendali.</p>
+<p>	Dia benar-benar bisa membayangkan bahwa ketika giliran hantu Gu digunakan dengan hantu beruang terbang Gu, itu akan menjadi musuh yang sangat merepotkan.</p>
+<p>	Ini dapat mengubah penggunaan Gu hantu beruang terbang sepenuhnya, mencapai perubahan kualitatif sejati sampai tingkat tertentu.</p>
+<p>	Mo Yao tertawa ringan, berkata: “Nak, selama kamu mengembalikan Paviliun Air ke Rumah Afinitas Roh dengan benar, aku akan memberitahumu detail dari tiga warisan jalur hantu, di antara mereka, satu kemungkinan adalah jalur hantu warisan Gu Immortal. ”</p>
+<p>	“Kita akan membicarakannya nanti.” Fang Yuan menjadi tenang, menjawab dengan nada polos.</p>
+<p>	Dia tidak pernah menghilangkan kewaspadaannya terhadap Mo Yao.</p>
+<p>	Meskipun Mo Yao tidak menunjukkan niat bermusuhan, Fang Yuan selalu merasakan bahaya di dalam hatinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

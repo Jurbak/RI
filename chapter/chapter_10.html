@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 10 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 10";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_9.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 10">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_11.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 10</h1>
+        <div class="text-left">
+<p>	Bab 10</p>
+<p>	Bab 10 – Badai mungkin muncul dari langit yang cerah, pemurnian Gu penuh dengan kesulitan</p>
+<p>	ciprat derai…</p>
+<p>	Tetesan air hujan yang besar dan deras jatuh ke bumi, menghantam atap rumah bambu yang menghijau itu, membuat suara-suara rapuh.</p>
+<p>	Permukaan kolam di depan bangunan penuh dengan riak saat hujan turun, ikan-ikan di air berenang dengan lincah, tanaman air bergoyang-goyang di dasar kolam. Langit mendung; tirai hujan yang tebal mengaburkan bidang penglihatan sejauh mata memandang.</p>
+<p>	Di ruangan yang agak redup jendelanya terbuka, dan Fang Yuan diam-diam menyaksikan hujan deras, menghela nafas.</p>
+<p>	“Sudah 3 hari 3 malam.”</p>
+<p>	Pada malam 3 hari yang lalu dia berjalan keluar dari desa dengan dua toples anggur, mencari-cari di sekelilingnya. Namun ketika sudah larut malam, hujan mulai mengguyur. Kesampingkan dia yang basah kuyup sampai ke tulang, poin utamanya adalah bahwa dalam situasi itu dia tidak bisa mencari lagi.</p>
+<p>	Air hujan akan dengan cepat menghilangkan aroma anggur. Pada saat yang sama jika dia memaksa dirinya untuk mencari dalam kondisi seperti itu, itu mungkin menimbulkan kecurigaan. Meskipun sebelumnya dia berpura-pura menjadi orang mabuk yang depresi untuk menutupi motif aslinya, tetapi dia tahu untuk tidak pernah meremehkan kecerdasan orang lain di sekitarnya. Hanya orang bodoh yang akan menganggap orang lain bodoh.</p>
+<p>	Jadi di bawah ketidakberdayaan ini, Fang Yuan hanya bisa menghentikan pencariannya.</p>
+<p>	Belum lagi saat hujan mulai turun, hujan terus turun. Terkadang menjadi lebih berat dan terkadang lebih ringan, tetapi tidak pernah berhenti.</p>
+<p>	“Kurasa dengan cara ini, aku tidak akan bisa menemukan cacing Liquor untuk waktu yang singkat. Agar aman, saya hanya bisa memilih untuk mulai menyempurnakan Moonlight Gu . Sementara saya memperbaikinya, jika saya dapat menemukan cacing Liquor selama proses itu akan menjadi yang terbaik, tetapi jika saya tidak bisa maka ini harus dilakukan. Tapi masalah ini sangat umum; badai mungkin muncul dari langit yang cerah, sesuatu yang tidak terduga dapat terjadi kapan saja. Di dunia ini siapa yang bisa melakukan segalanya tanpa hambatan, memiliki perjalanan yang sempurna?”</p>
+<p>	Pikiran Fang Yuan sangat tenang; pengalamannya selama 500 tahun telah lama menghilangkan impulsif yang jarang dia miliki sejak awal.</p>
+<p>	Dia menutup pintu dan jendela dan duduk bersila di tempat tidurnya. Dia menutup matanya perlahan dan setelah bernapas beberapa kali, dia menenangkan pikirannya.</p>
+<p>	Pada saat berikutnya, visi aperture purba muncul di benaknya. Aperture mungkin diposisikan di dalam tubuhnya tetapi secara misterius tidak biasa, besar tanpa batas namun sangat kecil. Lapisan luar aperture adalah lapisan cahaya. Cahaya putih memberi kesan tipis, namun tetap mendukung aperture dengan baik.</p>
+<p>	Di celah itu ada lautan esensi purba. Air lautnya berwarna hijau tembaga, permukaan lautnya jernih dan tenang seperti cermin. Ketinggian air sekitar setengah dari tinggi bukaan. Seluruh volume laut menempati 44% dari aperture.</p>
+<p>	Ini adalah laut purba tembaga hijau dari Master Gu Peringkat satu , dan setiap tetes air laut adalah esensi purba. Itu adalah kekuatan dasar kehidupan Fang Yuan dan kondensasi esensi, vitalitas, dan jiwanya.</p>
+<p>	Setiap tetes esensi purba sangat berharga, karena itu adalah akar dari Guru Gu , dan merupakan sumber kekuatan. Master Gu perlu mengandalkan esensi purba untuk memperbaiki dan menggunakan Gu .</p>
+<p>	Saat dia menarik pikirannya dari laut purba, Fang Yuan membuka matanya untuk mengambil Moonlight Gu. Moonlight Gu diam-diam duduk di tengah telapak tangannya, menyerupai bulan biru melengkung, kecil dan kristal.</p>
+<p>	Dengan pemikiran sederhana, laut purba di celahnya jatuh dan semburan esensi purba pecah dari permukaan laut dan dipindahkan keluar dari tubuh, akhirnya mengalir ke Moonlight Gu. Moonlight Gu tiba-tiba terpancar dengan ganas dalam cahaya biru, sedikit gemetar di telapak tangan Fang Yuan, menahan masuknya esensi purba.</p>
+<p>	Gu adalah esensi langit dan bumi, membawa rahasia dunia, pembawa hukum alam. Mereka adalah makhluk hidup yang hidup bebas di bawah langit, masing-masing lahir dengan kehendaknya sendiri. Saat ini dengan Fang Yuan mencoba memperbaikinya, itu berarti memusnahkan keinginannya. Merasakan bahaya yang membayangi, Moonlight Gu secara alami melawan.</p>
+<p>	Proses pemurnian adalah salah satu yang sangat sulit.</p>
+<p>	Moonlight Gu seperti bulan sabit yang melengkung. Saat esensi purba tembaga hijau dituangkan ke dalam bulan sabit, kedua ujung runcing dari bulan sabit berubah menjadi hijau. Perlahan esensi tembaga hijau ini mulai menyebar ke tengah bulan sabit.</p>
+<p>	Dalam waktu kurang dari tiga menit, wajah Fang Yuan menjadi pucat. Sejumlah besar esensi purba terus mengalir ke Moonlight Gu , membuatnya merasakan kelemahan yang dengan cepat menyerang hatinya.</p>
+<p>	1%, 2%, 3%… 8%, 9%, 10%.</p>
+<p>	Sepuluh menit kemudian, laut purba Fang Yuan telah menghabiskan 10% esensi purba. Namun di permukaan kristal biru Moonlight Gu , titik-titik esensi tembaga hijau di kedua ujung bulan sabit hanya memperluas area kecil kecil ke arah tengah.</p>
+<p>	Perlawanan Moonlight Gu sangat kuat. Untungnya Fang Yuan telah mengantisipasi ini sebelumnya dan tidak merasa terkejut. Dia bertahan dan menuangkan lebih banyak esensi ke Moonlight Gu.</p>
+<p>	1%, 2%, 3%…</p>
+<p>	Setelah dua puluh menit lagi, lautan purba di tubuh Fang Yuan hanya tersisa 14%. Esensi tembaga hijau pada Moonlight Gu telah sedikit mengembang, dua ujung esensi hijau bertambah bersama-sama menutupi permukaan Moonlight Gu sekitar 1/12. Sisa permukaan Moonlight Gu masih berwarna asli biru muda.</p>
+<p>	“Menyempurnakan Gu sangat sulit,” Fang Yuan menghela nafas saat dia melihatnya. Dia mematahkan masuknya esensi purba, menghentikan proses pemurnian.</p>
+<p>	Sampai sekarang, dia telah memurnikan selama setengah jam, lautan purba di aperture-nya menghabiskan lebih dari setengahnya, dengan hanya 14% esensi purba yang tersisa. Dan Moonlight Gu hanya disempurnakan 1/12 saja.</p>
+<p>	Untuk memperburuk keadaan, Moonlight Gu masih memancarkan lingkaran cahaya biru samar. Meskipun Fang Yuan telah berhenti memurnikan, Moonlight Gu tidak berhenti melawan; itu masih mengusir esensi purba tembaga hijau Fang Yuan.</p>
+<p>	Fang Yuan dapat dengan jelas merasakan bahwa esensi purba yang dia tuangkan ke dalam Moonlight Gu sedang didorong keluar, sedikit demi sedikit oleh Moonlight Gu keluar dari tubuhnya. Di permukaannya, esensi tembaga hijau di dua ujung bulan sabit perlahan menyusut.</p>
+<p>	Berdasarkan kecepatan pengurangan ini, dalam waktu sekitar enam jam kemudian Moonlight Gu akan dapat sepenuhnya mengeluarkan semua esensi purba Fang Yuan. Pada saat dia perlu memperbaiki Gu ini, tidak ada bedanya untuk memulai dari awal lagi.</p>
+<p>	“Setiap kali memurnikan Gu , itu seperti pertarungan antara dua pasukan, pertempuran perang posisi, atau perang gesekan. Meskipun saya menyempurnakan 1/12 dari Gu, saya menyia-nyiakan tiga perempat dari esensi purba saya. Saat memurnikan Gu , seorang Master Gu harus mengisi kembali lautan purbanya sambil terus melakukan proses pemurnian, mengkonsolidasikan kemenangannya. Penyempurnaan Gu adalah ujian keterampilan seseorang dalam mengubah esensi purba dan kesabaran dalam pertempuran yang bertahan lama. ”</p>
+<p>	Fang Yuan mengeluarkan sepotong batu purba dari kantong uangnya saat dia merenung.</p>
+<p>	Seorang Guru Gu memiliki dua cara untuk mengisi kembali esensi purba yang dikonsumsi. Cara pertama adalah pemulihan alami. Setelah jangka waktu tertentu, laut purba secara alami akan mengisi kembali esensi purba. Dalam kasus bakat kelas C seperti Fang Yuan, dibutuhkan sekitar satu jam untuk mengisi 4% esensi purba. Dalam enam jam itu bisa memulihkan 24% poin dari jumlah total esensi purba.</p>
+<p>	Cara kedua adalah dengan menyerap esensi alami langsung dari batu purba.</p>
+<p>	Batu purba adalah harta dari alam itu sendiri. Sebagai esensi purba alami yang kental, sambil menyerapnya, permukaan air laut purba naik dengan kecepatan terus menerus yang bisa dilihat dengan mata telanjang.</p>
+<p>	Setelah sekitar setengah jam, laut purba telah terisi kembali ke volume aslinya sebesar 44%. Pada tingkat ini kenaikan muka air laut berhenti secara tiba-tiba. Meskipun masih ada ruang di dalam aperture, Fang Yuan tidak bisa menyimpan esensi purba lagi. Ini adalah batas bakat kelas C-nya.</p>
+<p>	Jadi dari sini seseorang dapat melihat pentingnya tingkat bakat kultivasi seseorang. Semakin tinggi talenta, semakin banyak esensi purba yang dapat dipegang oleh aperture, dan semakin cepat pemulihan alami dari esensi purba.</p>
+<p>	Dalam kasus Fang Yuan untuk memperbaiki Gu dan memperkuat hasilnya, dia harus menyerap batu purba karena tingkat pemulihan alami esensi purba tidak dapat mengalahkan tingkat Moonlight Gu yang mengeluarkannya.</p>
+<p>	Namun dalam kasus bakat kelas A Fang Zheng, dia bisa mengisi 8% dari esensi purba setiap jam. Dalam enam jam dia akan memulihkan 48% esensi purba, dan dalam jangka waktu yang sama, Moonlight Gu hanya bisa mengeluarkan 3% poin esensi purba. Fang Zheng tidak memerlukan bantuan eksternal dari batu purba. Dia bisa terus menyempurnakan dengan beberapa istirahat dalam prosesnya dan berhasil menyempurnakan Moonlight Gu dalam beberapa hari.</p>
+<p>	Itulah sebabnya Fang Yuan tahu dari awal bahwa dalam tes ini, untuk menyempurnakan Moonlight Gu dia tidak pernah memiliki kesempatan untuk mendapatkan posisi pertama. Itu tidak ada hubungannya dengan kekuatan seseorang yang sebenarnya, karena faktor pertama adalah tingkat bakat.</p>
+<p>	Faktor kedua adalah batu purba. Jika ada banyak batu purba, tanpa ragu-ragu untuk dikonsumsi, bakat kelas B juga bisa melampaui bakat kelas A dan mendapatkan posisi pertama.</p>
+<p>	“Di tanganku ada enam keping batu purba. Saya tidak dapat dibandingkan dengan Gu Yue Mo Bei atau Gu Yue Chi Chen, orang-orang seperti ini yang memiliki anggota keluarga yang lebih tua yang mendukung mereka dari belakang. Bakat saya ada di kelas C, dan tidak bisa dibandingkan dengan Fang Zheng yang memiliki bakat kelas A. Saya tidak pernah memiliki kesempatan untuk menang dalam tes ini. Mengapa tidak mengalihkan energi saya dan pergi mencari cacing Liquor? Jika saya bisa membuat Liquor Worm menjadi Gu vital saya, itu akan jauh lebih baik daripada Moonlight Gu . Hmm? Suara hujan di luar jendela semakin reda, sepertinya ada tanda akan berhenti. Hujan telah berlangsung selama tiga hari tiga malam, seharusnya sudah waktunya berhenti. ”</p>
+<p>	Fang Yuan menyimpan Moonlight Gu dan turun dari tempat tidurnya. Saat dia hendak membuka jendela, ada ketukan di pintu.</p>
+<p>	Di luar pintu terdengar suara pelayannya Shen Cui, “Tuan muda Fang Yuan, ini aku. Hujan turun selama tiga hari, jadi aku membawakanmu makanan dan anggur. Tuan muda bisa makan dan minum dan meredakan perasaan tertekan. ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

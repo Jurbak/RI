@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 92 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 92";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_91.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 92">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_93.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 92</h1>
+        <div class="text-left">
+<p>	Bab 92</p>
+<p>	Bab 92: Masa depan sudah di depan mata</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Tunggu di sana Fang Yuan, kami datang untuk membantumu!” Jiao San berteriak dengan ekspresi prihatin, mengambil langkah besar ke dalam ruangan.</p>
+<p>	Tapi saat berikutnya, dia tercengang.</p>
+<p>	Ruangan itu kosong, Fang Yuan tidak ada di dalam.</p>
+<p>	Keempatnya terdiam.</p>
+<p>	“Bagaimana ini bisa terjadi, di mana dia?” Jiao Sao memecah kesunyian, berkata dengan putus asa.</p>
+<p>	Dia ‘tampil’ di luar ruangan untuk waktu yang lama, tetapi ternyata itu adalah pertunjukan satu orang karena Fang Yuan tidak pernah ada di dalam.</p>
+<p>	Ketiganya saling memandang, tidak mengharapkan hasil seperti itu.</p>
+<p>	“Ini aneh, jika Fang Yuan tidak ada di sini, mengapa dia menempelkan kertas itu di pintu?” Kong Jing berkata dengan hati-hati.</p>
+<p>	“Bawa pemiliknya ke sini sekarang!” Jiao Sao mengangkat kakinya dan membuat pintu itu terbang.</p>
+<p>	“Kau mencariku? Hmph, aku baru saja akan menemukanmu. Datang ke rumah saya dan menimbulkan keributan besar, bahkan mendobrak pintu saya. Anak muda, kamu benar-benar mampu. ” Tuan tanah adalah seorang lelaki tua, tetapi nada suaranya sangat tegas.</p>
+<p>	Mampu memiliki rumah tambahan di desa Gu Yue dan menyewakannya, dia jelas seorang Master Gu.</p>
+<p>	Kekuatan dan status Master Gu menggantikan manusia. Manusia tidak berani menjalankan bisnis seperti itu. Bahkan, mereka tidak memiliki properti.</p>
+<p>	Seluruh properti desa dimiliki oleh klan Gu Yue. Manusia yang tinggal di sini adalah petani dan pelayan klan.</p>
+<p>	“Senior, kami di sini untuk menemukan seorang pemuda, dia adalah anggota kelompok kami.” Menghadapi tuan tanah, Jiao San mengendalikan emosinya.</p>
+<p>	Seorang Guru Gu tua seperti tuan tanah, bahkan jika dia sudah tua dan tidak lagi berjuang untuk karirnya, dia masih memiliki hubungan dan koneksi yang kuat. Meski sudah pensiun, kemampuannya tetap tidak bisa diremehkan.</p>
+<p>	Mereka yang tidak memiliki hubungan manusia dan kartu truf, bagaimana mereka berani berbisnis?</p>
+<p>	Ini bukan era damai, penuh kekerasan dan penjarahan.</p>
+<p>	Tuan tanah menggelengkan kepalanya, nadanya kaku, “Saya tidak peduli dengan keberadaan penyewa saya, tetapi saya tahu bahwa Anda mendobrak pintu saya. Anda perlu memberi saya kompensasi. ”</p>
+<p>	“Hehe, ini salah kami, sudah sewajarnya kami memberimu kompensasi,” Jiao Sao tertawa datar. Meskipun dia sangat marah di dalam, dia masih memaksa dirinya untuk mengkompensasi beberapa batu purba dan bahkan memberikan beberapa tambahan.</p>
+<p>	Ekspresi tuan tanah berubah sedikit lebih baik, “Jika pemuda yang menyewa kamar ini adalah yang Anda temukan, maka saya harus memberi tahu Anda bahwa dia belum masuk selama sehari. Setelah membayar sewa sebulan, dia membeli banyak barang kemarin dan bertanya padaku tempat mana yang menjual batu bara dengan harga murah. Saya mengatakan kepadanya bahwa tidak perlu membeli batu bara, karena ada lembah di luar desa ke arah utara. Sebuah tambang terletak di sana di mana dia bisa menggali batu bara. Setelah berterima kasih kepada saya, dia pergi dan tidak pernah kembali.”</p>
+<p>	“Jadi begitu.” Jiao San melihat dekorasi di ruangan itu.</p>
+<p>	Memang kasur dan sprei masih baru. Meja dan kursi adalah barang lama yang dibeli oleh Fang Yuan yang tampaknya kokoh.</p>
+<p>	Kompornya kosong, memang tidak ada arang.</p>
+<p>	Jiao San menghela napas perlahan, merasa nyaman.</p>
+<p>	“Sepertinya Fang Yuan tertunda dengan menggali batu bara. Tidak apa-apa, mari kita datang lagi besok. ” Ia keluar dari kamar terlebih dahulu.</p>
+<p>	Tetapi pada hari ketiga, Fang Yuan masih belum muncul.</p>
+<p>	Jiao San dan yang lainnya berdiri di luar ruangan, ragu-ragu.</p>
+<p>	“Menggali batu bara tidak perlu waktu lama. Fang Yuan ingin melakukan budidaya pintu tertutup jadi mungkin dia menggali lebih banyak. Tapi sudah lama sekali, mungkinkah sesuatu terjadi padanya saat dia menggali?” Kong Jing menyihir.</p>
+<p>	Jiao San mengangguk tanpa disadari, menunjuk ke arah tempat tidur dan kompor, “Anak ini sangat pelit. Dia tiba-tiba membayar sewa sebulan dan bahkan membeli begitu banyak barang, dan terutama menempelkan kertas itu di dinding, dia mungkin ingin berkultivasi di sini. Sayang sekali dia tidak beruntung. Hari-hari ini gerombolan serigala semakin besar, dan binatang buas di sekitar desa menjadi lebih aktif. Dia mungkin telah bertemu dengan beberapa binatang buas.”</p>
+<p>	“Pemimpin itu bijaksana!” Kedua Master Gu wanita itu berkata pada saat yang sama, menyanjungnya.</p>
+<p>	Jiao San tertawa sambil mengangkat kepalanya, “Hahaha, aku masih resah tentang bagaimana menghadapinya. Meskipun kita memiliki misi menangkap rusa, jangan terburu-buru untuk melakukannya. Jika kita bertemu dengannya di alam liar, kita terpaksa menyelamatkannya, kan?”</p>
+<p>	“Hehehe.” Tiga anggota lainnya mulai tertawa.</p>
+<p>	Hari keempat.</p>
+<p>	Di aperture, gelombang esensi purba hijau hitam menghantam dinding kristal tanpa henti.</p>
+<p>	Dinding kristal putih tembus pandang sudah penuh retakan, saling bersilangan.</p>
+<p>	Ini adalah hasil Fang Yuan setelah bekerja keras tanpa henti selama tiga hari tiga malam. Paling-paling, ketika dia benar-benar tidak tahan lagi, dia akan segera makan dan menyelesaikan isi perutnya.</p>
+<p>	Hari-hari ini, Fang Yuan dengan sengaja memperlambat proses penghancuran gelombang, dan pada saat yang sama dia menarik lebih banyak esensi purba dari batu purbanya. Jadi, setelah sekian lama, laut purba tembaga hijau hanya turun dari batas 44% menjadi sekitar 20%.</p>
+<p>	Seiring berjalannya waktu, ketika hanya ada sekitar 13% esensi purba yang tersisa, dinding tidak bisa lagi menahan, dan telah mencapai batasnya.</p>
+<p>	Retak retak…</p>
+<p>	Dinding kristal yang awalnya kokoh pecah berkeping-keping, dan pecahannya jatuh ke laut purba, menyebabkan riak dan gelombang. Setelah itu, itu berubah menjadi titik putih dan menghilang ke udara tipis.</p>
+<p>	Apa yang menggantikan dinding kristal, adalah dinding cahaya putih baru.</p>
+<p>	Ini adalah dinding cahaya peringkat dua. Meskipun tidak ada banyak perbedaan dan masih memancarkan cahaya putih, itu jauh lebih berkilau daripada dinding cahaya peringkat satu.</p>
+<p>	Pada saat yang sama, jejak esensi purba merah diproduksi di laut dan bercampur dengan laut purba hijau hitam di celah.</p>
+<p>	Ini adalah esensi purba baja merah tahap awal peringkat dua!</p>
+<p>	“Akhirnya aku berhasil, aku berhasil menembus peringkat dua!” Fang Yuan tiba-tiba membuka matanya, ruangan itu segera menjadi cerah.</p>
+<p>	Tapi sedetik kemudian, gelombang mual yang kuat menghantamnya.</p>
+<p>	“Saya menjalani empat hari tiga malam berkultivasi tanpa henti, itu terlalu intens dan tubuh saya akan segera runtuh.” Fang Yuan tertawa pahit, perlahan berbaring. “Kultivasi saya tidak terganggu sama sekali, sepertinya pengaturan saya di rumah kontrakan telah berhasil. Layak menghabiskan jumlah ini, selanjutnya saya akan beristirahat dengan baik untuk malam ini dan kembali ke desa besok. ”</p>
+<p>	Memikirkan hal ini, rasa kantuk yang hebat menyerangnya.</p>
+<p>	Fang Yuan memaksa matanya untuk tetap terbuka dan menggunakan keinginannya yang kuat untuk menutupi dirinya dengan selimut.</p>
+<p>	Setelah memejamkan mata, dalam beberapa detik, dia tertidur lelap.</p>
+<p>	Kultivasi sebelumnya telah menghabiskan sebagian besar semangatnya.</p>
+<p>	Dia tidur sampai sore hari kedua.</p>
+<p>	Fang Yuan membuka matanya, merasakan semangatnya pulih menjadi sekitar setengah, tetapi dia masih merasakan kelemahan di tubuhnya.</p>
+<p>	Dia membuka pintu, berjalan keluar ruangan untuk pertama kalinya dalam lima hari.</p>
+<p>	Ini menarik seseorang.</p>
+<p>	Orang ini memiliki mata panjang yang ramping dengan tubuh yang kurus — itu adalah saudara Jiang Ya, Jiang He.</p>
+<p>	Melihat Fang Yuan, dia menghela napas lega, berkata, “Kamu akhirnya keluar! Hmph, aku akan mendobrak masuk ke kamar jika kamu masih tidak keluar setelah beberapa hari ke depan. Lagi pula jika Anda mati di sini, saya akan bertanggung jawab. ”</p>
+<p>	Fang Yuan tertawa tetapi tidak mengatakan apa-apa.</p>
+<p>	Sinar matahari musim dingin menerobos jendela, menyinari wajahnya, memperkuat jejak kelemahan putih pucat di wajahnya.</p>
+<p>	Lima hari yang lalu, dia dengan sengaja bertanya kepada tuan tanah dan memberi Jiao San petunjuk tentang kisah batu baranya. Setelah itu dia meninggalkan desa Gu Yue dan pergi ke dusun di kaki gunung.</p>
+<p>	Karena orang tua Wang sebelumnya, Jiang He adalah setengah dari rekan aliansinya. Dengan menggunakan hubungan ini, Fang Yuan tinggal beberapa hari di desa dan naik ke peringkat dua tanpa gangguan.</p>
+<p>	Tentu saja, gua rahasia retakan batu jauh lebih sulit dipahami daripada tempat Jiang He, tetapi itu tidak sepenuhnya aman. Fang Yuan harus mempertimbangkan kemungkinan Jiao San dan yang lainnya tanpa henti menemukannya, dan mungkin menemukan gua rahasia retakan batu.</p>
+<p>	Meskipun peluangnya tipis, jika warisan Biksu Anggur Bunga ditemukan, kehidupan Fang Yuan akan dalam bahaya.</p>
+<p>	Fang Yuan adalah orang yang sangat berhati-hati, dan dia secara alami tidak akan mengambil risiko seperti itu.</p>
+<p>	Pada saat yang sama, lebih aman di tempat Jiang He. Bahkan jika mereka memiliki rahasia bersama, Jiang He tidak akan membunuhnya untuk membungkamnya.</p>
+<p>	Risiko dan kesulitan membunuh seorang Guru Gu terlalu besar. Tanpa manfaat yang cukup, Jiang He tidak memiliki motivasi untuk melakukannya. Bahkan, untuk menjaga rahasianya, Jiang He bahkan harus mengkhawatirkan keselamatan Fang Yuan.</p>
+<p>	Lagi pula, jika aula hukuman klan menyelidiki kematian Fang Yuan, mereka mungkin mengetahui tentang rahasia lelaki tua Wang.</p>
+<p>	Melihat Fang Yuan aman, Jiang He benar-benar lega.</p>
+<p>	Tapi dengan cepat, dia merasakan aura Fang Yuan dan ekspresinya berubah, “Untuk berpikir bahwa kamu benar-benar berhasil, mencapai Peringkat dua dalam sekali jalan!”</p>
+<p>	Dia terkejut di dalam hatinya. Lima hari yang lalu ketika Fang Yuan mendekatinya dan menyatakan niatnya, dia sebenarnya merasa jijik di dalam hatinya.</p>
+<p>	Menyerap esensi purba dari batu purba dan menerobos ke Peringkat dua, metode multitasking semacam ini sangat menguras semangat. Biasanya, Gu Masters membutuhkan kemauan yang sangat kuat, kesabaran, dan pengalaman berkultivasi selama bertahun-tahun.</p>
+<p>	Hanya dengan pengalaman, seorang Guru Gu dapat memperlakukan ekstraksi esensi purba dari batu sebagai naluri. Pada saat yang sama, memanipulasi laut purba dengan terampil dan menyebabkan dampak dikendalikan pada tingkat tertentu, dan itu harus dihitung dengan sempurna, cukup untuk mencocokkan tingkat pemulihan esensi purba sehingga prosesnya dapat dipertahankan.</p>
+<p>	Menurut pendapat Jiang He, Fang Yuan tidak memiliki peluang untuk berhasil. Tapi untuk berpikir, dia melakukannya dalam sekali jalan.</p>
+<p>	Fang Yuan tertawa acuh tak acuh, “Aku beruntung. Saya berencana untuk kembali ke desa hari ini, tetapi sebelum itu, alangkah baiknya jika saya bisa makan.”</p>
+<p>	“Hehehe, adik kecil Fang Yuan, karena kamu di sini, tentu saja aku yang mengurus makananmu.” Jiang He menepuk dadanya, sikapnya bahkan lebih ramah dari sebelumnya.</p>
+<p>	Meskipun dia tidak memikirkan masa depan Fang Yuan dengan baik, tetapi sekarang dia telah naik ke peringkat dua, itu berarti dia telah melewati rintangan yang sulit dan memiliki kualifikasi untuk setara dengannya sekarang.</p>
+<p>	Setelah makan enak, Jiang He membawa Fang Yuan ke pintu masuk desa kecil secara pribadi.</p>
+<p>	“Adik kecil Fang Yuan, hati-hati kali ini. Baru-baru ini area sarang serigala menjadi sedikit lebih ganas, menyebabkan binatang buas menjadi lebih aktif. Eh, turun salju.” Jiang He berhenti sejenak, lalu melanjutkan, “Pendapatku, jangan pergi sekarang. Bagaimana kalau kamu tinggal di sini satu malam lagi?”</p>
+<p>	Setelah Fang Yuan mencapai Peringkat dua, dia menjadi sangat ramah.</p>
+<p>	Tapi Fang Yuan bersikeras untuk pergi, sehingga mengucapkan selamat tinggal pada Jiang He.</p>
+<p>	Kepingan salju jatuh dengan tenang, seperti bulu putih bersih yang mengambang perlahan.</p>
+<p>	Cahaya matahari terbenam mengubah salju menjadi kuning keemasan.</p>
+<p>	Serpihan demi serpihan, salju melayang ke kepala dan bahu Fang Yuan.</p>
+<p>	Di kejauhan, desa Gu Yue berdiri tegak di atas pinggang gunung, mengawasi dengan tenang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

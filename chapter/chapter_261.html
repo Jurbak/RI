@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 261 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 261";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_260.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 261">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_262.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 261</h1>
+        <div class="text-left">
+<p>	Bab 261</p>
+<p>	Bab 261: Kota Dalam Klan Shang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan membayar dua ratus batu purba, dan memasuki pusat kota bersama Bai Ning Bing.</p>
+<p>	Bagian dalam kota, meskipun dibangun di gunung, memiliki jalur pejalan kaki yang lebar yang dapat menampung sepuluh kereta kuda yang berjalan dalam satu barisan.</p>
+<p>	Begitu mereka masuk, kerumunan menjadi jauh lebih kecil, kurang dari setengah dari luar kota.</p>
+<p>	Tapi Master Gu berserakan di mana-mana, peringkat satu ada di mana-mana, peringkat dua bercampur di antara mereka, dan kadang-kadang satu atau dua peringkat tiga.</p>
+<p>	Ada sedikit atau tidak ada manusia, bagaimanapun, seratus batu purba diperlukan untuk masuk. Sebagian besar Guru Gu memiliki pelayan untuk melayani mereka, tetapi tidak ingin menyia-nyiakan uang mereka seperti ini.</p>
+<p>	Penerangan pusat kota adalah melalui sejenis arang.</p>
+<p>	Batu arang bisa terbakar dalam waktu lama, dan tidak menghasilkan asap. Setiap seratus langkah, Fang dan Bai akan melihat sebuah lubang digali di dinding, saat sekelompok batu arang terbakar di dalamnya.</p>
+<p>	Meskipun batu arang tidak mengeluarkan banyak panas, dengan begitu banyak dari mereka yang terbakar sekaligus, itu masih menyebabkan suhu di dalam kota lebih tinggi daripada di luar, dan udara menjadi lebih kering.</p>
+<p>	Tidak seperti kota luar, yang memiliki segala macam bangunan, menjadi perpaduan yang lengkap, bangunan di sini adalah satu struktur, dan tampak sama, dibuat melalui batu lava merah tahan panas.</p>
+<p>	Segala macam jalan terbentang dari jalan utama.</p>
+<p>	Pada saat yang sama, setiap lima ratus langkah, pilar bundar besar akan muncul.</p>
+<p>	Ada tangga batu spiral di permukaan pilar, saat memanjang ke atas, dengan pagar di sepanjang tangga batu.</p>
+<p>	Melalui pilar-pilar batu, orang bisa naik satu lantai, atau sampai ke jalan satu lantai lebih rendah.</p>
+<p>	Kota bagian dalam tidak datar, tetapi lebih bulat. Dari atas ke bawah, banyak jalan dan bangunan ada, menghubungkan bersama dan memungkinkan seseorang untuk bepergian ke mana pun mereka inginkan dengan mudah.</p>
+<p>	Fang Yuan dan Bai Ning Bing bergerak menuju bagian gunung yang lebih dalam, ini masih bukan tujuan mereka.</p>
+<p>	Di lokasi tertentu, seorang penjaga muncul.</p>
+<p>	Master Gu di tempat kerja memiliki kultivasi yang lebih tinggi, karena keamanan tempat itu ditingkatkan.</p>
+<p>	“Apakah kalian berdua memiliki token?” Penjaga itu menghentikan Fang dan Bai.</p>
+<p>	Klan Shang memberikan tanda otoritas yang bervariasi kepada orang-orang dari status yang berbeda.</p>
+<p>	“Ini adalah kunjungan pertama kami.” kata Fangyuan.</p>
+<p>	Jelas, dia tidak memiliki hal seperti itu.</p>
+<p>	“Kalau begitu, itu akan menjadi dua ratus batu purba per orang.” Kata penjaga itu.</p>
+<p>	Fang Yuan membayar batu purba, dan penjaga membiarkannya lewat.</p>
+<p>	Keduanya tiba di kota terdalam keempat sebagai hasilnya.</p>
+<p>	Gunung Shang Liang telah melalui beberapa ribu tahun pembangunan oleh klan Shang, seluruh gunung direnovasi oleh klan Shang, menggali jalan dan membangun bangunan baru, mengklasifikasikan tempat itu ke dalam wilayah.</p>
+<p>	Dengan demikian, kota bagian dalam sangat besar, dari dalam ke luar, ada lima wilayah.</p>
+<p>	Kota terdalam pertama disebut pusat kota terdalam, jantung politik klan Shang, dan juga pangkalan militer mereka.</p>
+<p>	Kota terdalam kedua juga dikenal sebagai kota klan, hanya klan Shang yang bisa tinggal di sini.</p>
+<p>	Kota terdalam ketiga memiliki lingkungan yang elegan, dengan udara bersih dan segar, itu adalah zona kelas atas.</p>
+<p>	Kota terdalam keempat adalah zona kelas menengah. Kota terdalam kelima adalah zona kelas rendah.</p>
+<p>	Lebih jauh dan kita sampai ke luar kota, memiliki arus lalu lintas yang tinggi, dan segala macam transportasi barang. Dibandingkan dengan pusat kota, itu jauh lebih kacau.</p>
+<p>	Struktur konstruksi ini, agak seperti bukit rayap di Bumi.</p>
+<p>	Bukit rayap memiliki panjang empat sampai sepuluh meter, dengan rayap yang hidup di dalamnya, dalam terowongan kecil yang saling berhubungan, kompleks dan indah.</p>
+<p>	Begitu keduanya memasuki kota terdalam keempat, mereka bisa merasakan lebih banyak kelembapan di udara saat suhu turun sedikit.</p>
+<p>	Dibandingkan dengan kota terdalam kelima, kota terdalam keempat adalah kelas yang lebih tinggi, tidak hanya biaya masuk dua kali lebih tinggi, tetapi juga memiliki fasilitas yang jauh lebih baik.</p>
+<p>	Pertama, cahaya tidak disediakan oleh arang, tetapi oleh sejumlah besar rumput peringkat satu Gu tertentu.</p>
+<p>	Namanya adalah – Harimau gunung yang merangkak di bawah sinar bulan.</p>
+<p>	Ini adalah jenis pohon anggur, tumbuh di dinding kedua sisi jalan, saat menyebar, bisa dilihat di mana-mana.</p>
+<p>	Akarnya berwarna biru tua, dan daunnya lebar dan besar, memancarkan cahaya bulan biru kecil. Hanya satu segmen jalan yang memiliki ribuan daun, saat cahaya biru lembut bergabung menjadi satu.</p>
+<p>	Karena banyaknya daun, udara lebih lembab dan uap air memenuhi udara. Di dekat tanah, ada kabut dari uap yang terkondensasi.</p>
+<p>	Cahaya bulan dibiaskan dalam kabut, berubah menjadi aurora. Saat seseorang berjalan di jalanan, mereka memiliki perasaan berjalan di alam spiritual.</p>
+<p>	Bangunan di sini sebagian besar penuh dengan ukiran dan dekorasi. Beberapa penduduk membuat ladang rumput, dan menempatkan tong bunga, sementara yang lain membuat gunung buatan, dan paviliun.</p>
+<p>	Ada lebih sedikit orang di jalanan di sini.</p>
+<p>	Peringkat dua Master Gu sekarang adalah kelompok umum, lagipula, dua ratus batu purba adalah jumlah yang sangat besar untuk peringkat satu Master Gu.</p>
+<p>	Yang paling jelas, jalanan masih bising di kota terdalam kelima, tapi di sini, jauh lebih sepi.</p>
+<p>	Keduanya melanjutkan lebih dalam, dan sampai ke gerbang kota.</p>
+<p>	“Tanpa token, untuk memasuki kota terdalam ketiga, kalian berdua harus membayar enam ratus batu purba.” Budidaya penjaga sudah peringkat tiga.</p>
+<p>	Fang Yuan memberikan batu purba, dan tiba di area ketiga.</p>
+<p>	Tempat ini berbeda dari kota terdalam keempat lagi.</p>
+<p>	Semua infrastruktur dibuat menggunakan batu bintang.</p>
+<p>	Jenis batu ini, adalah bahan yang banyak digunakan dalam penyempurnaan Gu, mampu memancarkan cahaya bintang dalam kegelapan.</p>
+<p>	Seluruh kota terdalam ketiga menggunakan batu bintang. Tidak hanya bangunan, bahkan jalan setapak pun terbuat dari batu bintang.</p>
+<p>	Sekilas, cahaya bintang memenuhi udara sebagai penglihatan yang jelas, tanpa kabut sebagai penghalang.</p>
+<p>	Udaranya segar dan jernih. Melihat sekeliling, ada paviliun, dinding merah dan batu bata hijau, dan bahkan hutan bambu yang ditransplantasikan, pohon-pohon terkenal, membuat gunung buatan, dengan mata air yang mengalir juga.</p>
+<p>	Jalan-jalan memiliki orang-orang kecil, tenang dan tenteram, seperti istana bintang.</p>
+<p>	“Benar-benar kaya dan boros …” Bai Ning Bing sedikit menilai, hanya biaya bangunan yang bisa dia lihat, adalah angka astronomi.</p>
+<p>	Sebagai klan paling kaya di perbatasan selatan, bahkan rambut kaki klan Shang lebih tebal dari pinggang orang normal . Meski berlebihan, rumor itu bukannya tidak berdasar.</p>
+<p>	Kekayaan klan Shang seperti gunung, pada kenyataannya, seluruh kota klan Shang adalah gunung literal. Klan Shang terutama berdagang dan itu melibatkan seluruh perbatasan selatan.</p>
+<p>	Kekayaan dan aset sejati klan Shang, tidak ada yang bisa menjelaskannya.</p>
+<p>	Tapi Fang Yuan tahu, hanya konstruksi kota terdalam ketiga ini, yang bisa menandingi puluhan total kekayaan klan Gu Yue.</p>
+<p>	Di tempat ini, bahkan peringkat dua Master Gu menjadi langka.</p>
+<p>	Sesekali, mereka melihat Gu Masters, tetapi hampir semuanya peringkat tiga.</p>
+<p>	Ini adalah tujuan Fang Yuan.</p>
+<p>	Lebih dalam lagi, dan itu adalah kota terdalam kedua.</p>
+<p>	Tetapi untuk masuk, itu bukan lagi masalah batu purba, token kota klan Shang diperlukan. Dan otoritas token ini harus mencapai level tertentu.</p>
+<p>	“Toko Tong Ou.” Fang Yuan melihat plakat itu sebelum masuk.</p>
+<p>	Ini adalah toko yang menjual cacing Gu.</p>
+<p>	“Dua tamu terhormat, silakan masuk.” Petugas itu adalah seorang gadis muda, berjalan mendekat dan berbicara dengan volume lembut.</p>
+<p>	Auranya tidak disembunyikan, memamerkan kultivasi Guru Gu peringkat satu.</p>
+<p>	Meskipun Fang dan Bai mengenakan pakaian fana, yang satu jelek sementara yang lain putus asa, gadis Guru Gu ini masih menunjukkan sikap hormat, menunjukkan sikap pelayanan yang superior.</p>
+<p>	Fang Yuan dan Bai Ning Bing dibawa ke sebuah ruangan yang elegan.</p>
+<p>	Ini adalah kamar pribadi, dengan meja dan kursi kayu, dengan patung dan lukisan tergantung di dinding putih. Sapuan kuas menyerupai naga dan burung phoenix yang menari saat sapuan itu ditulis dengan kekuatan yang tepat.</p>
+<p>	Melalui kisi-kisi jendela, taman bisa dilihat; pepohonan hijau dan bunga merah disertai kicau burung.</p>
+<p>	Gadis muda Gu Master membawa dua cangkir teh harum dan pergi.</p>
+<p>	Tepat saat dia pergi, seorang pria tua masuk.</p>
+<p>	“Bolehkah saya bertanya apakah dua tamu terhormat kita ada di sini untuk membeli atau menjual?” Orang tua itu adalah Master Gu peringkat dua, tersenyum sambil menangkupkan tinjunya dan bertanya.</p>
+<p>	“Baik membeli, dan juga menjual.” Fang Yuan mengangkat cangkirnya saat dia menjawab.</p>
+<p>	Orang tua itu tertawa, dan dua kilatan cahaya terbang keluar dari tubuhnya, melayang di depan Fang Yuan dan Bai Ning Bing.</p>
+<p>	Itu adalah dua kutu buku.</p>
+<p>	Kutu buku adalah cacing Gu peringkat satu, tetapi sangat berharga, sama langkanya dengan cacing minuman keras.</p>
+<p>	Begitu satu muncul di pasar, itu akan langsung dijual, sering ada permintaan tetapi tidak ada pasokan untuk itu.</p>
+<p>	Itu seperti ulat sutera, meskipun memiliki kepala, tubuh dan perut, tiga bagian yang berbeda, tubuhnya tampak seperti kepompong secara keseluruhan, bulat dan lucu.</p>
+<p>	Tubuhnya berwarna putih, tetapi permukaannya memiliki lapisan enamel, memancarkan cahaya berminyak.</p>
+<p>	Memegangnya di satu tangan, itu bulat dan halus, seperti vas porselen bermutu tinggi.</p>
+<p>	Kutu buku adalah Gu tipe penyimpanan, mirip dengan bunga tusita.</p>
+<p>	Bedanya, bunga tusita menyimpan barang fisik, sedangkan kutu buku menyimpan ilmu dan informasi. Bahkan jika dihancurkan, itu hanya akan meledak menjadi kilatan cahaya putih yang tidak berbahaya.</p>
+<p>	“Silakan telusuri.” Kata Master Gu yang sudah tua.</p>
+<p>	Kedua kutu buku itu disempurnakan olehnya, sehingga dia dapat dengan mudah meminjamkannya kepada Fang Yuan dan Bai Ning Bing.</p>
+<p>	Fang dan Bai sama-sama menggunakan jejak esensi purba perak salju, dan menyuntikkannya ke kutu buku.</p>
+<p>	Kutu buku berubah menjadi kilatan cahaya putih, memasuki dahi keduanya, di antara alis mereka.</p>
+<p>	Tiba-tiba, Fang Yuan dan Bai Ning Bing mendapatkan gelombang informasi di kepala mereka.</p>
+<p>	Informasi itu seperti konten yang mereka hafal, tertanam kuat di benak mereka.</p>
+<p>	Bai Ning Bing diam-diam menggigit lidahnya, toko Tong Ou menjual hampir puluhan ribu cacing Gu! Cacing gu dari segala jenis, menyebabkan seseorang pusing karena mengamati seleksi sendirian.</p>
+<p>	Di antara mereka, ada kutu buku, cacing minuman keras, semua jenis cacing Gu yang berharga, dari rendah hingga tinggi, peringkat satu hingga lima.</p>
+<p>	Tentu saja, tidak ada Gu peringkat enam.</p>
+<p>	Setiap cacing Gu memiliki pengenalan khusus untuk menyatakan kegunaannya. Bahkan ada harga yang akurat, beberapa dihargai tinggi, sementara cacing Gu yang langka dan berharga bahkan memiliki segala macam persyaratan token.</p>
+<p>	Ini berarti, hanya Master Gu dengan token klan Shang tertentu yang memiliki kualifikasi untuk membeli cacing Gu ini.</p>
+<p>	Fang Yuan perlu membeli sejumlah besar cacing Gu, setelah menelusuri dengan santai, dia kembali ke dunia nyata dan mengembalikan kutu buku itu kepada orang tua.</p>
+<p>	Meskipun dia memiliki lebih dari sepuluh ribu batu purba sekarang, untuk membeli semua cacing Gu yang dia butuhkan, masih ada beberapa cara untuk pergi.</p>
+<p>	Uang bukanlah masalah, karena beberapa worm Gu memiliki persyaratan token.</p>
+<p>	“Tamu yang terhormat, apa yang Anda minati? Jika Anda membeli dalam jumlah besar, kami dapat memberikan diskon yang sesuai.” Orang tua itu tersenyum dan berkata.</p>
+<p>	Melihat esensi purba salju perak Fang Yuan dan Bai Ning Bing, nada suaranya menjadi lebih hormat.</p>
+<p>	Fang Yuan melambaikan tangannya: “Jangan terburu-buru, aku punya cacing Gu untuk dijual.”</p>
+<p>	Mengatakan demikian, dia memanggil tombak tulang Gu.</p>
+<p>	Orang tua tidak terkejut, banyak yang datang ke toko Tong Ou untuk membeli, tetapi juga banyak yang datang untuk menjual.</p>
+<p>	Dia memegang tombak tulang Gu, melihat, dan menunjukkan sedikit keterkejutan di wajahnya.</p>
+<p>	Dia belum pernah melihat tombak tulang Gu.</p>
+<p>	Tentu saja dia tidak.</p>
+<p>	Ini adalah cacing Gu khusus yang dibuat oleh Gray Bone Scholar, belum pernah memasuki pasar.</p>
+<p>	“Tolong beri tahu saya, tamu yang terhormat.” Orang tua itu menunjukkan ekspresi serius saat dia menangkupkan tinjunya.</p>
+<p>	Fang Yuan mengangguk, minum teh: “Tentu saja. Ini adalah tombak tulang Gu, garis keturunan spesifik dari cacing Gu. Saya akan meminjamkannya kepada Anda sekarang, Anda akan tahu kapan Anda mencobanya. ”</p>
+<p>	Orang tua itu memegangnya sekaligus, berkomentar: “Gu ini, meskipun peringkat satu, tidak mudah untuk dinaikkan. Tapi kekuatan serangannya tinggi dan agak unik, sepadan dengan harganya.”</p>
+<p>	Orang tua itu mengulurkan telapak tangannya, menunjukkan sebuah nomor.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

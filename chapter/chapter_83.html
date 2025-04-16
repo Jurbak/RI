@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 83 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 83";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_82.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 83">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_84.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 83</h1>
+        <div class="text-left">
+<p>	Bab 83</p>
+<p>	Babak 83: Menyapu musuh yang kuat, Fang Zheng menunjukkan keahliannya</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Fang Zheng dan Mo Chen sama-sama berjalan ke atas panggung.</p>
+<p>	“Fang Zheng, jangan berpikir aku akan kalah hanya karena kamu memiliki kultivasi peringkat dua! Hari ini saya akan menantang dan mengalahkan alam yang lebih tinggi.” Mo Bei menggertakkan giginya, ekspresinya serius, menyemangati dirinya sendiri di dalam hatinya. Terhadap peringkat dua Fang Zheng, dia memang merasakan tekanan yang kuat.</p>
+<p>	“Datang.” Fang Zheng meraung, bergegas keluar dengan ganas.</p>
+<p>	Jantung Mo Bei melonjak, Fang Zheng ini tidak bertindak sesuai rencana. Biasanya, mereka akan menembakkan pedang bulan terlebih dahulu sebelum menggunakan pertarungan tangan kosong. Tapi kali ini, dia benar-benar bergegas, dan ingin bertarung secara fisik?</p>
+<p>	“Bukankah dia takut terluka oleh pedang bulanku saat bertukar pukulan dan tendangan?” Mo Bei gelisah.</p>
+<p>	Dia secara alami tidak mengkhawatirkan keselamatan Fang Zheng, tetapi tahu bahwa jika mereka terlibat dalam pertempuran jarak dekat, dengan jarak yang begitu pendek jika Fang Zheng menembakkan pedang bulan, itu tidak dapat dihindari.</p>
+<p>	Mo Bei dengan cepat mundur selangkah, mencoba menarik jarak. Pada saat yang sama, dia menembakkan pedang bulan dengan jentikan pergelangan tangannya.</p>
+<p>	Fang Zheng tidak terpengaruh, jatuh dan menghindari moonblade, melanjutkan pengejarannya. Pada saat yang sama, segumpal energi bulan terkumpul di telapak tangannya.</p>
+<p>	Mo Bei melihat cahaya bulan di tangannya yang belum ditembakkan dan merasa tegang di hatinya, dengan cepat mengambil langkah mundur.</p>
+<p>	Meskipun dia bekerja keras dalam pertempuran jarak dekat dan juga melatih pedang bulannya, dia masih kalah dengan Fang Zheng yang diasuh secara pribadi oleh pemimpin klan.</p>
+<p>	Mo Bei tidak cocok dengan gaya bertarung ini, dan dengan cepat jatuh ke dalam kerugian.</p>
+<p>	“Eh? Sisi itu menarik.” Pertempuran di arena ini menarik banyak perhatian.</p>
+<p>	“Mereka benar-benar bertarung sangat dekat, Fang Zheng ini punya nyali.” Yao Hong sekarang bisa membedakan siapa Fang Yuan dan Fang Zheng. Fang Yuan memiliki ekspresi dingin dan memancarkan aura kedewasaan, sementara Fang Zheng berkemauan keras, memancarkan aura cerah.</p>
+<p>	“Itu pasti ajaran pemimpin klan. Biasanya ketika siswa berkelahi, mereka akan terpisah sepuluh meter. Lebih jauh dari jarak ini dan moonblade akan menghilang. Jika mereka bertarung lebih dekat dari jarak ini, para siswa tidak akan bereaksi tepat waktu.” Tatapan Gu Yue Qing Shu bersinar, “Jarak pertempuran Fang Zheng sekarang telah menyusut menjadi enam meter, tetapi kemampuannya untuk menghindari moonblade sangat mahir. Tampaknya tidak hanya pemimpin klan yang membantu Fang Zheng, tetapi Fang Zheng juga bekerja keras dan mengalami banyak kesulitan. ”</p>
+<p>	“Adik laki-laki!” Mo Yan melihat Mo Bei dipaksa ke sudut oleh Fang Zheng, menunjukkan kekhawatiran dan kepanikan di wajahnya. Dia benar-benar ingin masuk dan membantu, memukuli Fang Zheng dengan baik.</p>
+<p>	Namun Chi Shan tanpa ekspresi, hanya menonton dan tidak berbicara. Setelah Fang Zheng mendekati Mo Bei dan memperpendek jarak menjadi enam meter, dia tidak lagi mendekat, tetapi menggunakan Moonlight Gu dan memasuki kontes menembak.</p>
+<p>	Mo Bei berusaha keras untuk berimprovisasi. Tindakannya berantakan, dan berkali-kali dia hampir terkena pedang bulan, terus-menerus dalam bahaya.</p>
+<p>	Fang Zheng di sisi lain, sudah memiliki formula kemenangannya.</p>
+<p>	Bahkan jika dia tidak bisa menghindar tepat waktu, dia masih memiliki Jade Skin Gu, dan selama dia menggunakan cahaya hijau giok tepat waktu, dia akan bisa memblokir moonblade.</p>
+<p>	Melihat bagaimana Mo Bei dipukuli tanpa daya oleh dirinya sendiri, pikiran Fang Zheng terbang kembali ke masa lalu.</p>
+<p>	Di bawah sinar bulan, pemimpin klan mengajarinya gerakan penghindaran langkah demi langkah, tanpa pamrih memberinya semua pengalaman yang dia miliki.</p>
+<p>	“Pemimpin klan, aku tidak akan mengecewakanmu.” Mata Fang Zheng berkilauan dengan harapan, dia semakin berani saat dia bertarung!</p>
+<p>	“Fang Zheng, kamu memiliki bakat dan daya tahan, rajin berlatih. Hasilnya semua karena darah dan keringatmu. Ini adalah buah dari kerja kerasmu, teruskan seperti ini, Fang Zheng. Menggunakan aura ini, pergi dan tunjukkan kecemerlanganmu!” Di bawah tenda, pemimpin klan dengan bersemangat bersorak dalam hati, meskipun dia tampak seperti diam-diam menonton pertarungan, bibirnya melengkung menjadi senyuman.</p>
+<p>	Meskipun Mo Bei berjuang mati-matian, melawan dengan gigih, tapi setelah lima belas menit, seluruh tubuhnya penuh dengan luka, darah mengalir keluar dan mewarnai bajunya menjadi merah.</p>
+<p>	Tuan Gu yang mengatur, setelah melihat pemandangan seperti itu, mengumumkan, “Kemenangan jatuh ke tangan Gu Yue Fang Zheng.”</p>
+<p>	“Aku belum kalah!” Mo Bei berteriak keras, seluruh tubuhnya yang berlumuran darah bergetar di udara. Tetapi setelah berjuang tanpa akhir, dia terpaksa menerima perawatan oleh Master Gu yang menyembuhkan.</p>
+<p>	“Pertempuran dengan intensitas seperti itu sudah melampaui standar kelulusan.”</p>
+<p>	“Bakat kelas A, bagaimanapun juga jenius.”</p>
+<p>	“Aku dengar dia menerima bimbingan pribadi dari pemimpin klan, bukankah dia luar biasa?”</p>
+<p>	Melihat hasil seperti itu, para Master Gu di bawah panggung memuji tanpa henti.</p>
+<p>	Gu Yue Fang Zheng terengah-engah saat dia berjalan menuruni panggung. Tiga Master Gu datang kepadanya dan menyembuhkannya, sementara juga memberikan batu purba gratis untuk memungkinkannya memulihkan esensi purbanya dengan cepat.</p>
+<p>	Setelah beristirahat sebentar, dia pulih ke kondisi puncaknya dan naik ke atas panggung lagi.</p>
+<p>	Kali ini, dia melawan Gu Yue Chi Cheng.</p>
+<p>	Chi Cheng memandang Fang Zheng, tertawa datar, “Bagus sekali! Fang Zheng, kamu mengalahkan Mo Bei bajingan itu, jika aku mengalahkanmu sekarang, itu akan membunuh dua burung dengan satu batu.”</p>
+<p>	Dia tampak sangat percaya diri.</p>
+<p>	Bibir Fang Zheng tetap kencang, saat dia tidak mengatakan apa-apa selain bergegas ke arahnya.</p>
+<p>	“Gu kriket Dragonpill!” Pikiran Chi Cheng berkelebat, dan dengan segera cahaya berwarna merah jingga muncul dari kedua kakinya. Dia melompat ringan dan langsung mundur sepuluh meter jauhnya.</p>
+<p>	Jarak yang baru saja diperpendek oleh Fang Zheng segera diperpanjang.</p>
+<p>	“Hehehe.” Chi Cheng menjadi sombong dan tertawa, “Fang Zheng, kamu tidak memiliki kecepatan Gu yang meningkat, dan dengan kedua kakimu, kamu tidak dapat menangkapku. Meskipun panggung ini tidak besar, itu sudah cukup bagiku untuk bermanuver. Taktikmu mungkin berhasil pada Mo Bei, tapi melawanku itu tidak efektif.”</p>
+<p>	“Apakah begitu?” Fang Zheng menghentikan gerakannya dan berdiri di tempat, menatap tajam ke arah Chi Cheng.</p>
+<p>	Dia tersenyum, matanya menunjukkan tekad besi, berteriak keras, “Terus menghindar seperti itu, tetapi setiap kali kamu menggunakan Gu kriket Dragonpill, kamu harus menggunakan sejumlah esensi purba. Anda hanya memiliki peringkat satu esensi purba tembaga hijau tahap puncak, tetapi saya sudah berada di peringkat dua esensi purba baja merah, tiga kali daya tahan Anda. Bakatmu juga lebih rendah dariku. Pada akhirnya, kamu akan kehabisan esensi purba dan yang kalah adalah kamu!”</p>
+<p>	“Anda!” Chi Cheng kaget, dia hanya melihat kelebihannya tapi tidak menyadari kelemahannya. Saat ini, dia tidak bisa tidak setuju dengan Fang Zheng, dan semangat juangnya berkurang.</p>
+<p>	“Apa, Fang Zheng peringkat dua ?!” Master Gu di sekitarnya tersentak. Hasil pemeriksaan baru diperoleh sehari sebelumnya, sehingga hanya tersebar di kalangan tertentu saja, sehingga sebagian besar masyarakat belum mengetahuinya.</p>
+<p>	“Bakat A Grade tidak diragukan lagi, luar biasa, Fang Zheng ini mungkin benar-benar bintang yang sedang naik daun di klan kami.”</p>
+<p>	“Klan Bai memiliki Bai Ning Bing, dia benar-benar terlalu kuat. Jika Fang Zheng bisa tumbuh dewasa, dia mungkin bisa melawan Bai Ning Bing.”</p>
+<p>	“Anak ini menarik. Mendapatkan Peringkat dua di akademi dan dengan keterampilan dasar yang kuat, ini adalah pemandangan yang tidak biasa. Tidak heran pemimpin klan mencurahkan begitu banyak upaya padanya, ”gumam Yao Hong.</p>
+<p>	Qing Shu menjawab, “Bimbingan pemimpin klan hanyalah sebagian saja, jangan memandang rendah anak ini. Sejak dia selamat dari insiden pembunuhan, dia menjadi sangat pekerja keras, berkultivasi hingga batas kemampuannya, dia adalah bibit yang baik, dengan bakat dan kerja keras. Jika dia bisa tumbuh dewasa…, duh, aku merasa bebanku bertambah.”</p>
+<p>	“Hehehe.” Pemimpin klan Gu Yue Bo tertawa ringan.</p>
+<p>	Sifat lemah Chi Cheng dianalisis olehnya kepada Fang Zheng. Sekarang dia melihat Fang Zheng menggunakannya untuk keuntungannya, Gu Yue Bo sangat senang.</p>
+<p>	“Sepertinya Fang Zheng adalah yang nomor satu tahun ini.” Di samping pemimpin klan, kata Gu Yue Mo Chen.</p>
+<p>	Gu Yue Chi Lian mendengus, menatap pemandangan itu dengan saksama. Dia jelas berharap cucunya menang dan mengalahkan Fang Zheng, dengan begitu dia akan memenangkan kehormatan untuk faksi Chi.</p>
+<p>	Tetapi hal-hal tidak berjalan seperti yang dia inginkan, dan di atas panggung setelah mengalami demoralisasi, Chi Cheng tidak bisa lagi menampilkan kemampuan 100% melawan Fang Zheng, dan membuat kesalahan terus menerus.</p>
+<p>	Akhirnya, Chi Cheng tertangkap dengan kesalahan fatal, dan tersapu ke bawah panggung.</p>
+<p>	“Gu Yue Fang Zheng menang!” Gu Guru mengumumkan.</p>
+<p>	Wajah Gu Yue Chi Lian hitam.</p>
+<p>	Sekaligus, Fang Zheng terkenal, mendapatkan semua perhatian dari orang-orang klan.</p>
+<p>	“Fang Zheng mengalahkan Mo Bei dan Chi Cheng secara bersamaan dengan kecerdasan dan keberanian, sepertinya dia adalah tempat pertama tahun ini,” Beberapa orang memuji.</p>
+<p>	“Masuk akal, aku juga memikirkannya dengan baik. Sayang sekali dia tidak bisa bergabung dengan grup kami. ” Saat kelompok memilih siswa, siswa juga memilih kelompok. Seorang siswa unggulan seperti Fang Zheng sudah lama dipesan.</p>
+<p>	“Fang Zheng adalah fraksi pemimpin klan, sedangkan Mo Bei, Chi Cheng adalah fraksi Mo, pemimpin masa depan fraksi Chi. Dengan cara ini, tampaknya Klan Gu Yue akan sangat didominasi oleh faksi pemimpin klan, menekan dua tetua klan. Beberapa orang bisa melihat lebih jauh.</p>
+<p>	Di dua tahap lainnya, pertempuran berlanjut.</p>
+<p>	Fang Zheng berjalan menuruni panggung sejak lama, mendengar pujian orang-orang, hatinya bergemuruh saat dia merasa dirinya dilahirkan kembali.</p>
+<p>	Berbeda, sangat berbeda dari sebelumnya.</p>
+<p>	Hatinya dipenuhi dengan kegembiraan karena pengakuan, antisipasi untuk dihargai, dan kegembiraan karena dipuji.</p>
+<p>	Embusan angin musim dingin bertiup, dan meskipun dia merasakan angin dingin, Fang Zheng hanya bisa merasakan kehangatan seperti hari musim panas.</p>
+<p>	“Pertandingan terakhir, Gu Yue Fang Zheng vs Gu Yue Fang Yuan!” Beberapa saat kemudian, seorang penyiar berteriak.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

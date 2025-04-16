@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 134 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 134";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_133.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 134">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_135.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 134</h1>
+        <div class="text-left">
+<p>	Bab 134</p>
+<p>	Bab 134: Memburu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Jangan khawatir, kamu hanya peringkat dua, aku tidak akan merendahkan diriku dan memanfaatkanmu. Saya akan membatasi kultivasi saya ke peringkat yang sama demi Anda; jadi ayo, mari kita bertarung dengan adil!” Bai Ning Bing tertawa terbahak-bahak.</p>
+<p>	Menghadapi Bai Ning Bing yang gila, Fang Yuan dengan mudah mempertahankan ekspresi lesu. Dia bertemu dengan tatapan panas dengan cara yang sama, merespons dengan dingin.</p>
+<p>	“Ingin membunuhku, lalu datang.”</p>
+<p>	Tidak ada yang tersisa untuk dikatakan, Fang Yuan mengambil langkah pertama, tubuhnya melayang seperti kelopak yang jatuh.</p>
+<p>	Tawa Bai Ning Bing tiba-tiba berhenti karena ini, suaranya dengan mudah dinodai oleh kesedihan.</p>
+<p>	“Jangan lari dariku!”</p>
+<p>	Dia langsung berlari mengejar, melibatkan Fang Yuan dalam pengejaran tanpa henti.</p>
+<p>	Fang Yuan menertawakan tuan yang acak-acakan itu tanpa suara, berlari menuju lembah gunung.</p>
+<p>	Terganggu oleh dua orang yang menerobos ke dalam medan perang bagian dalam lembah, kawanan serigala itu bereaksi dengan marah, tidak membuang waktu untuk menyerang Fang Yuan dan Bai Ning Bing.</p>
+<p>	Master Gu yang telah dipaksa masuk ke lembah dan kehilangan satu orang memperhatikan tontonan itu, empat orang lainnya mengungkapkan ekspresi lega ketika mereka melihat serigala menjadi terganggu.</p>
+<p>	“Tunggu di sana teman-teman, bala bantuan ada di sini!” Salah satu bahkan berteriak keras, terang-terangan mencoba untuk mendorong serigala melawan pendatang baru.</p>
+<p>	“Kenapa hanya ada dua?” Yang lain bertanya, tidak mengerti ketika mereka melihat sosok Fang Yuan dan Bai Ning Bing yang teredam.</p>
+<p>	Tapi saat mereka semakin dekat, wajah Gu Yue Man Shi berubah aneh karena sadar.</p>
+<p>	“Itu dia!”</p>
+<p>	Mustahil baginya untuk tidak mengingat Fang Yuan, bersama dengan perasaan takut yang tajam bercampur dengan rasa malu; pria inilah yang telah mengalahkan dan mempermalukannya di depan umum. Mata yang dingin dan tanpa ampun itu menggali mimpi buruk terdalam di hatinya. Dia tidak akan pernah melupakan peristiwa mengerikan itu dan pria jahat yang menemani ingatan itu.</p>
+<p>	Dia pernah bersumpah pada dirinya sendiri bahwa dia akan melawan dan merebut kembali harga dirinya.</p>
+<p>	Tapi sekarang, dihadapkan dengan Fang Yuan yang ada di sini untuk ‘menyelamatkan’ dia, Gu Yue Man Shi merasa sangat rumit secara internal.</p>
+<p>	“Tunggu, orang kedua adalah …”</p>
+<p>	Mereka semua bisa mengenali Bai Ning Bing, dan menunjukkan tanda-tanda keterkejutan kolektif atas penampilannya.</p>
+<p>	“Bai Ning Bing. . . Bai Ning Bing!” Mata Gu Yue Man Shi melebar, dia tidak berharap sedikit pun untuk tiba-tiba melihat Bai Ning Bing muncul dalam situasi seperti itu.</p>
+<p>	“Bajingan, berhenti di situ!” Di belakangnya, Bai Ning Bing terus berteriak keras.</p>
+<p>	Fang Yuan tidak memperhatikan, bagaimanapun, dan melintasi di antara sekawanan serigala.</p>
+<p>	Tubuhnya bersinar dengan cahaya batu giok putih, melindunginya dari gigitan dan cakaran serigala petir. Tetapi karena setiap serangan membuat kontak, esensi primeval aperture-nya turun dengan cepat secara bergantian.</p>
+<p>	Tidak jauh dari sana, hidung Bai Ning Bing telah melebar dan mengeluarkan uap air, membentuk perisai bundar dari uap air yang kental, menyelimuti tubuhnya.</p>
+<p>	Namun, saat masing-masing dari banyak serigala petir menabrak perisai air ini, semua kekuatan kinetik mereka yang terbentuk oleh muatan mereka hanya tersebar oleh aliran air, dan mereka dengan cepat dikirim terbang menjauh setelahnya dengan riak air yang menggema.</p>
+<p>	Berbicara secara logis, kinerja Bai Ning Bing sekarang tidak terlalu mengesankan. Dia sudah menjadi peringkat tiga, meskipun menurutnya, dia sepertinya telah menekan kultivasinya secara pribadi, hanya menggunakan kekuatan peringkat dua untuk berurusan dengan Fang Yuan.</p>
+<p>	Bahkan dengan kekuatan peringkat dua, kecepatan Bai Ning Bing sedikit lebih cepat daripada Fang Yuan, dan dia memiliki lebih banyak esensi purba, tetapi dengan gangguan dari kelompok serigala, jaraknya dengan Fang Yuan mulai meningkat.</p>
+<p>	Faktor penentu yang penting adalah perbedaan kekuatan fisik di antara keduanya.</p>
+<p>	Fang Yuan memiliki kekuatan dua babi hutan, sementara kekuatan Bai Ning Bing memiliki kualitas yang sedikit lebih rendah. Fang Yuan juga bisa menahan serangan gerombolan serigala dan terus bergerak maju. Perisai air Bai Ning Bing, meskipun mampu mengurangi beberapa serangan, tidak bisa membuka jalan untuknya, tidak seperti Fang Yuan.</p>
+<p>	“Melolong!”</p>
+<p>	Satu serigala petir yang sangat berani mulai memperhatikan dan tertarik pada Fang Yuan dan Bai Ning Bing.</p>
+<p>	Itu melolong, memerintahkan serigala petir biasa di sekitarnya untuk memberi jalan, membuka jalan untuknya secara instan.</p>
+<p>	Serigala petir tidak membuang waktu dan merentangkan anggota tubuhnya, menyerbu ke arah Fang Yuan.</p>
+<p>	Melihat adegan ini, keempat Master Gu yang terperangkap semuanya menunjukkan ekspresi khawatir.</p>
+<p>	Adapun Bai Ning Bing, masih di belakang Fang Yuan, setelah melihat perkembangan baru ini, tertawa terbahak-bahak.</p>
+<p>	Tapi saat berikutnya, tubuh Fang Yuan menghilang tepat di depan mata Bai Ning Bing, menghilang dari pandangannya seperti riak air yang berlalu.</p>
+<p>	Tawanya tiba-tiba terputus saat melihatnya, Master Gu lainnya di lembah juga tidak bisa berkata-kata.</p>
+<p>	Serigala petir yang berani melolong marah setelah kehilangan jejak Fang Yuan, tetapi tidak mengurangi kecepatannya saat menyerbu ke arah Bai Ning Bing untuk melampiaskan kemarahannya padanya.</p>
+<p>	Ini mendorong senyum dari Bai Ning Bing, bibirnya melengkung sekali lagi karena geli.</p>
+<p>	“Hehehe, ini sangat menarik- kamu benar-benar menarik! Hahaha, kalau begitu aku akan mulai makan dengan makanan pembuka ini!”</p>
+<p>	Saat dia selesai berbicara, matanya beralih, berubah dari hitam menjadi warna biru yang sama dengan warna langit.</p>
+<p>	Mengambil sikap, dia menopang satu kaki seperti flamingo, mengulurkan bilah es, dan mulai berputar. Dengan cepat menambah kecepatan, bilah es mengukir banyak gelombang jejak pedang, bermanuver dan menebas udara untuk membentuk pemandangan yang mirip dengan tornado.</p>
+<p>	Gelombang pedang yang cerah membeku menjadi badai badai salju dan dengan cepat menelan kawanan serigala.</p>
+<p>	Banyak serigala petir tercabik-cabik oleh tindakan itu, menjadi potongan daging cincang yang terlempar oleh badai. Tapi tidak banyak darah yang akhirnya berceceran di sekitarnya, karena hampir semuanya sudah benar-benar beku oleh badai badai salju.</p>
+<p>	Serigala petir yang berani melolong, menunjukkan keganasannya melawan badai. Cacing Gu di tubuhnya mulai bekerja juga, menyebabkan percikan listrik keemasan berkedip di seluruh mantel kasarnya.</p>
+<p>	Rambut di tubuhnya berdiri tegak, listrik keemasan mengalir seperti rantai, melingkari tubuh dan anggota tubuhnya. Secara keseluruhan itu membentuk apa yang tampak seperti chainmail sederhana.</p>
+<p>	Keempat cakarnya berlari dan melesat seperti bintang jatuh emas, bergegas ke badai bilah es.</p>
+<p>	“Bam!”</p>
+<p>	Ledakan menggelegar terdengar melalui lembah saat badai bilah es berhenti, pecahan bilah es terbang di udara dan dengan swoosh, menusuk batu gunung di atas.</p>
+<p>	Kabut putih menyebar di sekitar area.</p>
+<p>	Serigala petir yang berani berbaring di tanah yang terbuka, jantungnya ditusuk oleh bilah es. Serangan fatal seperti itu mengakhiri hidupnya hampir seketika.</p>
+<p>	Bai Ning Bing tertawa saat dia menarik kembali bilah es di tangannya, bermegah dalam kemenangannya.</p>
+<p>	Bilah es itu sendiri pecah dari tengah ke bawah, bilah yang berhasil bertahan penuh dengan retakan, tampak dalam keadaan menyedihkan di genggamannya. Tapi Bai Ning Bing tidak peduli saat dia mengulurkan tangan kirinya dan menyeka pedangnya.</p>
+<p>	Kabut es dari sebelumnya terpancar dari tangan kirinya saat disentuh, menyebar ke seluruh bilah mulai dari pegangan sebelum menutupinya sepenuhnya.</p>
+<p>	Di mana pun ia mencapai, bilah es diregenerasi, ujungnya diasah sekali lagi. Segera ujung baru tumbuh sepenuhnya menggantikan ujung yang patah.</p>
+<p>	Kematian serigala petir yang berani telah membubarkan gerombolan serigala, tetapi Fang Yuan tidak terlihat di mana pun.</p>
+<p>	“Kami pasti akan mengingat tindakan Lord Bai Ning Bong menyelamatkan kami!” Beberapa Guru Gu yang selamat naik dan dengan penuh rasa terima kasih memberi hormat kepada Bai Ning Bing.</p>
+<p>	Hanya Gu Yue Man Shi yang tetap di tempat, ekspresinya tidak menentu.</p>
+<p>	Saat itu, dia kalah dari Bai Ning Bing, dan sangat marah, tetapi dilepaskan oleh Bai Ning Bing. Sekarang, meskipun dia telah berhasil menyempurnakan Monolith Gu, setelah melihat Bai Ning Bing lagi, dia tidak memiliki kepercayaan diri untuk menantangnya lagi.</p>
+<p>	Bai Ning Bing mendengus. Tiba-tiba lengannya bergerak, dan bilah es menarik beberapa jejak bersinar di udara.</p>
+<p>	“Ini…”</p>
+<p>	“Ah!”</p>
+<p>	Tiga Master Gu tertangkap basah, tidak mengharapkan penyelamat mereka beberapa saat yang lalu untuk menyerang. Mereka membawa ekspresi tidak percaya saat mereka berbaring di tanah, selamanya.</p>
+<p>	“Bai Ning Bing, apa yang kamu lakukan ?!” Gu Yue Man Shi berteriak, kaget dan marah atas pembunuhan yang tiba-tiba itu.</p>
+<p>	“Membunuh tentu saja. Apakah ada yang salah di kepala Anda, bukankah ini sudah jelas? ” Bai Ning Bing mengangkat bahu dan tertawa dingin.</p>
+<p>	“Bajingan terkutuk!” Gu Yu Man Shi dengan erat mengepalkan tinjunya karena marah saat dia mengertakkan gigi dan memarahi tuan lainnya. “Tiga klan kami telah membentuk aliansi, namun Anda menyerang klan Gu Yue kami; ini adalah pelanggaran terhadap perjanjian aliansi kita! Jika Anda memiliki masalah, datang pada saya, saya di sini. Sudahlah, sudah saatnya kita menyelesaikan dendam kita sejak saat itu! ”</p>
+<p>	Mengatakan demikian, Gu Yue Man Shi berteriak dan mengambil beberapa langkah, menyerbu ke arah Bai Ning Bing.</p>
+<p>	Dia mengaktifkan Monolith Gu dengan seluruh kekuatannya, dan semua otot di tubuhnya menggembung sementara kulit batu yang tebal terbentuk. Seluruh penampilannya telah berubah menjadi pria rock.</p>
+<p>	“Mencari kematian.” Bai Ning Bing tertawa dingin, mengangkat pedangnya.</p>
+<p>	Bilah es yang tajam turun tanpa henti, pertama-tama menebas kepala Gu Yue Man Shi, bergerak ke bawah melewati alisnya sebelum mengukir hidung, bibir, dan tenggorokannya. Bilahnya dengan cepat berhenti setelah membelah Master Gu melewati dadanya dalam sekejap.</p>
+<p>	Fragmen batu terbang keluar saat bilah es mengenai perut, dan bilahnya patah. Tapi kabut es telah membekukan semua sisa kekuatan hidup yang tersisa di tubuh Man Shi.</p>
+<p>	“Celepuk.”</p>
+<p>	Dia jatuh ke tanah dengan percikan, semati mungkin.</p>
+<p>	Kulit batu di tubuhnya perlahan menghilang, mengungkapkan bentuk aslinya.</p>
+<p>	“Kelihatannya familiar…” Bai Ning Bing menggoyangkan pergelangan tangan yang terluka oleh getaran batu; dia sudah cukup melupakan kejadian di mana dia menyelamatkan Man Shi.</p>
+<p>	Dia menggelengkan kepalanya, berbalik dan menghadap ke lembah yang luas untuk berteriak.</p>
+<p>	“Keluar. Master Gu yang Anda inginkan mati, saya telah melakukannya untuk Anda. Ayo datang, ayo kita bertanding hidup dan mati!”</p>
+<p>	Tepat ketika kata-kata Bai Ning Bing selesai, Fang Yuan muncul tidak jauh.</p>
+<p>	Tatapan pemuda berambut putih itu menjadi bersemangat, saat dia mengangkat bilah esnya, menebas ke arah Fang Yuan.</p>
+<p>	Fang Yuan tertawa tanpa suara pada tindakan itu, berbalik dan pergi.</p>
+<p>	Bai Ning Bing berteriak marah bahwa dia masih melarikan diri, sekali lagi mengejar Fang Yuan tanpa henti.</p>
+<p>	Di tengah perjalanan, Fang Yuan memancing Bai Ning Bing ke medan pertempuran yang paling dekat, di mana kelompok Xiong Li bertarung melawan kelompok serigala lain yang dipimpin oleh serigala petir yang berani.</p>
+<p>	Paket ini jelas terpikat oleh Fang Yuan juga.</p>
+<p>	“Semua orang berusaha lebih keras, kawanan serigala sudah mencapai batasnya! Arah tenggara mengirim sinyal marabahaya, sudah lama, mereka membutuhkan bantuan kita!” Xiong Li mendesak kelompoknya, tetapi di tengah jalan, dia tidak bisa lagi berbicara ketika dia melihat Fang Yuan, dan Bai Ning Bing terus-menerus di belakangnya.</p>
+<p>	Sejak Fang Yuan menyerah, Xiong Li tidak lagi peduli padanya. Dengan demikian, tatapannya dengan cepat beralih dari Fang Yuan ke Bai Ning Bing.</p>
+<p>	“Bai Ningbing!” Mata Xiong Li memuntahkan api saat melihat pria muda berambut putih berpakaian putih, hatinya tumbuh tak terkendali dengan kemarahan.</p>
+<p>	Belum lama ini, Bai Ning Bing muncul di depannya dan menyerang tanpa sepatah kata pun, peristiwa itu masih segar di benaknya.</p>
+<p>	Dan sengaja menekan kultivasinya ke Peringkat dua.</p>
+<p>	Xiong Li tertangkap basah, dan kalah dalam pertempuran. Kehormatan pribadinya, dan kemuliaan klan, semuanya diinjak-injak oleh Bai Ning Bing dengan kejam! Ini baginya, adalah aib besar, bagaimana mungkin dia tidak marah?</p>
+<p>	“Tunggu, Bai Ning Bing sepertinya mengejar Fang Yuan.” Xiong Lin tiba-tiba menyadarinya.</p>
+<p>	Tubuhnya pendek, kepala botaknya yang bulat bersinar terang. Xiong Lin seusia dengan Fang Yuan, tetapi memiliki bakat kelas B sebagai gantinya, dia adalah bakat nomor satu di antara Master Gu baru klan Xiong seusia.</p>
+<p>	Dia adalah seorang kultivator peringkat dua juga sekarang, dan setelah mendapatkan beberapa pengalaman, telah tumbuh dewasa.</p>
+<p>	Xiong Li menekan keinginan untuk menyerang.</p>
+<p>	Fang Yuan berasal dari klan Gu Yue, bukan dari klan Xiong-nya. Meskipun ada aliansi tiga klan, mereka masih belum dekat. Karena ini adalah pertempuran orang luar, yang terbaik adalah jika seseorang tidak terlibat.</p>
+<p>	Kelompok Xiong Li hendak menonton di sela-sela, tetapi bagaimana mungkin Fang Yuan tidak mengharapkan itu? Satu kalimat darinya mengubah perspektif mereka dalam sekejap.</p>
+<p>	Fang Yuan dengan cepat mendekati kelompok Xiong Li, berteriak dengan suara ketakutan.</p>
+<p>	“Aku melihat Gu Penjarahan padanya, lindungi aku! Bai Ning Bing mencoba melenyapkan semua saksi!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

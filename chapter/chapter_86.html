@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 86 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 86";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_85.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 86">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_87.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 86</h1>
+        <div class="text-left">
+<p>	Bab 86</p>
+<p>	Babak 86: Kecurigaan dan Penyelidikan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di atas panggung, Fang Zheng pingsan di tanah tanpa ada gerakan lagi darinya.</p>
+<p>	Namun Fang Yuan melanjutkan dengan ekspresi dinginnya, berdiri di tengah panggung.</p>
+<p>	Setelah keheningan sesaat, kerumunan meletus.</p>
+<p>	“Bagaimana ini bisa?” Beberapa orang memeluk kepala mereka, mengungkapkan ekspresi tidak percaya.</p>
+<p>	“Dua pukulan menghancurkan pertahanan Jade Skin Gu, ini-ini-ini…” Beberapa orang terpaku.</p>
+<p>	“Terlalu buas, bahkan cahaya batu giok dihancurkan olehnya, apakah dia tidak merasakan sakit?” Beberapa Master Gu wanita menarik napas dingin.</p>
+<p>	“Tanpa cacing Gu defensif dan menggunakan tangan kosongnya untuk memecahkan cahaya batu giok, ini benar-benar melukai diri sendiri!” Bahkan mata Tuan Gu pria berkedut saat melihat tangan Fang Yuan, dan dikejutkan oleh kekejamannya.</p>
+<p>	Bersikap kejam kepada orang lain, itu mudah, tetapi menjadi kejam terhadap diri sendiri, itu sulit.</p>
+<p>	Fang Yuan menggunakan tangan kosongnya untuk menghancurkan pertahanan Jade Skin Gu, itu tidak hanya biadab pada adiknya, tetapi bahkan lebih keras pada dirinya sendiri!</p>
+<p>	“Aku akan pergi melihatnya.” Tetua akademi tidak tahan lagi, dan setelah berkata begitu, dia melompat ke atas panggung.</p>
+<p>	Dia pertama-tama berjongkok dan mengamati Fang Zheng yang pingsan, menghela nafas lega ketika dia menemukan bahwa Fang Zheng tidak dalam kondisi kritis. Kepalanya baru saja mengalami benturan yang sangat besar, menyebabkan dia jatuh pingsan.</p>
+<p>	“Luar biasa, dengan pertahanan Jade Skin Gu, dia masih menderita luka berat dari seseorang yang menggunakan tangan kosong mereka.” Penatua akademi terkejut secara internal, mengangkat kepalanya dan menatap Fang Yuan, matanya bersinar dengan cahaya yang ganas.</p>
+<p>	“Fang Yuan, aku akan menyembuhkanmu.” Penatua akademi berdiri, mengambil beberapa langkah besar menuju Fang Yuan dan meraih lengan bawahnya.</p>
+<p>	Lengan Fang Yuan berada dalam kondisi yang mengerikan. Tidak hanya darah dan kulit yang samar-samar dihaluskan, bahkan tulangnya pun terungkap. Karena benturannya yang besar juga terjadi retakan pada tulang.</p>
+<p>	“Seberapa intens rasa sakit ini, namun dia bahkan tidak mengerutkan kening sedikit pun.” Bahkan jika itu adalah sesepuh akademi, hatinya bergidik melihat luka seperti itu.</p>
+<p>	Nada suaranya rumit, berkata kepada Fang Yuan, “Tahan, penyembuhannya sangat gatal dan juga sangat menyakitkan.”</p>
+<p>	Mengatakan demikian, kelima jarinya terbuka lebar dan memancarkan gelombang cahaya bulan biru. Cahaya bulan menjadi lebih terang dan menyebabkan tangan kanan sesepuh akademi menjadi tembus cahaya.</p>
+<p>	Sekilas, seluruh tangan kanan sesepuh akademi itu seperti sepotong batu giok biru, pembuluh darah dan tulang semuanya berubah menjadi batu giok.</p>
+<p>	Penatua akademi dengan ringan mengangkat tangan kanannya dan menutupi kepalan tangan Fang Yuan yang terluka.</p>
+<p>	Itu seperti sepotong batu giok dingin yang menyentuh luka yang dilumuri darah dan daging. Fang Yuan merasakan sakit yang menusuk hati, tetapi dia menggertakkan giginya dan tidak mengeluarkan suara.</p>
+<p>	Tangan sesepuh akademi memancarkan cahaya bulan yang lembut dan cahaya bulan menyuburkan tempat luka Fang Yuan.</p>
+<p>	Pada tulang, retakan mulai membaik, dan daging serta kulit mulai tumbuh dengan cepat dan sembuh.</p>
+<p>	Fang Yuan merasakan gatal yang hebat, menyebabkan dia terengah-engah.</p>
+<p>	Ekspresi sesepuh akademi itu tenang. Saat menyembuhkan Fang Yuan, dia mengalihkan sebagian konsentrasinya ke lengan Fang Yuan, dan juga memeriksa bukaannya.</p>
+<p>	Di aperture, esensi purba tembaga berwarna hijau hitam mengamuk seperti ombak di laut.</p>
+<p>	Cacing minuman keras putih dan gemuk sedang berenang dan bermain di laut purba.</p>
+<p>	Keempat dinding lubang semuanya terbuat dari dinding kristal berwarna putih. Ini menunjukkan kultivasi tahap puncak peringkat satu Fang Yuan dengan jelas.</p>
+<p>	Penatua akademi tidak memalingkan muka, tetapi terus memindai tubuh Fang Yuan.</p>
+<p>	Akhirnya, dia menemukan bahwa di telapak tangan Fang Yuan, ada Moonlight Gu dan Little Light Gu.</p>
+<p>	“Tidak ada cacing Gu lainnya, apakah Fang Yuan benar-benar menggunakan kekuatannya sendiri untuk mematahkan pertahanan Gu Kulit Giok? Kekuatan seperti itu jauh melampaui orang dewasa fana. Dia baru berusia lima belas tahun, bagaimana dia bisa memiliki kekuatan seperti itu? ” Mata sesepuh akademi bersinar dengan kecurigaan.</p>
+<p>	“Tetua klan, terima kasih atas perawatanmu.” Fang Yuan mengambil kembali lengannya dari sesepuh akademi dan mengguncangnya.</p>
+<p>	Meskipun masih ada sedikit rasa sakit, lukanya sudah sembuh. Jika ini kembali ke Bumi, cedera seperti itu akan membutuhkan satu atau dua tahun untuk sembuh dan bahkan akan meninggalkan beberapa efek samping yang serius.</p>
+<p>	Ini adalah aspek magis dari dunia ini. Sekarang setelah lengan Fang Yuan sembuh, meskipun dia masih merasa seperti lemah ketika dia meraih udara atau melambaikannya, tujuh atau delapan hari kemudian, efek samping yang tidak kuat akan hilang.</p>
+<p>	Tapi Fang Yuan tidak berterima kasih kepada sesepuh akademi. Cederanya juga bisa disembuhkan oleh Master Gu penyembuh lainnya, dan dia sangat sadar: motif sesepuh akademi adalah untuk memeriksa celahnya.</p>
+<p>	Fang Yuan sudah mengharapkan ini sejak awal, jadi dia meninggalkan White Boar Gu dan Jade Skin Gu di gua rahasia kedua. Adapun Jangkrik Musim Gugur Musim Semi, dengan status Peringkat enam, jika ingin bersembunyi, bahkan Gu Yue Bo Peringkat empat tidak akan menemukannya jika dia memeriksanya secara pribadi.</p>
+<p>	Tetua akademi tidak menemukan apa pun, dan itu menyebabkan dia mengerutkan kening. Meskipun dia masih curiga di dalam hatinya, tetapi di depan begitu banyak orang, dia tidak memiliki kesempatan yang tepat untuk bertanya.</p>
+<p>	“Fang Yuan, kamu tampil bagus, terus bekerja keras.” Akhirnya, tetua akademi menepuk bahu Fang Yuan dan menyatakan dengan keras, “Ujian akhir tahun ini, tempat pertama jatuh ke Fang Yuan!”</p>
+<p>	Sejak kenaikan sesepuh akademi ke atas panggung, penonton menyaksikan dengan tenang. Setelah mendengar pengumumannya, mereka mulai berdiskusi dengan sungguh-sungguh.</p>
+<p>	“Untuk berpikir bahwa pada akhirnya, Fang Yuan tertawa terakhir!”</p>
+<p>	“Dia hanya kelas C, tapi dia mengalahkan peringkat dua Fang Zheng yang memiliki Gu Kulit Giok, apakah dia curang?”</p>
+<p>	“Mungkin tidak, dari perawatan dan pemeriksaan pribadi sesepuh akademi. Jika dia tidak menemukan masalah, Fang Yuan mungkin tidak curang.”</p>
+<p>	“Tinju Fang Yuan terluka parah, itu normal. Tapi sebagai anak berusia lima belas tahun, memiliki kekuatan yang jauh melebihi orang dewasa, bukankah itu mencurigakan?”</p>
+<p>	“Apa yang perlu dicurigai? Selalu ada orang yang terlahir dengan bakat aneh. Entah kekuatan super, atau super pintar, sebenarnya kekuatan Fang Yuan tidak begitu menakutkan, pikirkan tentang pria itu. ” Guru Gu yang berbicara menunjuk pada Chi Shan yang berdiri.</p>
+<p>	Orang-orang langsung tercerahkan, “Oh ya. Ketika Chi Shan masih kecil, kekuatannya sudah lebih besar dari orang dewasa, apakah Fang Yuan juga monster seperti itu?”</p>
+<p>	“Itu harus begitu. Ketika Fang Yuan masih muda, dia bisa membuat puisi. Puisi-puisi itu terkenal di sekitar desa saat itu. Kami mengira dia kelas A, tapi ternyata dia kelas C, tapi sepertinya surga punya rencana lain dan memberinya kekuatan.”</p>
+<p>	“Dia masih kelas C, jika dia kelas B dia akan menjadi Chi Shan yang lain. Hmph, tidak ada yang perlu iri, kultivasi Master Gu bergantung pada bakat mereka. Jika saya bisa mendapatkan Black Boar Gu di masa depan, saya akan memiliki kekuatan yang lebih besar dari dia. Itu tidak banyak, dia hanya bisa sombong untuk sementara waktu. ” Beberapa orang mengangkat bahu, berbicara tidak peduli.</p>
+<p>	Fang Yuan berjalan menuruni panggung, matanya menangkap diskusi orang-orang saat dia menyeringai dingin di dalam hatinya.</p>
+<p>	Asal usul cacing Liquor sudah dijelaskan dengan sempurna oleh Fang Yuan, tetapi begitu Gu Kulit Giok terbuka, Fang Yuan tidak akan bisa menjelaskannya. Karena itu, dia harus merahasiakan ini dan tidak bisa menggunakannya di depan umum.</p>
+<p>	Adapun pemikiran dan penjelasan orang-orang ini, itu adalah arah yang diinginkan Fang Yuan. Atau lebih tepatnya, bahkan jika para petinggi curiga, mereka hanya akan curiga pada pendukung misteriusnya.</p>
+<p>	“Setengah tahun yang lalu, saya mempertaruhkan bahaya dan menggunakan taring babi hutan untuk membuat lapisan perlindungan kedua di kamp. Itu akhirnya mulai bermain. ” Mata Fang Yuan gelap seperti jurang.</p>
+<p>	Pemimpin klan Gu Yue tidak duduk. Dia terus berdiri dan mengerutkan kening dalam-dalam.</p>
+<p>	Masalah ini telah berkembang di luar kendalinya.</p>
+<p>	Fang Yuan mendapatkan tempat pertama, dia tidak terlalu peduli. Itu hanya tempat pertama ujian akhir tahun, tidak ada yang signifikan.</p>
+<p>	Dia khawatir tentang Gu Yue Fang Zheng.</p>
+<p>	Tidak dapat disangkal, dampak hari ini terlalu besar pada Fang Zheng.</p>
+<p>	Jika Fang Zheng dipukuli sepenuhnya sejak awal dan kalah dalam pertarungan, biarlah. Tapi itu hanya harus pada titik di mana dia menggunakan kekuatan penuhnya dan mendapat dorongan kepercayaan diri yang besar, bahwa dia dikirim terkapar oleh dua tinju Fang Yuan.</p>
+<p>	Trauma psikologis semacam itu dapat berdampak negatif pada pertumbuhannya.</p>
+<p>	“Di bawah bimbingan dan pengaturan saya, Fang Zheng adalah yang pertama maju ke tahap atas, tahap puncak dan peringkat dua tahap awal, terus mendapatkan kesuksesan dan kepercayaan diri. Tapi kepercayaan diri ini mungkin sudah hilang sekarang. Huh, kerja kerasku sudah habis seperti asap.” Gu Yue Bo menghela nafas dalam-dalam, secara alami mendapatkan sedikit rasa jijik dan benci terhadap Fang Yuan.</p>
+<p>	Jika Fang Yuan kalah dari Fang Zheng, semuanya akan sempurna.</p>
+<p>	Tapi dia benar-benar menang, itu terlalu… menyebalkan.</p>
+<p>	Tidak hanya pemimpin klan, tetapi para tetua klan lainnya juga penuh dengan tatapan serius dan kompleks.</p>
+<p>	“Kekuatan Fang Yuan sebenarnya sangat besar, apakah dia benar-benar monster seperti Chi Shan?”</p>
+<p>	“Sebenarnya, dia aneh sejak muda, membuat puisi ketika dia masih muda dari sepuluh tahun, jadi kekuatannya semakin besar saat dia dewasa bukanlah hal yang aneh.”</p>
+<p>	“Tapi ada kemungkinan lain, dan itu adalah tindakan manusia. Fang Yuan memiliki pendukung misterius, mungkin pendukung itu membantunya.”</p>
+<p>	“Tapi orang di belakangnya, siapa itu?”</p>
+<p>	Hati para tetua klan terbalik, tetapi ekspresi mereka mengatakan sebaliknya.</p>
+<p>	Pemimpin klan Gu Yue Bo terdiam sebelum mengungkapkan senyum, berkata, “Fang Yuan, mendapatkan tempat pertama dengan bakat kelas C, ini adalah prestasi besar yang belum pernah terjadi sebelumnya! Menjadi tempat pertama, Anda memiliki seratus batu purba sebagai hadiah dan juga prioritas pemilihan cacing Gu. Sekarang, saya akan memberi Anda hadiah lebih lanjut, Anda dapat memilih grup kecil mana pun yang Anda inginkan dan bergabung dengannya. Terlepas dari grup, mana pun yang Anda inginkan, katakan saja dan Anda dapat bergabung! ”</p>
+<p>	Setelah mengatakan itu, semua Master Gu dan siswa peringkat dua menatap Fang Yuan dengan iri.</p>
+<p>	Kelompok-kelompok kecil juga memiliki perbedaan, dan bergabung dengan kelompok yang baik berarti masa depan yang cerah. Hadiah Gu Yue Bo sangat murah hati.</p>
+<p>	“Meskipun saya membuat keputusan ini di tempat, saya percaya para tetua klan di sini akan setuju dengan saya,” Gu Yue Bo tersenyum lebih intens, melihat para tetua klan di sampingnya.</p>
+<p>	Dengan Gu Yue Chi Lian dan Gu Yue Mo Chen sebagai kepala tetua klan, semua wajah mereka muram dan beberapa bahkan mengerutkan kening, tetapi tidak ada yang menghentikannya.</p>
+<p>	Hati Fang Yuan melonjak.</p>
+<p>	Masalah telah datang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

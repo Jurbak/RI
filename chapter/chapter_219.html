@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 219 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 219";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_218.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 219">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_220.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 219</h1>
+        <div class="text-left">
+<p>	Bab 219</p>
+<p>	Bab 219: Memasuki gunung Bai Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Setelah beberapa saat, pemimpin klan Bai mengalihkan pandangannya dari peta, menyerah.</p>
+<p>	Gunung Bai Gu sangat besar, meskipun jangkauannya terbatas pada gunung belakang, masih jauh untuk menentukan lokasi yang tepat.</p>
+<p>	“Anak Gu Yue itu, dia berjaga-jaga terhadap klan Bai kami dan tidak akan menanyakan arah secara langsung. Sepertinya untuk mengetahui lokasi mata air roh, kita perlu mengalah!” Pemimpin klan Bai mengertakkan gigi, mengevaluasi.</p>
+<p>	Begitu mereka mendapatkan lokasi mata air roh, klan Bai akan mengadakan penyelidikan menyeluruh.</p>
+<p>	“Tapi jika kelompok binatang di sekitar mata air roh tidak banyak, dan harga untuk membunuh mereka tidak besar, aku akan menyerang secara langsung. Bagaimanapun, kita memiliki inisiatif untuk bertindak terlebih dahulu! Tetapi jika binatang buas dan cacing gu di sekitarnya terlalu banyak, kami akan memberikan dukungan dan memperkuat klan Gu Yue, membuat mereka menanggung beban serangan, sementara kami menunggu kesempatan untuk menuai hasilnya setelahnya. Jika kita melakukannya dengan baik, kita mungkin akan menyerap sisa-sisa klan Gu Yue. Hehehe…”</p>
+<p>	Memikirkan rencana besar itu, pemimpin klan Bai tertawa.</p>
+<p>	Dia tidak tahu sekarang, bahwa apa yang disebut sisa-sisa Gu Yue hanyalah kebohongan besar.</p>
+<p>	Faktanya, Fang Yuan memperoleh informasi yang lebih berharga dari Bai Lian.</p>
+<p>	Warisan yang benar ada di gunung belakang gunung Bai Gu, Fang Yuan tidak memalsukan informasinya.</p>
+<p>	Namun, ada banyak tulang binatang di gunung belakang, dan bahkan lebih banyak cacing Gu mendominasi daerah itu, akan sulit dan penuh rintangan untuk mengklaim daerah itu sebagai wilayah klan.</p>
+<p>	Dia tahu dari kata-kata Bai Lian, bahwa ada beberapa yang dilebih-lebihkan, mengandalkan pengalamannya selama lima ratus tahun, dia menyaring bagian yang dilebih-lebihkan, dan memperoleh satu kebenaran —— jika dia dan Bai Ning Bing bekerja sama, untuk sampai ke tanah warisan, itu akan memakan waktu setidaknya setengah tahun.</p>
+<p>	Situasi di gunung Bai Gu tidak seperti hutan. Ada sejumlah besar kelompok binatang buas, dan banyak binatang buas dan cacing gu berbahaya mengintai. Banyak area yang perlu dihindari dan beberapa tempat bahkan perlu dihindari.</p>
+<p>	Begitu kembali ke desa, seperti yang dikatakan Bai Sheng Jing, hasil pertempuran mereka lebih unggul dari Bai Zhan Lie.</p>
+<p>	Setelah seharian beredar, kompetisi ini dikenal luas.</p>
+<p>	Kelimanya berjalan di perkemahan, menerima banyak perhatian.</p>
+<p>	“Senior Bai Lian menang hari ini.”</p>
+<p>	“Itu hanya Tuan Bai Zhan Lie yang tidak beruntung. Anda tahu, berburu bergantung pada keberuntungan juga. Jika Anda tidak menemukan mangsa langka, lalu bagaimana jika Anda memiliki kekuatan?”</p>
+<p>	“Mereka berdua, apakah mereka dari klan Gu Yue?”</p>
+<p>	“Siapakah wanita itu? Sangat cantik… tidak kalah cantiknya dengan Bai Lian!”</p>
+<p>	“Saya mendengar tuan muda klan Gu Yue ini tertarik pada Tuan Bai Lian, benar – benar kodok lumpuh yang mencoba makan daging angsa .”</p>
+<p>	“Menurut pengamatan saya, sifat orang ini cacat. Memiliki satu di sampingnya, namun mendambakan yang lain, tidak heran Lord Bai Zhan Lie sangat marah. ”</p>
+<p>	“Semua orang bisa mengatakan bahwa Lord Bai Zhan Lie tertarik pada senior Bai Lian. Lagipula, aku dengar mereka adalah teman masa kecil.”</p>
+<p>	“Huh, sayangnya perasaan itu tidak saling…”</p>
+<p>	Banyak bisikan dan pembicaraan rahasia sedang berlangsung, saat orang-orang menundukkan kepala.</p>
+<p>	Fang Yuan tampak murung, meskipun dia menang, dia tidak menunjukkan kegembiraan di wajahnya.</p>
+<p>	Hanya sampai malam hari, di tenda tengah, diadakan perjamuan api unggun lagi.</p>
+<p>	Si kembar, Bai Sheng dan Bai Hua, bersulang untuk Fang Yuan sebelum dibawa pergi. Di tenda, banyak wajah baru muncul.</p>
+<p>	Persaingan Bai Lian dan Bai Zhan Lie menyebabkan mereka meninggalkan kompetisi berburu biasa. Dengan demikian, tempat yang dulu mereka pegang sekarang dibebaskan, menyebabkan banyak anak muda di klan Bai maju.</p>
+<p>	Kedua pria ini ternyata lebih dekat dengan Bai Zhan Lie, yang satu menatap Fang Yuan dengan marah selama perjamuan sementara yang lain apatis.</p>
+<p>	“Junior, sudah berhari-hari, di mana klanmu?” Di perjamuan, pemimpin klan Bai bertanya.</p>
+<p>	Fang Yuan menunjukkan beberapa kekhawatiran: “Menurut perhitungan saya, seharusnya beberapa hari ini. Huh, mungkin mereka mengalami beberapa masalah, tetapi dengan kekuatan mereka, seharusnya tidak ada masalah.</p>
+<p>	Pemimpin klan Bai mengangguk, yang dia khawatirkan adalah Fang Yuan.</p>
+<p>	Setelah menghabiskan begitu banyak usaha, dan membangun tahap ini. Pada titik di mana kemajuan sedang dibuat, dan kesuksesan sudah dekat, dia tidak ingin sisa-sisa Gu Yue muncul dan menggagalkan seluruh plot.</p>
+<p>	Apa yang dia tidak tahu adalah, kekhawatirannya tidak perlu. Di dunia ini, hanya dua Gu Yue yang tersisa, Fang Yuan dan Fang Zheng.</p>
+<p>	“Jangan khawatir junior, saya telah mengirim orang untuk mengintai, saya percaya bahwa tidak lama kemudian, Anda akan mendengar berita tentang klan Anda.” Setelah bereaksi, pemimpin klan Bai menghibur Fang Yuan.</p>
+<p>	Fang Yuan dengan cepat berterima kasih padanya, saat Bai Ning Bing mengerutkan kening.</p>
+<p>	Situasi semakin kritis, semakin lama mereka diseret, semakin buruk bagi mereka.</p>
+<p>	Sekarang masih baik-baik saja, menggunakan alasan untuk menjawabnya. Lagi pula, di alam liar, menghadapi masalah yang tidak terduga adalah normal. Tapi setelah mereka menyeretnya keluar, klan Bai akan curiga, dan bahkan mungkin menemukan kebenaran di balik kebohongan mereka.</p>
+<p>	Tapi akhir-akhir ini, mereka terus berburu di alam liar, dan Bai Ning Bing tidak berani melakukan apapun. Dia tahu bahwa ada master gu klan Bai yang mengawasi seluruh proses, bersembunyi di sudut.</p>
+<p>	Mereka tidak memiliki gerakan gu yang kuat, dan dengan medan hutan yang kompleks, itu membatasi kecepatan mereka.</p>
+<p>	Dalam perspektif Bai Ning Bing, situasinya semakin memburuk dari hari ke hari, mereka tampaknya telah jatuh jauh ke dalam pasir hisap, tenggelam lebih dalam seiring berjalannya waktu, pada tingkat ini mereka akan dikonsumsi secara menyeluruh.</p>
+<p>	“Apa sebenarnya yang kamu rencanakan?” Bai Ning Bing menatap Fang Yuan.</p>
+<p>	Dia mengerti Fang Yuan, dia bukan tipe orang yang menunggu dan mati. Tetapi karena pengalaman hidupnya yang kecil, dia tidak bisa memikirkan cara untuk keluar dari situasi tersebut.</p>
+<p>	Di lingkungan ini, dia juga tidak bisa berdiskusi secara terbuka dengan Fang Yuan.</p>
+<p>	Tekanan di hati Bai Ning Bing semakin kuat.</p>
+<p>	Satu hari lagi berlalu.</p>
+<p>	Kelompok Fang Yuan secara tipis mengalahkan kelompok Bai Zhan Lie dalam hal hasil.</p>
+<p>	Di perjamuan, pemimpin klan Bai memanggil Bai Mo Xing untuk diskusi rahasia lainnya.</p>
+<p>	Pemimpin klan mengetuk meja dengan jarinya: “Ini tidak bisa berlanjut, meskipun hari ini selama berburu, Bai Lian terus berbicara tentang bahaya gunung Bai Gu, saya bisa merasakan Fang Zheng bimbang tetapi waktu tidak menunggu siapa pun. Begitu kelompok Gu Yue muncul, Fang Zheng akan menemukan pilar dukungannya, dan usaha kita akan sia-sia.”</p>
+<p>	“Waktu tidak berpihak pada kita.” Pemimpin klan Bai menghela nafas, tidak bisa menyembunyikan kekhawatirannya.</p>
+<p>	Apa yang dia tidak tahu adalah, Bai Ning Bing lebih khawatir darinya.</p>
+<p>	Waktu bahkan lebih berharga bagi Bai Ning Bing dan Fang Yuan.</p>
+<p>	Bai Mo Xing merenung sejenak: “Pemimpin klan, seperti yang saya lihat, tidak realistis untuk mengharapkan Fang Zheng mempercayai kami dalam jangka pendek dan memberi kami lokasi mata air roh. Saya punya ide di sini, tetapi kami masih perlu terus memanipulasi dan mengintensifkan tekanannya.”</p>
+<p>	“Oh? Berbicara.”</p>
+<p>	Bai Mo Xing berbisik pelan.</p>
+<p>	Pemimpin klan Bai sedikit mengangguk: “Kamu benar, bahwa Fang Zheng sangat cemas, mungkin khawatir bahwa klannya akan menderita terlalu banyak kerugian karena memperjuangkan mata air roh. Apakah dia tidak ingin informasi tentang daerah dekat mata air roh? Dia pasti menginginkannya, tetapi waspada terhadap kita. Selain itu, kultivasi mereka juga lemah, idemu sepertinya bagus….”</p>
+<p>	Secara tidak sadar, pemimpin klan wanita merasa bahwa metode ini tidak pantas, tetapi sekarang mereka tidak memiliki rencana yang lebih baik, mereka hanya dapat mencoba ini.</p>
+<p>	Jadi, pada hari ketiga duel, Bai Zhan Lie secara tidak sengaja menangkap kupu-kupu naga yang berenang liar saat berburu, dan seluruh perkemahan menjadi ribut.</p>
+<p>	Bai Lian menunjukkan ekspresi muram: “Situasinya terlihat buruk, kupu-kupu naga berenang Gu, peringkat tiga dan sangat berharga. Skor Bai Zhan Lie jauh di depan kami, kami hanya bisa mengambil langkah berisiko untuk memiliki peluang menang. Saya sangat jelas dari medan hutan. Kita hanya bisa pergi ke gunung Bai Gu untuk berburu, dan membunuh tulang binatang atau menangkap tulang liar Gu.”</p>
+<p>	Bai Ning Bing mendengar ini, dan jantungnya melompat.</p>
+<p>	Gunung Bai Gu, bukankah itu cara terbaik untuk keluar dari kesulitan mereka? Haha, untuk berpikir bahwa kesempatan akan datang seperti ini.</p>
+<p>	Meskipun gunung Bai Gu berbahaya, itu adalah cara terbaik untuk melarikan diri dari klan Bai.</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Ini terlalu berbahaya, nona Bai Lian, kekuatan kita terbatas, lupakan saja.”</p>
+<p>	Bai Ning Bing menatap dengan mata terbuka lebar, sangat ingin mencekik Fang Yuan.</p>
+<p>	Bai Lian malah tertawa: “Jangan khawatir tuan muda. Saya punya rencana, saya memiliki hubungan yang baik dengan Bai Sheng dan Bai Hua, kita bisa membujuk mereka untuk bergabung dalam perburuan besok. Mereka tidak memiliki kultivasi, jadi mereka tidak dianggap sebagai bala bantuan bagi kita. Tetapi mereka memiliki Master Gu yang bersembunyi untuk melindungi mereka dari bahaya. Jika kita memasuki gunung Bai Gu, dan menghadapi bahaya, bagaimana mereka tidak bisa membantu? Kami tidak akan mengambil binatang buas yang mereka bunuh, tetapi hanya berburu milik kami sendiri. Kelompok binatang pasti memiliki yang tua, sakit-sakitan dan lemah, binatang buas di gunung Bai Gu jauh lebih berharga. ”</p>
+<p>	Fang Yuan terkejut: “Memikirkan bahwa klan Bai melakukan ini, semua hanya untuk mencegah kecurigaanku.”</p>
+<p>	Saat dia berpikir begitu di dalam hatinya, dia malah berkata: “Ide bagus! Lady Bai Lian benar-benar berhati murni, saya sangat kagum.”</p>
+<p>	“Tidak, aku tersanjung.” Bai Lian tersenyum malu-malu, tapi keangkuhan melintas di matanya.</p>
+<p>	—————————————————————–</p>
+<p>	Hari berikutnya.</p>
+<p>	Saat senja, di tenda tengah, pemimpin klan Bai menatap asap pelangi di udara dengan erat.</p>
+<p>	Dalam asap, sebuah gambar muncul.</p>
+<p>	Dalam gambar, ada tujuh orang. Selain Fang Yuan, Bai Lian dan ketiganya, ada juga dua anak, tuan muda klan Bai.</p>
+<p>	“Sepertinya gunung Bai Gu sangat damai. Kami sudah pindah begitu lama, dan tidak menemui masalah apa pun. ” Dalam gambar, Bai Sheng Jing berbicara.</p>
+<p>	Pemimpin klan Bai mendengus karena marah.</p>
+<p>	Untuk melindungi mereka, dia mengirim sejumlah besar Master Gu untuk membuka jalan, tidak meninggalkan seorang tetua pun, semuanya melindungi mereka secara rahasia.</p>
+<p>	Alasan kelompok Fang Yuan memiliki waktu yang begitu mudah, dan menghadapi binatang buas sporadis, adalah karena mereka sengaja ditinggalkan oleh Master Gu klan Bai.</p>
+<p>	Dalam enam jam ini, klan Bai telah mengorbankan puluhan Master Gu yang luar biasa, dan bahkan tiga tetua terluka.</p>
+<p>	Di antara mereka, dua terluka parah, jatuh pingsan dan dalam perjalanan kembali ke kamp.</p>
+<p>	Tapi ini masih kaki gunung Bai Gu, semakin mereka mendaki, semakin banyak bahaya yang mengintai.</p>
+<p>	Jangan lihat betapa mudahnya Fang Yuan dan yang lainnya bepergian, ini semua karena pengorbanan hidup dan darah Guru Gu lainnya.</p>
+<p>	Terutama gunung Bai Gu, tidak ada yang tinggal di sana, dan itu adalah wilayah binatang buas. Untuk membuka jalan dan menjelajah, harga yang harus dibayar sangat besar.</p>
+<p>	Fang Yuan terus naik, dan dengan bimbingan Bai Lian, mereka tiba di gunung belakang Bai Gu.</p>
+<p>	“Kami memiliki informasi yang terbatas, saya tidak tahu ke mana harus melanjutkan. Langit mulai gelap, mungkin kita harus kembali.” Bai Lian sengaja berkata.</p>
+<p>	“Karena kita di sini, kita mungkin juga menjelajah.” Fang Yuan berkata sebaliknya.</p>
+<p>	Dia melihat sekeliling, mencoba untuk melihat, seperti dia sedang mencoba untuk menemukan sesuatu.</p>
+<p>	Dia mulai memimpin mereka, menurut ingatannya, dia tahu tanah warisan sudah dekat.</p>
+<p>	“Hei, hei, hei, bisakah kamu setidaknya mencoba berpura-pura?” Di sampingnya, Bai Ning Bing melihat ini dan berteriak di dalam hatinya. Perilaku Fang Yuan sudah keluar dari karakter.</p>
+<p>	Bai Ning Bing melihat sekeliling dengan cemas, tapi yang aneh adalah: Baik itu Bai Lian, Bai Sheng Jing atau yang lainnya, sepertinya mereka tidak bisa mengatakan apa-apa, membiarkan Fang Yuan mencari dalam diam.</p>
+<p>	“Bagus, ini dia! Sepertinya tempat ini sangat dekat dengan mata air roh!” Di tenda, kata pemimpin klan dengan gelisah.</p>
+<p>	“Hehehe, Fang Zheng, kamu masih terlalu muda… Eh? Mereka memasuki gua, apakah mata air roh di dalam gua? Gambar melintas, menunjukkan bagian dalam gua.</p>
+<p>	Tepat ketika pemimpin klan Bai menjadi bingung, seseorang melaporkan dari luar: “Melapor ke pemimpin klan, seorang Gu Master investigasi kembali, membawa Gu Master klan Tie, mereka memiliki berita penting untuk dilaporkan!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

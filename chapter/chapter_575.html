@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 575 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 575";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_574.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 575">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_576.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 575</h1>
+        <div class="text-left">
+<p>	Bab 575 – Memasuki Gedung Yang Benar lagi</p>
+<p>	Bab 575: Memasuki Gedung Yang Benar lagi</p>
+<p>	Fang Yuan memasuki ruang kontrol pusat sekali lagi.</p>
+<p>	Seperti namanya, ruang kendali pusat adalah pusat kendali penting dari Eighty-Eight True Yang Building.</p>
+<p>	Ruang rahasia itu bulat dan dindingnya berkelap-kelip dengan cahaya bintang, dengan meja bundar giok putih di tengahnya. Ada model indah dari seluruh tanah yang diberkati Pengadilan Kekaisaran di atas meja bundar, seperti meja pasir militer.</p>
+<p>	Tidak hanya menggambarkan gunung dan sungai dan istana suci di tengahnya, bahkan menara kecil di tanah yang diberkati terlihat jelas.</p>
+<p>	“Aku telah kembali sekali lagi.” Dalam pikiran Fang Yuan, surat wasiat Mo Yao mendesah dengan emosi yang dalam.</p>
+<p>	Fang Yuan mengabaikannya dan melihat ke arah meja bundar batu giok putih.</p>
+<p>	Dia pertama kali menggunakan token tamu untuk memasuki Eighty-Eight True Yang Building, kemudian lulus dengan evaluasi tingkat tinggi yang memungkinkannya memasuki ruang harta karun. Dia kemudian memperbaiki prasasti pemberhentian tamu dan menemukan token pemilik kaca, menggunakannya, dia kemudian memasuki ruang kontrol pusat.</p>
+<p>	Tetapi karena warisan Di Qiu, dia memilih untuk menghentikan sejenak rencananya untuk Eighty-Eight True Yang Building, yang pada akhirnya memperbaiki bencana yang memanggil Gu.</p>
+<p>	Secara keseluruhan, warisan Di Qiu memberikan manfaat dan kerugian bagi Fang Yuan. Fang Yuan dapat memperoleh Gu Abadi, tetapi kemampuannya cukup unik karena merugikan diri sendiri untuk menguntungkan orang lain.</p>
+<p>	Dan kemudian ada surat wasiat Mo Yao yang menyelinap ke dalam pikirannya; Fang Yuan tidak bisa menyingkirkannya dan karena itu tekanan internal padanya sangat besar. Tetapi tidak dapat disangkal, petunjuk yang diberikan oleh wasiat Mo Yao memberinya banyak keuntungan, tidak menyebutkan wawasan tentang jalur penyempurnaan, hanya raja zombie surgawi enam lengan dan gerakan pembunuh transformasi tinta bersama dengan resep kepala zombie Gu yang ditingkatkan sangat berharga!</p>
+<p>	Selain itu, ada juga manfaat yang sangat besar; Surat wasiat Mo Yao akan sangat membantu rencana Fang Yuan di Eighty-Eight True Yang Building.</p>
+<p>	Bagaimanapun, Mo Yao adalah grandmaster jalur penyempurnaan yang telah meneliti Eighty-Eight True Yang Building secara mendalam. Dia adalah karakter legendaris yang, saat itu, telah menyusup ke tanah yang diberkati Pengadilan Kekaisaran dan menciptakan celah di mana dia mengatur warisan Di Qiu!</p>
+<p>	Fang Yuan memiliki ingatan kehidupan sebelumnya bersama dengan video Benua Tengah Gu Immortals menyerang Eighty-Eight True Yang Building, dia juga memiliki informasi tangan pertama dari roh tanah Lang Ya dan sekarang, asisten hebat bersamanya dalam bentuk Mo kehendak Yao.</p>
+<p>	Karena itu, dia sepenuhnya percaya diri dalam perjalanan ini.</p>
+<p>	Tapi tak lama setelah itu, tatapannya berhenti saat dia terkesiap terkejut.</p>
+<p>	Dia ingat dengan jelas bahwa meja pasir di atas meja bundar telah ditutupi lapisan cairan hitam lengket dan cairan hitam itu membentuk pusaran air yang kemudian perlahan-lahan masuk menuju lubang di meja pasir.</p>
+<p>	Lubang ini tidak lain adalah lokasi warisan Di Qiu.</p>
+<p>	Tapi sekarang, tidak ada jejak cairan hitam di meja pasir dan lokasi warisan Di Qiu juga sepenuhnya dipulihkan di meja pasir, tanpa jejak lubang apa pun.</p>
+<p>	Pemandangan ini seperti pukulan berat bagi kepercayaan diri Fang Yuan.</p>
+<p>	Pikirannya tersentak dan saat dia akan menebak, wasiat Mo Yao terkekeh, sudah mengetahui niatnya: “Jika ada keuntungan, akan ada kerugian juga. Adik laki-laki, Anda telah mengambil warisan Di Qiu, dan dengan kekuatan Eighty-Eight True Yang Building, itu pasti telah memperbaiki kekurangan itu; gua di warisan Di Qiu sudah tidak ada lagi dan sebuah menara kecil seharusnya dibangun kembali di sana.”</p>
+<p>	“Tanpa celah, bagaimana saya bisa memperbaiki token pemilik kaca menjadi token pemilik satu sisi?” Fang Yuan meminta saran.</p>
+<p>	“Jika tidak ada celah, maka buat yang baru saja.” Mo Yao dengan bangga tersenyum, “Mengapa saya memberi Anda transformasi tinta gerakan pembunuh jalur penyempurnaan? Anda seharusnya sudah menebaknya, cairan hitam yang menutupi meja pasir yang Anda lihat saat itu disebabkan oleh gerakan pembunuh transformasi tinta. ”</p>
+<p>	“Jika tidak ada celah, buat yang baru?” Kata-kata Mo Yao mengungkapkan bantalan grandmaster jalur penyempurnaan, menyebabkan Fang Yuan mengangkat alisnya.</p>
+<p>	Meskipun kedengarannya mudah dari kata-katanya, bagaimana dia harus membuat celah?</p>
+<p>	Setidaknya, Fang Yuan yang merupakan master jalur penyempurnaan tidak memiliki kemampuan seperti itu.</p>
+<p>	Mo Yao melanjutkan: “Celah itu tidak bisa dibuat begitu saja. Melakukannya dengan ceroboh hanya akan membangkitkan keinginan Giant Sun yang tertidur. Jika kehendaknya terbangun, maka kita akan menghadapi akhir yang tragis. Untungnya, Eighty-Eight True Yang Building telah mengalami banyak perubahan, sudah tidak sesempurna sebelumnya, waktu telah menciptakan segala macam cacat di dalamnya; saat itu, saya memilih lokasi Di Qiu karena noda di dalamnya paling besar.”</p>
+<p>	“Jadi seperti itu.” Fang Yuan mengangguk, dalam hati senang.</p>
+<p>	Kehendak Mo Yao seperti air tanpa sumber, jika mereka ingin mencari cacat dan celah, itu akan membutuhkan banyak pemikiran, dan ini akan menyebabkan keinginannya menjadi sangat lelah.</p>
+<p>	Tapi Mo Yao tidak memuaskan niat Fang Yuan dan malah berkata: “Adik kecil, gunakan pikiranmu untuk menjelajahi meja pasir sesuai dengan instruksiku, aku akan memberitahumu rahasia cara kerja Eighty-Eight True Yang Building dan membantumu menemukan noda-nodanya.”</p>
+<p>	“Oke.” Tatapan Fang Yuan melintas.</p>
+<p>	Tindakan Mo Yao ini tidak di luar dugaannya.</p>
+<p>	Dia menghargai keberadaannya, tetapi tidak apa-apa dia tidak berpikir. Fang Yuan dapat menggunakan kesempatan ini untuk belajar darinya dan meningkatkan pemahamannya tentang Eighty-Eight True Yang Building.</p>
+<p>	Keajaiban Eighty-Eight True Yang Building sungguh luar biasa; ketika Fang Yuan memasuki meja pasir dengan pikirannya, dia merasa seperti perahu kecil di lautan, hanya merasakan luasnya yang tak terbatas dan tak terduga. Setiap sudut dan sisinya adalah pelajaran untuk dipelajari dan direnungkan.</p>
+<p>	Dia langsung merasa bahwa dia adalah keberadaan yang sangat kecil dan tersentak kaget.</p>
+<p>	Menurut arahan Mo Yao, Fang Yuan menemukan total lima puluh empat noda, dan tiga belas noda di antaranya relatif lebih besar, membentuk cacat yang sebanding dengan lokasi Di Qiu sebelumnya.</p>
+<p>	Hasil ini membuat Mo Yao menghela nafas: “Sudah bertahun-tahun berlalu dan bahkan Eighty-Eight True Yang Building tidak bisa lepas dari kerusakan akibat sungai waktu. Memikirkan saat itu, saya hanya dapat menemukan tiga puluh delapan noda dengan hanya enam yang telah terbentuk menjadi cacat.”</p>
+<p>	Berhenti sejenak, dia kemudian terus memberikan arahan kepada Fang Yuan: “Adik laki-laki, sekarang kamu dapat menggunakan transformasi tinta pembunuh untuk memperbaiki beberapa kekurangan ini.”</p>
+<p>	Fang Yuan mengikuti kata-katanya dan dengan sering mengubah pikirannya, lebih dari delapan ratus Gu terbang keluar dari celahnya.</p>
+<p>	Ada cacing Gu dari peringkat satu hingga peringkat lima dari logam, kayu, air, tanah, aturan, jiwa, darah, dan jalur lainnya, di antara jalur gelap ini adalah yang paling penting.</p>
+<p>	Meskipun mereka semua adalah Gu fana, tetapi untuk sepuluh atau lebih cacing Gu di antara mereka, beberapa sudah punah selama Era Abad Pertengahan dan beberapa bahkan pergi sejauh Era Kuno Jauh. Dengan demikian, mereka sangat langka dan benar-benar punah dari lima wilayah, dengan hanya beberapa Dewa Gu yang memilikinya dalam koleksi mereka.</p>
+<p>	Fang Yuan harus menghabiskan banyak uang untuk cacing Gu ini, menghabiskan setidaknya satu setengah batu esensi abadi.</p>
+<p>	Batu esensi abadi sangat berharga dan dapat langsung mengisi kembali esensi abadi Gu Immortal dan membantu mereka berkultivasi. Pada saat yang sama, mereka juga merupakan mata uang yang digunakan oleh Dewa Gu.</p>
+<p>	Bahkan selama periode puncak Fang Yuan di kehidupan sebelumnya, dia hanya mampu mengumpulkan lebih dari enam puluh batu esensi abadi.</p>
+<p>	Dalam kehidupan ini, ia memperoleh keuntungan dari risiko, dan sejak memperoleh tanah yang diberkati Hu Immortal, jumlah tabungannya yang tertinggi adalah dua belas batu esensi abadi.</p>
+<p>	Sekarang, dia hanya memiliki dua batu esensi abadi yang tersisa.</p>
+<p>	Tidak ada yang bisa dia lakukan, terlalu banyak bidang yang membutuhkan penggunaan batu esensi abadi.</p>
+<p>	Membeli kelompok serigala, mengumpulkan intel di jalur kebijaksanaan, membeli cacing Gu dan sebagainya, semua membutuhkan batu esensi abadi.</p>
+<p>	Hampir seribu cacing Gu beterbangan di udara, seperti gerimis ringan.</p>
+<p>	Fang Yuan memusatkan seluruh konsentrasinya dalam memerintah dan mengatur cacing-cacing Gu ini dan ketika waktunya tiba, dia berteriak pelan: “Transformasi tinta!”</p>
+<p>	Cacing-cacing Gu berubah menjadi awan gelap dan hujan mulai turun dari awan dan mengeluarkan suara derai saat mereka menabrak meja pasir, berubah menjadi tetesan cairan tinta.</p>
+<p>	Tetesan tinta mulai bertambah perlahan dan menutupi seluruh meja pasir.</p>
+<p>	Konsentrasi Fang Yuan dikumpulkan menuju cacat tertentu, mendesak cairan bertinta mengalir menuju cacat.</p>
+<p>	Esensi purba dari aperture tahap puncak peringkat lima dengan cepat menurun, dan cairan bertinta juga habis lebih dari setengahnya sebelum mampu menembus lapisan penghalang yang tidak jelas dan terbentuk menjadi pusaran air, perlahan mengalir ke lubang di meja pasir. .</p>
+<p>	Pada adegan ini, Mo Yao berbicara: “Lempar token pemilik gelasmu.”</p>
+<p>	Fang Yuan melakukan apa yang diperintahkan dan melemparkan token pemilik gelas.</p>
+<p>	Token pemilik kaca tenggelam ke dalam pusaran air tinta tanpa jejak yang terlihat, cairan tinta juga mulai dikonsumsi lebih cepat. Setelah sekitar satu jam, awan gelap adalah yang pertama menghilang. Setelah empat jam, cairan tinta menghilang sepenuhnya, dan token pemilik yang benar-benar baru perlahan-lahan terbang keluar dari lubang.</p>
+<p>	Fang Yuan mengambil token pemilik ini yang telah mengubah penampilannya. Di tepi permukaan sebelumnya, tonjolan tajam muncul seperti tanduk.</p>
+<p>	“Token pemilik satu sisi, tentu saja sesuai dengan namanya.” Fang Yuan bergumam.</p>
+<p>	“Di Gedung Eighty-Eight True Yang, setelah keturunan dari Giant Sun Immortal Venerable melewati lantai, token pemilik akan maju menjadi token pemilik satu sisi dan dapat menguasai lantai. Pada saat yang sama, keturunannya dapat memasuki ruang harta karun dan mengambil harta di dalamnya, tanpa perlu menukar. Jika keturunan dapat melewati sepuluh lantai, token pemilik akan menjadi token pemilik sepuluh sisi yang memungkinkan keturunan untuk mengambil warisan Matahari Raksasa dari ruang harta karun. ” Mo Yao memperkenalkan.</p>
+<p>	“Warisan Matahari Raksasa?” Jantung Fang Yuan berdebar kencang.</p>
+<p>	Mo Yao melanjutkan: “Benar, Giant Sun Immortal Venerable membuat pengaturan untuk keturunannya, mengatur aturan kontes Imperial Court, mendirikan Eighty-Eight True Yang Building dan meninggalkan delapan puluh delapan warisan di dalamnya. Warisan Immortal Venerable secara alami bukanlah hal yang kecil. Tetapi dalam sejarah, pemenang Pengadilan Kekaisaran yang mampu melewati sepuluh lantai sangat sedikit. Ketika saya masih hidup, masih ada lima puluh tiga warisan yang tersisa dari delapan puluh delapan, saya tidak yakin berapa banyak yang tersisa sekarang.</p>
+<p>	“Hehehe, berbicara tentang ini, bahkan aku iri dengan keberuntunganmu. Ada tiga belas kekurangan yang kami temukan. Setiap cacat setelah transformasi tinta dapat memajukan token pemilik satu sisi. Jika Anda dapat menggunakan semuanya, Anda akan mendapatkan token pemilik tiga belas sisi dan benar-benar dapat mengambil warisan Matahari Raksasa! Huh, tidak seperti dulu, ketika hanya ada enam kekurangan.”</p>
+<p>	Ketika Fang Yuan mendengar ini, hatinya yang berapi-api terasa seperti disiram dengan baskom berisi air dingin, dia tertawa getir: “Menggunakan semua kekurangan? Saya tidak akan menyembunyikannya dari Anda, saya hanya memiliki dua batu esensi abadi sekarang, saya hanya dapat mendukung satu lagi gerakan pembunuh transformasi tinta. ”</p>
+<p>	“Oh, seperti itu?” Tatapan Mo Yao melintas.</p>
+<p>	Sementara Fang Yuan menyelidikinya, dia juga menyelidiki Fang Yuan.</p>
+<p>	Batu esensi abadi adalah salah satu standar penting untuk mengevaluasi Dewa Abadi. Fang Yuan mungkin masih fana tetapi dengan tanah yang diberkati Hu Immortal, dia sudah diperlakukan sebagai setengah abadi di hati Mo Yao.</p>
+<p>	“Jadi anak ini hanya memiliki dua batu esensi Immortal? Apakah kata-katanya benar atau bohong?…Seharusnya itu kebenaran. Godaan warisan Giant Sun bukanlah sesuatu yang bisa ditolak oleh orang normal. Dia adalah master jalur penyempurnaan, dia secara alami tahu semakin banyak kekurangan yang dia perbaiki dan semakin tinggi nilai token pemiliknya, semakin nyaman rencananya menuju Eighty-Eight True Yang Building. Poin paling penting adalah saya bersembunyi di benaknya, tidak mungkin baginya untuk bersembunyi dari saya dan diam-diam memperbaikinya. ”</p>
+<p>	“Sekarang, dia akan meminta bantuan dari pasukan di belakangnya. Hmph, bocah ini bersembunyi terlalu dalam, dia harus mengungkapkan latar belakangnya pada saat itu, dan aku akan dapat mengetahui satu atau dua hal. ”</p>
+<p>	Sambil memikirkan ini, Mo Yao memiliki ekspresi yang menyenangkan dan ramah saat dia memberikan ide kepada Fang Yuan: “Tidak perlu terburu-buru. Token pemilik dapat saling mencaplok satu sama lain. Selama Anda menganeksasi token pemilik pemimpin aliansi saat ini Hei Lou Lan, siapa yang mengatakan Anda mungkin tidak dapat mengumpulkan sepuluh sisi?”</p>
+<p>	Dia memang sesuai dengan nama Mo Yao, mengetahui begitu banyak detail di balik layar.</p>
+<p>	Tatapan Fang Yuan berubah tajam dan dia dengan sengaja berkata dengan suara lebih tinggi: “Kamu ingin membuatku melawan Hei Lou Lan? Apakah Anda berpikir untuk mendorong saya sampai mati? Meskipun Hei Lou Lan mudah untuk dihadapi, suku Hei di belakangnya adalah kekuatan tingkat super dengan banyak Dewa Gu yang menjaganya!”</p>
+<p>	“Hei, kamu adalah anak yang berani, kamu dapat menyamarkan identitasmu untuk menyusup ke Istana Kekaisaran, namun kamu hanya takut pada Hei Lou Lan? Selain itu, saya tidak mengatakan Anda harus membunuhnya, Anda hanya perlu mengambil token pemilik dari tangannya, itu saja. ”</p>
+<p>	Tatapan Fang Yuan berubah: “Hei Lou Lan tidak bisa dibunuh, membunuhnya seperti menusuk sarang lebah, suku Hei bukanlah sesuatu yang saat ini bisa kuprovokasi. Tapi token pemilik itu, dia pasti sangat menghargainya seperti nyawanya. Katakan padaku, apa yang harus aku lakukan?”</p>
+<p>	‘Tidak bisa memprovokasi saat ini, bukankah dia mengatakan itu mungkin kasus yang berbeda di masa depan? Ambisi anak ini benar-benar besar …’ Mo Yao merasakan kata kunci dalam pidato Fang Yuan.</p>
+<p>	Adapun masalah yang disebutkan Fang Yuan, dia tidak ingin terlalu banyak berpikir, jadi dia merentangkan tangannya di benak Fang Yuan: “Bagaimana kamu mengambil token pemilik darinya adalah masalahmu.”</p>
+<p>	ChibiGeneral _(ツ)_/¯</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 359 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 359";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_358.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 359">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_360.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 359</h1>
+        <div class="text-left">
+<p>	Bab 359 – Penghalang</p>
+<p>	Bab 359: Penghalang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Sekelompok tujuh orang diam-diam bergerak melalui hutan.</p>
+<p>	‘Kami telah bergegas dalam perjalanan tanpa istirahat selama ini dan sudah sangat dekat dengan gunung San Cha.’ Tie Ba Xiu berpikir sambil bergegas melewati hutan, melangkah melintasi batu dan akar pohon.</p>
+<p>	Dia tinggi dan memiliki fisik buff, di wajahnya yang persegi ada ekspresi mantap yang memberikan perasaan dapat diandalkan.</p>
+<p>	Kultivasinya berada di peringkat empat tingkat atas dan ketenarannya telah menyebar ke seluruh Perbatasan Selatan. Ketika dia masih muda, dia ditolak oleh klan, disingkirkan dan dipaksa hanyut ke luar.</p>
+<p>	Kemudian dia menemukan warisan Guru Gu yang saleh dan berubah menjadi jalur kekuatan, membuat namanya terkenal di dunia.</p>
+<p>	Sekarang, dia adalah karakter terkenal dari jalan lurus. Dengan peringkat lima Gu ‘penguasa bumi’, dia disebut ‘tuan zaman sekarang’ dan memiliki kekuatan pertempuran yang melampaui tahap puncak peringkat empat biasa!</p>
+<p>	‘Saat ini, ada lima peringkat empat tingkat puncak Gu Masters di gunung San Cha; Long Qing Tian, ​​​​Yi Chong, Kong Ri Tian, ​​​​Wu Shen Tong dan Yi Huo. Di antara mereka, kekuatan pertempuran Yi Huo sangat tinggi dan akan menjadi lawan terkuat. Selain itu, akan ada semakin banyak karakter tangguh yang akan bergabung dalam perjuangan ini. Hanya saja saya tidak tahu apa yang direncanakan Tie Ruo Nan.’</p>
+<p>	Memikirkan hal ini, Tie Ba Xiu mau tak mau mengalihkan pandangannya ke arah Tie Ruo Nan yang berlari di sampingnya.</p>
+<p>	Meskipun dia memiliki kecakapan pertempuran yang mengesankan, dalam kelompok yang dikirim kali ini oleh klan, dia bukan kepala. Sebaliknya, itu adalah junior muda – Tie Ruo Nan!</p>
+<p>	Setelah Tie Ruo Nan kembali ke klan, dia berkultivasi dengan keras dan menunjukkan bakat dan bakat yang sangat kuat. Sekarang, dia sudah menjadi salah satu dari delapan tuan muda klan Tie. Dia teliti, peka terhadap detail terkecil dan sudah disebut ‘penyelidik ilahi kecil’. Dia adalah bintang yang sedang naik daun terkuat yang muncul di klan Tie tahun ini, dia secara bertahap melonjak dan diawasi oleh banyak orang.</p>
+<p>	Kali ini, ketika empat orang tua meminta bala bantuan, klan membuat pengecualian dan menunjuk Tie Ruo Nan sebagai pemimpin kelompok ini. Bahkan Tie Ba Xiu, senior terkenal ini harus menuruti perintahnya. Ini menunjukkan berapa banyak yang diharapkan oleh para petinggi klan Tie darinya.</p>
+<p>	Tie Ba Xiu hanya melihat sekilas sebelum menarik kembali pandangannya.</p>
+<p>	Dia tidak peduli sedikit pun tentang pengaturan klan dan juga tidak cemburu.</p>
+<p>	Tie Ba Xiu sangat setia pada klan; untuk harapan masa depan klan, dia bersedia menjadi asisten, bersedia menjadi batu loncatan.</p>
+<p>	Faktanya, ketika dia jatuh dan keluar, dia telah menerima bantuan Penyelidik Ilahi Tie Xue Leng. Tie Ba Xiu selalu merasa berterima kasih padanya dan dengan interaksi selama beberapa hari ini, dia merasakan kecemerlangan Tie Ruo Nan.</p>
+<p>	“Seperti yang diharapkan dari putri Penyelidik Ilahi! Kakak Xue Leng, Anda memiliki penerus yang layak, Anda dapat yakin di akhirat. Tie Ba Xiu merasa bersyukur.</p>
+<p>	Dia sangat puas dengan Tie Ruo Nan. Dia tidak hanya mengagumi bakat kultivasinya, dia bahkan lebih mengagumi kemampuan kepemimpinannya.</p>
+<p>	Master Gu muda yang luar biasa telah berkumpul di sekitar Tie Ruo Nan. Tidak menyebutkan hal lain, seseorang hanya perlu melihat kelompok orang saat ini.</p>
+<p>	Tie Mu, peringkat tiga puncak Gu Master, tampak sopan dan penuh dengan bakat. Dia telah menerima banyak undangan tetapi dia memilih untuk bergabung dengan Tie Ruo Nan.</p>
+<p>	Tie Ao Kai, peringkat tiga tingkat atas, dia mungkin terlihat linglung dan mengantuk, tetapi di bidang kemampuan investigasi, dia memiliki kecakapan sejati.</p>
+<p>	Ada juga Tie Dao Ku, Master Gu yang menyerang dengan kekuatan pertempuran yang luar biasa. Dia pernah melayani tuan muda lain tetapi sekarang direkrut oleh Tie Ruo Nan.</p>
+<p>	Tie Xian Hua, salah satu wanita cantik di klan, muda dan cantik. Bahkan tetua klan memuji kemampuan bertahannya.</p>
+<p>	Bakat ini berkumpul di bawah Tie Ruo Nan dan akan menjadi krunya. Tie Ba Xiu sepertinya melihat pemandangan yang cerah di mana kru ini tumbuh tanpa henti dan membantu Tie Ruo Nan naik ke posisi pemimpin klan.</p>
+<p>	Masing-masing dari delapan tuan muda klan Tie memiliki kesempatan untuk bersaing memperebutkan posisi pemimpin klan!</p>
+<p>	Saat mereka berlari dengan cepat, cahaya dan bayangan berfluktuasi dalam penglihatan mereka dan lampu hijau menyinari wajah Tie Ruo Nan.</p>
+<p>	Kakinya yang ramping menunjukkan kecantikan masa mudanya saat dia berlari melewati hutan.</p>
+<p>	Setelah mendapatkan banyak pengalaman tahun ini, Tie Ruo Nan jelas telah menjadi dewasa. Alisnya setajam pedang dan matanya bersinar seperti bintang; ketika seseorang melihatnya dari samping, seseorang dapat merasakan kekuatannya. Bulu matanya yang tebal menaungi cahaya tegas di matanya.</p>
+<p>	“Gunung San Cha!”</p>
+<p>	Dia melafalkan nama ini dalam pikirannya.</p>
+<p>	Dia sudah menerima berita tentang gunung San Cha. Dan dia bahkan menyadari bahwa gunung San Cha telah menjadi tempat perubahan yang tidak stabil, pusaran air yang menelan kehidupan, menelan banyak orang dari jalur iblis dan jalur lurus.</p>
+<p>	Awalnya, Tie Ruo Nan tidak berpikir untuk berpartisipasi. Tapi informasi tak terduga membuatnya menyadari ada detail tersembunyi tentang gunung Qing Mao saat itu.</p>
+<p>	Ayahnya Tie Xue Leng kehilangan nyawanya di gunung Qing Mao; seorang pahlawan dari satu generasi telah jatuh.</p>
+<p>	Apa pun yang menyangkut ayahnya, dia harus memeriksanya. Karena itu, dia secara pribadi menerima perintah itu dan bergegas ke gunung San Cha.</p>
+<p>	“Bai Ning Bing … Fang Zheng … kebenaran tentang gunung Qing Mao, saya akan sampai ke dasarnya!”</p>
+<p>	Kelompok itu bergerak maju.</p>
+<p>	Kelompok tujuh bergerak dalam formasi pertempuran standar.</p>
+<p>	Master Gu investigasi Tie Ao Kai berada di depan, Tie Ruo Nan dan Tie Ba Xiu berada di tengah. Healing Gu Master berada di belakang dengan Gu Master defensif Tie Xian Hua di sampingnya.</p>
+<p>	Tidak peduli apa medannya, formasi pertempuran tidak menunjukkan tanda-tanda kekacauan. Tidak peduli apa yang terjadi, kelompok ini menanggapinya pada pandangan pertama dan tidak tertangkap basah.</p>
+<p>	“Siapa ini?!”</p>
+<p>	Tiba-tiba, Tie Ao Kai yang berada di depan berhenti dan berteriak, memperingatkan kelompok itu.</p>
+<p>	Sesuatu telah terjadi!</p>
+<p>	Seluruh kelompok dengan cepat berhenti, formasi berubah sedikit untuk membentuk susunan pertempuran terbaik; keduanya terkait erat dan juga agak longgar untuk meninggalkan jalan untuk mundur.</p>
+<p>	Mereka bisa menyerang jika mereka maju, dan bertahan jika mereka mundur.</p>
+<p>	Seseorang yang menyilangkan tangannya dan berdiri di atas batu besar, melirik ke arah sekelompok orang ini.</p>
+<p>	Dia tinggi, dengan punggung yang kuat dan pinggang yang sempit, meskipun dia tidak terlalu berotot, dia masih memberikan perasaan kokoh.</p>
+<p>	Dia mengenakan pakaian hitam ketat, dia berdiri di sana sendirian tetapi rasanya seperti gunung berdiri.</p>
+<p>	Terutama, pupil hitamnya, mereka gelap seperti jurang dan memberikan perasaan yang tak terduga.</p>
+<p>	“Fang Zheng!” Murid Tie Ruo Nan menyusut ketika dia melihat orang ini dan berkata.</p>
+<p>	Orang ini memang Fang Yuan.</p>
+<p>	“Tie Ruo Nan, kita bertemu lagi.” Sudut bibir Fang Yuan melengkung menjadi senyuman, niat muram terungkap dari ekspresinya.</p>
+<p>	Raja binatang kecil!</p>
+<p>	Mata Tie Ba Xiu menyipit dan cahaya terang melintas melewati mereka.</p>
+<p>	Lima orang lainnya dari kelompok itu berperilaku seperti mereka menghadapi musuh besar. Mereka dilengkapi dengan sangat baik dengan intel dan mengenal orang di depan mereka; bintang yang sedang naik daun dari jalur iblis dengan kecakapan pertempuran yang luar biasa, tindakannya liar dan tidak terkendali – karakter yang sangat berbahaya!</p>
+<p>	“Fang Zheng, aku percaya kamu sudah sejak terakhir kita bertemu?” Tie Ruo Nan mengungkapkan ekspresi rumit di wajahnya dan melanjutkan setelah menghela nafas, “Fang Zheng, kamu datang untuk berkompromi? Sebenarnya, tidak ada apa-apanya. Saya tahu perjuangan warisan tiga raja, Anda hidup atau mati, tidak ada cara untuk mundur. Bai Ning Bing bertemu dengan Master Gu klan Tie saya dan membunuhnya sebagai langkah terakhir. Saya memiliki hubungan persahabatan dengan Anda berdua, bagaimana dengan ini, datang ke klan Tie sebagai tamu, jelaskan masalahnya dengan jelas dan tebus dosa ini dengan melakukan beberapa tugas untuk klan Tie. Aku bisa memohon keringanan hukuman untukmu dan klan Tie tidak akan melanjutkan masalah ini lagi.”</p>
+<p>	Ketika dia berbicara, Tie Ao Kai dengan gugup mengaktifkan Gu-nya untuk diam-diam memindai sekelilingnya.</p>
+<p>	Sungguh aneh Fang Yuan muncul sendirian. Mungkin ada orang lain yang sedang menyergap!</p>
+<p>	Fang Yuan hanya bisa mencibir pada kata-kata Tie Ruo Nan: “Dosa? Dia hanya membunuh satu orang, apa dosanya? Satu-satunya perbedaan kecil adalah orang ini memiliki latar belakang yang agak lebih keras, itu saja. Tie Ruo Nan, saya tidak berpikir Anda begitu kekanak-kanakan. Berpikir untuk memikatku agar pergi ke klan Tie, dan menangkapku di sana? Ketika saya memasuki klan Tie, saya akan menjadi seekor naga yang berenang di air dangkal, seekor harimau yang bergerak di depan mata , bukankah saya akan sepenuhnya bergantung pada Anda?”</p>
+<p>	Tie Ruo Nan mengerutkan alisnya dalam-dalam: “Fang Zheng, kamu telah banyak berubah selama bertahun-tahun. Anda tidak merasa bersalah karena membunuh seseorang? Lagi pula, saya tidak berbohong. Saya berjanji atas kehormatan saya bahwa saya akan menjamin keselamatan Anda dan menjamin Anda akan diberikan pengadilan yang adil.”</p>
+<p>	Fang Yuan mencibir: “Apakah klan Tie Anda dianggap aman? Saat ini, Divine Thief Lu Zuan Feng telah menyebabkan kekacauan di klan Tie, bahkan menyusup ke Demon Suppression Tower. Klan Tie Anda bahkan tidak bisa menahan diri, dapatkah Anda menjamin keselamatan saya? Menggelikan, benar-benar menggelikan.”</p>
+<p>	“Apa? Klan telah merahasiakan berita tentang Pencuri Ilahi Lu Zuan Feng. Dia adalah orang luar dan juga telah tinggal jauh di sini di gunung San Cha, bagaimana dia bisa begitu jelas dari masalah ini?</p>
+<p>	Tujuh orang dari klan Tie menjadi pucat.</p>
+<p>	Pencuri Ilahi Lu Zuan Feng adalah ahli peringkat lima, masalah dia menyusup ke Menara Penindasan Iblis telah menyebabkan banyak gangguan di petinggi klan Tie.</p>
+<p>	Klan Tie selalu memandang dirinya sebagai tanah suci dari jalan lurus, Menara Penindas Iblisnya bahkan merupakan penjara terkenal untuk jalur iblis, tetapi Lu Zuan Feng masuk dan meninggalkannya sesuka hatinya. Tingkat penghinaan dan aib ini dijaga ketat dan dirahasiakan oleh klan Tie; bahkan klan teratas seperti klan Wu dan klan Shang tidak mengetahuinya.</p>
+<p>	Namun, raja binatang kecil ini secara tak terduga mengetahuinya!</p>
+<p>	“Apakah kamu benar-benar percaya omong kosong seperti itu?” Tie Ba Xiu tidak bisa tidak menolaknya karena menyangkut reputasi klan Tie.</p>
+<p>	“Pemimpin, tidak ada seorang pun di sekitarnya, dia sendirian.” Pada saat ini, Tie Ao Kai melaporkan dengan suara lembut.</p>
+<p>	Cahaya terang segera melintas di benak Tie Ruo Nan dan dia mengarahkan pandangannya ke Fang Yuan: “Fang Zheng, aku mengerti maksudmu. Anda ingin menggunakan informasi ini untuk memeras kami dan menukar nyawa Bai Ning Bing? Kita bisa melakukannya! Tapi kami perlu tahu bagaimana Anda bisa mengetahui rahasia ini. Kalau tidak, kami sama sekali tidak akan membiarkannya pergi. ”</p>
+<p>	Fang Yuan melemparkan kepalanya ke belakang dan tertawa keras: “Tie Ruo Nan, kamu benar-benar naif. Aku hanya mengucapkan kata-kata itu dengan santai. Anda masih tidak mengerti tujuan saya datang ke sini? Apakah kamu tidak tahu ada taktik pertempuran yang disebut mengepung benteng musuh untuk menyerang bala bantuan ? ”</p>
+<p>	“Apa, kamu ingin melawan kami?” Murid Tie Ruo Nan sedikit melebar, mengungkapkan ekspresi yang tak terbayangkan.</p>
+<p>	Yang lain juga memandang Fang Yuan seolah-olah mereka sedang melihat orang idiot.</p>
+<p>	Kami adalah kelompok tujuh sementara Anda sendirian. Kami memiliki peringkat empat senior tingkat atas Tie Ba Xiu, peringkat empat tahap awal Tie Ruo Nan, dan lima peringkat tiga Master Gu, masing-masing ahli. Hanya Anda sendiri yang ingin melawan kami?</p>
+<p>	“Apakah raja binatang kecil ini kehilangan akal sehatnya? Apa ada masalah dengan otaknya?” Untuk sesaat, semua orang memiliki pemikiran ini.</p>
+<p>	Fang Yuan tahu pikiran mereka saat dia melihat perubahan ekspresi dan mata mereka.</p>
+<p>	Dia tidak merasa ingin membantah mereka. Dengan senyum dingin, dia tiba-tiba menerkam ke arah kelompok dari atas seperti goshawk utara.</p>
+<p>	“Dia benar-benar menyerang?”</p>
+<p>	“Mencari kematian!”</p>
+<p>	Ketujuh orang itu terkejut dan marah.</p>
+<p>	“Tidak, aura ini, bagaimana dia bisa berada di peringkat empat tahap tengah ?!”</p>
+<p>	Contoh berikutnya, ketujuh orang itu merasakan jantung mereka berdebar saat mereka merasakan aura pada Fang Yuan.</p>
+<p>	Fakta berbicara lebih keras daripada kata-kata.</p>
+<p>	“Peringkat empat panggung tengah! Bukan tahap awal?” Mata Tie Ruo Nan terbuka lebar dan tercengang mendengar wahyu itu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

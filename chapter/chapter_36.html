@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 36 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 36";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_35.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 36">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_37.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 36</h1>
+        <div class="text-left">
+<p>	Bab 36</p>
+<p>	Bab 36 – Memberi hadiah mayat yang disebarluaskan!</p>
+<p>	“Apakah kalian mendengar? Fang Yuan membunuh seseorang!” Seorang siswa berbisik kepada teman sekelasnya di sampingnya.</p>
+<p>	“Aku juga mendengarnya, dia benar-benar membunuh seseorang.” Teman sekelas itu mengepalkan dadanya dengan wajah pucat.</p>
+<p>	“Ada banyak penjaga yang melihatnya melakukannya. Fang Yuan mengejar pria itu. Orang itu mencoba memohon belas kasihan tetapi Fang Yuan tidak memedulikannya dan segera memenggalnya!”</p>
+<p>	“Itu tidak semua. Setelah membunuhnya, Fang Yuan bahkan tidak menyayangkan mayat tanpa kepala itu. Dia menyeretnya kembali ke asrama dan memotongnya menjadi pasta daging.”</p>
+<p>	“Apakah kamu nyata?”</p>
+<p>	“Saya serius melampaui keyakinan. Saya datang pagi-pagi sekali dan saya masih bisa melihat noda darah yang tertinggal di antara celah-celah batu hijau.”</p>
+<p>	“Ya ampun, kenapa aku berbohong padamu? Sebelumnya, Penatua Akademi memanggil Fang Yuan untuk masalah ini. ”</p>
+<p>	Para pemuda di Akademi tidak memperhatikan kelas saat mereka mengadakan percakapan kecil mereka.</p>
+<p>	Bagi kelompok berusia 15 tahun ini, konsep membunuh terlalu asing dan terlalu menakutkan.</p>
+<p>	Mereka telah berada di bawah perlindungan klan sejak usia muda dan paling banyak mengalami perdebatan terorganisir atau hanya membunuh ayam dan anjing.</p>
+<p>	Adapun membunuh seseorang, itu masih di luar jangkauan mereka.</p>
+<p>	“Siapa yang dibunuh Fang Yuan?”</p>
+<p>	“Aku dengar itu adalah pelayan keluarga dari keluarga cabang Mo.”</p>
+<p>	“Yup, aku yang paling jelas tentang masalah ini. Kemarin, saya secara pribadi melihat Mo Yan dari Keluarga Mo membawa sekelompok pelayan keluarga untuk menemukan masalah dengan Fang Yuan.</p>
+<p>	“Keluarga Mo, itu tidak baik. Mo Bei dalam masalah sekarang.”</p>
+<p>	Sejumlah pemuda menoleh ke arah Gu Yue Mo Bei.</p>
+<p>	Mo Bei duduk di kursinya dengan wajah pucat – dia hanya mendengar berita tentang Fang Yuan membunuh seseorang pagi ini. Selain itu, itu adalah Gao Wan yang akrab dengan Mo Bei. Sebagai salah satu pelayan keluarga yang lebih energik, Gao Wan pandai menjilat sepatu dan juga berusaha keras dalam keterampilan bertarungnya. Dia adalah pesuruh yang cakap.</p>
+<p>	Beberapa waktu yang lalu, Gao Wan bahkan bertengkar sebentar dengan Mo Bei. Untuk berpikir bahwa dia hanya dibunuh oleh Fang Yuan!</p>
+<p>	Justru karena inilah Mo Bei merasa heran. Dia penuh ketidakpercayaan dan merasakan kejutan dua kali lipat dibandingkan dengan yang lain. Namun, dibandingkan dengan keterkejutannya, dia merasakan kekhawatiran dan ketakutan yang lebih besar.</p>
+<p>	Menghadapi seorang pembunuh seperti Fang Yuan, bohong jika Mo Bei mengatakan bahwa dia tidak takut. Sebenarnya, bukan hanya dia – anak-anak muda lainnya juga takut. Ketika Fang Yuan telah merampok mereka dua kali sebelumnya, mereka semua melakukan kontak fisik dengannya.</p>
+<p>	“Aku benar-benar bertarung dengan pembunuh yang begitu kejam? Untuk berpikir bahwa aku sebenarnya masih hidup.” Banyak dari mereka menepuk dada mereka, merasakan ketakutan yang berkepanjangan.</p>
+<p>	Fang Yuan membunuh seseorang masih bisa diterima tetapi intinya adalah dia bahkan membedah mayat dan memotong tubuh menjadi pasta daging.</p>
+<p>	Itu terlalu kejam!</p>
+<p>	Kebenaran dari kejahatan yang begitu mengerikan memiliki dampak yang kuat pada pikiran murni dan polos semua pemuda.</p>
+<p>	Di dalam ruangan, hanya ada Penatua Akademi dan Fang Yuan.</p>
+<p>	Penatua Akademi duduk sementara Fang Yuan berdiri. Tak satu pun dari mereka berbicara sepatah kata pun, menyebabkan suasana menjadi sangat tegang.</p>
+<p>	Penatua Akademi diam-diam menatap Fang Yuan dan sedikit komplikasi muncul di matanya.</p>
+<p>	Di pagi hari, para penjaga telah melaporkan kepadanya tentang insiden pembunuhan Fang Yuan. Berita ini membuatnya merasa kaget sekaligus curiga.</p>
+<p>	Dia adalah Master Gu peringkat tiga dan bertanggung jawab atas Akademi. Dia jelas tahu kekuatan bertarung dari Master Gu tahap awal Peringkat satu .</p>
+<p>	Fang Yuan mampu membunuh Gao Wan seperti yang lemah mengalahkan yang kuat.</p>
+<p>	Sebenarnya, beberapa penjaga telah melaporkan kepadanya bahwa Mo Yan telah menjebak Fang Yuan di dalam Akademi dengan menerobos di malam sebelumnya.</p>
+<p>	Saat itu, dia tidak memperhatikan masalah ini dan tidak menghentikan mereka.</p>
+<p>	Dia adalah Penatua Akademi – tujuannya adalah untuk memelihara Guru Gu masa depan , bukan untuk melindungi mereka. Selama tidak ada kematian di antara para siswa, dia mendorong konflik tersembunyi.</p>
+<p>	Mo Yan datang untuk mencari masalah dengan Fang Yuan adalah sesuatu yang dia senang lihat. Pertama, dia tahu bahwa terlepas dari apakah pertarungan itu menang atau kalah, itu akan bermanfaat bagi pertumbuhan Fang Yuan. Kedua, dia ingin menekan pengaruh Fang Yuan.</p>
+<p>	Fang Yuan berturut-turut memblokir gerbang Akademi dan merampok siswa lain. Pengaruhnya terlalu besar; itu harus ditekan.</p>
+<p>	Namun, dia tidak menyangka bahwa Mo Yan akan kembali tanpa hasil dan pelayan keluarga yang dia tinggalkan tidak akan bisa mengalahkan Fang Yuan. Gao Wan bahkan terbunuh olehnya!</p>
+<p>	Di dunia ini, kekuatan berada di atas segalanya. Membunuh seseorang bukanlah sesuatu yang aneh. Khususnya bagi seorang Guru Gu , itu adalah sesuatu yang sangat umum.</p>
+<p>	Tapi itu tidak sesederhana itu ketika itu adalah pembunuhan pertama berusia 15 tahun.</p>
+<p>	Penatua Akademi dengan jelas mengingat adegan pembunuhan pertamanya. Saat itu, dia sudah menjadi Master Gu peringkat dua . Pada usia 19 tahun, dia telah membunuh seorang Master Gu dari desa klan Bai dalam sebuah konflik.</p>
+<p>	Setelah membunuh orang itu, dia muntah deras dan panik di dalam hatinya. Selama beberapa hari, dia tidak mau makan dan tidak nafsu makan. Dia bahkan tidak bisa menemukan kedamaian dalam tidurnya. Saat dia menutup matanya, dia akan melihat orang mati itu menatapnya dengan marah.</p>
+<p>	Tapi melihat Fang Yuan sekarang, wajahnya tenang seperti es. Dimana kebingungan itu? Belum lagi dia tidak punya perasaan gelisah. Sepertinya dia tidur nyenyak semalam, seolah-olah orang yang membunuh seorang pria sama sekali bukan dia!</p>
+<p>	Terutama ketika Penatua Akademi mendengar lebih banyak tentang masalah ini. Setelah Fang Yuan membunuh pelayan itu, dia tidak menyayangkan mayat itu dan bahkan menyeretnya kembali ke asrama untuk memotongnya menjadi pasta daging dalam kemarahannya. Metode kejam seperti itu, bahkan mendengarnya adalah semacam teror!</p>
+<p>	Jadi, pada titik ini, Penatua Akademi memandang Fang Yuan dengan emosi yang rumit.</p>
+<p>	Di satu sisi, dia kagum pada ketidakpedulian Fang Yuan terhadap kehidupan, sikapnya tetap dan sedingin es. Di sisi lain, dia menghargai fakta bahwa Fang Yuan terlahir sebagai penggila pertempuran. Setelah membiasakan dirinya dengan Moonlight Gu selama beberapa hari, dia berhasil membunuh seseorang dengan itu. Seorang remaja biasa—bahkan talenta kelas A—mungkin tidak dapat mencapai ini. Ini adalah bakat untuk pertempuran! Jika dia dipelihara dengan baik dan berjuang untuk klan, itu akan menjadi mimpi buruk semua musuh mereka.</p>
+<p>	Terakhir, dia merasa khawatir dan tertekan.</p>
+<p>	Khawatir karena setelah kejadian ini, reputasi Fang Yuan pasti akan meningkat dan tidak mungkin untuk menekannya. Fang Yuan terlalu berani; tidak hanya dia tidak mematuhi aturan klan dengan menggunakan Gu-nya di Akademi, dia bahkan membunuh seseorang dengan itu. Ada kebutuhan untuk menekan pengaruhnya. Kalau tidak, bagaimana Penatua dapat mengelola Akademi ini lagi?</p>
+<p>	Distress adalah karena dia tidak tahu bagaimana menyelesaikan masalah ini dengan sempurna. Bagaimanapun, itu melibatkan pihak keluarga Mo.</p>
+<p>	“Fang Yuan, apakah kamu tahu mengapa aku memanggilmu ke sini untuk menemuiku?” Penatua Akademi menggunakan suara yang serius dan dalam untuk memecah kesunyian di ruangan itu.</p>
+<p>	“Aku tahu.” Fang Yuan mengangguk dan menjawab, “Saya menggunakan Moonlight Gu di Akademi, melanggar aturan klan. Menurut aturan, karena ini adalah pelanggaran pertamaku, aku harus mengganti tiga puluh keping batu purba sebagai hukuman.”</p>
+<p>	Dia menghindari poin penting dan tidak menyebutkan kematian Gao Wan.</p>
+<p>	Penatua Akademi tertegun sejenak, dia tidak menyangka Fang Yuan akan menjawab seperti ini.</p>
+<p>	Ekspresinya menjadi gelap saat dia dengan dingin membentak, “Jangan mencoba mengaburkan hal-hal di depanku! Aku akan bertanya padamu, ada apa dengan kematian Gao Wan?”</p>
+<p>	Fang Yuan menyipitkan matanya dan berkata, “ Hmph , Gao Wan ini melawan atasannya, niatnya jahat. Tadi malam, dia tidak hanya memblokir pintu kamarku, dia bahkan mencoba membunuhku. Untuk membela diri, saya terpaksa menggunakan Moonlight Gu. Untungnya, saya berhasil membunuh pengkhianat ini. Saya curiga ada kemungkinan besar dia menjadi mata-mata desa pegunungan lainnya, saya mohon para tetua untuk menyelidiki ini secara menyeluruh!</p>
+<p>	Setelah mendengar ini, Penatua Akademi mengerutkan kening dan kehilangan kata-kata.</p>
+<p>	Sekarang Gao Wan sudah mati, Fang Yuan bisa mengatakan apa pun yang dia inginkan. Bagaimanapun, Gao Wan hanyalah orang luar, bukan anggota klan. Bahkan jika dia mati, itu tidak masalah bagi Penatua Akademi. Namun, dia khawatir dengan reaksi keluarga Mo. Gao Wan adalah pelayan mereka dan dia telah meninggal di dalam akademi. Penatua Akademi bertanggung jawab atas akademi dan harus memberikan penjelasan kepada keluarga Mo.</p>
+<p>	Berpikir sebentar, Penatua Akademi menatap Fang Yuan dan bertanya, “Kalau begitu izinkan saya bertanya kepada Anda. Mayat Gao Wan, bagaimana kamu menghadapinya?”</p>
+<p>	Bibir Fang Yuan melengkung, memperlihatkan senyum kejam. “Aku memotong-motong mayat Gao Wan dan memasukkannya ke dalam kotak kayu. Ketika pagi tiba, saya meletakkannya di pintu belakang keluarga Mo. ”</p>
+<p>	“Apa?!” Penatua Akademi tercengang tanpa kata-kata saat dia hampir melompat dari tempat duduknya.</p>
+<p>	Fang Yuan tidak hanya membunuh pelayan keluarga mereka, dia bahkan memotong mayat itu dan meletakkannya di pintu belakang keluarga Mo. Ini adalah provokasi terang-terangan!</p>
+<p>	Bagi Penatua Akademi yang mencoba menyelesaikan ini dengan damai, itu benar-benar mimpi buruk.</p>
+<p>	Fang Yuan hanyalah seorang Guru Gu peringkat satu kecil , bagaimana reaksi keluarga besar Mo?</p>
+<p>	Memikirkan hal ini, Penatua Akademi merasa sakit kepala karena masalah ini telah berkembang di luar kendalinya. Fang Yuan ini adalah pembuat onar sejati.</p>
+<p>	“ Huh , karena itu sudah terjadi, tidak ada gunanya mengatakannya lagi. Pergi dulu, hukumannya akan datang dalam beberapa hari ini, kamu harus bersiap secara mental. ” Penatua Akademi sangat marah. Dia melambaikan tangannya dan memberi isyarat agar Fang Yuan pergi; dia perlu memikirkan ini dengan tenang untuk menemukan solusi.</p>
+<p>	Catatan TL: Jadi penanggung jawab saya mengatakan saya dapat memposting di situs saya dengan penundaan waktu sementara situs Qidian harus menjadi yang pertama, jadi saya hanya akan memposting di sini juga jika itu masalahnya o/</p>
+<p>– Skyfarrow</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

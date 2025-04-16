@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2015 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2015";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2014.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2015">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2016.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2015</h1>
+        <div class="text-left">
+<p>	Bab 2015 – Perubahan Besar Kota Pasir Serigala</p>
+<p>	Bab 2015 Perubahan Besar Sand Wolf City</p>
+<p>	Gurun Barat.</p>
+<p>	Angin bertiup kencang dan pasir beterbangan ke mana-mana. Sebuah karavan pedagang yang ditarik unta bergerak dengan susah payah melewati gurun tandus.</p>
+<p>	“Ya Tuhan, kami akhirnya kembali ke Sand Wolf City.” Di dalam karavan, Peng Da berbicara dengan emosi yang dalam saat dia menunjukkan ekspresi kelelahan.</p>
+<p>	Guru Gu Mo Li sedang duduk di atas unta di samping, dia memandang Peng Da dan tertawa: “Nak, kata-katamu sangat berbeda dari ketika kita pindah pertama kali.”</p>
+<p>	Wajah Peng Da sedikit memerah. Ketika Mo Li baru saja mengatur karavan pedagang, Peng Da sangat bersemangat dan berpikir petualangannya akan luar biasa dan menyenangkan.</p>
+<p>	Tetapi setelah beberapa perjalanan karavan, Peng Da sudah sepenuhnya menyadari kenaifannya sebelumnya. Di dunia ini, menjajakan tidak hanya sulit dan sangat berbahaya, tetapi juga sangat melelahkan. Bahkan dengan sedikit kecerobohan, hidupnya yang rapuh akan hilang di gurun yang luas dan tanpa ampun.</p>
+<p>	Namun, emosi Peng Da bergema dengan Master Gu lainnya di karavan pedagang.</p>
+<p>	“Ya, kami kembali ke rumah lagi.”</p>
+<p>	“Kami tidak menghadapi bahaya apa pun dalam perjalanan ini, tetapi itu benar-benar melelahkan. Saya akan mandi dengan baik setelah kembali. ”</p>
+<p>	“Aku sudah tidak bisa mengendalikan diri, aku akan pergi minum sepuasnya di kedai, hahaha.”</p>
+<p>	Mo Li tersenyum, dia memikirkan istrinya dan juga putranya, yang telah banyak berubah baru-baru ini. Putranya dipilih dan dibudidayakan secara besar-besaran, putranya yang hilang benar-benar membuka lembaran baru.</p>
+<p>	Keajaiban hidup yang indah ini memberi Mo Li harapan dan motivasi baru. Menjadi pedagang karavan itu sulit, tetapi dia menemukan kegembiraan dengan caranya sendiri.</p>
+<p>	“Tunggu, sesuatu sedang terjadi!” Master Gu investigasi yang berada di garis depan karavan tiba-tiba berteriak.</p>
+<p>	Peng Da langsung tegang sambil juga merasa agak aneh. Menurut akal sehat, ini dekat Sand Wolf City dan seharusnya tidak ada bahaya di sini. Jadi mengapa ada peringatan tiba-tiba?</p>
+<p>	Mo Li segera mengaktifkan worm Gu investigasinya, tubuhnya sedikit menegang saat dia berteriak: “Situasinya aneh, buru-buru maju dengan kecepatan penuh!”</p>
+<p>	Peng Da dan yang lainnya tidak tahu alasannya tetapi melihat Mo Li memimpin, mereka secara alami percaya pada pemimpin karavan pedagang dan mengikuti dengan cepat.</p>
+<p>	Ketika mereka mendekati Sand Wolf City, mereka bahkan tidak perlu menggunakan cacing Gu untuk menemukan kelainan.</p>
+<p>	Kepulan asap abu-abu mengepul ke atas, ada juga api dan bau terbakar di udara yang semuanya berasal dari Sand Wolf City.</p>
+<p>	Semua orang di karavan pedagang memiliki firasat buruk saat mereka bergerak lebih cepat.</p>
+<p>	Akhirnya, mereka sampai di depan gerbang Sand Wolf City.</p>
+<p>	“Mustahil!”</p>
+<p>	“Apa yang sebenarnya terjadi?!”</p>
+<p>	“Ya Tuhan, ini mimpi, kan? Itu pasti mimpi.”</p>
+<p>	Beberapa anggota karavan pedagang hanya berlutut di tanah, beberapa menangis dan mulai menangis, bahkan pemimpin yang paling stabil, Mo Li, berdiri dalam keadaan linglung.</p>
+<p>	Mata Peng Da terbuka lebar saat dia melihat pemandangan di depannya dengan tak percaya.</p>
+<p>	Kota Serigala Pasir yang berkembang sekarang telah menjadi reruntuhan. Ada mayat di mana-mana, puing-puing dan puing-puing berserakan di jalan, api menyala dan asap ada di mana-mana, pemandangan itu terlalu mengerikan untuk dilihat.</p>
+<p>	Mo Li bergumam ketika dia tiba-tiba tersentak, berlari menuju pusat kota.</p>
+<p>	Gerakannya menyentak banyak orang, Gu Masters mulai bergegas ke rumah mereka.</p>
+<p>	Peng Da tidak punya rumah jadi dia mengendarai unta dan mengikuti Mo Li.</p>
+<p>	Mo Li cepat, dan dengan kecemasan membakar hatinya, dia langsung meninggalkan Peng Da jauh di belakang. Untungnya, Peng Da telah kembali ke Sand Wolf City beberapa kali dan mengetahui jalan menuju rumah Mo Li.</p>
+<p>	Ketika Peng Da sampai di rumah Mo Li, dia melihat reruntuhan. Mo Li berlutut di tanah, diam-diam melihat mayat istrinya yang telah dia gali.</p>
+<p>	Peng Da, bagaimanapun, merasakan kesedihan yang mendalam dari keheningan Mo Li.</p>
+<p>	“Bagaimana ini bisa terjadi? Apa yang sebenarnya terjadi di sini?” Sementara Peng Da sedih, terlebih lagi, dia bingung.</p>
+<p>	Sejauh yang dia ketahui, Kota Serigala Pasir adalah kota besar dengan banyak Guru Gu yang ditempatkan di sini, tetapi kota itu benar-benar dihancurkan dan berubah menjadi kota tanpa kehidupan!</p>
+<p>	Kekuatan macam apa yang bisa memiliki kekuatan untuk menghancurkan seluruh Sand Wolf City?</p>
+<p>	Apakah itu bencana pasang surut qi?</p>
+<p>	Tapi itu tidak terlihat seperti itu sama sekali dari jejaknya.</p>
+<p>	“Dunia ini benar-benar terlalu berbahaya. Orang-orang hidup dalam bahaya, bahkan Master Gu pun sama. Tidak ada tempat yang aman.” Peng Da merasa ketidakberartiannya semakin meningkat.</p>
+<p>	Dia memandang Mo Li yang berlutut seperti patung dan membuka mulutnya beberapa kali sebelum akhirnya berkata: “Paman, kita harus menyatukan diri. Jangan lupa kamu masih punya anak.”</p>
+<p>	Kata-kata ini mengguncang Mo Li, matanya bersinar dengan harapan sekali lagi.</p>
+<p>	“Peng Da, terima kasih atas pengingatmu! Putraku masih di daerah pusat kota, dia adalah benih Abadi Gu dan sangat diasuh. Dia pasti baik-baik saja, dia harus dijaga dengan baik! Ayo cari dia!”</p>
+<p>	Mo Li membawa mayat istrinya dan bergegas menuju area dalam kota bersama Peng Da.</p>
+<p>	Seluruh area dalam kota telah berubah menjadi kawah besar.</p>
+<p>	Area dalam kota — hilang!</p>
+<p>	Beberapa anggota karavan berdiri di tepi kawah, mengamatinya dengan pandangan kosong.</p>
+<p>	Mo Li berjalan ke arah mereka dan melihat kawah besar di depannya, wajahnya menjadi sangat pucat dan bibirnya bergetar, tidak bisa berkata apa-apa.</p>
+<p>	Peng Da menghirup udara dengan tajam, dia bisa melihat kawah besar ini adalah jejak kaki binatang. Jejak kaki yang begitu besar berarti binatang ini sangat besar!</p>
+<p>	“Ini bukan buatan manusia.”</p>
+<p>	“Bencana binatang buas!”</p>
+<p>	“Seekor binatang seukuran gunung menyerang Sand Wolf City dan membunuh semua orang!”</p>
+<p>	Anggota karavan menganalisis dan mulai menangis lagi.</p>
+<p>	Mo Li jatuh ke dalam keheningan yang mematikan dan Peng Da tidak tahu bagaimana menghiburnya. Mo Li pernah memiliki rumah yang indah dan sekarang semuanya hilang, hanya dia sendiri yang tersisa.</p>
+<p>	Sejauh menyangkut Mo Li, sejauh menyangkut anggota karavan yang masih hidup, nasib terlalu kejam!</p>
+<p>	Ledakan-!</p>
+<p>	Tepat pada saat ini, ada ledakan sonik di langit di atas semua orang.</p>
+<p>	Suara ini segera menarik perhatian semua orang.</p>
+<p>	“Mungkinkah binatang raksasa itu tidak pergi?” Peng Da dengan cepat mengangkat kepalanya dan melihat dua sosok melayang di langit.</p>
+<p>	“Gu Abadi!” Master Gu lainnya berteriak.</p>
+<p>	“Bencana juga menimpa tempat ini.” Dewa Gu di langit berbicara, suara mereka bergema dan menyebar di bawah, mereka tidak menyembunyikannya.</p>
+<p>	“Binatang terkutuk ini, telah menyebabkan klan Mo saya menderita kerugian yang sangat besar. Tunggu sampai saya menangkapnya, saya akan mencabut uratnya dan menguliti kulitnya untuk meredakan amarah saya.” Gu Immortal lainnya berkata dengan marah.</p>
+<p>	“Ayo pergi, kita akan segera menyusulnya.” Kedua Dewa Gu dengan cepat terbang menjauh.</p>
+<p>	Master Gu di tanah terdiam beberapa saat ketika seseorang tiba-tiba mulai menangis dengan keras.</p>
+<p>	“Ayah, ibu, kamu meninggal dengan sangat menyedihkan. Aku, putramu, tidak dapat membalaskan dendammu, tetapi para dewa akan menegakkan keadilan untukmu!”</p>
+<p>	Peng Da terdiam, suasana hatinya sangat berat. Pada saat ini, dia tiba-tiba menyadari: Bahkan jika seseorang menjadi Guru Gu, bahkan jika mereka adalah Guru Gu peringkat lima, apa gunanya? Hanya dengan menjadi Gu Immortal, mereka dapat memiliki semacam kendali atas nasib mereka sendiri di dunia ini.</p>
+<p>	“Aku ingin mengikuti mereka untuk melihatnya.” Mo Li tiba-tiba berkata dengan ekspresi tegas.</p>
+<p>	“Pemimpin, apakah kamu gila?” Master Gu di sekitarnya dengan cepat membujuk.</p>
+<p>	Sikap Mo Li tegas: “Saya tidak kompeten! Saya tidak bisa membalaskan dendam istri dan anak saya, tetapi saya akan mempertaruhkan semua kekuatan saya untuk melihat kematian pelakunya dengan kedua mata saya sendiri! Jika saya bahkan tidak dapat menangkap kesempatan ini, bahkan jika saya hidup terus, saya akan merasa menyesal seumur hidup saya!”</p>
+<p>	Kata-kata ini bergema dengan Master Gu yang tersisa, mereka setuju dan menyatakan bahwa mereka ingin bergerak bersama Mo Li untuk melihat keadilan ditegakkan.</p>
+<p>	“Paman, aku juga ingin mengikutimu.” kata Peng Da.</p>
+<p>	“Kamu harus tinggal di belakang, Nak.” Ekspresi Mo Li agak melunak saat dia melihat Peng Da.</p>
+<p>	Peng Da tersenyum pahit: “Paman, Anda telah menyelamatkan saya berkali-kali, Anda adalah orang terdekat saya di dunia ini. Karena saya mengikuti Anda, saya pasti tidak akan berpisah dengan Anda pada saat yang genting ini. Biarkan aku terus mengikutimu, paman!”</p>
+<p>	Mo Li menatap Peng Da dalam-dalam untuk beberapa saat sebelum mengangguk dan berkata dengan suara serak: “Kalau begitu ikuti aku, bajingan.”</p>
+<p>	Kelompok Gu Masters mengikuti arah Gu Immortals terbang menuju dan meninggalkan reruntuhan Sand Wolf City.</p>
+<p>	Dalam perjalanan, jejak kaki binatang raksasa itu sangat jelas terlihat, yang membuat mereka tetap berada di jalur yang benar.</p>
+<p>	Mereka bergegas seperti ini selama sehari semalam ketika mereka tiba-tiba mendengar guntur di cakrawala.</p>
+<p>	“Ini bukan guntur, ini pertarungan antara Dewa Gu dan binatang raksasa!”</p>
+<p>	“Dengarkan baik-baik, kamu bisa samar-samar mendengar lolongan binatang buas.”</p>
+<p>	Master Gu bersemangat saat mereka mempercepat, ingin lebih dekat.</p>
+<p>	Tetapi pada saat ini, arus qi gelap menyembur keluar seperti pelangi melintasi langit.</p>
+<p>	Seutas utas arus qi jatuh di dekat Master Gu. Jejak qi gelap melewati bahu Guru Gu.</p>
+<p>	Guru Gu itu tiba-tiba berteriak ketakutan, kulit dan ototnya mulai membusuk dan dia segera meleleh menjadi kerangka putih!</p>
+<p>	Semua orang merasa ngeri dengan perubahan yang mengejutkan ini dan dengan cepat melarikan diri ke segala arah.</p>
+<p>	Untungnya, qi gelap menyebar bersama angin dan tidak berlama-lama.</p>
+<p>	“Terlalu berbahaya untuk mendekat!”</p>
+<p>	“Ini hanya efek lanjutan dari pertarungan antara Dewa Gu dan binatang raksasa, kita tidak memiliki kekuatan untuk melawannya.”</p>
+<p>	“Jika kita bergerak lebih dekat, kita akan kehilangan nyawa kita.”</p>
+<p>	Sebagian besar Master Gu berhenti dan berbalik.</p>
+<p>	“Saya masih ingin mencobanya. Kamu boleh pergi.” Mo Li adalah satu-satunya Guru Gu yang tersisa.</p>
+<p>	Peng Da masih ingin mengikutinya, tapi kali ini, sikap Mo Li tegas, dia mengusirnya.</p>
+<p>	Sendirian, Mo Li bergerak agak jauh dengan susah payah, ketika dia memanjat bukit pasir dan melihat, dia tidak bisa menahan nafas pada apa yang dilihatnya.</p>
+<p>	Jauh di cakrawala, kabut gelap menutupi di mana-mana.</p>
+<p>	Kabut itu jelas merupakan arus qi gelap dari sebelumnya. Dalam kabut gelap, Mo Li samar-samar bisa melihat sosok binatang seukuran gunung serta kilatan petir sesekali.</p>
+<p>	Mo Li menarik napas dalam-dalam dan akan terus bergerak maju ketika dia tiba-tiba dipeluk dari belakang.</p>
+<p>	“Paman, apakah kamu ingin mati? Jangan maju, kau akan kehilangan nyawamu!” Peng Da berteriak.</p>
+<p>	“Brat, kenapa kamu belum pergi?” Mo Li sangat marah.</p>
+<p>	Peng Da berkata dengan tulus: “Paman, Anda adalah dermawan saya, bagaimana saya bisa melupakan kebaikan Anda dan melihat Anda mengirim diri Anda ke pintu kematian? Saya tahu Anda ingin mati, kondisi Anda tidak benar, saya telah mengikuti Anda sepanjang jalan tetapi Anda tidak dapat menemukan saya! Paman, hiduplah, jangan bunuh diri!”</p>
+<p>	Tapi Mo Li tidak dibujuk: “Bocah, tersesat!”</p>
+<p>	“Aku tidak akan!”</p>
+<p>	“Abaikan–! Ini tidak ada hubungannya denganmu. Anda masih muda dan memiliki umur panjang di depan Anda, jangan datang ke sini untuk mati. ”</p>
+<p>	“Paman, aku akan menyelamatkanmu!”</p>
+<p>	“Aku tidak membutuhkanmu untuk menyelamatkanku, bahkan jika aku mati, aku akan mempertaruhkan nyawaku untuk membalas dendam. Bahkan jika itu adalah serangan yang tidak signifikan, selama itu mendarat di binatang terkutuk itu, aku akan puas!!”</p>
+<p>	Ledakan–!</p>
+<p>	Baca di meionovel.id</p>
+<p>	Tepat saat keduanya bertengkar, badai terbang dari pertempuran di cakrawala.</p>
+<p>	Badai itu seperti pilar yang menghubungkan langit dan bumi, bergerak cepat menuju keduanya.</p>
+<p>	“Brengsek!” Peng Da dan Mo Li tidak punya waktu untuk menghindar dan tersapu oleh badai.</p>
+<p>	Dua sosok tidak penting menghilang ke dalam badai dahsyat dalam sekejap.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

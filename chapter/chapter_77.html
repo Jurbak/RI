@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 77 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 77";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_76.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 77">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_78.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 77</h1>
+        <div class="text-left">
+<p>	Bab 77</p>
+<p>	Bab 77: Suatu kebetulan yang aneh</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Seekor babi hutan yang hampir sebesar gajah sedang berbaring di lubang lumpur.</p>
+<p>	Itu menutup matanya, setengah berlutut dan setengah berbaring, sepasang gading bersih dari tanah, bersinar seperti bilah tajam.</p>
+<p>	Senja terpantul di bulu hitam gelapnya, perutnya yang besar berwarna putih dan dengan setiap napas, bergerak naik turun menciptakan suara mendengus.</p>
+<p>	Raja babi hutan!</p>
+<p>	Fang Yuan berada beberapa ratus meter darinya, tetapi masih dengan hati-hati berjalan mengikuti arah angin.</p>
+<p>	“Meskipun aku bisa membunuh babi hutan sekarang, melawan raja babi hutan ini, aku hanya bisa melarikan diri. Bahkan rata-rata peringkat dua Gu Master tidak bisa membunuhnya. Jika dia tidak bersih dari cacing Gu di tubuhnya, dia bahkan mungkin menjadi mangsanya.</p>
+<p>	Raja binatang biasanya memiliki cacing Gu yang menghuni tubuh mereka.</p>
+<p>	Di tubuh raja babi hutan, biasanya ada Gu Babi Hutan, seperti Gu Babi Merah Muda atau Gu Babi Bunga. Selain spesies babi hutan, mungkin juga ada Beast Skin Gu atau Spike Fur worm.</p>
+<p>	Di dunia ini, ada semua jenis cacing Gu. Biasanya, cacing Gu berada di tubuh binatang buas yang kuat, dan hidup berdampingan dengan binatang buas.</p>
+<p>	Ketika binatang buas diserang, cacing Gu akan merasakan bahaya dan membantu binatang buas itu dalam melawan musuh yang kuat.</p>
+<p>	Tubuh raja babi hutan ini sangat besar, dan kekuatannya jauh melebihi rata-rata babi hutan. Fang Yuan tidak bisa melawannya sendirian, belum lagi setidaknya ada satu atau lebih cacing Gu misterius di tubuhnya.</p>
+<p>	Namun, petualangan Fang Yuan kali ini bukanlah untuk membunuh raja babi hutan. Itu untuk menghindari pengejaran Wang Da.</p>
+<p>	Wang Da tahu bahwa Fang Yuan memiliki peta kulit binatang, dan Fang Yuan menggunakan pengetahuan itu untuk keuntungannya. Tidak pergi kemana-mana selain menuju ke area tanda bahaya raja babi hutan.</p>
+<p>	Raja babi hutan meskipun berbahaya, bagaimanapun juga tetaplah seekor binatang buas, dan tidak memiliki kecerdasan manusia. Orang tua Wang sebagai manusia fana, bisa pergi ke tempat ini dan mundur dengan aman, jadi mengapa Fang Yuan tidak bisa melakukan hal yang sama?</p>
+<p>	Pergi ke jalur sebaliknya, meskipun tampaknya berbahaya, malah menyembunyikan cara untuk bertahan hidup.</p>
+<p>	Saat dia bergerak lebih jauh, raja babi hutan perlahan ditinggalkan oleh Fang Yuan. Di peta, sepertinya Fang Yuan mengambil lingkaran besar dan mengelilingi palang merah, membentuk kurva cekung. Akhirnya, dia mencapai bukit tempat beberapa tetua klan tinggal dan melakukan penilaian tengah tahun di sana.</p>
+<p>	Satu jam kemudian, seorang anak muda yang penuh dengan potongan rumput, bajunya robek di beberapa tempat dan kakinya penuh lumpur, membawa tas dan berlari ke atas bukit.</p>
+<p>	Anak muda yang tampak menyedihkan ini, adalah Fang Yuan.</p>
+<p>	“Aku akhirnya dengan selamat kembali ke sini. Di tempat ini, ada tetua klan untuk melindungi saya dan keamanan saya terjamin. Tapi aku tidak boleh ceroboh.” Fang Yuan menghela nafas lega, dan perlahan naik ke bukit.</p>
+<p>	Bukit itu memiliki tenda sederhana dan puluhan siswa berada di dekatnya saat penjaga akademi sedang mengumpulkan taring babi hutan di dalam tas mereka. Beberapa tetua klan yang ditempatkan di sini hilang, dan hanya satu yang tersisa.</p>
+<p>	“Kenapa suasananya begitu aneh?” Fang Yuan sedikit mengernyit, benar-benar merasakan sesuatu yang penting telah terjadi.</p>
+<p>	Ketika dia sampai di dekat tenda, dia mendengar diskusi para siswa.</p>
+<p>	“Apakah kamu mendengar, ada pembunuhan sebelumnya, dan beberapa Master Gu peringkat dua meninggal.”</p>
+<p>	“Apakah kamu serius?”</p>
+<p>	“Memang benar, aku datang ke sini lebih awal, dan aku melihat Gu Yue Fang Zheng dibawa oleh beberapa tetua klan, bergegas pergi.”</p>
+<p>	“Gu Yue Fang Zheng terlalu sial, untuk menghadapi sesuatu seperti ini selama ujian.”</p>
+<p>	“Hehe, kamu tidak tahu ya. Targetnya adalah Fang Zheng, karena dia adalah talenta kelas A! ”</p>
+<p>	“Aku ingin tahu apakah dia akan mati?”</p>
+<p>	“Bahkan jika dia tidak mati, dia akan terpengaruh. Mungkin bakatnya akan menurun setelah cedera itu.”</p>
+<p>	Langkah Fang Yuan terhenti. Dia jelas dalam hatinya, menyulap kebenaran masalah ini.</p>
+<p>	“Wang Da ingin berurusan denganku dan membalaskan dendam kerabatnya. Tetapi setelah saya menemukan rumah pohon, saya mengubah rute saya dan pergi menuju raja babi hutan. Wang Da tidak mengharapkan ini dan malah menemukan Fang Zheng secara tidak sengaja. Sumber informasinya berasal dari para pemburu itu dan dia tidak tahu bahwa saya memiliki saudara kembar. Dia mengira Fang Zheng sebagai saya dan ingin membunuh saya, tetapi dihentikan oleh Master Gu di sekitarnya yang melindungi daerah itu. Saat ini pertanyaannya adalah – Apakah Wang Da meninggal?”</p>
+<p>	Fang Yuan mengerutkan kening dengan erat. Wang Da berhasil melarikan diri, Wang Da ditangkap, Wang Da terbunuh — ketiga kemungkinan ini akan sangat mempengaruhi rencana dan tindakannya di masa depan.</p>
+<p>	Berpikir sejenak, Fang Yuan memutuskan untuk mengikuti rencana awalnya.</p>
+<p>	Ekspresi sesepuh akademi itu jelek, Fang Zheng sebenarnya dibunuh. Tanpa petunjuk atau bukti apa pun, dia tidak akan bisa menebak bahwa Fang Zheng telah menjadi kambing hitam Fang Yuan, tetapi memikirkan klan Bai dan klan Xiong!</p>
+<p>	Fang Zheng adalah satu-satunya bakat kelas A yang dimiliki klan Gu Yue selama tiga tahun terakhir, klan Bai dan klan Xiong secara alami tidak akan membiarkannya tumbuh. Mengirim seorang pembunuh Gu Master untuk membunuhnya dan mencegahnya menjadi lebih kuat, ini normal.</p>
+<p>	Bahkan klan Gu Yue akan melakukan hal seperti ini. Diam-diam mengirim Gu Masters dan menargetkan siswa jenius dua klan lainnya.</p>
+<p>	“Pembunuh itu terbunuh di tempat, tapi aku ingin tahu bagaimana luka Fang Zheng?” Tetua akademi berpikir, dan pada saat ini, pelayannya membawakannya selembar kertas.</p>
+<p>	Penatua akademi menerima kertas itu, membacanya tanpa memperhatikan dengan benar, “Dalam ujian tahun ini, hasilnya adalah sebagai berikut … Gu Yue Chi Cheng enam belas gading, Gu Yue Mo Bei empat belas gading …”</p>
+<p>	Perhatian siswa di sekitarnya diperoleh. Hasilnya jelas.</p>
+<p>	Siswa kelas D, bahkan jika mereka bekerja bersama, mereka hanya bisa mendapatkan tiga hingga empat gading. Nilai B dan C, paling banyak delapan sampai sembilan. Mereka yang memiliki lebih dari sepuluh gading adalah yang berkinerja baik.</p>
+<p>	Yang terbaik adalah Gu Yue Chi Cheng dengan enam belas taring. Berikutnya adalah Mo Bei, dan untuk Fang Zheng dia punya sepuluh.</p>
+<p>	Gu Yue Chi Cheng menunjukkan ekspresi puas. Dia beruntung kali ini dan bertemu dua babi hutan yang bertarung satu sama lain, sehingga dia mendapat hadiah yang mudah. Gu Yue Mo Bei marah, membiarkan Chi Cheng mengunggulinya.</p>
+<p>	Tetua akademi mengumumkan, “Karena itu, saya mengumumkan siswa nomor satu untuk ujian ini adalah …”</p>
+<p>	“Berhenti!” Fang Yuan melangkah keluar pada saat ini.</p>
+<p>	“Fang Yuan, kamu terlambat. Pemeriksaan berakhir satu jam yang lalu, menurut aturan, gading babi hutan yang Anda dapatkan akan dikurangi empat sebagai hukuman. ” Chi Cheng segera berteriak.</p>
+<p>	Fang Yuan mengabaikannya dan membuka tas di punggungnya, meraih bagian bawah tas dan menuangkan isinya.</p>
+<p>	Menabrak.</p>
+<p>	Puluhan taring babi hutan berkumpul menjadi tumpukan di dekat kakinya.</p>
+<p>	“Ini!” Chi Cheng menatap dengan mulut ternganga.</p>
+<p>	Mo Bei dan yang lainnya menatap bola mata mereka ke tumpukan itu.</p>
+<p>	“Bagaimana bisa ada begitu banyak? Ini terlalu banyak!” Penatua akademi memandang Fang Yuan dengan tidak percaya, “Fang Yuan, apakah kamu berburu semua ini?”</p>
+<p>	Fang Yuan menangkupkan tinjunya, “Aku sendiri hanya berburu selusin gading, tapi aku menemukan tas yang bisa saja disembunyikan oleh pemburu. Di dalamnya banyak gading babi hutan. Saya memikirkannya, ujiannya adalah kami harus mendapatkan gading sebanyak mungkin dalam sehari, dan tidak menentukan bahwa kami harus membunuhnya sendiri, jadi saya membawanya ke sini. ”</p>
+<p>	Begitu dia selesai, kerumunan itu meledak dalam diskusi.</p>
+<p>	“Bagaimana ini bisa?”</p>
+<p>	“Terlalu beruntung!”</p>
+<p>	“Ini terlalu palsu, bisakah pertanyaannya bocor sehingga dia curang?”</p>
+<p>	Penatua akademi menatap Fang Yuan, mencari sebentar, lalu menyatakan, “Ujian ini, Fang Yuan adalah yang pertama.”</p>
+<p>	…</p>
+<p>	Suasana ruang kepala keluarga terasa berat.</p>
+<p>	Gu Yue Bo duduk di kursi terdepan, dan selusin tetua lainnya duduk di dua baris di sampingnya, wajah mereka penuh amarah.</p>
+<p>	“Gu Yue Yao Ji, kamu adalah penyembuh nomor satu di klan kami, aku bertanya bagaimana keadaan Fang Zheng sekarang?” Gu Yue Bo bertanya pada seorang tetua klan.</p>
+<p>	Gu Yue Yao Ji adalah seorang wanita tua dengan punggung bungkuk, wajahnya penuh kerutan seperti kulit pohon.</p>
+<p>	Dia terbatuk dua kali, perlahan berkata, “Melaporkan ke kepala klan, situasinya telah stabil. Nyawa Fang Zheng tidak dalam bahaya, tetapi dia masih tidur. Bakatnya tidak turun karena ini. ”</p>
+<p>	“Bagus jika bakatnya tidak turun.” Gu Yue Bo menghela napas lega, dia bertanya kepada sesepuh aula hukuman, “Apakah situasi si pembunuh sudah dinilai?”</p>
+<p>	Penatua aula hukuman tidak setua Gu Yue Yao Ji, dan segera berdiri, menundukkan kepalanya, “Ya, berusia tiga puluh lima tahun, laki-laki, identitas tidak diketahui, mungkin faksi iblis Gu Master. Dia memiliki dua cacing Gu, Shadow Follower Gu dan Love Life Separation.”</p>
+<p>	Gu Yue Bo mengangguk, “Sepertinya seorang pembunuh, Pemisahan Kehidupan Cinta … racun peringkat dua nomor satu, tidak heran dia bisa membunuh tiga Master Gu saya.”</p>
+<p>	“Kepala klan, kita harus menyelidiki lebih lanjut! Baik itu klan Bai atau klan Xiong!” Gu Yue Chi Lian berteriak, matanya hampir terbakar.</p>
+<p>	“Gu Pengikut Bayangan, Pemisahan Kehidupan Cinta… ini tidak seperti bidak bidak klan Bai atau Xiong. Dia mungkin faksi iblis luar Gu Master, ingin berafiliasi dengan klan, sehingga diperintahkan untuk membunuh Fang Zheng untuk membuktikan kesetiaannya. Bagaimanapun, masalah ini pasti ada hubungannya dengan dua klan, ”kata Gu Yue Mo Chen dengan dingin.</p>
+<p>	Kedua tetua klan ini berkuasa, meskipun mereka tidak akur, begitu musuh eksternal muncul, mereka akan membuang kebencian mereka dan merajut erat.</p>
+<p>	Gu Yue Bo mengangguk, memikirkan hal yang sama.</p>
+<p>	Wang Da telah menghilang selama tiga tahun, tanpa jejak yang bisa ditemukan. Penduduk desa semua mengira dia sudah mati, sehingga identitasnya menjadi misteri. Para petinggi Gu Yue tidak mengetahui hal ini, mereka tidak akan peduli dengan kematian seorang pelayan. Mereka menaruh semua perhatian mereka pada klan Xiong dan Bai.</p>
+<p>	Pada saat ini, tetua akademi masuk.</p>
+<p>	“Pemimpin klan …” Dia tampak khawatir dan akan berbicara ketika Gu Yue Bo menjawab, “Penatua akademi, Fang Zheng baik-baik saja, bakatnya masih kelas A.”</p>
+<p>	Wajah sesepuh akademi menjadi santai.</p>
+<p>	“Oh ya, apakah siswa lain aman? Dan untuk pemeriksaan ini, bagaimana hasilnya, tempat mana Fang Zheng?” Gu Yue Bo bertanya dengan nyaman.</p>
+<p>	Penatua akademi menjawab dengan jujur, dan ketika dia mengatakan bahwa Fang Yuan secara tidak sengaja mengambil sekantong gading babi hutan dan mendapat tempat pertama, mata Gu Yue Bo bersinar.</p>
+<p>	Aula juga menjadi sunyi. Para tetua klan, seolah-olah mereka merasakannya, secara halus mengamati atmosfer, dan lingkungan yang awalnya gugup menjadi sedikit lebih aneh.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

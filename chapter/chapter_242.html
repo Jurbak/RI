@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 242 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 242";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_241.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 242">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_243.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 242</h1>
+        <div class="text-left">
+<p>	Bab 242</p>
+<p>	Bab 242: Pemahaman umum antara orang pintar</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Mencurigakan?” Tatapan Shang Xin Ci berkedip di bawah bulu matanya yang tebal.</p>
+<p>	Zhang Zhu mengangguk dan berkata dengan sungguh-sungguh: “Faktanya, saya memiliki keraguan tentang mereka sejak kami memasuki gunung Fei Hou. Nona, Anda memberi mereka seratus lima puluh batu purba, tetapi mereka sama sekali tidak tergerak oleh jumlah yang begitu besar. Ini benar-benar membuat orang berpikir.”</p>
+<p>	Dia berhenti sejenak dan melanjutkan: “Saya telah diam-diam menyelidiki mereka akhir-akhir ini, dan menemukan lebih banyak poin yang mencurigakan. Pertama-tama, mereka memiliki sedikit atau tidak ada komunikasi dengan para pelayan di sekitar mereka, seolah-olah mereka ingin tidak terlihat. Kedua, mereka menolak tawaran rekrutmen dari banyak klan, meskipun persyaratannya sangat bagus. ”</p>
+<p>	“Nona, apakah Anda masih ingat penampilannya ketika dia datang untuk meminta bantuan kepada kami malam itu? Hei Tu, pria itu memiliki kekuatan yang begitu kuat, bagaimana dia bisa terluka oleh orang lain dalam keadaan seperti itu? Dan akhirnya, dari pengamatanku, temannya mengenakan pakaian laki-laki, tapi sebenarnya perempuan!”</p>
+<p>	Kamp dipenuhi dengan keheningan.</p>
+<p>	Setelah beberapa lama, Shang Xin Ci tersenyum: “Kekuatan yang kuat tidak berarti dia pasti bisa menang melawan orang lain, kan? Dua tinju tidak bisa menyaingi empat telapak tangan , Hei Tu terluka itu normal. Sebenarnya, saya tahu tentang semua hal mencurigakan yang Anda bicarakan ini. ”</p>
+<p>	Zhang Zhu tidak terkejut sama sekali, dia mengerti Shang Xin Ci dan tahu kecerdasannya.</p>
+<p>	“Merindukan….”</p>
+<p>	Shang Xin Ci berkedip, wajahnya tersenyum lembut dan menawan: “Paman Zhang Zhu, kamu telah merasa tertahan selama berhari-hari, kan? Melihat bahwa saya tidak mengambil tindakan untuk menangani ini, Anda datang untuk mengingatkan saya hari ini. ”</p>
+<p>	Zhang Zhu tersenyum: “Saya tidak bisa menyembunyikan apa pun dari Anda. Tapi kenapa kau masih menjaga mereka di sisimu?”</p>
+<p>	“Karena aku tidak merasakan niat buruk dari mereka.” Mata Shang Xin Ci bersinar dengan cahaya yang bijaksana, “Kami menjadi curiga terhadap mereka di gunung Fei Hou, dan jika mereka tidak berdiri pada saat itu, kami tidak akan dapat merasakan kecurigaan apapun. Tapi, mengapa mereka masih mengambil risiko, bukan untuk membantu saya?”</p>
+<p>	“Ini…”</p>
+<p>	“Jika mereka menyembunyikan skema berbahaya, mereka pasti akan tetap bersembunyi dan menonton pertunjukan dari samping, kan? Atau mungkin menerima seratus lima puluh batu purba itu. Tapi mereka tidak melakukannya. Ketika Hei Tu berkata dia membalas kebaikanku, ekspresinya tulus dan aku tahu bahwa dia mengatakan yang sebenarnya. Dia benar-benar ingin membalas budi ini.” kata Shang Xin Ci.</p>
+<p>	Zhang Zhu terpaku untuk waktu yang lama: “Tapi itu tidak sederhana, mereka pasti punya rahasia.”</p>
+<p>	Senyum mengembang di wajah Shang Xin Ci seperti bunga: “Setiap orang memiliki rahasia, saya juga memilikinya, apakah memiliki rahasia membuat seseorang menjadi orang jahat? Dunia ini cerah, sebagai seseorang yang tahu bagaimana membalas kebaikan, pasti ada batasan seberapa buruk dia, kan?”</p>
+<p>	“Mungkin memang begitu, tapi mau tak mau aku bertanya-tanya apa motif mereka. Mungkin mereka sedang merencanakan sesuatu… tunggu, aku tahu, mereka pasti kaki tangan dari beberapa bandit. Mereka bergabung dengan karavan dan berencana untuk merampoknya dengan bekerja sama dengan tokoh jalur iblis! ”</p>
+<p>	“Itu tidak masuk akal.” Shang Xin Ci menggelengkan kepalanya, “Jika mereka adalah kaki tangan, mereka seharusnya memiliki lebih banyak alasan untuk tetap bersembunyi, mengapa mereka mengekspos diri mereka di gunung Fei Hou. Begitu banyak orang mencoba merekrut mereka, mereka bisa saja bergabung dengan kelompok lain dan menyembunyikan diri mereka tidak akan lebih mudah. Mengapa mereka memutuskan untuk tetap bersama kami? Saya merasa mereka pasti telah melalui beberapa penderitaan. Kami membantu mereka dan mereka membayar kami. Sekarang, mereka ingin menyembunyikan identitas mereka, saya pikir kita harus membantu mereka…”</p>
+<p>	Zhang Zhu menghela nafas sambil menggelengkan kepalanya: “Nona, mengapa kamu selalu memikirkan orang lain? Seseorang harus tahu untuk berjaga-jaga terhadap orang lain … ”</p>
+<p>	“Paman Zhang Zhu.” Shang Xin Ci berkata, “Jika kita benar-benar dirampok, tolong jangan berperang untuk melindungi barang-barang itu. Jika barang hilang, maka hilang, itu bukan masalah besar. Keinginan terakhir ibu saya adalah agar saya membawa tanda kepada seseorang di kota klan Shang. Namun, dia juga berkata jika orang itu tidak menerima kita, kita harus terus hidup dengan barang-barang ini.”</p>
+<p>	“Ibuku meninggal dengan cepat, dia tidak berhasil menyampaikan siapa orang yang harus aku cari. Tapi saya pikir kekayaan hanyalah harta duniawi. Ibu telah meninggalkan saya, Anda dan Xiao Die adalah satu-satunya kerabat saya yang tersisa. Aku tidak ingin melihat kalian bertemu dengan kecelakaan apa pun. ”</p>
+<p>	“Nona, jangan pernah mengatakan itu …” Mata Zhang Zhu merah karena emosi.</p>
+<p>	“Ayo, lihat, Sutra Shenjia yang jujur ​​​​dan asli!”</p>
+<p>	“Semua jenis minuman keras, saya menyambut semua orang untuk mencicipinya.”</p>
+<p>	“Golden Qi Gu, dijual hanya dengan lima puluh batu purba!”</p>
+<p>…</p>
+<p>	Pasar temporer itu menjadi pusat perbincangan dan pedagang asongan menjual barang dagangan mereka saat orang-orang berpindah-pindah.</p>
+<p>	Setiap kali karavan lewat, itu akan menjadi momen meriah bagi klan.</p>
+<p>	Di pasar temporer, tidak hanya karavan yang menjual barang dagangannya, beberapa anggota klan Jin juga menjual barang dagangannya.</p>
+<p>	Barang-barang yang mereka jual sebagian besar adalah patung atau peralatan emas; ada pot, cangkir, sendok dan baskom. Keterampilan memahat mereka yang mendalam ditunjukkan dalam patung hewan dan manusia yang hidup. Dan dengan permata atau mutiara merah, hijau, kuning dan biru sebagai pelengkap, patung-patung itu tampak lebih indah.</p>
+<p>	Gunung Huang Jin adalah tempat yang diberkati oleh surga dengan emas yang ditemukan di mana-mana di dalamnya.</p>
+<p>	Orang-orang yang tinggal di sini, bahkan para budak miskin pun mengenakan beberapa aksesoris seperti cincin emas dan kalung emas.</p>
+<p>	Jepit rambut, anting-anting, dan gelang yang dikenakan oleh banyak gadis bersinar dengan kilau keemasan, terlihat sangat indah. Mereka mengobrol satu sama lain dalam kelompok dengan suara indah yang segar dan polos.</p>
+<p>	Adapun Master Gu dari klan Jin, seragam mereka mirip dengan gunung Qing Mao; Lengan pendek, celana panjang, ikat pinggang, pembungkus kaki dan sepatu bambu hijau.</p>
+<p>	Hanya saja ada yang menggunakan tali emas sebagai pembungkus kaki. Sabuk, manset kain atau celana, semuanya berbingkai emas. Ini adalah karakteristik gunung Huang Jin.</p>
+<p>	Klan Perbatasan Selatan pada dasarnya memiliki pakaian yang sama. Namun, para Master Gu iblis, mengenakan segala macam gaun aneh.</p>
+<p>	Fang Yuan dan Bai Ning Bing bergerak di antara kerumunan. Mereka sudah membeli susu sapi dan kambing dari tiga sampai empat anggota klan Jin.</p>
+<p>	Fang Yuan telah mencoba yang terbaik untuk memberi makan semua tulang tombak Gu. Namun meski begitu, dua pertiga dari tulang tombak Gu sudah mati karena kelaparan.</p>
+<p>	“Apakah kamu tidak takut pembelian sembronomu yang begitu besar akan mengungkap identitas kita?” Bai Ning Bing mengungkapkan keraguannya.</p>
+<p>	“Selama seseorang menggunakan penyamaran, mereka pasti akan terungkap suatu hari nanti. Saya tidak memiliki hal yang perlu dikhawatirkan, tetapi Anda, Anda memiliki kekurangan yang terlalu besar. ” Fang Yuan melirik Bai Ning Bing dan berkata.</p>
+<p>	Bai Ning Bing mendengus dingin, dia tahu apa kekurangannya: jenis kelaminnya.</p>
+<p>	Bahkan wanita tua di dusun itu bisa melihatnya. Wanita dan pria memiliki perbedaan fisiologis, ini bisa disamarkan, tetapi itu membutuhkan cacing Gu khusus yang tidak dimiliki Bai Ning Bing.</p>
+<p>	Jadi, bahkan jika dia mengenakan pakaian longgar, menutupi wajahnya dengan topi jerami, mengolesi tubuhnya dengan abu dan mengikat dadanya, jenis kelaminnya tidak diragukan lagi akan terungkap seiring berjalannya waktu.</p>
+<p>	Fang Yuan melanjutkan: “Jadi, daripada menutupi kebenaran, akan lebih baik untuk mengungkapkan beberapa hal atas inisiatif kita sendiri dan membiarkan yang lain menenangkan pikiran mereka, mengira mereka telah melihat melalui kita dan memiliki situasi dalam kendali mereka.”</p>
+<p>	Mengekspos diri sendiri tidak selalu merupakan hal yang buruk. Seseorang hanya bisa menerima kepercayaan ketika mereka mengungkapkan identitas mereka.</p>
+<p>	Fang Yuan tidak bisa mengungkapkan kartunya sendiri, melakukannya akan terlalu tidak wajar dan tidak selaras dengan perilaku mereka sebelumnya.</p>
+<p>	Hanya ketika pihak lain menemukan dan menyelidiki, Fang Yuan dapat mengambil kesempatan untuk dengan mudah mengungkapkan beberapa hal.</p>
+<p>	Bai Ning Bing mengerti: “Jadi kamu sengaja menunggu mereka untuk mengetahuinya sebelum menjawab?”</p>
+<p>	“Kamu akhirnya menjadi pintar.”</p>
+<p>	“Hmph!”</p>
+<p>	Namun, tiga hari berlalu dan tanggapan serta penyelidikan yang diharapkan Fang Yuan masih belum tiba.</p>
+<p>	Bai Ning Bing akhirnya mendapat kesempatan untuk menggali Fang Yuan: “Jadi kamu juga punya waktu ketika kamu salah.”</p>
+<p>	Fang Yuan mendengus sambil merenungkan dalam hati: “Saya bisa melihat dari ekspresi dan perilaku Zhang Zhu bahwa dia sudah curiga pada kita. Dia tidak masuk ke dalamnya dan menahan diri, kemungkinan besar karena bisa ada bahaya kapan saja di jalan. Tapi sekarang karavan telah tiba di klan Jin, situasinya sangat aman dan dia seharusnya sudah memulai penyelidikannya. Kecuali…”</p>
+<p>	Sosok Shang Xin Ci muncul di benak Fang Yuan.</p>
+<p>	“Benar-benar cerdas dan juga berani. Dia kemungkinan besar yang menghentikan Zhang Zhu. Ini sedikit bermasalah, sepertinya terlalu pintar juga bisa menjadi masalah.” Fang Yuan menghela nafas.</p>
+<p>	Kelembutan dan kebaikan Shang Xin Ci telah membuat dampak yang mendalam pada dirinya, membuatnya sedikit meremehkan kecerdasan gadis ini.</p>
+<p>	Shang Xin Ci ingin mencapai kesepahaman antara orang pintar dengan Fang Yuan, dia jelas-jelas berusaha berpura-pura bodoh. Namun, Fang Yuan memiliki motif yang berbeda dan lapisan pemahaman ini malah berubah menjadi penghalang.</p>
+<p>	“Karena begitu, aku hanya akan mengambil inisiatif.” Fang Yuan menghela nafas dan pergi mencari Shang Xin Ci.</p>
+<p>	“Kamu ingin membentuk kemitraan denganku?” Di dalam tenda, Shang Xin Ci dan Zhang Zhu memasang ekspresi terkejut ketika Fang Yuan mengungkapkan niatnya.</p>
+<p>	Mereka tidak pergi untuk mencari keduanya, tetapi mereka berdua malah datang mengetuk pintu mereka!</p>
+<p>	Ini sedikit di luar dugaan gadis muda itu.</p>
+<p>	Pikiran Zhang Zhu bergetar: “Kamu akhirnya menunjukkan warna aslimu? Kemitraan… hmph!”</p>
+<p>	“Nona Zhang, saya agak malu untuk mengatakannya, tetapi kami membutuhkan batu purba dan saya menganggap diri saya agak berpengetahuan tentang pedagang. Saya ingin meminjam sejumlah barang, dan kami akan membagi keuntungan yang kami peroleh menjadi dua, bagaimana? ” Fang Yuan sedikit membungkukkan tubuhnya, tidak tampak seperti budak atau sombong.</p>
+<p>	“Kamu tidak memiliki batu purba dan miskin seperti tikus, tetapi kamu ingin meminjam ayam yang bertelur? Kamu terlalu percaya diri!” Tatapan Zhang Zhu membawa cahaya dingin, “Mengapa menurutmu kamu pasti akan mendapat untung? Dan atas dasar apa menurut Anda klan Zhang kami akan meminjamkan barang itu kepada Anda?</p>
+<p>	“Dalam bisnis tentu ada untung dan rugi. Saya juga tidak bisa menjamin keuntungannya. Mengenai pertanyaan kedua Anda, saya pikir Nyonya Zhang adalah orang yang baik dan harus meminjamkan barang itu kepada saya, bukan? Anda ingin menanyakan alasan saya, saya hanya bisa menjawab bahwa itu adalah perasaan ini. Jika perasaan ini salah, maka tolong anggap masalah ini tidak pernah terjadi.” Fang Yuan menjawab sambil tersenyum.</p>
+<p>	Dia kurang satu telinga dan seluruh tubuhnya dipenuhi luka bakar, membuatnya tampak menakutkan ketika dia tersenyum.</p>
+<p>	Namun, Shang Xin Ci memandangnya dan melihat dalam dirinya, semacam keyakinan, ketegasan, dan pancaran perencanaan yang cermat. Cahaya ini memancarkan jenis karisma yang berbeda, menembus melalui penampilan jelek.</p>
+<p>	“Menarik, sepertinya dia juga merasakan kecurigaan kita, jadi dia ingin mencapai pemahaman diam-diam denganku?” Tatapan Shang Xin Ci terus berkedip.</p>
+<p>	Setelah beberapa saat, dia tertawa.</p>
+<p>	Gaya komunikasi ‘terus terang’ semacam ini membuatnya merasakan keamanan yang tak terlukiskan dan juga perasaan segar.</p>
+<p>	“Jika Anda tidak berada di sana, bahkan tidak akan ada seperempat barang yang tersisa, mereka pasti sudah direnggut oleh monyet-monyet di gunung Fei Hou. Karena Anda memiliki gagasan ini, saya akan menyerahkan barang-barang ini kepada Anda. ” Dia berkata.</p>
+<p>	Jika gadis pelayan Xiao Die ada di sini, dia mungkin sudah mulai membuat keributan besar.</p>
+<p>	Fang Yuan menunjukkan ekspresi linglung untuk sementara waktu, sebelum dia membungkuk untuk menunjukkan terima kasihnya.</p>
+<p>	“Nona, ini …” Ketika Fang Yuan meninggalkan tenda, Zhang Zhu tidak tahan lagi.</p>
+<p>	Shang Xin Ci berkedip nakal seperti anak kecil: “Bukankah ini menarik? Apakah Anda mendengar apa yang dia katakan barusan, dia bahkan belum memulai bisnisnya, tetapi sudah berbicara tentang membagi keuntungan menjadi dua. Nada suaranya seolah-olah keuntungannya pasti … ”</p>
+<p>	“Hmph, dia hanyalah seorang bajingan, berapa banyak bakat yang dia miliki?” Zhang Zhu dengan jijik mengejek, “Jika kita berbicara tentang bakat bisnis, siapa yang bisa dibandingkan dengan ketinggalan? Saya masih ingat bagaimana Anda mengelola properti selama bertahun-tahun dan mengembangkannya. Jika bukan karena kecemburuan orang-orang kecil di Klan Zhang … ”</p>
+<p>	“Baiklah, apa gunanya membicarakan masa lalu? Karena Paman Zhang Zhu percaya pada bakat saya, maka Anda harus mempercayai saya. Bahkan jika Hei Tu menyia-nyiakan barang-barang ini, saya masih bisa membangun kembali bisnis dari awal, bukan begitu?” kata Shang Xin Ci.</p>
+<p>	“Tentu saja!” Zhang Zhu berkata tanpa ragu-ragu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

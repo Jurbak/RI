@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 240 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 240";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_239.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 240">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_241.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 240</h1>
+        <div class="text-left">
+<p>	Bab 240</p>
+<p>	Bab 240: Gulat Lengan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Monyet bandit sangat kuat dan sebesar gajah. Monyet bandit dewasa bisa mencapai ketinggian sepuluh meter dan memiliki otot yang menonjol di sekujur tubuhnya. Lengan mereka dua kali lebih tebal dari kaki mereka dan ekor mereka seperti batang besi, mampu menghancurkan batu.</p>
+<p>	Bulu monyet bandit berwarna emas dengan garis-garis harimau hitam menutupi tubuh mereka. Yang aneh adalah bulu di pinggang mereka tumbuh alami menutupi selangkangan dan pantat, seperti rok kulit.</p>
+<p>	Melolong!</p>
+<p>	Raja monyet dari kelompok monyet bandit ini, tiba-tiba membuka mulutnya yang besar dan melolong keras.</p>
+<p>	Raungannya sekuat singa dan harimau.</p>
+<p>	Huuuuuuuuu!</p>
+<p>	Raungan raja kera itu dijawab oleh kera-kera lain.</p>
+<p>	Lolongan itu menciptakan gelombang suara yang menyelimuti sekitarnya, menyebarkan angin dan awan bersama dengan kabut putih yang tebal.</p>
+<p>	Dalam hitungan detik, pandangan semua orang melebar dan baru kemudian mereka menyadari bahwa kedua sisi lorong dipenuhi dengan monyet bandit; lebih dari seribu monyet bandit telah mengepung karavan.</p>
+<p>	Mereka sangat besar, ukurannya sama dengan pohon. Beberapa pohon muda hanya bisa mencapai pinggang mereka.</p>
+<p>	Di depan karavan adalah raja monyet yang memiliki tubuh lebih besar, dan dengan berani duduk di bangku batu. Sebuah toples anggur batu abu-abu yang sebesar tangki air, tergeletak miring, mengeluarkan aroma alkohol yang pekat.</p>
+<p>	Raja monyet berhenti setelah melolong sekali, tetapi monyet bandit lainnya masih melolong tanpa henti.</p>
+<p>	Ini malah meningkatkan keagungan raja monyet.</p>
+<p>	Matanya tajam dan cerah, tatapannya tenang saat duduk di sana tanpa bergerak. Sebaliknya, monyet-monyet bandit biasa itu semakin gelisah ketika mereka menatap barang-barang karavan, gatal untuk pergi.</p>
+<p>	Binatang buas seperti monyet, rubah, dan serigala memiliki kecerdasan.</p>
+<p>	Kecerdasan raja monyet bandit ini mungkin hanya sama dengan anak berusia tiga tahun dan tidak pada tingkat serigala petir yang licik, tapi itu cukup untuk berkomunikasi.</p>
+<p>	Pemimpin karavan, Jia Long, menyipitkan matanya ke arah raja monyet dan tiba-tiba berkata: “Jia Yong, pergi.”</p>
+<p>	“Ya, kepala.” Jia Yong berdiri.</p>
+<p>	Dia tinggi dan gemuk, terutama dengan perutnya yang membuncit, tapi dia sebenarnya agak kuat.</p>
+<p>	Dia adalah Gu Master defensif dan Gu yang terikat hidupnya adalah Gu pelindung air. Dia adalah Master Gu peringkat dua dan berspesialisasi dalam pertempuran di air. Suatu ketika, ketika dia sedang berenang di sungai, dia beruntung bertemu kura-kura seukuran perahu dan membunuhnya, mendapatkan kekuatan kura-kura Gu dari tubuhnya. Setelah dia menggunakannya, dia bisa mendapatkan kekuatan kura-kura secara permanen.</p>
+<p>	Kelompok monyet melolong lebih keras ketika mereka melihat Jia Yong mendekat, suara mereka mengguncang seluruh hutan.</p>
+<p>	Jia Yong memiliki ekspresi serius saat dia mengangkat lengan bajunya dan berdiri di depan raja monyet.</p>
+<p>	Raja monyet itu sangat besar dan bahkan saat duduk, dia masih lebih tinggi dari kepala Jia Yong.</p>
+<p>	Itu menatap Jia Yong dan melolong; beberapa monyet bandit segera membawa meja batu sambil terengah-engah.</p>
+<p>	Meja batu itu sebesar tempat tidur dan sangat berat, menghasilkan suara teredam saat mendarat di tanah.</p>
+<p>	Dua monyet bandit lainnya datang dan memindahkan bangku batu, meletakkannya di depan raja monyet.</p>
+<p>	Raja kera membanting meja batu, suara yang dihasilkan seperti sedang menabuh genderang besar.</p>
+<p>	Jia Yong menelan seteguk air liur dan duduk. Dia meletakkan siku kanannya di atas meja dan mengulurkan lengannya.</p>
+<p>	Raja kera juga mengulurkan tangan kirinya; dua telapak tangan saling menggenggam erat.</p>
+<p>	Di samping meja ada monyet bandit betina tua yang tiba-tiba berteriak.</p>
+<p>	Jia Yong dan raja kera mendengar isyarat itu dan segera mengerahkan kekuatan mereka, memulai gaya adu kekuatan yang tidak biasa ini.</p>
+<p>	Monyet bandit menghormati kekuatan dan panco adalah aktivitas sosial utama mereka. Monyet-monyet muda bisa langsung bergulat setelah lahir. Gulat tangan bukan hanya permainan monyet bandit, tetapi juga merupakan metode yang umum digunakan untuk menyelesaikan perselisihan.</p>
+<p>	Di masa lalu, Gu Master Sky Crown Marquis yang saleh hanya peringkat lima Gu Master, dia secara alami tidak mampu membantai gunung dengan kekuatan ini. Itu adalah kebiasaan gulat monyet bandit yang dia gunakan untuk mencapai puncak gunung monyet bandit dan menang melawan kaisar monyet. Dia kemudian bisa mendapatkan persetujuan kelompok monyet dan mencapai kesepakatan, membuka jalur perdagangan.</p>
+<p>	Sejak saat itu, karavan mana pun yang melewati gunung Fei Hou akan mengikuti kesepakatan ini dan bergulat dengan monyet bandit.</p>
+<p>	Jika mereka menang, mereka akan mendapatkan persetujuan monyet bandit dan dapat lulus tanpa membayar tol. Jika mereka kalah, mereka harus membiarkan kelompok monyet mengambil sebagian dari barang-barang mereka.</p>
+<p>	Dengan ini para kafilah bisa menjalankan usahanya dan kera bandit pun senang bisa mendapatkan keuntungan.</p>
+<p>	Seiring berlalunya waktu dan karavan mematuhi kesepakatan, jalur perdagangan mulai berkembang secara bertahap, dan kesepakatan juga berangsur-angsur stabil.</p>
+<p>	Jia Yong, duduk di seberang raja monyet, memerah, ekspresinya berubah karena dia sudah menggunakan semua kekuatannya.</p>
+<p>	Namun, dia masih tidak bisa menahan kekuatan raja monyet, dan lengannya mulai miring ke samping secara bertahap sampai akhirnya lengan raja monyet membanting lengan Jia Yong ke meja.</p>
+<p>	Kemenangan!</p>
+<p>	Raja kera berdiri dan dengan penuh semangat memukuli dadanya dengan tinjunya.</p>
+<p>	Monyet-monyet lainnya melolong dan memekik; suara itu menakutkan.</p>
+<p>	Jia Yong berjalan kembali ke karavan dengan kepala menunduk. Monyet bandit menggoda dan mengejeknya saat dia berjalan kembali – beberapa mengangkat rok kulit mereka, menunjukkan pantat mereka pada Jia Yong; beberapa membuat wajah; dan beberapa mengacungkan jari ke arahnya.</p>
+<p>	“Tidak kusangka akan ada hari di mana aku diejek oleh sekelompok binatang …” Jia Yong menghela nafas tak berdaya dengan senyum pahit di wajahnya.</p>
+<p>	Jia Long tidak menunjukkan ekspresi, dan hanya mengangkat tangannya.</p>
+<p>	Pasukan Jia Clan mulai bergerak maju, monyet-monyet berbondong-bondong ke arah mereka dan mulai mengambil barang-barang dari gerobak.</p>
+<p>	Jia Clan sudah membuat pertimbangan yang cermat; mereka menutupi batu bara berkualitas tinggi dengan lapisan sutra berwarna-warni dan indah serta kain tipis. Monyet-monyet itu semua tertarik dengan kain berwarna-warni ini, dan melepaskan batu bara abu-abu berkualitas tinggi yang lebih berharga.</p>
+<p>	Monyet sangat senang dengan pilihan mereka, bermain-main dengan kain. Banyak yang melilitkan kain itu di lengan, pinggang, dan bahkan menutupi bahu mereka; seluruh adegan itu berisik dan kacau.</p>
+<p>	“Di mana Jia Ping?” Jia Long berteriak dengan suara berat.</p>
+<p>	Jia Ping perlahan berjalan keluar, tubuhnya sangat kontras dengan Jia Yong, dia kurus seperti tongkat dan terlihat sangat rapuh.</p>
+<p>	“Aku akan membalaskan dendammu.” Dia menepuk bahu Jia Yong saat dia berjalan melewatinya.</p>
+<p>	“Ini secara alami akan mudah berakhir dengan Brother Jia Ping bergerak.” Jia Yong menangkupkan tangannya dan memberikan senyuman yang dipaksakan.</p>
+<p>	Klan Jia menghela napas lega saat melihat Jia Ping pindah; ekspresi mereka jelas mereda.</p>
+<p>	Monyet bandit mengeluarkan teriakan aneh ketika mereka melihat fisik Jia Ping, tatapan mereka dipenuhi dengan penghinaan dan penghinaan.</p>
+<p>	Raja Monyet sudah duduk, dia dengan acuh tak acuh mengangkat toples anggur dan minum seteguk anggur monyet.</p>
+<p>	“Mereka memang binatang, menilai orang dari penampilan.” Jia Long mencibir.</p>
+<p>	Jia Ping terlihat lemah, tetapi sebenarnya memiliki kekuatan dua beruang. Hanya saja dia menggunakan tendon melingkar Gu yang menjalin seluruh otot dan tendonnya seperti akar pohon, dan dengan demikian menekan otot-ototnya.</p>
+<p>	Jia Ping duduk dan meregangkan lengannya.</p>
+<p>	Lengannya bahkan tidak seperempat dari lengan raja monyet. Namun, setelah mereka mulai, kebuntuan hanya berlangsung sesaat sebelum raja monyet dikalahkan.</p>
+<p>	Seketika, lolongan dan jeritan monyet berhenti.</p>
+<p>	Mata raja monyet terbuka selebar piring, memperlihatkan ekspresi tidak percaya.</p>
+<p>	Jia Long terkekeh dan melambaikan tangannya, memberi isyarat kepada pasukan untuk terus bergerak.</p>
+<p>	Monyet-monyet yang menghalangi jalan secara otomatis membuat jalan dan tidak bergerak. Ketika sebagian dari pasukan klan Jia bergerak maju, monyet-monyet itu melolong dan kembali menghalangi jalan.</p>
+<p>	Raja kera tidak yakin dengan kekalahannya saat ia membanting meja batu dan menantang Jia Ping.</p>
+<p>	Jia Ping memiliki senyum di wajahnya saat dia mendapatkan kemenangan lagi.</p>
+<p>	“Semuanya, aku akan pindah dulu.” Jia Long menangkupkan tangannya dan setelah memanggil yang lain, pasukan dan kereta klan Jia melewati pos pemeriksaan.</p>
+<p>	“Baiklah, selanjutnya giliran Lin Clan saya. Lin Dong!” Wakil pemimpin klan Lin berteriak.</p>
+<p>	Yang lain tidak berdebat, mereka sudah mendiskusikan urutan karavan.</p>
+<p>	Waktu terus berlalu dan sebagian karavan juga bergerak maju.</p>
+<p>	Untuk melewati gunung Fei Hou dan mengurangi kerugian seminimal mungkin, semua klan besar memelihara banyak Master Gu tertentu.</p>
+<p>	Kekuatan lembu, kekuatan Harimau, kekuatan Gajah, kekuatan Python, kekuatan Kuda… para Master Gu yang memiliki ini pergi untuk bersaing, masing-masing menunjukkan bakat mereka; ada yang kalah dan ada yang menang.</p>
+<p>	Sebagian besar orang telah melewati pos pemeriksaan. Akhirnya, giliran Zhang Clan.</p>
+<p>	Zhang Zhu tidak terlihat baik, dia adalah seorang Master Gu yang menyembuhkan dan tidak pandai dalam aspek kekuatan.</p>
+<p>	Terlebih lagi, saat bergulat dengan raja monyet, seseorang hanya bisa menggunakan kekuatan mereka dan bukan cacing Gu. Jika mereka ketahuan curang dengan menggunakan cacing Gu, mereka akan diserang dan dibunuh oleh kelompok monyet.</p>
+<p>	Pasukan yang dibawa klan Zhang dalam karavan ini tidak memiliki Master Gu lain kecuali dia, Master Gu peringkat tiga. Dengan demikian, mereka adalah yang terlemah dalam kekuatan di seluruh karavan.</p>
+<p>	Shang Xin Ci tidak memiliki kehidupan yang mudah di Klan Zhang, dan disingkirkan karena menjadi anak haram. Situasi menjadi lebih buruk setelah ibunya meninggal karena sakit.</p>
+<p>	Berdasarkan wasiat ibunya, Shang Xin Ci menjual aset keluarga dan mengatur karavan ini.</p>
+<p>	Sebagian besar orang Zhang Clan menantikan aib klan yang sekarat di luar. Dengan demikian, mereka tidak mengirim Master Gu untuk memperkuatnya.</p>
+<p>	“Paman Zhang Zhu tidak perlu terlalu khawatir, mereka tidak lebih dari barang, tidak apa-apa selama orang aman.” Shang Xin Ci memiliki hati yang lembut, dia dengan lembut menghibur Zhang Zhu ketika dia melihat ekspresinya.</p>
+<p>	“Satu-satunya yang tersisa adalah Klan Zhang.”</p>
+<p>	“Ck, ck tidak perlu ditonton, mereka pasti kalah. Saya cukup akrab dengan Zhang Zhu itu. ”</p>
+<p>	“Dikatakan bahwa gadis Zhang Clan mengorganisir kelompok pedagang ini sendiri. Oleh karena itu, hanya ada Zhang Zhu untuk memasang front.</p>
+<p>	Banyak Guru Gu berdiri di belakang pos pemeriksaan, menunggu untuk melihat pertunjukan yang bagus.</p>
+<p>	Mereka semua, kurang lebih, kehilangan beberapa barang, suasana hati mereka secara alami tidak terlalu baik.</p>
+<p>	Perbandingan menghasilkan kebahagiaan, orang yang kurang beruntung sering merasa lega dengan melihat orang yang lebih sial.</p>
+<p>	Banyak yang melihat Zhang Clan, berusaha menemukan kenyamanan di hati mereka.</p>
+<p>	“Barang bisa hilang, hanya nyawa yang benar-benar penting. Paman Zhang Zhu, Anda tidak perlu pergi, kami hanya akan membiarkan kelompok monyet ini mengambil barangnya. ” kata Shang Xin Ci.</p>
+<p>	“ Huh , nona, Anda tidak tahu. Kita tidak bisa melewatinya tanpa bertanding, monyet-monyet ini sangat keras kepala, kita harus adu panco. Nona, kita bisa kalah tapi kita tidak bisa membiarkan orang lain meremehkan kita. Saya akan pergi!” Zhang Zhu menangkupkan tangannya dan memaksa dirinya untuk berjalan keluar.</p>
+<p>	“Tunggu tunggu!” Tepat pada saat ini, Fang Yuan berjalan keluar dari kerumunan.</p>
+<p>	“Nona Zhang, Anda adalah dermawan saya. Biarkan aku yang pergi.” Dia menangkupkan tangannya dan berkata kepada Shang Xin Ci.</p>
+<p>	“Anda?” Gadis pelayan Xiao Die memutar matanya, “Kamu bukan Master Gu, jangan menambah masalah pada saat krisis ini!”</p>
+<p>	Shang Xin Ci tersenyum: “Hei Tu, aku telah menerima niatmu. Ini bukan lelucon, raja monyet memiliki kekuatan besar, tidakkah kamu melihat beberapa lengan Gu Masters itu patah? ”</p>
+<p>	“Nona, bahkan jika lenganku patah, aku akan membalasmu.” Fang Yuan bertahan.</p>
+<p>	“Kamu, bagaimana kamu bisa seperti ini, tidak mengetahui batasanmu. Jika lenganmu patah, bukankah nonaku yang harus membuang waktu untuk menyembuhkanmu?” Xiao Die melambaikan tangannya dengan jijik, “Jangan membuat masalah.”</p>
+<p>	“Nona Zhang, Anda tidak tahu, saya selalu memiliki kekuatan yang luar biasa sejak muda, bahkan orang dewasa tidak memiliki kekuatan sebanyak saya ketika saya masih kecil. Aku harus pergi kali ini!” Fang Yuan kemudian berbalik dan berjalan menuju raja monyet.</p>
+<p>	“Hei Tu!” Shang Xin Ci ingin menghentikannya, tetapi dihentikan oleh Zhang Zhu.</p>
+<p>	“Nona, dia bukan orang bodoh, dia pasti memiliki kepercayaan diri. Terkadang, kita perlu percaya pada orang lain.” Zhang Zhu meyakinkan.</p>
+<p>	Faktanya, dia tidak percaya pada Fang Yuan. Dia hanya berpikir ini akan mengajarkan pelajaran yang baik kepada manusia fana ini yang telah membuatnya bermasalah.</p>
+<p>	“Eh, lihat, Klan Zhang benar-benar mengirim seorang pelayan!”</p>
+<p>	“Haha, Zhang Clan tidak memiliki orang yang tersisa, mereka mengirim seorang pelayan untuk kehilangan muka?”</p>
+<p>	Sosok Fang Yuan segera menarik perhatian yang lain.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

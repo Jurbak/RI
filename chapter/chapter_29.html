@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 29 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 29";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_28.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 29">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_30.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 29</h1>
+        <div class="text-left">
+<p>	Bab 29</p>
+<p>	Bab 29 – Tidak Bermoral (1)</p>
+<p>	“Letakkan semua toples anggur di bawah tempat tidur.” Fang Yuan menunjuk dan mengarahkan empat pekerja dari penginapan. Di tangan masing-masing orang ada toples anggur bambu hijau. Tepat setelah Fang Yuan berhasil memeras teman-temannya, dia pergi ke penginapan dan membeli dua puluh toples sekaligus.</p>
+<p>	Setiap toples berharga dua potong batu purba, dan Fang Yuan memompa empat puluh batu purba demi cacing Liquor.</p>
+<p>	Kantong uang yang menggembung belum lama ini mengembang setengahnya dalam sekejap, meninggalkan tiga puluh sembilan keping batu purba. Namun itu sepadan dengan uangnya – anggur ini akan dapat mendukung cacing Liquor untuk waktu yang lama.</p>
+<p>	“Baiklah,” para pekerja segera menjawab. Mereka tidak akan berani menunjukkan sedikit pun rasa tidak hormat kepada Guru Gu . Ditambah fakta bahwa Fang Yuan telah membeli begitu banyak anggur, dia bisa dikatakan sebagai pelanggan besar penginapan. Hanya dengan kata santai di depan pemilik penginapan, para pekerja dapat dengan mudah menghentikan aktivitas dan beban kerja mereka saat ini.</p>
+<p>	Setelah pelayan penginapan pergi, Fang Yuan menutup pintu asrama dan duduk bersila di tempat tidurnya.</p>
+<p>	Itu sudah malam. Bintang-bintang dan bulan di langit cerah, dan angin malam mengalir dengan sedikit aroma wangi.</p>
+<p>	Tidak ada cahaya di ruangan itu. Fang Yuan menenangkan pikirannya, membiarkan fokusnya tergelincir ke laut purba.</p>
+<p>	Gelombang laut purba naik dan turun, air laut memberikan cahaya berwarna tembaga hijau. Setiap tetes air laut adalah esensi purba tembaga hijau yang secara khusus dimiliki oleh Guru Gu peringkat satu . Laut purba mengambil 44%(2) dari seluruh bukaan; ini adalah batasan bakat kelas C Fang Yuan.</p>
+<p>	Keempat dinding bukaan adalah lapisan tipis cahaya putih, yang menopang dan membungkus bukaan. Di langit di atas laut purba tidak ada apa-apa. Jangkrik Musim Gugur Musim Semi telah menyembunyikan dirinya di bawah komando Fang Yuan, memulihkan dirinya di bawah tidur nyenyak.</p>
+<p>	Mengambang di laut purba adalah cacing Liquor putih yang lucu dan gemuk. Ia mengobrak-abrik air laut sepuasnya, kadang menyelam ke laut, kadang menggelengkan kepala dan ekornya, memercikkan dan memercikkan tetesan air di sekitarnya.</p>
+<p>	Fang Yuan mengirim pemikiran ke benaknya, dan cacing Liquor segera merespons. Itu berhenti bermain dan meringkuk menjadi bentuk pangsit beras, dengan santai melayang ke udara. Itu naik ke tengah lubang dan keluar dari laut tembaga hijau.</p>
+<p>	“Pergi.” Fang Yuan mengerahkan sepersepuluh dari esensi purbanya, mengubahnya menjadi aliran sempit, memasukkan semuanya ke dalam cacing Liquor. Cacing Liquor sudah disempurnakan olehnya, jadi kali ini tidak melawan. Butuh seluruh jet esensi purba dan menyerap segala sesuatu ke dalam tubuhnya.</p>
+<p>	Segera permukaan laut turun dengan potongan kecil. Cacing Liquor yang meringkuk mengubah esensi purba menjadi kekuatan pendorong dan mulai memancarkan cahaya putih. Di dalam cahaya lembut, kabut asap anggur yang menyelimuti secara bertahap diproduksi, akhirnya menyatu menjadi kabut anggur putih pucat.</p>
+<p>	Kabut anggur itu luar biasa. Itu tidak hanyut, malah menyelimuti cacing Liquor.</p>
+<p>	“Bangkit.” Fang Yuan berpikir, mentransfer 10% lagi dari esensi purbanya. Air laut tembaga hijau menyelam ke dalam kabut anggur; saat kabut anggur meleleh ke dalam air laut, kabut itu berangsur-angsur berkurang, dan akhirnya tidak ada jejak yang tersisa. Adapun 10% dari esensi purba tembaga hijau itu, ia juga kehilangan volume umumnya dan tersisa 5%.</p>
+<p>	Namun 5% dari esensi purba ini bahkan lebih kental dari sebelumnya. Esensi purba asli adalah hijau giok, memberikan kilau tembaga. Saat ini meskipun esensi purba baru ini memiliki kilau tembaga yang sama, warna hijaunya lebih gelap – warnanya hijau pucat.</p>
+<p>	Esensi purba berwarna hijau pucat adalah esensi purba yang hanya dimiliki oleh Gu Master tingkat satu tingkat menengah . Penggunaan cacing Liquor adalah untuk memadatkan esensi purba dan meningkatkannya dengan peringkat ranah kecil!</p>
+<p>	Seorang Guru Gu memiliki 9 alam besar, dari bawah – Peringkat satu, Peringkat dua, sampai ke Peringkat sembilan. Setiap alam besar dibagi menjadi empat alam yang lebih kecil, yaitu tahap awal, tahap tengah, tahap atas dan tahap puncak.</p>
+<p>	Fang Yuan hanya seorang Master Gu tahap awal Peringkat satu saat ini, tetapi dengan bantuan cacing Liquor dia memiliki 5% dari esensi purba Gu Master tahap tengah peringkat satu !</p>
+<p>	“Jika saya ingin menyingkat 5% dari esensi purba tahap menengah, saya perlu menggunakan 20% dari esensi purba tahap awal. Saya ingin mengubah semua 44% dari lautan purba saya menjadi esensi purba tahap menengah, jadi saya perlu menggunakan sekitar 180% dari esensi purba tahap awal. Untuk mencapai target ini sesegera mungkin, saya perlu meminjam bantuan batu purba. ”</p>
+<p>	Saat dia memikirkan ini, Fang Yuan membuka matanya dan mengeluarkan batu purba lengkap seukuran telur bebek dari tasnya. Batu purba adalah sejenis batu abu-abu transparan berbentuk elips. Saat esensi alami di dalamnya dikonsumsi, ukurannya akan terus menyusut.</p>
+<p>	Tangan kanannya perlahan menutup, batu purba itu terkepal erat di telapak tangannya. Dia menyerap esensi purba alami di dalam batu, terus menerus mengisi bukaannya sendiri. Tingkat permukaan laut yang telah jatuh di lubangnya perlahan mulai naik.</p>
+<p>	Batu purba dimaksudkan untuk digunakan. Fang Yuan tidak pelit sedikit pun, dan dia tidak akan menyimpannya.</p>
+<p>	“Saya tidak memiliki seseorang untuk mendukung saya, dan saya tidak memiliki dukungan dari teman dan keluarga, jadi saya hanya bisa mengandalkan pemerasan dan penjarahan. Hari ini baru pertama kalinya, tapi setelah ini, setiap tujuh hari ketika akademi memberikan uang saku, aku akan terus memblokir gerbang akademi.”</p>
+<p>	Bagaimana mungkin merampok dan memeras bisa memuaskan selera Fang Yuan? Dalam budidaya Guru Gu , batu purba adalah hal yang paling langka. Adapun konsekuensi dari tindakan penjarahannya, Fang Yuan tidak sedikit khawatir.</p>
+<p>	Dunia ini tidak sama dengan Bumi.</p>
+<p>	Di Bumi, sekolah akan selalu melarang perkelahian terutama untuk menstabilkan harmoni. Tapi di dunia ini, pertempuran adalah tema utama.</p>
+<p>	Tidak peduli Master Gu atau manusia biasa, mereka akan berjuang untuk bertahan hidup. Terkadang itu akan menjadi pertarungan dengan binatang buas yang menakutkan. Terkadang itu akan menjadi pertempuran melawan cuaca yang mengamuk, dan di lain waktu jika bisa menjadi pertarungan melawan Master Gu lainnya atas sumber daya.</p>
+<p>	Akibatnya, pertempuran moderat malah didorong dan diadvokasi oleh orang-orang.</p>
+<p>	Dari muda hingga tua, dari tawuran sederhana hingga pertempuran yang menentukan hidup dan mati, inilah penggambaran sebagian besar kehidupan manusia di sini.</p>
+<p>	Permukaan dunia ini tidak terbatas. Hanya Perbatasan Selatan saja tempat Fang Yuan tinggal sekarang, itu lebih besar dari tujuh hingga delapan kali seluruh permukaan Bumi itu sendiri. Lingkungan hidup di sini tidak bersahabat dan kejam, sehingga manusia sering membangun desa pegunungan dalam bentuk klan, bersembunyi bersama.</p>
+<p>	Sesekali akan ada gelombang binatang buas, atau mungkin cuaca yang sangat buruk menyerang sebuah desa. The Gu Guru akan menjadi kekuatan inti perlindungan desa, dan setiap tahun situasi gesekan akan menjadi lebih serius.</p>
+<p>	Bertahan membutuhkan pria dengan kemauan bertarung yang kuat. Sebuah klan membutuhkan pertempuran Gu Masters, tidak pernah ada terlalu banyak. Selain itu, serangan Fang Yuan berada dalam batas yang tepat.</p>
+<p>	Dia tidak pernah menyerang rahang bawah, karena ini akan dengan mudah menyebabkan tengkorak retak dan menyebabkan hilangnya nyawa manusia. Dia juga tidak pernah memukul bagian belakang kepala. Saat bertarung dia tidak menggunakan tinju atau sikunya, atau bahkan menusuk dengan jarinya, tetapi dia menggunakan telapak tangannya. Jumlah tendangan yang dia gunakan juga bisa dihitung.</p>
+<p>	Para siswa yang jatuh tidak terluka parah; paling banyak mereka terluka ringan.</p>
+<p>	Fang Yuan tidak haus darah, dia hanya memperlakukan pembunuhan sebagai jenis cara.</p>
+<p>	Setiap kali dia bertindak, dia akan memiliki tujuan yang jelas. Apapun jenis metodenya, apapun yang akan membuatnya mencapai tujuannya paling cepat, dia akan menggunakannya. Dengan kata lain, dia tidak bermoral dalam melakukan sesuatu.</p>
+<p>	……</p>
+<p>	Awan melayang, menutupi cahaya bulan. Sebuah bayangan menyelimuti desa Gu Yue.</p>
+<p>	Penjaga menggedor genta, mendorong orang untuk tahu bahwa itu sudah larut malam – Hati-hati terhadap kebakaran, waspada terhadap serangan binatang, serta kemungkinan Master Gu asing menyelinap ke desa.</p>
+<p>	Masih banyak lampu di desa.</p>
+<p>	Di rumah cabang keluarga Chi, Gu Yue Chi Lian tinggal di ruang kerjanya, lampu bersinar terang. Orang tua berwibawa tinggi ini berbicara dengan nada lembut, mengungkapkan simpati saat dia bertanya kepada cucunya sendiri Gu Yue Chi Cheng, “Kudengar kamu dipukuli oleh Fang Yuan hari ini?”</p>
+<p>	Gu Yue Chi Cheng memiliki mata kanan hitam, dan dia dengan marah berkata, “Ya, kakek. Fang Yuan itu hanya kelas C kecil, namun dia berani bertindak begitu sombong. Dia memblokir kami semua di pintu masuk, tidak peduli dengan sentimen ramah teman-teman sekelasnya, dan dia merampok kami dari batu purba kami. Terlebih lagi, akademi hanya membuka satu mata dan menutup satu mata atas kejadian itu. Hanya ketika Fang Yuan melangkah pergi, para penjaga bergegas. Kakek, kali ini kamu harus membantuku mengusir kebencianku yang marah ini!”</p>
+<p>	Sebaliknya Gu Yue Chi Lian menggelengkan kepalanya. “Ini antara kamu dan juniormu. Anda diperas untuk kehilangan sepotong batu purba, dan Anda tidak menderita luka berat – Kakek tidak dapat bertindak tanpa alasan yang dapat dibenarkan. Bahkan jika Anda terluka parah, saya tidak akan membela Anda, apakah Anda mengerti mengapa?</p>
+<p>	Gu Yue Chi Cheng tercengang. Dia berjuang untuk berpikir, dan setelah beberapa lama dia dengan ragu berkata, “Kakek, sepertinya aku mengerti maksudmu. Anda berharap saya akan mengandalkan kekuatan saya sendiri untuk menemukan jalan saya, kan? ”</p>
+<p>	“Kamu hanya mengerti satu aspek.” Gu Yue Chi Lian menganggukkan kepalanya dan menambahkan, “Kamu harus ingat, kamu bukan hanya perwakilan individu, tetapi kamu adalah citra atas nama cabang keluarga Chi kami. Selama bertahun-tahun kami telah menghadapi cabang keluarga Mo, dan setiap gerakan Anda akan mewakili harapan masa depan cabang keluarga Chi. Kakek dapat membantu Anda dalam bayang-bayang, tetapi Anda harus berdiri dan membangun citra yang mandiri dan kuat. Kalau tidak, para tetua yang mendukung keluarga kita tidak akan melihat harapan untuk masa depan kita, dan mereka akan meninggalkan keluarga Chi.”</p>
+<p>	Saat dia mengatakan ini, Gu Yue Chi Lian menghela nafas. “Ini juga mengapa kakek membantumu menipu dan membiarkanmu meniru bakat kelas B. Keluarga Chi kami membutuhkan penerus yang kuat untuk mempertahankan mereka yang mendukung kami.”</p>
+<p>	Gu Yue Chi Cheng kemudian tercerahkan. “Kakek, aku mengerti sekarang.”</p>
+<p>	Gu Yue Chi Lian menggelengkan kepalanya. “Hanya memahami tidak akan ada gunanya. Anda harus bekerja keras. Fang Yuan hanyalah masalah kecil; selanjutnya Anda harus belajar keras dan berlatih dengan rajin pada seni bela diri dasar Anda dan mendapatkan kembali martabat Anda. Pada saat yang sama jangan lupa untuk bekerja keras dalam berkultivasi, mempromosikan ke tahap menengah sesegera mungkin. Yang terbaik yang dapat Anda lakukan adalah memenangkan posisi pemantau kelas, ini akan menjadi kehormatan besar dan semacam bantuan untuk keluarga Chi kami. ”</p>
+<p>	“Baiklah, kakek!” Gu Yue Chi Cheng menjawab dengan keras.</p>
+<p>	“ Heh heh heh , semangat ini adalah bagaimana pewaris cabang Chi kami harus menjadi seperti. Cucu, Anda harus bekerja keras, saya akan melakukan yang terbaik untuk membantu Anda.</p>
+<p>	(1) Unscrupulous – Memiliki atau tidak menunjukkan prinsip moral; tidak jujur ​​atau adil. Tidak etis, tidak bermoral, tidak tahu malu… Akan melalui segala cara yang diperlukan untuk mencapai atau melakukan sesuatu.</p>
+<p>	(2) 44% – Sebelumnya dikenal sebagai 4 kali 4 atau 4 x 4.</p>
+<p>	T/N: Itu final, jika ada yang saya jelas tentang pengukuran ukuran aperture sekarang. Ini semua %… Ini dikonfirmasi oleh pembaca Cina. Jadi jika Anda ingat semua itu ‘4 kali 4’, ‘5 kali 6’, ‘9 kali 8’ atau 4 x 4 / 5 x 6 / 9 x 8… Ini 44%, 56%, 98%.</p>
+<p>	Mohon maaf atas segala kebingungan mengenai pengukuran dan ukuran laut purba bukaan ini!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

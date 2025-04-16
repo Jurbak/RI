@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 258 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 258";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_257.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 258">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_259.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 258</h1>
+        <div class="text-left">
+<p>	Bab 258</p>
+<p>	Bab 258: Pemisahan seperti yang direncanakan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Bulan sabit menggantung tinggi di langit malam, saat cahaya bulan mengalir turun seperti air.</p>
+<p>	Shang Xin Ci berdiri di atas batu besar dan menatap jauh, wajahnya dipenuhi kekhawatiran: “Mengapa Saudara Hei Tu masih belum kembali?”</p>
+<p>	“Apakah sesuatu terjadi?” Xiao Die menambahkan.</p>
+<p>	“Bagaimana bisa sesuatu terjadi padanya, jangan khawatir.” Bai Ning Bing bersandar pada pohon yang layu, bertanya-tanya apa yang sedang dilakukan Fang Yuan.</p>
+<p>	Menit dan menit berlalu, saat alis Shang Xin Ci berkerut sementara kekhawatirannya terus meningkat.</p>
+<p>	Bai Ning Bing juga mulai merasakan sesuatu yang salah, hampir delapan menit telah berlalu, apakah sesuatu benar-benar terjadi pada Fang Yuan?</p>
+<p>	Dia tidak peduli dengan kematian Fang Yuan, yang dia pedulikan adalah Yang Gu pada Fang Yuan.</p>
+<p>	Kecemasan tumbuh di hatinya. Setengah dari ini adalah karena hilangnya Fang Yuan, setengah lainnya karena ketidakberdayaannya sendiri. Saat kultivasi Fang Yuan terus maju, dia merasa sangat sulit untuk berurusan dengannya dan mendapatkan Yang Gu. Ini berarti bahwa jika Fang Yuan mengingkari janjinya, dia tidak punya cara untuk menghadapinya.</p>
+<p>	Bai Ning Bing tahu kepribadian seperti apa yang dimiliki Fang Yuan setelah bepergian dengannya begitu lama. Kultivasi Fang Yuan mendekati peringkat tiga; waktu yang dijanjikan akan datang dan hatinya menjadi semakin resah.</p>
+<p>	Ketiganya berdiskusi dan tepat ketika mereka memutuskan untuk kembali membantu Fang Yuan, dia muncul dalam pandangan mereka di jalur gunung.</p>
+<p>	Shang Xin Ci menghela napas lega, tetapi jantungnya berdebar lagi ketika Fang Yuan berjalan di depan mereka: “Kakak Hei Tu, kamu terluka lagi!”</p>
+<p>	Fang Yuan sengaja membuat beberapa luka lagi di tubuhnya. Dia menghirup udara dingin: “Ketika kalian baru saja pergi, zombie berambut hijau muncul. Untungnya, saya berlari cepat, kita harus segera pergi, mungkin masih mengejar saya. ”</p>
+<p>	Ketiganya secara alami tidak berani tinggal lebih lama lagi ketika mereka mendengar itu dan mempercepat perjalanan mereka malam itu juga.</p>
+<p>	Sejauh ini, tujuan Fang Yuan tercapai dan dia berperilaku tepat di sepanjang jalan.</p>
+<p>	Setelah melintasi gunung Mu Bei, mereka tiba di gunung Shuang Jiang.</p>
+<p>	Gunung ini memiliki dua puncak yang dipisahkan oleh jurang yang dalam, puncaknya mirip satu sama lain dan mengeluarkan aura yang megah.</p>
+<p>	Keempatnya tidak lagi memiliki perlindungan karavan sekarang, jadi sepertinya butuh lebih banyak usaha ketika mereka bergerak melewati gunung.</p>
+<p>	Untungnya, setelah melintasi gunung Shuang Jiang, itu adalah gunung Xue Lei.</p>
+<p>	Gunung Xue Lei memiliki Klan Zhao dan tidak dapat dianggap sebagai daerah liar karena ada penghuni manusia di dalamnya.</p>
+<p>	Bagian paling berbahaya dari rute perdagangan sudah berakhir, jadi bahayanya telah sangat berkurang.</p>
+<p>	Fang dan Bai dicari oleh Bai Clan, jadi mereka tidak pergi ke Zhao Clan. Keempatnya terus berjalan tanpa henti; setelah melewati gunung Xue Lei, mereka terus melintasi gunung Qian Ku, gunung Ju Ren, gunung Lu Zao… melintasi enam gunung besar.</p>
+<p>	Selama waktu ini, kultivasi Fang Yuan naik dari peringkat dua tahap tengah ke tahap puncak.</p>
+<p>	Sepanjang perjalanan, mereka hanya mampir ke beberapa dusun terpencil untuk mengisi persediaan mereka.</p>
+<p>	Saat mereka mendekati gunung Shang Liang, jalan gunung menjadi lebih lebar dan ada lebih banyak orang yang bergerak melalui jalan setapak.</p>
+<p>	Dan akhirnya, pada hari ini, gunung Shang Liang akhirnya muncul di hadapan mereka.</p>
+<p>	“Puff, itu gunung Shang Liang?” Shang Xin Ci meletakkan tangannya di dahinya untuk melindunginya dari sinar matahari dan melihat ke cakrawala sebelum menghirup udara keruh.</p>
+<p>	“Nona, kita hampir sampai!” Xiao Die tertawa bahagia, dan dengan penuh semangat menjabat lengan Shang Xin Ci.</p>
+<p>	Bai Ning Bing hanya melihat dan tidak berbicara.</p>
+<p>	“Kita akan berpisah saat kita tiba di gunung Shang Liang. Nyonya Zhang, saya telah membayar bantuan Anda. ” Fang Yuan tiba-tiba berkata.</p>
+<p>	“Apa?” Xiao Die tersentak, tidak menyangka Fang Yuan mengatakan itu, dia berdiri di tempat dengan bingung.</p>
+<p>	Ekspresi Shang Xin Ci berubah, bulu matanya sedikit bergetar saat dia melihat Fang Yuan.</p>
+<p>	Hari-hari ini, sementara Fang Yuan tetap diam, dia sudah menjadi pilar dukungan untuknya. Sekarang dia pergi, Shang Xin Ci segera merasakan kekosongan dan kehilangan.</p>
+<p>	“Semua hal harus berakhir.” Fang Yuan menghela nafas panjang.</p>
+<p>	“Benar …” Shang Xin Ci mengerutkan bibirnya, napasnya menjadi berat. Setelah berhubungan dengan Fang Yuan sepanjang waktu akhir-akhir ini, dia tahu karakternya; dia adalah seseorang yang bertindak berdasarkan keputusannya, seorang pria yang tegas.</p>
+<p>	“Ayo pergi, ini belum cukup aman, kita akan berpisah ketika kita mencapai gerbang kota.” Fang Yuan mulai berjalan di depan.</p>
+<p>	Suasana kelompok telah menurun ke titik beku, bahkan Xiao Die yang tak henti-hentinya mengobrol pun terdiam.</p>
+<p>	Semakin dekat mereka ke kota klan Shang, semakin dekat perpisahan mereka; Kota klan Shang tanpa sadar memperlambat langkah Shang Xin Ci. Kota klan Shang adalah tujuannya untuk perjalanan ini dan dia seharusnya senang ketika dia mendekati targetnya, tetapi saat ini, dia tidak ingin mencapai kota klan Shang.</p>
+<p>	Namun, jalannya terbatas; mereka akhirnya sampai di kaki gunung Shang Liang.</p>
+<p>	Gerbang besar kota klan Shang berada tepat di depan mata mereka.</p>
+<p>	Sudah waktunya untuk berpisah.</p>
+<p>	Fang Yuan menatap tajam ke arah Shang Xin Ci dan menganggukkan kepalanya, hanya mengucapkan dua kata.</p>
+<p>	“Hati-hati.”</p>
+<p>	Itu hanya dua kata, tapi itu membuat tubuh indah Shang Xin Ci bergetar.</p>
+<p>	Fang Yuan berbalik dan pergi.</p>
+<p>	“Tunggu.” Shang Xin Ci mengumpulkan keberaniannya dan tiba-tiba berbicara.</p>
+<p>	Itu adalah lautan dengungan dan keributan di sekitar gerbang kota dengan orang-orang yang bergerak ke sana kemari.</p>
+<p>	Murid-murid cantik Shang Xin Ci menatap Fang Yuan saat orang banyak bergerak cepat di sekitar mereka.</p>
+<p>	“Kita akan bertemu lagi suatu hari nanti. Dermawan, Anda mungkin telah membalas budi saya di hati Anda, tetapi Anda telah menyelamatkan saya berulang kali, bantuan yang Anda berikan kepada saya ini sedalam laut dan seberat gunung. Dermawan, Anda mengatakan setetes yang diterima membutuhkan akan dilunasi dengan seluruh sungai. Aku pasti akan membalasmu!” Nada suara gadis muda itu tegas dan mengungkapkan hatinya yang teguh.</p>
+<p>	Fang Yuan tersenyum ke arahnya, lalu berbalik dan pergi, secara bertahap menghilang di antara kerumunan.</p>
+<p>	Shang Xin Ci berdiri di tempat untuk waktu yang lama.</p>
+<p>	“Nona, mereka benar-benar tidak berperasaan, pergi begitu saja.” Xiao Die berjalan mendekat dan memegang tangannya.</p>
+<p>	“Mereka tidak ingin melibatkan kita, identitas jalur iblis mereka tidak dapat diekspos bahkan di gunung Shang Liang.” Sifat Shang Xin Ci baik, selalu memikirkan orang secara positif.</p>
+<p>	“Oh, seperti itu!” Xiao Die menyadari.</p>
+<p>	“Mereka mungkin Master Gu iblis tetapi mereka adalah orang baik. Saya telah memutuskan, saya akan menjadi besar di kota klan Shang. Pasti ada tempat untuk bakat saya. Saya mungkin hanya manusia fana yang tidak bisa berkultivasi, tetapi saya bisa mempekerjakan Master Gu untuk bekerja untuk saya. Saya pasti akan membalas budi mereka di masa depan! ”</p>
+<p>	“Ya! Aku percaya padamu Nona.”</p>
+<p>…</p>
+<p>	“Aneh, kamu telah melindungi Shang Xin Ci sepanjang jalan, mengapa kamu dengan sengaja berpisah sekarang setelah kita mencapai gunung Shang Liang? Saya harus mengingatkan Anda bahwa ada arus besar orang di kota klan Shang dan Anda tidak memiliki Gu investigasi; jika Anda hanya bermain keras untuk mendapatkannya, pastikan Anda tidak kehilangan jejaknya. Jika tidak, Anda hanya akan menembak kaki Anda sendiri, itu benar-benar akan menjadi lelucon yang bagus.”</p>
+<p>	Bai Ning Bing dengan dingin mengingatkan Fang Yuan dari samping.</p>
+<p>	Fang Yuan mengabaikannya, tatapannya mengikuti Shang Xin Ci dan Xiao Die sampai mereka berjalan melewati gerbang kota dan baru kemudian dia mendapatkan kembali tatapannya.</p>
+<p>	Sesuai ingatan kehidupan sebelumnya, pemimpin klan Shang harus mendeteksi garis keturunannya di Shang Xin Ci begitu dia memasuki kota klan Shang. Namun, untuk konfirmasi, pemimpin klan Shang yang kejam akan mengumpulkan semua orang di karavan, yang bergabung dengan Shang Xin Ci pada waktu itu, dan menahan mereka dalam tahanan rumah saat dia menginterogasi dan menyelidiki mereka.</p>
+<p>	Ketika kebenaran terungkap dan identitas Shang Xin Ci dikonfirmasi, pemimpin klan Shang dengan murah hati memberi kompensasi kepada semua anggota karavan dengan dua kali lipat jumlah barang mereka.</p>
+<p>	Shang Xin Ci langsung melompat dari seorang gadis fana menjadi putri kesayangan pemimpin klan Shang. Peristiwa ini menimbulkan sensasi dan menjadi topik pembicaraan yang populer.</p>
+<p>	Inilah sebabnya mengapa Fang Yuan harus berpisah dengan Shang Xin Ci.</p>
+<p>	Fang Yuan memiliki banyak Gu di celahnya yang tidak pernah bisa diekspos ke orang lain; terutama Jangkrik Musim Semi Musim Gugur. Jika dia diselidiki dan aperture-nya dicari, itu akan menjadi masalah besar.</p>
+<p>	Jika itu adalah klan biasa, Fang Yuan tidak akan khawatir karena para pemimpin klan yang biasanya memiliki kultivasi tertinggi hanya akan berada di peringkat empat tahap di klan tersebut. Namun, pemimpin klan Shang memiliki kultivasi peringkat lima dan itu bahkan bukan kultivasi tertinggi di sini. Ada tetua tertinggi di klan Shang yang memiliki kultivasi peringkat enam; jika mereka mencari celah Fang Yuan, Jangkrik Musim Gugur Musim Semi akan ditemukan bahkan jika bersembunyi jauh di dalam.</p>
+<p>	Mengatakan perpisahannya memiliki keuntungan lain; dia tampaknya tidak memiliki keinginan atau membutuhkan apa pun dari Shang Xin Ci, ini akan memperdalam kesan ‘hanya membalas budi’ di hatinya. Kemudian, ketika dia bertemu Shang Xin Ci, dia pasti akan mendapatkan kepercayaannya.</p>
+<p>	Sebenarnya, cara tercepat untuk membentuk hubungan yang tidak terpisahkan dengan Shang Xin Ci adalah melalui hubungan seksual.</p>
+<p>	Fang Yuan bisa merasakan perasaan Shang Xin Ci terhadapnya. Jika dia mengambil kesuciannya, pemimpin klan Shang di masa depan akan sangat jatuh cinta padanya.</p>
+<p>	Fang Yuan mungkin terlihat jelek, tetapi karisma yang dia keluarkan sudah menggerakkan hati Shang Xin Ci.</p>
+<p>	Dia tahu Shang Xin Ci tidak akan menolaknya jika dia menginginkannya.</p>
+<p>	Tapi cara ini sama sekali tidak bisa dilakukan!</p>
+<p>	Jika dia melakukannya, dia akan menjadi menantu klan Shang dan akan diikat ke kereta yang disebut klan Shang. Kemudian Fang Yuan tidak lagi dapat melakukan hal-hal dengan caranya sendiri, setiap gerakannya akan diawasi oleh orang lain, tangan dan kakinya terikat, bahkan kultivasinya harus sengaja ditekan.</p>
+<p>	Saat kultivasinya meningkat pesat, itu akan mengekspos kesatuan daging tulang Gu yang pasti akan menyebabkan pergolakan dan menarik semua jenis perhatian. Fang Yuan mengerti betapa berharganya kesatuan daging tulang Gu, bahkan klan Shang tidak bisa menyimpannya untuk diri mereka sendiri.</p>
+<p>	Dan jika Spring Autumn Cicada terungkap di atas itu, hehe, peringkat enam Gu Masters yang tertutup itu, bahkan peringkat tujuh Gu Masters akan melompat keluar satu demi satu. Setelah mencapai peringkat enam, Master Gu akan mengalami perubahan kualitatif dalam kekuatan mereka, masing-masing mampu melawan kekuatan seluruh klan.</p>
+<p>	Begitu dia melakukan hubungan seksual dengan Shang Xin Ci, setelah Shang Xin Ci mengkonfirmasi identitasnya, bahkan jika dia adalah pemimpin klan Shang, mereka semua akan datang mencari Fang Yuan. Fang Yuan terlebih lagi adalah seorang Guru Gu iblis dengan asal-usul yang tidak diketahui, tidak dapat dihindari baginya untuk diselidiki dan diinterogasi.</p>
+<p>	Jika dia melarikan diri, dia harus menghadapi pengejaran dan surat perintah penangkapan klan Shang. Ini adalah konsep yang sama sekali berbeda dari surat perintah penangkapan Bai Clan.</p>
+<p>	Bai Clan berada dalam kesulitan dan tidak memiliki kekuatan yang cukup, tetapi Shang Clan adalah salah satu penguasa Perbatasan Selatan.</p>
+<p>	Fang Yuan hanya memiliki satu jalan keluar jika itu terjadi, yaitu melarikan diri dari Perbatasan Selatan.</p>
+<p>…</p>
+<p>	Shang Yan Fei sedang duduk bersila di udara, seluruh tubuhnya bermandikan api.</p>
+<p>	Nyala api berwarna merah seperti darah dan menyala tanpa suara di dalam kehampaan yang gelap.</p>
+<p>	Sebagai pemimpin klan Shang, dia sibuk dengan urusan klan setiap hari dan tidak punya banyak waktu untuk berkultivasi. Meski begitu, dengan bakat dan pemahamannya yang mendominasi, ia mampu berkultivasi ke peringkat lima tahap atas dan hanya selangkah lagi dari tahap puncak.</p>
+<p>	Kultivasi hari ini akan segera berakhir …</p>
+<p>	Api merah perlahan menyebar dan menyusut, akhirnya berubah kembali menjadi rambut merah panjang di kepala Shang Yan Fei.</p>
+<p>	Tanpa penerangan dari api, kegelapan menyebar, menjadi satu-satunya penguasa daerah tersebut.</p>
+<p>	Tiba-tiba! Shang Yan Fei membuka matanya, pupilnya diwarnai warna darah dan tatapannya bersinar seperti kilat saat menembus kegelapan.</p>
+<p>	“Garis keturunan baru yang berasal dari saya … bagaimana ini muncul entah dari mana?”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

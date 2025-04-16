@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 293 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 293";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_292.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 293">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_294.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 293</h1>
+        <div class="text-left">
+<p>	Bab 293</p>
+<p>	Bab 293: Surga itu buta</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Kami akhirnya mencapai kota klan Shang.” Menatap gunung bangunan, Bai Feng menghela nafas.</p>
+<p>	Dia adalah seorang tetua klan Bai, ketika dia masih muda, dia berkeliaran di perbatasan selatan, dan pernah datang ke kota klan Shang. Tapi kali ini, dia sudah tua, semua bangunan tidak dikenalnya, dan bahkan tujuannya adalah untuk menangkap dua Master Gu iblis.</p>
+<p>	“Apakah kalian pikir kedua bajingan iblis itu benar-benar memilih arah ini?” Bai Lian terdengar khawatir.</p>
+<p>	“Seharusnya arah ini. Kami membagi menjadi beberapa kelompok di tempat burung tanpa kaki itu mendarat, tetapi arah lain semuanya buntu. Hanya jalan ini yang meninggalkan jejak.” Kata Tie Dao Ku.</p>
+<p>	Dia tidak yakin di dalam hatinya.</p>
+<p>	Meskipun klan Tie adalah penyelidik nomor satu di perbatasan selatan, dia adalah tipe Gu Master yang menyerang. Apalagi perbatasan selatan memiliki banyak hutan dan gunung, medan yang rumit membuatnya mudah untuk menyembunyikan diri dan sulit untuk dilacak.</p>
+<p>	“Mungkin mereka berdua sudah lama mati di tengah jalan, menjadi makanan binatang buas.” Seseorang berkata dengan optimis.</p>
+<p>	Ada kemungkinan besar dalam hal ini, mereka telah menemukan banyak jejak kerangka di sepanjang jalan, dan semua sisa-sisa karavan diserang oleh gerombolan binatang buas.</p>
+<p>	“Saya berharap mereka masih hidup!” Bai Zhan Lie menggertakkan giginya, kakeknya dibunuh oleh Fang dan Bai, dia ingin membunuh mereka dengan tangannya sendiri, membalas dendam atas kebencian yang intens di dalam hatinya.</p>
+<p>	“Baiklah, ayo masuk ke kota dulu. Jika tidak ada penemuan, kita akan menghabiskan beberapa batu purba untuk mengirim surat kepada pemimpin klan, dan melihat perintah apa yang dia miliki untuk kita. ” Bai Feng mengambil langkah pertama.</p>
+<p>	Beberapa dari mereka tiba di gerbang kota tampak seperti pelancong dalam perjalanan panjang.</p>
+<p>	Secara kebetulan, gerbang ini adalah gerbang yang pernah dilalui Fang dan Bai.</p>
+<p>	“Untuk memasuki kota, setiap orang harus membayar sepuluh batu purba.” Penjaga kota menghentikan mereka masuk.</p>
+<p>	Bai Feng mengeluarkan token pir kuning, melambaikannya.</p>
+<p>	Penjaga melihatnya, dan setelah memeriksanya, berkata: “Token pir kuning dapat membebaskan tiga orang dari biaya.”</p>
+<p>	Kelompok enam Bai Feng menyerahkan tiga puluh batu purba.</p>
+<p>	“Saudara ini, apakah kamu melihat mereka berdua memasuki kota?” Bai Zhan Lie menunjuk surat perintah penangkapan di dinding, bertanya.</p>
+<p>	Ini adalah surat perintah penangkapan untuk Fang dan Bai.</p>
+<p>	Tetapi permukaan surat perintah penangkapan ini telah ditutupi oleh surat perintah penangkapan baru lainnya, hampir setengah dari permukaannya tertutup.</p>
+<p>	Ini sudah biasa.</p>
+<p>	Sesekali, surat perintah penangkapan baru akan muncul.</p>
+<p>	Ekspresi penjaga kota berubah, melolong pada Bai Zhan Lie: “Apa yang kamu katakan? Sebuah gerbang kota dengan saya menjaga, bagaimana mungkin ada Guru Gu iblis masuk? Apakah Anda pikir saya buta? Ini fitnah, kamu memfitnah seorang pemuda saleh dari klan Shang! ”</p>
+<p>	Ekspresi Bai Zhan Lie membeku.</p>
+<p>	Tetua klan Bai Feng dengan cepat meminta maaf, di kota klan Shang, bahkan jika dia adalah tetua klan Bai, dia harus menundukkan kepalanya.</p>
+<p>	Penjaga kota melihat kultivasi Bai Feng peringkat tiga, dan tidak berani mengejar masalah ini, hanya bergumam pelan.</p>
+<p>	Hanya sampai Tie Dao Ku menunjukkan ekspresi tidak senang, dan menunjukkan identitasnya: “Cukup, diam. Apakah Anda pikir klan Tie saya tidak jelas seperti apa klan Shang Anda?</p>
+<p>	Penjaga kota berhenti berbicara.</p>
+<p>	Setelah menghadapi tampilan otoritas awal ini, klan Bai memasuki kota luar dengan muram.</p>
+<p>	“Ayo kita makan, kita semua lelah setelah beberapa hari bepergian. Kita perlu istirahat, itu tidak akan mempengaruhi misi kita. Saya tahu restoran yang bagus di kota terdalam kelima, itu di zona pertempuran, saya telah berpartisipasi di dalamnya pada hari itu, dan mencapai kota terdalam keempat. Bai Feng merekomendasikan.</p>
+<p>	Usulan ini diterima dengan baik.</p>
+<p>	Geng itu tiba di kota terdalam kelima, di zona pertempuran. Bai Zhan Lie, Bai Lian dan junior lainnya langsung terpesona oleh suasana zona pertempuran.</p>
+<p>	Saat mereka berjalan, mereka bisa mendengar percakapan orang-orang yang bersemangat.</p>
+<p>	“Tan Jing akhirnya membalas dendam, dan mengalahkan Shi Nan Sheng. Shi Nan Sheng bersumpah untuk membalas dendam, dendam mereka tumbuh.”</p>
+<p>	“Sang Kong mengendalikan ngengat awan virus, kekuatan pertempurannya telah meningkat lagi, dia hampir bisa mendominasi kota terdalam kelima.”</p>
+<p>	“Mendominasi? Hehe, dia harus menunggu sampai Gu Yue Fang Zheng naik ke kota terdalam keempat.”</p>
+<p>	…</p>
+<p>	“Gu Yue Fang Zheng!!!”</p>
+<p>	Geng klan Bai menatap dengan mata terbuka lebar, seperti disambar petir. Mereka dengan cepat berhenti, dan menatap orang yang lewat.</p>
+<p>	Mereka menakuti dia.</p>
+<p>	Setelah tiga menit.</p>
+<p>	Di panggung pertempuran, Fang Yuan berjalan ke atas panggung. Lawannya adalah seorang pria paruh baya, tinggi dan kekar, pinggang dan bahu tebal, dengan kumis panjang di wajahnya, terlihat sangat garang dan agresif.</p>
+<p>	ding!</p>
+<p>	Bel berbunyi dan pertempuran resmi dimulai.</p>
+<p>	“Aku mengaku kalah!” Pria paruh baya itu berteriak pada detik pertama. Dia cepat dan langsung, menyebabkan penonton merasa tidak puas.</p>
+<p>	“Lagi?”</p>
+<p>	“Apakah kamu tidak malu, mengakui kekalahan sebelum bertarung.”</p>
+<p>	“Memalukan lebih baik daripada mati, di seluruh kota terdalam kelima sekarang, siapa yang berani bertarung melawan Fang Zheng? Upaya habis-habisan Gu terlalu kuat! ”</p>
+<p>	Kerumunan itu berisik seperti biasa.</p>
+<p>	Pertempuran berakhir segera setelah dimulai.</p>
+<p>	Tuan Gu tuan rumah mengambil kedua informasi anggur mereka Gu dan mengedit informasi di dalamnya sebelum mengembalikannya kepada mereka.</p>
+<p>	Pria paruh baya itu berbalik untuk pergi, mengakui kekalahan adalah penghinaan, tetapi keadaan memaksanya, bagaimanapun juga Fang Yuan kejam dan kejam, dia tidak pernah membiarkan lawan-lawannya. Dia tidak berani bertarung hanya untuk menyelamatkan reputasinya.</p>
+<p>	Fang Yuan tidak segera pergi, tetapi mengeluarkan empat puluh ribu batu purba dan menyerahkannya kepada Li Ran.</p>
+<p>	Hal ini menyebabkan semua orang untuk pergi ke diskusi lagi.</p>
+<p>	“Empat puluh ribu lagi, dia benar-benar memberikannya!”</p>
+<p>	“Meskipun Gu Yue Fang Zheng ini kejam, dia menepati janjinya. Dua ratus ribu, dia sudah melunasi sebagian besar. Hanya tiga puluh ribu yang tersisa.”</p>
+<p>	“Li Ran menggunakan batu purba ini untuk membeli cacing Gu, dia mulai menunjukkan kekuatannya di zona pertempuran. Aku sangat iri.”</p>
+<p>	“Membalas kebaikan dan membalas dendam atas kebencian. Dari aspek ini, saya benar-benar menghormati Gu Yue Fang Zheng.”</p>
+<p>	“Dengan kemenangan ini, dia berada di dua puluh sembilan kemenangan bersih. Hanya satu pertandingan terakhir, dan dia akan berada di kota terdalam keempat.</p>
+<p>	“Semakin cepat semakin baik, bagaimana berani menantangnya? Bahkan Li Hao mati di tangannya…”</p>
+<p>	…</p>
+<p>	“Gu Yue Fang Zheng, setelah semua kesulitan ini, kami akhirnya menemukanmu!” Di antara kerumunan, Bai Zhan Lie menggertakkan giginya, saat wajahnya berkerut karena marah.</p>
+<p>	Teman-temannya juga menunjukkan ekspresi jelek.</p>
+<p>	Mereka telah mengejarnya begitu lama, menderita sepanjang perjalanan. Pada akhirnya, mereka menemukan bahwa orang yang ingin mereka tangkap telah hidup mewah di kota klan Shang, membuat nama untuk dirinya sendiri.</p>
+<p>	Sebelum ini, mereka terus menebak apakah dia telah mati di bawah gerombolan binatang buas, dicerna menjadi kotoran dan buang air besar.</p>
+<p>	Adegan sekarang, sangat kontras dengan harapan mereka.</p>
+<p>	Fang Yuan tidak hanya tidak memiliki masalah, dia hidup dengan baik, bahkan mengubah cacing Gu dan meningkatkan kekuatan pertempuran dan kultivasinya.</p>
+<p>	Apa yang seharusnya mereka rasakan!</p>
+<p>	“Oh surga itu buta, bagaimana bajingan keji seperti itu bisa hidup dengan baik?” Bai Feng mengangkat kepalanya dan berteriak.</p>
+<p>	“Keberuntungannya terlalu bagus, menyelamatkan putri tidak sah dari pemimpin klan Shang dan menerima token duri ungu! Di kota klan Shang, kita tidak bisa berbuat apa-apa padanya, dia dilindungi oleh klan Shang! ” Bai Lian menggertakkan giginya, dia telah belajar banyak dari orang yang lewat.</p>
+<p>	Musuh yang membunuh kedua tuan muda itu berada tepat di depan mereka, tapi tidak ada yang bisa mereka lakukan padanya.</p>
+<p>	“Tidak hanya dia, bahkan Bai Ning Bing menerima token duri ungu. Sekarang, dia juga telah bergabung dengan panggung pertempuran, dan memiliki catatan pertempuran yang bagus.” Seorang pendamping di sampingnya menghela nafas.</p>
+<p>	“Dunia apa ini, orang jahat hidup dengan baik sementara orang baik mati. Mendesah!”</p>
+<p>	“Sebenarnya, bukan berarti kita tidak punya cara untuk menghadapi mereka. Mereka bisa bergabung dengan panggung pertempuran, begitu juga kita. ” Tie Dao Ku berbicara dengan suara rendah, tatapannya tajam seperti belati.</p>
+<p>	Dia telah mendengar dari pemimpin klan Bai bahwa Fang Yuan memiliki ibu kentang guntur yang hangus, Gu.</p>
+<p>	Saat ini, dia bisa memastikan bahwa Fang dan Bai adalah orang yang membunuh tuan mudanya!</p>
+<p>	Tetapi menangkap mereka tidak mungkin sekarang, jadi mengapa tidak membunuh mereka saja! Dengan begitu, balas dendam tuan muda dapat diambil, dan Tie Dao Ku dapat kembali ke klan Tie.</p>
+<p>	“Betul sekali! Ini ide yang bagus.” Mata Bai Feng bersinar, saat semangatnya terangkat.</p>
+<p>	Menggunakan aturan panggung pertempuran, bahkan jika Fang Yuan memiliki token duri ungu, dia tidak dapat dilindungi. Bahkan jika mereka tidak bisa membunuhnya, mengambil upaya habis-habisannya Gu akan menghentikan pertumbuhannya.</p>
+<p>	Yang benar adalah, kecepatan pertumbuhannya terlalu menakutkan, itu membuat mereka ketakutan. Dia tidak bisa dibiarkan tumbuh lagi!</p>
+<p>	“Tunggu, di mana Bai Zhan Lie?” Bai Lian tiba-tiba bertanya.</p>
+<p>	…</p>
+<p>	Fang Yuan berjalan keluar dari panggung pertempuran, karena banyak orang memberi jalan kepadanya.</p>
+<p>	Banyak tatapan mendarat padanya, ada ketakutan dan rasa hormat, ketidakpedulian dan permusuhan.</p>
+<p>	“Meskipun saya membunuh banyak Master Gu, reputasi saya tidak buruk. Setiap kali saya memberikan batu purba Li Ran, itu adalah kinerja yang meningkatkan reputasi saya. Dari dua ratus ribu, hanya tiga puluh ribu yang tersisa.”</p>
+<p>	Fang Yuan berjalan sambil mempertimbangkan pilihannya.</p>
+<p>	Setelah melawan Li Hao, dia mendapatkan tiga cacing Gu, tetapi tidak mendapatkan katak gunung kembali atau posisi menukar Gu.</p>
+<p>	Dia memukul gunung kembali kodok sampai mati, dan posisi swap Gu adalah Gu vital Li Hao, itu binasa setelah Li Hao meninggal.</p>
+<p>	Tapi pertempuran itu memiliki banyak penonton, Fang Yuan mendapatkan lebih dari enam ribu batu purba.</p>
+<p>	Bulan ini, kemenangan berturut-turutnya membuatnya cukup untuk mengembalikan empat puluh ribu ke Li Ran dan masih menyimpan sejumlah kecil batu purba untuk dirinya sendiri.</p>
+<p>	Karena tindakannya, dan tanggapan Li Ran, klan Wu tidak melakukan apa pun pada Fang Yuan untuk saat ini.</p>
+<p>	Ini memberinya waktu yang berharga untuk pengembangan.</p>
+<p>	“Saya memiliki dua puluh sembilan kemenangan sekarang, hanya satu lagi dan saya akan berada di kota terdalam keempat. Tekanan di sana jauh lebih tinggi, dengan para ahli di mana-mana, tetapi kemenangan juga memberi saya lebih banyak hadiah. Setelah menggunakan tendon baja Gu, aku sudah bisa meningkatkan jumlah hantu binatangku, tapi…”</p>
+<p>	Untuk meningkatkan jumlah hantu binatang, itu adalah proses yang panjang, hanya akan ada efeknya setelah dua hingga tiga bulan.</p>
+<p>	Setelah sampai ke kota terdalam keempat, tekanan Fang Yuan akan lebih besar, dia membutuhkan lebih banyak kekuatan untuk menghadapi situasi tersebut.</p>
+<p>	“Lelang ukuran besar akan segera diadakan, dan ada Gu sukses instan untuk penawaran. Jika saya bisa mendapatkannya, saya akan bisa mendapatkan hantu binatang baru dalam semalam, tetapi batu purba saya terlalu sedikit, saya bahkan tidak memiliki kualifikasi untuk berpartisipasi dalam pelelangan … ”</p>
+<p>	Uang selalu tidak cukup ketika seseorang perlu menggunakannya!</p>
+<p>	Saat Fang Yuan sedang mempertimbangkan untuk meminjam dari siapa, seorang pria muda muncul dan menghalangi jalannya.</p>
+<p>	“Gu Yue Fang Zheng, apakah kamu mengenaliku ?!” Bai Zhan Lie berteriak.</p>
+<p>	“Zhan Kebohongan!”</p>
+<p>	“Zhan Lie, jangan gegabah.”</p>
+<p>	Klan dan geng Bai tiba, membentuk setengah lingkaran di sekitar Fang Yuan.</p>
+<p>	Sebuah kebuntuan!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

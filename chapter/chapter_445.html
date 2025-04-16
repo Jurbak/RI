@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 445 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 445";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_444.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 445">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_446.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 445</h1>
+        <div class="text-left">
+<p>	Bab 445 – Memperbaiki Roda Tulang Pertempuran</p>
+<p>	Bab 445: Memperbaiki Battle Bone Wheel</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan melihat undangan itu, kata-kata yang ditulis sangat sopan, tentu saja ditulis menggunakan karakter dataran utara, terlihat liar tetapi dalam, dan pada akhirnya, ada nama pemimpin suku Man — Man Tu.</p>
+<p>	Surat ini ditulis oleh Man Tu secara pribadi, itu menunjukkan ketulusannya.</p>
+<p>	Isi surat itu adalah kekaguman pemimpin suku Man terhadap Chang Shan Yin, dan menyatakan bahwa masalah sebelumnya hanyalah kesalahpahaman di antara anak-anak, karena Chang Shan Yin tidak membunuh tetua luar Shi Wu, suku Man sangat berterima kasih.</p>
+<p>	Karena itu, dia mengadakan perjamuan di malam hari, dan dengan tulus mengundang Fang Yuan untuk datang. Pada saat yang sama, hadiah ini adalah item untuk meminta maaf atas nama Shi Wu, karena menyinggung seorang pahlawan.</p>
+<p>	Fang Yuan membukanya dan tertawa: “Suku Pria ini menghabiskan banyak usaha.”</p>
+<p>	Di dalam kotak, ada seratus tulang bambu Gu.</p>
+<p>	Terbukti, setelah Man Duo kembali, dia menyelidiki Fang Yuan dengan jelas, dan mengetahui bahwa dia melakukan pembelian di pasar.</p>
+<p>	“Oh saudara Shan Yin, saya ingin meminta sesuatu dari Anda.” Pemimpin suku tua berbicara.</p>
+<p>	Fang Yuan melambaikan tangannya: “Saya mengerti saudara, jangan khawatir, saya akan mendesak mereka selama perjamuan, untuk mengurangi konflik antara kedua suku Anda.”</p>
+<p>	“Ah, terima kasih terbesarku untukmu, saudara Shan Yin!” Pemimpin suku tua itu sangat tersentuh, dia bangun dengan tergesa-gesa dan membungkuk dalam-dalam ke arah Fang Yuan.</p>
+<p>	Masih ada waktu sampai jamuan makan, Fang Yuan menyuruh mereka pergi sebelum menutup pintunya.</p>
+<p>	Fang Yuan duduk di tempat tidur, dia menghendaki dan cahaya terbang keluar dari lubangnya.</p>
+<p>	Cahaya lemah menyebar mengungkapkan roda tulang pertempuran.</p>
+<p>	Gu peringkat lima ini sangat besar, tingginya hampir setinggi langit-langit, begitu muncul, ruangan besar itu langsung terasa sempit.</p>
+<p>	Ada banyak retakan di roda pertempuran, dan bahkan beberapa bekas luka parah yang mengancam akan menghancurkannya. Bekas luka terdalam sangat merusak, hampir membelah roda menjadi dua, hanya dihubungkan oleh sedikit tulang putih. Itu adalah pemandangan yang mengejutkan.</p>
+<p>	Keberuntungan cacing Gu peringkat lima ini tidak baik, setelah dipukuli oleh Chang Shan Yin, pemilik aslinya Ha Tu Gu meninggal, menyebabkannya menjadi Gu liar. Itu harus memakan kerangka di medan perang untuk nyaris tidak bertahan hidup, tidak dapat memperbaiki luka-lukanya.</p>
+<p>	Setelah itu, diserang oleh Fang Yuan dan Ge Yao bersama-sama, Jangkrik Musim Gugur Musim Semi adalah Gu peringkat enam, ia tidak dapat menaklukkan Gu peringkat lima dengan mudah. Fang Yuan hanya bisa mengalahkannya sampai nafas terakhirnya untuk menaklukkannya.</p>
+<p>	Tapi tepatnya, roda tulang pertempuran berada di ambang kehancuran, ketika muncul, beberapa pecahan tulang jatuh dari roda.</p>
+<p>	Bisa dikatakan, situasinya tidak bisa lebih buruk lagi.</p>
+<p>	Fang Yuan mengeluarkan Gu bambu tulang dari kotak hadiah, menggunakan aura Spring Autumn Cicada, dia langsung memperbaikinya.</p>
+<p>	Cacing Gu ini berbentuk seperti bambu tulang jari, berwarna putih pucat dan tampak seperti lilin putih.</p>
+<p>	Fang Yuan memegang Gu bambu tulang di tangannya, saat esensi purba bergerak sesuai keinginannya, keluar dari lubang menuju bagian bawah lidahnya.</p>
+<p>	Api hantu Gu berada di bagian bawah lidahnya, telah terbentuk menjadi gumpalan api biru.</p>
+<p>	Fang Yuan menarik napas dan menghembuskannya.</p>
+<p>	Dengan suara ‘huuu’, dia menghembuskan segumpal api hantu biru yang menakutkan.</p>
+<p>	Api hantu mendarat di tulang bambu Gu, perlahan membakar bagian atas bambu.</p>
+<p>	Fang Yuan memegang bagian bawah bambu hantu Gu seperti sedang memegang lilin.</p>
+<p>	Api hantu terus menyala, memancarkan perasaan dingin yang menusuk tulang. Saat bagian atas Gu bambu tulang dibakar dengan api hantu, perlahan meleleh dan berubah menjadi jejak asap tulang putih, melayang.</p>
+<p>	Fang Yuan menempatkan tulang bambu Gu lebih dekat ke roda tulang pertempuran, dan asap tulang putih bergerak menuju celah roda tulang pertempuran seperti tersedot. Roda tulang pertempuran sedikit bergetar saat pulih perlahan.</p>
+<p>	Dalam beberapa saat, api hantu biru yang menakutkan semakin kecil, saat Fang Yuan menghembuskan gumpalan api lain untuk menopang lilin.</p>
+<p>	Setelah lima menit, Gu bambu tulang ini habis, saat Fang Yuan mengeluarkan Gu bambu tulang kedua dari kotak hadiah dan terus menggunakan api hantu untuk menyalakannya, menyebabkan asap tulang putih muncul.</p>
+<p>	Saat dia mengulangi siklus itu, setelah lebih dari tiga puluh tulang bambu Gu, Fang Yuan akhirnya memperbaiki retakan terdalam pada roda tulang pertempuran itu sepenuhnya.</p>
+<p>	Kotak hadiah yang diisi dengan tulang bambu Gu telah kehilangan sekitar seperempatnya, jika Fang Yuan ingin memperbaiki seluruh roda tulang pertempuran, hanya Gu bambu tulang ini saja tidak cukup.</p>
+<p>	Dan roda tulang pertempuran jauh dari dapat digunakan dalam pertempuran.</p>
+<p>	Luka terdalam telah diperbaiki, tetapi luka lainnya masih mengganggu kemudi.</p>
+<p>	Itu seperti seorang pasien, setelah resusitasi Fang Yuan, ia ditarik kembali dari jurang kematian. Tetapi pasien ini masih dalam bahaya besar, perlu untuk terus menerima perawatan.</p>
+<p>	“Kamu tidak bisa menjadi gemuk dari makan satu suap, kerusakan roda tulang pertempuran terlalu parah. Tetapi jika bukan itu masalahnya, saya tidak akan bisa menaklukkannya. Bahkan jika itu sepenuhnya diperbaiki sekarang, esensi purba saya tidak dapat mengaktifkannya. Tidak ada terburu-buru di sini.”</p>
+<p>	Fang Yuan turun dari tempat tidur, melenturkan anggota tubuhnya yang mati rasa saat dia membuka jendela, hari sudah gelap, bintang-bintang bersinar di langit.</p>
+<p>	“Ini adalah waktunya.” Memikirkan perjamuan di malam hari, Fang Yuan melangkah keluar dari kamarnya.</p>
+<p>	Saat dia berjalan keluar halaman, ayah dan putra suku Man Duo dan Ge sudah menunggunya.</p>
+<p>	“Man Duo menyapa Tuan Chang Shan Yin!” Man Duo melihat Fang Yuan dan segera menyapa, menunjukkan rasa hormat yang mutlak.</p>
+<p>	“Apakah kalian semua sudah menunggu lama?” Fang Yuan mengangguk, bertanya dengan santai.</p>
+<p>	“Man Duo menjawab: “Baru enam jam, itu tidak masalah. Merupakan kehormatan besar bagi saya untuk berdiri di depan pintu Tuhan. Senior Chang Shan Yin, ayah telah menyiapkan perjamuan besar di dekatnya, menunggu kedatanganmu. Ayah dan putra suku Ge akan menemanimu ke perjamuan ini juga.”</p>
+<p>	Fang Yuan memandang Man Duo ini, merasa kasihan di dalam hatinya.</p>
+<p>	Anak ini cerdas dan mampu, tetapi takdir mempermainkannya, memberinya bakat yang buruk, dia sama seperti Fang Yuan di kehidupan sebelumnya.</p>
+<p>	“Baiklah kalau begitu, ikut.” Fang Yuan mengendarai serigala punuknya saat dia meninggalkan perkemahan suku Ge bersama yang lainnya.</p>
+<p>	Man Duo memandu sekelompok sekitar selusin orang saat mereka mengendarai serigala punuk mereka ke tempat yang jauh.</p>
+<p>	Angin malam yang sejuk bertiup melewati telinga, saat padang rumput mengalir ke arah yang berlawanan.</p>
+<p>	Cahaya bulan mengalir seperti air, orang bisa melihat dengan jelas dari jarak dekat, tetapi dari jauh, cahaya bulan tampak seperti kerudung berkabut. Rumput di tanah mengalir dengan esensi hijau giok. Pegunungan tampak seperti mereka secara bertahap mengalir menuju langit.</p>
+<p>	Di bawah langit malam seperti itu, serigala berlari di tanah yang tidak pernah berakhir, saat bulan yang indah memberikan rasa kebebasan yang tak terkendali!</p>
+<p>	Saat semua orang berlari, mereka melihat sekelompok serigala punuk di gundukan. Ada sekelompok Master Gu duduk di punggung serigala. Seorang Guru Gu sedang mengibarkan bendera besar di tangannya, yang bertuliskan ‘Manusia’ di atasnya.</p>
+<p>	Setelah melihat Fang Yuan, kelompok Master Gu mengendarai serigala punuk saat mereka datang.</p>
+<p>	Man Duo melihat ini dan tertawa: “Tuan Chang Shan Yin, ayah saya yang di depan, dia di sini untuk menyambut Anda.”</p>
+<p>	Ini adalah kebiasaan dataran utara — jika seorang tamu terhormat diundang, tuan rumah sering bepergian sepuluh li, untuk menyambut mereka.</p>
+<p>	Kedua kelompok serigala punuk bertemu di tengah.</p>
+<p>	Pemimpin suku manusia turun dari serigalanya, tertawa sambil berjalan mendekat: “Hahaha, bulan hari ini seterang matahari, ini adalah pancaran untuk menyambut kembalinya pahlawan dataran utara. Tuan Chang, saya telah mendengar banyak tentang Anda.”</p>
+<p>	Pemimpin suku manusia tingginya sembilan kaki, dia sangat berotot dan kuat. Dia mengenakan jubah bulu tanpa lengan yang longgar, memperlihatkan kedua bahunya, lengannya yang berwarna perunggu kuno lebih tebal dari kaki pria normal.</p>
+<p>	Tapi saat dia menyelesaikan kalimatnya, sepertinya surga mempermainkannya.</p>
+<p>	Langit malam ditutupi oleh beberapa awan gelap, saat cahaya bulan menghilang, menyebabkan padang rumput tenggelam dalam kegelapan.</p>
+<p>	Tawa keras pemimpin suku pria menjadi lebih lembut, karena dia merasa sangat canggung.</p>
+<p>	Man Duo yang cerdas, langsung tertawa saat matanya berputar: “Senior Chang Shan Yin adalah pahlawan besar dataran utara kita. Ayah, Anda adalah pahlawan yang paling dihormati di suku Manusia kami. Malam ini adalah pertemuan para pahlawan! Lihat, aura hebat para pahlawan menyebabkan surga bergetar, menyebabkan angin dan awan bergerak!”</p>
+<p>	Kata-katanya menyebabkan kecanggungan memudar, saat ekspresi pemimpin suku Man kembali normal saat dia berjalan ke Fang Yuan.</p>
+<p>	Fang Yuan dan yang lainnya juga turun dari serigala.</p>
+<p>	Man Tu pertama-tama memberi Fang Yuan salam yang dalam, saat Fang Yuan meletakkan tangan kanannya sebagai dadanya untuk membalas salam.</p>
+<p>	Selanjutnya, Man Tu menatap Man Duo dengan sengaja, menggunakan nada memarahi: “Omong kosong! Bagaimana saya bisa dibandingkan dengan Tuan Chang. Lord Chang terkenal di dataran utara sebagai Raja Serigala, dia mendominasi dunia dengan keterampilan perbudakan serigalanya. Dia bahkan membunuh master Gu peringkat lima Ha Tu Gu, melenyapkan sekelompok bandit dan menyingkirkan kejahatan besar, menyebabkan namanya tercatat dalam sejarahnya.”</p>
+<p>	“Hehehe, pemimpin suku Man Tu, mengapa kamu begitu rendah hati?” Fang Yuan tertawa ringan: “Kamu adalah pemimpin suku Man, penguasa hampir seribu Gu Masters. Anda adalah penakluk sejati, memimpin suku Man ke banyak kemenangan, dan Anda bahkan mengendalikan lembah Hong Yan, Anda adalah penguasa daerah ini. Kultivasi saya telah jatuh ke peringkat empat tahap awal, saat Anda berada di tahap puncak, Anda sangat melampaui saya. Meskipun saya memiliki keterampilan perbudakan serigala, saya hanya bisa mengendalikan binatang buas, tidak seperti Anda yang mengendalikan orang, perbedaan kita adalah siang dan malam. Pemimpin suku Man Tu adalah penakluk heroik sejati!”</p>
+<p>	Man Tu tercengang.</p>
+<p>	Raja Serigala terkenal karena sikap acuh tak acuh dan arogansinya, dia sulit diajak bicara, berpikir dia sangat banyak bicara sekarang, dan menunjukkan sikap yang begitu rendah hati.</p>
+<p>	Tapi dia mengerti dengan cepat setelah memikirkannya.</p>
+<p>	Chang Shan Yin ini terkenal ketika dia masih muda, dengan sifat seorang pemuda, dia sombong. Sekarang dia adalah seorang pria paruh baya, dan mendapat masalah seperti itu, sifatnya sudah disempurnakan, itu normal baginya untuk lebih tenang sekarang.</p>
+<p>	Man Tu tidak menyangka Fang Yuan begitu mudah didekati, tetapi menerima pujian seperti itu dari Raja Serigala Chang Shan Yin, dia diam-diam bahagia.</p>
+<p>	Dia bahkan lebih memikirkan Fang Yuan di dalam hatinya sekarang.</p>
+<p>	Meskipun kultivasinya adalah peringkat empat tahap awal, dia pernah membunuh peringkat lima Ha Tu Gu, Man Tu tidak berani meremehkannya.</p>
+<p>	Dia tertawa dan berkata: “Tuan Chang sudah menduduki peringkat empat tahap puncak dua puluh tahun yang lalu. Meskipun kultivasi Anda jatuh karena cedera, Anda masih dapat pulih dengan cepat, atau bahkan melampaui kultivasi Anda sebelumnya. Pada saat itu, bagaimana kultivasi saya menjadi pasangan Anda? ”</p>
+<p>	Pada saat ini, awan gelap menyebar dan cahaya bulan bersinar lagi.</p>
+<p>	“Hehehe, kalian berdua adalah pahlawan dan penakluk dataran utara saat ini.” Pemimpin suku Ge berbicara pada waktu yang tepat: “Hal yang paling berharga adalah pertemuan harimau dan serigala tidak mengarah pada perkelahian, tetapi Anda saling menghargai. Kami beruntung menyaksikan ini, ini benar-benar melihat bulan setelah awan berpisah. ”</p>
+<p>	Kata-kata seperti itu membuat semua orang tertawa.</p>
+<p>	“Hahaha, saudara Ge, kata-katamu menggambarkan pemandangan dengan sempurna. Cepat, perjamuan sudah disiapkan, sudah dekat! ” Man Tu memandang Fang Yuan dan membuat pose yang mengundang.</p>
+<p>	Dia tidak mengatur jamuan makan di kampnya, tetapi bergegas ke sini untuk mengatur jamuan makan di dekat kamp suku Ge, itu menunjukkan keramahan dan ketulusannya.</p>
+<p>	“Bagus, mengejarmu!” Fang Yuan tertawa dan setuju, tetapi hatinya menegang.</p>
+<p>	Awan gelap datang dan pergi dengan cepat, itu adalah pemandangan yang aneh. Kemungkinan besar, Gu Masters sedang bergerak, belum sebulan sejak dia mengubur Gu perjalanan abadi yang tetap. Aura Immortal Gu belum pudar, semoga Gu Immortal tidak menemukannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

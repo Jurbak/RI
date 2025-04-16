@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 508 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 508";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_507.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 508">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_509.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 508</h1>
+        <div class="text-left">
+<p>	Bab 508 – Raja Serigala yang Menantang</p>
+<p>	Bab 508: Raja Serigala yang Menantang</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Pelopor jalur jiwa — Master Gu legendaris di puncak peringkat sembilan tahap puncak, Spectral Soul Demon Venerable pernah berkata:</p>
+<p>	“Di dunia yang luas ini, pilihan terbaik untuk memperkuat jiwa adalah gunung Dang Hun, dan untuk pemurnian jiwa, pilihan terbaik adalah lembah Luo Po. Satu gunung dan satu lembah, dengan keduanya, seseorang dapat memperoleh kesuksesan besar di jalur jiwa dan menyapu setiap rintangan di dunia ini!”</p>
+<p>	Dengan demikian, gunung Dang Hun dan lembah Luo Po dikenal sebagai tanah suci pembudidaya jiwa.</p>
+<p>	Fang Yuan sangat menyadari betapa besar bantuan yang dapat diberikan oleh kedua tanah suci ini sejak memperoleh gunung Dang Hun.</p>
+<p>	Jiwa seribu manusianya dikultivasikan melalui nyali Gu di gunung Dang Hun.</p>
+<p>	Guts Gu adalah Gu nomor satu dalam meningkatkan fondasi jiwa; itu tidak memiliki efek samping dan efisiensinya juga sangat tinggi.</p>
+<p>	Master Gu normal biasanya membutuhkan sekitar dua puluh tahun untuk mengolah jiwa mereka ke tingkat jiwa seribu manusia. Beberapa jenius dengan bantuan klan mereka atau bimbingan senior mereka dapat mengurangi dua puluh tahun ini hingga setengahnya.</p>
+<p>	Tapi untuk Fang Yuan?</p>
+<p>	Dia menggunakan keberanian Gu di gunung Dang Hun untuk memperkuat jiwanya ke tingkat seribu manusia dalam waktu kurang dari setengah tahun.</p>
+<p>	Ini ditambah dengan fakta bahwa gunung Dang Hun perlahan-lahan mati dari korosi Lumpur Gruel Immortal Gu.</p>
+<p>	Dengan gunung Dang Hun, kecepatan di mana Fang Yuan mampu meningkatkan jiwanya ke tingkat jiwa ribuan manusia seperti menyerbu ke langit dengan roket. Namun selain menguatkan jiwa, budidaya jiwa membutuhkan penempaan untuk memurnikannya.</p>
+<p>	Dalam aspek ini, kemajuan Fang Yuan jauh lebih lambat.</p>
+<p>	Dibandingkan dengan kecepatan penguatan jiwa, kecepatan tempering jiwanya sama lambatnya dengan pendakian kura-kura.</p>
+<p>	Fang Yuan menggunakan jiwa serigala Gu untuk meredam jiwanya, untuk mengubah jiwanya menjadi jiwa manusia serigala.</p>
+<p>	Tapi tidak satu pun dari jiwa serigala yang dia gunakan berada di peringkat lima, yang paling banyak dia gunakan adalah peringkat empat. Menggunakan jiwa serigala peringkat empat Gu untuk memurnikan ribuan jiwa manusia seperti menuangkan sebotol tinta ke dalam danau; efisiensi kematian seluruh danau terlalu rendah.</p>
+<p>	Fang Yuan telah mencari peringkat lima jiwa serigala Gu, tapi itu sia-sia.</p>
+<p>	Tetapi bahkan tanpa jiwa serigala peringkat lima Gu, masih ada satu metode.</p>
+<p>	Itu adalah menggunakan Gu arloji kedua atau Gu arloji ketiga untuk meningkatkan aliran waktu tubuhnya, atau memasuki tanah yang diberkati, untuk meningkatkan kecepatan kultivasinya.</p>
+<p>	Metode ini dapat digunakan oleh orang lain, tetapi Fang Yuan tidak bisa.</p>
+<p>	Jangkrik Gu Musim Semi Musim Gugur vital pertama Fang Yuan perlahan pulih seiring waktu. Sebelum dia menjadi Gu Immortal, Gu ini akan seperti pedang algojo yang melayang di atas lehernya.</p>
+<p>	“Jiwa seribu manusia saya dicapai menggunakan gunung Dang Hun, lembah Luo Po setara dengan gunung Dang Hun, jika saya bisa mendapatkannya …”</p>
+<p>	Untuk sesaat, Fang Yuan memiliki dorongan untuk berubah ke jalur jiwa.</p>
+<p>	“Jika saya dapat menyelamatkan gunung Dang Hun dan mendapatkan Lembah Luo Po, dengan fondasi besar dari dua tanah suci jalur jiwa, mengolah jalur jiwa akan benar-benar menjadi pilihan yang bijaksana, bahkan memiliki lebih banyak prospek daripada jalur darah yang saya kembangkan di kehidupan lampau!”</p>
+<p>	Tapi segera, Fang Yuan menjadi tenang.</p>
+<p>	“Menurut arahan yang diberikan oleh pemikiran luar angkasa, Lembah Luo Po cukup jauh, yang penting sekarang adalah menyelamatkan gunung Dang Hun, sekarang bukan waktunya untuk pergi ke Lembah Luo Po. Pertempuran semakin dekat, saya juga tidak bisa dengan santai meninggalkan jalur kekuatan saya saat ini dan landasan jalur perbudakan. ”</p>
+<p>	Fang Yuan mengandalkan jalur perbudakan dan jalur kekuatan untuk menjadi sosok berpengaruh di dataran utara.</p>
+<p>	Tapi kekuatannya saat ini masih jauh dari memungkinkan dia untuk berkeliaran tanpa hambatan dan tak terkalahkan di dunia fana.</p>
+<p>	Seorang ahli pedang bayangan mampu menghalanginya.</p>
+<p>	Meskipun dia memiliki bukaan kedua, kekuatan kultivasi dan jalur perbudakan, memiliki kultivasi tahap puncak peringkat lima, Fang Yuan terlibat dalam perjuangan untuk Pengadilan Kekaisaran, dia masih tampak tidak signifikan.</p>
+<p>	Ini adalah pusaran perang yang melibatkan seluruh dataran utara; jika seseorang sedikit ceroboh, bahkan Master Gu peringkat lima memiliki bahaya kematian.</p>
+<p>	“Kultivasi jalur perbudakan saya telah mencapai beberapa keberhasilan dan dapat mempengaruhi seluruh situasi, tetapi jelas bahwa serangan saya kuat tetapi pertahanannya lemah. Pada aspek jalur kekuatan, itu masih belum cukup untuk membela diri. Ini akan menjadi masalah begitu orang-orang seperti Mo Shi Kuang dan Bian Si Xuan mendekatiku. Saya harus lebih berhati-hati dalam pertempuran dengan suku Dong Fang ini.”</p>
+<p>	Memikirkan pertempuran besar yang akan segera terjadi, Fang Yuan tidak memiliki niat pertempuran yang mengamuk seperti yang lain.</p>
+<p>	Dapat dikatakan bahwa Cunning Gentleman membantunya sedikit, membiarkannya tetap berada di belakang layar dan memiliki lebih banyak waktu untuk berkultivasi dan meningkatkan kekuatan pertempurannya.</p>
+<p>	Pada hari-hari berikutnya, Fang Yuan memelihara bukaan keduanya sambil mencoba memperbaiki bayi Gu yang menangis dan mual. Pada saat yang sama, dia berkomunikasi dengan Little Hu Immortal untuk menangani semua jenis masalah di tanah yang diberkati.</p>
+<p>	Di tanah yang diberkati Hu Immortal, situasi gunung Dang Hun terus memburuk, seluruh gunung menyusut dari hari ke hari. Little Hu Immortal membuang sejumlah besar Lumpur Gruel dari gunung Dang Hun setiap hari untuk memperpanjang vitalitas gunung Dang Hun sebanyak mungkin.</p>
+<p>	Awan berbintang menutupi bagian timur tanah yang diberkati, skala kunang-kunang cahaya bintang telah meningkat tiga kali lipat dari sebelumnya, dan bahkan ada lima puluh hingga enam puluh lebih kunang-kunang cahaya bintang Gu daripada penilaian awal Little Hu Immortal.</p>
+<p>	Mampu mendapatkan Gu kunang-kunang cahaya bintang sebanyak ini dalam waktu singkat ini semua berkat ikan gelembung udara.</p>
+<p>	Ikan gelembung udara ini secara bertahap menunjukkan efeknya.</p>
+<p>	Sebelumnya, Fang Yuan telah sering masuk dan keluar dari tanah yang diberkati Hu Immortal, menggunakan stargate Gu untuk waktu yang lama yang menyebabkan jumlah cahaya bintang kunang-kunang Gu berkurang. Sekarang, kunang-kunang cahaya bintang Gu bertambah jumlahnya sekali lagi, mengurangi tekanannya.</p>
+<p>	Di bagian barat tanah yang diberkati, sejumlah besar kelinci merah muda berkembang biak.</p>
+<p>	Karena Fang Yuan telah memindahkan kelompok serigala ke dataran utara, tekanan pada kelinci merah muda telah berkurang, sehingga jumlah mereka dengan cepat berkembang.</p>
+<p>	Setelah Little Hu Immortal melaporkan berita ini, Fang Yuan segera membuatnya memindahkan sejumlah besar serigala air dari danau timur ke bagian barat untuk mengisi celah dalam rantai makanan, tetapi meskipun demikian, kelinci masih berkembang biak dengan liar.</p>
+<p>	Untuk mencegah bencana kelinci, Little Hu Immortal telah memasang sekelompok besar kelinci merah muda untuk dijual di surga kuning harta karun, beberapa hari yang lalu.</p>
+<p>	Fang Yuan paling prihatin dengan pria berbulu yang untuk sementara ditempatkan di bagian selatan tanah yang diberkati.</p>
+<p>	Ini awalnya adalah rumah para rockmen, sekarang ada sekelompok pria berbulu yang tiba-tiba muncul entah dari mana. Kedua belah pihak berjuang untuk wilayah mereka menyebabkan beberapa konflik skala kecil.</p>
+<p>	Di bawah instruksi Fang Yuan, Little Hu Immortal diam-diam membantu pria berbulu menang melawan suku stoneman, dan menjual tawanan stoneman ke Immortal Crane Sect.</p>
+<p>	Sekte Bangau Abadi terus mencoba melakukan transaksi untuk nyali Gu, tetapi selalu ditolak oleh Dewa Kecil Hu. Fang Zheng meminta untuk menemui Fang Yuan beberapa kali sebagai perwakilan negosiasi, tetapi juga ditolak.</p>
+<p>	Adapun surga kuning harta karun, kumpulan lain dari Lumpur Gruel dijual, mendapatkan sisa resep lain dari Lumpur Gruel Gu Abadi.</p>
+<p>	Resep sisa Immortal Gu Fang Yuan telah dijual sebelumnya sekali lagi dijual kembali oleh Little Hu Immortal setelah jeda beberapa waktu, memperoleh sebelas batu esensi abadi.</p>
+<p>	Ketika resep Gu yang sama dijual beberapa kali di surga kuning harta karun dan lebih banyak Dewa Gu yang mendapatkannya, cahaya harta karunnya akan berkurang. Dengan demikian, metode ini tidak dapat diperlakukan sebagai sumber pendapatan jangka panjang.</p>
+<p>	Ini seperti tambang emas yang sebagian besar sudah ditambang. Keuntungan di masa depan akan terus menurun dan tidak layak terlalu banyak harapan.</p>
+<p>	Setelah tiga hari konfrontasi, Dong Fang Yu Liang secara pribadi menulis tantangan perang dan mengirimkannya ke Hei Lou Lan.</p>
+<p>	Hei Lou Lan terkejut dan bertanya kepada bawahannya: “Apakah pasukan belakang suku Dong Fang sudah tiba?”</p>
+<p>	Pria Licik Sun Shi Han menjawab: “Pasukan belakang mereka masih lima ribu li jauhnya, membangun garis pertahanan kelima.”</p>
+<p>	Hei Lou Lan tersenyum sinis: “Kekuatan militer suku Dong Fang awalnya lebih rendah dari kita dan mereka masih berani membagi kekuatan mereka!”</p>
+<p>	Sun Shi Han juga tersenyum: “Dong Fang Yu Liang sedang bermain api. Kita mungkin juga menunggu sampai pasukan belakang kita bertemu, kekuatan militer kita akan jauh melampaui mereka dan pada saat itu, kita dapat menghancurkan seluruh pasukan mereka dalam satu gerakan.”</p>
+<p>	Cahaya indah berkedip di mata Hei Lou Lan. Dia memiliki dendam pribadi dengan Dong Fang Yu Liang; ketika dia pergi bertualang untuk mendapatkan pengalaman di masa mudanya, dia melihat Dong Fang Qing Yu dan meneteskan air liur karena kecantikannya, tetapi dia diberi pelajaran oleh Dong Fang Yu Liang dan telah sedikit menderita.</p>
+<p>	Dia sangat ingin membalas dendam, tapi dia bukanlah orang yang mudah dikendalikan emosi.</p>
+<p>	“Bahkan orang bodoh pun bisa melihat maksud dari anak Dong Fang ini. Dia ingin bertarung tapi aku tidak akan memberinya kesempatan. Berapa lama sampai pasukan belakang saya tiba? ” Hei Lou Lan bertanya.</p>
+<p>	“Perkiraan tiga hari.” Pemimpin suku Wang menjawab dari samping.</p>
+<p>	“Bagus. Saya akan menulis surat kepada Dong Fang Yu Liang untuk mengubah tanggal menjadi empat hari kemudian!” Hei Lou Lan tertawa keras.</p>
+<p>	Dong Fang Yu Liang menerima surat itu dan membacanya sekilas.</p>
+<p>	Para petinggi aliansi Dong Fang dipenuhi amarah.</p>
+<p>	Hei Lou Lan telah menulis omong kosong, menyatakan bahwa dia memberikan waktu tiga hari kepada Dong Fang Yu Liang dengan murah hati, dan berharap Dong Fang Yu Liang akan memenuhi niat baik ini dan menikmati hari-hari terakhir hidupnya.</p>
+<p>	Kerumunan berteriak untuk perang satu demi satu, tetapi Dong Fang Yu Liang dengan tenang tersenyum: “Semuanya, jangan tidak sabar. Surat ini sudah sesuai dengan harapan saya. Saya telah menyimpulkan berkali-kali selama beberapa hari ini dan telah membuat rencana, tolong dengarkan detailnya … ”</p>
+<p>	Empat hari berlalu dalam sekejap.</p>
+<p>	Di hari pertempuran ini, itu adalah hari dengan cuaca cerah dengan langit biru menyebar ke cakrawala yang jauh.</p>
+<p>	Rerumputan selutut tumbuh subur, kedua belah pihak bergerak dalam formasi yang mencapai ratusan li, mengibarkan spanduk dengan pasukan yang padat.</p>
+<p>	Seekor badak berkepala dua seukuran bukit membawa tenda utama di punggungnya. Di tenda utama adalah Hei Lou Lan, Fang Yuan, Hao Ji Liu, pemimpin suku Wang, pemimpin suku Fang, pemimpin suku Ye dan ahli lainnya.</p>
+<p>	Posisi Fang Yuan secara alami berada di sisi kiri paling atas dari kursi utama.</p>
+<p>	Pria Licik Sun Shi Han berdiri di belakang Hei Lou Lan dengan ekspresi setia; dia sudah menjadi ajudan tepercaya Hei Lou Lan.</p>
+<p>	Angin bersiul, menyebabkan spanduk berkibar liar. Fang Yuan melihat ke kejauhan dari tempat duduknya, melihat formasi ketat dan disiplin suku Dong Fang dengan tenda utama mereka bertumpu di atas awan putih, mengambang di udara.</p>
+<p>	Samar-samar orang bisa melihat Dong Fang Yu Liang duduk di kursi tengah di tenda utama dengan pejabat dan ahli galak duduk di kiri dan kanannya. Hanya dari watak mereka, mereka tidak tampak lebih lemah dari sisi Hei Lou Lan.</p>
+<p>	Pada saat ini, tawa keras Hei Lou Lan terdengar di telinga Fang Yuan: “Hahaha, pertempuran ini akan menandakan langkah pertama yang diambil suku Hei-ku menuju kepemilikan istana Kekaisaran dan memerintah dataran utara. Semuanya, siapa yang ingin maju dan membuat tantangan pertama?”</p>
+<p>	Kata-katanya baru saja mendarat ketika sekelompok Master Gu bangkit satu demi satu, berteriak atau menjamin diri mereka sendiri untuk meminta dikirim ke pertempuran.</p>
+<p>	Tatapan Hei Lou Lan melintasi kelompok itu dan mendarat di salah satu dari mereka: “Pan Ping, kamu harus pergi.”</p>
+<p>	Pan Ping tinggi dan kekar, rambutnya kuning kemerahan, di pinggangnya ada pedang dengan ujung emas dan gagang perak. Dia tertawa terbahak-bahak ketika dipilih dan tepat ketika dia akan setuju, teriakan keras datang dari musuh: “Junior Tang Miao Ming telah mendengar nama menakjubkan dari Raja Serigala yang agung untuk waktu yang lama, saya secara khusus datang untuk mendapatkan satu atau dua penunjuk.”</p>
+<p>	“Dong Fang Yu Liang punya nyali, dia sebenarnya memilih untuk menantang kita dulu!”</p>
+<p>	“Itu adalah komandan rubah kecil Tang Miao Ming, peringkat empat Master Gu tingkat menengah, dia sebenarnya secara langsung menantang Lord Wolf King, mereka pasti merencanakan sesuatu.”</p>
+<p>	Untuk sesaat, tatapan semua orang tertuju pada Fang Yuan, menunggu jawaban dari Raja Serigala.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

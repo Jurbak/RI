@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 132 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 132";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_131.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 132">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_133.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 132</h1>
+        <div class="text-left">
+<p>	Bab 132</p>
+<p>	Bab 132: Rumput Harum Tiga Langkah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di tebing, Bai Ning Bing memperhatikan dengan penuh minat.</p>
+<p>	Saat dia duduk di tebing, pertempuran hidup dan mati diperlihatkan sepenuhnya.</p>
+<p>	Serigala petir yang berani mengambil langkahnya, perlahan mendekat.</p>
+<p>	Dua Master Gu memblokir jalannya dengan ekspresi muram.</p>
+<p>	Di belakang mereka, Xiong Zhan setengah berlutut di tanah, tangan kirinya meraih pergelangan tangan kanannya, tangan kanannya berbentuk cakar, membidik serigala petir yang berani.</p>
+<p>	“Menjarah Gu!” Tiba-tiba, dia berteriak keras, semua esensi purba di tubuhnya mengalir ke arah Gu Perampasan.</p>
+<p>	Sebuah kekuatan meraih tak terlihat meledak dari dalam.</p>
+<p>	Tangan kanan Xiong Zhan meraih udara, dan perasaan ilusi membuatnya merasa bahwa dia telah meraih cacing Gu.</p>
+<p>	Tapi cacing Gu ini terus berjuang, bertarung dengannya.</p>
+<p>	Kekuatan ini sangat besar; pusat gravitasinya sudah sangat rendah, tetapi dia masih merasakan kekuatan yang sangat kuat menyeretnya ke depan.</p>
+<p>	“Tingkat keberhasilan Penjarahan Gu sangat rendah, tapi aku harus berhasil kali ini, kalau tidak kita akan hancur!” Dia menggertakkan giginya, pembuluh darah muncul di dahinya saat ekspresinya berubah menjadi ganas, bertarung dengan semua kemampuannya.</p>
+<p>	Xiong Zhan tidak punya cara lain.</p>
+<p>	Kegagalan berarti kematian!</p>
+<p>	Di bawah tekanan maut, dia menyuntikkan Gu Perampasan dengan semua esensi purba yang bisa dia kumpulkan. Dengan infus esensi purba, Gu Perampasan yang berada di telapak tangan kanannya juga meningkatkan daya hisapnya. Serigala petir yang berani merasakan sesuatu yang salah, dan mulai melolong, menyerang dengan gila-gilaan.</p>
+<p>	Kedua Master Gu hampir tidak bisa memblokirnya.</p>
+<p>	Tepat ketika Xiong Zhan merasa bahwa penjarahannya akan berhasil, ekspresinya berubah.</p>
+<p>	“Sialan, esensi purba tidak cukup!” Dia tiba-tiba memuntahkan seteguk darah, kondisi kesehatannya paling buruk. Setelah penjarahan gagal, dia akan menghadapi serangan balasan. Ini adalah kelemahan dari Gu Penjarahan.</p>
+<p>	Melolong!</p>
+<p>	Tanpa batasan Gu Penjarahan, serigala petir yang berani membuka mulutnya, dan mulai melolong.</p>
+<p>	Cacing Gu yang hidup di dalamnya menggunakan kemampuannya, dan membuat giginya bersinar dengan kilat.</p>
+<p>	Petir biru yang menakutkan keluar dan akhirnya keluar dari mulutnya.</p>
+<p>	Petir menyambar di tengah kedua Master Gu, membidik Xiong Zhan yang setengah berlutut.</p>
+<p>	Xiong Zhan bahkan tidak punya waktu untuk menangis sebelum dia tersambar petir, berubah menjadi sepotong daging matang hitam hangus, langsung mati.</p>
+<p>	“Lari!” Dua Master Gu yang tersisa tidak lagi memiliki semangat juang saat mereka berlari ke dua arah.</p>
+<p>	Serigala petir yang berani mengejar salah satu dari mereka, menerkamnya dan menggigit tenggorokannya.</p>
+<p>	Klan Bai terakhir Gu Master diblokir oleh serigala petir yang berani, dan hanya bisa mundur menuju tebing.</p>
+<p>	“Ahhhh. Aku akan mati!” Dengan punggung bersandar pada tebing, dia meraung putus asa, melampiaskan ketakutan di dalam hatinya.</p>
+<p>	Tapi tiba-tiba suaranya berhenti — Dia melihat Bai Ning Bing di atas tebing.</p>
+<p>	“Tuan Bai Ning Bing! Tuan Bai Ning Bing, apakah itu benar-benar kamu?” Dia tercengang tetapi kemudian mulai berteriak, sangat gembira.</p>
+<p>	“Ups, kamu menemukanku,” Bai Ning Bing tertawa, dan mengangkat tangan kanannya.</p>
+<p>	Jari telunjuk kanannya menunjuk ke bawah dan es langsung terbentuk, menembak ke bawah.</p>
+<p>	Es itu mengenai Guru Gu yang menangis minta tolong, menembus tengkoraknya, sampai ke dagunya.</p>
+<p>	“Ah!” Wajahnya masih terpaku dengan kegembiraan yang intens setelah menemukan harapan, tetapi kemudian jatuh ke tanah dengan plop.</p>
+<p>	Serigala petir yang berani dikejutkan oleh peristiwa itu.</p>
+<p>	Itu menatap Bai Ning Bing, mulutnya terbuka. Di dalam, petir melingkari giginya.</p>
+<p>	“Binatang bodoh.” Bai Ning Bing menatap lurus, melompat ringan dari tebing setinggi lima meter.</p>
+<p>	Di udara, dia bertepuk tangan, dan kabut es langsung terbentuk.</p>
+<p>	Selanjutnya telapak tangannya terbelah, dan bilah es muncul.</p>
+<p>	Bilah es ini sekitar 1,7m, seperti katana di Bumi, dengan tubuh es yang transparan. Pegangannya dipegang oleh Bai Ning Bing.</p>
+<p>	Serigala petir yang berani menembakkan lampu listrik dari bawah ke atas, dan Bai Ning Bing tertawa sementara dua baris uap air putih keluar dari hidungnya.</p>
+<p>	Uap air berputar-putar, membungkus tubuhnya menjadi lapisan penghalang air.</p>
+<p>	Bola air terus berputar dengan sendirinya, dan petir serigala petir yang berani menghilang saat mengenai penghalang ini.</p>
+<p>	Bola air meledak terbuka, dan pemuda berpakaian putih muncul dari dalam.</p>
+<p>	“Mati.” Iris pemuda itu berubah dari hitam menjadi biru murni, seperti dua keping kristal biru, tanpa perasaan dan emosi.</p>
+<p>	Cahaya pedang bersinar.</p>
+<p>	Bai Ning Bing mendarat dengan ringan, dan dari bilah es putihnya yang setengah transparan, setetes darah jatuh.</p>
+<p>	Sementara itu, serigala petir yang berani tetap diam seperti patung.</p>
+<p>	Napas kemudian, darah segar mengalir dari lehernya saat kepala serigala besar itu jatuh ke tanah, berguling beberapa kali. Adapun tubuh, itu runtuh di tanah.</p>
+<p>	Gu Arus Petir yang berada di tubuhnya melesat seperti kilat ke arah Bai Ning Bing.</p>
+<p>	Bai Ning Bing menjentikkan pergelangan tangannya, dan sebuah cahaya keluar dari pedangnya.</p>
+<p>	Gu Arus Petir, di bawah pedangnya, meledak menjadi bola arus petir biru yang menakutkan dengan ledakan, binasa seketika.</p>
+<p>	Bai Ning Bing perlahan berjalan menuju mayat Xiong Zhan.</p>
+<p>	“Cacing Gu lainnya, mereka semua biasa saja. Tapi Plunder Gu ini sedikit menarik. ” Dari mayat Xiong Zhan, dia mengeluarkan Gu Perampasan dan meletakkannya di dekat dadanya.</p>
+<p>	Meskipun ketiga klan memiliki kesepakatan — setelah seorang Guru Gu meninggal, jika seseorang setelah itu mendapatkan cacing Gu yang telah kehilangan Guru Gu-nya, mereka harus menyerahkannya.</p>
+<p>	Tapi Bai Ning Bing tidak peduli dengan aturan ini.</p>
+<p>	Bahkan jika mereka tahu, lalu bagaimana?</p>
+<p>	Dia adalah simbol kebangkitan klan Bai, dan klan pasti akan melindunginya.</p>
+<p>	Ini, dia sangat yakin.</p>
+<p>	“Hanya … gelombang serigala ini benar-benar membosankan.” Dia menggunakan tangannya untuk membelai bilah esnya, merasakan sensasi beku yang intens.</p>
+<p>	“Kalau dipikir-pikir, lebih menyenangkan bersaing dengan seseorang.” Dia menguap, tiba-tiba tersenyum, “Aku ingin tahu bagaimana keadaan Qing Shu, Xiong Li dan yang lainnya, seberapa banyak mereka tumbuh? Setelah berkultivasi di balik pintu tertutup begitu lama, mungkin mereka bisa memberi saya kejutan, mungkin. ”</p>
+<p>	Beberapa hari kemudian.</p>
+<p>	Di alun-alun tempat dipenuhi orang, Fang Yuan menatap bendera raksasa.</p>
+<p>	Di bendera, kata-kata dibentuk oleh Swimword Gu. Kontennya adalah tentang sumber daya yang dipasok bersama oleh tiga klan.</p>
+<p>	Sumber daya ini dikategorikan sangat luas, dari makanan yang digunakan untuk memberi makan cacing Gu, beras dan bumbu untuk manusia, minyak dan kebutuhan hidup lainnya, hingga cacing Gu itu sendiri dan batu purba.</p>
+<p>	Tetapi di balik sumber daya ini, ada nomor yang melekat padanya, sesuai dengan jumlah poin prestasi yang dibutuhkan untuk ditukar dengan mereka.</p>
+<p>	Mata serigala adalah sepuluh poin jasa, dan lima poin jasa untuk sekantong 500g beras. Menggunakan dua puluh lima poin prestasi bisa membuat Guru Gu menukar satu batu purba.</p>
+<p>	Tidak diragukan lagi, kedatangan gelombang serigala membawa kesempatan yang belum pernah terlihat sebelumnya selama masa damai.</p>
+<p>	Papan prestasi pertempuran dan dewan sumber daya ini mendesak banyak Master Gu, membuat mereka rela mandi dengan darah hangat, berburu serigala petir siang dan malam.</p>
+<p>	Terutama baru-baru ini, ketika gelombang serigala meningkat, ketiga klan mengeluarkan tabungan yang mereka miliki dan memacu semangat pertempuran Master Gu, juga meningkatkan kemampuan bertarung mereka untuk membantu desa bertahan dari cobaan ini.</p>
+<p>	Dengan demikian, dewan sumber daya memiliki banyak hal yang tidak biasa terlihat.</p>
+<p>	Seperti sekarang, perhatian Fang Yuan tertuju pada Gu ini.</p>
+<p>	“Tiga Langkah Gu Rumput Wangi,” gumamnya, menatap deskripsi pada bendera besar.</p>
+<p>	Three Step Fragrant Grass Gu adalah cacing Gu yang dibutuhkan Fang Yuan, karena dapat membantu gerakan, meningkatkan kecepatan lari Fang Yuan.</p>
+<p>	Sejujurnya, akhir-akhir ini, dewan sumber daya memiliki banyak cacing Gu baru. Tapi hanya Gu Rumput Wangi Tiga Langkah yang diinginkan Fang Yuan.</p>
+<p>	Kecuali rumput ini Gu tidak mudah didapat. Itu bukan hanya satu-satunya dari jenisnya di papan sumber daya, tetapi poin prestasi yang diperlukan untuk menukarnya juga sangat tinggi.</p>
+<p>	“Jika saya menggunakan kemampuan saya yang sebenarnya, saya pasti bisa mengumpulkan poin prestasi yang cukup untuk ditukar dengan Gu Rumput Wangi Tiga Langkah ini. Tetapi jika saya melakukan itu, itu akan mengundang kecurigaan klan, dan itu tidak diinginkan. ”</p>
+<p>	Fang Yuan berpikir dalam hati.</p>
+<p>	“Ada cara lain, dan itu adalah menghasilkan daun vitalitas dalam jumlah besar dan menjual Gu Peringkat satu ini ke klan, menukarnya dengan poin prestasi. Tetapi metode ini lambat, pada saat saya mendapatkan poin yang cukup, seseorang mungkin sudah menukarnya. ”</p>
+<p>	Fang Yuan menggelengkan kepalanya secara internal, metode ini memiliki cacat yang akan menyebabkan kegagalan.</p>
+<p>	Lalu apa yang harus dia lakukan?</p>
+<p>	Dia menatap papan sumber daya dan papan prestasi, jatuh ke dalam pemikiran yang mendalam.</p>
+<p>	Menuju poin prestasi, dia memiliki pemahaman yang lebih jelas dan lebih dalam dibandingkan dengan semua orang di sekitarnya.</p>
+<p>	Poin prestasi pada dasarnya adalah semacam mata uang darurat.</p>
+<p>	Selama masa damai, batu purba adalah media pertukaran yang umum. Mereka mata uang keras dan memiliki nilai komersial yang tinggi dalam diri mereka sendiri, sehingga tidak akan pernah mendevaluasi.</p>
+<p>	Tetapi dengan gelombang serigala, kebutuhan akan batu purba melonjak, dan itu tidak bisa lagi digunakan sebagai mata uang. Dengan demikian, mata uang darurat diperlukan untuk mengambil alih.</p>
+<p>	Dengan demikian, poin prestasi lahir.</p>
+<p>	“Dengan mata uang alternatif seperti merit point, dapat mencegah ekonomi runtuh sementara. Seperti di Bumi, ketika ada perang, pemerintah akan mencetak uang kertas dalam jumlah besar. Tentu saja, hal itu menyebabkan inflasi dan kenaikan tingkat harga. Poin prestasinya sama; semakin ia berlarut-larut, semakin ia mendevaluasi. Tetapi selama situasi hidup dan mati desa, tanpa poin prestasi dan hanya menggunakan batu purba tidak berkelanjutan. Dengan demikian, mereka hanya dapat memilih racun yang lebih rendah. Oleh karena itu setelah gelombang serigala, ekonomi selalu memiliki tanda-tanda depresi.”</p>
+<p>	“Huh, bentuk ekonomi yang kasar ini tidak layak disebut. Jika saya peringkat tiga, saya dapat dengan mudah bermain-main. Tapi sayangnya, saya tidak memiliki kekuatan yang cukup, jadi saya tidak dapat menangani risikonya. Jika saya mendorong, itu setara dengan bermain dengan api. ”</p>
+<p>	Fang Yuan menghela nafas secara internal.</p>
+<p>	Intinya kultivasinya tidak tinggi, dan kekuatannya tidak cukup.</p>
+<p>	Tanpa kekuatan, hanya memiliki kebijaksanaan, tidak ada gunanya.</p>
+<p>	Jadi, dalam cerita Ren Zu, Ren Zu memilih untuk berurusan dengan Gu Kekuatan, memperoleh kekuatan dan menyerah pada kebijaksanaan.</p>
+<p>	Itu karena, kekuatan adalah fondasinya.</p>
+<p>	Fang Yuan masih berpikir dalam-dalam ketika dia mendengar diskusi orang-orang di sekitarnya.</p>
+<p>	“Apakah kalian tahu? Bai Ning Bing menyerang lagi!”</p>
+<p>	“Apa, apa, Tuan Gu yang sial kali ini?”</p>
+<p>	“Ini Xiong Li dari klan Xiong, yang tampak sedih itu.”</p>
+<p>	“Huh, apa yang dilakukan Bai Ning Bing ini? Terakhir kali, melukai Chi Shan, dan sekarang menyerang Xiong Li. Dengan gelombang serigala datang, dia masih bermain-main! ”</p>
+<p>	“Dia selalu melakukan apa yang dia inginkan, dia sudah menjadi Master Gu peringkat tiga dan masih menemukan masalah dengan Master Gu peringkat dua. Demi keadilan, dia bahkan menggunakan cacing Gu untuk menekan kultivasinya sendiri ke peringkat dua, dia benar-benar bosan dan sulit dimengerti! ”</p>
+<p>	“Bai Ning Bing ya… hmph, seseorang yang setengah jalan ke peti mati. Tapi itu mengingatkanku pada sesuatu.” Fang Yuan setelah mendengar ini merasakan sesuatu di hatinya bergerak.</p>
+<p>	Dia tahu cara mendapatkan sejumlah besar poin prestasi dengan cepat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

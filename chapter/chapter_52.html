@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 52 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 52";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_51.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 52">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_53.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 52</h1>
+        <div class="text-left">
+<p>	Bab 52</p>
+<p>	Bab 52: Anda tidak punya pilihan selain menerima penjelasan saya</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di dalam akademi, perhatian semua orang tertuju pada Fang Yuan.</p>
+<p>	Ekspresi mereka menunjukkan keterkejutan, ketakutan, ejekan dan sikap tidak berperasaan.</p>
+<p>	Fang Yuan tidak memperhatikan orang-orang ini. Dia menatap sesepuh akademi dengan ekspresi tegas, dengan jarinya menunjuk ke arah penjaga yang pingsan.</p>
+<p>	“Melaporkan kepada yang lebih tua, kedua penjaga ini memiliki motif yang tidak murni, niat yang licik! Mereka mendobrak masuk ke kamar saya ketika saya berada pada momen penting untuk menerobos ke panggung tengah. Seperti yang diketahui semua orang, kultivasi Master Gu tidak dapat diganggu. Terutama ketika seseorang mencoba menerobos ke alam yang lebih tinggi. Sesaat gangguan tidak hanya akan menyebabkan terobosan gagal, tetapi aperture mereka juga akan rusak. Syukurlah keberuntungan saya bagus, karena pada saat mereka menerobos masuk, saya sudah melangkah ke panggung tengah. ”</p>
+<p>	“Namun!” Sebelum massa bereaksi, Fang Yuan melanjutkan, “Keduanya tidak mengakui kesalahan mereka sebelumnya. Yang mengejutkan saya, mereka membual tanpa malu-malu tentang ingin bersikap kasar dengan saya, bahkan memarahi leluhur klan kami, berbohong bahwa tindakan mengganggu kultivasi saya adalah keputusan sesepuh yang terhormat. Murid Anda tidak percaya begitu, dan melawan dengan marah. Keduanya memiliki seni bela diri yang kuat, dan saya harus berjuang seumur hidup sebelum akhirnya mengalahkan dua orang ini.”</p>
+<p>	“Tapi mengingat mereka adalah penjaga akademi, muridmu tidak langsung membunuh mereka. Saya hanya memotong salah satu lengannya, dan kaki orang lain. Meskipun ada cukup banyak kehilangan darah, mereka masih hidup. Itu adalah laporan saya untuk masalah ini, tolong tegakkan keadilan untuk saya, tetua yang terhormat! ” Karena itu, dia menangkupkan tinjunya ke arah sesepuh akademi.</p>
+<p>	Nada suaranya mendesak, mengatakan banyak informasi, dan tidak meninggalkan ruang bagi orang lain untuk menyela.</p>
+<p>	Setelah dia selesai, orang-orang di sekitarnya perlahan mulai bereaksi.</p>
+<p>	“Apa yang dikatakan Fang Yuan sebelumnya, aku tidak menangkapnya.”</p>
+<p>	“Saya pikir dia bilang dia maju ke panggung tengah!”</p>
+<p>	“Bagaimana mungkin, dia hanya sampah kelas C, untuk berpikir bahwa dia benar-benar maju ke tahap tengah terlebih dahulu.”</p>
+<p>	“Dia pasti berbohong, dia takut akan hukuman akademi, jadi dia berbohong!”</p>
+<p>	Para siswa berdiskusi dengan keras.</p>
+<p>	Jika dibandingkan dengan kemajuan Fang Yuan ke tahap tengah, nyawa kedua penjaga itu tidak lagi penting.</p>
+<p>	Mereka bukan anggota klan Gu Yue, siapa yang peduli jika mereka hidup atau mati?</p>
+<p>	“Kamu bilang kamu maju ke peringkat satu tahap tengah?” Suara sesepuh akademi sedingin es, ekspresinya tak kenal ampun. “Fang Yuan, ini bukan bahan tertawaan. Jika Anda mengakui kesalahan Anda sekarang, saya masih dapat memperhitungkan bahwa ini adalah kesalahan pertama Anda dan menangani Anda dengan lunak. Jika Anda ingin terus berbohong dan berusaha menutupi kesalahan Anda, maka saya dapat memberitahu Anda sekarang, kebohongan mudah terlihat.”</p>
+<p>	Fang Yuan tidak menjelaskan dirinya lebih jauh, dia tertawa ringan dan berkata kepada sesepuh akademi, “Silakan periksa, tetua.”</p>
+<p>	Bahkan tanpa kata-katanya, sesepuh akademi sudah bergerak maju.</p>
+<p>	Dia meletakkan tangannya di perut Fang Yuan, menempatkan jejak semangatnya ke dalamnya. Segera dia melihat bagian dalam lubang Fang Yuan.</p>
+<p>	Di dalam aperture, tidak ada Gu.</p>
+<p>	Jangkrik Musim Semi Musim Gugur telah menyembunyikan dirinya. Gu peringkat enam jauh lebih unggul daripada sesepuh akademi peringkat tiga, jadi jika ingin bersembunyi, itu tidak akan ditemukan dengan mudah.</p>
+<p>	Adapun cacing Liquor, Fang Yuan telah menempatkannya ke dalam cadangan anggur asrama, dan tidak membawanya.</p>
+<p>	Tetua akademi dengan mata tertutup, bisa melihat laut purba tembaga hijau, tenang seperti air yang tenang.</p>
+<p>	Tetesan esensi purba di dalamnya semuanya berwarna hijau zamrud dari esensi purba tahap menengah.</p>
+<p>	Melihat dinding aperture, dinding aperture berwarna putih bersinar dengan cahaya yang dipantulkan seolah-olah semuanya terbuat dari air. Semburan aliran air dengan cepat bergerak di sepanjang dinding.</p>
+<p>	Dinding air!</p>
+<p>	“Dia benar-benar maju ke tahap tengah, bagaimana ini mungkin ?!” Tetua akademi berteriak dalam hatinya, tanda keterkejutan di bawah ekspresi tenangnya. Tapi dia berusaha menyembunyikannya semampunya, wajahnya masih tanpa ekspresi.</p>
+<p>	Sesaat kemudian, setelah dia mencerna fakta ini, dia menarik kembali tangannya, berbicara dengan suara serius, “Ini memang tahap tengah.”</p>
+<p>	Para siswa telah menahan napas, menunggu hasilnya.</p>
+<p>	Putusan sesepuh akademi menyebabkan keributan besar di akademi.</p>
+<p>	Para siswa penuh dengan kebingungan dan keterkejutan, masing-masing wajah mereka menunjukkan ketidakpercayaan yang luar biasa.</p>
+<p>	Fang Yuan hanya kelas C, tetapi dia adalah yang pertama menerobos ke tahap tengah, ini bertentangan dengan akal sehat!</p>
+<p>	Untuk kultivasi Master Gu dan menerobos alam, aspek yang paling penting adalah bakat. Bagaimana ini mungkin, kelas C adalah yang pertama maju? Bagaimana perasaan nilai A, nilai B itu!</p>
+<p>	“Ini!” Wajah Gu Yue Fang Zheng pucat. Dia masih percaya diri tadi malam, tetapi sekarang kenyataan ada di depannya, dia tidak dapat menerima fakta seperti itu dan jatuh ke tanah.</p>
+<p>	Gu Yue Mo Bei mengepalkan tinjunya, dan Gu Yue Chi Chen menggertakkan giginya dengan penuh kebencian.</p>
+<p>	Penatua akademi tidak dapat dengan mudah dibodohi, jadi bagaimana Fang Yuan berhasil melakukannya?</p>
+<p>	Seketika, semua anak muda menatap Fang Yuan, memiliki satu pertanyaan di hati mereka —— dengan bakat kelas C itu, bagaimana dia maju?</p>
+<p>	Hati sesepuh akademi juga penuh dengan keraguan.</p>
+<p>	Di bawah penggelapan yang begitu besar, dia mengabaikan gagasan untuk menekan Fang Yuan dan bertanya langsung, “Fang Yuan, saya harap Anda bisa menjelaskan ini, bagaimana Anda bisa maju ke tahap tengah.”</p>
+<p>	Fang Yuan tertawa diam-diam, “Surga memberi penghargaan kepada pekerja keras, dan sebagai hasil dari pelatihan gigih siswa, saya berhasil maju dengan lancar.”</p>
+<p>	“Berbohong!”</p>
+<p>	“Tsk, jika surga menghargai pekerja keras, aku akan menjadi yang pertama sejak lama!”</p>
+<p>	“Tetap belajar dan berlatih? Beberapa waktu lalu, aku masih melihatnya berjalan-jalan di sekitar distrik toko.”</p>
+<p>	Para siswa jelas tidak puas dengan jawaban seperti itu.</p>
+<p>	“Apakah begitu?” Penatua akademi menjawab dengan netral, tatapannya menatap Fang Yuan, memancarkan tekanan.</p>
+<p>	Ekspresi Fang Yuan jujur, melakukan kontak mata dengan yang lebih tua tanpa rasa takut.</p>
+<p>	Tubuhnya bermandikan darah, kemeja linennya berantakan, seolah-olah dia telah melalui pertempuran yang sengit.</p>
+<p>	Sepasang mata hitam seperti jurang, menunjukkan semacam kedamaian, ketidakpedulian, dan bahkan menyembunyikan sedikit geli.</p>
+<p>	Melihat tatapan seperti itu, hati sesepuh akademi itu goyah.</p>
+<p>	“Fang Yuan ini, dia tidak takut, tidak takut, tidak terancam, dan tidak kaget, bagaimana dia bisa diinterogasi olehku di sini? Dengan bakat kelas C-nya, menjadi yang pertama maju ke tahap tengah, pasti ada rahasianya. Tapi karena dia tidak mau mengatakannya, sebagai sesepuh akademi, aku tidak bisa menginterogasinya dengan paksa. Sepertinya saya hanya bisa menyelidiki ini secara pribadi. ”</p>
+<p>	Memikirkan hal ini, tetua akademi menarik kembali pandangannya dan ekspresi dinginnya menjadi lebih lembut.</p>
+<p>	Namun Fang Yuan tidak membiarkan masalah itu berlalu, “Siswa Anda ketakutan, tetua yang terhormat. Bagaimana Anda akan berurusan dengan dua penjaga ini? Mereka kehilangan banyak darah, jika tidak segera ditangani, mereka bisa mati.”</p>
+<p>	“Takut? Anda?” Tetua akademi membalas dalam benaknya. Alisnya mengernyit dalam-dalam.</p>
+<p>	Pada titik ini, sebagai penanggung jawab akademi, dia harus melangkah maju dan menyelesaikan ini.</p>
+<p>	“Tapi bagaimana saya harus menyelesaikan ini?” Penatua akademi tidak bisa membantu tetapi merasa bermasalah.</p>
+<p>	Dia diam-diam mulai berpikir.</p>
+<p>	Fang Yuan mempertimbangkan semua perubahan ekspresi sesepuh akademi. Dia tertawa dalam hati; tetua akademi pasti sangat bermasalah sekarang.</p>
+<p>	Kedua penjaga ini, mereka hanyalah orang luar, hidup mereka semurah rumput. Dalam keadaan normal, tidak ada yang peduli jika mereka mati.</p>
+<p>	Tapi sekarang situasinya berbeda, mereka dikirim oleh sesepuh akademi. Jika mereka benar-benar mati, tetua akademi akan kehilangan reputasinya!</p>
+<p>	Dengan demikian, para penjaga tidak bisa mati, sesepuh akademi akan menyelamatkan mereka.</p>
+<p>	Bagian yang benar-benar mengganggu sesepuh akademi adalah keputusan Fang Yuan.</p>
+<p>	Dalam rencana awalnya, Fang Yuan pertama kali membolos, dan kemudian membunuh para penjaga. Ini bisa dikatakan menentang gurunya, sombong dan egois. Menurut aturan klan, dia akan dijebloskan ke penjara klan, merenungkan kesalahannya di dalam.</p>
+<p>	Tetapi ketika menambahkan masalah kemajuan Fang Yuan ke tahap menengah, kesalahan ini menjadi sangat berbeda.</p>
+<p>	Fang Yuan membolos dan membunuh para penjaga karena dia sedang berkultivasi. Ini masuk akal.</p>
+<p>	Bagian terpentingnya adalah, dia berhasil maju ke tahap tengah, dan menjadi yang pertama di kelas ini. Ini memungkinkan dia untuk berada di sisi akal.</p>
+<p>	Hanya apa yang Fang Yuan andalkan untuk maju ke tahap tengah, rahasia ini akan dibahas nanti.</p>
+<p>	Pemenang menang semua, pecundang kehilangan segalanya, dunia hanya peduli pada hasil. Tidak ada yang akan menegur junior yang luar biasa seperti itu.</p>
+<p>	Penatua akademi tidak bisa mengeksekusi hukuman apa pun padanya.</p>
+<p>	Untuk apa akademi itu? Ini untuk memelihara Master Gu yang luar biasa, dan menyuntikkan darah segar ke dalam klan.</p>
+<p>	Sekarang kita memiliki seorang pemuda yang bercita-cita tinggi, Anda sebagai sesepuh akademi masih ingin mencari masalah dengannya? Itu akan mengabaikan peran Anda!</p>
+<p>	Layaknya seorang siswa yang mendapatkan hasil yang baik, sebagai seorang guru ia harus mendorong dan memujinya, bukan menghukum dan mengkritik. Seorang guru yang menghukum dan memarahi siswa karena hasil yang baik bukanlah guru yang akan pernah diakui.</p>
+<p>	Mungkin para tetua lainnya diam-diam akan menyebabkan masalah bagi Fang Yuan karena mereka takut akan prospek masa depan Fang Yuan, atau karena dendam dan keluhan masa lalu. Tapi dia sendiri, sesepuh akademi yang terhormat, tidak bisa melakukan hal seperti itu!</p>
+<p>	Karena dia bertanggung jawab atas akademi, dia harus tidak memihak, setidaknya di permukaan.</p>
+<p>	Ini adalah aturannya!</p>
+<p>	“Apakah aku membiarkannya pergi seperti ini? Tidak mudah menemukan kelemahannya.” Penatua akademi marah. Dia tahu di dalam hatinya bahwa semua anak muda di akademi hanyalah penonton dari masalah ini.</p>
+<p>	Mereka hanya dapat melihat masalah ini sebagai hiburan, tetapi tidak dapat melihat poin penting dalam hal ini, mereka tidak dapat mengalami kegembiraan dalam pertempuran ini!</p>
+<p>	Yang benar adalah, ini adalah satu kali di mana dia sebagai tetua akademi, bertarung melawan siswa Fang Yuan.</p>
+<p>	Pertama dia memegang aturan, dan bertekad menghukum Fang Yuan, menghilangkan citra kuatnya di depan siswa lain.</p>
+<p>	Selanjutnya, Fang Yuan membalas! Tindakannya mungkin tampak gegabah, tetapi itu mengenai masalah itu, dan dengan alasan untuk maju ke panggung tengah, dia mendapatkan kembali argumennya.</p>
+<p>	Adapun dua penjaga sial itu, mereka hanyalah pion pengorbanan yang terlibat oleh pertarungan akal.</p>
+<p>	“Fang Yuan ini, dia terlalu licik! Jika dia benar-benar membunuh kedua penjaga itu, aku masih bisa membalasnya dengan alasan ini. Meskipun bakatnya tidak bersemangat, dengan metode yang sangat teliti dan berpengalaman, sulit untuk percaya bahwa dia baru berusia lima belas tahun. Bagian terburuknya adalah, saya tidak bisa membalas. Tidak heran pada masa itu, klan memiliki desas-desus tentang kecerdasannya yang terbangun lebih awal! ” Tetua akademi tiba-tiba menyadari, dia telah kalah.</p>
+<p>	Kehilangannya karena statusnya, dia adalah penatua yang bertanggung jawab atas akademi.</p>
+<p>	Ini adalah kekuatan dan kelemahannya.</p>
+<p>	Kekuatan seseorang juga merupakan kelemahannya.</p>
+<p>	Fang Yuan telah memahami logika ini sejak lama!</p>
+<p>	Penatua akademi tidak berdaya dan frustrasi.</p>
+<p>	Dia telah meminta Fang Yuan untuk menjelaskan, dan pada kenyataannya penjelasan Fang Yuan penuh dengan celah dan mudah terungkap.</p>
+<p>	Penjaga ini dipilih oleh tetua akademi sendiri, mereka tidak akan gegabah dan terbelakang untuk memarahi leluhur Gu Yue.</p>
+<p>	Kata-kata Fang Yuan sengaja, itu adalah tuduhan terang-terangan, membingkai dan memasang jebakan di depan pihak lain!</p>
+<p>	Penatua akademi jelas tentang ini, tetapi dia tahu bahwa dia tidak bisa melanjutkan masalah ini.</p>
+<p>	Ini adalah jebakan.</p>
+<p>	Begitu dia melihat ke dalamnya, kebenaran akan terungkap, dan bagaimana dia menangani masalah ini?</p>
+<p>	Jika dia tidak menghukum Fang Yuan, kedua penjaga itu akan dijebak dengan menyedihkan, dan sebagai penatua akademi, jika dia tidak menangani hal-hal secara tidak memihak, bagaimana orang bisa mempercayainya?</p>
+<p>	Jika dia menghukum Fang Yuan, itu akan menekan dan menunjukkan kecemburuan pada yang berbakat! Untuk menekan junior klan untuk dua pelayan yang bukan bagian dari klan, hal ini akan memicu ketidakbahagiaan klan.</p>
+<p>	Jadi, cara terbaik untuk menyelesaikan ini adalah berpura-pura tidak melihat apa-apa, dan memperlakukan kedua penjaga ini sebagai bagian yang dibuang. Mengakui bahwa mereka telah melakukan kesalahan besar, serta memuji Fang Yuan.</p>
+<p>	Dengan cara ini, anggota klan akan puas, dan penjaga yang tertipu, tanpa informasi tambahan, akan menganggap ini tidak memihak.</p>
+<p>	Jika dia menangani masalah seperti ini, itu akan memberi manfaat terbesar bagi sesepuh akademi.</p>
+<p>	Logika memberi tahu tetua akademi bahwa ini adalah cara untuk menanganinya. Tapi secara emosional, dia tidak bisa membiarkannya berbaring.</p>
+<p>	Fang Yuan ini terlalu licik!</p>
+<p>	Penatua akademi tidak hanya gagal menekan Fang Yuan, tetapi dia sendiri menjadi batu loncatan bagi Fang Yuan, dipermalukan di depan umum!</p>
+<p>	Fang Yuan tidak menunjukkan rasa hormat sedikit pun padanya dan berani menentangnya seperti ini di depan umum, menyebabkan sesepuh akademi yang terhormat ini menderita penghinaan dan frustrasi seperti itu.</p>
+<p>	Intinya adalah, di masa depan jika kedua penjaga ini merasa marah dan ingin mengungkapkan kebenaran, sebagai sesepuh akademi, jika dia ingin mempertahankan citra dan posisinya, dia harus menjadi orang pertama yang melangkah dan menekan mereka.</p>
+<p>	Tapi ini semua disebabkan oleh Fang Yuan!</p>
+<p>	Perasaan macam apa ini?</p>
+<p>	Misalnya, itu akan seperti Fang Yuan buang kotoran di wajah sesepuh akademi, tetapi tetua itu sendiri masih harus memujinya dan pada saat yang sama, membersihkan pantatnya untuknya. Jika ada yang ingin menunjukkan bahwa ada kotoran di wajahnya, dia harus menjadi orang pertama yang membungkam orang itu.</p>
+<p>	Perasaan keluhan ini, hampir tak tertahankan bagi sesepuh akademi.</p>
+<p>	Ada dorongan yang tumbuh di dalam hatinya untuk memberi Fang Yuan beberapa tamparan keras!</p>
+<p>	Tapi akhirnya, sesepuh akademi mengulurkan tangannya dan menepuk bahu Fang Yuan.</p>
+<p>	“Anak baik.” Wajah sesepuh akademi redup seperti air yang tenang, memaksa kata-kata keluar dari mulutnya.</p>
+<p>	“Ini semua berkat pengasuhan akademi,” jawab Fang Yuan dengan jelas.</p>
+<p>	Sudut mata sesepuh akademi berkedut.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

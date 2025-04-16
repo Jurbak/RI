@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 335 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 335";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_334.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 335">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_336.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 335</h1>
+        <div class="text-left">
+<p>	Bab 335</p>
+<p>	Bab 335: Warisan Gu Immortal Bai Hu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Sistem sekte benua tengah berbeda dari sistem klan perbatasan selatan.</p>
+<p>	Dalam klan, ikatan darah menopang hierarki, dan anggota klan adalah target pengasuhan. Tetapi dalam sekte, tuan dan murid menggantikan sistem garis keturunan. Dalam sekte, mereka merekrut murid dan selama seseorang memiliki bakat dan karakter yang baik, mereka akan diterima.</p>
+<p>	Tepatnya, Fang Zheng diserap ke dalam Immortal Crane Sect sebagai salah satu anggotanya.</p>
+<p>	Di Sekte Bangau Abadi, dari rendah ke tinggi, mereka diklasifikasikan sebagai, murid luar, murid dalam, murid elit, murid warisan, tetua sekte, pemimpin sekte, dan tetua tertinggi.</p>
+<p>	Tiga tahun ujian kecil, adalah untuk memilih murid batin. Ujian tengah delapan tahun adalah untuk memilih murid elit. Adapun ujian besar lima belas tahun, itu memungkinkan seseorang untuk naik ke murid warisan.</p>
+<p>	Di atas murid warisan, itu adalah para tetua sekte.</p>
+<p>	Para tetua sekte di Sekte Bangau Abadi memiliki setidaknya kultivasi peringkat empat. Pemimpin sekte akan memiliki kultivasi peringkat lima, dan para tetua tertinggi adalah peringkat enam Dewa Abadi, bahkan ada peringkat tujuh di antara mereka!</p>
+<p>	Benua tengah adalah wilayah terkuat dibandingkan utara, selatan, timur, dan barat. Sekte Bangau Abadi adalah sekte sepuluh besar di benua tengah, bahkan lebih kuat dari klan Shang.</p>
+<p>	Pemilihan murid tidak melibatkan tempat lahir, atau prioritas regional apa pun. Jadi, di Sekte Derek Abadi, tidak ada bakat kelas C.</p>
+<p>	Nilai B adalah yang paling sering terlihat, tetapi ada banyak nilai A juga.</p>
+<p>	Fang Zheng adalah seorang jenius dengan bakat kelas A tidak diragukan lagi. Tetapi di Sekte Bangau Abadi, dalam kekuatan tingkat super seperti itu, ada banyak jenius seperti dia.</p>
+<p>	“Fang Zheng, kamu terlahir pintar dan bersedia melakukan kesulitan, sekarang kamu memiliki kultivasi peringkat empat, kamu sudah memenuhi syarat untuk menjadi sesepuh sekte. Tetapi Anda hanya memasuki sekte untuk waktu yang singkat, Anda perlu menyelesaikan banyak misi sekte untuk membuktikan kesetiaan Anda. Saya harap Anda dapat terus bekerja keras, menjadi pemenang dalam ujian besar, dan menjadi murid warisan. ” Pemimpin Sekte Bangau Abadi duduk di kursi besarnya saat dia menatap Fang Zheng, yang berlutut di bawah tangga.</p>
+<p>	“Ya, saya akan mengingat ajaran pemimpin.” Fang Zheng menjawab.</p>
+<p>	“Sekarang, saya memiliki misi sekte untuk diserahkan kepada Anda dan beberapa murid elit. Kembali dan baca detailnya, pergi. ” Pemimpin sekte berkata ketika kutu buku terbang keluar.</p>
+<p>	Fang Zheng menerimanya dan pergi.</p>
+<p>	Begitu dia kembali, dia berbaring di tempat tidur dan tertidur.</p>
+<p>	Mengontrol cacing Gu membutuhkan banyak konsentrasi, dia menghabiskan banyak energi mentalnya untuk melakukannya, terkadang dia harus melakukan banyak tugas dan melakukan banyak hal sekaligus.</p>
+<p>	Dalam pertempuran dengan Sun Yuan Hua, Fang Zheng menggunakan semua kartu trufnya dan benar-benar mengeluarkan semua kemampuannya.</p>
+<p>	Dia terlalu lelah, dengan paksa bertemu dengan pemimpin sekte untuk menyelesaikan inisiasi untuk maju ke murid elit. Kepalanya masih sakit, seperti dihantam palu, sementara bahunya sangat sakit hingga hampir tidak bisa menopang lehernya. Dia mengantuk dan merasa pusing.</p>
+<p>	Fang Zheng tidur selama dua hari dua malam, sampai serangkaian ketukan membangunkannya.</p>
+<p>	Begitu dia mendorong pintu terbuka, dia melihat sekelompok murid elit.</p>
+<p>	Murid-murid ini terdiri dari pria dan wanita, mereka kebanyakan peringkat tiga tetapi ada beberapa dengan budidaya peringkat empat.</p>
+<p>	Berbeda dari klan, yang tidak memerlukan kesetiaan untuk diuji, sekte perlu melakukannya.</p>
+<p>	Semakin tinggi hierarki, semakin sedikit jumlah murid elit, murid warisan, dan penatua. Banyak yang berkultivasi ke peringkat empat, tetapi tersingkir selama ujian. Dengan demikian mengakibatkan banyak murid dan tetua memiliki kultivasi peringkat empat yang sama.</p>
+<p>	Tetapi terlepas dari kultivasi mereka, para tetua pasti memiliki kekuatan pertempuran yang lebih tinggi daripada para murid. Itu karena mereka dipilih secara ketat melalui ujian, dan paling berbakat di antara ribuan.</p>
+<p>	“Fang Zheng, kami memiliki misi yang sama. Dalam perjalanan ini, saya harap kita bisa saling menjaga.”</p>
+<p>	“Fang Zheng, aku melihat pertarunganmu dengan Sun Yuan Hua, sangat seru!”</p>
+<p>	“Aku harap kita bisa berdebat di sepanjang jalan…”</p>
+<p>	Orang-orang ini sangat ramah. Itu karena mereka tahu Fang Zheng mengendalikan kelompok bangau terbang paruh besi yang jumlahnya sepuluh ribu. Meskipun dia tidak bisa mengendalikan mereka dengan sempurna, kekuatan seperti itu masih terhormat.</p>
+<p>	“Kamu terlalu sopan, saudara-saudara sekteku. Saya malu, beberapa hari ini, saya tidur, saya belum melihat detail misi. ” Fang Zheng menangkupkan tinjunya, mengakui.</p>
+<p>	“Begitu, kalau begitu, aku akan memberitahumu secara langsung, misi kita kali ini sangat penting! Fang Zheng, beberapa bulan yang lalu, peristiwa mengejutkan terjadi di gunung Tian Ti, apakah Anda tahu tentang itu? Seorang murid elit bertanya.</p>
+<p>	“Gunung Tian Ti?” Fang Zheng mengangguk: “Masalah ini sangat besar, saya tahu tentang itu. Di gunung Tian Ti, warisan Peri Bai Hu muncul. Peri Bai Hu adalah orang terkenal di jalan yang benar, peringkat enam Gu Immortal, dan memiliki tanah yang diberkati Hu Immortal. Setelah warisan ini muncul, banyak Dewa Gu keluar. Selama seseorang mewarisi warisan ini, mereka akan mendapatkan tanahnya yang diberkati. Saat ini, gunung Tian Ti dikelilingi oleh banyak Dewa Gu. ”</p>
+<p>	“Fang Zheng, aku akan memberitahumu secara langsung, misi kami kali ini adalah pergi ke gunung Tian Ti dan mencoba untuk mendapatkan warisan ini. Tuan Gu Immortal dari Sekte Bangau Abadi kami telah mencapai kesepakatan dengan para penguasa sekte lain, untuk menjaga perdamaian, mereka tidak akan menyerang, tetapi sebaliknya, pilih beberapa murid elit di sekte mereka untuk bersaing secara adil. .”</p>
+<p>	Fang Zheng mendengar ini, dan matanya melebar, menunjukkan keinginan yang kuat: “Apakah kamu serius?”</p>
+<p>	Ini adalah warisan dari Gu Immortal!</p>
+<p>	“Tentu saja, jika kita benar-benar ditakdirkan dan menjadi pewarisnya, kita pasti akan sukses. Di masa depan, kami memiliki peluang besar untuk menembus ke ranah Abadi Gu. Tapi selain Sekte Bangau Abadi kami, ada juga Sekte Teratai Surgawi, Lembah Kupu-Kupu Roh, Sekte Jiwa Kuno, Sekte Kecemburuan Surga dan sepuluh sekte teratas benua tengah lainnya. Jadi, selama perjalanan ini, kita harus bekerja sama dan tetap bersatu!”</p>
+<p>	“Tentu saja!” Fang Zheng segera menjawab.</p>
+<p>	…</p>
+<p>	Gunung Huo Tan di perbatasan selatan adalah gunung berapi yang tidak aktif.</p>
+<p>	Tingginya sekitar tiga kilometer, dan puncak gunung itu datar dengan lubang yang mengalir dengan magma di dalamnya. Asap tebal naik dari corong sesekali seperti cerobong asap.</p>
+<p>	Sumber daya terbesar di gunung ini adalah batu arang, hampir terlihat di mana-mana.</p>
+<p>	Jenis batu arang ini terbakar untuk waktu yang lama dan memancarkan sedikit panas, dan tidak mengeluarkan asap, itu paling sering digunakan di kota klan Shang, kota terdalam kelima.</p>
+<p>	Sudah beberapa hari sejak Fang Yuan dan Bai Ning Bing melangkah ke gunung Huo Tan.</p>
+<p>	Mereka telah berangkat dari gunung Shang Liang, untuk mencapai gunung San Cha, gunung Huo Tan adalah pemberhentian yang diperlukan.</p>
+<p>	Menginjak batu arang, orang akan merasakan panas dari bawah, karena udaranya kering dan tidak lembab. Melihat jauh, yang bisa dilihat hanyalah batu arang merah tua.</p>
+<p>	Ada juga pohon di gunung ini.</p>
+<p>	Tetapi pohon-pohon ini pendek dan tipis, cabang-cabangnya seperti jarum dan tidak menghalangi sinar matahari.</p>
+<p>	Dengan demikian, di gunung Huo Tan, seseorang dapat memiliki penglihatan yang lebih luas dibandingkan dengan berada di gunung lain.</p>
+<p>	Fang Yuan dan Bai Ning Bing melakukan perjalanan di gunung, jika burung terbang di langit dan melihat ke bawah, mereka akan melihat dua semut kecil merangkak perlahan.</p>
+<p>	Yang benar adalah, mereka sedang diamati.</p>
+<p>	“Hehe, mereka akhirnya di sini.”</p>
+<p>	“Gunung Huo Tan adalah lokasi yang diperlukan di sepanjang jalan, mereka pasti akan lewat di sini jika mereka ingin pergi ke gunung San Cha.</p>
+<p>	Di sudut yang tidak penting, dua Master Gu iblis bersembunyi.</p>
+<p>	Mereka adalah dua pria botak, yang lebih tua bernama Jiao Huang, sedangkan pria paruh baya bernama Meng Tu, mereka adalah duo pembunuh terkenal di antara para Master Gu iblis.</p>
+<p>	“Selama kita membunuh keduanya, klan Shang akan memiliki sepuluh ribu batu purba sebagai hadiah, dan kita juga akan mendapatkan token pasangan kuning. Bagaimana kita bisa melepaskan kesepakatan yang begitu bagus? ” Meng Tu menjilat bibirnya dengan penuh semangat.</p>
+<p>	“Tapi mereka berdua peringkat empat Master Gu, kami hanya peringkat tiga tahap puncak. Ini adalah kesepakatan yang bagus, tetapi risikonya lebih tinggi! Saya tidak yakin apakah itu kesalahan untuk menerima ini … “Jiao Huang lebih tua dan lebih bijaksana, menunjukkan kekhawatiran di wajahnya.</p>
+<p>	“Kakak laki-laki Jiao Tu, jangan takut dengan kultivasi mereka. Jadi bagaimana jika mereka peringkat empat, mereka hanya peringkat empat tahap awal. Sebagian besar cacing Gu di tangan mereka masih peringkat tiga. Lagipula, bukannya kita belum pernah membunuh Master Gu peringkat empat sebelumnya, ingat Xiao Fu Lu yang dibunuh oleh kita?” Meng Tu mendorong.</p>
+<p>	Begitu dia menyebut Xiao Fu Lu, Jiao Huang mengerutkan kening, saat dia berkata dengan gugup: “Bukankah aku sudah menyebutkannya berkali-kali, jangan bicara tentang Xiao Fu Lu. Dia adalah cucu dari tetua tertinggi klan Xiao, kami menyinggung Gu Immortal ketika kami membunuhnya. Simpan masalah ini di perutmu dan jangan pernah menyebutkannya lagi. ”</p>
+<p>	“Hmph, jadi bagaimana jika dia adalah Gu Immortal? Bukankah selama ini kita hidup bebas dan aman?” Meng Tu cemberut dengan acuh tak acuh: “Gu Immortals tidak mahakuasa, belum lagi dua Master Gu peringkat empat yang baru maju ini. Saudaraku, jangan lupa bahwa kita telah menghabiskan beberapa hari mempersiapkan jebakan itu untuk mereka. Hehehe!”</p>
+<p>	Berbicara tentang jebakan itu, ekspresi Jiao Huang santai.</p>
+<p>	Dia bergumam: “Selama mereka jatuh ke dalam perangkap dan terlibat dalam pertempuran sengit, esensi purba mereka akan habis dan kita akan memiliki kesempatan untuk bertindak!”</p>
+<p>	“Tepat.” Meng Tu berkata, saat matanya tiba-tiba bersinar, berkata dengan lembut tapi penuh semangat: “Cepat lihat, mereka jatuh ke perangkap!”</p>
+<p>	Fang Yuan dan Bai Ning Bing berhenti berjalan.</p>
+<p>	Tanah di dekatnya mulai bergetar hebat. Pecahan batu jatuh dari tebing dari kedua sisi.</p>
+<p>	Di tanah, tanah dipindahkan saat buaya lava merangkak keluar dari tanah.</p>
+<p>	“Ini adalah kelompok buaya lava, ada seribu raja binatang!” Bai Ning Bing berkonsentrasi, menatap pemimpin kelompok itu.</p>
+<p>	Raja buaya lava ini sangat besar, seukuran tiga gajah.</p>
+<p>	Tubuhnya ditutupi dengan sisik merah tua, dan empat kaki tebal menopang tubuhnya yang besar. Ekor buaya yang memancarkan cahaya metalik memiliki panjang lebih dari sepuluh meter. Di punggungnya, ada dua gumpalan, seperti dua gunung berapi kecil. Saat bernafas, dua jejak asap hitam naik dari gunung berapi, tebal dan tipis secara berirama.</p>
+<p>	Saat raja buaya lava merangkak keluar dari tanah, ia menatap Fang dan Bai, tetapi sebagian besar perhatiannya tertuju pada Fang Yuan.</p>
+<p>	Fang Yuan dan Bai Ning Bing adalah peringkat empat Master Gu tahap awal, tetapi ia memiliki peringkat empat esensi purba tahap tengah.</p>
+<p>	Raja buaya lava memiliki indra yang tajam, ia segera merasakan bahwa aura Fang Yuan lebih menakutkan.</p>
+<p>	Itu membuka mulutnya, dan lebih dari seribu buaya lava mengepung Fang dan Bai.</p>
+<p>	Menghadapi situasi berbahaya seperti itu, Fang Yuan tertawa: “Ini hanyalah beberapa buaya, Bai Ning Bing, bekerja sama denganku dan bunuh raja buaya lava ini!”</p>
+<p>	“Oke.” Bai Ning Bing menjawab dengan jelas, tetapi niat bertarung muncul di matanya.</p>
+<p>	Saat itu, ketika mereka pertama kali meninggalkan gunung Qing Mao, mereka juga bertemu dengan raja buaya lava, dan menjauh darinya.</p>
+<p>	Tapi sekarang, mereka berbeda, memiliki kultivasi peringkat empat, bahkan jika raja buaya lava ini adalah raja seribu binatang, itu tidak bisa menghentikan jalan mereka!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

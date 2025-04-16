@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 125 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 125";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_124.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 125">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_126.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 125</h1>
+        <div class="text-left">
+<p>	Bab 125</p>
+<p>	Bab 125: Oh, kalau begitu aku mengaku kalah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Tuan tradisional klan Gu Yue, klan Bai yang baru bangkit, dan klan Xiong yang tidak pernah diremehkan …” Tatapan Fang Yuan terbang melintasi orang-orang saat dia berdiri di antara kerumunan, mengamati seluruh situasi.</p>
+<p>	Klan Gu Yue memiliki Qing Shu, Chi Shan, Mo Yan; Klan Xiong dan Bai juga memiliki peringkat dua Master Gu elit yang luar biasa.</p>
+<p>	Bersama dengan kepala klan dan tetua yang berbeda di gedung batu, lereng aliansi dapat dikatakan diisi dengan elit.</p>
+<p>	“Aku ingin tahu yang mana Bai Ning Bing? Pria yang melambangkan kebangkitan klan Bai!”</p>
+<p>	“Bai Ning Bing sudah berada di peringkat tiga, dia jelas bukan di antara Master Gu peringkat dua.”</p>
+<p>	“Sepertinya dia juga tidak ada di gedung batu.”</p>
+<p>	Secara bertahap, diskusi berkumpul di Bai Ning Bing.</p>
+<p>	Meskipun Bai Ning Bing tidak muncul, kecemerlangannya telah menekan semua Master Gu di bawah gedung batu.</p>
+<p>	“Saya ingat bahwa tiga tahun lalu di lereng aliansi, Bai Ning Bing-lah yang pertama keluar dan memulai pertempuran Gu. Hanya dalam tiga tahun, dia menjadi tetua klan peringkat tiga, memikirkannya membuatku bergidik. ”</p>
+<p>	“Dia naik ke surga dalam satu langkah. Ketika dia berada di peringkat dua, dia bisa mengalahkan tetua klan di klan Xiong, orang ini memiliki masa depan yang cerah. ”</p>
+<p>	“Intinya adalah saat ini dia sudah dewasa, dan pada tingkat ini, dia bisa menjadi ahli peringkat empat dan bahkan peringkat lima. Adapun Peringkat enam … ”</p>
+<p>	“Peringkat lima fana, sedangkan Peringkat enam abadi. Peringkat lima sudah luar biasa. Peringkat enam? Hmph, kalian semua melebih-lebihkan dia …. ”</p>
+<p>	“Itu mungkin tidak, siapa yang bisa memprediksi masa depan?”</p>
+<p>	Di bawah diskusi seperti itu, tiga kepala klan di gedung batu berdiri, menatap ribuan Master Gu.</p>
+<p>	Kepala klan Gu Yue berada di tengah, kepala klan Bai dan kepala klan Xiong di kiri dan kanannya masing-masing.</p>
+<p>	Kemiringan aliansi secara bertahap menjadi tenang.</p>
+<p>	Gu Yue Bo memegang pagar, melirik ke arah kerumunan, sebelum berkata, “Aliansi tiga klan akan bersatu di saat-saat sulit. Untuk turnamen pertempuran Gu, dalam semangat kompetisi, pesaing harus berhenti sebelum kematian terjadi. Awal.”</p>
+<p>	Kemiringan aliansi sangat sunyi. Kerumunan saling memandang.</p>
+<p>	Aliansi tiga klan, akan selalu mengadakan turnamen pertempuran Gu. Tidak hanya untuk memamerkan kekuatan individu klan, itu juga untuk mempromosikan percakapan dan untuk sementara meredakan dendam mereka, untuk mencapai tujuan bekerja sama.</p>
+<p>	Tapi siapa yang akan menonjol lebih dulu?</p>
+<p>	Jika Guru Gu pertama yang berdiri gagal di depan umum, itu akan memalukan reputasi mereka sendiri, dan bahkan mempermalukan para tetua klan di gedung batu.</p>
+<p>	Terakhir kali, Bai Ning Bing berdiri. Tapi kali ini……</p>
+<p>	Kerumunan terus ragu-ragu. Tiba-tiba di sisi klan Xiong, sekelompok Master Gu berdiri lebih dulu, itu adalah kelompok Xiong Li.</p>
+<p>	Segera, kelompok lima mengundang perhatian dan tatapan banyak orang.</p>
+<p>	Kelompok Xiong Li berjalan melewati daerah klan Gu Yue, dan di bawah pengawasan semua orang, dia berdiri di wilayah klan Bai.</p>
+<p>	“Ini Xiong Li.”</p>
+<p>	“Pria terkuat di Gunung Qing Mao?”</p>
+<p>	“Betul sekali. Tampaknya belum lama ini, Chi Shan dari klan Gu Yue kalah darinya di depan umum. Gelarnya tidak tergoyahkan, bahkan Bai Ning Bing pun tidak bisa mengambilnya.”</p>
+<p>	“Sialan, klan Gu Yue tidak akan berakhir, apakah mereka mencoba menggertak klan Bai kita?”</p>
+<p>	Di wilayah klan Bai, ada gangguan ringan. Banyak orang tahu kekuatan Xiong Li, dan merasakan tekanan.</p>
+<p>	Tapi Xiong Li melihat sekeliling, dan tidak bergerak dari tempatnya; sebaliknya, Xiong Jiang yang berada di sampingnya menonjol.</p>
+<p>	Xiong Jiang memiliki tubuh yang kurus, dan di daerah klan Xiong dengan banyak pria kekar, dia sangat mencolok.</p>
+<p>	Dia mengambil beberapa langkah ke depan, menghadap Master Gu klan Bai, menangkupkan tinjunya, “klan Xiong Xiong Jiang, menantang saudara Bai Bing Yi.”</p>
+<p>	Begitu dia berbicara, suara-suara heran bisa terdengar di bawah gedung batu.</p>
+<p>	Status Bai Bing Yi hampir sama dengan Chi Shan dan Xiong Li dll. Di antara Master Gu muda klan Bai, dia hanya kalah dengan Bai Ning Bing. Agar Xiong Jiang menantangnya, dia jelas berusaha mengatasi musuh yang lebih kuat.</p>
+<p>	Tapi bisakah dia?</p>
+<p>	Bai Bing Yi berdiri dengan wajah muram. Tubuhnya kecil dan wajahnya pucat; dia seperti pasien yang baru saja sembuh dari penyakit serius, mengeluarkan perasaan lemah dan sakit-sakitan. Tapi tidak ada yang berani meremehkannya.</p>
+<p>	“Kamu, Xiong Jiang berani menantangku, kamu memiliki keberanian. Bagaimana Anda ingin bersaing? Katakan, aku akan menerimanya,” katanya pada Xiong Jiang.</p>
+<p>	Xiong Jiang tertawa terbahak-bahak, “Saya berspesialisasi dalam pertahanan, dan Anda berspesialisasi dalam serangan. Bagaimana dengan ini, saya bertahan dan Anda menyerang. Saya akan memberi Anda tiga peluang menyerang, dan kami akan membandingkan hasilnya.</p>
+<p>	Ini bukan pertandingan hidup dan mati, itu hanya perdebatan.</p>
+<p>	Tapi Xiong Jiang memiliki keyakinan seperti itu, dia jelas siap, dan ini menyebabkan banyak orang bergumam di antara mereka sendiri.</p>
+<p>	Bai Bing Yi mengangkat alisnya, “Xiong Jiang, tidak peduli cacing Gu apa pun, kamu masih Guru Gu peringkat dua, kultivasimu seperti itu. Apakah Anda benar-benar berpikir Anda dapat memblokir Gu Bor Air saya? Jika aku melukaimu, jangan mengeluh.”</p>
+<p>	Xiong Jiang mencibir, “Kita tidak akan tahu kecuali kita mencobanya kan? Datang.”</p>
+<p>	Mengatakan demikian, dia mengaktifkan Gu di tubuhnya dan tubuhnya berubah warna, menjadi kering dan hijau seperti balok kayu mati.</p>
+<p>	Pada saat yang sama giginya menjadi tajam dan panjang, dan empat taring keluar dari bibirnya.</p>
+<p>	Irisnya juga berubah menjadi hijau.</p>
+<p>	Ini adalah Gu peringkat dua, Gu Roaming Zombie.</p>
+<p>	Setelah diaktifkan, itu bisa mengubah seseorang menjadi zombie.</p>
+<p>	Dibandingkan dengan orang hidup, zombie lebih baik dalam menahan pukulan dan tendangan dan memiliki regenerasi yang lebih besar, tetapi takut api, kilat dan cahaya, meskipun memiliki ketahanan yang lebih besar terhadap air, angin dan racun.</p>
+<p>	Pada saat yang sama, zombie saat bertarung di bawah sinar matahari tidak sekuat di malam hari, dan dengan demikian melemah pada siang hari.</p>
+<p>	“Meski begitu, aku tidak takut,” Bai Bing Yi tertawa dingin, mengangkat tangan kanannya.</p>
+<p>	Di bawah tatapan waspada semua orang, dia mengumpulkan lima jarinya pada satu titik dan mengepalkan tinjunya.</p>
+<p>	Pertama, tetesan air terbentuk di kelima jarinya, lalu dalam sekejap mata, tetesan itu meluas, berubah menjadi arus yang mengalir deras, dan dari ujung jarinya, air melingkari telapak tangannya secara spiral.</p>
+<p>	Dalam waktu dua napas, kepalan tangan Bai Bing Yi sudah tertutup oleh bor spiral berwarna biru muda yang berputar tanpa henti.</p>
+<p>	Peringkat dua Bor air Gu!</p>
+<p>	Mampu mengebor batu dan baja dengan kekuatan serangan yang sangat kuat, hampir tidak ada cacing Gu yang bisa bertahan melawannya.</p>
+<p>	“Terima pukulanku,” Bai Bing Yi terbatuk, mengepalkan tinjunya.</p>
+<p>	Xiong Jiang mengangkat kedua tangannya, membentuk perisai lengan.</p>
+<p>	Bor air mengenai lengannya, dan sejumlah besar air memercik. Keduanya menemui jalan buntu untuk beberapa napas ketika tiba-tiba putaran bor air meningkat, dan Xiong Jiang terbang mundur lima hingga enam langkah.</p>
+<p>	Xiong Jiang berbaring di tanah, tetapi dengan cepat membalik perut, berdiri lagi.</p>
+<p>	Orang bisa melihat bahwa otot-otot di kedua lengannya robek oleh bor air, menunjukkan tulang putih pucatnya.</p>
+<p>	Master Gu klan Bai setelah melihat adegan ini bersorak tak terkendali, tetapi sejumlah kecil mengerutkan kening.</p>
+<p>	“Hehehe…” Xiong Jiang tertawa licik, tidak memperdulikan lukanya sebagai zombie; sensor rasa sakitnya telah dikurangi menjadi nol.</p>
+<p>	Bai Bing Yi berdiri di tempat, tapi tiba-tiba wajahnya yang pucat berubah, dan dia memuntahkan seteguk darah.</p>
+<p>	Sorakan klan Bai Gu Master berakhir.</p>
+<p>	“Apa yang terjadi?!” seseorang berseru.</p>
+<p>	“Itu Gu Shadow Bond!” Bai Bing Yi menatap dalam-dalam ke tanah, di mana bayangan Xiong Jiang terdistorsi pada sudut yang menyeramkan, ditempelkan di atas salju. Itu menghubungkan Xiong Jiang dan Bai Bing Yi bersama-sama.</p>
+<p>	“Sepertinya aku menang, saudara Bai. Dengan Shadow Bond Gu ini, tidak peduli berapa banyak cedera yang saya derita, Anda akan mengambil 10% darinya. Saya berspesialisasi dalam pertahanan, tetapi Anda adalah penyerang murni, dan Anda memiliki kesehatan yang buruk, sehingga bahkan 10% dari kerusakan itu mematikan bagi Anda, ”kata Xiong Jiang dengan jelas.</p>
+<p>	Bai Bing Yi menyeka bekas darah dari bibirnya, menatap Xiong Jiang dalam-dalam untuk beberapa saat sebelum berkata, “Bagus. Baik sekali. Anda merencanakan dengan baik dengan taktik yang hebat. Aku tersesat.”</p>
+<p>	Dia mengaku kalah di tempat.</p>
+<p>	“Terlalu tidak bermoral.”</p>
+<p>	“Benar-benar licik dan tak tahu malu!”</p>
+<p>	“Untuk berpikir dia memiliki Shadow Bond Gu, senior Bai Bing Yi benar-benar kalah.”</p>
+<p>	Master Gu klan Bai meledak menjadi serangkaian diskusi.</p>
+<p>	Xiong Jiang menangkupkan tinjunya, “Aku tersanjung. Jika kita benar-benar bertarung, pemenang terakhir adalah saudara Bai. Jangkauan Shadow Bond Gu terbatas, itu hanya bisa menggertak Gu Masters jarak dekat, saya harap saudara Bai dapat merawat saya dengan baik dalam gelombang serigala yang akan datang ini!</p>
+<p>	“Tentu saja.” Ekspresi Bai Bing Yi sedikit melunak, dan mengangguk.</p>
+<p>	Master Gu klan Bai juga mulai tenang.</p>
+<p>	Berdiri di atas gedung batu, tiga petinggi klan yang telah mengamati, mengangguk diam-diam pada adegan ini.</p>
+<p>	Kompetisi pertarungan Gu hanya untuk sparring dan bukan serangan yang kejam. Xiong Jiang mengekspos kartu truf juga meningkatkan kepercayaan dan pengertian satu sama lain.</p>
+<p>	Apakah itu sikap Xiong Jiang atau Bai Bing Yi, mereka baik.</p>
+<p>	Menyelesaikannya seperti ini, Master Gu klan Bai, bahkan jika mereka tidak mengakuinya, merasa kagum terhadap Xiong Jiang.</p>
+<p>	Bagaimanapun, yang kuat dihormati.</p>
+<p>	“Kelompok Xiong Li memiliki awal yang baik,” Gu Yue Bo memuji ringan.</p>
+<p>	“Hehehe.” Kepala klan Xiong di sampingnya tertawa ringan, Xiong Jiang memberinya wajah.</p>
+<p>	Kepala klan Bai di ujung yang lain memiliki ekspresi yang keras.</p>
+<p>	Namun kelompok Xiong Li tidak menyerah saat mereka di depan, kelimanya meninggalkan wilayah klan Bai, dan datang ke klan Gu Yue.</p>
+<p>	“Setelah menantang klan Bai, mereka menantang klan Gu Yue sekarang?”</p>
+<p>	“Oh tidak, Xiong Li sendiri sedang melangkah sekarang!”</p>
+<p>	Klan Gu Yue sedikit gugup, banyak dari tatapan mereka tertuju pada Chi Shan, Mo Yan dan Qing Shu.</p>
+<p>	Tapi siapa yang tahu Xiong Li berteriak keras, “Siapa Fang Yuan, tolong berdiri. Kudengar kau bisa mengusir Kodok Sungai Menelan sendirian, kenapa kita tidak bertanding kekuatan saja!”</p>
+<p>	Seketika, kerumunan meledak.</p>
+<p>	Xiong Li berdiri, namun dia tidak menantang Qing Shu, Chi Shan atau Mo Yan, melainkan menunjuk seorang junior pemula.</p>
+<p>	“Fang Yuan, siapa Fang Yuan?” Beberapa Master Gu desa lain belum pernah mendengar nama ini sebelumnya.</p>
+<p>	“Mengusir Kodok Menelan Sungai sendirian, ya Tuhan, itu Gu Peringkat lima, apakah dia sangat tidak masuk akal?” Beberapa melontarkan pandangan kaget dan penasaran.</p>
+<p>	Master Gu klan Gu Yue mengambil inisiatif dan membuka jalan, dan Fang Yuan yang ada di antara mereka terungkap.</p>
+<p>	Tanpa ada yang menghalangi pandangan mereka, Xiong Li dan Fang Yuan saling menatap.</p>
+<p>	Bibir Xiong Li melengkung ke sudut, berkata dengan keanggunan yang sangat jantan, “Saya harap Fang Yuan akan dengan murah hati mengajari saya.”</p>
+<p>	“Fang Yuan ini, siapa dia sebenarnya, dia tidak memiliki tiga kepala atau enam anggota badan.”</p>
+<p>	“Mengusir River Swallowing Toad juga secara kebetulan dan keberuntungan, tidak ada yang sulit. Heh, menjadi sasaran pria berotot Xiong Li ini, dia dalam masalah besar sekarang.”</p>
+<p>	“Fang Yuan, kamu tidak bisa menghindarinya lagi. Sigh, dalam hal ini, hanya berharap yang terbaik dan terus maju dan bertempur!” Chi Shan menghela nafas dalam hatinya.</p>
+<p>	“Oh, begitu …” Fang Yuan mengangkat bahu dengan ekspresi polos, “Kalau begitu aku mengaku kalah.”</p>
+<p>	Saat dia berkata begitu, semua orang menjadi tercengang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 213 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 213";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_212.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 213">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_214.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 213</h1>
+        <div class="text-left">
+<p>	Bab 213</p>
+<p>	Bab 213: Jebakan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di dunia ini, bukan hanya manusia yang tahu cara menyeduh anggur.</p>
+<p>	Catatan anggur paling awal berasal dari legenda Ren Zu.</p>
+<p>	Kedua mata Ren Zu berubah menjadi putra sulungnya Verdant Great Sun dan putrinya Desolate Ancient Moon.</p>
+<p>	Matahari Agung yang Hijau selalu bersama Bulan Kuno yang Sunyi, dan hubungan yang erat ini menciptakan perasaan terhadap saudara perempuannya sendiri. Namun, Desolate Ancient Moon menolak rayuannya.</p>
+<p>	Verdant Great Sun kesal karena ini, dan tahu dia membutuhkan bantuan, jadi dia bertanya pada Gu Kebijaksanaan.</p>
+<p>	Pada awalnya, Gu Kebijaksanaan mengabaikannya dan menghindarinya sebisa mungkin. Tapi Matahari Agung yang Agung terus bertahan, dan Gu Kebijaksanaan tidak dapat menahan gangguan ini lagi, jadi itu memberitahunya cara – “Di timur berdiam sekelompok monyet persik madu. Minumlah anggur yang diseduh oleh mereka dan temui aku.”</p>
+<p>	Jadi, Matahari Agung yang Agung pergi ke timur dan minum anggur.</p>
+<p>	Anggur yang diseduh oleh monyet persik madu adalah anggur buah. Dan sejak Verdant Great Sun meminum anggur dan kembali, wajahnya memerah. Dia memukul bibirnya saat mengingat rasanya: “Jadi, anggur itu manis.”</p>
+<p>	Gu Kebijaksanaan tersenyum dan berkata: “Di barat terletak sekelompok monyet psikis. Pergi mencicipi anggur yang diseduh oleh mereka. ”</p>
+<p>	Anggur yang diseduh oleh monyet psikis adalah anggur pahit. Matahari Besar yang Hijau pergi ke barat dan minum anggur; sejak itu, lidahnya memiliki rona coklat kekuningan. Dia mengingat rasanya dengan ekspresi pahit: “Jadi, anggur juga bisa pahit.”</p>
+<p>	Gu Kebijaksanaan berkata kepadanya lagi: “Anggur itu pahit dan manis, cinta itu sama dan kehidupan manusia lebih dari itu. Di utara berdiam sekelompok monyet vajra. Mereka juga menyeduh anggur, mencicipinya.”</p>
+<p>	Monyet vajra menyeduh anggur yang kuat.</p>
+<p>	Verdant Great Sun sangat menikmati anggur ini, dan minum sampai dia mabuk berat.</p>
+<p>	Dia merasa anggur ini benar-benar sesuai dengan seleranya, dan ingin minum lebih banyak lagi setelah mabuk. Dia minum dari mangkuk pada awalnya sebelum mencoba meminumnya langsung dari toples anggur.</p>
+<p>	Akhirnya, dia mulai muntah. Anggur mulai menunjukkan efeknya, membuatnya merasakan sakit yang tak tertahankan.</p>
+<p>	Dia merasa bagian dalam tubuhnya terbakar, seolah-olah lava mengalir melalui mereka.</p>
+<p>	“Ini terlalu panas!” Dia berteriak. Semua api mengalir terbalik ke arah kepalanya dan rambutnya mulai terbakar. Sejak saat itu, rambutnya terbakar tanpa henti seperti api.</p>
+<p>	Ketika Verdant Great Sun bangun, dia melihat Gu Kebijaksanaan menatapnya.</p>
+<p>	“Apa pendapatmu tentang anggur yang kuat?” Gu Kebijaksanaan bertanya.</p>
+<p>	Verdant Great Sun menghela nafas: “Saya mengerti sekarang, tidak peduli seberapa baik anggurnya, Anda akan memuntahkannya jika Anda minum terlalu banyak; semuanya harus diambil dengan moderasi. ”</p>
+<p>	Gu Kebijaksanaan tertawa terbahak-bahak: “Di utara tinggal sekelompok monyet Skywater. Anggur mereka juga cukup enak, coba cicipi.”</p>
+<p>	Anggur monyet Skywater adalah anggur bening dan benar-benar kebalikan dari anggur kental.</p>
+<p>	Verdant Great Sun dengan ringan mencicipi anggur, dan saat dia melakukannya, dia benar-benar melupakan semua kekhawatirannya dan merasa seperti melayang di udara, dengan tatapan kabur dan mabuk di matanya.</p>
+<p>	Gu Kebijaksanaan kembali bertanya tentang pengalamannya. Dia dengan ringan melambaikan tangannya: “Setelah mengetahui kegembiraan anggur, saya tidak akan membagikannya kepada mereka yang sadar.”</p>
+<p>	Gu Kebijaksanaan terkekeh dan pergi dengan tenang….</p>
+<p>	Jadi, manusia bukanlah spesies pertama yang menyeduh anggur, melainkan monyet yang mendahului manusia.</p>
+<p>	Kelompok monyet biasa semua tahu cara menyeduh anggur.</p>
+<p>	Anggur berbeda dari satu kelompok monyet ke kelompok lain, dengan segala macam rasa. Namun, manusia secara kolektif menyebut anggur yang diseduh oleh monyet sebagai anggur monyet.</p>
+<p>	Fang Yuan telah memilih gua ini untuk beristirahat karena dia merasakan tanda terobosan dalam kultivasinya dan berhenti di gua ini untuk berkonsentrasi menembus kemacetan. Alasan lain adalah untuk anggur monyet.</p>
+<p>	Semakin tinggi peringkat cacing Gu, semakin banyak makanan yang mereka konsumsi dan pada saat yang sama, periode makan mereka meningkat.</p>
+<p>	Fang Yuan telah membuat persiapan yang cukup, tetapi ada batasan kapasitas penyimpanan bunga tusita; setelah konsumsi di seluruh perjalanan ini, ada beberapa ruang yang dibersihkan yang akan lebih dari cukup untuk menyimpan beberapa anggur monyet.</p>
+<p>	Anggur juga memiliki kegunaan lain – mendisinfeksi luka dan menghangatkan tubuh. Penyempurnaan terbalik dari empat rasa cacing minuman keras juga membutuhkan anggur sebagai bahan tambahan. Bahkan jika kondisi untuk pemurnian terbalik tidak terpenuhi, memiliki anggur sebagai makanan cadangan untuk cacing minuman empat rasa sudah cukup baik.</p>
+<p>	Namun, mendapatkan anggur monyet itu tidak mudah.</p>
+<p>	Kelompok monyet rok rumput ini adalah kelompok seratus binatang tetapi skala mereka mendekati kelompok seribu binatang, dan memiliki 3 ratus raja monyet binatang.</p>
+<p>	Monyet adalah sekelompok bersatu dan menghadapi musuh mereka dalam kelompok. Bai Ning Bing mungkin peringkat tiga puncak master Gu, tapi dia sendirian dan mencoba dengan kasar untuk menerobos, hanya akan menyebabkan bencana.</p>
+<p>	Dan meskipun Fang Yuan telah naik ke peringkat satu tahap tengah, jumlah bantuan yang bisa diberikan oleh kemajuannya tidak ada apa-apanya dalam situasi ini.</p>
+<p>	Namun, Fang Yuan bertekad untuk mendapatkan anggur monyet dan Bai Ning Bing khawatir tentang ini.</p>
+<p>	“Jadi, kita perlu menggunakan otak kita, ikuti aku.” Fang Yuan berdiri dan menepuk bahu Bai Ning Bing. Dia dengan hati-hati menginjak tanah, menghindari Kentang Guntur Hangus yang terkubur, dan berjalan keluar dari gua.</p>
+<p>	Di luar gua ada pepohonan yang rimbun, sinar matahari yang cerah, dengan nyanyian burung dan aroma bunga di udara.</p>
+<p>	Dalam beberapa saat, keduanya mendekati wilayah kelompok monyet.</p>
+<p>	Fang Yuan dengan cermat mengamati dan akhirnya memilih area yang miring.</p>
+<p>	Dia mengamati area itu dari tempat yang lebih tinggi sebelum menganggukkan kepalanya dengan puas. Dia melangkah di tanah dan berkata: “Ayo gali di sini.”</p>
+<p>	Setelah cukup waktu berlalu untuk membakar dupa, area miring yang menghadap matahari ini digali oleh keduanya, dengan kedalaman tiga puluh kaki dan diameter lima puluh kaki.</p>
+<p>	Gu Ibu Kentang Guntur Hangus.</p>
+<p>	Fang Yuan berjongkok di dasar lubang ini, dan memanggil gu dengan pikiran.</p>
+<p>	Gu ini menyerupai kentang, dengan permukaan yang tidak rata dan lubang-lubang kecil di atasnya. Terlepas dari penampilannya, itu adalah gu peringkat tiga asli.</p>
+<p>	“Esensi purba saya tidak akan cukup, saya akan meminjamkannya kepada Anda.” Fang Yuan menyerahkan Gu Ibu Kentang Guntur Hangus kepada Bai Ning Bing.</p>
+<p>	Bai Ning Bing memegang gu dan menuangkan esensi purba ke dalamnya; segera, kecambah hijau tumbuh dari lubang-lubang kecil di permukaan kentang ibu gu.</p>
+<p>	Tunas itu tumbuh dengan cepat, berbunga dan berbuah.</p>
+<p>	Setelah beberapa saat, buah hijau tua yang tebal di jari itu sepenuhnya matang. Tunas itu layu dan jatuh dengan buah di tangan Bai Ning Bing.</p>
+<p>	Fang Yuan mengambil buah-buahan hijau tua ini dan dengan hati-hati menyaringnya; menghilangkan cangkang yang buruk, mati atau kosong. Setelah pemilihan, ada kurang dari sepertiga buah yang tersisa.</p>
+<p>	Buah-buahan ini adalah Gu Kentang Guntur Hangus, gu peringkat dua. Begitu mereka terkubur di tanah, mereka tumbuh dengan bantuan kesuburan tanah, dan selama ada makhluk hidup yang melangkah di dekatnya, getarannya akan menyebabkan Gu Kentang Guntur yang Dibakar meledak sendiri.</p>
+<p>	Fang Yuan memegang salah satu buah dan langsung memurnikannya. Saat dia menjepitnya di antara jari-jarinya, dia menuangkan esensi purba tembaga hijau ke arahnya; Gu Kentang Guntur yang Terbakar mulai mengeluarkan lampu hijau redup dan perlahan melayang ke atas.</p>
+<p>	Dengan perubahan pikirannya, Gu Kentang Guntur yang Terbakar dengan cepat mengebor ke tanah.</p>
+<p>	Fang Yuan sengaja menguburnya jauh di dalam tanah, berhenti hanya ketika gu kentang itu terkubur sejauh satu lengan ke tanah.</p>
+<p>	Laut purba di celahnya menurun dengan cepat saat kesuburan tanah di sekitarnya berkumpul menuju Gu Kentang Guntur yang Terbakar. Dalam persepsi Fang Yuan, gu rumput kecil ini langsung tumbuh menjadi kentang seukuran kepalan tangan.</p>
+<p>	Ini adalah Gu Kentang Guntur Hangus yang matang yang bisa meledak bahkan dengan sedikit getaran.</p>
+<p>	Bai Ning Bing kagum dengan pemandangan ini: “Sepertinya jalan setan itu, master wanita Gu mengubur Gu Kentang Guntur Hangus di dekat permukaan bumi, membuatnya mudah meledak sendiri. Caramu menguburnya, seharusnya tidak meledak bahkan jika aku melangkah di atasnya, kan?”</p>
+<p>	“Tentu saja.” Fang Yuan menjawab dan melanjutkan pekerjaannya.</p>
+<p>	Mulut Bai Ning Bing berkedut, Fang Yuan tidak menjawab dengan benar, dan dengan sikap bangganya, dia tidak bertanya lagi, melainkan memusatkan pandangannya dan mulai merenungkannya sendiri.</p>
+<p>	Setelah bersama Fang Yuan untuk waktu yang lama, dia tahu Fang Yuan tidak pernah membuat gerakan yang tidak berguna.</p>
+<p>	Fang Yuan berdiri hanya setelah mengubur lapisan lubang ini; dia menyeka keringat di dahinya sebelum memanggil Bai Ning Bing untuk mengubur lubang itu bersama-sama.</p>
+<p>	Tetapi setelah hanya menutupi lubang sebentar, ketika bagian bawah lubang dinaikkan lima belas kaki, Fang Yuan memerintahkan untuk berhenti, lalu dia melanjutkan mengubur Gu Kentang Guntur Gosong lainnya.</p>
+<p>	Bai Ning Bing segera menyadari rencana Fang Yuan setelah melihat ini.</p>
+<p>	“Jadi seperti itu. Charred Thunder Potato Gu hanya peringkat dua gu dan self-detonation hanya satu memiliki kekuatan terbatas. Dengan mengubur mereka seperti ini, begitu mereka meledak, bahkan ribuan raja binatang buas mungkin tidak akan lolos dengan mudah. Tetapi bagaimana Anda akan memikat ketiga raja monyet itu ke sini? ”</p>
+<p>	Charred Thunder Potato Gu adalah gu ofensif, tetapi tidak bisa dipindahkan, yang sangat menurunkan nilai praktisnya.</p>
+<p>	“Seberapa sulit itu bisa? Pada saat yang tepat, kami hanya akan menangkap dua hingga tiga monyet rok rumput muda dan mencicipi otak mereka di sini. Pada saat itu, pekikan mereka yang menyedihkan pasti akan menarik kelompok monyet yang marah. Ini hanya akan menjadi kelompok monyet biasa pada awalnya yang dapat Anda blokir dan menangkis. Maka seharusnya ketiga raja monyet itu. ” Fang Yuan menjawab sambil mengubur rumput Gu.</p>
+<p>	Bai Ning Bing mau tidak mau mengangguk.</p>
+<p>	Binatang buas adalah binatang buas, yang memiliki kecerdasan terbatas. Rencana Fang Yuan mungkin sangat kasar, tetapi itu benar-benar praktis.</p>
+<p>	“Selama kita membunuh tiga raja monyet, mendapatkan anggur monyet akan semudah kue. Tentu saja, akan lebih baik jika kita bisa mengambil cacing Gu pada raja-raja monyet itu. ” Bai Ning Bing merenungkannya.</p>
+<p>	Setelah ini, mereka menghabiskan sepanjang sore di lubang ini.</p>
+<p>	Bai Ning Bing menghasilkan Gu Kentang Guntur Hangus terus menerus, setelah itu Fang Yuan secara pribadi akan menguburnya ke dalam tanah, dan kemudian keduanya akan mengubur lapisan tanah itu. Setelah satu lapisan tanah adalah lapisan tanah yang lain, sampai lubang itu terisi ke permukaan.</p>
+<p>	Keduanya basah kuyup oleh keringat. Untungnya, Fang Yuan memiliki kekuatan dua babi hutan dan Bai Ning Bing juga sepenuhnya mengembangkan kekuatan satu buaya.</p>
+<p>	Namun, keesokan harinya, Fang Yuan tidak menunjukkan tanda-tanda berhenti dan terus menggali lubang lain.</p>
+<p>	Bai Ning Bing bingung karenanya.</p>
+<p>	Fang Yuan menjawab: “Hanya satu lubang tidak cukup menjamin, harus selalu ada rencana cadangan. Menjadi sedikit lebih siap selalu merupakan hal yang baik.”</p>
+<p>	Seperti ini, dalam tiga hari berikutnya, Bai Ning Bing akhirnya menyadari ‘kehati-hatian’ yang sesat dari Fang Yuan.</p>
+<p>	Mereka telah menggali tidak kurang dari lima lubang dan mengubur banyak sekali Gu Kentang Guntur yang Dibakar. Secara alami, skala lubang pertama adalah yang terbesar.</p>
+<p>	Karena semua persiapan ini, rencana monyet rok rumput berjalan dengan sangat lancar.</p>
+<p>	Semua kelompok monyet dikalahkan hanya dengan dua jebakan.</p>
+<p>	Dari tiga raja kera, dua meninggal dan satu terluka; raja monyet yang terluka melarikan diri dengan kelompok monyet yang tersisa. Raja monyet yang mati hancur berkeping-keping, cacing Gu pada mereka tidak bertahan hidup.</p>
+<p>	Fang Yuan menyimpan anggur monyet dalam jumlah besar sampai bunga tusita tidak bisa disimpan lagi.</p>
+<p>	Jumlah anggur sudah cukup untuk memurnikan cacing minuman keras empat rasa. Tidak akan ada masalah dalam memberi makan cacing minuman keras setidaknya selama dua tahun. Dan jika mereka menemukan karavan, anggur monyet ini juga bisa dijual dengan harga bagus.</p>
+<p>	“Sebelum kita melanjutkan, kita perlu membersihkan medan perang dan mengisi dua lubang yang meledak.”</p>
+<p>	“Apakah ada kebutuhan untuk kehati-hatian seperti itu?” Bai Ning Bing merasa sakit setiap kali dia memikirkan jebakan, sekarang.</p>
+<p>	Fang Yuan meliriknya sebelum mengucapkan satu kalimat yang membuat Bai Ning Bing patuh bekerja-</p>
+<p>	“Apakah kamu lupa bagaimana kami mengejar jalan iblis itu, master wanita Gu?”</p>
+<p>	Itu dengan mengandalkan jejak yang ditinggalkan oleh jalur iblis master wanita Gu dalam perjalanannya.</p>
+<p>	Jebakan yang Anda gali, tidak berakhir dengan mengubur diri Anda dengannya!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

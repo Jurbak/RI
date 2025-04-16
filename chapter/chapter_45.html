@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 45 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 45";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_44.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 45">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_46.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 45</h1>
+        <div class="text-left">
+<p>	Bab 45</p>
+<p>	Bab 45: Bersihkan dari skema, tanpa sadar terperangkap di dalam guci</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Halo, Tuan Muda Gu, ada masalah apa di sini?” Jia Fu berjalan ke tengah kerumunan dan bertanya dengan ramah.</p>
+<p>	Tuan Gu muda tersanjung dan dia menangkupkan tinjunya lagi. Melihat klan di sekitarnya, dia mengumpulkan keberaniannya dan menjelaskan seluruh situasi.</p>
+<p>	“Jadi itulah yang terjadi!” Jia Fu mengangguk sambil mendengarkan. Selanjutnya, dia bertanya pada Jia Jin Sheng, “Adik laki-laki, apakah ini benar?”</p>
+<p>	Jia Jin Sheng memalingkan kepalanya dan mendengus dingin, tidak menatap saudaranya.</p>
+<p>	Jia Fu merenung dengan sungguh-sungguh.</p>
+<p>	Orang-orang di sekitarnya diam, tidak berani mengganggu pikirannya. Semua menunggu untuk mengantisipasi putusannya.</p>
+<p>	Hal ini sebenarnya, karena penipuan Jia Jin Sheng, tetapi Tuan Muda Gu juga bersalah karena serakah dan tidak waspada, jika tidak dia tidak akan tertipu.</p>
+<p>	Jika Jia Fu ingin membela saudaranya, dengan kultivasi Peringkat empatnya, bahkan pemimpin klan Gu Yue tidak bisa berbuat apa-apa.</p>
+<p>	Jia Fu berpikir sejenak sebelum akhirnya berbicara. “Aku sudah mengerti situasinya, kakakku bersalah dalam masalah ini, menyebabkan pemuda ini menderita kerugian dan membeli produk palsu, aku benar-benar minta maaf!” Mengatakan demikian, dia menangkupkan tinjunya ke arah Tuan Gu muda.</p>
+<p>	“Tuan Jia Fu!” Tuan Gu muda itu sebagian besar terkejut, dan dengan cepat berkata dengan rendah hati, “Kamu adalah Tuan Gu Peringkat empat, aku hanyalah peringkat dua, ini terlalu banyak untukku, terlalu banyak!”</p>
+<p>	Jia Fu melambaikan tangannya: “Hehe, ini tidak ada hubungannya dengan tingkat kultivasi, saya bertindak tidak memihak terlepas dari kemampuan. Salah adalah salah, saya minta maaf kepada Anda atas nama karavan pedagang. Adapun kompensasi, bagaimana dengan ini, Anda kehilangan dua ratus lima puluh batu purba, jadi saya akan mengkompensasi dua kali lipat jumlah itu kepada Anda atas nama keluarga Jia.</p>
+<p>	Dia segera menepati janjinya, ketika seorang pengikut mengeluarkan lima kantong uang dan menyerahkannya kepada Tuan Gu muda di depan umum.</p>
+<p>	Setiap kantong uang diisi sampai penuh, masing-masing berisi seratus batu purba.</p>
+<p>	Tuan Gu muda mengambil alih kantong uang itu, begitu kewalahan sehingga dia tidak bisa mengatakan apa-apa.</p>
+<p>	“Namun, aku punya nasihat untukmu.” Jia Fu melanjutkan dan mengingatkan, “Gu Black Boar sangat langka, karena mampu meningkatkan kekuatan Gu Master secara permanen. Meski hanya Peringkat satu, sangat sulit ditemukan di pasaran. Setiap kali muncul di pasar, itu akan segera dibeli. Harganya sekitar enam ratus batu purba. Mencoba mendapatkan satu dengan dua ratus lima puluh batu purba tidak praktis. ”</p>
+<p>	“Junior telah mempelajari pelajarannya!” Tuan Gu muda membungkuk dalam-dalam pada Jia Fu sebagai rasa terima kasih.</p>
+<p>	Sorak-sorai meletus dari kerumunan.</p>
+<p>	“Tuan Jia Fu brilian!”</p>
+<p>	“Luar biasa, seperti yang diharapkan dari Tuan Jia Fu!”</p>
+<p>	“Sebagai Guru Gu Peringkat empat, dia tidak menggunakan statusnya untuk menggertak pihak yang lebih lemah, Tuan Jia Fu benar-benar panutan dari jalan yang benar.”</p>
+<p>	“Tidak tidak.” Jia Fu tersenyum, menangkupkan tinjunya ke arah kerumunan, dengan rendah hati berkata, “Bisnis keluarga Jia kami mendasarkan prinsip kami pada kepercayaan dan kejujuran. Semuanya, saudaraku masih muda dan bodoh, suka mengerjai orang lain. Dia sebenarnya sangat baik, saya harap semua orang bisa lebih mendukungnya, jangan terlalu dipikirin.”</p>
+<p>	Sorak-sorai orang banyak menjadi lebih keras.</p>
+<p>	“Hmph!” Ekspresi Jia Jin Sheng jelek saat dia menginjak tanah dan berjalan ke tenda. Selanjutnya dia berjalan keluar dari belakang tenda.</p>
+<p>	Fang Yuan melihat ini diam-diam, berpikir dalam hatinya, “Sepertinya dinding gambar di tempat Biksu Anggur Bunga bisa dijual.”</p>
+<p>	Biksu Anggur Bunga telah menggunakan Gu Foto-audio untuk merekam tindakan buruk pemimpin klan Gu Yue generasi ke-4. Sebelum dia meninggal, dengan kemarahan di hatinya, menggunakan Gu Foto-audio dan menamparnya di dinding, menciptakan dinding gambar. Gambar dinding gambar terus berputar, menunjukkan kebenaran kepada orang-orang.</p>
+<p>	Dengan niat memaksimalkan keuntungannya, Fang Yuan sudah lama ingin menjual dinding gambar ini. Dia percaya bahwa dua keluarga klan lainnya di Gunung Qing Mao, keluarga Bai dan keluarga Xiong akan sangat tertarik dengan dinding gambar ini.</p>
+<p>	Tetapi untuk menjual ini secara pribadi akan sangat tidak pantas. Kultivasinya terlalu lemah dan jika dia membawa tembok gambar ini ke desa lain, dia bisa dengan mudah dibungkam.</p>
+<p>	Bahkan jika transaksi itu berhasil dan dia berhasil kembali dengan selamat, tidak ada rahasia yang akan tetap menjadi rahasia selamanya, dan begitu hal itu diungkapkan kepada atasan Gu Yue, dia akan dikeluarkan dari keluarga klan.</p>
+<p>	Sesuai dengan rencana Fang Yuan, dia masih perlu memanfaatkan klan Gu Yue. Jadi, cara paling aman adalah menjualnya ke pedagang tertentu di karavan. Mereka semua adalah orang luar, dan tidak terlibat dalam perselisihan antar desa, jadi itu adalah pilihan terbaik baginya.</p>
+<p>	Hanya dalam satu hari, karavan ini akan meninggalkan desa pegunungan Gu Yue dan menuju keluarga Xiong atau keluarga Bai.</p>
+<p>	Fang Yuan dapat mengurangi risikonya seminimal mungkin dengan menjual kepada mereka; itu adalah metode yang paling aman.</p>
+<p>	……</p>
+<p>	“Satu cangkir lagi!”</p>
+<p>	“Anggur, mana anggurnya?”</p>
+<p>	“Cepat ambilkan aku anggur, apakah kamu takut aku tidak bisa membayar?”</p>
+<p>	Jia Jin Sheng membanting meja jamur saat dia melolong.</p>
+<p>	“Tuan muda Jia, ini anggurmu!” Petugas dengan cepat membawakannya anggur.</p>
+<p>	Jia Jin Sheng meraih cangkir bambu dan memiringkan kepalanya dan meneguk minuman keras.</p>
+<p>	“Anggur yang enak!” Dia tertawa keras, terdengar kasar dan suram.</p>
+<p>	Dengan keras, dia meletakkan cangkir di atas meja dan melolong lagi. “Ambilkan saya segelas lagi, saya ingin sebanyak yang Anda bisa berikan!”</p>
+<p>	Panitera tidak berani menyinggung perasaannya dan hanya bisa melakukan apa yang dia katakan.</p>
+<p>	Untungnya, rumah anggur ini sudah penuh dengan orang. Tidak hanya meja jamur yang dipenuhi orang, bahkan jalan-jalan di sekitarnya juga dipenuhi orang. Temperamen pemabuk Jia Jin Sheng tidak terlalu aneh di jalan yang ramai ini.</p>
+<p>	Jia Jin Sheng minum cangkir demi cangkir, ingin menenggelamkan kesedihannya. Dengan punggung menghadap kerumunan, tidak ada yang memperhatikan bahwa saat dia minum, dua garis air mata mengalir di pipinya.</p>
+<p>	Siapa yang tahu tentang rasa sakitnya, kesedihannya?</p>
+<p>	Sebaliknya, orang yang penuh kebencian harus memiliki sisi menyedihkannya. Semua orang punya cerita mereka sendiri.</p>
+<p>	Di antara saudara-saudaranya, dia adalah yang termuda, yang paling tampan dan paling mirip dengan ayahnya, sehingga menjadi yang paling disayang oleh ayahnya. Tapi surga mengolok-oloknya dengan memberinya hanya bakat kelas D.</p>
+<p>	Saat ia tumbuh dewasa, ia hidup di bawah tekanan saudara-saudaranya. Dia marah dan ingin melawan, tetapi dengan bakat itu, tidak ada yang bisa dia lakukan.</p>
+<p>	Ayahnya merasa ajal semakin dekat dan ingin membagi hartanya. Dua orang harus memimpin karavan pedagang. Mereka berjanji akan memecah harta keluarga sesuai dengan hasil.</p>
+<p>	Jia Jin Sheng ingin mengandalkan metodenya sendiri untuk memperoleh aset keluarga dan pengakuan klannya. Tetapi untuk berpikir bahwa dia menjadi batu loncatan saudaranya sekali lagi.</p>
+<p>	Ketika Jia Fu muncul, dia tahu dia jatuh ke dalam perangkap. Ini adalah skema sejak awal. Tapi apa yang bisa dia lakukan? Begitu dia memasuki karavan ini, dia ditakdirkan untuk menjadi makanan Jia Fu. Peringkat empat dan peringkat satu adalah celah yang sangat besar sehingga dia tidak berdaya untuk bertarung lagi.</p>
+<p>	“Jia Fu!” Dia memaksa nama ini keluar dari mulutnya, matanya menyala dengan api kebencian, dia tidak bisa mengambilnya dengan berbaring!</p>
+<p>	“Apakah kamu ingin berurusan dengan saudaramu? Saya bisa bantu anda.” Pada saat ini, dia mendengar suara.</p>
+<p>	Jia Jin Sheng tercengang tetapi ketika dia berbalik, dia melihat bahwa untuk beberapa saat, ada seseorang yang duduk di sampingnya.</p>
+<p>	Dia menggelengkan kepalanya dan berkedip beberapa kali, akhirnya melihat siapa itu.</p>
+<p>	Siapa lagi jika bukan karena Fang Yuan?</p>
+<p>	“Itu kamu!” Dia menatap Fang Yuan, sedikit marah, “Aku ingat kamu! Anak yang beruntung, mendapatkan Kodok Kulit Lumpur dari sarang judi saya! Anda di sini untuk mengejek saya? ”</p>
+<p>	Fang Yuan memandang Jia Jin Sheng, matanya sedingin air. “Saya memiliki bisnis besar, jadi jika Anda ingin memperoleh hasil yang lebih baik dan mendapatkan lebih banyak aset, mengapa tidak mendengarkan saya?”</p>
+<p>	Jia Jin Sheng curiga. Punggungnya tegak dan dia duduk, “Bagaimana Anda tahu tentang masalah aset?”</p>
+<p>	Rahasia ini tidak mudah diketahui orang luar, tetapi Fang Yuan dengan mudah bisa menebaknya.</p>
+<p>	“Bisnis keluarga Jia bukan rahasia, bagaimana bisa menghindari orang yang ingin tahu?” Fang Yuan tertawa dingin dan memikirkan kenangan dari kehidupan sebelumnya.</p>
+<p>	Kepala keluarga Jia adalah sosok legendaris yang memulai dari nol. Dia membuat kekayaannya melalui karavan pedagang dan menghidupkan kembali desa keluarga Jia. Dia berangsur-angsur menjadi tua, dan ketika dia bisa merasakan bahwa waktunya sudah habis, dia menyuruh anak-anaknya membentuk karavan menjadi dua dan menurut hasil mereka, membagi aset. Semakin baik mereka melakukannya, semakin banyak aset keluarga yang mereka dapatkan.</p>
+<p>	Tapi putra sulungnya Jia Fu dan putra keduanya Jia Gui sangat berbakat. Setelah bersaing selama enam hingga tujuh tahun, mereka masih belum dapat menyimpulkan, dan bahkan setelah kepala keluarga meninggal, tidak ada pemenang yang jelas.</p>
+<p>	Setelah kepala keluarga Jia meninggal, ada sejumlah besar aset. Saat bersaing memperebutkan aset, konflik dua bersaudara itu meningkat dan keduanya meminta bantuan eksternal, menyebabkan persaingan Gu skala besar. Akhirnya, keduanya meninggal. Keluarga Jia yang makmur dengan cepat juga gagal dengan cepat, menyebabkan orang-orang membicarakannya dengan takjub.</p>
+<p>	Jia Jin Sheng menyipitkan matanya, karena penjelasan Fang Yuan tak terbantahkan. Dia pikir, sejak ayahnya mengumumkan pembagian aset, sudah dua tahun. Tidak ada tembok yang tidak bisa ditembus di dunia ini, jadi bahkan jika seseorang mengetahuinya, itu bukanlah hal yang aneh.</p>
+<p>	Kekhawatirannya yang sebenarnya adalah apakah ini jebakan lain oleh Jia Fu. Tapi tidak peduli apa, tidak ada salahnya mendengarkan.</p>
+<p>	Fang Yuan tidak segera berbicara. Dia mengamati sekeliling. Ini adalah gudang anggur yang sama yang dia datangi pada sore hari. Penjaga toko beroperasi secara mandiri, dan pada malam hari, toko itu ramai dengan bisnis.</p>
+<p>	Berdiskusi di sini adalah tempat yang jauh lebih aman daripada lingkungan yang tenang, karena dapat menghindari penyadapan cacing Gu tertentu.</p>
+<p>	Dia mengaitkan jarinya ke Jia Jin Sheng. “Pinjamkan aku telingamu.”</p>
+<p>	Jia Jin Sheng dengan sedih mendengus, tapi masih memiringkan kepalanya ke depan.</p>
+<p>	Setelah mendengar deskripsi Fang Yuan, dia mengerutkan kening dan menatap Fang Yuan dengan dingin. “Bisnis ini melibatkan tiga keluarga di Gunung Qing Mao, dan kami para pedagang tidak suka terlibat dalam perselisihan orang lain. Hmph, kamu dikirim ke sini oleh Jia Fu untuk menyakitiku kan? ”</p>
+<p>	Fang Yuan sudah lama berharap dia curiga. Dia tidak repot-repot menjelaskan, tetapi bangkit dan pergi. “Hehe, kalau begitu, aku akan berbicara dengan saudaramu.”</p>
+<p>	Jia Jin Sheng menyipitkan matanya, menatap Fang Yuan. Hanya sampai Fang Yuan meninggalkan toko anggur, dia kehilangan kesabaran. Dia mengejar keluar tenda dan mengejar Fang Yuan, “Jangan pergi, kita bisa bicara.”</p>
+<p>	Fang Yuan meletakkan kedua tangannya di belakang punggungnya, menatapnya dari samping, dengan dingin berkata, “Aku tahu kamu curiga padaku, tetapi sekarang saudaramu telah menangkapmu dengan kuat, kamu hampir hampir selesai. Jika Anda memilih untuk percaya pada saya, masih ada harapan, jika tidak Anda akan hancur. Apakah Anda cukup berani untuk mengambil taruhan ini? ”</p>
+<p>	Ekspresi Jia Jin Sheng berubah saat dia mengoreksi dan berkata, “Jia Fu hanya sedikit lebih tua, saya tidak pernah mengakui dia sebagai saudara saya! Tapi kau benar, aku mengambil taruhan ini.”</p>
+<p>	Fang Yuan berkata dengan sungguh-sungguh, “Dua ribu batu purba, tidak ada tawar-menawar.”</p>
+<p>	Jia Jin Sheng tertawa pahit, “Terlalu mahal, perdagangan ini melibatkan risiko tinggi.”</p>
+<p>	“Semakin besar risikonya, semakin besar imbalannya.” Fang Yuan menggelengkan kepalanya, sikapnya tegas, “Jika kamu menjualnya kepada kedua keluarga itu, kamu hanya akan mendapatkan lebih banyak.”</p>
+<p>	Jia Jin Sheng mengangguk, menunjukkan sedikit keseriusan, “Ini saya percaya, selama bertahun-tahun keluarga Bai telah berkembang pesat, dan bakat kelas A bernama Bai Ning Bing telah muncul baru-baru ini, dia memiliki masa depan yang cerah. Situasi Gunung Qing Mao secara bertahap berubah. Dominasi keluarga Gu Yue Anda goyah, dan jika saya menjual ini kepada keluarga Bai, saya setidaknya bisa mendapatkan dua kali lebih banyak!</p>
+<p>	Mendengar pemahaman Jia Jin Sheng tentang situasi Gunung Qing Mao, Fang Yuan tidak bisa tidak mengevaluasinya lagi, berpikir: ‘Jia Jin Sheng ini, bagaimanapun juga, dia masih anggota keluarga pedagang, bukan generasi kedua yang tidak berguna itu.</p>
+<p>	Jia Jin Sheng menghela nafas, “Terlepas dari apakah ini jebakan, aku akan melompat masuk. Aku berjanji, dua ribu batu purba itu! Namun, saya ingin melihat barang dagangannya terlebih dahulu. ”</p>
+<p>	“Tentu saja, ikut aku.” Fang Yuan tertawa saat dia memimpin. Jia Jin Sheng sudah terperangkap di dalam guci, dan situasinya sepenuhnya dalam genggaman Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

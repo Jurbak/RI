@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 118 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 118";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_117.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 118">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_119.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 118</h1>
+        <div class="text-left">
+<p>	Bab 118</p>
+<p>	Babak 118: Legenda Sungai Menelan Kodok</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Dikatakan bahwa setiap perut River Swallowing Toad membawa sungai.</p>
+<p>	Fang Yuan tidak menggunakan River Swallowing Toad di kehidupan sebelumnya, tetapi dia memiliki kesan yang kuat tentang Gu ini, karena satu orang.</p>
+<p>	Orang biasa, pelayan keluarga.</p>
+<p>	Sekitar dua ratus tahun kemudian di kehidupan sebelumnya, seorang Guru Gu yang sangat istimewa akan muncul— Jiang Fan.</p>
+<p>	Keberadaannya mengejutkan banyak Master Gu, dan ceritanya akan disebarkan oleh manusia.</p>
+<p>	Begitu dia muncul, dia menjadi legenda.</p>
+<p>	Seluruh kesuksesannya dikaitkan dengan River Swallowing Toad.</p>
+<p>	Jiang Fan hanyalah seorang pelayan keluarga, seorang diri mengurus perikanan untuk tuannya. Suatu hari, Kodok Menelan Sungai tiba di pantai dengan perut menghadap ke atas, berbaring di air, tertidur sepanjang waktu.</p>
+<p>	Jiang Fan awalnya takut dan kaget, tetapi perlahan, dia merasa bahwa katak ini sudah mati, mengapa tidak bergerak sama sekali?</p>
+<p>	“Mayat katak” menghalangi aliran air sungai, dan ini menyebabkan banyak masalah bagi Jiang Fan yang mengurus perikanan.</p>
+<p>	Jiang Fan mencoba berbagai metode dan cara untuk memindahkan “mayat katak” ini. Tapi dia hanya manusia biasa, bagaimana dia bisa memindahkan sesuatu yang berat seperti Kodok Menelan Sungai?</p>
+<p>	Tuannya pelit dan kejam, dan jika dia tidak bisa memenuhi kuota bulanan, kepalanya akan dipenggal. Jiang Fan tidak berani melaporkannya, karena seseorang belum lama ini tidak memenuhi kuotanya dan melaporkannya dengan alasan yang tepat, tetapi akhirnya terbunuh di tempat.</p>
+<p>	Melihat tanggal jatuh tempo yang semakin dekat, dan mayat yang masih ada menghalangi air, itu sangat mempengaruhi pendapatannya. Secara bertahap, Jiang Fan menjadi lebih ketakutan, dan emosinya menjadi lebih kasar dan frustrasi.</p>
+<p>	Meskipun dia tahu bahwa dia tidak bisa memindahkan mayat ini, dia masih akan melakukannya setiap hari, untuk meninju dan menendang “mayat katak”, menangis dan membuat keributan. Melepaskan semua ketakutan dan kemarahan yang dia miliki dalam menghadapi kematian.</p>
+<p>	Tetapi suatu hari, Kodok Menelan Sungai terbangun, dan dengan mata setengah terbuka, menatap Jiang Fan.</p>
+<p>	Kaki Jiang Fan menjadi lunak karena shock.</p>
+<p>	The River Swallowing Toad setengah tertidur dan setengah terjaga, tetapi masih tergeletak di sana seperti “mayat”. Setelah beberapa waktu, Jiang Fan mendapatkan kembali ketenangannya.</p>
+<p>	Dia tidak takut, dia akan mati, apa yang harus ditakuti?</p>
+<p>	Dia naik ke puncak perut River Swallowing Toad, dan berbaring telungkup. Menatap ke langit, “Katak, oh katak. Anda sama dengan saya, dengan hanya satu nafas terakhir yang tersisa di dalam diri Anda, Anda akan mati juga ya? ”</p>
+<p>	Dia tidak tahu tentang karakteristik Kodok Sungai Menelan. Melihat keadaannya yang setengah mati, dia berpikir bahwa itu akan mati. Setelah mengatakan itu, wajah Jiang Fan dibanjiri air mata.</p>
+<p>	The River Swallowing Toad menyipitkan matanya, mendengarkan kata-kata Jiang Fan sambil menatap ke langit.</p>
+<p>	Selama beberapa hari berikutnya, dia terus berbaring di perut putih dan lembut Kodok Sungai Menelan, menangis sambil berbicara, mengeluh tentang rasa sakit dan perasaan tertekan manusia.</p>
+<p>	Akhirnya, tenggat waktu telah tiba. Penanggung jawab turun dari desa ke perikanan untuk mengumpulkan ikan.</p>
+<p>	Di mana Jiang Fan dapat menemukan ikan untuk memenuhi kuota? Tidak punya pilihan, dia hanya bisa memberikan alasan bahwa dia perlu berkemas, dan berlari ke Sungai Menelan Kodok untuk mengucapkan selamat tinggal.</p>
+<p>	Dia menepuk perut River Swallowing Toad, “Kodok tua, untuk berpikir bahwa aku akan mati dulu. Pasti afinitas yang membuatku mengenalmu. Saya berharap bahwa di hari-hari Anda yang tersisa, Anda akan memiliki kehidupan yang lebih baik. ”</p>
+<p>	Pada saat ini, River Swallowing Toad mulai bergerak.</p>
+<p>	Jiang Fan terkejut. Melihat bahwa tindakan River Swallowing Toad menjadi lebih besar, dia dengan cepat melompat.</p>
+<p>	Celepuk!</p>
+<p>	The River Swallowing Toad berbalik, dengan perut menghadap ke bawah dan punggung menghadap ke atas. Itu telah sepenuhnya bangun.</p>
+<p>	Tubuh Jiang Fan basah kuyup, dan setelah melihat pemandangan ini dia menjadi marah dan menghentakkan kakinya, “Katak tua, oh katak tua, jadi kamu masih bisa bergerak? Ahhhh, kamu telah menyebabkan kematianku, jika kamu pindah beberapa hari yang lalu, aku tidak akan mati!”</p>
+<p>	The River Swallowing Toad mengabaikan kata-katanya, ia baru saja bangun dan merasa lapar.</p>
+<p>	Separuh tubuhnya terendam air saat membuka mulutnya, mulai menyedot air sungai untuk memuaskan rasa laparnya.</p>
+<p>	Melihat ini, Jiang Fan tercengang. Dia terkejut melihat bahwa permukaan air surut, turun dengan kecepatan yang dapat diamati, jatuh dengan cepat.</p>
+<p>	Sejumlah besar air sungai tertelan ke dalam perut kodok, tetapi perutnya tidak membesar sedikit pun, hampir seperti lubang tanpa dasar.</p>
+<p>	Sesaat kemudian, River Swallowing Toad berhenti makan. Air sungai sudah turun ke tingkat yang ekstrim, dan batuan dasar terbuka. Jika seseorang berdiri di sungai, air hanya akan mencapai lutut.</p>
+<p>	Jiang Fan berdiri di pantai, kehilangan kata-kata.</p>
+<p>	The River Swallowing Toad meliriknya dan tiba-tiba bersendawa. Perutnya mengembang dan mengerut, mulutnya terbuka lebar dan memuntahkan sejumlah besar makanan laut.</p>
+<p>	Ikan, udang, kura-kura, kepiting, siput, belut, semuanya!</p>
+<p>	The River Swallowing Toad hanya makan air sebagai makanannya, tetapi tidak mengkonsumsi makanan laut ini, sehingga memuntahkan semuanya.</p>
+<p>	Pada titik ini, sepertinya sedang hujan makanan laut.</p>
+<p>	Dalam sekejap mata, makanan laut berkumpul di gunung, dan Jiang Fan saat melihat ini, sangat gembira. Dia berteriak keras, “Saya selamat, saya selamat! Makanan laut ini cukup untuk saya serahkan selama tiga bulan. Kodok tua, oh kodok tua, ini semua berkatmu!”</p>
+<p>	Dia mengemas makanan laut itu, dan dengan cepat menyerahkannya kepada orang yang bertanggung jawab.</p>
+<p>	Penanggung jawab terkejut dan curiga, bagaimana mungkin ada begitu banyak? Dia dengan cepat melaporkannya, dan Master Gu di desa juga menemukan bahwa ketinggian air telah berubah secara drastis.</p>
+<p>	Setelah diselidiki, mereka mengetahui keberadaan Kodok Sungai Menelan.</p>
+<p>	Itu adalah Gu peringkat lima!</p>
+<p>	Desa menjadi panik dan mereka membentuk kelompok besar, mencoba mengusir Kodok Menelan Sungai.</p>
+<p>	Jiang Fan tidak ingin Kodok Menelan Sungai dilukai; hari-hari ini dia memperlakukan Kodok Menelan Sungai sebagai satu-satunya temannya.</p>
+<p>	Dia berlutut di depan Gu Masters dan memohon dengan histeris. Tapi mengapa Master Gu peduli dengan manusia biasa? Mereka menendangnya ke samping dan akan membunuhnya.</p>
+<p>	Tetapi pada saat ini, River Swallowing Toad tiba.</p>
+<p>	Tidak ada yang tahu apakah ia telah memperlakukan Jiang Fan sebagai temannya, atau merasa bahwa bersama Jiang Fan itu menarik dan dapat menyembuhkan kebosanan.</p>
+<p>	Intinya, itu menyerang.</p>
+<p>	Itu membawa Jiang Fan dan memuntahkan aliran air sungai yang menelan seluruh desa dan menenggelamkan setengah bukit.</p>
+<p>	Pertempuran ini mengejutkan seluruh benua selatan!</p>
+<p>	Setelah itu, nama Jiang Fan menyebar ke seluruh seratus ribu gunung. Dengan River Swallowing Toad tinggal di sisinya, itu berarti dia memiliki cacing Gu peringkat lima!</p>
+<p>	Bagaimanapun, bahkan Master Gu peringkat lima, mungkin tidak memiliki cacing Gu peringkat lima.</p>
+<p>	Peringkat lima Master Gu jarang, bahkan dalam sejarah klan Gu Yue, hanya ada dua orang — pemimpin klan generasi pertama dan pemimpin klan generasi keempat.</p>
+<p>	Tapi dia Jiang Fan tidak memiliki aperture yang terbangun, namun sebagai manusia biasa dia memiliki River Swallowing Toad.</p>
+<p>	Keberadaannya mengejutkan seluruh dunia Guru Gu.</p>
+<p>	Setelah itu, Jiang Fan membangun dusun di lokasi desa. Dia disayangi orang dan bersimpati dengan manusia, bercita-cita untuk mencapai kesetaraan di antara semua orang. Itu adalah desa tanpa penindasan.</p>
+<p>	Dia menjadi bendera, dan manusia di desa-desa sekitarnya datang kepadanya dan ingin bergantung padanya.</p>
+<p>	Tapi akhirnya, dia masih dibunuh.</p>
+<p>	Hanya dengan Kodok Menelan Sungai, itu tidak bisa membuatnya benar-benar kuat. Dia bukan Master Gu, dan setelah kematiannya, River Swallowing Toad pergi.</p>
+<p>	Gu Masters meratakan dusunnya dengan tanah, dan membantai manusia yang berani menentang mereka.</p>
+<p>	Dengan dirinya yang fana, Jiang Fan menantang seluruh sistem masyarakat, dan itu menimbulkan kemarahan para Master Gu.</p>
+<p>	“Aku ingin tahu apakah Jiang Fan masih akan muncul kali ini setelah pengaruhku.” Setelah ingatannya, Fang Yuan tertawa.</p>
+<p>	Tapi Chi Shan tidak bisa tertawa.</p>
+<p>	Wajahnya muram saat dia kembali.</p>
+<p>	Penduduk desa di kaki gunung sedang menunggu Master Gu untuk menangani masalah ini.</p>
+<p>	Tapi Gu Yue Chi Shan yang hebat tiba dan masih tidak bisa menyelesaikan masalah. Hal ini menyebabkan penduduk desa panik, dan kepanikan menyebar dan mencapai titik tinggi.</p>
+<p>	Mereka menyeret keluarga mereka, membawa tas besar dan kecil, dan bergegas ke desa. Mereka secara alami tidak berani melangkah ke dalam, sehingga semakin banyak penduduk desa berlutut di luar pintu desa, memohon para Master Gu untuk berbelas kasih dan membiarkan mereka masuk.</p>
+<p>	Di Aula.</p>
+<p>	“Apa? Rakyat jelata rendahan ini berani mengelilingi gerbang utama. Mengerikan, mereka semakin berani, bunuh, bunuh mereka semua!” Tetua klan aula hukuman berteriak.</p>
+<p>	Wajah Gu Yue Yao Ji dari aula pengobatan juga muram, “Meskipun rakyat jelata rendahan ini pantas mati, membunuh beberapa sudah cukup untuk mengancam yang lain dan mengusir kelompok itu, tetapi itu akan menjadi lelucon bagi desa lain untuk diamati.”</p>
+<p>	Gu Yue Chi Lian berkata, “Yang penting sekarang bukanlah ini. Jika bahkan Chi Shan tidak bisa membangunkan Kodok Menelan Sungai ini, siapa lagi di klan kita yang bisa? Sepertinya kita harus mendapatkan bala bantuan, klan Xiong berspesialisasi dalam kekuatan. ” Dia menghela nafas dan melanjutkan, “Demi keselamatan klan, kita harus membuat mereka melakukannya. Bahkan jika kita harus membayar harga, itu sepadan. ”</p>
+<p>	Kata-kata ini mendapat persetujuan dari tetua klan lainnya, dan bahkan pemimpin klan Gu Yue Bo tergerak.</p>
+<p>	“Pemimpin klan dan tetua klan lainnya, junior ini memiliki sesuatu untuk dilaporkan.” Gu Yue Chi Shan telah berdiri di aula, mendengarkan para tetua klan, tetapi tiba-tiba dia membungkuk dan berkata berbicara.</p>
+<p>	Gu Yue Bo mengangguk, dia memiliki sikap apresiatif terhadap Gu Yue Chi Shan, “Chi Shan, jika kamu punya ide, kamu mungkin juga mengatakannya.”</p>
+<p>	Chi Shan malah bertanya, “Tetua, untuk mendorong Kodok Menelan Sungai ini, apakah itu benar-benar membutuhkan kekuatan satu orang?”</p>
+<p>	Gu Yue Bo berkata, “Menurut kata-kata pemimpin klan sebelumnya, Kodok Menelan Sungai memiliki temperamen yang lembut dan suka tidur. Bahkan jika itu dibangunkan oleh seseorang yang mendorongnya, itu tidak akan mengamuk. Jadi, kami bertanya kepada Anda siapa yang memiliki kekuatan terbesar di desa untuk membangunkannya. Tapi itu berakhir dengan kegagalan.”</p>
+<p>	Chi Shan berkata, “Kalau begitu, bisakah pemimpin klan memberiku Brute Force Longhorn Beetle Gu? Dengan kekuatan satu banteng dan kekuatan bawaan saya, saya akan mampu mendorong Kodok Menelan Sungai ini bangun.”</p>
+<p>	“Kamu pasti tidak bisa menggunakan kekuatan cacing Gu.” Tepat ketika Chi Shan selesai berbicara, seorang tetua klan menolak permintaannya, “Aura cacing Gu akan mengundang kewaspadaan Kodok Menelan Sungai. Jika ini membuatnya merasa terancam dan mengamuk, siapa yang akan menghadapi konsekuensinya?”</p>
+<p>	“Betul sekali.” Gu Yue Bo mengangguk, “Dengan menggunakan cacing Gu, bahkan jika kita membangunkan kodok, kita tidak bisa mendapatkan persetujuannya. Itu harus satu orang, menggunakan kekuatannya sendiri untuk membangunkannya dan mendapatkan persetujuannya.”</p>
+<p>	Gu adalah roh surga dan bumi, tetapi berperilaku lebih seperti binatang buas. Binatang buas memiliki wilayahnya sendiri, dan binatang buas yang berkeliaran ketika menghadapi raja suatu wilayah, akan memiliki pertempuran. Yang menang mengambil wilayah dan yang kalah berkeliaran.</p>
+<p>	Pembentukan gelombang binatang juga didasarkan pada naluri binatang buas ini. Kelompok binatang yang kuat akan menyerang dan menaklukkan tanah tetangga. Kelompok yang lebih lemah akan diasingkan dan ini membentuk gelombang binatang.</p>
+<p>	Untuk mengusir River Swallowing Toad, mereka harus mematuhi kebiasaannya.</p>
+<p>	River Swallowing Toad memiliki temperamen yang lembut, tidak menikmati konflik, dan selama “raja binatang” wilayah itu dapat dikenali, ia akan pergi.</p>
+<p>	Jadi, menggunakan cacing Gu adalah tidak-tidak, aura cacing Gu akan dirasakan dan menyebabkan Kodok Menelan Sungai mengambil tindakan yang tidak terduga. Menggunakan kekuatan semua orang juga tidak mungkin. Begitu ada banyak orang, bahkan jika dipindahkan, katak itu tidak akan pergi.</p>
+<p>	Itu karena setiap orang yang bertindak bersama tidak adil, dan tidak akan diakui olehnya.</p>
+<p>	Jadi, pemimpin klan menyuruh Chi Shan untuk maju, karena dia memiliki kekuatan terbesar di desa.</p>
+<p>	“Jadi begitu, aku mengerti.” Chi Shan akhirnya mengerti situasinya, dia menangkupkan tinjunya, “Kalau begitu, aku akan merekomendasikan seseorang kepada tetua klan, dia memiliki kekuatan yang lebih besar dariku.”</p>
+<p>	“Oh, siapa?”</p>
+<p>	“Ada orang seperti itu, mengapa kita tidak tahu?”</p>
+<p>	“Chi Shan, jangan buat kami menunggu, cepat katakan!”</p>
+<p>	“Orang ini, adalah Gu Yue Fang Yuan.” Chi Shan menyebut sebuah nama.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

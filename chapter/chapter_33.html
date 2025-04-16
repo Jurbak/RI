@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 33 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 33";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_32.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 33">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_34.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 33</h1>
+        <div class="text-left">
+<p>	Bab 33</p>
+<p>	Bab 33 – Silakan dan tegur</p>
+<p>	“ Hm ?” Mo Yan mengerutkan kening, lalu amarahnya meledak hampir seketika saat dia tiba-tiba mengerti bahwa dia telah dibodohi oleh Fang Yuan.</p>
+<p>	“Kamu sangat berani bahkan mempertimbangkan untuk berbohong padaku!” Saat berbicara, dia mengulurkan tangan kanannya untuk memegang Fang Yuan.</p>
+<p>	Fang Yuan berdiri kokoh di tempat. Dia mengangkat kepalanya dan tertawa, “Mo Yan, kamu sebaiknya memikirkan ini!”</p>
+<p>	Mo Yan menghentikan tindakannya. Sementara dia masih berdiri tepat di luar pintu, tangannya yang terulur berhenti di udara dan wajahnya menunjukkan tanda keraguan dan kebencian.</p>
+<p>	Di dalam keluarga, ada aturan yang relevan. Siswa di asrama dilindungi, dan orang lain tidak akan diizinkan mengganggu asrama untuk menangkap siswa. Mo Yan hanya ingin memberi pelajaran pada Fang Yuan dan membiarkannya merasakan penderitaan. Dia pasti tidak ingin mengambil risiko dihukum karena melanggar aturan.</p>
+<p>	“Jika hanya aku yang melanggar aturan, itu akan tetap baik-baik saja. Namun, jika ini akan mempengaruhi keluarga dan bahkan kehormatan kakek…” Memikirkan hal ini, Mo Yan dengan enggan menarik tangannya. Dia memandang Fang Yuan yang ada di dalam rumah dengan mata merahnya. Jika tatapan kematiannya bisa diubah menjadi api, itu akan membakar Fang Yuan menjadi abu dalam sedetik.</p>
+<p>	“Aku tidak pernah berbohong padamu. Aku bilang aku akan membawamu ke Fang Yuan, dan sekarang kamu sudah menemukannya di sini. Sepertinya Anda memiliki sesuatu untuk dikatakan kepada saya. ” Fang Yuan tersenyum tipis dengan tangan di belakang punggungnya, mengabaikan tekanan dari Master Gu peringkat dua , tanpa rasa takut melakukan kontak mata dengan tatapan marah Mo Yan.</p>
+<p>	Dia hanya selangkah terpisah dari Mo Yan. Satu berdiri di dalam rumah, dan satu lagi di luar. Tetapi jarak yang sama ini juga menjadi sejauh timur dari barat.</p>
+<p>	“ Hehehe , oh Fang Yuan, kamu benar – benar telah mempelajari aturan klan dengan baik dan menyeluruh.” Mo Yan, menekan amarahnya, berkata dengan senyum sinis. Dia menambahkan, “Sayangnya bagimu, bahkan saat mengandalkan aturan, yang akan kamu lakukan hanyalah mengulur waktu. Tidak mungkin kau tinggal di asrama selamanya. Aku akan melihat berapa lama kamu bisa berdiri bersembunyi di sana. ”</p>
+<p>	Fang Yuan tertawa menyegarkan dan memandang Mo Yan dengan jijik. “Maka semakin aku ingin melihat berapa lama kamu bisa menggangguku. Ah , ini sudah larut. Aku punya tempat tidur untuk tidur, tapi bagaimana denganmu ? Jika saya tidak muncul untuk kelas besok dan para tetua datang untuk menyelidiki, menurut Anda apa yang akan saya katakan?</p>
+<p>	“ Kamu !” Mo Yan menjadi marah, jari-jarinya menunjuk ke Fang Yuan, nyaris tidak menahan diri, “Apakah kamu benar-benar berpikir aku tidak akan berani masuk dan menjatuhkanmu?”</p>
+<p>	Mencicit .</p>
+<p>	Fang Yuan membuka pintu asrama terbuka lebar, bibirnya menyeringai, matanya gelap seperti jurang dan nadanya penuh percaya diri seolah-olah situasinya ada dalam genggamannya. Dia menantang Mo Yan, “Kalau begitu tunjukkan padaku.”</p>
+<p>	“ Hehehe …” Mo Yan malah menjadi tenang setelah melihat ini. Matanya menyipit ketika dia melihat Fang Yuan dan dia berkata, “Apakah kamu pikir aku akan jatuh cinta pada doronganmu?”</p>
+<p>	Fang Yuan mengangkat bahu. Dia sudah melihat melalui kepribadian Mo Yan.</p>
+<p>	Jika dia telah menutup pintu, atau bahkan setengah menutupnya, Mo Yan memiliki setidaknya 50% kemungkinan membobol rumah. Tetapi ketika dia dengan sengaja membukanya sepenuhnya, itu malah membuatnya lebih waspada dan tenang sebagai hasilnya. Jadi hampir tidak ada kemungkinan dia memaksa masuk lagi.</p>
+<p>	Lima ratus tahun pengalaman telah membuatnya sepenuhnya menyadari sifat manusia dan kelemahan mereka.</p>
+<p>	Dia dengan anggun berbalik, memperlihatkan punggungnya sepenuhnya ke Mo Yan. Jika Mo Yan menyerang sekarang, dia pasti akan bisa menangkapnya dalam satu tindakan cepat. Namun, Mo Yan tetap diam di luar pintu seolah-olah ada gunung tak terlihat yang menghalangi jalannya.</p>
+<p>	Bahkan setelah Fang Yuan duduk di tempat tidurnya, Mo Yan hanya menatapnya dengan marah, menggertakkan giginya. Tapi terlepas dari ini, dia tidak bergerak.</p>
+<p>	“Ini adalah sisi menyedihkan manusia.” Fang Yuan duduk dan menatap Mo Yan yang berada di luar tampak seperti orang bodoh, berpikir pada dirinya sendiri, “Terkadang, hal-hal yang mencegah orang mengambil tindakan bukanlah kesulitan fisik, tetapi itu adalah batasan yang mereka tempatkan pada diri mereka sendiri secara tidak sadar. ”</p>
+<p>	Saat membandingkan tingkat kultivasi, Fang Yuan jelas bukan lawannya pada saat ini. Tetapi bahkan dengan tingkat kultivasi Peringkat dua, dia hanya bisa menatap Fang Yuan dan tidak memiliki keberanian untuk bergerak. Jaraknya darinya hanya beberapa langkah lagi, dan pintunya terbuka lebar tanpa halangan. Satu-satunya hal yang benar-benar membatasi dia tidak lain adalah dirinya sendiri.</p>
+<p>	“Manusia mencari pengetahuan tanpa henti untuk memahami dunia dan memahami aturan, dan akhirnya menggunakannya. Jika seseorang terus-menerus terikat oleh aturan, sehingga dibatasi oleh pengetahuan yang mereka cari, itu adalah tragedi pamungkas.” Fang Yuan menatap Mo Yan untuk terakhir kalinya sebelum menutup matanya dan membiarkan kesadarannya tenggelam ke laut purba.</p>
+<p>	“Fang Yuan ini berani berkultivasi tepat di depanku! Dia hanya melakukannya sesuka hatinya! ” Melihat pemandangan ini, Mo Yan merasakan rasa frustrasi meledak dari dadanya, membuatnya hampir ingin muntah darah.</p>
+<p>	Dia sangat ingin maju dan memberinya beberapa pukulan!</p>
+<p>	Tapi dia tahu dia tidak bisa.</p>
+<p>	Mo Yan tiba-tiba merasakan sedikit penyesalan. Berdiri di luar pintu, dia merasakan kecanggungan karena tidak bisa mundur.</p>
+<p>	Dia marah untuk menyerah sekarang, tetapi dia akan sangat dipermalukan. Dia memobilisasi pelayannya dengan niat untuk datang dan memberi pelajaran pada Fang Yuan, namun pada akhirnya dialah yang akhirnya menjadi bahan tertawaan.</p>
+<p>	Apalagi ketika ada seorang pelayan yang menatapnya sekarang.</p>
+<p>	“ Sialan ! Fang Yuan terlalu tidak kooperatif! Dia terlalu licik!” Mo Yan dengan marah berpikir dan mulai memprovokasi dia dengan segala macam penghinaan, berharap untuk memaksanya keluar dari ruangan.</p>
+<p>	“Fang Yuan kamu bocah, keluarlah jika kamu laki-laki!”</p>
+<p>	“Fang Yuan, sebagai seorang pria kamu harus mengakui perbuatanmu sendiri. Sekarang kamu menjadi seorang pengecut yang bersembunyi di ruangan itu, apakah kamu tidak merasa malu pada dirimu sendiri?”</p>
+<p>	“Berhenti berpura-pura mengabaikanku, keluarlah jika kamu tahu apa yang baik untukmu!”</p>
+<p>	“Kamu pengecut, sampah tak bertulang!”</p>
+<p>	Fang Yuan menutup telinganya dan tidak memberikan satu tanggapan pun.</p>
+<p>	Setelah memarahi sebentar, alih-alih melampiaskan semua amarahnya, dia merasa lebih kesal. Dia mulai merasa seperti badut atau tikus; memblokir pintu itu terlalu memalukan.</p>
+<p>	“ AHHHHH , ini membuatku hampir mati!” Mo Yan akan menjadi gila, dan dia akhirnya menyerah untuk memprovokasi Fang Yuan.</p>
+<p>	“Fang Yuan, kamu bisa bersembunyi sekarang, tapi kamu tidak bisa bersembunyi dariku selamanya!” Dia dengan marah menginjak tanah dan pergi dengan marah. Sebelum pergi, dia memberi perintah terakhir, “Gao Wan, berdiri di sana dan awasi dia! Saya tidak percaya dia tidak akan meninggalkan rumah.”</p>
+<p>	“Ya tuan!” Pelayan berotot, Gao Wan dengan cepat menjawab dan mengirim Mo Yan pergi. Di dalam hatinya dia merasa pahit – gunung itu dingin dan berangin di malam hari. Dia harus berjaga-jaga sepanjang waktu, mudah masuk angin seperti ini. Itu bukan tugas yang mudah.</p>
+<p>	Desir wusss ……</p>
+<p>	Di dalam laut purba, pasang surut air laut mengamuk.</p>
+<p>	Esensi purba tembaga hijau berkumpul seperti air, memaksa gelombang pasang bergulir. Di bawah bimbingan mental Fang Yuan, ombak tanpa henti menabrak dinding aperture di sekitarnya.</p>
+<p>	Dinding aperture Gu Master tahap awal peringkat satu menyerupai penghalang putih. Pada saat ini, dengan esensi purba tembaga hijau menabrak mereka, itu menghasilkan bayangan cahaya, menciptakan perasaan yang tak terlukiskan.</p>
+<p>	Waktu berlalu secara bertahap dan tingkat laut purba tembaga hijau perlahan menurun.</p>
+<p>	Dari semula 44%, turun menjadi 12%.</p>
+<p>	“Jika seorang Guru Gu ingin meningkatkan tingkat kultivasi mereka, mereka harus mengeluarkan esensi purba mereka untuk memelihara aperture. Master Gu tahap awal memiliki penghalang cahaya sebagai dinding aperture mereka, sementara Master Gu tahap menengah memiliki penghalang air sebagai dinding aperture mereka dan untuk tahap atas, mereka memiliki penghalang batu. Bagi saya untuk berkultivasi dari tahap awal hingga tahap tengah, saya harus memelihara penghalang cahaya ke dalam dinding bukaan penghalang air. ”</p>
+<p>	Dari ingatannya selama lima ratus tahun, Fang Yuan memiliki keakraban penuh dengan tahap kultivasi saat ini, dan metodenya sangat jelas baginya.</p>
+<p>	Dia perlahan membuka matanya, hanya untuk melihat bahwa itu sudah larut malam.</p>
+<p>	Bulan sabit menggantung tinggi di langit malam, cahaya bulan bersinar murni seperti air.</p>
+<p>	Pintu terbuka lebar dan cahaya bulan masuk, membiarkan Fang Yuan memikirkan puisi terkenal dari Bumi – Pada malam yang tenang saya melihat cahaya bulan di depan sofa saya, dan bertanya-tanya apakah itu bukan embun beku di tanah (1).</p>
+<p>	Angin malam bertiup dengan sedikit rasa dingin.</p>
+<p>	Fang Yuan tidak memiliki Gu tipe kehangatan, dan hanya dengan tubuh berusia lima belas tahun, dia tidak bisa menahan diri untuk tidak menggigil sedikit.</p>
+<p>	Malam di gunung itu sangat dingin.</p>
+<p>	“Bajingan, kamu akhirnya membuka matamu. Berapa lama Anda berencana untuk berkultivasi di sana?! Keluar, Anda akan dihukum terlepas. Anda memukuli tuan muda kami Mo Bei, jadi hanya masalah waktu sebelum Nona muda memberi Anda pelajaran.” Melihat Fang Yuan telah bangun, Gao Wan yang berdiri di pintu bangkit semangatnya.</p>
+<p>	Fang Yuan menyipitkan mata; sepertinya Guru Gu wanita peringkat dua telah pergi?</p>
+<p>	“Bajingan, apakah kamu mendengarku? Cepat dan keluar dari sini! Anda memiliki kamar untuk tinggal dan tempat tidur untuk tidur, tetapi saya harus berdiri di sini sepanjang malam. Jika kamu tidak keluar dalam waktu dekat, tidakkah kamu percaya aku mungkin akan menerobos masuk ?! ” Melihat tidak ada reaksi dari Fang Yuan, Gao Wan mengancam.</p>
+<p>	Fang Yuan tetap tidak terpengaruh.</p>
+<p>	“Bajingan, keluar dan serahkan dirimu. Anda telah menyinggung keluarga Mo, Anda tidak akan memiliki hari yang baik mulai sekarang. Cepat dan minta maaf kepada Nona muda dan mungkin dia akan memaafkanmu.” Gao Wan terus menegur.</p>
+<p>	Fang Yuan tidak mendengarkan sepatah kata pun. Dia mengeluarkan batu purba dari tas penyimpanannya dan memegangnya di tangannya, akhirnya menutup matanya lagi.</p>
+<p>	Melihat bahwa dia akan terus berkultivasi, Gao Wan menjadi cemas dan menjadi tidak nyaman. “Kamu hanya bakat peringkat C, yang paling bisa kamu capai dalam hidup adalah Master Gu peringkat dua ! Apa yang ada untuk dibudidayakan? Kamu sendiri bukan tandingan seluruh keluarga Mo! Nak, apakah kamu tuli? Apakah Anda mendengarkan satu kata pun yang saya katakan ?! ”</p>
+<p>	(1) Sebuah puisi terkenal dari Li Bai, seorang penyair Cina.</p>
+<p>	*Bab ini dipersembahkan oleh Chibigen dan Skyfarrow. Penghargaan untuk Chibigen karena membantu terjemahan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 224 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 224";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_223.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 224">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_225.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 224</h1>
+        <div class="text-left">
+<p>	Bab 224</p>
+<p>	Bab 224: Warisan Tulang Putih (Akhir)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Kamar Rahasia Kantung Daging ini aneh.</p>
+<p>	Dinding daging di sekitarnya dipenuhi dengan mulut dan mulutnya terbuka, memperlihatkan gigi putih yang terkatup rapat.</p>
+<p>	Tidak hanya itu, mulut-mulut ini bahkan mengeluarkan tawa aneh, membuat semua orang menggigil.</p>
+<p>	Fang Yuan menepuk bahu Bai Ning Bing: “Ini adalah efek dari tawa daging Gu, itu seperti bunga Perbendaharaan Bumi, dan digunakan untuk menyimpan cacing Gu. Tidak perlu terlalu khawatir.”</p>
+<p>	Dia baru saja selesai mengatakan ini, ketika tiba-tiba giginya benar-benar lepas dari mulut yang terbuka dan lidah merah keluar dari mulutnya.</p>
+<p>	Lidahnya sangat panjang, sekitar satu meter lebih, dan bagian depannya melengkung.</p>
+<p>	Ketika lidah sepenuhnya terjulur, ujung lidah mulai lurus dan memperlihatkan sebuah buku di atasnya.</p>
+<p>	Ini adalah buku tulang juga, kecuali itu berkali-kali lebih kecil dari Buku Besar Tulang Abu-abu; seukuran saku, kira-kira setengah dari telapak tangan orang dewasa.</p>
+<p>	Fang Yuan mengambilnya dan mulai memeriksanya.</p>
+<p>	Gagasan utama di balik isi buku itu adalah: Karena penerusnya bisa mencapai tempat ini, itu adalah bukti sifat murni Anda dan Anda sekarang dapat mewarisi warisan saya yang sebenarnya. Saya memiliki dua identitas; ‘Sarjana Tulang Abu-abu’ dan ‘Master Tulang Daging’. Kamar Rahasia Kantung Daging ini menampung banyak Gu, jika penerusnya ditakdirkan, Anda dapat mencoba mengetuk gigi; jika keberuntungan Anda bagus dan Anda membuka gigi, Anda bisa membawa cacing Gu yang berhibernasi ke dalam.</p>
+<p>	“Ini murni menguji keberuntungan seseorang.” Fang Yuan mengerti ketika dia membaca ini.</p>
+<p>	Bai Hua tidak memberitahunya tentang penghalang ini secara rinci, di kehidupan sebelumnya. Fang Yuan hanya bisa mengujinya secara acak.</p>
+<p>	Namun, yang pertama berhasil bukanlah dia, melainkan Bai Ning Bing.</p>
+<p>	Bai Ning Bing menekuk jari telunjuknya dan dengan ringan mengetuk giginya. Gigi ini seperti alat musik dan akan menghasilkan semacam nada musik yang jernih ketika dipukul.</p>
+<p>	Dia baru saja mengetuk secara acak, dan mulut ini tiba-tiba menghentikan tawanya; giginya benar-benar lepas dan lidah panjang berwarna merah menjulur keluar darinya, memperlihatkan di dalamnya seorang Gu.</p>
+<p>	“Gi apa ini?” Setelah melihat Gu ini, kejutan menyenangkan muncul di wajah Bai Ning Bing sebelum berubah menjadi ekspresi aneh.</p>
+<p>	Gu ini terlihat sangat aneh karena terlihat seperti satu set gigi palsu; gigi putih bersih dengan susunan gigi atas dan bawah yang sangat rapi, dan memberikan kilau seperti mutiara.</p>
+<p>	Fang Yuan melihatnya dan segera, ekspresi terkejut muncul di wajahnya: “Tidak buruk, ini adalah Gu penyembuhan peringkat tiga yang terkenal – Gu tulang-daging!”</p>
+<p>	” Membangkitkan orang mati, daging tulang putih …” Bai Ning Bing bergumam.</p>
+<p>	Gu yang mati yang bangkit diterima sebagai Gu penyembuh nomor satu di antara peringkat empat. Bahkan jika seorang Guru Gu meninggal, selama waktu kematian tidak melewati empat belas jam dan seluruh tubuh mereka utuh, seseorang dapat menggunakan Gu ini untuk membangkitkan mereka.</p>
+<p>	Namun, Gu ini hanya bisa diperoleh secara kebetulan dan bukan dengan mencarinya karena terlalu berharga dan langka. Itu juga merupakan Gu sekali pakai yang dapat dibuang, dengan permintaan tinggi tetapi tidak ada pasokan.</p>
+<p>	Tulang daging adalah Gu peringkat tiga, tapi itu bukan Gu yang bisa dibuang dan bisa digunakan lagi dan lagi.</p>
+<p>	Itu sering digunakan bersama dengan Gu yang mati.</p>
+<p>	Jika mayat Guru Gu tidak utuh, pertama-tama seseorang dapat menggunakan Gu tulang-daging untuk merekonstruksi daging mereka, dan kemudian menggunakan Gu yang mati untuk membangkitkan Gu Guru.</p>
+<p>	Sepanjang sejarah, pasangan ini cukup umum dan telah mendapatkan banyak keuntungan; di antara mereka bahkan ada peringkat sembilan bangsawan abadi dan bangsawan iblis.</p>
+<p>	Ini adalah Gu penyembuhan yang ideal untuk Fang Yuan.</p>
+<p>	Fang Yuan dengan susah payah mencari untuk waktu yang lama, dan sekarang keinginannya akhirnya terwujud.</p>
+<p>	“Hehe, mau? Anda dapat menukarnya dengan Yang Gu. ” Bai Ning Bing memegang Gu ini di tangannya dan tertawa puas.</p>
+<p>	Fang Yuan mencibir: “Kamu pikir aku bodoh?”</p>
+<p>	Senyum Bai Ning Bing memudar dan tatapannya menjadi dingin: “Kita bisa mencapai kesepakatan selama kamu menyerahkan Yang Gu. Fang Yuan, saya telah mengikuti Anda begitu lama, tetapi ketahuilah bahwa kesabaran saya ada batasnya. Saya tidak lagi takut mati, paling buruk kita berdua akan mati bersama. ”</p>
+<p>	“Kamu tidak takut mati, tetapi apakah kamu pikir aku takut?” Fang Yuan mencibir. Dia sudah mengharapkan situasi seperti itu dan karenanya tidak terkejut.</p>
+<p>	Bai Ning Bing mengambil kembali tatapannya dan kemudian dengan hati-hati memeriksa Gu tulang-daging di tangannya; sudut bibirnya melengkung: “Membunuhmu mungkin juga merupakan pilihan yang baik. Lihatlah diri Anda sendiri, Anda hanya memiliki kultivasi peringkat satu tetapi Anda benar-benar dapat langsung memperbaiki Gu, dan Anda juga memiliki Lotus Harta Karun Esensi Surgawi. Selain itu, jika aku membunuhmu, setidaknya aku bisa memiliki warisan ini. Memikirkannya saja membuat jantungku berdebar kencang…”</p>
+<p>	Kata-kata Bai Ning Bing penuh dengan ancaman.</p>
+<p>	“Memiliki warisan ini? Haha, apakah kamu lupa klan Bai yang mengejar kita? Mereka bahkan mungkin sedang berjalan menuruni tangga di luar saat ini. Tanpa saya, apakah Anda tahu ke mana harus pergi selanjutnya? Warisan ini terlihat seperti jalur satu arah dari permukaan, tetapi sebenarnya memiliki banyak cabang. Saya memang tidak bisa melawan Anda saat ini, tetapi Anda terlalu naif untuk berpikir Anda dapat merebut harta dengan membunuh saya. Apakah Anda pikir saya akan memberi Anda kesempatan untuk mengambil Yang Gu? Coba saja, jika kamu tidak percaya padaku. ”</p>
+<p>	Fang Yuan kemudian berbalik dan mulai mengetuk gigi lagi.</p>
+<p>	Bahkan, dia juga tidak tahu ke mana harus pergi dari sini, karena ruang rahasia ini tidak memiliki lorong lain.</p>
+<p>	Bai Ning Bing menatap punggung Fang Yuan yang benar-benar tak berdaya; sepertinya dia bisa membunuhnya jika dia hanya bergerak sedikit.</p>
+<p>	Tapi dengan segala alasan, Bai Ning Bing, bagaimanapun, tidak berani bergerak sembarangan.</p>
+<p>	Kata-kata Fang Yuan terlintas di benaknya; Tanpa Fang Yuan, bagaimana dia harus bergerak selanjutnya? Kembali dengan cara dia datang akan menjadi jalan kematian.</p>
+<p>	Bai Ning Bing menyipitkan matanya, dan untuk sesaat, dia bahkan merasa ‘Apakah bahkan serangan klan Bai di bawah perhitungan Fang Yuan? Menciptakan kekuatan eksternal untuk mencegahnya membunuhnya demi keuntungannya?’</p>
+<p>	Sampai sekarang, Bai Ning Bing dalam keadaan bingung. Dia tidak bisa mengerti: Mengapa klan Bai ‘bekerja sama’ dan menemani Fang Yuan sampai ke sini?</p>
+<p>	Faktanya, hatinya menyembunyikan kekhawatiran yang mendalam sejak dia dikendalikan oleh Fang Yuan.</p>
+<p>	Yang Gu bersama Fang Yuan, dia selalu khawatir Fang Yuan akan menggunakan ini untuk mengancamnya. Meskipun Fang Yuan mengatakan dia akan menyerahkan Yang Gu padanya begitu kultivasinya mencapai peringkat tiga, orang macam apa Fang Yuan itu?</p>
+<p>	Bai Ning Bing sangat jelas tentang ini.</p>
+<p>	Kembali pada kata-katanya adalah hal yang biasa baginya, sealami makan makanan dan minum air.</p>
+<p>	Dia mungkin lebih baik mati daripada percaya pada Fang Yuan.</p>
+<p>	Mari kita ambil contoh sesuatu yang baru saja terjadi. Pemimpin Bai Clan yang menyedihkan itu, bukankah dia wanita yang cakap? Seorang elit dan orang yang sangat bijaksana, tetapi setelah percaya pada Fang Yuan, bagaimana keadaannya saat ini?</p>
+<p>	Fang Yuan terlalu bagus sebagai aktor!</p>
+<p>	Merinding menutupi tubuh Bai Ning Bing ketika dia mengingat adegan air mata Fang Yuan di perjamuan.</p>
+<p>	Ini adalah rubah licik asli!</p>
+<p>	Dia bahkan sengaja melirik Bai Lian berulang kali, hanya untuk memasang jebakan di mana klan Bai sangat senang untuk masuk. Dia masih bisa mengingat ekspresi cemerlang pada Bai Lian ketika Fang Yuan memberontak; kaget dan tak bernyawa.</p>
+<p>	Yang paling dikhawatirkan Bai Ning Bing sekarang adalah Fang Yuan tidak menyerahkan Yang Gu bahkan setelah mencapai peringkat tiga.</p>
+<p>	Kemungkinannya terlalu besar.</p>
+<p>	“Sekarang saya peringkat tiga dan dia masih peringkat satu, saya masih bisa berinisiatif. Tapi di masa depan ketika kultivasinya mencapai peringkat tiga atau lebih tinggi, bukankah aku akan dikendalikan olehnya dan menjadi bidak caturnya?”</p>
+<p>	Bai Ning Bing menyimpan kekhawatiran semacam ini di dalam hatinya, dan kekhawatiran ini semakin dalam setelah Fang Yuan menggunakan peninggalan tembaga hijau Gu dan langsung menerobos ke peringkat satu tingkat atas.</p>
+<p>	Bai Ning Bing khawatir, tetapi saat ini, ada banyak yang lebih khawatir daripada dia, kekhawatiran mereka bahkan mencapai titik ekstrem.</p>
+<p>	“Apa yang sedang terjadi?” Sekelompok orang berdiri di luar pintu keluar warisan dan melihat sekeliling mereka, wajah mereka berubah sangat jelek.</p>
+<p>	Mereka telah bergerak cepat melalui jalan setapak dan menyerbu melalui beberapa aula tulang. Mereka dapat memperoleh beberapa keuntungan, tetapi dari awal hingga akhir, mereka tidak bertemu Fang dan Bai. Pada akhirnya, mereka berjalan keluar dari terowongan rahasia, ke luar gunung.</p>
+<p>	“Ini benar-benar seperti ini!” Tai Dao Ku tiba-tiba berseru.</p>
+<p>	Kata-katanya langsung menarik perhatian banyak orang.</p>
+<p>	“Kakak Tie, apa maksudmu?” Pemimpin Klan Bai segera bertanya. Jika sebelumnya, dia pasti sudah menyadari jawabannya dengan indranya yang tajam. Tapi sekarang, anak-anaknya diculik dan seiring berjalannya waktu, dia menjadi lebih bingung.</p>
+<p>	“Warisan gunung Bai Gu ini tampaknya merupakan jalur satu arah, tetapi sebenarnya memiliki banyak cabang. Seperti cabang di tanganku ini.” Dia dengan santai mematahkan cabang tipis dari pohon tulang di dekatnya.</p>
+<p>	“Jalan di awal seharusnya sama untuk kita dan mereka, jadi kita bisa melihat jejak mereka di jalan. Tapi setelah itu, kita seharusnya berjalan melalui jalan cabang dan mereka seharusnya berjalan ke cabang lain. Apakah Anda masih ingat aula kedua? Ada tiga pilar dan saya menduga ada alat yang dipasang di pilar; ketika kami berjalan ke aula ketiga, ada kerangka Gray Bone Scholar, tetapi tidak ada tanda-tanda kerangka itu dipindahkan. Poin krusialnya adalah terowongan rahasia setelah aula kedua…”</p>
+<p>	Tai Dao Ku belum selesai berbicara ketika Bai Clan Leader dengan dingin berteriak: “Ayo kembali!”</p>
+<p>	Waktu terus berlalu, Fang Yuan benar-benar berharap waktu dapat diperpanjang lima puluh enam puluh kali sekarang.</p>
+<p>	Dia tahu warisan gunung Bai Gu, paling-paling bisa menipu seseorang untuk sementara waktu. Ketika klan Bai Gu Masters menyadari kebenaran di balik struktur, dia dan Bai Ning Bing akan berada dalam bahaya.</p>
+<p>	Tetapi karena hal itu terjadi, dia tidak tahu bagaimana melanjutkan dari sini.</p>
+<p>	Ruang rahasia tidak memiliki lorong lain.</p>
+<p>	Mereka pasti tidak bisa kembali ke tempat mereka datang; bahkan jika mayoritas kelompok Bai Clan berjalan melalui lorong lain, mereka pasti akan memiliki beberapa orang yang menjaga pintu keluar.</p>
+<p>	“Mungkinkah ruang rahasia ini sudah menjadi area terakhir? Apakah Bai Hua dan Bai Sheng mendapatkan semua cacing Gu mereka dari mulut ini? Itu tidak mungkin, rumor di kehidupanku sebelumnya mengatakan Bai Hua dan Bai Sheng tiba di sebuah jurang setelah melewati situs warisan ini. Rumor ini telah disetujui secara publik oleh klan Bai. Mungkin mekanisme untuk membuka lorong itu tersembunyi di salah satu mulut ini?”</p>
+<p>	Pikiran Fang Yuan bergerak secepat kilat.</p>
+<p>	Mereka tidak punya banyak waktu lagi…</p>
+<p>	Bai Ning Bing bingung, dia tidak tahu keadaan mereka dan hanya mengira Fang Yuan telah membuat beberapa rencana. Namun, Fang Yuan tahu situasi mereka menjadi lebih berbahaya.</p>
+<p>	Pintu ini tidak memiliki fungsi pertahanan, siapa yang tahu apakah gerombolan gu master Bai Clan yang marah mungkin akan menabrak pintu pada saat berikutnya.</p>
+<p>	“Saat itu, kita hanya bisa mengandalkan Bai Hua dan Bai Sheng sebagai jimat pelindung kita. Tapi ini bukan jaminan yang sangat bisa diandalkan. Dunia ini memiliki banyak cacing Gu ajaib; ada banyak dengan kemampuan kontrol seperti menyebabkan pusing, hipnosis, kelumpuhan dan sebagainya. Bai Clan adalah klan yang kuat dan pasti memiliki metode seperti itu.” Ketika dia memikirkan ini, Fang Yuan tidak bisa menahan diri untuk tidak melihat Bai Hua dan Bai Sheng.</p>
+<p>	Saudara kembar itu terbaring di tanah, masih tidak sadarkan diri.</p>
+<p>	“Mengerti.” Fang Yuan tiba-tiba mendapat ide bagus.</p>
+<p>	Dia memutuskan untuk membangunkan kedua anak ini.</p>
+<p>	Pertama-tama, waktu sangat mendesak, dia membutuhkan lebih banyak tenaga kerja. Kedua, Bai Hua dan Bai Sheng adalah pemilik takdir sejati dari warisan gunung Bai Gu. Terlebih lagi, mereka berdua adalah manusia biasa, tidak perlu khawatir mereka dapat menyebabkan kecelakaan.</p>
+<p>	Mengeksekusi idenya dengan segera, Fang Yuan dengan cepat berjalan mendekat dan menendang si kembar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

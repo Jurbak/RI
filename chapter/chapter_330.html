@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 330 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 330";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_329.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 330">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_331.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 330</h1>
+        <div class="text-left">
+<p>	Bab 330</p>
+<p>	Bab 330: Wei De Xin</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Ini … Tuan Fang Zheng, apakah Anda yakin akan membelinya?” Master Gu yang bertanggung jawab ragu-ragu.</p>
+<p>	“Kenapa, kamu meragukan keputusanku?” Fang Yuan memberinya tatapan polos.</p>
+<p>	Guru Gu ini tertawa, dia adalah anggota klan Shang, dia tidak takut pada Fang Yuan seperti saudara klan Xiong.</p>
+<p>	“Aku tidak akan berani, aku tidak akan berani.” Dia menangkupkan tinjunya, menoleh ke Shang Xin Ci: “Jika saya tidak salah, Tuan Fang membeli budak-budak ini untuk bertindak sebagai bawahan Lady Xin Ci. Tapi mereka benar-benar berita buruk bagi mereka yang bersaing untuk posisi master muda. Nona Xin Ci, kamu sangat cerdas, bagaimana menurutmu?”</p>
+<p>	Mata Shang Xin Ci terfokus pada Fang Yuan, dia tersenyum dan menjawab: “Keputusan Saudara Hei Tu adalah keputusanku. Lakukan saja apa yang dia katakan.”</p>
+<p>	“Apakah begitu.” Master Gu yang bertanggung jawab tercengang, sebelum tersenyum: “Karena Nona Xin Ci mengatakan demikian, saya akan melakukannya sesuai dengan itu. Sejujurnya, aku adalah pendukungmu Nona Xin Ci…”</p>
+<p>	“Kamu terlalu banyak bicara.” Fang Yuan menatap Guru Gu dengan dingin, memotongnya dengan dingin.</p>
+<p>	“Hehe.” Master Gu tertawa: “Kalau begitu saya akan menyelesaikan prosedur untuk Anda, tetapi ada terlalu banyak orang, akan ada banyak prosedur yang harus dilalui, Anda harus menunggu sehari. Sehari kemudian…”</p>
+<p>	Bam!</p>
+<p>	Fang Yuan mengangkat kakinya dan menendang.</p>
+<p>	Guru Gu itu tidak mengharapkan Fang Yuan untuk menyerang, dan tertangkap basah dan dipukul di perut.</p>
+<p>	Terbang lebih dari tiga puluh langkah jauhnya, dia menabrak seorang pengamat dan mendarat di tanah, jatuh pingsan setelah muntah darah.</p>
+<p>	“Siapa yang berani bertarung di kota klan Shang?”</p>
+<p>	“Apakah kamu lelah hidup ?!”</p>
+<p>	“Cepat serahkan dirimu!”</p>
+<p>	Keributan seperti itu segera menarik perhatian. Pasar budak dijaga ketat sejak awal, dengan cepat, tiga kelompok Master Gu datang dan mengepung mereka.</p>
+<p>	“Itu aku.” Fang Yuan tidak takut, berdiri.</p>
+<p>	“Ini Fang Zheng!” Kelompok yang kesal melihat Fang Yuan dan segera kehilangan kekuatan mereka.</p>
+<p>	Fang Yuan memiliki kekuatan pertempuran peringkat empat, mereka hanya peringkat dua dan pemimpin mereka yang memiliki kultivasi tertinggi adalah peringkat tiga tahap awal. Mereka bahkan tidak bisa menjadi lauk untuk Fang Yuan.</p>
+<p>	Fang Yuan berdiri di tempat dan mengeluarkan token duri ungunya.</p>
+<p>	Klan Shang Gu Masters melihat token dan aura mereka berkurang sekali lagi.</p>
+<p>	Wajah sang pemimpin yang garang dan menakutkan dengan cepat berubah, saat dia tersenyum dan dengan sopan berkata kepada Fang Yuan: “Tuan Fang Zheng, kami semua tahu Anda adalah tamu terhormat klan Shang. Tetapi bahkan seorang tamu tidak dapat menggunakan kekuatan di klan Shang, Anda bahkan melukai anggota klan kami. Menurut aturan…”</p>
+<p>	“Menurut aturan, saya akan didenda empat puluh sembilan batu purba.” Fang Yuan segera berkata.</p>
+<p>	Pemimpin itu terkejut, tidak menyangka Fang Yuan begitu fasih dengan aturan klan Shang.</p>
+<p>	Fang Yuan melemparkan sekantong batu purba, melambaikan tangannya: “Ada lima puluh batu purba di dalamnya, simpan kembaliannya.”</p>
+<p>	Pemimpin menerima batu purba, merasa seperti pengemis. Dia memiliki ekspresi terkejut dan bingung saat dia pergi bersama yang lain.</p>
+<p>	Jika Fang Yuan tidak memiliki kekuatan, bahkan dengan token duri ungu, dia tidak akan keluar dengan mudah. Tapi sekarang dia kuat, bahkan di kota klan Shang, jika dia memukuli anggota klan Shang, selama itu bukan seseorang yang penting, tidak akan ada konsekuensinya.</p>
+<p>	Tuan Gu yang bertanggung jawab dipukuli sampai pingsan oleh Fang Yuan, pasar budak dengan cepat mengirim Tuan Gu lain untuk merawat mereka.</p>
+<p>	Kami membeli semua orang di kandang ini.” Fang Yuan menunjuk ke kandang dan berkata.</p>
+<p>	Di dalam kandang, orang-orang memandang Fang Yuan; kebanyakan dari mereka memiliki ekspresi bingung atau mati rasa, tetapi beberapa menatapnya dengan marah.</p>
+<p>	Sikap pembelian yang santai dari Fang Yuan membuat mereka merasa sangat terhina.</p>
+<p>	“Ya ya ya.” Master Gu yang baru menyeka keringatnya saat dia merawat Fang Yuan dengan sopan.</p>
+<p>	Dalam waktu kurang dari lima belas menit, semua prosedur selesai.</p>
+<p>	“Ini adalah peringkat tiga racun kalajengking Gu, tolong jaga baik-baik Tuan Fang Zheng.” Terakhir, Master Gu menyerahkan cacing Gu kepada Fang Yuan.</p>
+<p>	Gu kalajengking racun ini memiliki tubuh putih, seperti porselen tanpa cacat, dan berukuran dua jari.</p>
+<p>	Ini adalah Gu peringkat tiga, dengan hanya satu kemampuan: buang air besar.</p>
+<p>	Kotoran kalajengking yang dihasilkannya berwarna hitam seperti kacang, itu adalah peringkat dua Gu.</p>
+<p>	Pepatah mengatakan: kotoran kalajengking adalah satu di dunia.</p>
+<p>	Kalajengking ini kotoran Gu, masing-masing memiliki racun yang unik. Setelah digunakan pada seseorang, mereka membutuhkan racun kalajengking Gu yang sesuai untuk mendetoksifikasi mereka setiap tujuh hari sekali.</p>
+<p>	Ini adalah metode yang paling umum untuk mengontrol budak.</p>
+<p>	Meskipun ada juga perbudakan Gu, dengan efek yang lebih baik, tapi itu peringkat lima. Itu mahal dan langka, tidak bisa digunakan secara umum.</p>
+<p>	Racun kalajengking Gu, meskipun Shang Xin Ci tidak bisa mengaktifkannya, dan tidak bisa membuatnya buang air besar, dia bisa membuatnya menyengat seseorang tanpa menggunakan esensi purba.</p>
+<p>	Fang Yuan berencana untuk memurnikan Gu kalajengking racun ini terlebih dahulu sebelum memberikannya kepada Shang Xin Ci dan membiarkannya memperbaikinya; terlalu sulit untuk membiarkannya melakukannya sendiri.</p>
+<p>	…</p>
+<p>	“Apa katamu? Seseorang membeli budak klan Wei itu? Apa yang saya instruksikan kepada Anda, saya katakan kepada Anda untuk memperhatikan mereka. Tunggu beberapa hari sampai aku menyelesaikannya dengan Shang Qiu Niu, dan membelinya setelah situasinya tenang!” Di ruang belajar, Shang Pu Lao memiliki ekspresi jelek saat dia memarahi Guru Gu yang bertanggung jawab.</p>
+<p>	Master Gu yang bertanggung jawab sedang berbaring di tempat tidur dengan ekspresi pucat.</p>
+<p>	Setelah ditendang oleh Fang Yuan, dia baru saja bangun ketika Shang Pu Lao datang untuk menanyainya.</p>
+<p>	“Tuan muda Pu Lao, saya sudah mencoba yang terbaik. Saya ingin menabur perselisihan di antara mereka, tetapi Shang Xin Ci mendengarkan Fang Zheng seperti anak domba. Saya mencoba mengulur waktu tetapi sebelum saya menyelesaikan kata-kata saya, Fang Yuan mengirim saya terbang dan membuat saya pingsan. ” Master Gu yang bertanggung jawab dengan lesu menjelaskan saat dia berbaring di tempat tidur.</p>
+<p>	“Huh… klan Wei ini dulunya adalah sosok yang berwibawa, mengendalikan operasi klan Wei. Mereka memiliki kultivasi yang tinggi dan pengalaman dalam manajemen. Jika saya bisa mendapatkannya, saya bisa membuat setengah klan Wei sendiri. Di antara mereka, ibu negara klan Wei, Wei De Xin, paling ahli dalam mengasuh penjaga. Pasukan penjaga pemimpin klan Wei pernah terkenal, berhasil memblokir banyak upaya pembunuhan, bahkan memblokir serangan lima Master Gu peringkat tiga sekaligus. Jika bukan karena krisis internal itu, bagaimana mereka bisa berantakan dengan mudah? ”</p>
+<p>	Shang Pu Lao menghela napas panjang.</p>
+<p>	“Aku bertanya padamu sekarang, bisakah situasinya diselamatkan?” Dia menatap tajam pada Guru Gu yang bertanggung jawab.</p>
+<p>	Master Gu menggelengkan kepalanya, menjelaskan dengan nada menangis: “Mereka semua sudah dibawa pergi, seluruh prosedurnya benar dan tidak ada masalah sama sekali. Tuan muda, saya telah mengecewakan Anda. ”</p>
+<p>	“Tidak apa-apa, selamat istirahat.” Shang Pu Lao mendengar ini dan kehilangan minatnya bersama-sama, memberikan kata penghiburan sebelum mengambil kepalanya.</p>
+<p>	Pagi hari berikutnya.</p>
+<p>	Di alun-alun perumahan taman Nan Qiu, lebih dari tiga puluh anggota klan Wei berdiri.</p>
+<p>	Fang Yuan dan Shang Xin Ci berkumpul.</p>
+<p>	Sebelumnya, Fang Yuan telah membantu Shang Xin Ci untuk memurnikan racun kalajengking Gu. Gu peringkat tiga masih terlalu kuat untuknya, oleh karena itu, Fang Yuan memilih beberapa cacing Gu lain untuk membantunya mengendalikan kalajengking racun Gu.</p>
+<p>	“Mulai hari ini dan seterusnya, Shang Xin Ci adalah tuan barumu, mengapa kamu tidak menyapanya?” Fang Yuan menyerahkan kalajengking racun Gu kepadanya di depan mereka.</p>
+<p>	Klan Wei perlahan berlutut di lantai, memberi hormat kepada Shang Xin Ci. Suara mereka lesu, penuh dengan ketidakberdayaan dan mati rasa, mereka semua bertingkah seperti boneka.</p>
+<p>	Mereka diusir dari klan, semua tokoh berwibawa yang menjalani kehidupan yang baik ini telah menjadi budak. Perilaku mereka yang sedih dan tidak bersemangat benar-benar alami.</p>
+<p>	Melihat orang-orang ini, bagaimana orang bisa merasa yakin menggunakannya?</p>
+<p>	Shang Xin Ci merasa kasihan pada mereka, tetapi juga mengkhawatirkan dirinya sendiri.</p>
+<p>	“Wei De Xin, keluarlah. Saya ingin berbicara secara pribadi dengan Anda. ” Fang Yuan mengulurkan tangannya, menunjuk salah satu wanita.</p>
+<p>	Mereka tiba-tiba menjadi energik, karena banyak ekspresi linglung mereka menjadi garang dan kuat.</p>
+<p>	“Apa yang kamu inginkan?” Banyak orang menggerakkan tubuh mereka, melindungi Wei De Xin.</p>
+<p>	“Aku memperingatkanmu, jangan menyentuhnya.” Salah satu dari mereka mengarahkan jarinya ke Fang Yuan, menunjukkan kewaspadaan yang tinggi.</p>
+<p>	Memukul!</p>
+<p>	Ekspresi Fang Yuan menjadi gelap, saat dia mengambil beberapa langkah ke depan dan memberikan tamparan.</p>
+<p>	Orang yang menunjuk ke arahnya dikirim terbang oleh kekuatan yang luar biasa. Mulutnya penuh darah saat giginya yang patah jatuh ke tanah.</p>
+<p>	“Sepertinya kamu belum jelas dari kenyataan. Meskipun saya menghabiskan banyak uang untuk membeli Anda semua, saya tidak menentang membunuh beberapa dari Anda untuk bersenang-senang. Jadi bagaimana jika saya ingin melakukan sesuatu pada istri pemimpin klan Anda, apa yang dapat Anda lakukan untuk menghentikan saya?” Fang Yuan memiliki ekspresi kejam dan suaranya sedingin es.</p>
+<p>	“Kamu …” Geng klan Wei marah, beberapa anak muda mengepalkan tangan, tetapi mereka tidak berani berbicara lagi.</p>
+<p>	“Kalian semua mundur.” Wei De Xin membuat mereka berdiri di samping saat dia berjalan keluar.</p>
+<p>	Meskipun wajahnya kotor, itu tidak bisa menyembunyikan penampilannya yang indah seperti buah persik.</p>
+<p>	Dia membungkuk kepada Fang Yuan: “Apa yang dibutuhkan Tuan Fang Zheng dari pelayan rendahan ini?”</p>
+<p>	Fang Yuan mendengus dingin, menggunakan tatapan tajam untuk memeriksa tubuhnya: “Nona Wei, Anda terlalu banyak bicara. Ikuti saja saya dan patuhi apa yang saya katakan.”</p>
+<p>	Mengatakan demikian, dia berbalik.</p>
+<p>	Saat daging di talenan, Wei De Xin juga tidak berdaya, dia mengertakkan gigi dan mengikuti Fang Yuan ke paviliun danau.</p>
+<p>	Angin sepoi-sepoi bertiup, menyebabkan riak di permukaan danau. Ikan mas berenang di danau, dan daun teratai memenuhi permukaan air, dengan kuncup bunga merah dan putih di dalam daun.</p>
+<p>	Pemandangan yang begitu indah membuat Wei De Xin sedikit rileks.</p>
+<p>	Tapi kalimat Fang Yuan berikutnya membuatnya gugup. Dia berkata: “Nona Wei, saya sangat tertarik pada Anda.”</p>
+<p>	Wei De Xin dengan cepat berlutut di tanah: “Pelayan ini rendah, merupakan kehormatan besar bagi saya bahwa penampilan saya telah menarik perhatian Tuan Fang Zheng. Tapi saya tidak berani menawarkan tubuh kotor saya kepada tubuh agung dan maskulin tuan. ”</p>
+<p>	“Ha ha ha.” Fang Yuan tertawa terbahak-bahak: “Wei De Xin, jangan salah. Saya sangat tertarik dengan bakat Anda, tubuh dan penampilan Anda hanyalah sepasang kerangka di mata saya. Selanjutnya, saya ingin Anda memelihara sekelompok penjaga wanita yang setia untuk Shang Xin Ci. Pada saat yang sama, Anda harus memotivasi klan Wei Anda dengan benar, memberitahu mereka untuk bekerja keras dan memiliki sikap positif.</p>
+<p>	Mendengar fang Yuan berkata demikian, Wei De Xin menghela napas lega, saat dia berjanji: “Ya, pelayan ini akan mengikuti perintah Tuhan.”</p>
+<p>	“Hehehe.” Fang Yuan tertawa dalam lagi, berkata dengan makna yang dalam: “Nona Wei, saya tahu Anda hamil, dan saya tahu niat Anda. Anda ingin mempertahankan satu-satunya garis keturunan suami Anda, dan pada saat yang sama menghubungi adik laki-laki Anda Wei Shen Jing untuk membalas dendam untuk Anda, kan?”</p>
+<p>	Saat dia berkata begitu, wajah Wei De Xin menjadi pucat saat tubuhnya yang halus bergetar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

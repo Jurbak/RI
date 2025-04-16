@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 11";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_10.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 11">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_12.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 11</h1>
+        <div class="text-left">
+<p>	Bab 11</p>
+<p>	Bab 11 – Ini hanya permainan kekuatan</p>
+<p>	Fang Yuan sedikit mengernyit. Berdasarkan intuisi dan pengalaman hidup selama 500 tahun, dia bisa mencium bau konspirasi.</p>
+<p>	Matanya berkedip dan dia mengendurkan alisnya. “Aku sedikit lapar sekarang, kamu datang di waktu yang tepat. Masuklah,” katanya.</p>
+<p>	Di luar pintu, sambil membawa kotak makanan Shen Cui tersenyum dingin saat mendengar jawabannya. Tetapi ketika dia membuka pintu, wajahnya dibiarkan dengan ekspresi lembut dan lemah lembut.</p>
+<p>	“Tuan muda Fang Yuan, bau makanan dan anggurnya sangat enak. Aku bisa menciumnya saat aku memegang kotak itu.” Suaranya manis dan memiliki sedikit kerinduan dan sanjungan. Dia meletakkan kotak makanan di atas meja kecil dan mengeluarkan piring, mengaturnya dengan baik. Makanannya memang sangat harum dan enak. Setelah itu dia mengeluarkan dua cangkir anggur dan menuangkan anggur.</p>
+<p>	“Ayo, tuan muda. Duduk. Pelayanmu mengumpulkan keberaniannya hari ini dan ingin menemani tuan muda untuk minum.” Dia tersenyum seperti bunga, berjalan ke sisi Fang Yuan. Dengan berani dia memegang tangannya dan menariknya untuk duduk di kursi dekat meja.</p>
+<p>	Kemudian dia duduk di pahanya dan menyandarkan tubuhnya yang lembut ke dada Fang Yuan, bertingkah seperti wanita yang pemalu dan menyenangkan, berbisik di telinganya. “Tuan muda Fang Yuan, pelayanmu selalu menyukaimu. Tidak peduli apa kelas Anda, saya akan selalu ingin berada di samping Anda, mengandalkan Anda, dan menghibur Anda. Malam ini pelayanmu ingin memberikan tubuhnya kepadamu.”</p>
+<p>	Dia benar-benar berdandan hari ini.</p>
+<p>	Dia memakai perona pipi, bibirnya seperti bubuk ceri. Ketika dia berbisik di telinganya, napas lembut dan muda menggoda di daun telinga Fang Yuan. Karena dia duduk di pangkuannya, Fang Yuan bisa merasakan sosoknya yang berbentuk baik dengan mudah. Paha elastisnya, pinggang kecilnya yang ramping dan dadanya yang lembut.</p>
+<p>	“Tuan muda, biarkan aku memberimu anggur sendiri.” Shen Cui mengambil cangkir anggur, mengangkat kepalanya dan menyesapnya. Kemudian matanya terpaku pada Fang Yuan, bibir ceri kecilnya sedikit terbuka, perlahan-lahan mencondongkan tubuh ke mulutnya.</p>
+<p>	Ekspresi Fang Yuan acuh tak acuh, seolah-olah apa yang ada di pangkuannya bukanlah seorang gadis muda, tetapi sebuah balok patung.</p>
+<p>	Ketika dia melihat ekspresi Fang Yuan, Shen Cui merasa sedikit tidak nyaman pada awalnya. Tetapi ketika bibirnya hanya satu inci darinya, dia yakin, mencibir di dalam hatinya. Kau masih berpura-pura , pikirnya.</p>
+<p>	Tepat pada saat ini Fang Yuan mengejek, nadanya menghina. “Jadi itu hanya permainan kekuatan (1).”</p>
+<p>	Wajah Shen Cui menjadi kaku dan dia menelan anggur di mulutnya, mencoba menarik sanjungan palsu. “Tuan muda Fang Yuan, apa yang kamu katakan …”</p>
+<p>	Mata Fang Yuan memancarkan cahaya dingin. Dia menatap mata Shen Cui, meletakkan tangan kanannya di leher putih bersaljunya pada saat yang sama, perlahan menekannya dengan paksa. Pupil mata Shen Cui menyusut dan suaranya penuh kepanikan. “Tuan muda, kamu menyakitiku.”</p>
+<p>	Fang Yuan tidak menjawab, tetapi cengkeramannya di lehernya semakin kuat.</p>
+<p>	“Tuan muda Fang Yuan, pelayanmu sedikit takut!” Shen Cui sudah mengalami kesulitan bernapas; dia terlihat bingung. Sepasang tangan lembut tanpa sadar menggenggam tangan Fang Yuan, mencoba melepaskan tangannya. Tapi tangan Fang Yuan kuat seperti besi, tidak bisa ditarik.</p>
+<p>	“Sepertinya Paman dan Bibi membiarkanmu datang untuk merayuku dan menjebakku? Ini pasti berarti sudah ada orang yang diatur di lantai bawah, ya. ” Fang Yuan tertawa dingin, menambahkan, “Tapi kamu pikir kamu siapa, datang untuk menggunakan taktik padaku, dengan dua tumpukan sampah daging busuk di dadamu?”</p>
+<p>	Saat dia mengatakan ini, tangan kirinya naik ke dadanya dan dengan kejam meraih payudaranya yang lembut, membuatnya tiba-tiba berubah bentuk.</p>
+<p>	Rasa sakit yang hebat berkobar dari dadanya; Mata Shen Cui bulat dan terbuka lebar.</p>
+<p>	Rasa sakitnya begitu hebat sehingga matanya penuh air mata. Dia ingin berteriak, tetapi Fang Yuan mencengkram tenggorokannya begitu kuat sehingga pada akhirnya dia hanya bisa terisak beberapa kali. Kemudian dia mulai melawan dengan kuat, karena dia benar-benar akan mati lemas!</p>
+<p>	Tetapi pada saat ini, Fang Yuan perlahan mengendurkan cengkeramannya.</p>
+<p>	Shen Cui segera membuka mulutnya dan menelan ludah dengan rakus. Napasnya terlalu bersemangat – menghasilkan serangkaian batuk hebat. Fang Yuan tertawa ringan, mengulurkan telapak tangannya. Dia dengan lembut membelai pipinya, nadanya riang saat dia berbicara, “Shen Cui, apakah menurutmu aku bisa membunuhmu, atau tidak ?”</p>
+<p>	Jika Fang Yuan meraung padanya dengan suara jahat dan keras, Shen Cui mungkin benar-benar akan membalas dengan keras. Tetapi ketika Fang Yuan tersenyum dan berbicara dengan cara yang dangkal, suaranya yang lembut menanyakan apakah dia bisa membunuhnya atau tidak, Shen Cui merasakan ketakutan yang mendalam dari lubuk hatinya.</p>
+<p>	Dia takut!</p>
+<p>	Dia menatap Fang Yuan dengan ketakutan di wajahnya, melihat pemuda ini tersenyum di seluruh wajahnya saat dia menatapnya.</p>
+<p>	Pada saat ini, Shen Cui bersumpah pada dirinya sendiri bahwa dia tidak akan pernah melupakan matanya selama sisa hidupnya. Sepasang mata ini tidak bercampur dengan emosi sedikit pun, gelap dan mendalam, menyerupai kolam kuno yang dalam yang menyembunyikan binatang buas yang mengerikan.</p>
+<p>	Di bawah tatapan mata ini, Shen Cui merasa seperti telanjang di tengah es dan salju!</p>
+<p>	Orang di depanku, pasti berani membunuhku, mampu membunuhku…</p>
+<p>Astaga! Mengapa saya datang dan memprovokasi iblis semacam ini?!</p>
+<p>	Hati Shen Cui penuh dengan penyesalan. Pada saat ini dia ingin berbalik dan melarikan diri. Tapi sekarang dia masih di pangkuannya; dia tidak berani melarikan diri, bahkan tidak bisa mengumpulkan keberanian untuk melakukan tindakan apa pun.</p>
+<p>	Otot-otot di seluruh tubuhnya tegang, perawakannya yang lembut gemetar. Wajahnya sepucat kertas putih dan dia tidak bisa mengucapkan sepatah kata pun.</p>
+<p>	“Karena kamu sebagai gadis pelayan pribadi, telah melayaniku selama bertahun-tahun, aku tidak akan membunuhmu kali ini. Karena kamu ingin melarikan diri dari perbudakan, pergi dan temukan adikku, dia bodoh dan naif.” Fang Yuan menarik kembali senyumnya dan menepuk pipinya, nadanya polos seperti air.</p>
+<p>	Sambil menghela nafas, dia akhirnya berkata —-</p>
+<p>	“Kamu boleh pergi.”</p>
+<p>	Shen Cui sebodoh sepotong kayu saat dia berjalan keluar dengan patuh. Dia takut kehabisan akal, dan tidak tahu bagaimana dia berhasil meninggalkan sisi iblis bernama Fang Yuan.</p>
+<p>	Orang-orang yang bersembunyi di balik bayang-bayang tampak bingung ketika mereka melihat Shen Cui keluar terlihat sangat terguncang.</p>
+<p>	“Mereka benar-benar mengatur jebakan yang begitu indah, bahkan lebih inovatif dari kehidupanku sebelumnya. Hehe, Bibi dan Paman, kebaikanmu ini akan kuingat dalam-dalam!”</p>
+<p>	Tidak lama setelah Shen Cui pergi, Fang Yuan berdiri dan pergi juga. Tidak peduli apa, dia tidak bisa tinggal di kediaman ini lagi. Orang bijak melihat dan mengurangi risiko yang diramalkan, apa lagi yang bisa dikatakan untuk iblis? Ketika tidak ada kekuatan yang cukup, hanya orang bodoh yang akan menempatkan dirinya dalam bahaya.</p>
+<p>	“Pemilik penginapan, apakah Anda punya kamar yang tersedia?” Fang Yuan datang ke satu-satunya penginapan di desa dan menanyakan harganya.</p>
+<p>	“Ya ya. Ada kamar di lantai dua dan lantai tiga. Tidak hanya murah, kamarnya juga rapi dan bersih. Lantai pertama adalah kafetaria; tamu penginapan bisa datang ke sini dan makan. Ada juga layanan untuk meminta pekerja penginapan untuk membawakan makanan ke kamar Anda.” Pemilik penginapan itu penuh dengan keramahan saat dia menghibur Fang Yuan.</p>
+<p>	Penginapan ini adalah satu-satunya di desa, tetapi bisnisnya tidak terlalu bagus. Bahkan itu agak sepi. Hanya ketika karavan pedagang tahunan datang untuk berdagang di Gunung Qing Mao, penginapan akan penuh dengan orang.</p>
+<p>	Fang Yuan sedikit lapar, jadi dia memberikan 2 buah batu purba yang bulat penuh kepada pemilik penginapan. “Beri saya kamar yang bagus untuk saya tinggali, dan siapkan 2 botol anggur, 3-4 hidangan berbeda, kembalikan saya kelebihan saldo.”</p>
+<p>	“Selesai.” Pemilik penginapan mengambil 2 buah batu purba dan bertanya, “Apakah Anda ingin makan di kamar Anda, atau makan di aula?”</p>
+<p>	Fang Yuan melihat ke langit. Hujan telah berhenti dan hari sudah hampir malam. Dia hanya bisa makan di lobi dan langsung menuju pinggiran desa ketika dia selesai, melanjutkan pencariannya untuk harta karun Biksu Anggur Bunga. Jadi dia menjawab, “Saya akan makan di aula.”</p>
+<p>	Penginapan memiliki ruang makan; ada selusin meja persegi, empat bangku panjang mengelilingi setiap meja. Di antara meja ada pilar besar dan tebal yang menopang penginapan. Lantainya dilapisi ubin marmer besar, tapi basah; sulit untuk menyembunyikan kelembapan gunung.</p>
+<p>	Ada 3 meja duduk dengan orang-orang. Duduk di dekat jendela, seorang lelaki tua sedang minum anggur, menatap matahari terbenam di luar, sendirian. Di tengah kafetaria ada meja duduk dengan 5-6 pemburu. Mereka berdiskusi tentang pengalaman berburu mereka dengan suara keras, dan di kaki mereka ada tumpukan berbagai jenis mangsa gunung, seperti burung pegar dan kelinci.</p>
+<p>	Di sudut lain ada meja dengan 2 anak muda, tampaknya berdiskusi secara rahasia. Sosok mereka tersembunyi dalam kegelapan, sulit untuk melihat mereka, dan lebih sulit untuk mengetahui jenis kelamin mereka.</p>
+<p>	Fang Yuan memutuskan untuk duduk di dekat meja yang paling dekat dengan pintu. Segera setelah itu, hidangan disajikan di atas meja.</p>
+<p>	“Dengan bakat kelas C saya, untuk memperbaiki Moonlight Gu saya perlu meminjam batu purba. Jika keberuntungan saya bagus dan Moonlight Gu ini tidak memiliki kemauan yang kuat, saya hanya membutuhkan 5 buah. Tetapi jika keras kepala bahwa saya akan mendapat masalah, mungkin membutuhkan setidaknya 8 buah. ”</p>
+<p>	Gu adalah makhluk hidup, jadi wajar jika mereka memiliki keinginan untuk bertahan hidup.</p>
+<p>	Beberapa memiliki kemauan yang kuat dan akan selalu menolak proses pemurnian; beberapa Gu memiliki kemauan yang lemah, selama pemurnian mereka menyerah tanpa daya; begitu tidak ada penolakan, proses pemurnian akan menjadi santai.</p>
+<p>	“Saat ini saya hanya memiliki 6 batu purba, tetapi saya memberikan 2 kepada pemilik penginapan jadi saya hanya memiliki 4 buah. Tidak cukup.”</p>
+<p>	Di dunia ini batu purba adalah mata uang lokal, dan daya belinya sangat kuat. Keluarga normal yang terdiri dari tiga orang akan menghabiskan paling banyak 1 buah batu esensi dalam sebulan. Tetapi ketika datang ke Guru Gu , konsumsi batu purba lebih besar. Ambil Fang Yuan misalnya; hanya dengan memurnikan Gu saja dia akan membutuhkan rata-rata 7 batu purba atau lebih. Dan ini hanya pada Moonlight Gu, jika dia benar-benar menemukan cacing Liquor, hanya untuk memperbaikinya dengan bakat kelas Fang Yuan, dia akan membutuhkan setidaknya selusin lagi!</p>
+<p>	“Dengan kata lain, saat ini situasiku adalah – Bahkan jika aku menemukan cacing Liquor, aku tidak perlu memiliki batu purba untuk memperbaikinya. Namun saya masih perlu mencari di sekitar, karena ada kemungkinan besar bahwa harta Biksu Anggur Bunga memiliki banyak sekali batu purba. ”</p>
+<p>	Ini bukan deduksi yang sulit. Bagaimanapun, Biksu Anggur Bunga adalah Guru Gu peringkat lima . Untuk prajurit kuat yang terkenal dari Fraksi Iblis, bagaimana mungkin dia tidak memiliki batu purba, yang merupakan item yang harus dimiliki dalam budidaya Guru Gu ?</p>
+<p>	(1) Permainan kekuasaan – taktik yang menunjukkan atau dimaksudkan untuk meningkatkan kekuasaan atau pengaruh seseorang.</p>
+<p>	T/N Catatan: Apakah bab ini terlalu gelap?</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

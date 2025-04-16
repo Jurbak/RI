@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 451 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 451";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_450.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 451">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_452.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 451</h1>
+        <div class="text-left">
+<p>	Bab 451 – Kelompok Serigala Turtleback</p>
+<p>	Bab 451:</p>
+<p>Penerjemah Grup Serigala Penyu: ChibiEditor Umum: ChibiGeneral</p>
+<p>	“Laporan mendesak! Sekelompok besar serigala penyu telah muncul tiga ribu li di depan. Mereka memiliki jumlah yang sangat besar, diperkirakan berjumlah sepuluh ribu serigala!” Investigasi suku Ge, Gu Master datang berlari dan melapor kepada pemimpin suku Ge.</p>
+<p>	Ekspresi pemimpin suku Ge berubah serius dan melambaikan tangannya ke Master Gu: “Selidiki lagi.”</p>
+<p>	Tidak lama sebelumnya, dia sudah menerima surat Gu dari investigasi Gu Masters. Tetapi seringkali di medan perang, untuk mencegah surat Gu dipotong oleh musuh, Master Gu investigasi akan datang untuk menyampaikan pesan secara pribadi.</p>
+<p>	“Serigala penyu adalah spesies serigala dengan pertahanan terkuat. Sepuluh ribu serigala ini akan menjadi tulang yang sulit untuk dikunyah.”</p>
+<p>	“Kami telah memerintahkan Gu Masters untuk memancing mereka, tetapi belum ada hasil. Kelompok serigala ini menuju ke arah kita.”</p>
+<p>	“Hmph, sudah berapa lama sejak kita mulai bermigrasi? Sepertinya suku Manusia tidak ingin melepaskan kita….”</p>
+<p>	“Untungnya, serigala-serigala ini tidak cepat sehingga kami punya waktu untuk mengatur formasi kami.”</p>
+<p>	Tetua suku Ge membuat komentar satu demi satu.</p>
+<p>	Di dataran utara yang kacau, tidak ada Master Gu yang bisa naik ke posisi tinggi yang bodoh. Saat ini, semua tetua sudah menyadari kebenarannya.</p>
+<p>	Sebagian besar pasukan suku Ge sudah menghentikan gerakan mereka dan membentuk formasi melingkar. Sejumlah besar Master Gu dengan gugup menggunakan cacing Gu untuk mendirikan tembok tinggi, menara pemanah dan banyak lapisan pertahanan.</p>
+<p>	Para petinggi suku Ge mengawasi situasi dari tenda pusat.</p>
+<p>	“Putra.” Pemimpin suku Ge dengan lembut memanggil.</p>
+<p>	“Ayah, aku di sini.” Ge Guang segera menjawab.</p>
+<p>	“Undang Tuan Chang Shan Yin untuk datang.” Pada pertempuran yang menyangkut kelangsungan hidup suku ini, pemimpin suku Ge tidak mau melepaskan kekuatan pertempuran apa pun.</p>
+<p>	“Ya.” Ge Guang membungkuk dan pergi; dia baru saja berjalan dari tenda utama ketika dia melihat Fang Yuan.</p>
+<p>	“Paman.” Ge Guang menyapa dengan riang.</p>
+<p>	Fang Yuan menganggukkan kepalanya, langsung berjalan ke arahnya dan berkata dengan nada yang agak mendesak: “Aku tahu tentang invasi kelompok serigala. Bagaimana situasinya?”</p>
+<p>	“Kita punya waktu sekitar delapan menit sebelum kelompok serigala tiba. Sejak relokasi kami, untuk mencegah suku Man bermain trik, ayah telah menugaskan kavaleri ringan untuk mengintai jarak enam ratus li! ” Ge Guang mengikuti Fang Yuan dan melapor kepadanya dari samping.</p>
+<p>	Keduanya berjalan di dalam tenda utama yang berada di atas gundukan.</p>
+<p>	Gundukan itu sudah ditinggikan dengan menggunakan cacing Gu; petinggi suku Ge memiliki bidang pandang yang sangat baik dari gundukan.</p>
+<p>	Ini karena mereka bertemu dengan kelompok serigala. Jika mereka bertemu dengan kelompok elang atau burung hantu, mereka akan menggali terowongan. Metode yang berbeda menangani situasi yang berbeda.</p>
+<p>	Melihat Fang Yuan, petinggi suku Ge buru-buru menyambutnya. Suasana di sini tegang seperti badai sedang terjadi.</p>
+<p>	“Suku Ge kami sangat beruntung memiliki saudara Raja Serigala untuk membantu kami, saya bisa tenang.” Pemimpin suku Ge menghela nafas dan berbicara dengan rasa terima kasih.</p>
+<p>	“Hehehe, nasib antara aku dan suku Ge tidak dangkal. Teman harus saling membantu ketika mereka berjalan di jalan yang sama! Bagaimana situasinya?” Fangyuan bertanya.</p>
+<p>	“Tolong lihat.” Pemimpin suku Ge memimpin Fang Yuan menuju meja di mana ada kulit domba yang memiliki peta yang digambar di atasnya. Dia menunjuk ke arah itu dan memperkenalkan medan di sekitarnya, garis pertahanan suku Ge dan gerakan kelompok serigala.</p>
+<p>	“Tuan sudah mengaturnya dengan baik, tidak ada yang salah.” Fang Yuan pertama-tama memuji, lalu menunjuk ke arah tanda di peta.</p>
+<p>	Tatapan semua orang mengikuti jarinya; itu adalah sungai di samping perkemahan mereka.</p>
+<p>	“Karena ada area yang berbahaya, kenapa kamu tidak menggunakannya untuk pertahanan?” Fang Yuan melamar.</p>
+<p>	“Kakak mungkin belum tahu, kita sudah memikirkannya, tetapi sebagian besar pasukan memiliki gerakan lambat dan akan terlambat saat kita mencapai sungai, mendirikan kemah lagi dan mengatur garis pertahanan baru.” Pemimpin suku Ge tersenyum pahit.</p>
+<p>	Untuk migrasi suku, sebagian besar anggota suku menggunakan kuda perut besar. Namun, karena banyak hal yang disimpan di kuda perut besar, kecepatan mereka lambat.</p>
+<p>	Master Gu suku Ge dapat dengan cepat mencapai tepi sungai dengan serigala punuk. Tetapi sebagian besar manusia akan tertinggal dan begitu kelompok serigala tiba, semua manusia mungkin akan dimusnahkan.</p>
+<p>	Tanpa manusia, bagaimana mungkin ada Master Gu baru di masa depan di suku mana pun? Manusia adalah batu penjuru dari semua suku.</p>
+<p>	Namun, Fang Yuan tersenyum cerah: “Saudaraku, saya juga orang dataran utara, saya secara alami tahu ini. Kami tidak dapat pergi ke tepi sungai, tetapi kami dapat membiarkan sungai datang kepada kami.”</p>
+<p>	Mata petinggi suku Ge menjadi cerah mendengar kata-kata ini.</p>
+<p>	“Benar, kita bisa menggali kanal dan menggambar di sungai untuk membantu kita bertahan.”</p>
+<p>	“Serigala penyu memiliki tubuh yang berat dan tidak bisa berenang; begitu mereka jatuh ke sungai, mereka akan tenggelam ke dasar dan mati tenggelam.”</p>
+<p>	“Pemimpin suku tuan, kirim perintah dengan cepat!”</p>
+<p>	Pemimpin suku Ge juga langsung mengirim perintah: “Saya perintahkan Ge Cui, Ge Xiang, dan Ge Mi untuk memimpin pasukan pertama, ketujuh dan kedelapan belas, segera hentikan semua tugas saat ini dan pergi ke tepi sungai untuk menggali kanal. Adapun pasukan ketiga, kelima dan keenam belas, Anda akan mengambil alih tugas yang belum selesai dari pasukan pertama, ketujuh dan kedelapan belas.</p>
+<p>	“Ya!” Master Gu investigasi di luar tenda segera menerima perintah.</p>
+<p>	Beberapa napas kemudian, tiga huruf Gu terbang secara terpisah menuju lokasi yang jauh.</p>
+<p>	“Untungnya, saudara ada di sini untuk membimbing kita keluar dari kebingungan ini.” Pemimpin suku tua itu menyapa Fang Yuan lagi dengan ekspresi bersyukur yang datang dari lubuk hatinya.</p>
+<p>	Hanya mengandalkan saran dari Fang Yuan ini, mereka dapat melestarikan sekitar seratus Master Gu dan bahkan dapat mengurangi korban.</p>
+<p>	Bagaimanapun, dia adalah Raja Serigala …</p>
+<p>	Seketika, tatapan semua tetua suku Ge ke arah Fang Yuan samar-samar berubah menjadi pujian dan kekaguman.</p>
+<p>	Selama periode tegang dan sibuk ini, waktu berlalu dengan cepat.</p>
+<p>	Investigasi Gu Masters datang ke kamp satu demi satu untuk melaporkan posisi kelompok serigala. Pada saat yang sama, mereka juga dengan jelas mencari jumlah serigala penyu.</p>
+<p>	Lebih dari tiga puluh delapan ribu!</p>
+<p>	Ketika kelompok serigala hanya delapan ratus li jauhnya dari kamp, ​​​​pemimpin suku Ge mulai memanggil kembali Master Gu investigasi dengan tertib.</p>
+<p>	Pada saat kelompok serigala mencapai jarak lima ratus li dari kamp, ​​kanal terbentuk dan air sungai ditarik masuk.</p>
+<p>	Ketika mereka mencapai tiga ratus li, tiga garis pertahanan selesai terbentuk dan pasukan tempur segera dikerahkan. Dukungan dan logistik Gu Masters yang bertanggung jawab atas konstruksi mundur satu demi satu, menggunakan batu purba untuk memulihkan esensi purba mereka dengan cepat. Mereka tidak berani bersantai bahkan untuk sesaat. Ketika medan perang tidak dapat bertahan, mereka harus pergi sebagai bala bantuan.</p>
+<p>	Pada jarak seratus li, semua orang bisa melihat sejumlah besar bayangan hantu serigala di cakrawala.</p>
+<p>	Di tenda utama, delapan Gu investigasi diaktifkan; asap membumbung dan terlihat dari segala arah.</p>
+<p>	Kelompok serigala penyu terutama datang dari sisi utara. Pada saat yang sama, ada juga banyak serigala yang datang dari timur laut dan tenggara.</p>
+<p>	Saat kelompok serigala semakin dekat, semua manusia bisa melihat mereka dengan jelas.</p>
+<p>	Serigala penyu memiliki tubuh yang lebar, seluruh tubuh mereka berwarna hijau tua dan memiliki mata biru tua. Di punggung mereka ada cangkang seperti kura-kura.</p>
+<p>	Cangkang ini sangat berat dan sekitar sepertiga dari berat serigala penyu adalah karena cangkangnya. Selain untuk tujuan defensif, ia juga bisa menyimpan nutrisi seperti unta.</p>
+<p>	Pengisian beberapa puluh ribu serigala menyebabkan tanah mulai bergetar.</p>
+<p>	Fang Yuan berjalan keluar dari tenda utama dan menatap padang rumput hanya untuk melihat sejumlah besar serigala bergerak di tanah. Dia kemudian melihat ke kamp di bawah; anggota suku Ge bergerak dengan sibuk tanpa gangguan, itu adalah hal yang normal untuk menghadapi serangan binatang buas di dataran utara. Jadi, apakah itu Master Gu atau manusia, mereka telah mengembangkan pikiran yang kuat.</p>
+<p>	Garis pertahanan pertama di utara adalah yang pertama menghadapi serangan.</p>
+<p>	“Bertarung!” Seorang pemimpin Gu Master yang sedang menonton dari menara berteriak keras dan melemparkan bilah angin.</p>
+<p>	Segera setelah itu, Master Gu di sekitarnya juga mulai bergerak.</p>
+<p>	Sederet bilah angin terbang jauh, memotong lusinan serigala penyu dengan seketika.</p>
+<p>	Ketika kelompok serigala mendekat, Master Gu meninggalkan bilah angin dan menggunakan Gu api yang lebih kuat, Gu petir dan sebagainya.</p>
+<p>	Untuk sesaat, lampu warna-warni yang tak terhitung jumlahnya meledak di medan perang, seperti kembang api yang ditembakkan secara bersamaan. Teriakan manusia, lolongan serigala yang marah, dan suara menusuk dari bilah angin membentuk campuran suara.</p>
+<p>	Serangan kelompok serigala itu seperti hujan yang datang tanpa henti, dan berhasil menyerbu. Mereka pertama kali menemukan dinding bumi.</p>
+<p>	Dinding tanahnya tebal, dan fondasinya telah diperkuat dengan tembaga dan besi.</p>
+<p>	Serigala penyu yang tak terhitung jumlahnya memar parah ketika mereka menabrak dinding bumi ini dan bahkan mati di tempat.</p>
+<p>	Namun, kelompok serigala maju gelombang demi gelombang, beberapa menginjak-injak mayat dan melompat tinggi, sementara beberapa mencakar dinding bumi untuk menembus.</p>
+<p>	Selanjutnya, garis pertahanan di tenggara dan timur laut juga memasuki medan perang.</p>
+<p>	Teriakan bergema di seluruh langit dan korban mulai muncul. Healing Gu Masters mulai menunjukkan nilai mereka.</p>
+<p>	Karena mereka telah membuat persiapan yang cukup, seluruh suku Ge bergerak dengan sangat tertib.</p>
+<p>	“Lihat, itu adalah raja serigala yang tak terhitung jumlahnya!” Seseorang berteriak sambil menunjuk ke arah tertentu.</p>
+<p>	Semua orang segera mengikuti suara itu dan melihat.</p>
+<p>	Raja serigala segudang penyu ini sangat besar, bahkan sepuluh kali ukuran serigala penyu biasa sedikit lebih rendah darinya. Aura tiraninya terwujud saat ia berjongkok di tanah dan melolong, memerintahkan kelompok serigala untuk membelah.</p>
+<p>	Kelompok serigala Turtleback dibagi menjadi lima hingga enam kelompok dan mulai mengelilingi kamp suku Ge, mencari lubang di pertahanan.</p>
+<p>	Seperti ini, suku Ge dikelilingi oleh serigala dari segala arah, dan pertempuran terjadi di mana-mana.</p>
+<p>	Di sebuah bukit tanpa nama di luar medan perang, sekelompok pria suku menggunakan cacing Gu untuk menyembunyikan diri mereka dan menggunakan Gu investigasi untuk mengamati situasi.</p>
+<p>	“Pertempuran telah dimulai!” Man Hao tersenyum, menikmati bencana suku Ge.</p>
+<p>	“Suku Ge sebenarnya menyalurkan sungai melalui kanal, pemimpin suku Ge benar-benar rubah tua! Tapi, ada lebih dari tiga puluh ribu serigala penyu, bahkan jika suku Ge mampu melawan mereka, mereka akan menderita kerugian serius.” Man Hong tersenyum dingin.</p>
+<p>	Penampilannya sangat mirip dengan pemimpin suku Man Tu; dia adalah putra tertua Man Tu dan memiliki kultivasi peringkat tiga tingkat menengah.</p>
+<p>	“Pemimpin suku muda benar. Bahkan jika suku Ge dapat memblokir gelombang pertama dari kelompok serigala, masih ada gelombang kedua dan juga gelombang ketiga. Man Hao tersanjung.</p>
+<p>	Meskipun Man Hong adalah putra tertua, tetapi dia masih belum benar-benar menjadi pemimpin suku muda. Namun, Man Hao telah berjanji setia kepada Man Hong dan merupakan pendukung setianya; dia menyebut Man Hong sebagai pemimpin suku muda, itu adalah sanjungan dan juga harapannya.</p>
+<p>	“Pemimpin suku muda?” Man Hong tidak membantah dan malah menganggukkan kepalanya, “Ayah telah memberikan tugas penting ini kepadaku, aku akan membangun pahala besar dengan menyelesaikan ini dan mungkin memang menjadi pemimpin suku muda ketika kita kembali ke suku. Sayangnya, bocah licik Man Duo itu tidak datang, kalau tidak aku bisa meminjam kekuatan orang lain dan dengan mudah menyingkirkan bocah jahat itu! ”</p>
+<p>	“Man Duo mungkin agak cerdas, tapi bakatnya kurang dan dia sama sekali bukan tandingan pemimpin suku muda. Lihat, ratusan raja serigala telah bergerak!” kata Man Hao.</p>
+<p>	Seratus raja binatang memiliki peringkat dua cacing Gu yang berada di tubuh mereka, dan sangat kuat. Penampilan mereka segera menyebabkan tekanan pada pasukan garis depan suku Ge meningkat pesat. Jumlah korban meningkat tajam, dan 2 hingga 3 ratus raja serigala menghancurkan dinding bumi dan menembus pertahanan suku Ge.</p>
+<p>	“Hehehe.” Melihat Gu Master suku Ge sekarat satu demi satu, Man Hong menunjukkan senyum senang dan sinis.</p>
+<p>	Sekelompok orang bodoh yang bodoh ini sebenarnya tidak bergabung dengan suku Man, sekarang bukankah mereka hanya menderita makanan penutup?</p>
+<p>	“Hmm?” Senyum Man Hong menegang; melalui worm Gu investigasi, dia melihat seekor serigala perbudakan Gu memasuki seratus raja serigala.</p>
+<p>	Itu segera mengubah keselarasannya dan melolong, menyebabkan serigala di sampingnya jatuh ke dalam kekacauan.</p>
+<p>	Segera setelah itu, serigala-serigala penyu ini mengikuti raja serigala menuju kamp suku Ge dan berkumpul di bawah seorang Master Gu.</p>
+<p>	Man Hong menyipitkan matanya dan menatap Guru Gu ini: “Mungkinkah orang ini adalah Raja Serigala, Chang Shan Yin?”</p>
+<p>	“Ya, pemimpin suku muda.” Man Hao dikonfirmasi.</p>
+<p>	Man Hong mengejek: “Ayah berkata bahwa dia adalah ketidakpastian terbesar. Biarkan aku melihat kemampuan apa yang dia miliki! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

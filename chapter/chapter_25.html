@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 25 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 25";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_24.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 25">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_26.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 25</h1>
+        <div class="text-left">
+<p>	Bab 25</p>
+<p>	Bab 25 – Cahaya musim semi mempesona</p>
+<p>	“Apakah dia Fang Yuan atau Fang Zheng?” Beberapa siswa bergumam; masih ada orang yang tidak bisa membedakan antara Fang Yuan dan Fang Zheng, dua saudara kembar.</p>
+<p>	“Ini Fang Zheng. Fang Yuan selalu memasang ekspresi dingin, dia tidak akan pernah terlihat tegang, ”jawab seseorang.</p>
+<p>	“Oh, kalau begitu akan ada tontonan. Bagaimanapun, Fang Zheng adalah satu-satunya talenta kelas A dari desa kami dalam tiga tahun. ” Kerumunan mengarahkan pandangan mereka ke lapangan.</p>
+<p>	Fang Zheng bisa merasakan tekanan di antara tatapan yang diarahkan padanya, dan ini membuatnya merasa lebih gugup. Berdiri di atas panggung, jari-jarinya sedikit gemetar.</p>
+<p>	Dia membuang pedang bulan pertamanya, awalnya berniat untuk membidik dada boneka rumput itu. Namun karena tegang, ia meleset – pada akhirnya moonblade tercetak di area leher boneka rumput itu.</p>
+<p>	Para remaja muda langsung mengeluarkan suara kejutan kecil.</p>
+<p>	Mereka mengira Fang Zheng sengaja melakukannya. Alih-alih mengincar tempat termudah yang merupakan dada boneka, dia malah pergi ke leher – ini adalah pertunjukan kepercayaan diri yang besar terhadap keterampilan menyerangnya sendiri.</p>
+<p>	Mereka tidak bisa tidak menantikan langkah Fang Zheng selanjutnya. Namun Gu Yue Mo Bei dan Gu Yue Chi Cheng memiliki corak kulit yang rendah.</p>
+<p>	Hanya mereka di antara bidang yang bisa melihat kesalahan Fang Zheng adalah tetua akademi dan Fang Yuan.</p>
+<p>	“Betapa berbahayanya!” Melihat pedang bulan, Fang Zheng berseru dalam hatinya sambil diam-diam merasa beruntung. Dia menarik napas dalam-dalam beberapa kali, mencoba yang terbaik untuk menenangkan diri. Kemudian dia membuang dua bilah. Kali ini dia tidak melakukan kesalahan, dan kedua bilahnya mengenai dada boneka rumput dengan tepat.</p>
+<p>	Hasil ini membuat tetua akademi mengangguk, dan Mo Bei dan Chi Cheng juga menjadi tenang. Hasil Fang Zheng berbeda dari mereka, jadi semuanya tergantung pada bagaimana tetua akademi memutuskan untuk menilai mereka.</p>
+<p>	Siswa lain mengeluarkan suara desahan. Penampilan Fang Zheng kemudian tidak menarik, membuat mereka merasa sedikit kecewa.</p>
+<p>	Beberapa kelompok berikutnya juga tidak menarik. Tidak ada yang bisa tampil lebih baik dari Mo Bei, Chi Cheng dan Fang Zheng. Anak-anak mulai berbisik-bisik.</p>
+<p>	“Pada tingkat ini, pencetak gol terbanyak dalam penilaian hari ini harus di antara mereka bertiga.”</p>
+<p>“Mereka bertiga berhasil mengenai boneka rumput, aku ingin tahu siapa yang akan dianggap lebih baik oleh tetua akademi.”</p>
+<p>“Tunggu, ini grup terakhir. Fang Yuan naik. ”</p>
+<p>“Oh, bakat kelas C ‘jenius dingin’ itu? Hehehe .”</p>
+<p>	Tepat ketika itu adalah grup terakhir, Fang Yuan akhirnya naik panggung.</p>
+<p>	“Itu Fang Yuan ….” Gu Yue Mo Bei mengangkat kepalanya dan menatap Fang Yuan sejenak, lalu dia menurunkan matanya tanpa peduli.</p>
+<p>	“Terakhir kali kamu benar – benar beruntung, memilih Moonlight Gu yang berkemauan lemah secara tidak sengaja dan mendapatkan nomor satu. Mari kita lihat bagaimana penampilanmu kali ini!” Gu Yue Chi Cheng memeluk lengannya, menunggu untuk melihat Fang Yuan mempermalukan dirinya sendiri.</p>
+<p>	“Kakak… Kali ini tidak akan seperti yang terakhir. Saya telah berlatih begitu keras begitu lama, saya pasti bisa melampaui Anda. ” Di antara kerumunan, Gu Yue Fang Zheng mengerucutkan bibirnya, tanpa sadar mengepalkan tinjunya dengan erat.</p>
+<p>	Sebelumnya dalam penilaian untuk memperbaiki Gu vital , dia sebagai seseorang dengan bakat kelas A sebenarnya mendapat posisi kedua. Tentu saja dia tidak senang dengan ini. Apalagi setelah dia mengerti bahwa Fang Yuan bisa menang dan mendapatkan nomor satu karena keberuntungan semata, ini membuatnya semakin tidak puas. Bagi Gu Yue Fang Zheng, kemenangan atas kakak laki-lakinya sendiri, Fang Yuan, memiliki arti yang istimewa dan besar.</p>
+<p>	Banyak tatapan tertuju pada Fang Yuan, dan pandangan sesepuh akademi juga tertuju padanya. Fang Yuan tidak membuat emosi; ekspresinya dingin dan terpisah.</p>
+<p>	Dia berdiri diam, esensi purba mengalir ke Moonlight Gu di jantung telapak tangannya. Dengan luka di udara, dia menyerang moonblade pertama.</p>
+<p>	Moonblade ini terbang sangat tinggi. Itu tidak hanya melewati kepala boneka rumput, tetapi juga terbang di atas dinding bambu. Itu berlangsung selama hampir lima belas meter sebelum cahaya menjadi redup dan menghilang ke udara tipis.</p>
+<p>	“Pfffft…” Seseorang tidak bisa menahan tawa.</p>
+<p>“Ini terlalu keterlaluan, bukan.” Seseorang mencibir.</p>
+<p>“Dia memang jenius. Tidak heran dia berhasil mendapatkan nomor satu dalam menyempurnakan Gu . ” Yang lain berbicara dengan sinis.</p>
+<p>	Pada tahun-tahun sebelumnya ketika Fang Yuan menciptakan puisi dan menunjukkan kebijaksanaan awal, itu telah menyebabkan emosi yang tidak puas di antara orang-orang ini. Kemudian ketika dia mengandalkan ‘keberuntungan’ dan mendapat nomor satu dalam menyempurnakan Gu vitalnya , ini membuat mereka merasakan lapisan kecemburuan di antara ketidakpuasan mereka.</p>
+<p>	Banyak dari mereka yang menunggu untuk melihat ‘pertunjukan yang bagus’. Mereka menunggu untuk melihat Fang Yuan yang ‘jenius’ mengungkapkan tindakan yang memalukan, dan pedang bulan miliknya ini tidak mengecewakan mereka.</p>
+<p>	Gelombang tawa menyapu kerumunan.</p>
+<p>	Tetua akademi menggelengkan kepalanya sedikit, diam-diam menertawakan dirinya sendiri. Mengapa dia harus begitu peduli dengan Fang Yuan tanpa alasan? Dia hanya kelas C dan hanya anak laki-laki yang mendapat nomor satu dalam menyempurnakan Gu karena keberuntungan belaka.</p>
+<p>	Dalam hatinya dia sudah mengambil keputusan. Meskipun hasil Mo Bei, Chi Cheng dan Fang Zheng sama, dia akan tetap memilih Fang Zheng sebagai nomor satu.</p>
+<p>	Perang antara Gu Yue Mo Bei dan Gu Yue Chi Cheng adalah lambang perjuangan politik antara dua tetua paling kuat di klan. Tetua akademi selalu tetap di tengah dan tidak berniat memasuki tengah pusaran politik.</p>
+<p>	Tetua akademi lebih condong ke kepala klan Gu Yue Bo, dan Fang Zheng satu set dengan pemimpin klan. Tambahkan fakta bahwa dia memiliki bakat kelas A, memilihnya sebagai nomor satu berarti menunjukkan perhatian yang bias padanya, dan itu adalah sesuatu yang dapat diterima oleh otoritas atas klan.</p>
+<p>	Angin musim semi yang hangat bertiup, aroma bunga melayang ke tempat latihan. Sinar matahari menyinari tubuh Fang Yuan, mengirimkan bayangan hitam yang sepi ke tanah.</p>
+<p>	Ekspresinya masih dingin saat dia diam-diam menatap boneka rumput sepuluh meter jauhnya. Moonblade di telapak tangannya mengeluarkan cahaya biru redup.</p>
+<p>	Tentu saja, dia sengaja membuang moonblade pertama. Saat ini dia hanya memiliki dua peluang tersisa untuk beraksi. Mempertimbangkan posisi sesepuh akademi, untuk mendapatkan nomor satu dia harus menciptakan hasil yang melebihi harapan semua orang dalam dua serangan berikutnya.</p>
+<p>	“Dengan hanya dua peluang tersisa untuk menyerang, itu tidak mungkin. Kakak, aku akhirnya memenangkanmu. ” Mata Gu Yue Fang Zheng tidak berkedip saat dia menatap Fang Yuan. Dari muda hingga tua, bayangan kehidupan yang dibawa kakak laki-lakinya akhirnya memudar perlahan pada saat ini.</p>
+<p>	Fang Zheng bisa merasakan kemenangan begitu dekat. Kedua tinjunya tanpa sadar mengepal erat, seluruh tubuhnya begitu penuh kegembiraan sehingga dia sedikit gemetar.</p>
+<p>	“Kakak, kemenanganku kali ini hanyalah permulaan. Selanjutnya, saya akan terus memenangkan Anda lagi dan lagi sampai saya membuang semua bayangan di hati saya. Saya akan membuktikan kepada klan, keunggulan jenius bakat kelas A! ” Fang Zheng berkata pada dirinya sendiri di dalam hatinya.</p>
+<p>	Tetapi pada saat ini, Fang Yuan bertindak. Telapak tangan kanannya seperti pisau, membelah kekosongan.</p>
+<p>	Dengan suara sobek yang tajam, cahaya biru berair yang diselimuti telapak tangannya terlempar keluar. Itu terbang di udara, berubah menjadi pedang bulan biru melengkung, menembak ke arah boneka rumput.</p>
+<p>	Hanya dalam detik berikutnya telapak tangan kanan Fang Yuan menyala lagi dalam lapisan cahaya biru. Dia membalikkan telapak tangannya dan menembakkan pedang bulan ketiga. Kedua serangan ini terhubung dengan lancar seperti air yang mengalir; itu adalah kombinasi yang mulus.</p>
+<p>	Kedua bilah bulan terbang dengan cepat, jarak antara kedua bilah kurang dari setengah meter di udara. Di bawah tatapan orang banyak yang terpana, kedua pedang bulan secara akurat mengenai leher boneka rumput itu.</p>
+<p>	“Ini …” Murid Fang Zheng menyusut, perasaan buruk muncul dari hatinya. Pada saat berikutnya, para siswa perlahan membuka mulut lebar-lebar saat mereka memasang ekspresi heran.</p>
+<p>	Mereka melihat kepala boneka rumput itu perlahan miring ke satu sisi, lalu jatuh dari leher dan jatuh ke tanah. Dengan pantulan, itu berguling dua hingga tiga meter.</p>
+<p>	Fang Yuan telah memenggal boneka itu!</p>
+<p>	Hasil ini telah melampaui harapan semua orang di lapangan.</p>
+<p>	“Apakah ini keberuntungan atau keterampilan?” Penatua akademi mengerutkan kening. Keraguan ini melayang di hati siswa lainnya. Untuk sementara waktu, seluruh tempat latihan menjadi sunyi.</p>
+<p>	“Bagaimana ini bisa …” gumam Fang Zheng. Dia menatap Fang Yuan dengan kosong, emosi yang melonjak di hatinya langsung jatuh, jatuh jauh ke titik terendah.</p>
+<p>	Fang Yuan menyipitkan matanya, bertindak seolah-olah dia tidak menyadari tatapan yang jatuh padanya dari kerumunan.</p>
+<p>	Keok, keok…</p>
+<p>Di bawah langit biru dan awan putih, sekelompok burung beo merak tiba-tiba mengepakkan sayapnya dan terbang di udara. Mereka menyeret ekor merak mereka yang indah, panjang dan ramping, berdecak di udara saat mereka terbang dengan main-main.</p>
+<p>	Fang Yuan berdiri di tengah lapangan latihan, melihat ke atas. Di bawah sinar matahari yang cerah, bulu burung yang beraneka warna semakin mempesona dan indah. Ekspresinya acuh tak acuh, seolah-olah orang yang baru saja memotong kepala boneka rumput itu bukanlah dirinya.</p>
+<p>	“Ah, cahaya musim semi benar-benar mempesona..” Dia menghela nafas dalam hatinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

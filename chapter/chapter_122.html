@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 122 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 122";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_121.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 122">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_123.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 122</h1>
+        <div class="text-left">
+<p>	Bab 122</p>
+<p>	Bab 122: Ada banyak badai salju dalam hidup</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Whizzzz!</p>
+<p>	Tiga pisau bulan seukuran wajah menebas di udara, membawa cahaya biru yang menakutkan.</p>
+<p>	Jeritan!</p>
+<p>	Seketika, enam belas hingga tujuh belas monyet batu mata giok terbunuh di tempat.</p>
+<p>	Kelompok monyet batu yang mengejar Fang Yu langsung ditebang setengahnya.</p>
+<p>	Fang Yuan berdiri di tempat dan tidak mundur. Sebaliknya, dia mengangkat tangan kanannya dan menebas udara tiga kali.</p>
+<p>	Tiga pisau bulan menembus kelompok monyet batu, memenggal kepala monyet batu mana pun yang menghalangi jalannya.</p>
+<p>	Mayat monyet batu jatuh ke tanah, hancur berkeping-keping. Mata mereka berubah menjadi mutiara giok dan berguling-guling di tanah yang dipenuhi darah.</p>
+<p>	Fang Yuan memeriksa bukaannya; dia masih memiliki setengah dari esensi purba merah tua yang tersisa.</p>
+<p>	Moonglow Gu membutuhkan sepuluh persen esensi purba merah muda untuk menggunakan moonblade. Fang Yuan hanya bisa menggunakan empat moonblade berulang kali di peringkat dua tahap awal. Jumlahnya meningkat menjadi delapan ketika dia mencapai tahap tengah. Dan di tingkat atas, jumlahnya berlipat ganda sekali lagi, mencapai enam belas.</p>
+<p>	Fang Yuan tidak benar-benar berada di peringkat dua tingkat atas, tetapi dengan pemurnian esensi purba tingkat atas dari cacing Four Flavours Liquor, dia dapat dianggap berada di tingkat atas yang palsu; kekuatan bertarungnya meningkat tajam.</p>
+<p>	Sebelumnya, dia harus bertarung sambil mundur ketika dikejar oleh tujuh puluh atau delapan puluh monyet batu ini. Sekarang, dia baru saja menyerang dengan pedang bulan, dengan cepat membunuh sebagian besar dari mereka. Monyet batu yang tersisa telah melarikan diri.</p>
+<p>	“Saya membersihkan tiga pilar batu hanya dalam dua hari. Kecepatan ini berkali-kali lebih cepat dari sebelumnya! Jika ini terus berlanjut, saya akan dapat membuka kembali jalan ke area pusat dalam waktu sekitar setengah bulan, ”renung Fang Yuan.</p>
+<p>	“Dari gaya Flower Wine Monk, gua bawah tanah di pilar tengah seharusnya menjadi penghalang berikutnya. Sangat mungkin bahwa akan ada Gu Bunga Harta Karun Bumi lain di penghalang. Saya rasa warisan kekuatan Biksu Anggur Bunga hampir berakhir. Bagaimanapun, dia terluka parah dan kondisinya jauh dari baik, jadi dia buru-buru mengatur warisan ini. Paling-paling, mungkin akan ada dua rintangan lagi yang tersisa. ”</p>
+<p>	Fang Yuan mengingat adegan di dinding gambar; Biksu Anggur Bunga yang berlumuran darah pada napas terakhirnya. Dengan pengalaman mendalam kehidupan sebelumnya, dia mencapai kesimpulan ini.</p>
+<p>	Flower Wine Monk memiliki terlalu sedikit waktu untuk mengatur warisan ini, tidak ada cara baginya untuk berbuat lebih banyak. Namun, ini adalah kasus khusus.</p>
+<p>	Master Gu biasanya menggunakan tahun untuk mengatur warisan mereka. Ada beberapa warisan berskala besar yang hanya akan dibuka sekali setiap sepuluh tahun atau lebih. Beberapa warisan bahkan terbagi dan tersebar di berbagai wilayah dan bahkan bisa berada di ujung dunia yang berbeda.</p>
+<p>	Generasi terakhir akan membutuhkan waktu sepuluh tahun atau lebih atau bahkan puluhan tahun untuk melewati semua ujian warisan semacam itu.</p>
+<p>	Beberapa warisan bahkan mungkin tidak dieksplorasi sepenuhnya sepanjang hidup Guru Gu; Guru Gu sering meninggalkan tugas yang tidak lengkap ini untuk keturunan mereka.</p>
+<p>	“Warisan Flower Wine Monk dapat diklasifikasikan sebagai warisan skala mikro; kekurangannya adalah jumlah barang warisan yang sedikit. Tetapi ini juga memiliki keuntungan — penghalang pertama diatur sesuai dengan kondisi setempat dan dengan demikian sederhana. Saya telah berturut-turut mendapatkan White Boar Gu, Jade Skin Gu dan Liquor worm dari warisan ini. Stealth Stone Gu hampir tidak bisa dianggap sebagai warisan. Selanjutnya, mungkin hanya ada dua bunga harta bumi yang tersisa. Saya harap cacing Gu di dalamnya akan terkait dengan pengintaian atau tipe gerakan! ”</p>
+<p>	Waktu berlalu dengan cepat, musim gugur pergi dan musim dingin tiba.</p>
+<p>	Awal musim dingin, hujan salju pertama telah datang.</p>
+<p>	Langit kelabu, kepingan salju melayang dan jatuh di gunung Qing Mao.</p>
+<p>	Fang Yuan bergerak sendirian melewati salju. Dia baru saja keluar dari gua rahasia di celah batu dan bergegas menuju desa.</p>
+<p>	“Lebih dari dua bulan telah berlalu, tetapi kemajuan saya dalam membersihkan pilar batu belum bagus.” Wajah Fang Yuan menunjukkan cemberut gelap.</p>
+<p>	Itu bukan karena dia tidak berusaha, melainkan awal dari gelombang serigala sudah menunjukkan tanda-tandanya.</p>
+<p>	Makanan langka selama musim dingin; kawanan serigala yang sedang tumbuh mulai meningkatkan skala perburuan mereka untuk mengumpulkan cukup makanan untuk dimakan.</p>
+<p>	Kelompok binatang buas di sekitarnya dibersihkan karena ini. Pasang surut binatang kecil sering mulai terjadi karena gangguan; sama halnya, ada juga kawanan serigala yang lumpuh.</p>
+<p>	Serigala lumpuh ini diusir dari sarangnya. Serigala-serigala ini berkumpul dan membentuk kelompok; mereka mulai sering bergerak di dekat desa.</p>
+<p>	Itu belum mencapai tahap serangan liar di desa, tetapi keluarga pemburu tidak lagi pergi ke gunung untuk berburu. Demikian pula, kadang-kadang ada beberapa penduduk desa yang kehilangan nyawanya karena serigala.</p>
+<p>	Desa Gu Yue memobilisasi banyak Master Gu untuk melakukan operasi pembersihan. Karena ini, ada banyak orang yang bergerak, bersama dengan banyak Master Gu pengintai di antara mereka. Dengan demikian, Fang Yuan dengan bijaksana mengurangi berapa kali dia pergi ke gua rahasia di dalam celah batu.</p>
+<p>	Tidak diragukan lagi, ini menyebabkan kecepatan kemajuannya di hutan batu turun tajam.</p>
+<p>	Angin dingin semakin kencang; salju juga turun dengan deras.</p>
+<p>	Houuuuu…</p>
+<p>	Raungan mengerikan yang dalam tiba-tiba menyebar melalui angin dan salju.</p>
+<p>	Fang Yuan dengan cepat berhenti dan melihat sekeliling, waspada.</p>
+<p>	Sekelompok serigala skala kecil dengan sekitar dua puluh atau lebih serigala petir dengan cepat muncul dalam jangkauan pandangannya.</p>
+<p>	“Ini dia lagi ….” Fang Yuan bergumam, ini sudah kelompok binatang kedelapan yang dia temui bulan ini.</p>
+<p>	Namun, kali ini agak berbeda.</p>
+<p>	“Kumpulan serigala mulai bergerak begitu dekat ke desa. Selanjutnya, Master Gu klan akan lebih sering bergerak. Gua rahasia retakan batu tidak jauh; sepertinya aku tidak bisa pergi ke sana untuk beberapa waktu.” Hati Fang Yuan tenggelam pada pemikiran ini.</p>
+<p>	Perjalanan itu sulit, akan selalu ada beberapa rintangan yang menghalangi orang untuk maju.</p>
+<p>	Paket serigala mendekati Fang Yuan.</p>
+<p>	Houu! Houu! Houu!</p>
+<p>	Mereka melolong sebelum menyerang Fang Yuan, mendatanginya satu demi satu.</p>
+<p>	“Moonglow Gu,” Fang Yuan menghendaki; sebuah moonblade terbang keluar dari tangannya.</p>
+<p>	Moonblade biru yang menakutkan menebas angin dan salju, melewati serigala yang sakit-sakitan. Itu langsung memenggal tiga serigala, tetapi ketika mencapai serigala keempat, serigala tiba-tiba berguling dan dengan cerdik menghindari pedang bulan.</p>
+<p>	Meskipun sebagian besar serigala lumpuh ini cacat, buta atau kehilangan ekornya, mereka memiliki banyak pengalaman pertempuran dan sangat licik.</p>
+<p>	Seorang Guru Gu tingkat menengah peringkat dua yang normal akan berada dalam bahaya besar jika mereka bertemu dengan sekelompok serigala lumpuh dan terutama jika mereka dikelilingi oleh serigala-serigala ini.</p>
+<p>	Tapi Fang Yuan tenang.</p>
+<p>	Pengalaman pertempurannya yang berlimpah dan esensi purba merah tua tahap atas yang halus adalah sumber kepercayaan dirinya.</p>
+<p>	Bunuh, bunuh, bunuh!</p>
+<p>	Dia dengan gesit bergerak di bawah serangan gabungan dari serigala lumpuh, dengan tenang menghindari dan menyerang dengan tegas.</p>
+<p>	Serigala-serigala itu terus mati di tangannya.</p>
+<p>	Setelah beberapa saat, jumlah serigala petir dalam kelompok itu menurun tajam hingga setengahnya.</p>
+<p>	Houu—!</p>
+<p>	Seekor serigala melolong sedih; gerombolan serigala segera menghentikan serangan ofensif mereka dan mulai mundur.</p>
+<p>	Ini adalah kelicikan serigala-serigala ini.</p>
+<p>	Ketika mereka menemukan bahwa Fang Yuan adalah tulang yang tangguh, mereka dengan tegas mundur, melepaskan rencana mereka untuk memburu Fang Yuan.</p>
+<p>	Serigala tua, sakit-sakitan, dan terluka ini tidak dalam kondisi sempurna tetapi mampu hidup sampai sekarang menunjukkan kebijaksanaan bertahan hidup mereka.</p>
+<p>	Fang Yuan berdiri di tempat, dengan tenang melihat serigala-serigala lumpuh yang menghilang ke angin dan salju. Jika dia bisa menyembunyikan kekuatannya, maka dia tidak merasa perlu untuk mengungkapkannya.</p>
+<p>	Setelah memastikan bahwa gerombolan serigala telah benar-benar melarikan diri, dia segera mengumpulkan barang-barang di mayat serigala.</p>
+<p>	Kulit serigala, gigi, dan sebagainya semuanya berharga.</p>
+<p>	Meskipun harga pasar mereka berada di ujung bawah, itu bisa dibuat dengan kuantitas.</p>
+<p>	Dalam dua bulan ini, Fang Yuan telah memperoleh penghasilan dari rampasan perang dari membasmi serigala lumpuh ini.</p>
+<p>	Darah yang mengalir dari mayat serigala masih hangat. Ada beberapa serigala lumpuh yang masih memiliki sisa napas, mata mereka menunjukkan sedikit semangat.</p>
+<p>	“Di dunia ini, tidak hanya manusia tetapi semua makhluk hidup berjuang untuk bertahan hidup. Dunia ini menggunakan hidup dan mati untuk membuka panggung yang brilian!” Fang Yuan menghela nafas sebelum dengan kejam membunuh serigala-serigala yang sekarat ini.</p>
+<p>	Kekuatan bertarung serigala lumpuh lebih tinggi dari dua monyet batu mata giok. Di bawah koordinasi dengan kawanan, kekuatan bertarung mereka akan berlipat ganda.</p>
+<p>	“Aku masih bisa menangani kawanan serigala lumpuh skala kecil ini. Tapi akan merepotkan untuk menangani sekawanan serigala lumpuh skala besar atau sekawanan serigala sehat skala kecil.”</p>
+<p>	Fang Yuan bisa merasakan tekanan samar.</p>
+<p>	“Gelombang serigala akan segera pecah dan seluruh klan akan dimobilisasi. Aku tidak akan bisa bertindak menyendiri. Jika saya ingin berburu serigala petir sendiri, saya harus memiliki gu pengintai atau tipe gerakan. Kalau tidak, saya akan jatuh ke gelombang serigala. ”</p>
+<p>	Fang Yuan dengan jelas mengenali kekurangannya karena pengalamannya yang banyak.</p>
+<p>	Kekuatan bertarungnya meningkat tajam setelah mendapatkan worm Four Flavours Liquor. Dengan Moonglow Gu dan Jade Skin Gu, dia menyerang dan bertahan. Dengan akumulasi mendalam kehidupan sebelumnya, dia benar-benar bisa diperingkat bersama dengan Qing Shu, Chi Shan dan Mo Yan.</p>
+<p>	Bisa dikatakan, dia hampir tidak, tetapi sudah mampu berdiri di peringkat teratas di antara Master Gu peringkat dua klan.</p>
+<p>	Mengapa hampir tidak, karena dia tidak benar-benar berada di tingkat atas, dan pada saat yang sama bakatnya juga hanya kelas C dan dengan demikian sangat terbatas.</p>
+<p>	Mampu mencapai sebanyak ini dengan kekuatan bertarungnya sudah merupakan hasil terbaik, tetapi kekuatan bertarung hanyalah satu aspek dalam bertahan dari gelombang serigala.</p>
+<p>	“Saya harus memiliki metode kepanduan. Jika saya memiliki cacing Gu pengintai, saya akan dapat merasakan pergerakan gerombolan serigala dan dengan cepat mundur atau bergerak melalui rute lain. Atau gunakan cacing Gu tipe gerakan untuk lari dan melarikan diri dengan cepat dari pengepungan kawanan serigala,” Fang Yuan merenung.</p>
+<p>	Tingkat kelangsungan hidupnya akan sangat meningkat jika dia hanya memiliki satu dari dua cacing Gu ini. Jika dia memiliki keduanya, maka dia akan dapat bergerak dengan mudah.</p>
+<p>	“Saya harap warisan Flower Wine Monk mengandung cacing Gu seperti itu. Itu tidak masalah bahkan jika tidak. Dari ingatanku, ketiga klan akan bersama-sama membuat daftar kontribusi selama gelombang serigala dan mengeluarkan cacing Gu yang mereka simpan untuk ditukar. Ada banyak Gu yang berharga dalam daftar. Pada saat itu, saya dapat menggunakan kontribusi saya dan menukarnya dengan cacing Gu desa Bai atau Xiong.”</p>
+<p>	Fang Yuan merencanakan dalam pikirannya dan berdiri.</p>
+<p>	Dia dengan cepat mengatur rampasan perang dalam waktu singkat dan mengemasnya dalam tas yang kemudian dia bawa di punggungnya.</p>
+<p>	Salju terus turun dan segera membekukan darah serigala, menutupi mayat mereka.</p>
+<p>	“Lihat, Fang Yuan kembali.”</p>
+<p>“Dia membawa tas, apakah dia pergi berburu serigala lumpuh lagi?”</p>
+<p>“Dia yang menyelamatkan desa kita?”</p>
+<p>	“Hei, itu hanya karena keberuntungan. Kami berdua tahu bagaimana kelanjutannya, jika saya memiliki kekuatan yang begitu besar, saya juga bisa melakukan itu. Ini bukan masalah besar.”</p>
+<p>	Saat Fang Yuan berjalan melewati desa, orang-orang memberi jalan untuknya; ada pujian, rasa ingin tahu dan juga rasa iri.</p>
+<p>	“Fang Yuan!” Chi Shan tiba-tiba muncul dari sudut dan berteriak.</p>
+<p>	Catatan: ‘Badai salju’ dalam judul bab “Ada banyak badai salju dalam hidup” adalah metafora untuk ‘hambatan’.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

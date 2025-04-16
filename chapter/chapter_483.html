@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 483 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 483";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_482.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 483">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_484.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 483</h1>
+        <div class="text-left">
+<p>	Bab 483 – Mundur dengan Aman</p>
+<p>	Bab 483: Mundur dengan Aman</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Bei Cao Chuan telah mengamati perkembangan situasi pertempuran.</p>
+<p>	Di sampingnya, ada sebelas Master Gu. Selain tetua suku Bei, ada juga beberapa tetua suku Zheng, mereka semua dipanggil oleh Bei Cao Chuan.</p>
+<p>	Satu-satunya motif mereka adalah untuk membunuh Chang Shan Yin, untuk membalikkan hasil dari pertempuran ini.</p>
+<p>	“Suku Ge hanyalah pasir yang berserakan, kita tidak perlu khawatir tentang mereka. Satu-satunya masalah adalah Raja Serigala Chang Shan Yin. Selama kita membunuhnya, kemenangan adalah milik kita! Kita masih bisa menang!!” Mata Bei Cao Chuan bersinar terang saat dia mengamati pertempuran sambil meningkatkan moral orang-orang di sekitarnya.</p>
+<p>	Tetua suku Zheng semua diyakinkan olehnya: “Pemimpin suku Bei benar, tetapi kapan kita menyerang?”</p>
+<p>	Bei Cao Chuan menyipitkan matanya: “Kita harus menunggu! Raja Serigala sangat waspada, dia hanya mengirim raja serigala segudang penyu untuk memimpin serangan, sementara serigala angin segudang raja binatang selalu berada di dekatnya. Dia memiliki kekuatan pertahanan yang cukup di sekelilingnya, meskipun kami kuat, hanya ada satu kesempatan bagi kami untuk menyerangnya. Sekali kita gagal, kita hanya bisa memaksakan jalan kita. Pada saat itu, kita akan berada dalam situasi tanpa harapan, dikelilingi oleh kelompok serigala, akan ada sedikit peluang untuk membunuh Chang Shan Yin.”</p>
+<p>	Pada saat ini, bentrokan paling intens terjadi di medan perang.</p>
+<p>	Segala macam serangan, dalam segala bentuk dan warna, memenuhi medan perang. Suara ledakan yang keras terjadi terus menerus.</p>
+<p>	Melihat ini, hati semua orang bergidik. Di medan perang seperti itu, bahkan Master Gu peringkat tiga adalah umpan meriam. Hanya peringkat empat atau lima Master Gu yang merupakan kekuatan utama.</p>
+<p>	“Tuhan, sekarang adalah waktu terbaik untuk menyerang.” Seorang penatua menyarankan.</p>
+<p>	“Tidak perlu terburu-buru.” Bei Cao Chuan melambaikan tangannya.</p>
+<p>	Setelah serangan berlanjut dan akhirnya berakhir, seorang tetua tidak tahan lagi: “Tuan pemimpin suku, sekaranglah waktunya. Sementara para Master Gu suku Ge memulihkan esensi purba mereka, kita dapat menyerang dan menangkap mereka tanpa penjagaan.”</p>
+<p>	“Tidak! Target kami hanya Chang Shan Yin. Meskipun mereka memiliki pertempuran yang intens, jumlah serigala di dekat Chang Shan Yin malah meningkat jumlahnya. ” Bei Cao Chuan menolak dengan sungguh-sungguh.</p>
+<p>	Selanjutnya, Fang Yuan menyerang dan memanfaatkan waktunya dengan baik untuk menghancurkan sebagian dari tembok pertahanan.</p>
+<p>	Ini adalah perkembangan yang penting.</p>
+<p>	Pertahanan suku Pei akhirnya dipatahkan, sejumlah besar serigala menyerbu saat raja serigala segudang penyu juga tiba.</p>
+<p>	“Ini buruk! Setelah garis pertahanan rusak, kelompok serigala akan melakukan serangan frontal penuh, suku Pei tidak akan bisa mengatasinya, ini darurat!”</p>
+<p>	“Tuan, kita harus menyerang. Jika tidak, suku Pei tamat.”</p>
+<p>	“Jika kita menyerang sekarang, kita masih bisa menyelamatkan situasi ini.”</p>
+<p>	“Tidak!” Bei Cao Chuan berdiri, matanya berbinar saat dia dipenuhi dengan kegembiraan, kesempatan yang telah lama ditunggu-tunggu telah tiba.</p>
+<p>	Selama pertahanan suku Pei rusak, Chang Shan Yin perlu memobilisasi kelompok serigala dan menyerang kamp suku Pei. Dengan cara ini, pertahanannya akan sangat melemah, itu akan memberi Bei Cao Chuan kesempatan yang baik untuk membunuhnya.</p>
+<p>	“Jika kita menyerang sekarang, itu hanya akan mengingatkan Chang Shan Yin dan dia akan mengingat serigala-serigalanya, menyebabkan pertempuran berubah menjadi jalan buntu lagi. Setelah kita mengekspos diri kita sendiri, kita akan kehilangan kesempatan berharga untuk membunuhnya. Tiga suku kami bersekutu, mengapa kerugian suku Pei jauh lebih sedikit daripada kami? Raja Serigala sangat waspada, dia tidak mudah dihadapi. Hanya dengan suku Pei sebagai umpan, membiarkan dia merasakan manisnya kemenangan, kita bisa membunuhnya saat dia lengah!”</p>
+<p>	Dalam sekejap, otak Bei Cao Chuan bekerja keras karena dia memiliki beberapa pemikiran.</p>
+<p>	Tapi dia tidak bisa mengatakan itu dengan lantang, sebaliknya dia berkata: “Tunggu sebentar lagi, kita tidak bisa cemas. Percaya pada Pei Yan Fei! Dia adalah seorang jenderal terkenal di dataran utara, apakah menurutmu dia sangat lemah?”</p>
+<p>	Master Gu peringkat tiga mendengar ini dan menghentikan momentum pengisian mereka.</p>
+<p>	Bei Cao Chuan baru saja mengatakan bahwa ketika Pei Yan Fei melepaskan jurus pembunuhnya, Golden Rainbow Strike, ledakan hebat memaksa semua orang untuk mengangkat tangan mereka untuk melindungi mata mereka dari cahaya terang.</p>
+<p>	Setelah cahaya menyebar, raja serigala segudang penyu menderita luka berat sementara Pei Yan Fei melayang di atas puing-puing tembok pertahanan, ekspresinya pucat.</p>
+<p>	“Sangat kuat!”</p>
+<p>	“Hanya dengan satu serangan, dia melukai banyak raja binatang buas.”</p>
+<p>	“Ini adalah jurus pembunuh terkenal Pei Yan Fei, benar-benar hebat!”</p>
+<p>	“Pemimpin suku Bei luar biasa, dia memahami medan perang dengan sangat baik, saya telah belajar banyak.”</p>
+<p>	Para tetua mengungkapkan keheranan mereka pada kekuatan pertempuran Pei Yan Fei, sambil memuji penilaian Bei Cao Chuan.</p>
+<p>	Bibir Bei Cao Chuan berkedut, dia lebih suka melihat Pei Yan Fei gagal menjaga perkemahannya.</p>
+<p>	“Masih ada harapan, kami harus menunggu sedikit lebih lama. Pei Yan Fei pasti menggunakan banyak esensi purba untuk gerakan yang begitu kuat. Melihat ekspresinya, dia pasti sudah kehabisan akal. Selama raja serigala angin berada di dekat Chang Shan Yin, dia hampir tak terkalahkan. Suku Pei masih memiliki tangan yang lebih rendah, jika kelompok serigala menyerang kamp suku Pei lagi, saya akan melanjutkan rencana saya dari sebelumnya. Jika Pei Yan Fei memiliki keuntungan, aku akan memanfaatkan kesempatan ini dan bekerja sama dengannya, memberikan pukulan fatal pada Chang Shan Yin!”</p>
+<p>	Percikan beterbangan di kepala Bei Cao Chuan, dia mengedipkan matanya saat dia mengubah rencananya.</p>
+<p>	“Saya punya kesempatan, masih ada harapan! Saya tidak bisa bingung saat ini, saya harus tenang dan bertahan… Selama kita membunuh Chang Shan Yin, kita tidak hanya akan membalikkan keadaan, saya juga akan mendapatkan ketenaran. Setelah saya menjadi bawahan Liu Wen Wu, saya bisa mendapatkan peran penting dan memperjuangkan lebih banyak kesempatan untuk suku saya!</p>
+<p>	Bei Cao Chuan bersorak untuk dirinya sendiri di dalam hatinya.</p>
+<p>	Tetapi pada saat ini, pupil matanya menyusut saat dia bersumpah: “Ya Tuhan, apa-apaan ini!”</p>
+<p>	Para tetua mengiriminya tatapan aneh.</p>
+<p>	Selama ini, meskipun pertempuran itu tegang, Bei Cao Chuan sangat percaya diri dan memiliki situasi dalam genggamannya, mengapa dia kehilangan keberaniannya sekarang?</p>
+<p>	Bei Cao Chuan tidak peduli dengan tatapan itu, dia menatap medan perang saat dia berbicara tanpa terkendali: “Mengapa Chang Shan Yin ini mundur sekarang sepanjang waktu?”</p>
+<p>	Raja Serigala berada dalam situasi yang menguntungkan, meskipun raja serigala segudang turtleback terluka parah, itu tidak mati. Dia masih memiliki serigala angin segudang raja binatang lainnya!</p>
+<p>	Sebaliknya, Pei Yan Fei sudah kehabisan akal. Yang terpenting, pertahanan kamp suku Pei rusak. Selama dia menyerang mengikuti kelemahan ini, tekanan suku Pei dalam bertahan akan berkali-kali lipat dari sebelumnya! Kemungkinan besar, mereka tidak akan bisa bertahan.</p>
+<p>	Begitu kelompok serigala menyerang kamp suku Pei, Bei Cao Chuan akan memiliki kesempatan untuk menyerang, memberikan pukulan fatal kepada Raja Serigala dari belakang!</p>
+<p>	Tapi sekarang, dia mundur?!</p>
+<p>	Mengapa Chang Shan Yin mundur, Bei Cao Chuan sudah tidak punya waktu untuk memikirkan hal ini.</p>
+<p>	Dia sangat gugup sekarang, wajahnya yang percaya diri mulai menunjukkan kecemasan.</p>
+<p>	Wolf King masih memiliki banyak kekuatan sekarang, begitu dia mundur, serangan yang dia tunggu dengan susah payah akan hancur.</p>
+<p>	Yang terburuk adalah, kamp suku Bei dan kamp suku Zheng berada dalam kendali suku Ge. Begitu serigala mundur, mereka akan membawa semua tawanan dan sumber daya ini pergi, Bei Cao Chuan akan kehilangan sukunya sepenuhnya.</p>
+<p>	Bahkan tanpa suku, hanya tersisa beberapa tetua, status pemimpin suku Bei Cao Chuan akan menjadi bahan tertawaan terbesar.</p>
+<p>	Lihat saja situasi saat ini, begitu dia pergi ke Liu Wen Wu, dia pasti tidak akan menerima posisi penting.</p>
+<p>	“Tidak, aku tidak bisa membiarkan Chang Shan Yin mundur dengan mudah. Begitu dia pergi, kita tidak punya harapan untuk berhasil!”</p>
+<p>	Bei Cao Chuan berteriak dalam hatinya.</p>
+<p>	Dia berdiri tiba-tiba, berteriak: “Semuanya, kita tidak bisa menunggu lebih lama lagi. Chang Shan Yin kehabisan tenaga, mereka mencoba mundur, sekarang saatnya kita menyerang dan membunuh Raja Serigala. Semuanya, sekarang saatnya untuk mengambil kembali suku kita!”</p>
+<p>	Para tetua di dekatnya bisa melihat situasi pertempuran juga.</p>
+<p>	Kata-kata Bei Cao Chuan membuat mereka bersemangat saat niat bertarung mereka melonjak.</p>
+<p>	“Membunuh!”</p>
+<p>	“Chang Shan Yin, jangan berpikir untuk pergi!”</p>
+<p>	“Raja Serigala, lawan aku satu lawan satu jika kamu punya nyali!!”</p>
+<p>	Sekelompok Master Gu peringkat tiga meninggalkan tempat persembunyian mereka dan mulai menyerang pasukan suku Ge dari belakang di bawah pimpinan Bei Cao Chuan.</p>
+<p>	“Hmph, mereka muncul seperti yang diharapkan.” Fang Yuan meramalkan ini, dia tidak bingung saat melihat orang-orang ini.</p>
+<p>	Dia mengerti dengan jelas, Bei Cao Chuan dan geng tidak kembali untuk memperkuat suku mereka, jadi hanya ada dua kemungkinan.</p>
+<p>	Salah satunya adalah bahwa mereka menyerang kamp utama suku Ge untuk membalas dendam. Yang lainnya adalah bahwa mereka memperkuat suku Pei.</p>
+<p>	Karena ketiga suku dan kamp mereka masih utuh, orang-orang ini pasti bersembunyi di dekatnya.</p>
+<p>	Jika Fang Yuan terus menyerang kamp suku Pei dan bertarung dengan Pei Yan Fei dengan seluruh kekuatannya, pada saat genting, dia pasti akan menghadapi pembunuhan. Jadi, mundur adalah pilihan yang paling bijaksana.</p>
+<p>	“Tapi orang-orang ini sangat pandai menunggu, mereka muncul sekarang setelah aku memaksa mereka, sepertinya mereka memiliki motif yang dalam.” Fang Yuan mengendarai serigala bermata putih saat dia berpikir dengan tenang.</p>
+<p>	Suku Ge cemas.</p>
+<p>	Bei Cao Chuan dan sebelas orang lainnya adalah ahli, mereka tak terbendung dalam serangan mereka, itu membawa tekanan mental yang besar kepada suku Ge.</p>
+<p>	“Tuan tetua tertinggi, apa yang kita lakukan?” tanya Ge Guang.</p>
+<p>	“Kenapa kamu panik, dengarkan perintahku dan mundur.” Fang Yuan tertawa dingin.</p>
+<p>	Mundur di medan perang sangat berisiko. Seringkali, ketika mundur, musuh mengejar mereka dan menyebabkan mereka gagal melarikan diri. Dalam kehidupan sebelumnya, Fang Yuan telah berpartisipasi dalam banyak pertempuran, dia tahu bahwa serigala-serigala ini bagus untuk melindungi mereka saat mundur. Dia memiliki kemampuan untuk menghadapi tekanan dari dua sisi dan melarikan diri.</p>
+<p>	Dia memindahkan banyak raja serigala penyu ke dekatnya dan memanggil kembali kelompok serigalanya, membuat seratus raja serigala, seribu raja serigala berkumpul menuju pusat pasukan.</p>
+<p>	Adapun serigala liar biasa itu, mereka ditinggalkan untuk menghabiskan esensi purba musuh.</p>
+<p>	Seperti yang diharapkan, setelah beberapa saat, Bei Cao Chuan dan geng kehilangan momentum mereka, mulai menggunakan esensi purba di lubang mereka dengan hemat.</p>
+<p>	“Sialan, apakah kita hanya menonton Chang Shan Yin mundur seperti ini?” Bei Cao Chuan menggigit bibirnya, matanya memerah karena membunuh, hatinya sangat marah.</p>
+<p>	“Pei Yan Fei, kenapa kamu tidak menyerang? Jika kita tidak dapat mengambil nyawa Raja Serigala hari ini, bagaimana kita akan memiliki wajah untuk berpartisipasi dalam pertemuan para pahlawan?” Bei Cao Chuan berteriak.</p>
+<p>	Pei Yan Fei mendengus, dia tidak kasar, dia tahu bahwa serangan mendadak Bei Cao Chuan adalah setelah dia melemparkan suku Pei ke bawah bus, dia ingin menggunakannya sebagai umpan.</p>
+<p>	Tapi Raja Serigala Chang Shan Yin tidak bisa dilepaskan.</p>
+<p>	Selama pertempuran ini, suku Ge melawan tiga suku sekaligus, jika mereka berhasil mundur, mereka akan menjadi terkenal, dan ketiga suku ini akan menjadi batu loncatan mereka.</p>
+<p>	Terlebih lagi, suku Pei menderita kerugian besar, bagaimana mungkin dia tidak membalas dendam atas kebencian yang begitu dalam?</p>
+<p>	Memikirkan hal ini, Pei Yan Fei memutuskan sendiri.</p>
+<p>	Peringkat lima — Lakukan atau Mati Gu!</p>
+<p>	desir desir desir!</p>
+<p>	Hati Pei Yan Fei terasa hampa saat sejumlah besar esensi purba muncul dari udara tipis, mengisi celah keringnya.</p>
+<p>	“Chang Shan Yin, serahkan hidupmu!” Dia melolong, bergegas.</p>
+<p>	Suku Ge bingung.</p>
+<p>	Fang Yuan tertawa, bertanya-tanya: “Siapa ini?”</p>
+<p>	Ge Guang mengagumi ketenangan Fang Yuan dan kecemasan di hatinya menghilang, menjawab dengan sungguh-sungguh: “Pemimpin suku Bei Cao Chuan!”</p>
+<p>	“Bei Cao Chuan… Pei Yan Fei… hehehe, pahlawan muncul di saat kacau, sangat bagus, sangat bagus.” Fang Yuan memuji mereka dengan keras saat suaranya bergema di udara.</p>
+<p>	Selanjutnya, dia melompat turun dari serigala bermata putih, mengubah kudanya menjadi serigala punuk.</p>
+<p>	Serigala bermata putih mengambil beberapa langkah cepat, berdiri bersama dengan serigala angin segudang raja binatang dan raja serigala segudang penyu.</p>
+<p>	“Itu adalah…” Momentum Bei Cao Chuan membeku, pupil matanya mengecil.</p>
+<p>	Ekspresi Pei Yan Fei muram, dia sangat pahit.</p>
+<p>	Serigala bermata putih adalah binatang bermutasi dengan kekuatan yang menyamai segudang raja binatang! Sebelumnya, mereka terlalu fokus pada Fang Yuan, sehingga mengabaikan serigala bermata putihnya. Sekarang serigala bermata putih menonjol, identitasnya segera terungkap.</p>
+<p>	“Brengsek!” Pei Yan Fei menggertakkan giginya, menghentikan serangannya tanpa daya.</p>
+<p>	Jika Fang Yuan hanya memiliki serigala angin segudang raja binatang yang tersisa, itu akan baik-baik saja, tetapi dengan serigala bermata putih, dia memiliki kekuatan yang cukup untuk menahan serangan mereka dan bahkan melawan.</p>
+<p>	Pei Yan Fei tidak berani mengambil risiko dan menempatkan suku Pei dalam bahaya lagi.</p>
+<p>	Dia memilih untuk menyerah.</p>
+<p>	Di sisi lain, Bei Cao Chuan tidak punya pilihan selain menghentikan langkahnya.</p>
+<p>	Dia melihat pasukan yang mundur, dia tidak hanya merasakan kesedihan di hatinya tetapi juga rasa dingin yang kuat: “Raja Serigala Chang Shan Yin, berapa banyak kartu truf yang kamu miliki?”</p>
+<p>	Andai saja dia tahu…</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

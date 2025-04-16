@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 20 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 20";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_19.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 20">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_21.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 20</h1>
+        <div class="text-left">
+<p>	Bab 20</p>
+<p>	Bab 20 – Penatua akademi tidak bisa berkata-kata</p>
+<p>	Sukacita besar yang dia rasakan tidak menguasai pikirannya; dia dengan cepat menjadi tenang dan mulai mempertimbangkan konsekuensi yang akan dibawa oleh Jangkrik Musim Gugur Musim Semi kepadanya:</p>
+<p>	“Kemampuan Spring Autumn Cicada adalah kelahiran kembali. Tapi saat ini ia berada pada kondisi terlemahnya, saat aku menggunakannya, ia akan mati. Namun itu adalah masih Ranking enam Gu , jadi saya benar-benar dapat menggunakan aura nya. Ini tidak akan merusak tubuhnya.”</p>
+<p>	“ Hee hee hee .” Setelah dia selesai merenung, dia menutup pikirannya dan membuka matanya. Cacing Liquor melayang di depannya, menggigil di tengah-tengah esensi purba tembaga hijau seperti asap yang mengelilinginya.</p>
+<p>	Sebelumnya karena menginginkan kesempatan untuk bertahan hidup, keputusasaan mendorong cacing Liquor mempertaruhkan segalanya dalam satu lemparan. Namun pada akhirnya keinginannya dengan mudah dikalahkan oleh aura Spring Autumn Cicada. Karena ini ia mengalami pukulan berat, kekuatannya saat ini bahkan tidak 1% dari keinginan aslinya.</p>
+<p>	“Cicada Musim Semi Musim Gugur.” Dengan pemikiran sederhana, Fang Yuan melepaskan sedikit aura Musim Semi Musim Gugur Jangkrik. Aura ini menekan tubuh cacing Liquor; cacing Liquor segera berdiri diam, tak bergerak seperti makhluk mati. Yang tersebar akan merasakan aura Musim Semi Musim Gugur Jangkrik; seperti tikus yang menabrak kucing, ia ketakutan. Itu menyusut menjadi bola dan terlalu takut untuk bergerak sedikit pun.</p>
+<p>	Fang Yuan tertawa dan mengambil kesempatan untuk memobilisasi esensi purba. Pada awalnya ketika dia mencoba menggunakan esensi purba tembaga hijau untuk memperbaikinya, keinginan cacing Liquor melawan dengan keras, sehingga hanya bisa berkembang dengan susah payah sedikit demi sedikit. Tapi sekarang esensi purba tembaga hijau Fang Yuan melaju lurus, mengalir deras tanpa perlawanan. Tidak ada halangan sama sekali.</p>
+<p>	Warna tembaga hijau di permukaan cacing Liquor berkembang pesat. Dalam beberapa kedipan, cacing Liquor yang dulunya berwarna putih mutiara berubah warna menjadi hijau.</p>
+<p>	Situasi umum telah berlalu; sisa terakhir dari wasiat cacing Liquor akhirnya tersapu dengan mudah oleh wasiat Fang Yuan, larut menjadi ketiadaan.</p>
+<p>	Dengan itu, cacing Liquor sepenuhnya disempurnakan!</p>
+<p>	Dibandingkan dengan awal di mana Fang Yuan harus menanggung kesulitan seperti menginjak-injak gunung dan melintasi jurang, proses pemurnian sekarang semudah menelan air liur.</p>
+<p>	Semacam perasaan misterius dan ramah menghubungkan cacing Liquor dan Fang Yuan bersama-sama. Cacing Liquor yang halus seperti bagian dari Fang Yuan – Jika Fang Yuan menyuruhnya untuk meringkuk, itu akan meringkuk; jika dia menyuruhnya menggulung menjadi bola, itu akan menggulung menjadi pangsit kecil bundar. Perasaan itu seperti menggerakkan jarinya sendiri.</p>
+<p>	Fang Yuan mengambil kembali esensi purbanya, dan cacing Liquor kembali ke keadaan gemuk dan putihnya. Kemudian dengan lompatan, ia melewati udara tipis dan jatuh ke tengah celah Fang Yuan. Ketika berada di dalam, cacing Liquor terbang jauh di sekitar Jangkrik Musim Gugur Musim Semi yang melayang dan memasuki laut purba tembaga hijau. Di permukaan laut, cacing Liquor meregangkan tubuhnya secara sewenang-wenang; kadang-kadang ia akan memutar pinggangnya yang gemuk, tampak nyaman seolah-olah sedang mandi di pancuran air panas.</p>
+<p>	“Dengan Jangkrik Musim Gugur Musim Semi, rencanaku harus berubah.” Fang Yuan mengumpulkan pikirannya dari lubang dan mengeluarkan Moonlight Gu . Dia mengulangi apa yang dia lakukan sebelumnya: Membiarkan sedikit aura Musim Semi Musim Gugur Cicada, menekannya pada Moonlight Gu .</p>
+<p>	Saat merasakan aura Musim Semi Musim Gugur Jangkrik, keinginan Moonlight Gu segera menyerah, ketakutannya yang begitu besar hanya bisa menyusup ke sudut terjauh dari tubuhnya sendiri.</p>
+<p>	Esensi purba Fang Yuan mengalir masuk. Dalam sekejap mata, Moonlight Gu diwarnai dengan warna hijau giok. Akhirnya hanya dengan pemikiran sederhana, kehendak Moonlight Gu dengan mudah dicekik.</p>
+<p>	Setelah selesai, dia mengambil kembali esensi purbanya dan Moonlight Gu kembali ke bentuk kristal biru semi-transparan aslinya. Dia menyingkirkan Moonlight Gu ; itu tidak memasuki aperture-nya, tetapi langsung jatuh ke dahinya, membentuk tanda bulan sabit biru pucat di tengah alisnya.</p>
+<p>	Seluruh proses pemurnian Moonlight Gu dari awal hingga akhir tidak memakan waktu lebih dari lima menit. Membandingkan awal proses pemurniannya yang sulit dengan situasi saat ini, kecepatannya cepat dan menciptakan kontras yang tajam.</p>
+<p>	Tidak hanya sangat cepat, konsumsi esensi purba juga sangat sedikit.</p>
+<p>	Selama beberapa hari terakhir, Fang Yuan telah mengkonsumsi enam potong batu purba hanya untuk memurnikan cacing Liquor. Tapi malam ini, sementara Fang Yuan bisa melihat dasar laut purba di celahnya, dia tidak menggunakan satu batu pun.</p>
+<p>	“ Ha ha , dengan Jangkrik Musim Semi Musim Gugur di tangan, semudah memiliki bantuan dewa! Setelah hari ini yang hanya perlu saya lakukan adalah menggunakan auranya untuk menekan, Gu peringkat satu mana pun akan dengan mudah disempurnakan. Meskipun saya hanya memiliki bakat kelas C, saya tidak perlu meminjam bantuan batu purba. Perbedaan dulu dan sekarang seperti langit dan bumi.”</p>
+<p>	Suasana hati Fang Yuan sangat gembira. Saat ini situasinya seperti mendorong kabut dan awan untuk melihat langit biru.</p>
+<p>	Meskipun Jangkrik Musim Gugur Musim Semi berada pada titik terlemahnya, itu masih Gu Peringkat enam . Seekor harimau yang jatuh masih meninggalkan ancaman; kapal bernanah masih memiliki tiga pon paku (1). Hanya mengandalkan auranya, kultivasi Fang Yuan mulai hari ini dan seterusnya akan menerima kekuatan pendorong yang besar.</p>
+<p>	Pada saat ini, bulan di luar jendela cerah dan bintang-bintang sedikit. Cahaya bulan mengalir melalui jendela, menyinari wajah Fang Yuan.</p>
+<p>	“Awalnya saya pikir saya tidak akan bisa mendapatkan nomor satu, tetapi jalan memutar dan berbelok secara tak terduga. Waktu tidak menunggu siapapun! Aku harus pergi ke akademi sekarang dan menerima hadiah utama!” Mata Fang Yuan berkilau.</p>
+<p>	Dengan pikiran, Jangkrik Musim Gugur Musim Semi menghilang dari pandangan dan menghilang sekali lagi, kembali ke tidur nyenyaknya. Kemudian dia memanggil cacing Liquor dan menyembunyikannya di sudut tempat tidurnya. Ini untuk mencegah pemeriksaan akademi yang tidak perlu.</p>
+<p>	Lima belas menit kemudian, di akademi klan.</p>
+<p>	Penatua akademi sudah lama pergi tidur, tetapi dalam mimpinya dia samar-samar bisa mendengar suara seseorang mengetuk pintu. Dia terbangun oleh suara itu dan dia membuka matanya, agak tidak senang. “Siapa di luar sana di tengah malam?”</p>
+<p>	Seketika sebuah suara menjawab dengan nada hormat, “Melapor ke tuan tua! Ini adalah siswa dari angkatan tahun ini; dia sudah selesai menyempurnakan Moonlight Gu . Anda telah menginstruksikan bawahan Anda sebelumnya untuk melaporkan kepada Anda begitu nama depan muncul, tidak peduli jam berapa sekarang. ”</p>
+<p>	“Yah … Memang benar itu terjadi.” Penatua akademi mengerutkan kening, dan kemudian dia turun dari tempat tidurnya. Saat dia mengenakan jubahnya, dia bertanya, “Siswa mana yang mendapat nomor satu tahun ini? Apakah itu Gu Yue Fang Zheng?”</p>
+<p>	Bawahan di luar pintu menjawab, “Sepertinya begitu. Saat saya mendengar berita itu, saya bergegas ke sini untuk memberi tahu Anda tentang hal itu, Pak. Tampaknya seseorang dari cabang keluarga Fang. ”</p>
+<p>	“ Hehe , menghitung waktu, itu mungkin dia.” Penatua akademi tertawa ringan, dengan percaya diri berkata, “Siapa lagi selain jenius bakat kelas A? Semua siswa berbakat kelas B itu masih akan lebih buruk bahkan dengan bantuan batu purba. Atau mengapa tingkat bakat kultivasi menjadi begitu penting? ”</p>
+<p>	Saat dia mengatakan ini, dia mendorong pintu hingga terbuka dan keluar. Di luar pintu, bawahannya dengan hormat membungkuk, bergerak mundur dua langkah. “Tuan benar,” ulangnya.</p>
+<p>	Di aula, sekitar sepuluh lilin menyala bersama, menerangi aula. Pria yang menerima Fang Yuan sudah menjernihkan semua keraguan sekarang. Di bawah cahaya terang api lilin, wajahnya menunjukkan ekspresi terkejut. “Tunggu, apa yang baru saja kamu katakan? Kamu dipanggil Gu Yue Fang Yuan, bukan Gu Yue Fang Zheng?”</p>
+<p>	Fang Yuan mengangguk. Pada saat ini sesepuh berjalan masuk dari pintu masuk. Fang Yuan dan pria itu berdiri dan berbalik untuk menyambut.</p>
+<p>	Ketika tetua akademi melihat Fang Yuan, wajahnya penuh senyum. Dia melangkah dan berdiri di depan Fang Yuan, menepuk bahunya dengan ramah. “Kamu melakukannya dengan baik, Gu Yue Fang Zheng, kamu tidak mengecewakanku. Anda memang bakat kelas A – jenius! Semua teman kelas B, kelas C Anda tidak akan pernah bisa dibandingkan dengan Anda tidak peduli seberapa keras mereka berusaha. Ha ha ha .”</p>
+<p>	Fang Yuan dan Fang Zheng adalah saudara kembar; penampilan luar mereka mirip dengan kesalahan. Bahkan sesepuh akademi itu salah.</p>
+<p>	Fang Yuan tidak angkuh atau rendah hati. Dia mundur selangkah, melepaskan bahunya dari tangan sesepuh akademi. Dia menatap sesepuh akademi, tangannya terlipat di belakang punggungnya. Kemudian dia berkata dengan senyum tipis, “Tuan tetua, Anda salah. Saya Gu Yue Fang Yuan, Gu Yue Fang Zheng adalah adik laki-laki saya.”</p>
+<p>	“Hah?” Tetua akademi membuka mulutnya sedikit, ekspresinya terkejut. Dia memelototi Fang Yuan dengan ragu, alisnya berubah menjadi kerutan. Setelah beberapa napas, dia akhirnya berbicara. “Kamu Gu Yue Fang Yuan?”</p>
+<p>	“Benar Tuan,” jawab Fang Yuan.</p>
+<p>	“Kamu telah menyempurnakan Moonlight Gu ?” Penatua akademi sangat terkejut. Kedua matanya menatap tajam pada tanda bulan sabit Fang Yuan di dahinya. Matanya bersinar; dia bertanya yang sudah jelas.</p>
+<p>	“Memang, itu masalahnya,” kata Fang Yuan.</p>
+<p>	“Lalu, kamu yang pertama dari kelompokmu?” Penatua akademi mengajukan pertanyaan bodoh, tetapi dia tidak sepenuhnya bersalah. Bagaimanapun, situasi ini sepenuhnya di luar dugaan semua orang.</p>
+<p>	Orang harus tahu bahwa dia telah bertanggung jawab atas akademi selama beberapa dekade dan sangat berpengalaman. Dia telah melihat siswa berbakat kelas C bersaing untuk nomor satu sebelum ini, tetapi tidak pernah secepat ini. Belum lagi dalam batch ini ada rekan-rekan dengan bakat kelas A dan B.</p>
+<p>	“Jika tidak ada yang lebih awal dariku …” Fang Yuan berpura-pura berpikir keras, lalu dia menggosok hidungnya dan melanjutkan, “Kalau begitu sepertinya.”</p>
+<p>	Penatua akademi: “……..”</p>
+<p>	(1) Artinya walaupun rusak/rusak masih dapat digunakan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

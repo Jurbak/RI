@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 201 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 201";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_200.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 201">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_202.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 201</h1>
+        <div class="text-left">
+<p>	Bab 201</p>
+<p>	Bab 201: Beristirahat di pantai dangkal sambil meminjamkan cacing Gu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Lima hari yang lalu, Fang Yuan terlahir kembali di gunung Qing Mao.</p>
+<p>Saat itu, dia bekerja sama dengan Bai Ning Bing di penghalang darah, dan setelah pembantaiannya, dia mendapatkan banyak jarahan pasca-pertempuran.</p>
+<p>	Tapi cacing Gu ini semua memiliki luka di dalamnya. Selama lima hari terakhir, Fang Yuan telah mengambang di sekitar gunung Jiang, jadi mereka kekurangan makanan dan semuanya mati secara berurutan.</p>
+<p>	Untuk menyembuhkan cacing Gu, Fang Yuan selalu kekurangan satu, dan dia juga tidak menemukan yang dia suka.</p>
+<p>	“Sayangnya semua cacing Gu saya mati dalam ledakan sendiri. Kalau tidak, saya tidak akan terluka sejauh ini … “Bai Ning Bing menghela nafas ke arah langit.</p>
+<p>	Tapi Fang Yuan tertawa, “Jangan terlalu pesimis, tidak semuanya membutuhkan cacing Gu untuk diselesaikan.”</p>
+<p>	“Oh?” Bai Ning Bing menoleh dengan tatapan bertanya.</p>
+<p>	Dia melihat Fang Yuan diam-diam mengaktifkan esensi purba, menembakkan sesuatu dari mulutnya saat lampu merah muncul. Bunga Gu yang menyerupai lentera, berputar sendiri dan melayang di udara.</p>
+<p>	Itu adalah bunga tusita.</p>
+<p>	Fang Yuan menghendaki dan bunga tusita bersinar merah ketika beberapa benda terbang keluar darinya sambil dibungkus dengan cahaya merah terang.</p>
+<p>	Ada perban, kaleng obat, dan botol obat kecil.</p>
+<p>	“Botol obat kecil mengandung bubuk yang dapat mendisinfeksi dan mengurangi peradangan, Anda hanya perlu menggunakan sedikit. Di dalam kaleng obat terdapat pasta obat yang dapat menghentikan pendarahan dan membentuk gumpalan. Anda harus tahu cara menggunakan perban, kan? ” Fang Yuan mengatakan demikian, membagi barang-barang ini menjadi dua dan memberikan sebagian kepada Bai Ning Bing.</p>
+<p>	“Ini semua adalah metode yang digunakan oleh manusia, tapi aku mempelajarinya di akademi.” Bai Ning Bing menerimanya, cemberut, “Kamu benar-benar merencanakan ke depan.”</p>
+<p>	Mengatakan demikian, dia kemudian membuka kaleng obat besar dan bau menjijikkan masuk ke hidungnya, menyebabkan dia melompat mundur dan berteriak, “Kenapa bau sekali!”</p>
+<p>	Fang Yuan tertawa, tidak menjawab.</p>
+<p>Dia melepas bajunya, menuangkan bubuk dari kaleng obat kecil, menyebabkan lukanya merasakan rasa sakit yang membakar seperti api. Selanjutnya dia membuka kaleng obat besar, di mana di dalamnya ada pasta obat seperti lumpur yang berwarna hijau kehitaman dan berbau tidak sedap.</p>
+<p>	Tapi Fang Yuan sudah terbiasa dengannya di kehidupan sebelumnya, bahkan tidak bergeming.</p>
+<p>	Dia mengeluarkan segenggam pasta hijau kehitaman dan mengoleskannya pada luka-lukanya, tindakannya sangat halus.</p>
+<p>	Selanjutnya, dia menggunakan perban dan membungkusnya berlapis-lapis di atas lukanya, dengan cepat merawat lukanya.</p>
+<p>	Karena pasta obat tersebut, area luka terasa sensasi dingin, dengan cepat menggantikan rasa sakit berapi-api yang dirasakan sebelumnya.</p>
+<p>	“Pasta Anda cukup berguna!” Di satu sisi, Bai Ning Bing masih merawat lukanya saat dia tersentak.</p>
+<p>	Jubahnya robek, dan setelah mengoleskan obat, payudara dan putingnya hampir terbuka, tetapi dia tidak bereaksi apa-apa.</p>
+<p>Saat menggunakan obat, dia bahkan menghela nafas, “Huh, pikirkan sekarang, kalau saja kita memiliki Gu yang menyembuhkan, itu akan bagus.”</p>
+<p>	Fang Yuan memandangnya sebelum mengaktifkan bunga tusita dan mengeluarkan dua set pakaian. Dia sudah cukup mempersiapkan diri, berniat meninggalkan desa sejak awal, jadi dia membeli banyak set pakaian. Ditambah Bai Ning Bing dan usianya cukup dekat; karena mereka memiliki ukuran tubuh yang sama, pakaiannya juga cocok untuknya.</p>
+<p>	“Ambil ini.” Dia menyerahkan satu set pakaian kepada Bai Ning Bing.</p>
+<p>	Bai Ning Bing mengambil pakaian itu, dan tertawa kecil, merasa sedikit terkejut, “Tidak kusangka kamu sudah siap sejauh ini.”</p>
+<p>	“Kehati-hatian mencegah bahaya di sisi yang aman,” jawab Fang Yuan dengan santai, melepas pakaiannya yang tersisa dan bahkan kaus kakinya yang basah kuyup, ke set baru.</p>
+<p>	Segera, dengan pakaian baru, dia merasa jauh lebih baik.</p>
+<p>	Bai Ning Bing juga mengganti pakaiannya, melemparkan jubah putih yang robek ke pantai. Tapi ekspresinya tidak terlihat bagus, karena meskipun mereka keluar dari bahaya saat ini, setelah berganti pakaian dan membalut lukanya, dia juga melihat perubahan pada tubuhnya.</p>
+<p>	“Apa yang kamu rencanakan mulai sekarang? Kapan kamu mengembalikan Yang Gu kepadaku?” Dia berjalan, mengerutkan kening saat dia bertanya.</p>
+<p>	Fang Yuan mengambil jubah hitam dan kaus kaki yang dia ganti, “Bukankah sudah kukatakan sebelumnya, kita akan pergi ke gunung Bai Gu sekarang. Adapun Yang Gu itu, setidaknya tunggu sampai aku peringkat tiga dulu. ”</p>
+<p>Bai Ning Bing mengerutkan kening lebih erat, nada suaranya semakin tinggi, “Saya harus menunggu sampai Anda berada di peringkat tiga?”</p>
+<p>	Dia tidak pernah berpikir bahwa suatu hari, dia akan berada dalam keadaan yang canggung. Seorang pria yang tepat, berubah menjadi seorang wanita! Setelah krisis hidup dan mati berakhir, sensasi aneh ini memasuki pikirannya.</p>
+<p>	Jika memungkinkan, dia tidak ingin menanggungnya bahkan sedetik pun.</p>
+<p>	Fang Yuan mengangkat kepalanya dan menatapnya, tidak berbicara. Dia berjalan ke tepi sungai dan menggunakan air untuk mencuci pakaiannya.</p>
+<p>	Meskipun ada lubang di jubah hitamnya, itu masih bisa diperbaiki, tidak seperti jubah putih Bai Ning Bing. Dia tidak tahu berapa lama dia harus tinggal di hutan belantara, jadi dia tidak bisa membuang-buang pakaian.</p>
+<p>	Bai Ning Bing adalah orang yang cerdas, dan kesunyian Fang Yuan membuatnya menyadari kesulitannya yang sebenarnya.</p>
+<p>	Saat ini, dia memiliki kultivasi peringkat tiga tetapi tidak ada satu pun cacing Gu. Bahkan jika dia melakukannya, dia tidak bisa melakukan apa pun pada Fang Yuan. Yang Gu sudah disempurnakan oleh Fang Yuan, jadi selama dia menginginkannya, itu bisa langsung meledak sendiri.</p>
+<p>Gu Rotasi Yin Yang adalah sepasang, dan jika dihancurkan, Bai Ning Bing tidak akan pernah bisa kembali menjadi laki-laki!</p>
+<p>	Melihat tampilan belakang Fang Yuan, Bai Ning Bing menggertakkan giginya, merasa sangat frustrasi. Untuk berpikir bahwa dia, jenius klan Bai, telah menjadi seperti itu, dimanipulasi oleh orang lain.</p>
+<p>	Perasaan ini menyebabkan Bai Ning Bing yang arogan dan sombong merasa sangat tidak bahagia.</p>
+<p>	“Sekarang kita tidak memiliki Gu yang menyembuhkan, jadi jika kita berada dalam bahaya, apa yang bisa kita lakukan? Masalahnya bukan hanya itu, tetapi saya tidak memiliki satu cacing Gu pun, saya tidak memiliki kekuatan bertarung. Tidak, saya harus menangkap beberapa cacing Gu liar dan memurnikannya, jika tidak, saya bahkan tidak akan memiliki kekuatan untuk melindungi diri saya sendiri!”</p>
+<p>	Bai Ning Bing mengoceh ketika perutnya tiba-tiba mulai keroncongan.</p>
+<p>	“Berengsek!” Dia memegangi perutnya, merasakan rasa lapar yang kuat, “Hei, pria yang mencuci pakaian, ambil dendeng, aku kelaparan.”</p>
+<p>	Saat mengambang di rakit selama lima hari, mereka mengandalkan dendeng Fang Yuan sebagai makanan.</p>
+<p>	Meski dendengnya keras, dengan tekstur kayu saat dikunyah bisa mengisi perut dan memberi energi.</p>
+<p>	Fang Yuan berdiri, menggunakan tangannya untuk memeras air dari jubah hitam, mengangkat bahunya sebelum menjawab Bai Ning Bing, “Mengapa kamu begitu cemas? Pegang ini.”</p>
+<p>	Bai Ning Bing mengerutkan kening, mengambil jubah hitam dengan enggan.</p>
+<p>	Fang Yuan memanggil bunga tusita lagi, mengeluarkan sekantong dendeng.</p>
+<p>	Bai Ning Bing segera meraihnya, mengunyah daging yang keras. Dia mengunyah sampai rahangnya sakit, tapi dia sangat puas.</p>
+<p>	Fang Yuan menatapnya, tersenyum. Kapan jenius klan Bai ini pernah kelaparan sebelumnya? Memikirkan kehidupan sebelumnya, dia tahu persis bagaimana perasaannya.</p>
+<p>	Bai Ning Bing memakan sepotong dendeng lagi, menjilat bibirnya yang kering, “Ini mengurangi rasa lapar, tapi terlalu keras. Huh, makan daging, itu sudah merupakan berkah besar.”</p>
+<p>	Senyum Fang Yuan menjadi lebih intens, karena di bawah tatapan heran Bai Ning Bing, dia mengeluarkan panci besi.</p>
+<p>	“Kamu bahkan membawa pot? Itu hebat. Kita bisa menggunakan air untuk memasak daging kering. Kami hanya bisa mengambil air dari sungai, tetapi kami membutuhkan kayu bakar untuk menyalakan api, jadi kami harus menebang beberapa kayu.”</p>
+<p>	Mengatakan demikian, Bai Ning Bing melihat sekeliling, merasa bermasalah.</p>
+<p>	Mereka berada di pantai yang dangkal, dengan satu sisi air dan sisi lainnya tebing tinggi. Di atas tebing ada vegetasi yang lebat, tetapi tidak ada satu pun kayu di pantai itu sendiri.</p>
+<p>	Bai Ning Bing menginginkan kayu, jadi dia harus memanjat tebing dan menebang pohon.</p>
+<p>	Jika ini kembali ketika dia masih memiliki cacing Gu, itu akan menjadi sepotong kue, mudah dilakukan. Tapi sekarang dia tidak punya apa-apa, ingin memanjat tebing licin ini terlalu sulit.</p>
+<p>	Bai Ning Bing diam-diam merasa bermasalah, tetapi pada saat ini Fang Yuan mengeluarkan beberapa batu bara.</p>
+<p>	Batu bara lebih baik daripada kayu, dan Bai Ning Bing secara alami terkejut ketika dia melihat ini.</p>
+<p>	Segera setelah itu, Fang Yuan mengeluarkan beberapa minyak tanah dan batu api serta rak logam. Segera, dia mengaturnya.</p>
+<p>	Melihat ini, Bai Ning Bing menjadi serius, mata birunya menatap Fang Yuan, “Persiapanmu terlalu banyak, apakah kamu sudah berpikir untuk meninggalkan gunung Qing Mao sejak lama?”</p>
+<p>	Persiapan Fang Yuan terlalu berlebihan. Dengan dia membawa barang-barang ini, Bai Ning Bing yang pintar menemukan sesuatu yang salah dengan jelas.</p>
+<p>	“Bagaimana menurutmu?” Fang Yuan tersenyum, tidak menjawabnya, tetapi menunjuk ke panci logam, “Kamu bisa mengambil air sekarang.”</p>
+<p>	Bai Ning Bing menggertakkan giginya; Sikap Fang Yuan membuatnya kesal.</p>
+<p>	Dia mengambil air, sementara Fang Yuan sudah menyalakan api.</p>
+<p>	Pertama dia merebus air di panci, lalu dia melemparkan sekantong dendeng ke dalamnya. Segera setelah itu, bau daging yang harum bisa dirasakan.</p>
+<p>	Bai Ning Bing mengendus, tanpa sadar menjilat bibirnya.</p>
+<p>	Fang Yuan mengeluarkan sumpit dan sendoknya, dan mulai berpesta dengan Bai Ning Bing.</p>
+<p>	Daging yang dimasak lembut dan dapat dengan mudah ditelan dengan beberapa gigitan, sementara sup daging yang mendidih membuat keduanya terasa hangat di dalam. Satu-satunya masalah adalah air sungai ini memiliki pasir di dalamnya, memberikan tekstur berpasir saat makan.</p>
+<p>	Tetapi di bawah situasi seperti itu, mendapatkan perlakuan seperti itu bukanlah hal yang tidak menyenangkan.</p>
+<p>	“Aku belum kenyang, ayo masak setengah kantong daging lagi.” Bai Ning Bing belum puas, berkata sambil menyentuh perutnya.</p>
+<p>	Fang Yuan segera menolak, “Tidak ada lagi, kita harus menghemat makanan kita.”</p>
+<p>	“Kenapa pelit sekali! Lihat hutan ini di belakang kita? Berapa banyak hewan liar yang ada?” Bai Ning Bing berkata dengan tidak senang.</p>
+<p>	Fang Yuan menatapnya, “Tentu saja aku tahu ada binatang di sana, tapi itu juga berarti binatang buas. Berapa banyak binatang buas yang bisa kamu rawat sekarang? Bagaimana jika kita bertemu kelompok binatang? Bagaimana jika kita disergap oleh cacing Gu liar? Bahkan jika kita membunuh binatang buas, jika dagingnya mengandung racun, bisakah kita memakannya? Bisakah kamu membedakan antara cacing Gu yang beracun?”</p>
+<p>	Bai Ning Bing berdiri tercengang, tidak bisa membalas.</p>
+<p>	Fangyuan mendengus. Bai Ning Bing adalah jenius klan Bai, jadi dia secara alami penuh dengan kesombongan, jadi ini sudah cukup. Jika dia terus menceramahinya, dia akan mencapai batasnya.</p>
+<p>	Dia duduk bersila, menurunkan panci dan menggantung jubah hitamnya di rak logam, menggunakan sisa panas dari batu bara untuk mengeringkannya.</p>
+<p>	Fang Yuan melanjutkan, “Sudah larut. Mari kita tinggal di sini untuk malam ini dan melanjutkan menjelajahi hutan besok. Saya secara khusus memilih area ini dengan tebing di tiga sisi, sehingga akan ada binatang buas kecil yang dapat menjangkau kami, sehingga ini relatif lebih aman. Tapi kita tidak bisa berpuas diri, mari kita berjaga-jaga secara berkala.”</p>
+<p>	Ini adalah manfaat memiliki dua orang.</p>
+<p>	Fang Yuan menghendaki, dan memanggil Chainsaw Golden Centipede dan Sky Canopy Gu.</p>
+<p>	“Dua cacing Gu ini, aku akan meminjamkannya padamu untuk saat ini. Kenali mereka, ”kata Fang Yuan.</p>
+<p>	Dia hanya kultivasi tahap awal Peringkat satu, jadi hampir tidak mungkin baginya untuk menggunakan cacing Gu peringkat tiga. Bahkan dengan kecepatan pemulihan kelas A dan Lotus Harta Karun Esensi Surgawi, dia tidak bisa menampilkan kekuatan sebenarnya dari cacing Gu peringkat tiga. Dia mungkin juga memberikannya kepada Bai Ning Bing peringkat tiga.</p>
+<p>	Bai Ning Bing menerima cacing Gu, menatap Fang Yuan dalam-dalam.</p>
+<p>	Antara Master Gu, cacing Gu bisa dipinjamkan.</p>
+<p>	Dalam cacing Gu, wasiat Guru Gu berada. Selama master mengakuinya, orang lain juga dapat berkomunikasi dengan cacing Gu dan menggunakan kekuatan mereka. Tentu saja, itu tidak senyaman cacing Gu yang dimurnikan secara pribadi.</p>
+<p>	Juga, selama pemilik aslinya menginginkannya dan berubah pikiran, yang lain akan segera kehilangan kemampuan mereka untuk memerintahkan cacing Gu.</p>
+<p>	Namun demikian, Master Gu jarang meminjamkan cacing Gu mereka kepada orang lain.</p>
+<p>	Meskipun mereka dipaksa oleh situasi, tindakan Fang Yuan sangat tidak terkendali dan ini menyebabkan Bai Ning Bing menjadi waspada.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

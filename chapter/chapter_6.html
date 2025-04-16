@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 6";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_5.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 6">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_7.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 6</h1>
+        <div class="text-left">
+<p>	Bab 06</p>
+<p>	Bab 6 – Jalan menuju masa depan akan menarik</p>
+<p>	Bukaan itu misterius dan tidak biasa. Meskipun terletak di dalam tubuh Fang Yuan, pada saat yang sama, tidak berbagi ruang yang sama dengan organ internalnya. Anda bisa mengatakan bahwa itu sangat besar, namun pada saat yang sama sangat kecil.</p>
+<p>	Beberapa menyebutnya Prefektur Ungu; ada yang menyebutnya Chinese Pool. Namun banyak yang mengetahuinya sebagai Primeval Sea Aperture. Seluruh tubuhnya bulat dan permukaannya ditutupi oleh cahaya putih yang mengalir, seperti lapisan tipis lapisan cahaya. Itu adalah lapisan cahaya dari Hope Gu yang sebelumnya meledak.</p>
+<p>	Selaput cahaya tipis ini menopang lubang itu sehingga tidak akan runtuh, dan di dalam lubang itu secara alami adalah Laut Purba. Air lautnya halus seperti cermin, menunjukkan warna biru kehijauan, namun airnya padat dan menghasilkan kilau tembaga. Hanya Master Gu peringkat satu yang dapat membentuk esensi purba tembaga hijau ini, yang dikenal sebagai laut tembaga hijau.</p>
+<p>	Ketinggian permukaan laut tidak sampai setengah dari bukaan – hanya sampai 44%. Ini juga merupakan batasan dari bakat kelas C. Setiap tetes air laut adalah esensi purba murni, mewakili kondensasi esensi, vitalitas, dan jiwa Fang Yuan. Itu juga merupakan akumulasi dari potensi hidupnya selama 15 tahun terakhir.</p>
+<p>	Esensi purba ini digunakan oleh Master Gu untuk membesarkan Gu . Ini juga berarti bahwa mulai sekarang dan seterusnya, Fang Yuan secara resmi memasuki rute Master Gu Peringkat satu . Sejak lubang itu terbuka, tidak ada lagi Hope Gu yang memasuki tubuh Fang Yuan.</p>
+<p>	Fang Yuan mengumpulkan dirinya dan merasakan bahwa tekanan di depannya setebal dinding; dia tidak bisa lagi berjalan selangkah lebih maju. “Sama seperti kehidupanku sebelumnya,” dia tersenyum acuh tak acuh pada hasil ini.</p>
+<p>	“Kamu tidak bisa pergi lebih jauh?” Tetua akademi berteriak di seberang sungai, memegang seutas harapan. Fang Yuan berbalik dan berjalan kembali, menjawab dengan tindakannya.</p>
+<p>	Pada saat ini bahkan remaja muda mulai bereaksi. Kerumunan tiba-tiba berdengung dengan obrolan.</p>
+<p>	“ Apa ? Fang Yuan berjalan 27 langkah?”</p>
+<p>“Jadi dia hanya bakat kelas C ?!”</p>
+<p>“Luar biasa, hanya nilai C untuk orang jenius seperti dia?”</p>
+<p>	Sebuah gangguan besar meletus dari kerumunan.</p>
+<p>	“Kakak …” Di antara mereka, Gu Yue Fang Zheng mendongak, menonton dengan kaget saat Fang Yuan kembali ke seberang sungai. Dia tidak berani mempercayainya, saudaranya sendiri hanya kelas C?</p>
+<p>	Dia selalu berpikir bahwa kakak laki-lakinya akan menjadi talenta kelas A. Tidak, bukan hanya dia, bahkan bibi dan pamannya dan begitu banyak orang di antara klan juga berpikiran sama.</p>
+<p>	Tapi sekarang, hasilnya di luar dugaan malah sebaliknya!</p>
+<p>	” Sial , dia hanya kelas C!” Kepala klan Gu Yue mengepalkan kedua tinjunya, menarik napas dalam-dalam, kekecewaan dalam suaranya.</p>
+<p>	Para tetua yang menonton dari kegelapan memiliki reaksi yang beragam. Beberapa mengerutkan kening, beberapa menundukkan kepala dalam diskusi, beberapa melihat ke atas sambil menghela nafas.</p>
+<p>	“Mungkinkah hasilnya salah?”</p>
+<p>“Bagaimana itu bisa terjadi? Metode ini akurat di luar akal sehat, belum lagi kami menonton sepanjang waktu, bahkan curang itu sulit. ”</p>
+<p>“Tapi semua tindakan dan kecerdasannya sebelumnya, bagaimana Anda menjelaskannya?”</p>
+<p>	“Pemuda dengan kualitas laut purba yang lebih tinggi memang akan menampilkan karakteristik yang melampaui manusia biasa. Seperti kecerdasan, persepsi, daya ingat, kekuatan, kelincahan dan sebagainya. Di sisi lain, karakteristik ini tidak berarti bahwa bakat purba pasti tinggi. Semuanya masih akan ditentukan oleh hasil.”</p>
+<p>	“Huh, semakin besar harapanmu, semakin besar kekecewaannya. Generasi klan Gu Yue sekarang tidak lagi seperti generasi pertama.”</p>
+<p>	—</p>
+<p>	Kaus kakinya basah oleh air sedingin es dari sungai, rasa dingin menusuk tulang.</p>
+<p>	Fang Yuan berjalan dengan wajah tanpa emosi yang sama, jaraknya semakin dekat ke arah kerumunan. Dia bisa dengan jelas melihat ekspresi berat sesepuh akademi, dan menyadari tatapan yang dilemparkan padanya dari lebih dari seratus pemuda.</p>
+<p>	Tatapan ini bercampur dengan keheranan, keterkejutan, cibiran, dan beberapa menikmati peristiwa yang tidak menguntungkan ini, beberapa acuh tak acuh.</p>
+<p>	Itu adalah situasi yang sama, membuat Fang Yuan enggan mengingat kehidupan sebelumnya.</p>
+<p>	Selama waktu itu dia merasa seolah-olah langit telah runtuh. Ketika dia menyeberangi sungai yang dingin dia kehilangan pijakan dan jatuh, merendam seluruh tubuhnya di air, merasa sangat tersesat. Tidak ada yang maju untuk membantunya berdiri.</p>
+<p>	Ekspresi dan tatapan kecewa dan dingin itu seperti pisau tajam, menusuk ke dalam hatinya sendiri. Pikirannya kacau balau, dadanya terbakar rasa sakit. Seolah-olah dia telah jatuh dari awan, turun ke tanah. Semakin tinggi Anda berdiri, semakin keras Anda jatuh.</p>
+<p>	Tetapi dalam kehidupan ini, saat adegan yang sama diputar ulang, hati Fang Yuan menjadi tenang. Dia memikirkan legenda: Ketika Kesulitan datang, berikan hatimu pada Harapan.</p>
+<p>	Dan hari ini harapan itu ada di dalam dirinya. Meskipun itu tidak besar, tetapi itu lebih baik daripada orang-orang yang sama sekali tidak memiliki bakat purba.</p>
+<p>	Jika orang lain merasa kecewa, maka biarkan mereka kecewa. Apa lagi yang bisa mereka lakukan?</p>
+<p>	Apa hubungan kekecewaan orang lain dengan saya? Yang paling penting adalah membawa harapan di dalam hatiku!</p>
+<p>	500 tahun hidup telah membawanya untuk memahami bahwa hal-hal menarik yang terjadi dalam hidup seseorang, terjadi selama proses ketika seseorang mengejar mimpinya sendiri. Tidak perlu meminta orang lain di sekitar Anda untuk tidak kecewa atau membuat mereka menyukainya.</p>
+<p>	Berjalanlah di jalanmu sendiri, biarkan orang lain kecewa dan tidak bahagia sesuka mereka!</p>
+<p>	“Huh …” Penatua akademi menghela napas dalam-dalam dan berteriak, “Selanjutnya, Gu Yue Fang Zheng!”</p>
+<p>	Tapi tidak ada jawaban yang datang.</p>
+<p>	“Gu Yue Fang Zheng!” Tetua berteriak lagi, suaranya bergema di dalam gua.</p>
+<p>	“Ah? Aku di sini, aku di sini!” Fang Zheng tersentak dari keterkejutannya dan berlari keluar dengan tergesa-gesa. Sayangnya dia tersandung kakinya sendiri dan jatuh, memukul kepalanya dengan erangan dan jatuh ke sungai.</p>
+<p>	Seketika seluruh gua dipenuhi dengan tawa besar.</p>
+<p>	“Saudara-saudara Fang, tidak ada yang istimewa.” Kepala klan Gu Yue mengejek, merasakan semacam kebosanan yang mengganggu terhadap Fang Zheng.</p>
+<p>	“Ini sangat memalukan!” Fang Zheng berjuang dan mencipratkan air. Dasar sungai terlalu licin; dia tidak bisa bangun dengan benar. Mencoba yang terbaik hanya membuatnya terlihat lebih bodoh dan kikuk. Hatinya semakin bingung saat suara tawa memenuhi telinganya.</p>
+<p>	Tetapi tepat pada saat ini, dia tiba-tiba merasakan tarikan kuat yang mengangkatnya. Kepalanya akhirnya meninggalkan permukaan air dan tubuhnya menemukan keseimbangan kembali.</p>
+<p>	Dia menyeka wajahnya dengan panik dan memfokuskan pandangannya. Sebenarnya kakak laki-lakinya Fang Yuan yang telah mencengkeram kerahnya dan menariknya ke atas.</p>
+<p>	“Kakak …” Dia membuka mulutnya untuk berkata. Tapi sebaliknya dia mulai tersedak air, akhirnya memicu batuk hebat.</p>
+<p>	“Haha, kakak laki-laki dan perempuan yang sulit dari keluarga Fang!” Seseorang menertawakan tepi sungai. Tawa itu semakin keras, namun sesepuh akademi tidak keluar dan menghentikannya. Dia sangat mengerutkan kening, kekecewaan memenuhi hatinya.</p>
+<p>	Fang Zheng benar-benar bingung harus berbuat apa, dan kemudian dia mendengar saudaranya berkata kepadanya, “Lanjutkan. Jalan menuju masa depan akan menarik.”</p>
+<p>	Fang Zheng tidak bisa membantu tetapi membuka mulutnya karena terkejut. Punggung Fang Yuan menghadap orang banyak sehingga mereka tidak bisa melihat dengan baik, tapi Fang Zheng bisa dengan jelas merasakan ketenangan yang terpancar dari Fang Yuan. Saat kakak laki-lakinya berbicara, sudut mulutnya sedikit terangkat, memperlihatkan senyum yang dalam dan penuh perhatian.</p>
+<p>	Itu jelas hanya bakat kelas C, namun bagaimana kakak bisa begitu tenang? Fang Zhen tidak bisa tidak bertanya-tanya, hatinya penuh keraguan. Namun Fang Yuan tidak mengatakan apa-apa lagi. Dia menepuk punggung Fang Zheng, dan berbalik dan berjalan pergi.</p>
+<p>	Fang Zheng memasang ekspresi tercengang saat dia berjalan menuju laut bunga. “Aku tidak pernah mengira kakak laki-laki akan begitu tenang. Jika itu aku, aku akan…”</p>
+<p>	Dia menundukkan kepalanya, berjalan ke depan dengan linglung. Namun dia tidak tahu bahwa dia sedang memainkan adegan ajaib. Ketika dia akhirnya tersadar dari lamunannya, dia sudah berada jauh di dalam lautan bunga, berdiri di kejauhan yang belum pernah dicapai orang lain di hadapannya.</p>
+<p>	43 langkah!</p>
+<p>	“Ya Tuhan, bakat kelas A!” Tetua akademi berteriak, sepertinya telah kehilangan akal sehatnya.</p>
+<p>“Nilai A, benar-benar nilai A !?”</p>
+<p>“Sudah 3 tahun, seorang jenius berbakat kelas A akhirnya muncul di klan Gu Yue!”</p>
+<p>	Para tetua klan yang menonton dalam kegelapan juga berteriak pada saat yang sama, kehilangan ketenangan mereka.</p>
+<p>	“Yah, garis keturunan Fang berasal dari kita garis keturunan Chi. Jadi kami keluarga Chi akan mengadopsi Gue Yue Fang Zheng,” Gue Yue Chi Lian segera mengumumkan.</p>
+<p>	“Bagaimana mungkin? Anda tua tas Chi Lian, moral dan kemampuan Anda rusak, tapi Anda pasti pandai menyesatkan anak laki-laki. Lebih baik menyerahkan anak ini kepada saya, Gu Yue Mo Chen untuk dibesarkan!” Gu Yue Mo Chen langsung meraung kembali.</p>
+<p>	“Berhenti berdebat. Tidak ada yang lebih memenuhi syarat untuk membesarkan anak ini selain pemimpin klan saat ini. Siapapun yang keberatan akan melawanku, Gu Yue Bo!” Kepala klan Gu Yue menjadi gila dan menyapu pandangan merahnya yang berapi-api ke atas tatapan kecewa dan putus asa.</p>
+<p>	Catatan Penerjemah: Akhirnya, bab 6 selesai! Semoga kalian menantikan chapter selanjutnya :&gt;</p>
+<p>	Juga jika Anda belum menyadarinya sekarang, dan karena penulis menyebutkan ini dalam catatannya di bab 1, karakter utama adalah penjahat. Dia pasti kejam dan sangat, sangat jahat. Jika ini bukan secangkir teh Anda, jangan ragu untuk menjatuhkannya… Jika tidak, persiapkan diri Anda untuk apa yang akan datang di masa depan!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

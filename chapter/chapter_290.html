@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 290 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 290";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_289.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 290">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_291.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 290</h1>
+        <div class="text-left">
+<p>	Bab 290</p>
+<p>	Bab 290: Fang Yuan vs Li Hao (1)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Dalam sekejap mata, lima hari berlalu.</p>
+<p>	Fang Yuan memiliki jadwal pertempuran lain.</p>
+<p>	“Lawanmu hari ini memiliki latar belakang yang cukup.” Wei Yang berjalan menuju Fang Yuan, menginstruksikannya untuk berhati-hati.</p>
+<p>	Fang Yuan mengangguk.</p>
+<p>	Dia tidak pernah bertarung tanpa persiapan yang memadai, setelah bersekutu dengan Li Ran, dia mendapatkan banyak informasi berharga tentang peserta tahap pertempuran.</p>
+<p>	Li Ran adalah seorang mata-mata, menyamar selama delapan tahun, tugasnya adalah mengumpulkan informasi. Pemahamannya tentang tahap pertempuran bahkan melampaui Wei Yang.</p>
+<p>	“Li Hao juga pernah menjadi kultivator kekuatan, naik ke kota terdalam keempat. Dia pernah memiliki masa lalu yang gemilang, tetapi menemui hambatan. Dalam hal pembudidaya kekuatan, mereka kuat di awal, tetapi mulai menunjukkan kelemahan di tahap tengah, terjebak di sana tanpa cara untuk maju lebih jauh. Li Hao sangat trauma, menyerah pada jalur kekuatan dan berubah menjadi gaya pendukung.”</p>
+<p>	“Yah, itu karena dia akhirnya beruntung, memilih batu yang bagus di sarang perjudian dan mendapatkan posisi yang langka menukar Gu. Dengan pengalamannya yang kaya, dia segera menjual semua Gu yang dia miliki dan membeli katak gunung di rumah lelang.”</p>
+<p>	“Selanjutnya, dia mengandalkan kerja sama antara kedua Gu ini dan memenangkan semua pertandingan yang dia ikuti. Mengandalkan Gu dan batu purba yang dia menangkan, dia perlahan mengumpulkan asetnya dan mengumpulkan satu set cacing Gu baru. Dia dengan paksa menantangmu karena dia ingin usaha habis-habisan itu Gu, kamu harus hati-hati.”</p>
+<p>	Wei Yang berkata, sambil menepuk bahu Fang Yuan dan berbaur dengan kerumunan.</p>
+<p>	Fang Yuan menatap Wei Yang dalam-dalam, saat dia berjalan ke arena.</p>
+<p>	Setiap kali ada pertempuran penting, Wei Yang akan datang dan menonton. Fang Yuan mengerti bahwa dia hanya bertindak sebagai dukungan mental untuk Fang Yuan. Salah satu alasannya adalah karena klan Shang ingin merekrutnya, tetapi kemungkinan besar …</p>
+<p>	Itu karena dia memperlakukan Fang Yuan sebagai saudara sejati!</p>
+<p>	Hubungan antara orang-orang ini aneh.</p>
+<p>	Beberapa orang berinteraksi selama puluhan tahun tanpa menjadi lebih dekat. Beberapa orang hanya berbicara sekali dan menjadi teman dekat.</p>
+<p>	Fang Yuan memahami emosi Wei Yang. Dia bisa melihat bayangan sebelumnya di Fang Yuan. Rasa pengakuan yang kuat ini, serta sifat jujur ​​​​Fang Yuan, membuatnya memperlakukan Fang Yuan sebagai teman dekat.</p>
+<p>	“Wei Yang …” pikir Fang Yuan, saat dia berjalan ke tengah arena.</p>
+<p>	Medan arena ini adalah rawa berukuran besar. Lumpur hitam busuk, mengeluarkan bau busuk, dan bahkan ada genangan air di mana-mana.</p>
+<p>	Li Hao belum tiba.</p>
+<p>	Di luar panggung pertempuran, sejumlah besar penonton berkumpul.</p>
+<p>	Ini adalah orang yang paling banyak dilihat Fang Yuan di salah satu pertempurannya. Berdiri di arena, dia melihat sekeliling untuk melihat orang-orang di sekelilingnya.</p>
+<p>	Semua orang berbicara pada saat yang sama, menyebabkan seluruh panggung pertempuran menjadi penuh dengan kebisingan dan obrolan.</p>
+<p>	“Fang Zheng ini dalam masalah hari ini!”</p>
+<p>	“Dia sangat arogan akhir-akhir ini, dia harus diberi pelajaran.”</p>
+<p>	“Anak-anak muda terlalu memikirkan diri mereka sendiri, dia benar-benar berpikir satu upaya habis-habisan Gu membuatnya tak terkalahkan!”</p>
+<p>	“Li Hao ada di sini.” Seseorang berteriak.</p>
+<p>	Kerumunan terdiam, sebelum menjadi liar lagi, suara mereka meledak melalui atap.</p>
+<p>	Di pintu masuk, Li Hao muncul.</p>
+<p>	“Tuan Li Hao, kami semua mengandalkanmu!”</p>
+<p>	“Semoga Anda memenangkan pertandingan ketiga puluh Anda dan maju ke kota terdalam keempat.”</p>
+<p>	Di antara kerumunan, banyak orang berteriak, beberapa berteriak.</p>
+<p>	Dibandingkan dengan Fang Yuan, mereka lebih memikirkan Li Hao. Ketika Fang Yuan pertama kali datang, dia sangat arogan, membunuh banyak lawan, kejam dan kejam. Dia memiliki token duri ungu, menyebabkan semua orang iri dengan keberuntungannya.</p>
+<p>	Sebaliknya, Li Hao adalah seorang veteran di tahap pertempuran. Dia pertama kali berjalan di jalur kekuatan, lalu jatuh dari kota terdalam keempat. Dia telah bangkit dari bagian terendah hidupnya, menandakan semangat ‘tidak pernah menyerah’ di panggung pertempuran, itu akan menyalakan gairah semua orang.</p>
+<p>	Li Hao membawa senyum ringan saat dia berjalan ke atas panggung.</p>
+<p>	Dia kurus, mengenakan jubah bunga dan riasan, saat dia berjalan santai menuju Fang Yuan.</p>
+<p>	Tapi sekitar enam puluh langkah jauhnya, dia berhenti, tidak maju lebih jauh.</p>
+<p>	Fang Yuan, dalam beberapa pertarungan sebelumnya, menggunakan serangan vertikal Gu untuk menyerang lawannya, mengirim mereka terbang, dengan mudah menang dalam satu serangan. Li Hao adalah seorang veteran di tahap pertempuran, dia jelas membuat persiapan untuk itu.</p>
+<p>	Jarak efektif serangan vertikal Gu adalah lima puluh langkah, dia aman di perbatasan keenam puluh.</p>
+<p>	“Penggarap kekuatan, hehe …” Dia memberi Fang Yuan pandangan sekilas, penuh dengan penghinaan: “Anak muda, sayangnya, kemenangan berturut-turut Anda berakhir di sini. Apakah Anda tahu, melihat Anda sekarang, itu seperti saya di masa lalu. Tidak ada masa depan di jalur kekuatan, jadi bagaimana jika Anda memiliki upaya habis-habisan Gu? Terima kasih, setelah saya mengalahkan Anda hari ini, Anda akan tahu itu untuk kebaikan Anda sendiri, membiarkan Anda memahami ketidakcukupan jalur kekuatan.</p>
+<p>	Dia mulai menguliahi Fang Yuan dengan statusnya sebagai senior.</p>
+<p>	“Kamu benar-benar banyak bicara, bisakah kamu diam?” Fang Yuan melipat tangannya, dengan ekspresi polos.</p>
+<p>	“Kamu …” Wajah Li Hao memerah karena marah, karena tawanya dipenuhi dengan permusuhan: “Hehehe, anak muda, kamu tidak menghormati orang yang lebih tua, kamu pasti akan menderita.”</p>
+<p>	Pada saat ini, dengan suara bel, Tuan Gu tuan rumah mengumumkan dimulainya pertempuran.</p>
+<p>	Kecelakaan vertikal Gu!</p>
+<p>	Fang Yuan mengambil langkah besar, maju ke depan.</p>
+<p>	Bangku gereja!</p>
+<p>	Tanah di bawah kakinya menari-nari seperti ombak, memercik tinggi di kiri dan kanannya.</p>
+<p>	“Wow, pemandangan yang luar biasa.” Li Hao tertawa ringan.</p>
+<p>	Dia tahu dengan sangat jelas bahwa tabrakan vertikal Gu hanya bisa menyerang lima puluh langkah ke depan. Setiap kali digunakan, ada periode cooldown lima napas.</p>
+<p>	Dia enam puluh langkah jauhnya, mungkin tampak berbahaya, tapi dia benar-benar aman.</p>
+<p>	Medan ini adalah keuntungan baginya. Medan berlumpur tidak seperti permukaan yang kasar dan datar, tidak cocok untuk menyerang tipe serangan.</p>
+<p>	Seperti yang diharapkan, Fang Yuan menerjang empat puluh lima langkah dan berhenti.</p>
+<p>	Tapi segera setelah itu, Fang Yuan membalikkan tubuhnya ke satu sisi, menghadap Li Hao dengan pandangan ke samping.</p>
+<p>	Muatan horizontal Gu!</p>
+<p>	Tanah dan lumpur terbelah saat gambar hantu babi hutan muncul, dengan aksi pengisian, kecepatannya meningkat tajam, liar dan tangguh. Dalam sekejap mata, Fang Yuan mencapai Li Hao.</p>
+<p>	Jika dia dipukul, dia pasti akan muntah darah dan mematahkan beberapa tulang.</p>
+<p>	Li Hao menjadi pucat, pada saat genting, dia mengaktifkan Gu vitalnya.</p>
+<p>	Pertukaran posisi!</p>
+<p>	Dalam sekejap, dia bertukar dengan Fang Yuan.</p>
+<p>	Fang Yuan menghadap Li Hao saat dia menyerang, tapi sekarang, Li Hao berada di belakangnya saat dia menyerang ke depan, semakin menjauh dari Li Hao.</p>
+<p>	“Aku ceroboh!” Pada saat ini, dahi Li Hao bercucuran keringat.</p>
+<p>	Dia tidak berpikir bahwa Fang Yuan akan menjadi ancaman baginya. Setelah mengetahui Fang Yuan memiliki Gu kecelakaan vertikal dan Gu muatan horizontal, dia tidak terlalu memikirkannya, tetapi itu hampir menyebabkannya terluka parah.</p>
+<p>	Pada saat yang genting, pengalaman bertahun-tahun menyelamatkannya.</p>
+<p>	Dibandingkan dengan bertahan, mengapa tidak menghindar.</p>
+<p>	Satu posisi bertukar, dan Fang Yuan meleset.</p>
+<p>	Tidak peduli seberapa besar kekuatanmu, selama kamu mengenai udara, kamu tidak dapat menyebabkan kerusakan, itu tidak ada gunanya.</p>
+<p>	“Anak ini memiliki upaya habis-habisan Gu, setiap gerakan serangannya keras. Saya menjual kekuatan saya Gu dan menyingkirkan kekuatan binatang buas di tubuh saya, saya tidak bisa bersaing dengannya secara langsung. ”</p>
+<p>	Li Hao menenangkan sarafnya, dan mundur.</p>
+<p>	Dia menggunakan gerakannya Gu, tubuhnya berubah ringan seperti angin, melayang mundur, dengan cepat menarik jarak dari Fang Yuan.</p>
+<p>	Pada saat yang sama, dia mengangkat jarinya dan menunjuk ke langit, saat cahaya hijau melesat keluar dari aperture-nya, menuju langit.</p>
+<p>	Itu adalah lampu hijau giok, berhenti di udara, lalu meledak.</p>
+<p>	Di bawah cahaya yang menyilaukan, tubuh katak belakang gunung menunjukkan dirinya, turun.</p>
+<p>	Ada bayangan hitam di tanah, menelan Fang Yuan, dan semakin besar seiring waktu.</p>
+<p>	Lima napas telah lama berlalu, Fang Yuan memandang Li Hao, dan mengaktifkan tabrakan vertikal Gu, menyerbu.</p>
+<p>	Dia meningkatkan kecepatannya dengan cepat, dengan cepat keluar dari jangkauan bayangan.</p>
+<p>	Saat dia keluar, katak punggung gunung itu mendarat.</p>
+<p>	Bam!</p>
+<p>	Ledakan keras, dan seluruh panggung pertempuran bergetar, saat lumpur hitam dan tanah beterbangan ke udara seperti gelombang pasang.</p>
+<p>	Ombak menerjang ke tepi arena, menyebabkan para penonton menghindar secara naluriah, tetapi perisai besar berwarna merah tua melindungi mereka.</p>
+<p>	Panggung pertempuran jelas memiliki Gu defensif untuk melindungi penonton.</p>
+<p>	“Tampaknya, katak punggung gunung Lord Li Hao!” Melihat ini, seseorang berteriak kegirangan.</p>
+<p>	“Bahkan jika Fang Zheng menyerang Li Hao, itu tidak ada gunanya. Li hao hanya perlu menukar posisi Gu, dan dengan mudah berganti posisi dengan katak punggung gunung… hehehe.”</p>
+<p>	Tapi Fang Yuan tidak menyerang Li Hao.</p>
+<p>	Dia berhenti di jalurnya.</p>
+<p>	Lumpur hitam memercik padanya seperti gelombang, tetapi ditolak oleh baju besi putih kanopi Gu.</p>
+<p>	Muatan horisontal Gu.</p>
+<p>	Setelah ombak mereda, dia memiringkan tubuhnya menjauh dari gunung, dan menyerang secara horizontal ke arahnya.</p>
+<p>	Melolong!</p>
+<p>	Raungan beruang terdengar, saat hantu beruang coklat muncul, melolong ke langit, mengeluarkan aura liarnya.</p>
+<p>	Bam!</p>
+<p>	Fang Yuan membanting tubuh katak punggung gunung, menyebabkan katak itu bergoyang.</p>
+<p>	Tapi itu saja.</p>
+<p>	Bukit unik gunung kodok ini terbuat dari batuan gunung yang memiliki kepadatan yang tinggi. Itu adalah salah satu Gu peringkat tiga terberat.</p>
+<p>	Begitu keempat kakinya berdiri di tanah, itu seperti gunung yang tak tergoyahkan, menyebabkan semua orang terkesiap karena ketegasannya.</p>
+<p>	Tapi Fang Yuan tidak peduli, dia mengangkat kedua tangannya dan memukulnya seperti palu.</p>
+<p>	Melolong!</p>
+<p>	Di atas kepalanya, hantu babi hutan, beruang coklat, dan buaya muncul satu demi satu.</p>
+<p>	Pukulannya merobek angin saat dia menyerang tanpa menahan diri. Memukul katak punggung gunung, suara gemuruh meledak seperti petasan.</p>
+<p>	Serangan sengit seperti itu membuat para penonton menjadi ketakutan yang mendalam, saat keringat dingin mengalir di punggung mereka.</p>
+<p>	“Jika saya adalah targetnya, saya tidak akan memiliki mayat yang lengkap sekarang!”</p>
+<p>	“Upaya habis-habisan Gu terlalu kuat, benar-benar terlalu kuat.”</p>
+<p>	“Tapi otak Fang Zheng digoreng, bukan menyerang Li Hao tapi malah meninju gunung itu.”</p>
+<p>	…</p>
+<p>	Pertahanan katak belakang gunung sangat mengesankan, bahkan dengan serangan ganas Fang Yuan, itu tidak bergerak, menyebabkan orang merasa tidak berdaya melawannya.</p>
+<p>	Tapi Fang Yuan memiliki ekspresi dingin, semakin dia menyerang, semakin ganas, seperti katak ini bermusuhan dengannya.</p>
+<p>	Ekspresi Li Hao berubah.</p>
+<p>	Tidak peduli seberapa keras katak gunung itu, ia memiliki batasnya, ia tidak dapat menahan hujan pukulan ini lagi.</p>
+<p>	Gua gua gua…</p>
+<p>	Katak punggung gunung mulai berteriak, karena rasa sakitnya melebihi batasnya.</p>
+<p>	“Ini tidak bisa berlanjut!” Hati Li Hao melonjak, saat dia berkehendak dan menunggangi katak punggung gunung.</p>
+<p>	Katak punggung gunung mulai menyerang balik, menginjak lumpur dan menyerang Fang Yuan.</p>
+<p>	Dengan beratnya, jika Fang Yuan menerima ini, dia pasti akan dikirim terbang.</p>
+<p>	Muatan horisontal Gu.</p>
+<p>	Matanya bersinar terang, menjauh pada saat terakhir, menghindari serangan katak punggung gunung.</p>
+<p>	Mengelilingi tubuh katak, dan memukul lagi!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

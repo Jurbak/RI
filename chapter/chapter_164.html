@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 164 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 164";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_163.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 164">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_165.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 164</h1>
+        <div class="text-left">
+<p>	Bab 164</p>
+<p>	Bab 164: Pertempuran Intens</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Jika seseorang ingin bertarung melawan serigala mahkota guntur, dia harus menyerang terlebih dahulu. Kekuatannya terlalu besar, dan jika dibiarkan masuk ke desa, itu pasti akan menyebabkan kerugian dan kerusakan yang besar.</p>
+<p>	Kemampuan kelompok ini sangat besar. Dengan pemimpin klan peringkat empat Gu Yue Bo sebagai pemimpin, dan para tetua sebagai pendukungnya, mereka adalah kekuatan penyerang yang kuat.</p>
+<p>	Gelombang serigala melonjak dengan keras, namun mereka melawannya dengan kerja sama yang hati-hati dan kompak. Seolah-olah kelompok itu adalah kapal perang, membelah ombak, maju dengan berani ke depan.</p>
+<p>	Ke mana pun mereka pergi, mereka praktis menyapu semua yang ada di jalan mereka!</p>
+<p>	Semakin dekat mereka ke serigala mahkota guntur, semakin banyak tekanan yang datang dari gelombang serigala meningkat.</p>
+<p>	Gu Yue Bo tenang dan tenang. Tiba-tiba dia mengulurkan telapak tangan kanannya, dan menebas di depannya.</p>
+<p>	Astaga!</p>
+<p>	Sebuah moonblade berwarna emas, sebesar orang dewasa, terbentuk dalam sepersekian detik dan terbang ke depan.</p>
+<p>	Swooosh swoosh swooosh!</p>
+<p>	Setelah terbang beberapa meter, cakram bulan ini tiba-tiba mengalami perubahan, dan dari satu bilah berubah menjadi tiga.</p>
+<p>	Tiga bilah bulan terbang berdampingan, menghasilkan suara angin bersiul saat membajak tiga jalur berdarah seperti pisau yang memotong daging.</p>
+<p>	Banyak serigala jatuh tanpa kecuali. Anggota badan yang patah terbang ke udara, dan tangisan darah yang mengental terdengar tanpa henti.</p>
+<p>	Serigala petir yang gila meraung dan mulai bergegas ke arah Master Gu dari sisi kanan. “Biarkan aku!” Seorang tetua klan tiba-tiba berubah dari penampilan kurus dan kering, berubah menjadi pria gemuk besar dalam satu napas.</p>
+<p>	Dengan keras, dia menggunakan perutnya yang bundar dan membuat serigala petir yang gila itu terbang menjauh.</p>
+<p>	Serigala petir yang gila datang dengan terburu-buru, dan semakin besar kekuatan tabrakan, semakin kuat pantulannya. Itu terlempar tinggi ke udara, memotong busur dan akhirnya jatuh ratusan meter jauhnya.</p>
+<p>	Para tetua lainnya menunjukkan segala macam kemampuan.</p>
+<p>	Ada beberapa dengan rambut panjang seperti jarum, terus menembak dan menyapu serigala petir.</p>
+<p>	Beberapa dari mereka menutupi tubuh mereka dengan baju besi ringan, dengan paksa menahan robekan dan gigitan serigala.</p>
+<p>	Serigala mahkota guntur berubah dari keadaan setengah duduk, dan perlahan bangkit. Itu dengan tegas menatap Gu Masters yang bergegas menuju dirinya sendiri, dan mata gelap serigala itu memancarkan peringatan.</p>
+<p>	Itu membuka mulutnya dan mengeluarkan raungan rendah, memperlihatkan taring serigalanya yang tajam dan bergerigi.</p>
+<p>	Setiap serigala petir yang gila dan serigala petir yang berani yang mendengar aumannya segera bangkit dan bergegas menuju Master Gu.</p>
+<p>	Master Gu langsung diperlambat dalam tugas mereka, menerima halangan besar.</p>
+<p>	“Pemimpin klan!”</p>
+<p>	“Aku akan menyerahkannya kepada kalian semua, tetua klan!”</p>
+<p>	“Kamu harus menang…”</p>
+<p>	Banyak mata melintas dan berkumpul pada mereka. Jumlah teriakan dan teriakan yang tidak diketahui terdengar dari lubuk hati para anggota klan.</p>
+<p>	Ini adalah pertempuran yang paling penting.</p>
+<p>	Jika mereka kalah dalam pertempuran, seluruh klan akan menghadapi bahaya musnah. Jika kemenangan dipastikan, maka mereka akan bertahan melawan momen tersulit dari gelombang serigala.</p>
+<p>	Ini adalah pertempuran yang akan menentukan hidup dan mati klan Gu Yue!</p>
+<p>	Tak satu pun dari para tetua mundur. Mereka mendorong ke depan, sambil berlumuran darah. Meski tak kalah angka, tak satu pun dari mereka yang terhindar dari cedera.</p>
+<p>	Mereka menghilangkan semua rintangan di sekitar mereka, sampai mereka menghadapi serigala mahkota guntur, lalu menyerbu ke arahnya.</p>
+<p>	Terapi Cahaya Gu.</p>
+<p>	Tiba-tiba seorang tetua klan wanita paruh baya mengulurkan kedua tangannya, dan cahaya putih bersih dan hangat menggelegak. Cahaya pertama mengalir ke tubuh pemimpin klan, dan kemudian dipantulkan ke masing-masing tetua klan lainnya.</p>
+<p>	Ini adalah Gu penyembuh peringkat tiga dengan sifat area-of-effect, dan itu bisa langsung menyebabkan luka pada Gu Masters berhenti berdarah. Luka ringan akan sembuh total, sedangkan luka berat akan sembuh setengahnya.</p>
+<p>	“Lanjutkan pertempuran!” Gu Yue Bo meraung keras.</p>
+<p>	Lima tetua klan menggesekkan tangan mereka ketika mereka mendengar sinyal, dan mengirim moonblade terbang ke langit.</p>
+<p>	Tiba-tiba seorang tetua klan meraung ketika semua otot di tubuhnya meletus dan mengembang tiga kali, menjadi kera raksasa berbulu putih.</p>
+<p>	Itu melompat di depan kelompok, tangannya bergabung bersama.</p>
+<p>	Gu Yue Bo melangkah ke kedua tangannya, dan dengan raungan rendah, kera itu menendang dari tanah dan mengulurkan pinggangnya, menggunakan semua kekuatan di tubuhnya untuk melemparkan Gu Yue Bo ke langit.</p>
+<p>	Gu undangan bulan.</p>
+<p>	Gu Yue Bo merentangkan tangan kirinya; itu mengeluarkan cahaya bulan ungu yang kabur seperti pusaran air.</p>
+<p>	Pedang bulan yang ditembakkan oleh para tetua klan ke langit semuanya diserap dan dianeksasi oleh cahaya bulan ungu ini.</p>
+<p>	“MEMOTONG!”</p>
+<p>	Mata Gu Yue Bo bersinar saat dia berteriak dalam volume yang menggelegar, membelah udara dengan telapak tangannya dari atas ke bawah.</p>
+<p>	Bangku gereja!</p>
+<p>	Angin dan guntur bergema saat pedang bulan ungu, lebih besar dari kereta kuda, terbang menuju serigala mahkota guntur.</p>
+<p>	Moonblade ini terlihat lambat tetapi sebenarnya cepat, dan dalam sepersekian detik, ia mengenai sasarannya.</p>
+<p>	Serigala mahkota guntur melolong dan pada saat terakhir, armor ringan guntur muncul di tubuhnya.</p>
+<p>	Bam!</p>
+<p>	Pada saat berikutnya, ledakan hebat terjadi saat langit diselimuti oleh petir biru yang menakutkan yang mengadu melawan cahaya bulan ungu yang memikat.</p>
+<p>	Banyak orang menyipitkan mata saat gelombang kejut menyebar dari benturan, mengirim serigala petir biasa di sekitarnya terbang.</p>
+<p>	Ketika cahaya yang intens menghilang, Master Gu sudah terlibat dalam pertempuran dengan serigala mahkota guntur.</p>
+<p>	Para tetua klan semuanya sangat berpengalaman dan terkoordinasi dengan baik satu sama lain.</p>
+<p>	Seorang master tua tua dengan rambut putih mengambang menembakkan jarum darinya tanpa henti seperti hujan.</p>
+<p>	Di sisi lain, seorang Master Gu wanita meniup api dari lubang hidungnya seperti ular yang masih hidup, dan dia menyemburkan gelombang api oranye dan menyerang dua sisi pada saat yang bersamaan.</p>
+<p>	Ada tiga Master Gu lainnya – satu berubah menjadi kera putih, sementara yang lain mengubah otot-ototnya menjadi baja dari ujung kepala hingga ujung kaki saat mereka berdua mencoba mengekang serigala mahkota guntur. Master Gu lainnya membuang Gu Wayang tanpa henti, menuangkan esensi purbanya dan mengubahnya menjadi prajurit rumput lapis baja anggur atau pelayan kayu dengan tombak merah, menggunakannya sebagai makanan untuk menarik serangan yang datang.</p>
+<p>	Healing Gu Masters berdiri di lingkaran luar, menggunakan Therapy Light Gu dari waktu ke waktu. Di samping mereka ada Gu Masters yang defensif, memberi mereka perhatian dan perlindungan.</p>
+<p>	Serigala mahkota guntur telah dipukuli dengan buruk. Tungkai depan kanannya memiliki luka besar, darah mengalir tanpa henti. Ini adalah hasil dari serangan moonblade ungu beberapa saat yang lalu.</p>
+<p>	Itu meraung terus menerus karena telah jatuh ke dalam perangkap Master Gu yang direncanakan dengan baik. Bahkan jika ia memiliki semangat untuk melawan, tidak banyak yang bisa ia lakukan.</p>
+<p>	Master Gu menenun dan melompat-lompat seperti kutu pada kucing atau anjing. Mereka terus bergerak dan menarik ruang saat mereka bekerja dengan chemistry yang sempurna.</p>
+<p>	Tetapi situasi yang baik tidak bertahan lama, karena serigala mahkota guntur perlahan mulai beradaptasi, sementara luka di tubuhnya tidak berhenti sembuh.</p>
+<p>	Jelas ada Gu penyembuh di tubuhnya. Ini adalah berita yang sangat buruk.</p>
+<p>	Keberadaan Gu yang menyembuhkan akan berarti bahwa ini adalah perang gesekan.</p>
+<p>	Gu Liar hanya bisa menggunakan esensi alami langsung dari udara, sementara Master Gu hanya bisa menggunakan esensi purba dari lubang mereka sendiri.</p>
+<p>	Setelah pertempuran mencapai lima belas menit kemudian, serigala mahkota guntur tiba-tiba melolong ke langit, dan semburan kilat menyelimuti seluruh tubuhnya, sementara kecepatannya meningkat tajam satu kali lipat.</p>
+<p>	Penatua yang telah berubah menjadi kera putih tidak bisa menghindar tepat waktu. Tidak dapat bereaksi terhadap perubahan ini, dia digigit oleh serigala mahkota guntur dan tengkoraknya terbelah menjadi dua oleh tarikan serigala.</p>
+<p>	Serigala mahkota guntur telah merobek garis di medan perang, dan dengan gesekan terus menerus dari ekornya, arus listrik biru keunguan mengalir keluar; Master Gu hanya bisa mundur tanpa henti.</p>
+<p>	Di saat yang berbahaya ini, pemimpin klan Gu Yue Bo menonjol.</p>
+<p>	Dia adalah ahli peringkat empat dengan serangan yang kuat dan pertahanan yang unggul, seperti pilar tengah kelompok, menggunakan semua kekuatannya untuk menyelamatkan situasi.</p>
+<p>	Batu gunung pecah dan bayangan menghilang saat pertempuran kelompok membesar. Buntutnya menghancurkan medan perang, dan tidak ada satu pun serigala petir yang berani memasuki pertempuran.</p>
+<p>	Situasi medan perang hanya menjadi lebih putus asa. Cedera serigala mahkota guntur menjadi lebih berat dan lebih buruk, pendarahan tidak bisa berhenti, dan tulang bisa terlihat di luka yang lebih dalam. Pada saat yang sama, Master Gu juga menderita kerugian besar — ​​sejauh ini mereka telah kehilangan enam tetua klan. Jika bukan karena pengiriman segera dan mendesak tetua klan desa, datang untuk membantu pertarungan, pertempuran mungkin telah lama runtuh.</p>
+<p>	“Semuanya, berdirilah kuat, bertahan adalah kunci kemenangan!” Gu Yue Bo membunuh sampai matanya merah, dan suaranya serak saat dia memberikan segalanya untuk membangkitkan semangat.</p>
+<p>	Tetapi pada saat ini, serigala mahkota guntur tiba-tiba mengamuk, dan tubuhnya diselimuti lapisan cahaya merah terang.</p>
+<p>	Peringkat empat Gu Berserk!</p>
+<p>	Kekuatan, kecepatan, kelincahan, dan atribut lain dari serigala mahkota guntur tiba-tiba naik menjadi dua kali lipat dari basis aslinya.</p>
+<p>	Ledakan!</p>
+<p>	Ada suara keras saat ia menggesek cakar kanannya, mengubah tetua klan menjadi bubur daging lengkap.</p>
+<p>	Dengan kibasan ekornya, suara angin meletus dan jaring listrik terbang keluar, menjebak padang rumput dan boneka kayu, lalu membakar semuanya menjadi arang.</p>
+<p>	“Aku tidak bisa mengikuti, bonekaku sudah habis!” Penatua berteriak, ketakutan.</p>
+<p>	Dengan situasi yang berubah dengan cepat menjadi lebih buruk, teror dari segudang raja binatang buas sepenuhnya dilepaskan, membuat semua orang putus asa.</p>
+<p>	Alis Gu Yue Bo terkunci rapat, dan sepertinya dia akan mematahkan giginya karena menggertakkan, ketika dia tiba-tiba berteriak, “Perangkap, gunakan Ular Rantai Besi!”</p>
+<p>	Saat para tetua klan mendengar ini, hati mereka terpesona.</p>
+<p>	Di awal gelombang serigala, mereka telah menunjukkan taktik pertempuran yang tak terhitung jumlahnya; ini adalah metode yang hanya boleh digunakan ketika tidak ada pilihan lain!</p>
+<p>	“Gu Perangkap Angin!” Seorang tetua berteriak, dan dari lubang hidungnya datang angin hijau, membungkus cakar serigala mahkota guntur.</p>
+<p>	“Gu Rawa!” Penatua lain meraung dan berjongkok, menurunkan kedua tangannya dan membanting ke tanah. Seketika, bumi di bawah serigala mahkota guntur berubah menjadi lumpur.</p>
+<p>	Dengan serangan simultan ini, gerakan serigala mahkota guntur diperlambat pada saat itu.</p>
+<p>	Mengambil keuntungan dari kesempatan ini, semua tetua lainnya mengulurkan tangan mereka, dan dari lengan baju dan celana mereka, gelombang bayangan hitam keluar.</p>
+<p>	Bayangan hitam itu seukuran kepalan tangan, dan masing-masing panjangnya sekitar dua meter. Pada pemeriksaan dekat, orang akan melihat bahwa setiap bayangan hitam adalah Gu ular.</p>
+<p>	Ular ini berbentuk seperti rantai besi, seluruh tubuhnya berwarna hitam kelam. Gulungan cincin logam dirangkai dan dihubungkan bersama, dan hanya kepala ular yang terlihat normal.</p>
+<p>	Saat terbang keluar, ular-ular itu menggeliat di tanah, dengan cepat naik ke tubuh serigala mahkota guntur.</p>
+<p>	Kepala dan ekor mereka kemudian terhubung dan saling cocok, membentuk jaring logam dalam sekejap mata, berakar dari tanah dan menjebak serigala mahkota guntur di tempat.</p>
+<p>	Tapi situasi ini hanya sementara, karena serigala mahkota guntur berjuang terus menerus, satu per satu, rantai besi akan putus. Hanya dalam lima hingga enam menit, ular metalik ini akan benar-benar hancur, tidak lagi menjebak serigala mahkota guntur.</p>
+<p>	“Chi Guang, Suo Ping, tetap di sini dan hentikan kawanan serigala menyerang rantai logam. Kalian semua, kembali ke desa bersamaku!” Gu Yue Bo berteriak. Dia sebenarnya telah memilih untuk mundur.</p>
+<p>	Namun tetua klan lainnya tidak menunjukkan ekspresi terkejut; mereka sudah tahu niat pemimpin klan.</p>
+<p>	Mereka bergegas kembali ke desa, dan segera seorang tetua klan datang ke arah mereka dan berkata, “Tuan pemimpin klan, semuanya telah disiapkan!”</p>
+<p>	Gu Yue Bo mengangguk, memerintahkan kelompok itu untuk pergi ke paviliun klan.</p>
+<p>	Di alun-alun sebelum paviliun klan, sudah ada hingga seratus Master Gu yang duduk di tanah.</p>
+<p>	Master Gu ini terutama adalah mereka yang terluka parah dan tidak bisa memasuki pertempuran dalam waktu singkat. Setiap wajah mereka membawa ekspresi tenang menghadapi kematian tanpa rasa takut. Sedangkan bagi yang masih memiliki kemampuan bertarung, mereka bertarung jauh di garis depan.</p>
+<p>	Dengan pertempuran mencapai saat ini, klan telah memberikan segalanya. Dalam situasi yang mengerikan ini, bahkan manusia telah dimobilisasi. Menggunakan setiap kehidupan manusia untuk diubah sebagai dinding daging, menghalangi gelombang serigala untuk saat ini, ini memberi Gu Master waktu untuk memulihkan diri dan berkumpul kembali.</p>
+<p>	Gu Yue Bo dan para tetua klan pergi ke aula leluhur paviliun klan.</p>
+<p>	Di bawah tugu peringatan leluhur mereka, mereka semua berlutut di lantai.” Kepada leluhur besar di atas saya, kami keturunan sangat malu! Gelombang serigala bergolak, dan desa telah jatuh ke dalam situasi hidup dan mati. Kami memohon kepada leluhur kami yang agung untuk datang dan membantu kami!” Ketika Gu Yue Bo selesai berbicara dengan suara rendah, aula leluhur menjadi sunyi senyap.</p>
+<p>	Tetesan-tetesan.</p>
+<p>	Beberapa darah tetua klan merembes keluar dari luka mereka yang diperban dengan tergesa-gesa, menetes ke lantai.</p>
+<p>	Gu Yue Bo dan para tetua klan lainnya menahan napas, bahkan tidak berani terengah-engah atau bernapas dengan keras.</p>
+<p>	Kembali pada hari itu, ketika pemimpin klan generasi pertama merasakan kematiannya mendekat, dia berangkat meninggalkan desa. Sebelum keberangkatannya, dia meninggalkan wasiat. Dikatakan bahwa jika klan akan jatuh ke dalam bahaya kebinasaan, mereka dapat berdoa di depan tugu peringatannya. Pada saat itu, cacing Gu akan turun dari langit dan membantu desa melewati situasi sulit.</p>
+<p>	Sepanjang sejarah, klan Gu Yue telah menderita melalui krisis besar beberapa kali, dan mereka telah menghadapi bencana dengan cara ini.</p>
+<p>	Ini adalah kartu truf terakhir klan Gu Yue!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

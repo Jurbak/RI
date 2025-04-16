@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 567 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 567";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_566.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 567">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_568.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 567</h1>
+        <div class="text-left">
+<p>	Bab 567</p>
+<p>	Bab 567: Pemahaman kehidupan sejak dulu (Bab Ganda)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Sudut bibir Fang Yuan melengkung menjadi senyuman saat dia membaca teks tinta di sisi mangkuk.</p>
+<p>	Bencana yang memanggil Gu ini adalah peringkat tujuh Immortal Gu, peringkat yang lebih tinggi dari Jangkrik Musim Semi Musim Gugur Fang Yuan. Kemampuannya sangat aneh, sebenarnya melibatkan masalah bencana duniawi dan kesengsaraan surgawi.</p>
+<p>	Bagian tengah teks tinta menjelaskan kemampuannya secara detail. Ketika Gu Immortal melewati bencana dan menimbulkan bencana, bencana yang memanggil Gu dapat melepaskan bencana duniawi dan kesusahan surgawi dari target aslinya, dan menariknya ke dirinya sendiri.</p>
+<p>	Ekspresi Fang Yuan tidak bisa tidak menjadi aneh.</p>
+<p>	Gu Abadi, siapa yang berani menggunakannya?</p>
+<p>	Kekuatan mengerikan dan destruktif apa yang dimiliki oleh bencana duniawi dan kesengsaraan surgawi, seberapa menakutkan kekuatan surgawinya? Alih-alih menghabiskan hari-harinya sesuka hati, menggunakan malapetaka yang memanggil Gu untuk menarik malapetaka duniawi dan kesengsaraan surgawi ini, bukankah ini mencari malapetaka sendiri?</p>
+<p>	Gu Immortal Mo Yao adalah peri generasi ketiga puluh enam dari Rumah Afinitas Roh yang agung, mengapa dia memurnikan Gu Abadi seperti ini?</p>
+<p>	Bagian terakhir dari teks tinta memberikan alasannya.</p>
+<p>	Ternyata dia benar-benar mencari kematian!</p>
+<p>	Saat itu ketika dia dan Bo Qing sangat jatuh cinta, mereka adalah pasangan terkenal dari jalan lurus dan kisah romantis kisah mereka tersebar di lima wilayah.</p>
+<p>	Sword Immortal Bo Qing memiliki bakat luar biasa tanpa lawan yang menandinginya di seluruh dunia; dia dikenal sebagai ‘Yang Mulia Abadi semu yang membelah lima wilayah dengan pedangnya, beruntung bagi orang-orang di dunia bahwa cinta mengubahnya’.</p>
+<p>	Bahkan di seluruh dunia luas, melihat seluruh hidupnya, satu-satunya hal di depannya adalah satu-satunya tujuan tertinggi untuk menembus peringkat sembilan.</p>
+<p>	Namun, menantang penghalang peringkat sembilan sangat berbahaya, bahkan Pedang Abadi yang agung merasa bahwa dia berjalan di atas es tipis dan hanya memiliki peluang sukses lima belas persen paling banyak.</p>
+<p>	Ambisi Bo Qing sangat tinggi, bersumpah untuk mencapai puncak yang peringkat sembilan. Mo Yao membujuknya dengan sia-sia, dan karena itu, dia hanya bisa sambil menangis membuat persiapan untuk membantunya.</p>
+<p>	Bo Qing mengatur warisannya dan mengatur acara di masa depan. Upaya pertamanya untuk menerobos gagal; dia dibiarkan dalam keadaan luka berat selama tujuh puluh tahun, terbaring di tempat tidur sepanjang waktu tanpa bisa bergerak, kehidupan sehari-harinya semua diurus oleh Mo Yao.</p>
+<p>	Setelah cederanya membaik, Bo Qing sekali lagi ingin menembus peringkat sembilan.</p>
+<p>	Mo Yao tahu tingkat kesulitan ini, terutama selama uji coba terakhir untuk menembus peringkat sembilan ketika bencana duniawi yang tak terbatas dan kesengsaraan surgawi akan turun. Bo Qing mungkin memiliki kekuatan pertempuran yang menakutkan tetapi dia tidak memiliki ketahanan untuk bertahan melalui persidangan.</p>
+<p>	Untuk membantu suaminya, dia diam-diam mengkhianati sektenya dan mulai membuat rencana menuju Eighty-Eight True Yang Building.</p>
+<p>	Eighty-Eight True Yang Building adalah bangunan terkenal yang dibuat oleh Yang Mulia Abadi dan Leluhur Rambut Panjang yang terampil, rumah Gu Abadi nomor satu di dunia. Mo Yao sudah memulai penelitiannya sejak lama dan telah mendapatkan banyak wawasan darinya yang membantunya memperdalam pencapaian jalur penyempurnaan grandmasternya.</p>
+<p>	Dia mungkin manusia varian dan tidak memiliki garis keturunan Giant Sun, tetapi Spirit Affinity House telah memberikan banyak gadis luar biasa kepada Giant Sun untuk menjadi selirnya pada masanya. Di antara mereka, beberapa Dewa Gu wanita telah mendapatkan bantuan dari Yang Mulia Matahari Abadi.</p>
+<p>	Dengan demikian, Spirit Affinity House dapat memperoleh banyak rahasia dari Giant Sun Immortal Venerable yang mencakup informasi rinci tentang Eighty-Eight True Yang Building.</p>
+<p>	Mo Yao dapat mempelajari rahasia Eighty-Eight True Yang Building dari sumber-sumber ini.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran terletak tepat di tengah dataran utara, ruang di dalamnya seluas dunia dan waktu juga dipisahkan menjadi siang dan malam, nasib baik di Eighty-Eight True Yang Building sangat dalam. Jadi, pada setiap interval waktu yang ditentukan, itu akan menarik bencana duniawi yang sangat kuat dan kesengsaraan surgawi.</p>
+<p>	Giant Sun Immortal Venerable mempertimbangkan hal ini dan menempatkan ‘mengalihkan bencana Gu’ ketika mendirikan Eighty-Eight True Yang Building yang merupakan landasan penting dari Eighty-Eight True Yang Building.</p>
+<p>	Gu ini adalah Gu Immortal peringkat tujuh dan merupakan salah satu inti dari jalur keberuntungan Giant Sun Immortal Venerable; itu bisa mengalihkan malapetaka duniawi dan kesengsaraan surgawi di tanah yang diberkati Pengadilan Kekaisaran ke dunia luar. Karena itu, bencana duniawi dan kesengsaraan surgawi terbentuk menjadi bencana badai salju sepuluh tahun yang menyebar ke seluruh dataran utara.</p>
+<p>	Sebaliknya, Giant Sun Immortal Venerable menggunakan bencana badai salju sepuluh tahun ini untuk membuat aturan yang dibentuk menjadi tradisi kontes Imperial Court.</p>
+<p>	Mo Yao menemukan celah yang sebenarnya bukan celah dalam hal ini.</p>
+<p>	Awalnya, tanah yang diberkati Pengadilan Kekaisaran hidup berdampingan dengan Eighty-Eight True Yang Building dalam simbiosis, dan dengan demikian, setiap sepuluh tahun, akan ada bencana duniawi yang luas dan kuat serta kesengsaraan surgawi. Pada saat ini, tanah yang diberkati Pengadilan Kekaisaran akan membuka celah kecil untuk mengalihkan bencana Gu, untuk mengirimkan bencana duniawi dan kesengsaraan surgawi.</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran ditetapkan oleh Giant Sun Immortal Venerable untuk hanya mengizinkan manusia masuk atau keluar dan tidak mengizinkan masuknya Gu Immortals. Tetapi pada saat itu harus mengalihkan bencana, akan ada celah tersembunyi di tanah yang diberkati Pengadilan Kekaisaran dari mana bencana dan kesengsaraan akan mengalir seperti banjir, dan pada saat ini pengaturan yang mencegah Dewa Gu masuk tidak akan efektif. .</p>
+<p>	Mo Yao menggunakan celah kecil ini dan mempertaruhkan nyawanya untuk melawan malapetaka dan kesengsaraan untuk memasuki tanah yang diberkati Pengadilan Kekaisaran.</p>
+<p>	Dia menghabiskan hampir sepuluh tahun menyelidiki di dalam tanah yang diberkati dan setelah menderita kesulitan yang tak terhitung jumlahnya, dia dapat menemukan simpul penting melalui pencapaian jalur penyempurnaan grandmasternya — itu adalah menara kecil di daerah Di Qiu.</p>
+<p>	Selanjutnya, dia mempertaruhkan bahaya kebangkitan kehendak Matahari Raksasa dan menghancurkan menara kecil ini, menggunakan aliran mundur dari kekuatan surgawi untuk merasakan pengalihan bencana Gu dan membuat gua yang akan menumbuhkan ‘malapetaka memanggil Gu’.</p>
+<p>	Setelah dia berhasil menyempurnakan tahap awal Immortal Gu, dia mendirikan Paviliun Air rumah Immortal Gu di lembah tanpa nama ini.</p>
+<p>	Di dalam paviliun, Mo Yao sepenuhnya memelihara tahap awal Immortal Gu ke bentuknya yang lengkap dan membawa bencana yang memanggil Gu ke luar secara diam-diam menggunakan kesempatan ketika tanah yang diberkati mengalihkan bencana.</p>
+<p>	Dia tidak menghancurkan semua pengaturan ini untuk berjaga-jaga jika terjadi kecelakaan. Jika Bo Qing gagal dalam terobosannya lagi dan bencana yang memanggil Gu juga dihancurkan dalam bencana duniawi dan kesengsaraan surgawi, maka dia harus memasuki tanah yang diberkati lagi untuk memperbaiki bencana yang memanggil Gu.</p>
+<p>	Namun, dia tidak pernah kembali setelah ini.</p>
+<p>	Upaya kedua Sword Immortal Bo Qing untuk menerobos ke peringkat sembilan gagal sepenuhnya dan dia berubah menjadi abu oleh kesengsaraan surgawi yang luas. Adapun Mo Yao, dia binasa di sampingnya.</p>
+<p>	“Jadi seperti itu. Menerobos ke peringkat sembilan melibatkan banyak kesulitan dan bahaya. Mo Yao mengatur warisan ini secara diam-diam sebelumnya tetapi tidak menjelaskan isi sebenarnya dari warisan itu; itu karena tindakan ini mengkhianati sekte. Tapi dia masih meninggalkan petunjuk sebelumnya untuk sekte pada akhirnya. Dalam kehidupanku sebelumnya, Gu Immortals di benua tengah bersekongkol melawan tanah yang diberkati Pengadilan Kekaisaran dan menghancurkan Eighty-Eight True Yang Building dengan menggunakan petunjuk yang dia tinggalkan.” Seperti yang diingat Fang Yuan sekarang, dia segera merasakan kabut menyebar di benaknya dan semuanya mendapat penjelasan.</p>
+<p>	Ada puisi yang tersisa di akhir teks tinta —</p>
+<p>	Jalan abadi yang panjang dipenuhi dengan rintangan; pertemuan terjadi di tempat yang jauh.</p>
+<p>	Terlalu lama telah berlalu, emosi dan kebencian sudah berlangsung lama.</p>
+<p>	Tuanku memikirkan puncak keabadian, sementara aku memikirkan keselamatannya.</p>
+<p>	Hidup dan mati dipisahkan, saya akan mendukung impian tuanku.</p>
+<p>	Ini jelas pekerjaan Mo Yao.</p>
+<p>	Jalan Gu Immortal panjang dan penuh dengan kesulitan, namun saya cukup beruntung untuk bertemu dengan tuanku.</p>
+<p>	Tanpa sadar, emosi dan kebencian bercampur, dan saya tidak dapat membebaskan diri.</p>
+<p>	Pandangan Tuhan terfokus pada batas jalan abadi, sementara pandanganku tertuju pada tuanku sendiri.</p>
+<p>	Upaya menerobos ke peringkat sembilan adalah situasi hampir mati. Saya tidak mau dipisahkan dengannya oleh hidup dan mati, jadi yang bisa saya lakukan hanyalah membantu tuanku mewujudkan mimpinya dengan cara saya sendiri!</p>
+<p>	Untuk melindungi cintanya, untuk membantu Bo Qing berjalan ke puncak Dewa Abadi, Mo Yao rela mengorbankan dirinya sendiri, menggunakan bencana yang memanggil Gu untuk menarik bencana duniawi dan kesengsaraan surgawi kepada dirinya sendiri.</p>
+<p>	“Seorang wanita aneh …” Fang Yuan menghela nafas.</p>
+<p>	Meskipun dia tidak akan melakukan pengorbanan seperti itu karena cinta, itu tidak menghalangi Fang Yuan untuk memahami orang seperti itu.</p>
+<p>	Itu sejauh pemahamannya tentang ini lebih dalam daripada yang lain.</p>
+<p>	Manusia yang hidup di dunia ini memiliki keinginan, mereka memiliki tujuan dan makna dalam hidup.</p>
+<p>	Tujuan Mo Yao adalah kekasihnya. Tujuan Fang Yuan adalah mengejar kehidupan abadi.</p>
+<p>	Keinginan yang berbeda, tujuan yang berbeda, dan makna yang berbeda membentuk semua jenis kehidupan di dunia yang luas ini untuk menciptakan pahlawan yang memiliki karakter mandiri mereka sendiri.</p>
+<p>	Tatapan Fang Yuan jatuh ke tengah mangkuk vermillion raksasa.</p>
+<p>	Kepompong sudah terbuka dan bencana yang memanggil Gu sudah sepenuhnya terbentuk. Bentuknya seperti kepompong ulat sutera dengan tubuh berwarna abu-abu dan seukuran jari kelingking. Saat ini sedang bergerak naik turun di dalam air.</p>
+<p>	Bencana yang memanggil Gu adalah pengorbanan diri sejati Gu dan digunakan untuk meninggalkan diri sendiri demi orang lain.</p>
+<p>	Gu ini tampaknya tidak berguna bagi Fang Yuan, tetapi sebenarnya masih memiliki nilai yang sangat besar.</p>
+<p>	Pertama-tama, itu adalah Gu Abadi. Bahkan jika dia tidak menggunakannya, dia bisa menukarnya dengan sejumlah besar batu esensi abadi di surga kuning harta karun.</p>
+<p>	Kedua, itu adalah jalur keberuntungan Gu yang mampu menarik malapetaka duniawi dan kesengsaraan surgawi. Bencana dan kesengsaraan sangat kuat, tetapi selama seseorang cukup kuat dan tangguh, maka mereka dapat menggunakannya dengan cara yang unik untuk menyakiti orang lain.</p>
+<p>	Akhirnya, itu dibentuk dengan meminjam kekuatan salah satu pilar dari Eighty-Eight True Yang Building — Divert Disaster Gu. Itu dan mengalihkan bencana Gu bisa dikatakan dua sisi dari mata uang yang sama; yang satu menarik malapetaka sementara yang lain mengalihkan malapetaka. Koneksi ini akan memberikan bantuan besar untuk rencana Fang Yuan di Eighty-Eight True Yang Building.</p>
+<p>	Namun, meskipun ada hubungan di dalam hatinya, ada kondisi sebelum Fang Yuan dapat sepenuhnya menaklukkan Gu ini.</p>
+<p>	Mo Yao telah menyebutkannya secara rinci dalam teks tinta di sisi mangkuk.</p>
+<p>	Ada kondisi yang diperlukan untuk menaklukkan bencana yang memanggil Gu. Tidak masalah apakah itu fana atau abadi, tetapi mereka harus memiliki hati pengorbanan diri.</p>
+<p>	Jika mereka tidak tega mengorbankan diri mereka sendiri dan secara paksa mencoba menaklukkan bencana yang memanggil Gu, dalam kasus terbaik, itu akan menyebabkan serangan balasan dari Gu Abadi; dan dalam kasus yang paling serius, Gu Abadi akan menghancurkan dirinya sendiri dan membahayakan kehidupan Guru Gu.</p>
+<p>	Di Paviliun Air, Fang Yuan berdiri di depan mangkuk raksasa, tanpa ekspresi di wajahnya.</p>
+<p>	Hati pengorbanan diri, apakah dia memilikinya? …</p>
+<p>	“Batuk batuk batuk.” Tang Miao Ming menutupi bibirnya dengan sapu tangan, alisnya yang indah berkerut kesakitan.</p>
+<p>	“Kakak!” Tuan muda ketiga suku Tang Tang Fang memanggil dari samping dengan ekspresi meratap.</p>
+<p>	Tang Miao Ming sedang berbaring di tempat tidur; dia melambaikan tangannya untuk menunjukkan Tang Fang agar tidak khawatir.</p>
+<p>	Tang Fang menghela nafas dalam-dalam ketika dia melihat darah di saputangan: “Kakak perempuan, mengapa kamu mempertaruhkan nyawamu? Apa gunanya melewati babak ini? Ayah dan yang lainnya sudah meninggal, kamu adalah satu-satunya kerabatku yang tersisa, apa yang akan aku lakukan jika sesuatu terjadi padamu?”</p>
+<p>	Tang Miao Ming dengan lembut membelai rambut Tang Fang: “Kakak ketiga, kamu adalah pemimpin suku Tang kami, kamu tidak boleh kekurangan ambisi. Suku Tang kami telah sangat menderita dalam kontes Pengadilan Kekaisaran ini dan hampir ditelan oleh suku-suku lain. Sekarang adalah kesempatan yang sangat langka, kita perlu menggunakan Eighty-Eight True Yang Building untuk membuat suku kita makmur kembali.”</p>
+<p>	Tang Fang cemberut dengan sikap acuh tak acuh: “Tapi kakak perempuan, kamu menderita luka berat dengan mencoba memaksamu melewati ronde, keuntungannya tidak menebus kerugiannya. Saya sangat tertekan karena hal ini dan tidak berminat untuk mengurus urusan suku akhir-akhir ini.”</p>
+<p>	“Apa?” Ekspresi Tang Miao Ming berubah serius dan dia menatap Tang Fang dengan tajam.</p>
+<p>	Tanpa ragu-ragu, dia menegurnya: “Pemimpin suku Tang Fang, kamu memiliki tanggung jawab yang berat padamu, bagaimana kamu bisa masih memiliki perasaan seorang anak? Menghidupkan kembali suku adalah tugas Anda, itu adalah makna menjadi pemimpin suku. Mulai sekarang, saya tidak ingin mendengar Anda mengeluh seperti ini lagi, apakah Anda mengerti?</p>
+<p>	“Kakak… kakak, aku salah.” Tang Fang segera berdiri dari tepi tempat tidur dan menundukkan kepalanya untuk mengakui kesalahannya dengan ekspresi malu. Kakak perempuannya adalah orang yang paling mencintainya sejak kecil.</p>
+<p>	Tatapan Tang Miao Ming berangsur-angsur melunak, menghela nafas pelan: “Kakak ketiga, aku tahu sifatmu, kamu suka bepergian dan ingin bebas dari tugas ini, menjalani hidup tanpa batasan. Tetapi Anda adalah orang terakhir dalam keluarga kami, Anda harus cukup berani untuk memikul tanggung jawab ini. Mulai sekarang, arti hidupmu adalah merevitalisasi suku, mengerti?”</p>
+<p>	“Kakak perempuan benar, aku mengerti. Jangan marah kakak, kamu masih terluka. ”</p>
+<p>	Tang Miao Ming berkata dengan nada serius: “Setelah kembali, salin bagian pertama dari bab tiga dari  sepuluh kali.”</p>
+<p>	Hati Tang Fang segera dipenuhi dengan kehangatan.</p>
+<p>	Sejak muda, hukuman kakak perempuannya kepadanya adalah membuatnya menyalin buku.</p>
+<p>	“Kakak, istirahatlah yang baik, aku akan menyalinnya sekarang.”</p>
+<p>	, bab tiga, bagian pertama —</p>
+<p>	Putri kedua Ren Zu, Desolate Ancient Moon, mendaki gunung Cheng Bai dan mencari Gu yang sukses untuk menyelamatkan ayahnya dari pintu hidup dan mati.</p>
+<p>	Tetapi pada saat terakhir, dia gagal dan kehilangan rasa percaya dirinya, menjadi monster yang jelek dan kuat.</p>
+<p>	Tanpa putrinya untuk menyelamatkannya, dan putra sulungnya Verdant Great Sun masih kecanduan dan sedih, Ren Zu terjebak di lembah Luo Po, tidak dapat hidup kembali.</p>
+<p>	Lembah Luo Po seperti labirin raksasa, jalannya berliku-liku. Kadang-kadang, kabut kebingungan yang tak terbatas akan menyebar dan menyebabkan jiwa mengendur; dan kadang-kadang, angin Luo Po yang setajam pisau akan meniup dan menebas jiwa.</p>
+<p>	Ren Zu memiliki tubuh spiritual sekarang dan tidak dapat menemukan jalan keluar dari kabut kebingungan. Jiwanya ditebang oleh angin Luo Po, menjadi semakin lemah, dan situasinya menjadi lebih berbahaya.</p>
+<p>	Fragmen jiwa yang ditebang oleh angin Luo Po mulai menyatu secara bertahap dan berubah menjadi pemuda.</p>
+<p>	Seperti ini, putra ketiga Ren Zu lahir.</p>
+<p>	Dia adalah Jiwa Es Gelap Utara.</p>
+<p>	“Anakku, terima kasih untuk perusahaanmu. Saya tidak punya banyak waktu lagi, setelah Anda menemani saya di hari-hari terakhir saya, ayah tidak perlu merasa kesepian. ” Ren Zu menghela nafas dengan emosi yang dalam.</p>
+<p>	Jiwa Es Gelap Utara memiliki penampilan yang dingin tetapi berhati hangat, dan meskipun dia tidak banyak bicara, dia sangat berbakti kepada Ren Zu. Dan saat dia melihat Ren Zu semakin lemah setiap hari, suasana hatinya juga menjadi lebih berat.</p>
+<p>	Dia memutuskan untuk menyelamatkan Ren Zu.</p>
+<p>	Ren Zu merasakan tekadnya, dan merasakan kebahagiaan sekaligus sakit hati: “Jangan khawatir anakku, aku tahu hati berbaktimu, aku sekarang mengerti bahwa hidup dan mati tidak dapat dipaksakan. Manusia pada akhirnya akan mati, ini adalah takdir kita.”</p>
+<p>	Jiwa Es Gelap Utara berkata dengan nada terisak: “Ayah, aku tahu kata-katamu benar. Saya juga tahu usaha saya mungkin sia-sia. Tapi melihatmu semakin lemah seperti ini, jika aku tidak berusaha, hatiku akan terasa lebih sakit. Biarkan aku melakukan sesuatu untukmu.”</p>
+<p>	Ren Zu menghela nafas dan hanya bisa membiarkannya pergi.</p>
+<p>	Jiwa Es Gelap Utara berkeliaran di lembah Luo Po yang luas; dia lahir di sini, karena itu, angin Luo Po tidak dapat menebas jiwanya dan kabut kebingungan tidak dapat menghalangi penglihatannya.</p>
+<p>	Dia mencari dengan getir tetapi tidak dapat menemukan jalan keluar.</p>
+<p>	Tepat saat dia menjadi lebih putus asa, dia menemukan cacing Gu.</p>
+<p>	“Yah, well, untuk berpikir aku akan ditemukan olehmu.” Gu ini seperti kepik dengan tubuh bulat yang gemuk, tapi sangat lincah dan melintas di sekitar tubuh Jiwa Es Gelap Utara.</p>
+<p>	Mata Jiwa Es Gelap Utara menjadi cerah saat dia bertanya dengan rasa ingin tahu: “Kamu siapa Gu?”</p>
+<p>	“Saya dikenal sebagai orang yang tidak terduga.” Cacing Gu ini menjawab.</p>
+<p>	Tatapan Jiwa Es Gelap Utara meredup: “Jadi, Anda adalah Gu yang tak terduga, sayang sekali Anda tidak berhasil, Gu.”</p>
+<p>	Gu yang tak terduga mencibir: “Anak muda, jangan meremehkanku. Saya memiliki hubungan cinta-benci dengan kesuksesan Gu. Kekuatan tak terduga sangat kuat. Apakah Anda tahu apa yang diwakili oleh pertemuan Anda dengan saya di sini? ”</p>
+<p>	“Apa?”</p>
+<p>	Gu yang tak terduga mengguncang tubuhnya yang gemuk dan berkata dengan bangga, “Tempat macam apa ini? Ini adalah lembah Luo Po, alam kematian. Anda berada di sini berarti Anda sudah mati. Tetapi dengan bertemu dengan saya, Anda telah menemukan peristiwa tak terduga dalam ‘kematian’ – yaitu ‘kehidupan’. Pegang aku, aku akan membawamu ke dunia manusia dan kamu bisa dibangkitkan lagi.”</p>
+<p>	“Betulkah?” Jiwa Es Gelap Utara sangat gembira, “Bisakah saya membawa ayah saya?”</p>
+<p>	Gu yang tak terduga menggelengkan kepalanya: “Kamulah yang menemuiku, bukan ayahmu, jadi aku hanya bisa membawamu.”</p>
+<p>	Jiwa Es Gelap Utara sangat kecewa, menolak: “Karena aku tidak bisa membawa ayahku, maka aku tidak akan pergi. Aku akan menemani ayahku sampai saat terakhirnya.”</p>
+<p>	Gu yang tak terduga tertawa keras dan berbicara dengan nada mendominasi: “Ketidakpastian dalam hidup berada di luar kendalimu. Anak muda, kamu harus ikut denganku!”</p>
+<p>	Saat itu selesai berbicara, Gu yang tak terduga secara paksa mengambil Jiwa Es Gelap Utara dan langsung meninggalkan pintu hidup dan mati, tiba di dunia manusia.</p>
+<p>	Jiwa Es Gelap Utara memperoleh tubuh daging dan merasa sangat bingung menghadapi dunia yang luas ini sendirian.</p>
+<p>	Gu yang tak terduga menghilang. Dia tiba-tiba teringat Ren Zu pernah berkata bahwa dia memiliki seorang kakak perempuan yang bernama Desolate Ancient Moon.</p>
+<p>	Pada saat ini, kognisi Gu mengambil inisiatif untuk menemukannya: “Anak muda, jangan curiga, kognisi selalu menjadi teman manusia, saya di sini untuk membantu Anda.”</p>
+<p>	Kognisi Gu memberi tahu Jiwa Es Gelap Utara tentang gunung Cheng Bai dan juga peristiwa yang merinci Desolate Ancient Moon.</p>
+<p>	Jiwa Es Gelap Utara memutuskan untuk menemui kakak perempuannya terlebih dahulu.</p>
+<p>	Ketika dia melihat Desolate Ancient Moon, air matanya jatuh dalam kesedihan.</p>
+<p>	Jiwa Es Gelap Utara mencoba untuk berbicara dengan Bulan Kuno Desolate, tetapi Bulan Kuno Desolate yang telah berubah menjadi monster terus mengulangi pertanyaan.</p>
+<p>	“Dimana ini?”</p>
+<p>	Jiwa Es Gelap Utara berpikir sejenak dan menjawab: “Ini adalah dunia manusia, makhluk hidup dapat bergerak di sini. Di atas kita ada langit dan di bawah kaki kita ada bumi.”</p>
+<p>	“Siapa saya?” Desolate Ancient Moon bertanya lagi.</p>
+<p>	“Kamu adalah manusia, anak kedua Ren Zu, namamu adalah Desolate Ancient Moon. Anda adalah kakak perempuan saya. ” Jiwa Es Gelap Utara menjawab.</p>
+<p>	“Kakak perempuan, cepat bangun. Ayah kita terjebak di lembah Luo Po, sekarat, kita harus segera membangkitkannya.”</p>
+<p>	“Renzu? Bulan Kuno yang Sunyi? Menghidupkan kembali?” Monster itu menggelengkan kepalanya, sangat bingung, “Mengapa aku harus membangkitkannya? Mungkinkah manusia tidak boleh mati? Kerugian apa yang ada dalam kematian? Mengapa manusia hidup? Kenapa aku hidup?”</p>
+<p>	Kali ini, Jiwa Es Gelap Utara tidak bisa menjawab.</p>
+<p>	Mengapa orang hidup?</p>
+<p>	Saat Jiwa Es Gelap Utara merenungkan pertanyaan ini, kebingungan Gu diam-diam mendekatinya, membuatnya kehilangan rasa akan sekitarnya.</p>
+<p>	Selanjutnya, cinta Gu dan menyamarkan Gu juga mendekatinya.</p>
+<p>	Kognisi Gu merasakan sakit kepala yang hebat ketika melihat mereka. Beberapa Gu ini terkenal karena kenakalan mereka dan sering bergerak bersama, bahkan kognisi Gu tidak ingin memprovokasi mereka.</p>
+<p>	“Cinta, apakah kamu tidak menyakiti cukup banyak orang? Mengapa kamu tidak membiarkan mereka pergi?” Kognisi Gu menghela nafas.</p>
+<p>	“Jangan mencoba berbicara alasan dengan saya, saya benar-benar tidak masuk akal.” Love Gu berkata dengan nada yang sulit diatur, “Tersesat, kognisi, aku tidak menyukaimu.”</p>
+<p>	Kognisi Gu hanya bisa pergi tanpa daya.</p>
+<p>	“Manusia lain datang lagi? Ha ha!” Love Gu sangat senang ketika melihat Jiwa Es Gelap Utara, karena memiliki target lain untuk dimainkan.</p>
+<p>	Itu dan penyamaran Gu adalah saudara tersumpah, dan di tempat, itu menggunakan kekuatan penyamaran Gu untuk menyamar sebagai kognisi Gu.</p>
+<p>	“Anak muda, kakak perempuanmu telah kehilangan dirinya sendiri. Jika Anda ingin menyelamatkannya, Anda perlu menemukan makna Gu. ”</p>
+<p>	Jiwa Es Gelap Utara sadar kembali dan bertanya kepada Gu cinta tanpa ragu: “Saya telah melihat Gu yang tidak terduga, tolong beri tahu saya di mana arti Gu ini? Bagaimana saya harus mencarinya?”</p>
+<p>	Love Gu menipunya dengan nada serius: “Oh manusia, kamu harus tahu, ada artinya mengapa kamu semua hidup di dunia ini. Selama Anda menemukan makna Gu, kakak perempuan Anda bisa terbangun. Ikuti arah yang saya tunjuk dan terus bergerak maju, Anda akhirnya akan menemukan makna Gu. ”</p>
+<p>	Jiwa Es Gelap Utara mengungkapkan rasa terima kasihnya sebelum segera berangkat.</p>
+<p>	Cinta, kebingungan, dan penyamaran Gu tertawa terbahak-bahak saat mereka melihat sosoknya yang surut.</p>
+<p>	Di dunia ini, bagaimana mungkin ada arti Gu?</p>
+<p>	Tidak ada Gu seperti itu, Jiwa Es Gelap Utara, dengan demikian, tidak akan menemukannya tidak peduli berapa banyak dia mencarinya.</p>
+<p>	“Bodoh, siapa yang menyuruh kalian semua membuatku marah? Saya akan memberi tahu kalian betapa mengerikannya hukuman cinta! Mulai sekarang, ayo ikuti dia dan mainkan dia secara bergiliran.”</p>
+<p>	Proposal Love Gu disetujui oleh dua Gu lainnya.</p>
+<p>	Setelah itu, ketiga Gu memainkan trik pada Jiwa Es Gelap Utara secara bergantian, dia sangat menderita sehingga kata-kata tidak dapat menggambarkannya. Tetapi untuk menemukan arti Gu yang tidak ada ini, dia terus bertahan.</p>
+<p>	Semangat seperti itu menggerakkan kognisi Gu. Dan ketika cinta Gu tidak hadir, kognisi Gu mendekati Jiwa Es Gelap Utara untuk membantunya.</p>
+<p>	“Kognisi, apa yang kamu lakukan? Kita bersenang-senang.” Gu Kebingungan dan penyamaran Gu sangat tidak senang dengan kognisi.</p>
+<p>	Kognisi Gu tertawa: “Aku takut cinta, tapi aku tidak takut pada kalian berdua. Anak muda, gunakan kekuatanku untuk sadar.”</p>
+<p>	Jiwa Es Gelap Utara menggunakan kekuatan kognisi Gu untuk menyadari kebenaran; dia tidak lagi bingung dan dia telah melihat melalui penyamarannya.</p>
+<p>	Gu kebingungan dan penyamaran Gu hanya bisa pergi dengan kekalahan.</p>
+<p>	Jiwa Es Gelap Utara mengucapkan terima kasih kepada kognisi Gu: “Terima kasih kognisi Gu. Karena Anda, saya telah memikirkan cara untuk menyelamatkan kakak perempuan. ”</p>
+<p>	“Eh? Cara apa itu?”</p>
+<p>	“Di dunia ini, memang tidak ada artinya Gu. Tapi kenapa aku tidak bisa menciptakan arti Gu?” Jiwa Es Gelap Utara menjawab dengan percaya diri.</p>
+<p>	Kehidupan manusia mungkin tidak ada artinya, tetapi mereka bisa memberi makna padanya.</p>
+<p>	Jiwa Es Gelap Utara kembali ke sisi Desolate Ancient Moon dan secara pribadi menciptakan makna Gu dan menekannya ke kepala Desolate Ancient Moon.</p>
+<p>	“Makna dalam hidupku adalah mencari kesuksesan Gu dan membangkitkan ayah! Aku mengerti sekarang, aku mengerti!” Mata Desolate Ancient Moon menjadi cerah. …</p>
+<p>	“Makna dalam hidup ya …” Tang Fang meletakkan kuasnya.</p>
+<p>	Saat itu larut malam, cahaya perak yang hangat menutupi tanah di tanah yang diberkati Pengadilan Kekaisaran.</p>
+<p>	Dia sangat tersentuh setelah berulang kali menyalin buku itu.</p>
+<p>	“Orang-orang akan merasa bingung ketika mereka hidup di dunia ini. Tetapi selama mereka dapat menemukan makna hidup mereka, mereka akan menemukan arah mereka dan dapat bergerak maju dengan berani. Pada saat yang sama, mereka juga akan mengerti apa yang ingin mereka lakukan dan apa yang tidak ingin mereka lakukan, dan mereka tidak akan takut untuk berkorban. Niat kakak perempuan dalam membuat saya menyalin buku harus ini. ”</p>
+<p>	Dia dengan ringan mendorong membuka jendela dan melihat ke istana suci yang indah dan mempesona, memikirkan berbagai orang di dalamnya, ada yang kuat, ada yang lemah.</p>
+<p>	Suasana hatinya berangsur-angsur terangkat: “Kehidupan setiap orang memiliki segala macam makna. Dan arti hidupku adalah memimpin suku menuju kemakmuran!” …</p>
+<p>	Pada saat yang sama, di Paviliun Air.</p>
+<p>	“Hati pengorbanan diri?” Sudut bibir Fang Yuan meringkuk menjadi senyum yang tinggi.</p>
+<p>	Tanpa ragu-ragu, dia menggerakkan tangannya ke arah mangkuk raksasa dan langsung mengambil bencana yang memanggil Gu.</p>
+<p>	Saat itu menyerap auranya, malapetaka yang memberi isyarat pada tubuh Gu berkelebat dengan cahaya dan segera menjadi milik Fang Yuan. Seluruh prosesnya sangat mulus tanpa sedikit pun getaran dan reaksi.</p>
+<p>	Dengan identitas seorang transmigran dan pengalaman yang diperoleh dalam lima ratus tahun dalam kehidupan masa lalunya, Fang Yuan telah melihat melalui hidup dan mati; perasaan keluarga, persahabatan dan cinta bukanlah minatnya.</p>
+<p>	Hanya kehidupan abadi, target yang agung dan tak terjangkau ini, yang bisa membuat perjalanan hidupnya menjadi lebih menarik.</p>
+<p>	Inilah makna yang dia berikan pada kehidupan ini!</p>
+<p>	Mengejar kehidupan abadi bukan berarti dia takut mati atau takut gagal.</p>
+<p>	Dia dengan tenang menerima kematian dan kegagalan.</p>
+<p>	Apakah kehidupan kekal itu ada atau tidak, tidak ada bukti untuk membuktikannya.</p>
+<p>	Tetapi bahkan jika itu tidak ada, lalu apa?</p>
+<p>	Fang Yuan menikmati prosesnya. Dalam proses mengejar kehidupan abadi, ia menemukan maknanya dan merasa hidup ini cukup menarik.</p>
+<p>	Nafsu rendah dan keinginan tubuhnya, kepuasan cinta dan kebencian, dia sudah bosan dengan mereka.</p>
+<p>	Hanya kehidupan abadi yang layak menjadi targetnya untuk dikejar.</p>
+<p>	“Akibatnya, tekad yang diperlukan untuk berkorban, saya sudah memilikinya.” Tatapan Fang Yuan bersinar menakutkan saat dia bermain-main dengan peringkat tujuh Immortal Gu di tangannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

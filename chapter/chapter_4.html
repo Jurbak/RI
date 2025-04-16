@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 4";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_3.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 4">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_5.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 4</h1>
+        <div class="text-left">
+<p>	Bab 04</p>
+<p>	Bab 4 – Gu Yue Fang Yuan</p>
+<p>	Matahari terbit di langit, sinar matahari cemerlang. Kabut gunung tidak terlalu tebal; sinar tajam dengan mudah melewati.</p>
+<p>	Lebih dari seratus pemuda berusia 15 tahun berkumpul di depan paviliun klan. Paviliun klan berada di tengah desa, mencapai 5 lantai dan memiliki atap miring yang tajam; itu dijaga ketat. Sebelum paviliun adalah alun-alun, dan di paviliun adalah kuil dari tablet peringatan leluhur Gu Yue. Setiap generasi kepala klan telah tinggal di paviliun. Dengan setiap upacara besar atau insiden besar, para tetua klan akan berkumpul dan mendiskusikan pertemuan di sini juga. Ini adalah pusat otoritas seluruh desa.</p>
+<p>	“Bagus, kalian semua tepat waktu. Hari ini adalah Upacara Kebangkitan; itu adalah titik balik besar hidup Anda. Aku tidak akan banyak bicara, ikut saja denganku.” Yang bertanggung jawab saat ini adalah sesepuh akademi. Jenggot dan rambutnya putih dan dia bersemangat tinggi saat dia memimpin para remaja muda ke paviliun. Namun mereka tidak naik, tetapi dibawa ke bawah setelah melalui pintu masuk aula besar. Setelah menuruni tangga batu yang dibangun, mereka pergi ke gua bawah tanah.</p>
+<p>	Sekelompok pemuda membuat suara terkejut dan takjub. Gua bawah tanah itu indah, stalaktitnya berkilauan dengan warna pelangi. Cahaya ini menyinari wajah pemuda itu, warna neonnya indah.</p>
+<p>	Fang Yuan bercampur dengan kerumunan, diam-diam mengamati semua yang terjadi. Dalam hatinya, dia berpikir: Ratusan tahun yang lalu, klan Gu Yue datang ke Gunung Qing Mao dan menetap setelah bermigrasi dari daratan tengah ke Perbatasan Selatan. Saat itulah mereka menemukan mata air roh di gua bawah tanah ini. Mata air roh ini menghasilkan sejumlah besar batu purba – Dapat dikatakan bahwa ini adalah fondasi dari desa Gu Yue.</p>
+<p>	Mereka berjalan beberapa ratus langkah. Hari semakin gelap dan suara air terdengar samar-samar. Setelah berbelok di tikungan, sungai bawah tanah seluas 3 zhang – lebar (1) menyambut mereka. Sekarang lampu warna-warni dari stalaktit telah menghilang sepenuhnya, namun dalam kegelapan sungai memancarkan cahaya biru samar. Itu seperti sungai bintang di langit malam.</p>
+<p>	Sungai mengalir dari kedalaman gua yang gelap. Di dalam air yang jernih, orang bisa melihat ikan, tanaman air dan bahkan pasir di bawah sungai. Di seberang sungai ada lautan bunga.</p>
+<p>	Ini adalah anggrek bulan yang dibudidayakan secara dekat dari Klan Gu Yue. Kelopak bunga berwarna biru dan merah muda yang indah itu seperti berbentuk seperti bulan sabit; batang bunganya seperti batu giok, bagian tengah bunganya bersinar seperti jenis kecemerlangan hangat yang terpancar dari mutiara di bawah cahaya. Sepintas, di latar belakang gelap, laut bunga tampak seperti sebidang tanah besar yang ditutupi karpet hijau kebiruan yang dihiasi dengan mutiara yang tak terhitung jumlahnya.</p>
+<p>	Anggrek bulan adalah makanan bagi banyak Gu. Laut bunga ini bisa dikatakan sebagai media budidaya terbesar klan, pikir Fang Yuan sadar pada dirinya sendiri.</p>
+<p>	“Wah, cantik sekali!”</p>
+<p>	“Ini benar-benar indah!”</p>
+<p>	Pemandangan baru membuka mata para remaja muda. Masing-masing dari mereka memiliki cahaya yang memancar dari tatapan mereka dengan perasaan gembira dan cemas.</p>
+<p>	“Baiklah, dengarkan saat aku memanggil namamu. Mereka yang dipanggil harus berjalan melalui sungai ini ke tepi seberang. Berjalanlah sejauh mungkin, tentu semakin jauh semakin baik. Apakah Anda semua jelas? ” Kata yang lebih tua.</p>
+<p>	“Semua jelas,” jawab para pemuda. Sebenarnya sebelum mereka datang ke sini, mereka semua pernah mendengar anggota keluarga atau senior mereka membicarakannya. Diketahui bahwa semakin jauh Anda bisa berjalan, semakin baik bakat Anda. Masa depan Anda juga akan menjadi lebih cerah.</p>
+<p>	“Gu Yue Chen Bo.” Penatua memegang daftar nama dan memanggil orang pertama.</p>
+<p>	Sungai itu lebar tapi tidak dalam – menutupi sampai tempurung lutut seorang pemuda. Wajah Chen Bo penuh dengan keseriusan saat dia melangkah ke laut bunga ke darat. Saat dia melakukannya, dia bisa merasakan tekanan tak terlihat seolah-olah ada dinding di depannya yang tidak bisa dia lihat, menghalangi dia untuk berjalan ke depan. Pada saat ini, bunga-bunga di kakinya tiba-tiba memancarkan cahaya putih yang lemah. Cahaya berkumpul di sekitar Chen Bo dan memasuki tubuhnya. Untuk sesaat Chen Bo merasakan penurunan tekanan; dinding tak kasat mata yang menghalanginya tiba-tiba terasa lebih lembut. Dengan ini, Chen Bo mengertakkan gigi dan mengerahkan kekuatannya, berjalan ke depan. Dia mencoba memaksa masuk dengan kaku, namun setelah tiga langkah dinding di depannya mengeras kembali seperti semula. Jadi dia tidak bisa berjalan lebih jauh.</p>
+<p>	Saat dia melihat ini, tetua menghela nafas. Saat merekam apa yang terjadi, dia berkata, “Gu Yue Chen Bo, 3 langkah, tidak ada bakat untuk menjadi Master Gu. Selanjutnya, Gu Yue Zao Xie!”</p>
+<p>	Chen Bo pucat pasi saat dia berjalan melewati sungai kembali ke pemuda, mengatupkan giginya. Tanpa bakat yang dianugerahkan dia bisa hidup sebagai manusia normal, memegang posisi terendah di klan.</p>
+<p>	Perawakannya goyah; itu adalah pukulan besar baginya, seolah-olah kenyataan telah membunuh semua harapannya. Banyak orang melemparkan tatapan menyedihkan kepadanya, sementara lebih banyak lagi yang terpaku menatap orang kedua yang menyeberangi sungai.</p>
+<p>	Sangat disayangkan bahwa pemuda ini hanya bisa berjalan empat langkah ke depan – dia juga tidak memiliki bakat.</p>
+<p>	Tidak semua orang memiliki bakat alami untuk menjadi Master Gu. Secara umum, tidak buruk jika lima dari sepuluh orang memiliki bakat. Di Klan Gu, rasio ini lebih tinggi, mencapai enam orang. Ini karena nenek moyang klan Gu Yue – Pemimpin klan generasi pertama adalah orang yang terkenal, legendaris dan kuat. Karena alasan budidaya, garis keturunannya membawa gen yang kuat, sehingga kualitas rata-rata bakat di klan Gu Yue umumnya lebih tinggi karena mereka membawa darahnya ke dalam pembuluh darah mereka.</p>
+<p>	Dengan dua kegagalan berturut-turut, para tetua lain yang mengamati pemandangan dalam kegelapan mulai membuat ekspresi jelek. Bahkan kepala klan sedikit mengernyit. Saat berikutnya, tetua akademi memanggil nama ketiga: Gu Yue Mo Bei.</p>
+<p>	“Di Sini!” Seorang pemuda berwajah kuda yang mengenakan jubah linen dengan ringan dipanggil saat dia keluar. Perawakannya tinggi, terlihat jauh lebih kuat daripada teman-temannya. Ada aura berani tentang dia. Dia menyeberangi sungai dalam beberapa langkah dan mencapai tepi seberang. 10 langkah, 20 langkah, 30 langkah; satu demi satu cahaya kecil memasuki tubuhnya. Dia berjalan sampai dia mencapai 36 langkah sebelum akhirnya dia tidak bisa melangkah lebih jauh.</p>
+<p>	Para pemuda di tepi sungai menyaksikan dengan mata terbuka lebar, terkejut. Tetua akademi dengan gembira berseru, “Bagus, Gu Yue Mo Bei, bakat kelas B! Kemarilah, biarkan aku melihat laut Purbamu.”</p>
+<p>	Gu Yue Mo Bei berjalan kembali ke sisi sesepuh akademi. Yang terakhir mengulurkan tangannya dan meletakkannya di bahu remaja itu, menutup matanya saat dia memeriksa dengan fokus. Kemudian dia menarik kembali tangannya dan mengangguk, mencatat di atas kertas: Gu Yue Mo Bei, laut purba berukuran enam kali enam, dapat dilatih dengan penuh semangat.</p>
+<p>	Bakat khusus ini dapat diukur dengan empat nilai – kelas A hingga kelas D. Bakat pemuda kelas AD yang dibangkitkan selama 3 tahun akan mampu menjadi Gu Master senior peringkat satu, menjadi tumpuan keluarga. Pemuda berbakat kelas AC setelah dua tahun berkultivasi biasanya akan dapat menjadi Master Gu senior peringkat dua, menjadi tulang punggung klan. Bakat kelas AB harus dijaga. Seringkali menjadi tetua klan masa depan, dengan 6-7 tahun pelatihan mereka akan menjadi peringkat tiga Master Gu.</p>
+<p>	Dan ketika sampai pada nilai A, meskipun hanya satu, akan membawa keberuntungan besar bagi seluruh klan. Perhatian besar harus diberikan; dengan bakat ini dalam waktu sekitar 10 tahun mereka bisa menjadi peringkat empat Gu Master. Pada saat itu mereka akan mampu bersaing untuk posisi kepala klan!</p>
+<p>	Dengan kata lain, selama Gu Yue Mo Bei ini tumbuh dewasa, pada akhirnya dia akan menjadi salah satu tetua dari klan Gu Yue. Itulah mengapa sesepuh akademi tertawa bahagia; para tetua yang menonton dalam kegelapan juga menghela nafas lega, lalu mereka semua menoleh untuk melihat salah satu tetua di antara mereka dengan cemburu.</p>
+<p>	Penatua ini juga berwajah kuda, dikenal sebagai kakek Gu Yue Mo Bei, Gu Yue Mo Chen. Wajahnya sudah tersenyum. Dia memprovokasi melihat musuh lamanya dan berkata, “Bagaimana menurutmu? Cucuku tidak buruk ya, Gu Yue Chi Lian.”</p>
+<p>	Gu Yue Chi Lian memiliki kepala yang penuh dengan rambut merah. Dia membuat ‘hmph’ kesal, tidak membalas yang lain. Terlihat sekali ekspresi wajahnya sangat gelap.</p>
+<p>	Satu jam kemudian, setengah dari pemuda itu sudah berjalan melewati lautan bunga. Ada cukup banyak talenta kelas C dan D di antara mereka, sementara setengah dari pemuda itu tidak memiliki bakat sama sekali.</p>
+<p>	“Huh, garis keturunannya semakin tipis. Beberapa tahun ini klan tidak memiliki master peringkat empat untuk memperkuat garis keturunan. Kepala klan generasi keempat adalah satu-satunya tuan peringkat lima, tetapi pada akhirnya dia binasa bersama dengan biksu Bunga Anggur dan tidak meninggalkan keturunan apa pun. Bakat generasi selanjutnya klan Gu Yue semakin lemah, ”kata kepala klan sambil menghela nafas panjang.</p>
+<p>	Pada saat ini, tetua akademi berteriak, “Gu Yue Chi Chen!”</p>
+<p>	Mendengar nama ini semua tetua memandang Gu Yue Chi Lian; ini adalah cucu Gu Yue Chi Lian.</p>
+<p>	Gu Yue Chi Lian memiliki tubuh kecil dan pendek dengan wajah penuh bopeng. Dia mengepalkan tinjunya, seluruh wajahnya berkeringat. Jelas bahwa dia sangat gugup.</p>
+<p>	Saat ia berjalan ke tepi seberang, lampu-lampu kecil memasuki tubuhnya; setelah berjalan lurus selama 36 langkah dia berhenti.</p>
+<p>	“Kelas B lagi!” Tetua akademi berteriak.</p>
+<p>	Para pemuda memulai keributan, mengirim tatapan iri pada Gu Yue Chi Chen.</p>
+<p>	“Hahaha, 36 langkah, 36 langkah!” Gu Yue Chi Lian berteriak, dengan bangga menatap Gu Yue Mo Bei. Kali ini giliran Gu Yue Mo Chen yang memasang wajah masam.</p>
+<p>	“Gu Yue Chi Chen, ya …” Di tengah kerumunan, Fang Yuan mengelus dagunya sambil berpikir. Dalam ingatannya, klan itu menghukum berat Gu Yue Chi Chen karena dia curang saat Upacara Kebangkitan. Pada kenyataannya Chi Chen hanya memiliki bakat kelas C, tetapi karena kakeknya Gu Yue Chi Lian membantunya memalsukan hasil, itulah mengapa ia tampaknya memiliki bakat kelas B.</p>
+<p>	Sejujurnya jika dia ingin menipu, Fang Yuan memiliki banyak cara untuk melakukannya, beberapa cara bahkan lebih sempurna daripada metode Gu Yue Chi Chen. Jika bakat kelas B atau kelas A muncul, mereka akan menerima perhatian besar klan.</p>
+<p>	Tapi pertama-tama, Fang Yuan baru saja dilahirkan kembali. Sulit untuk mempersiapkan metode curang dengan kondisi ini. Kedua, bahkan jika dia berhasil menipu, dia tidak akan bisa memalsukan kecepatan kultivasinya. Dia akan diekspos saat itu. Namun Gu Yue Chi Chen berbeda; kakeknya adalah Gu Yue Chi Lian – Salah satu dari dua tetua dengan otoritas paling besar dalam klan. Dengan ini Chi Lian akan bisa menutupi cucunya.</p>
+<p>	“Gu Yue Chi Lian selalu memusuhi Gu Yue Mo Chen, kedua tetua ini adalah dua otoritas berpengaruh terbesar klan. Untuk menekan lawannya, dia membutuhkan cucunya sendiri untuk memiliki bakat yang luar biasa. Itu juga karena dia membantu dari belakang, Gu Yue Chi Chen mampu menyembunyikan kebenaran untuk sementara waktu. Dalam ingatanku, jika bukan karena insiden itu, kebenaran tidak akan pernah terungkap.”</p>
+<p>	Mata Fang Yuan bersinar dengan cahaya, pikirannya memikirkan cara untuk menggunakan pengetahuan ini untuk keuntungannya.</p>
+<p>	Jika dia mengungkap masalah itu di tempat, dia akan menerima sedikit hadiah dari klan, tapi kemudian dia akan menyinggung Gu Yue Chi Lian yang sangat kuat. Ini tidak dianjurkan.</p>
+<p>	Dalam waktu sesingkat itu dia juga tidak bisa memeras mereka. Karena memiliki status rendah, itu hanya akan menjadi bumerang baginya.</p>
+<p>	Saat dia merenung, dia tiba-tiba mendengar sesepuh akademi memanggil namanya sendiri: “Gu Yue Fang Yuan!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

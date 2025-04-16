@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 78 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 78";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_77.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 78">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_79.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 78</h1>
+        <div class="text-left">
+<p>	Bab 78</p>
+<p>	Bab 78: Hadiah besar semua sesuai rencana</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di ruang diskusi, Gu Yue Bo tanpa ekspresi duduk di kursi pemimpin dengan mata penuh arti.</p>
+<p>	Selusin tetua klan yang tersisa semuanya duduk tegak, melihat ke bawah, hanya menggunakan sudut mata mereka untuk menyapu sekeliling dan melihat beberapa petunjuk dari ekspresi mereka.</p>
+<p>	Suasana menjadi halus.</p>
+<p>	“Fang Yuan mendapatkan tempat pertama, makna yang lebih dalam di balik ini jelas tidak sederhana. Dia benar-benar mengatakan dia menemukan sekantong gading babi hutan yang tersembunyi, ini terlalu sulit dipercaya. ”</p>
+<p>	“Tas ini mungkin telah disiapkan oleh seseorang, tidak mungkin bagi Fang Yuan untuk melakukannya sendiri. Itu berarti seseorang membantu Fang Yuan dalam kegelapan.”</p>
+<p>	“Ujian tengah tahun tahun ini berbeda dengan yang sebelumnya. Kami harus mengerahkan puluhan Master Gu Peringkat dua untuk mengawasi ujian. Jadi isi pemeriksaan ini, tidak hanya para tetua akademi yang tahu, tetapi banyak tetua di klan juga. ”</p>
+<p>	“Jika ada yang ingin menyiapkan tas ini terlebih dahulu, itu hanya bisa menjadi tetua klan yang hadir di sini sekarang, atau bahkan pemimpin klan!”</p>
+<p>	Para tetua klan semuanya adalah rubah yang cerdik. Setelah bertahun-tahun berkecimpung di dunia politik, mereka langsung memikirkan banyak hal.</p>
+<p>	Fang Zheng adalah bakat kelas A, jika dia benar-benar mencapai Peringkat empat, apa artinya itu?</p>
+<p>	Itu berarti dia adalah pemimpin klan berikutnya!</p>
+<p>	Fang Yuan adalah saudara laki-laki Fang Zheng. Bahkan jika dia hanya kelas C, dengan hubungan darah itu, dia layak untuk berinvestasi!</p>
+<p>	Bagi pemimpin klan Gu Yue Bo, jika dia membantu Fang Yuan secara diam-diam, itu akan membawanya ke faksi, dan bagi Fang Zheng, itu adalah sabuk yang bagus untuk mengikatnya ke faksi pemimpin bersama.</p>
+<p>	Untuk tetua klan, Fang Zheng yang merupakan satu-satunya bakat kelas A selama bertahun-tahun, telah diserap ke dalam faksi pemimpin klan. Jika dia benar-benar diasuh, faksi pemimpin klan akan lebih kuat. Namun, jika tetua klan membuat Fang Yuan menjadi milik mereka sendiri, menggunakan lapisan hubungan darah ini, itu akan menjadi bidak catur yang bagus ketika berhadapan dengan Fang Zheng di masa depan.</p>
+<p>	Jadi, sepuluh orang di aula ini, mereka semua memiliki motif untuk membantu Fang Yuan.</p>
+<p>	Tapi siapa?</p>
+<p>	Gu Yue Chi Lian berpikir dalam-dalam, “Saya tidak merekrut Fang Yuan, jadi siapa yang akan membantunya secara diam-diam? Apakah Mo Chen orang tua itu, hmm, mungkin. Meskipun Fang Yuan membunuh pelayan keluarganya, tapi itu hanya pelayan, bahkan jika mereka semua mati, itu tidak akan menyakitinya. Pemimpin klan lebih mungkin, dia menerima Fang Zheng, jadi jika dia merekrut Fang Yuan juga, itu akan meningkatkan kendalinya atas Fang Zheng! Tapi … di tahun-tahun sebelumnya, normanya adalah merekrut mereka selama ujian akhir tahun. Mengambil tindakannya sekarang selama pertengahan tahun, itu melanggar aturan.”</p>
+<p>	“Tidak benar-benar melanggar aturan, tapi itu benar-benar melempar bola melengkung. Persisnya siapa yang sangat memikirkan Fang Yuan, bahkan lebih dariku?” Gu Yue Mo Chen juga berpikir.</p>
+<p>	Yang benar adalah, setelah Fang Yuan membunuh Gao Wan dan mengirim mayat cincang, dia mengubah kesannya tentang Fang Yuan dan berpikir untuk merekrutnya.</p>
+<p>	Tapi tindakan seperti itu hanya terjadi pada akhir tahun, setelah para siswa lulus dari akademi.</p>
+<p>	Fang Yuan direkrut terlebih dahulu, itu mengejutkan Mo Chen.</p>
+<p>	Tatapan Gu Yue Bo terfokus pada Gu Yue Mo Chen dan Gu Yue Chi Lian, dua tetua yang berkuasa.</p>
+<p>	Pemimpin klan ini memiliki wawasan yang lebih besar.</p>
+<p>	Fang Yuan terang-terangan berbohong dan mendapat tempat pertama. Tindakan ini memiliki arti tidak takut, sehingga mengirimkan sinyal kepada semua orang untuk menunjukkan kepada mereka bahwa — saya melindungi Fang Yuan! Dia sekarang adalah anggota saya, dan Anda semua sebaiknya tidak menyentuhnya.</p>
+<p>	Lalu siapa orang ini?</p>
+<p>	Bidang politik di klan Gu Yue dibagi menjadi tiga. Selain faksi pemimpin klan, itu adalah keluarga Chi Gu Yue Chi Lian, dan keluarga Mo Gu Yue Mo Chen.</p>
+<p>	Gu Yue Bo tahu bahwa dia sendiri tidak mengambil tindakan apa pun untuk merekrut Fang Yuan. Jadi, tersangka terbesar adalah Chi Lian dan Mo Chen.</p>
+<p>	“Dua orang tua ini, akting mereka meningkat. Melihat ekspresi mereka, aku benar-benar tidak tahu. Jangan bilang itu bukan mereka, tapi faksi kecil lainnya?”</p>
+<p>	Gu Yue Bo mengamati dengan cermat saat dia menyelidiki. Dia tidak tahu bahwa semua sesepuh seperti dia, mengamati, mencurigai dan menyimpulkan.</p>
+<p>	Tetua akademi juga menebak, tetapi dia selalu berada dalam posisi netral, di luar politik, sehingga pikirannya lebih sederhana, “Jadi Fang Yuan telah direkrut oleh seorang tetua klan. Tidak heran dia melepaskan Fang Zheng, Mo Bei dan Chi Cheng sambil memeras, itu berarti orang yang merekrutnya adalah pemimpin klan, Chi Lian atau Mo Chen. Ini adalah kabar baik! Ini menunjukkan bahwa dia telah menerima kenyataan dan mulai berintegrasi ke dalam klan. Tidak peduli apa, dia sekarang adalah anggota klan, jadi setelah dia sepenuhnya terintegrasi, dia akan menyumbangkan seluruh hidupnya untuk klan!</p>
+<p>	Setelah keheningan singkat, Gu Yue Bo tidak bisa melihat petunjuk lagi, jadi dia berbicara, “Mata ganti mata, karena pihak lain telah mulai menargetkan Fang Zheng, klan Gu Yue kami tidak bisa dianggap enteng, kami akan menunjukkannya. mereka! Penatua Aula Kegelapan, rumuskan rencana untuk masalah ini dan laporkan kepada saya sesudahnya. ”</p>
+<p>	“Ya, tuan pemimpin klan.” Penatua aula gelap segera mengangguk.</p>
+<p>	“Adapun Gu Yue Fang Zheng, aku khawatir hatinya mungkin akan rusak karena pertemuan seperti itu. Dia adalah talenta kelas A, dan bagi klan kami, statusnya monumental. Mulai sekarang, saya akan mengajarinya secara pribadi. ” Gu Yuebo berkata.</p>
+<p>	Tidak ada tetua klan yang keberatan.</p>
+<p>	Banyak orang tahu bahwa pemimpin klan telah memberikan banyak manfaat kepada Gu Yue Fang Zheng dalam kegelapan. Sekarang dia menyebutkan ini, meskipun itu melanggar aturan keadilan, dengan alasan yang cukup, para tetua klan tidak bisa menghentikannya.</p>
+<p>	“Adapun Gu Yue Fang Yuan…” Gu Yue Bo menyeret kata-katanya.</p>
+<p>	Sekaligus, semua tetua klan memberikan perhatian penuh mereka. Apakah pemimpin klan mengisyaratkan bahwa dialah yang membantu Fang Yuan secara diam-diam?</p>
+<p>	Gu Yue Bo melihat ekspresi semua orang saat tatapannya menyapu, tapi dia ditakdirkan untuk kecewa.</p>
+<p>	Jadi, dia hanya bisa melanjutkan, “Dengan bakat kelas C-nya, dia berhasil mendapatkan tempat pertama. Ini tidak mudah. Jadi, atas nama pribadi saya, saya menghadiahinya tiga puluh batu purba. Penatua akademi, sampaikan kata-kataku dan katakan padanya untuk terus bekerja keras. ”</p>
+<p>	“Ya, pemimpin klan.” Tetua akademi membungkuk saat dia menerima perintahnya.</p>
+<p>	“Tiga puluh batu purba, hadiah biasa, apa artinya ini?” Para tetua klan mengerutkan kening.</p>
+<p>	“Tidak peduli siapa yang menyerap Fang Yuan, tiga puluh batu purba ini adalah ekspresi niat baikku. Lagipula, masih ada klan Bai dan Xiong selain Gu Yue.” Gu Yue Bo menghela nafas dalam hatinya.</p>
+<p>	Fang Zheng dibunuh oleh musuh eksternal. Kecurangan Fang Yuan adalah konflik internal.</p>
+<p>	Melawan musuh eksternal, seseorang harus menggunakan metode tangan keras untuk membalas, tetapi untuk konflik internal, Gu Yue Bo memilih untuk menggunakan pendekatan lunak, untuk menghindari terlalu banyak konflik internal dan mengakibatkan kekuatan seluruh klan melemah.</p>
+<p>	“Baiklah, masalah ini akan diselesaikan seperti ini. Semua orang boleh pergi dan melakukan semua pekerjaanmu dengan baik, kemakmuran klan ada hubungannya dengan penampilanmu.” Gu Yue Bo melambaikan tangannya.</p>
+<p>	“Ya pemimpin klan, kami akan pergi.”</p>
+<p>	Para tetua klan pergi satu per satu, dan setelah beberapa saat, hanya Gu Yue Bo yang tersisa di ruangan itu.</p>
+<p>	Dia menghela napas dalam-dalam, menggunakan jari-jarinya untuk menggosok kedua pelipisnya.</p>
+<p>	Sebagai pemimpin klan, bahkan jika dia adalah orang dengan otoritas paling besar di klan Gu Yue, itu tidak berarti dia bisa melakukannya dengan mudah. Dia perlu mengoordinasikan kepentingan faksi yang berbeda, dan tidak bisa melakukan apa yang dia inginkan. Kekuatan klan tersebar dan terjalin melalui banyak generasi warisan, dan mereka semua memiliki sejarah panjang, membatasi satu sama lain.</p>
+<p>	Melawan kekuatan luar, dia harus berurusan dengan desa klan Xiong yang arogan dan kasar dan desa klan Bai yang berangsur-angsur meningkat.</p>
+<p>	Secara internal, ia harus menyelesaikan konflik politik yang rumit di klan. Meskipun dia setengah baya, dia sudah memiliki rambut putih di sekujur tubuhnya.</p>
+<p>	“Tahun-tahun ini menjadi pemimpin klan, meskipun saya memiliki sumber daya yang cukup, kultivasi saya hampir tidak berkembang. Hatiku lelah dengan semua urusan klan yang melelahkan ini. Kadang-kadang, saya benar-benar ingin menjadi seorang kultivator tunggal, bebas dan mudah tanpa beban. Itu akan memungkinkan saya untuk bergerak lebih cepat dan saya mungkin melakukan perjalanan lebih jauh di jalur kultivasi saya.”</p>
+<p>	Gu Yue Bo menghela nafas dalam hatinya.</p>
+<p>	Selama seseorang berada dalam sistem klan, mereka memiliki tanggung jawab pada mereka. Begitu mereka memiliki tanggung jawab, tidak akan mudah untuk berkultivasi dengan sepenuh hati.</p>
+<p>	Tetapi sebaliknya, jika seseorang tidak ada dalam sistem, sumber daya klan tidak akan tersedia bagi mereka, dan tanpa sumber daya, budidaya mereka akan terhenti.</p>
+<p>	Ini membentuk kontradiksi, lingkaran aneh.</p>
+<p>	Karena lingkaran ini, masa depan banyak orang hancur, mengubur sejumlah besar bakat dan kejeniusan.</p>
+<p>	Wang Da meninggal.</p>
+<p>	Tiga hari kemudian, Fang Yuan mendapat berita itu.</p>
+<p>	Pada saat yang sama, dia juga mendengar dari Jiang He bahwa kedua pemburu muda itu menghilang saat berburu di pegunungan. Adapun pemburu yang tangan kanannya dipatahkan oleh Fang Yuan, dia “bunuh diri” di rumahnya karena depresi.</p>
+<p>	Jiang He memandang Fang Yuan dengan penuh arti ketika dia mengatakan berita itu. Dia telah melihat mayat Wang Da, sehingga mengenalinya.</p>
+<p>	Tapi dia tidak berani mengatakan identitas asli Wang Da.</p>
+<p>	Dia adalah Gu Master yang ditempatkan, dan bertanggung jawab. Selama seseorang berada dalam sistem, terlepas dari posisinya, mereka memiliki tanggung jawab.</p>
+<p>	Wang Da menjadi pembudidaya faksi iblis selama tiga tahun, dan Jiang He sebagai Guru Gu desa tidak menyelidikinya. Jika mereka benar-benar mengejar tanggung jawab, ini akan menjadi kelemahan terbesar dalam catatannya, dan masa depannya di klan akan hancur.</p>
+<p>	Kematian aneh tiga pemburu ditutupi olehnya.</p>
+<p>	“Fang Yuan, karena kita adalah kenalan, mulai sekarang kamu mendapatkan diskon 50% ketika kamu membeli barang-barang dari toko saudara sepupuku Jiang Ya!” Pada suatu waktu, Jiang He mengatakan ini kepada Fang Yuan.</p>
+<p>	Semua orang sudah mati, hanya Fang Yuan dan dia yang tahu tentang masalah ini. Tetapi jika masalah itu terungkap, itu tidak berdampak besar pada Fang Yuan.</p>
+<p>	Dia hanya membunuh tiga pelayan desa, dan bahkan jika dia membunuh tiga puluh, klan tidak akan mengejarnya, paling-paling dia akan membayar “puluhan batu purba” sebagai hukuman.</p>
+<p>	Suap Jiang He, Fang Yuan menerimanya dengan mudah. Baginya, masalah ini penuh kejutan dan bahaya, tetapi hasilnya bagus.</p>
+<p>	Setelah masalah ini, Fang Yuan yang tidak memiliki dasar dalam klan, menerima setengah sekutu dan juga faksi yang tidak ada yang mendukungnya.</p>
+<p>	Pendukung misterius ini menjadi jaring pengaman kedua Fang Yuan. Ketika dia mulai menunjukkan kekuatannya secara bertahap, jaring pengaman ini akan memiliki dampak penting, setidaknya mampu membuatnya berkultivasi sampai Peringkat dua tanpa banyak perlawanan.</p>
+<p>	Pada titik ini, dia bisa merasakan dengan jelas perubahan sikap sesepuh akademi terhadapnya, menjadi lebih ramah.</p>
+<p>	Lebih dari sepuluh hari berlalu dalam sekejap.</p>
+<p>	Setelah Gu Yue Fang Zheng dan Mo Bei maju, Fang Yuan dan Chi Cheng hampir secara bersamaan berhasil naik ke peringkat satu tingkat atas.</p>
+<p>	Meskipun pemerasan berlanjut, dia tidak lagi mengambil batu purba Fang Zheng, Mo Bei dan Chi Cheng, dan dia mulai menjadi lebih rendah, sementara kekuatannya tumbuh pesat dengan kecepatan beberapa kali lipat dari kehidupan sebelumnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

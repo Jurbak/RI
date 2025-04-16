@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 31 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 31";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_30.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 31">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_32.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 31</h1>
+        <div class="text-left">
+<p>	Bab 31</p>
+<p>	Bab 31- Fang Yuan! Anda dalam masalah besar!</p>
+<p>	“Saya telah berlatih keras dalam seni bela diri dasar selama tujuh hari berturut-turut, tetapi untuk berpikir saya hanya berhasil menahan 2 serangan dari Fang Yuan dan kehilangan kesadaran setelahnya. Malu, malu yang tak termaafkan !” Gu Yue Mo Bei berseru, penuh kesedihan dan penyesalan.</p>
+<p>	Di taman keluarga, dia menghadapi boneka kayu, melepaskan pukulan dan tendangan yang menghasilkan gema yang bergema.</p>
+<p>	Tiba-tiba, dia mendengar suara tawa. “Adik laki-laki, apakah kamu memiliki kebencian yang mendalam terhadap boneka itu? Mengapa dendam yang besar?”</p>
+<p>	Mendengar suara yang familiar ini, Gu Yue Mo Bei menjadi rileks dan menghentikan serangannya. Dia menoleh. “Kakak, kamu kembali!”</p>
+<p>	” Uh-huh , dewan keluarga mengirim saya untuk misi investigasi yang berlangsung lebih dari sepuluh hari …” jawab Gu Yue Mo Yan sambil tertawa. Dia adalah saudara perempuan yang berhubungan dengan darah Mo Bei, seorang Master Gu tingkat menengah peringkat dua .</p>
+<p>	Tapi segera, wajahnya berubah muram, matanya menatap tajam ke arah Mo Bei. “Saudaraku, ada apa dengan memar di wajahmu itu? Siapa yang menindasmu?”</p>
+<p>	“Ah, tidak apa-apa. Saya tidak sengaja tersandung dan jatuh.” Sedikit kepanikan melintas di wajah Mo Bei saat dia mencari alasan. Dia tidak ingin adiknya mengetahui kejadian memalukan seperti itu. Kebenaran dari pewaris masa depan keluarga Mo dan kepala keluarga, cucu tercinta Gu Yue Mo Chen, berturut-turut tersingkir dua kali dalam pertempuran. Tetapi hal yang beruntung adalah bahwa dia bukan satu-satunya yang tidak beruntung. Yang lain juga menderita.</p>
+<p>	“Oh, kamu harus lebih berhati-hati dalam hal ini. Adapun pelatihan tempur Anda, ini tidak akan berhasil. Anda tidak memiliki Gu yang meningkatkan pertahanan Anda sekarang, jadi gunakan handuk tebal untuk menutupi diri Anda. Ini akan melindungi anggota tubuhmu agar tidak terluka.” Gu Yue Mo Yan menginstruksikan sebelum pergi.</p>
+<p>	“Halo, Nona Muda!”</p>
+<p>“Selamat pagi, Nona Muda!”</p>
+<p>“Nona Muda kembali! Pelayan Anda menyapa Anda, Nona! ”</p>
+<p>	Gu Yue Mo Yan buru-buru berjalan dengan sikap dingin, dan para pelayan yang ditemuinya di jalan membungkuk dan memberi hormat padanya tanpa gagal.</p>
+<p>	Ia berjalan menuju ruang belajar. Tanpa peringatan apapun, Mo Yan mendorong pintu dan masuk. Di dalam ruangan, Gu Yue Mo Chen sedang berlatih seni kaligrafi dengan punggung menghadap ke arahnya.</p>
+<p>	“Kamu kembali?” Gu Yue Mo Chen bertanya langsung tanpa membalikkan tubuhnya. “Setelah menyelidiki selama setengah bulan, bagaimana situasi dengan sarang serigala?”</p>
+<p>	“Bagaimana kamu tahu ini aku, kakek?” Mo Yan tersentak, sedikit terkejut.</p>
+<p>	“Hmph, di seluruh keluarga, kau satu-satunya orang yang berani memasuki kamarku bahkan tanpa mengetuk pintu sekali pun. Siapa lagi selain kamu, cucuku tersayang, ”tegur Gu Yue Mo Chen, meskipun wajahnya menunjukkan sedikit perhatian dan kehangatan, dan dia menatap Mo Yan sambil tersenyum.</p>
+<p>	Mo Yan cemberut. “Dalam hal menyayangi, kamu sebenarnya lebih memuja adik laki-laki. Namun karena dia adalah kepala keluarga masa depan, kamu lebih ketat padanya sehingga orang lain tidak bisa merasakan kepedulianmu padanya. ”</p>
+<p>	Setelah beberapa saat, dia bertanya: “Kakek, adik laki-laki dipukuli! Saya bertanya kepadanya dan dia berbohong tentang situasinya, jadi saya tidak punya pilihan selain bertanya kepada Anda. ”</p>
+<p>	Wajah Gu Yue Mo Chen berubah serius. “Kamu belum menjawab pertanyaanku.” Dia meletakkan kuasnya dan duduk.</p>
+<p>	Mo Yan dengan enggan melaporkan, “Sarang serigala hampir penuh, jadi menurut kecepatan berkembang biak saat ini, meskipun tidak akan ada wabah tahun ini, pasti akan ada gelombang serigala tahun depan di desa pegunungan kami.”</p>
+<p>	Gu Yue Mo Chen bertanya lagi, “Biasanya ada wabah setiap 3 tahun, jadi ini tidak mengejutkan. Namun, di dalam timbunan itu, ada berapa banyak Serigala Mahkota Guntur?”</p>
+<p>	“Sekitar tiga.”</p>
+<p>	Gu Yue Mo Chen mengangguk, merasa yakin. Serigala Mahkota Guntur adalah kepala kawanan, dan merupakan yang paling merepotkan untuk dihadapi selama wabah.</p>
+<p>	Tiga bukanlah jumlah yang besar karena Gunung Qing Mao memiliki tiga desa klan. Setiap desa dapat menangani satu serigala, dan tekanan wabah akan sangat berkurang.</p>
+<p>	“Kakek, kamu belum memberitahuku tentang masalah adik laki-lakiku!” Mo Yan mengejar lagi.</p>
+<p>	“Kurasa tidak ada gunanya memberitahumu, tapi dia dipukuli. Pertama kali tujuh hari yang lalu, dan yang kedua terjadi hari ini. Itu terjadi di depan gerbang sekolah, dan dia dipukuli sampai dia terkapar di tanah dan pingsan pada kedua kesempatan itu.” Gu Yue Mo Chen menjawab dengan tertawa.</p>
+<p>	“Siapa yang punya nyali untuk melumpuhkan adikku?” Mo Yan menatap, dengan mata terbelalak.</p>
+<p>	“Dia teman sekelas Mo Bei bernama Fang Yuan. Dia bertarung dengan sangat baik…” Gu Yue Mo Chen terkikik.</p>
+<p>	Mata Gu Yue Mo Yan tumbuh lebih besar, dan dia bingung saat dia menjawab, “Kakek, apa yang kamu katakan? Dia adalah cucumu yang berhubungan dengan darah!”</p>
+<p>	Gu Yue Mo Chen menatap cucunya dalam-dalam dan berbicara dengan penuh arti, “Mo Yan sayangku, kamu adalah seorang gadis sehingga kamu mungkin tidak mengerti. Kekalahan dan penghinaan hanya menjadi bahan bakar untuk perbaikan. Tanpa kegagalan seseorang tidak akan pernah bisa berkembang dan tumbuh menjadi pria dewasa yang sejati.”</p>
+<p>	“Mo Bei dikalahkan, dan itu adalah kegagalannya sendiri. Begitu dia bangun, dia akan meminta teknik bertarung dari para guru. Ini adalah semacam peningkatan, dan peningkatan ini berasal dari Fang Yuan, yang mengalahkannya menjadi realisasi. Sebagai saudara perempuannya, jika Anda benar-benar peduli dan ingin melindungi saudara Anda, Anda tidak boleh mengganggu pertumbuhannya. Fang Yuan hanyalah seorang anak laki-laki dengan bakat kelas C sementara Mo Bei memiliki bakat kelas B. Dengan kami mendukungnya, dia akan melangkahi Fang Yuan dan mendorongnya ke tanah pada akhirnya. ”</p>
+<p>	“Serahkan lawan ini pada Mo Bei. Dalam kehidupan seorang wanita, dia membutuhkan keluarga dan kekasih. Tetapi bagi seorang pria, keluarga bukanlah suatu keharusan, namun yang tidak dapat dia kekurangan adalah saingan. Jangan menemukan masalah dengan Fang Yuan, apakah Anda mendengar saya? Ini adalah masalah di antara para pemuda. Jika Anda terlibat, ini akan dianggap sebagai intimidasi. Melanggar aturan seperti itu akan membuat keluarga Mo kita dipandang rendah.”</p>
+<p>	Mo Yan tersentak tanpa kata, tapi di bawah tatapan Gu Yue Mo Chen, dia akhirnya menundukkan kepalanya. “Ya kakek, cucumu mengerti.”</p>
+<p>	Dia terhuyung-huyung keluar dari ruang belajar, tetapi bahkan Gu Yue Mo Chen tidak menyadarinya – matanya bersinar tidak menyenangkan.</p>
+<p>	“Kakek, ini caramu mencintai cucumu. Dan aku, Mo Yan, punya metodeku sendiri.” Hati Mo Yan sudah memiliki rencana yang berbeda.</p>
+<p>	……</p>
+<p>	Di ruang makan penginapan, beberapa meja sudah terisi dan orang-orang sedang makan malam, sehingga suasana menjadi lebih hidup. Satu atau dua pelayan menyajikan hidangan dengan cepat, melintasi antar meja.</p>
+<p>	Fang Yuan duduk di meja dekat jendela. Dia memesan beberapa hidangan dan makan sambil menatap keluar jendela.</p>
+<p>	Melihat keluar, matahari terbenam tampak seperti api, perlahan-lahan terbakar habis.</p>
+<p>	Setengah dari matahari telah terbenam; itu dengan penuh kerinduan menatap tanah, sisa-sisa cahayanya adalah keengganan matahari.</p>
+<p>	Jauh di atas pegunungan, itu sudah diselimuti oleh malam yang merembes. Jalan-jalan di dekatnya berkumpul penuh dengan orang-orang yang akan pulang. Beberapa dari mereka bertelanjang kaki, beberapa petani berlumpur, beberapa dari mereka pemetik ramuan, beberapa pemburu memegang burung gunung, babi hutan dan hewan lainnya, dan beberapa adalah master Gu . Mereka mengenakan seragam biru, tampak bersih dan bersemangat, ikat kepala dan ikat pinggang melengkapi penampilan mereka.</p>
+<p>	Sabuk itu memiliki fungsi khusus, untuk Master Gu Peringkat satu itu adalah sabuk biru. Ada pelat perunggu di depan, dan angka “1” bisa dilihat. Untuk Peringkat dua Gu Masters, sabuk mereka berwarna merah, dan pelat baja di tengah menunjukkan angka “2”.</p>
+<p>	Duduk di sisi jendela, Fang Yuan mengamati bahwa ada enam hingga tujuh Master Gu Peringkat satu , dan mereka kebanyakan adalah pria muda. Ada juga Guru Gu peringkat dua , seorang pria paruh baya.</p>
+<p>	Adapun Peringkat tiga Gu Masters, mereka adalah tetua keluarga. Dan peringkat keempat adalah kepala klan, penguasa desa.</p>
+<p>	Peringkat lima Gu Masters hampir tidak terlihat, dan dalam seluruh sejarah klan Gu Yue, hanya ada kepala klan generasi pertama dan kepala klan generasi keempat yang telah mencapai level ini.</p>
+<p>	“Sebenarnya, mencari tahu kekuatan klan sangat sederhana. Temukan saja tempat di desa, menetap dan amati orang-orang selama beberapa jam, lihat berapa banyak Master Gu peringkat satu dan dua yang ada dan Anda akan dapat melihat kekuatan dan kekayaan klan. ” Fang Yuan sampai pada kesimpulan dengan akumulasi pengetahuannya selama 500 tahun.</p>
+<p>	Menggunakan desa Gu Yue sebagai contoh, ada sekitar dua puluh orang berjalan di jalanan, dan enam adalah Master Gu . Dalam enam ini, ada peluang 50% untuk memiliki satu Peringkat dua Gu Master.</p>
+<p>	Dengan kekuatan dan modal ini, Klan Gu Yue berhasil memonopoli salah satu lokasi sumber daya terbaik di Gunung Qing Mao. Tapi gunung itu hanyalah sebuah sudut kecil di seluruh wilayah Perbatasan Selatan. Klan Gu Yue hanya bisa dianggap sebagai klan tingkat menengah ke bawah.</p>
+<p>	“Saya baru memulai kultivasi saya, dan dengan peringkat satu tahap awal, saya bahkan tidak memiliki kualifikasi untuk menjelajahi Perbatasan Selatan. Saya membutuhkan setidaknya kultivasi peringkat tiga untuk dapat menjelajahi dunia lebih jauh, ”Fang Yuan menghela nafas saat dia menghabiskan makan malamnya.</p>
+<p>	Gunung Qing Mao terlalu kecil; itu tidak bisa menahan ambisinya, dan dia bertekad untuk pergi.</p>
+<p>	” Haha , Gu Yue Fang Yuan, aku akhirnya menemukanmu!” Pada saat ini, seorang pria paruh baya tertawa licik saat dia mendekat.</p>
+<p>	“ Hm ?” Fang Yuan menoleh sedikit untuk melihat seorang pria dengan warna kulit kekuningan dan alis menggantung, tetapi dia memiliki ukuran tubuh yang besar dan otot yang berkembang. Dia melangkah beberapa langkah ke Fang Yuan dengan tangan terlipat dan dengan bangga menatap pemuda yang masih memakan makan malamnya, dengan sedikit permusuhan.</p>
+<p>	“Fang Yuan, kamu membuat dirimu sendiri dalam masalah besar, apakah kamu tahu itu? Heh heh heh , Anda telah berani memukul tuan muda kami dari keluarga Mo, dan sekarang Nona muda kami ada di sini untuk menyelesaikan masalah dengan Anda. Pria paruh baya itu mencibir terus menerus. Dia terus-menerus menatap dan menilai Fang Yuan, samar-samar memancarkan aura yang mengancam.</p>
+<p>	*Bab ini dipersembahkan oleh Chibigen dan Skyfarrow. Penghargaan untuk Chibigen karena membantu terjemahan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

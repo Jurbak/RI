@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 189 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 189";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_188.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 189">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_190.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 189</h1>
+        <div class="text-left">
+<p>	Bab 189</p>
+<p>	Bab 189: Perubahan yang mengejutkan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari terbenam saat malam turun, dan matahari terbenam seperti api yang menyala di cakrawala.</p>
+<p>	Berdiri di lereng adalah Bai Ning Bing, berpakaian putih, rambutnya seputih salju. Sinar terakhir matahari terbenam tercermin di matanya, mengisyaratkan bahwa hidupnya akan berakhir.</p>
+<p>“Matahari terbenam yang begitu indah, berapa kali lagi aku bisa melihatnya … kecemerlangan alam ini, aku hanya melihat sedikit dari mereka semua, sayang sekali. Terutama ketika di sekitarku, orang-orang menyebalkan ini masih berdebat.”</p>
+<p>	Bai Ning Bing mendengus dalam hatinya, menarik kembali pandangannya dan menyapu lingkungan.</p>
+<p>	Aliansi klan Gu Yue dan Xiong, seratus Master Gu yang tersisa berkumpul dan mengepung Bai Ning Bing.</p>
+<p>	“Bai Ning Bing, jika kamu mundur dari kompetisi ini sekarang, kami bisa menyelamatkan hidupmu!”</p>
+<p>	“Memang, jika kamu tahu tempatmu, mungkin kami akan berbaik hati dan melepaskanmu.”</p>
+<p>	“Master Gu klan Bai Anda sebagian besar sudah selesai. Yang tersisa semuanya telah dihentikan oleh kami. Jangan menggantungkan harapanmu pada bala bantuan, mereka tidak akan datang!”</p>
+<p>	Dengan Fang Zheng, Xiong Jiao Man, Xiong Lin dan Chi Cheng sebagai pemimpin, para Master Gu muda berbicara bergantian, mencoba mematahkan semangat Bai Ning Bing.</p>
+<p>	Tapi kata-kata ini, Bai Ning Bing tidak menaruh hati.</p>
+<p>	“Sekelompok tikus datang ke gajah dan berteriak, sungguh menggelikan,” Bai Ning Bing tertawa dingin, tatapannya menyapu kerumunan, menunjukkan penghinaan. “Di antara kalian, hanya Gu Yue Fang Yuan yang sedikit menarik. Sayang sekali dia tidak ada di sini. Hehe, datang padaku bersama. ”</p>
+<p>	Mengatakan demikian, Bai Ning Bing menciptakan pisau es, menggunakan tangannya untuk menyeka pisau tajam yang memancarkan energi dingin; dia bahkan tidak melihat orang-orang di sekitarnya.</p>
+<p>	“Orang ini terlalu sombong!”</p>
+<p>	“Hmph, tidak menganggap kita serius!”</p>
+<p>	“Saudaraku, mari kita serang bersama. Semua orang mengirimkan satu serangan, bahkan sepuluh Bai Ning Bing akan berubah menjadi pasta daging!”</p>
+<p>	Master Gu mencemooh, tetapi tidak ada yang berani menyerang dengan gegabah.</p>
+<p>	Meskipun Bai Ning Bing sendirian, auranya luar biasa, menyebabkan semua orang merasa terancam.</p>
+<p>	“Semuanya tenang, jangan dengarkan ejekan Bai Ning Bing. Kami tidak berlatih bersama sebelumnya dan tidak memiliki kerjasama yang baik. Jika kita menyerang bersama, kita akan menyia-nyiakan banyak usaha kita dan dia akan memanfaatkannya.” Xiong Lin berteriak.</p>
+<p>	“Lalu siapa yang menyerang lebih dulu?” Chi Cheng bertanya.</p>
+<p>	Meskipun mereka bekerja sama dengan klan Xiong dan menyerang klan Bai, aliansi ini tidak dekat. Siapa pun yang menyerang lebih dulu menanggung risiko yang lebih tinggi, dan juga mengambil risiko pihak lain mengambil keuntungan dari pertempuran mereka.</p>
+<p>	“Sudahlah, aku akan melibatkan Bai Ning Bing dulu. Sejujurnya, aku sudah lama ingin bertarung denganmu.” Xiong Jian Man maju selangkah.</p>
+<p>	Dia meniup peluit, dan begitu dia melakukannya, suara binatang buas yang diinjak bisa terdengar dari jauh. Banyak bayangan hitam tumpang tindih di hutan, dan yang muncul adalah lebih dari dua ratus beruang hitam!</p>
+<p>	Beruang hitam di depan gerombolan itu lebih besar dari yang lain; itu adalah seratus beruang hitam tingkat raja binatang.</p>
+<p>	Gelombang serigala berbahaya, tetapi itu juga merupakan peluang. Xiong Jiao Man naik ke peringkat tiga karena itu, dan Perbudakan Beruang Gu juga naik ke peringkat tiga, akhirnya bisa memperbudak seratus raja binatang buas tipe beruang!</p>
+<p>	Ini adalah kartu as Xiong Jiao Man.</p>
+<p>	“Bagus sekali, bos wanita!”</p>
+<p>	“Ya Tuhan ~, begitu banyak beruang.”</p>
+<p>	“Dengan semua beruang ini dan kami berjumlah sekitar seratus orang, Bai Ning Bing adalah daging mati!”</p>
+<p>	Klan Xiong, Gu Masters tergugah, semakin bersemangat. Klan Gu Yue tampak rumit; setelah Xiong Li meninggal, Xiong Jiao Man ini menjadi penantang nomor satu di klan Xiong. Melihat klan Gu Yue, setelah Qing Shu meninggal, Mo Bei juga mengikuti. Meskipun Fang Yuan naik ke peringkat tiga, bakatnya hanya kelas C, sulit untuk mengandalkannya.</p>
+<p>	“Syukurlah, kami masih memiliki nilai A Gu Yue Fang Zheng!” Banyak Guru Gu memandang Fang Zheng, berpikir begitu dan merasa yakin.</p>
+<p>	Terutama selama kompetisi tiga klan ini, Fang Zheng tampaknya menjadi lebih dewasa, menyerang lebih ganas, dan banyak Master Gu klan Bai dibunuh olehnya. Pertunjukan seperti itu menyebabkan banyak anggota klan merasa terhibur.</p>
+<p>	Ini adalah disposisi sejati dari seorang jenius kelas A!</p>
+<p>	“Hasilnya cukup meyakinkan. Bahkan tahap puncak peringkat tiga dengan banyak bakat tidak dapat menandingi seratus orang. Tuan Qing Shu, aku akan membalas dendam untukmu secara pribadi!! Setelah itu, jika kakak muncul…” Fang Zheng menatap tajam ke arah Bai Ning Bing, berpikir cepat dalam benaknya.</p>
+<p>	“Hanya seratus raja binatang, trik yang membosankan.”</p>
+<p>	Seluruh tubuhnya memancarkan udara dingin.</p>
+<p>	“Fisik Jiwa Es Gelap Utara … aku sudah mencapai batasku ya.” Bai Ning Bing merasa hidupnya berakhir; tubuhnya telah mencapai semacam batas. Tidak lama kemudian, dia akan mati. Bahkan sekarang, dia bisa merasakan tubuhnya mulai runtuh, dan sebagian besar daging dan darahnya berubah menjadi es dan salju.</p>
+<p>	Namun meski begitu, Bai Ning Bing tetap tenang, tatapannya terkonsentrasi. Dia melihat terakhir pada sinar matahari, sebelum berbalik dan melihat kelompok beruang yang sedang menyerang.</p>
+<p>	“Karena kalian semua mencari kematian, aku akan bertindak dengan penuh belas kasih dan mengabulkan semua keinginanmu. Mungkin dengan cara ini, itu bisa membawa kegembiraan dalam hidupku, ”dia menghela nafas pelan.</p>
+<p>	Tidak jauh, tiga pemimpin klan dan Master Gu berdiri diam, benar-benar diam.</p>
+<p>	“Pertempuran akhirnya dimulai! Membunuh Bai Ning Bing adalah kemenangan terbesar!” Pemimpin klan Xiong diam-diam bersemangat.</p>
+<p>	“Hmph, kami ditipu. Mereka sebenarnya berkomplot untuk berurusan dengan kita. Hehehe, Anda semua meremehkan Bai Ning Bing, bersiaplah untuk kejutan. ” Pemimpin klan Bai tenang seperti air, merencanakan dalam pikirannya.</p>
+<p>	Gu Yue Bo menunjukkan ekspresi khawatir.</p>
+<p>	Sampai sekarang, Fang Yuan dan Tie Xue Leng tidak muncul sama sekali.</p>
+<p>	Meskipun kompetisi tiga klan itu penting, pikirannya ada di tempat lain.</p>
+<p>	“Fisik Bulan Kuno Yin yang Sunyi … Jika Fang Yuan benar-benar memiliki bakat seperti itu, kita harus melindunginya dengan segala cara dan membawanya ke kuburan danau darah!” Berpikir demikian, Gu Yue Bo menatap Tie Ruo Nan tanpa membalikkan tubuhnya.</p>
+<p>Wanita muda keluarga Tie ini memiliki latar belakang yang kuat, tapi dia sudah dibawa oleh Gu Yue Bo, diam-diam menjadi tawanan.</p>
+<p>	Tie Ruo Nan tidak khawatir dengan situasinya. Dia percaya ayahnya, dan juga berpikir tentang cara menangkap Fang Yuan.</p>
+<p>	Apa pun bakat yang dimiliki Fang Yuan, selama seseorang mau, mereka bisa menilainya. Jika dia benar-benar sepuluh bakat ekstrem, maka kecurigaannya akan menjadi yang terbesar!</p>
+<p>	“Persetan!” Fang Yuan mengutuk, berbaring di punggung Seribu Li Earthwolf Spider, menempel erat dan mencegah dirinya jatuh.</p>
+<p>	Dia ingin menggunakan jalur terbuka Flower Wine Monk untuk maju dengan mudah.</p>
+<p>	Tapi masa-masa indah tidak bertahan lama, karena tidak lama kemudian, Seribu Li Earthwolf Spider mulai menjadi gila.</p>
+<p>	Itu mulai menyerap esensi alami di udara, menggunakannya. Pada saat yang sama, tiga pasang kakinya mulai menggali jalan baru, bergerak secara acak di gua bawah tanah.</p>
+<p>	Fang Yuan akhirnya mengerti.</p>
+<p>	Laba-laba Serigala Bumi Seribu Li ini, di bawah komando Biksu Anggur Bunga, telah terlibat dalam pertempuran dengan Gu Yue generasi pertama sebelumnya.</p>
+<p>	Dalam pertempuran, itu dirusak oleh Blood Frenzy Gu.</p>
+<p>	Biksu Anggur Bunga mengandalkannya untuk melarikan diri, lalu buru-buru menciptakan gua rahasia, meninggalkan warisannya sebelum mati.</p>
+<p>	Setelah kehilangan tuannya, Seribu Li Earthwolf Spider kehilangan kendali dan dengan panik kembali ke jalan yang telah digalinya saat melarikan diri.</p>
+<p>	Tepat sebelum kematian, yang beruntung adalah bahwa Seribu Li Earthwolf Spider menyegel dirinya sendiri dan jatuh ke dalam hibernasi, mempertahankan kekuatan hidup terakhirnya sebelum mati.</p>
+<p>	Ratusan tahun kemudian, Fang Yuan kembali ke tempat itu dan menggali kepompong, membuatnya terbangun kembali. Tapi masalah Blood Frenzy Gu tidak terpecahkan, dan dengan demikian setelah beberapa saat, masalah itu mulai muncul lagi.</p>
+<p>Fang Yuan berada jauh di dalam gua, dan hanya dengan mengandalkan kekuatannya sendiri, dia tidak dapat melarikan diri ke permukaan. Dia membutuhkan kemampuan Seribu Li Earthwolf Spider.</p>
+<p>	Seribu Li Earthwolf Spider mulai menjadi gila, semakin tidak terkendali; Fang Yuan hanya bisa menunggangi punggungnya, bertaruh pada keberuntungannya.</p>
+<p>	Tetapi pada titik ini, frekuensi Seribu Li Earthwolf Spider menjadi gila tidak begitu tinggi, jadi Fang Yuan masih bisa mengendalikannya.</p>
+<p>	Meskipun kendalinya tergelincir, secara keseluruhan, ia masih mengendalikan arah umum. Dia membiarkan Seribu Li Earthwolf Spider menggali jalannya ke permukaan, tetapi di mana itu akan berakhir, Fang Yuan tidak tahu.</p>
+<p>	Sinar matahari terakhir seperti darah, memantulkan mayat yang dicincang dan anggota tubuh yang patah di mana-mana di medan perang.</p>
+<p>	Bai Ning Bing berdiri dengan arogan di medan perang, lapisan es tebal di bawah kakinya saat wilayah es terus menyebar ke luar.</p>
+<p>	Master Gu yang tersisa berjumlah kurang dari tiga puluh, tetap bersama-sama mencoba menemukan sedikit jaminan dari kehangatan tubuh masing-masing.</p>
+<p>	Kelompok beruang telah lama dimusnahkan. Bahkan Xiong Jian Man telah dipenggal oleh pisau es Bai Ning Bing, dan kepalanya terbang jauh saat darah mengalir seperti air mancur dari lehernya.</p>
+<p>	Xiong Lin ditembus oleh es dari Bai Ning Bing, dan Gu Yue Chi Cheng berubah menjadi patung es. Di peti mati es, dia masih mempertahankan tindakan menghindar tepat sebelum kematian, wajahnya menunjukkan keterkejutan, ketakutan, dan keterkejutan total, hidup dan hidup.</p>
+<p>	Tubuh Fang Zheng penuh dengan luka, tetapi tidak ada darah; luka-lukanya semua dibekukan oleh es dan salju.</p>
+<p>	Dia menghela nafas dengan kasar, menatap Bai Ning Bing dengan tidak percaya. Apa yang terjadi sebelumnya seperti mimpi buruk!</p>
+<p>	Bai Ning Bing pasti peringkat tiga, tapi kekuatan pertempurannya hampir peringkat empat!!</p>
+<p>	“Hmph, meski mirip, tapi kamu bukan dia, sungguh membosankan….” Bai Ning Bing menatap Fang Zheng, berjalan mendekat. Fang Zheng masih hidup, juga disengaja oleh Bai Ning Bing.</p>
+<p>	Semua Master Gu menjadi ribut, moral mereka berada di titik terendah. Jika bukan karena fakta bahwa pemimpin klan mereka mengawasi dari jauh, mereka pasti sudah hancur dan melarikan diri untuk hidup mereka.</p>
+<p>	“Sialan, sialan! Mengapa kekuatan pertempuran kita begitu berbeda, aku adalah talenta kelas A, apakah aku akan mati di sini?” Fang Zheng menggertakkan giginya, berteriak di dalam hatinya.</p>
+<p>	“Mati.” Bai Ning Bing melompat, mengangkat pisau esnya tinggi-tinggi saat di udara.</p>
+<p>	MEMOTONG!</p>
+<p>	Iceblade melebar, hampir lima hingga enam kali lipat dari aslinya, mengirimkan aura yang tidak dapat diblokir saat menebas ke arah semua orang.</p>
+<p>	“Saya akan mati!”</p>
+<p>	“Ahhhhh …”</p>
+<p>Menghadapi serangan ini, banyak Master Gu menangis dan putus asa.</p>
+<p>	“Brengsek, kenapa jadi begini!” Wajah pemimpin klan Xiong penuh dengan keputusasaan.</p>
+<p>	Gu Yue Bo mendesak untuk pindah, tetapi pemimpin klan Bai mencibir, menghentikannya, “Pemimpin klan Gu Yue, tidak ada yang mengganggu, apakah kamu akan mengingkari kata-katamu dan melanggar perjanjian?”</p>
+<p>	Gu Yue Bo menyipitkan matanya, “Bai Ning Bing hanya peringkat tiga, dia tidak bisa memiliki kekuatan seperti itu, kamu curang secara terang-terangan!”</p>
+<p>	“Curang? Hehe, izinkan saya memberi tahu Anda yang sebenarnya, Bai Ning Bing klan kami adalah fisik Jiwa Es Gelap Utara! Pemimpin klan Bai berteriak keras.</p>
+<p>	“Apa? Sepuluh bakat ekstrim!” Seketika, pemimpin klan Gu Yue Bo dan Xiong terkejut.</p>
+<p>	“Pelaporan! Pemimpin klan, telah terjadi gempa bumi yang aneh, banyak bangunan bambu klan telah runtuh, dan tanah merembes dengan air darah. Tidak banyak orang yang terluka tetapi mereka bingung, “Master Gu klan Gu Yue datang berlari.</p>
+<p>	“Untuk berpikir bahwa ada sesuatu!” Ekspresi Gu Yue Bo berubah.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 423 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 423";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_422.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 423">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_424.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 423</h1>
+        <div class="text-left">
+<p>	Bab 423: Fang Yuan kau bajingan kecil!</p>
+<p>	Bab 423: Fang Yuan kau bajingan kecil!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Bukan menjual gutstone, tapi malah menjual rockmen?” He Feng Yang melihat surat di tangannya dengan ekspresi muram.</p>
+<p>	Di tanah yang diberkati Hu Immortal, keberanian Gu dari gunung Dang Hun adalah hal yang paling dibutuhkan oleh Immortal Crane Sect. Begitu mereka memiliki nyali Gu untuk meningkatkan fondasi jiwa murid mereka, kekuatan Immortal Crane Sect dalam hal murid akan meningkat tiga puluh persen.</p>
+<p>	Selanjutnya, gutstones tidak bisa meninggalkan gunung Dang Hun, mereka hanya bisa digunakan di tempat. Jadi, dengan alasan ini, murid Sekte Bangau Abadi dapat dengan bebas memasuki tanah yang diberkati Hu Abadi. Seiring berjalannya waktu, kewaspadaan Fang Yuan secara bertahap akan turun, dan Sekte Bangau Abadi akan bebas untuk memasang beberapa jebakan di dalam tanah yang diberkati.</p>
+<p>	Tapi Fang Yuan dengan tegas menolak untuk menjual batu nyali, He Feng Yang sangat bermasalah: “Sejak kapan Dewa Gu yang hebat seperti saya harus mengalami kesulitan seperti itu dari bajingan fana belaka ?!”</p>
+<p>	Dia mengertakkan gigi saat dia berpikir, wajah mudanya yang tampan berubah menjadi marah.</p>
+<p>	Dia memiliki kekuatan pertempuran, tetapi dia tidak bisa menampilkannya. Fang Yuan bersembunyi di dalam tanah yang diberkati seperti kura-kura, dia juga telah memperbaiki Gu perjalanan abadi dan bisa pergi kapan saja. He Feng Yang, dan bahkan seluruh Immortal Crane Sect takut dengan kartu trufnya, dan dengan demikian tidak berani menyerang.</p>
+<p>	“Sepertinya rockmen yang dibawa Hu Immortal ke tanahnya yang diberkati masih hidup. Tapi Fang Yuan ini menjual begitu banyak rockmen ini sekarang, berapa banyak nyali Gu yang dia gunakan untuk membuatnya!</p>
+<p>	Memikirkan hal ini, hati He Feng Yang berdarah.</p>
+<p>	Beberapa bulan telah berlalu sejak transaksi terakhir. Waktu di tanah yang diberkati Hu Immortal lima kali lebih cepat, jadi dia memiliki sekitar satu tahun atau lebih.</p>
+<p>	Fang Yuan mengasuh begitu banyak rockmen muda dan kuat, jika nyali yang dikeluarkan Gu ini diberikan kepada Sekte Bangau Abadi, dan digunakan untuk mengasuh murid, seberapa baguskah itu?</p>
+<p>	Tapi Fang Yuan bajingan ini, dia lebih suka memelihara rockmen daripada memberikan Gu nyali ini ke Immortal Crane Sect. Motifnya luar biasa, luar biasa!</p>
+<p>	Apa yang membuat He Feng Yang paling marah bukan hanya ini. Yang paling penting, dia marah pada dirinya sendiri — rockmen yang dijual Fang Yuan ini, bahkan jika dia adalah Gu Immortal, hatinya tergerak.</p>
+<p>	Di tanah yang diberkati, jika ada banyak rockmen, dewa abadi Gu dapat mengembangkan tanah bawah tanah mereka dan menggali sumber daya dalam jumlah besar.</p>
+<p>	Segala macam logam, permata, bijih, serta cacing Gu, hewan bawah tanah, dapat diperoleh tanpa henti.</p>
+<p>	Selain itu, jika mereka memiliki cukup rockmen, mereka dapat membangun kota bawah tanah, ini, dengan cara tertentu, memperluas wilayah tanah yang diberkati.</p>
+<p>	Jika tidak ada tenaga kerja di tanah yang diberkati, sumber daya yang digali oleh Dewa Abadi sebagian besar berasal dari permukaan, itu terbatas. Tetapi jika mereka memiliki rockmen, dan bahkan dapat menggunakan sumber daya di bawah tanah, keuntungannya akan berkali-kali lipat dari sebelumnya.</p>
+<p>	Jadi, di pasar, rockmen dalam permintaan tinggi dan pasokan rendah.</p>
+<p>	Kehidupan rockman sebagian besar dihabiskan untuk tidur. Seorang rockman biasa hidup sampai seribu tahun, dalam satu kehidupan, mereka memiliki empat anak.</p>
+<p>	Bukan tidak mungkin untuk menggunakan jalur jiwa cacing Gu pada mereka untuk meningkatkan kekuatan jiwa mereka, banyak Dewa Gu mencobanya, tetapi tidak ada yang berhasil.</p>
+<p>	Hanya ada satu alasan, biaya.</p>
+<p>	Nilai jalur jiwa cacing Gu sangat melebihi seorang rockman tunggal.</p>
+<p>	Kecuali Gu Immortal memiliki kebutuhan khusus untuk rockmen, mereka tidak akan pernah mendapat untung dari ini.</p>
+<p>	Di dunia ini, hanya Fang Yuan yang mengendalikan gunung Dang Hun yang bisa mengasuh rockmen dalam skala seperti itu.</p>
+<p>	Selain itu, harga yang dikutip Fang Yuan dalam transaksi ini juga sangat menarik. Bahkan jika Sekte Bangau Abadi tidak membutuhkannya, mereka dapat menjualnya kembali dan menghasilkan keuntungan besar.</p>
+<p>	Tetapi karena ini adalah kesepakatan yang bagus, He Feng Yang merasa sangat bermasalah.</p>
+<p>	Dia tahu ini adalah umpan dari Fang Yuan.</p>
+<p>	Tidak takut tidak tergerak, hanya takut tidak mengambil umpan!</p>
+<p>	Seperti yang diharapkan Fang Yuan, He Feng Yang sudah condong ke arah kesepakatan, bukan hanya dia, Sekte Bangau Abadi juga akan dipindahkan, dan Dewa Gu lainnya juga menginginkan kesepakatan ini. Bisnis perdagangan rockmen bisa berkembang setidaknya selama seratus tahun.</p>
+<p>	“Fang Yuan bajingan kecil yang jahat ini, dia benar-benar licik. Tetapi dengan kumpulan rockmen ini, saya dapat menunjukkan beberapa hasil kepada tetua agung tertinggi, tetua kedua, dan tetua ketiga, saya juga dapat membuat Lei Tan tutup mulut. Aku bisa bernafas lega kalau begitu.” He Feng Yang menarik napas berat, menenangkan pikirannya.</p>
+<p>	Dia menyipitkan matanya, mulutnya membentuk senyuman dingin: “Tapi jangan terlalu sombong Fang Yuan. Gayung bersambut, jika Anda tidak menjual nyali Gu, saya tidak akan menjual relik Gu. Bukankah kamu menginginkan Gu peninggalan emas kuning dan Gu peninggalan kristal ungu? Tidak mungkin di neraka!”</p>
+<p>	…</p>
+<p>	Fang Yuan berbaring di kursinya, melihat jawaban Immortal Crane Sect.</p>
+<p>	Karena bayangan petir pesona biru masih menjaga gunung Tian Ti, Hu Immortal kecil tidak berani membuka pintu tanah yang diberkati, sehingga Sekte Bangau Abadi menggunakan huruf pedang terbang Gu kali ini.</p>
+<p>	Fang Yuan melihat dan memahami isinya.</p>
+<p>	Dalam surat He Feng Yang, selain menyetujui kesepakatan itu, dia juga menyatakan tujuannya: untuk membeli nyali Gu. Untuk nyali Gu, dia bisa menjual relik Gu, atau bahkan mengulurkan tangan untuk membantu selamat dari bencana dunia ketujuh.</p>
+<p>	Fang Yuan terkekeh terus menerus.</p>
+<p>	Membiarkan He Feng Yang ke tanah yang diberkati Hu Immortal adalah bahaya yang lebih besar daripada bencana itu sendiri, itu tidak mungkin.</p>
+<p>	Adapun peninggalan Gu, apakah dia pikir ancaman itu akan menjadi kelemahan Fang Yuan? Sungguh ide yang menggelikan.</p>
+<p>	“Aku pasti tidak akan menjual nyali Gu, tapi aku bisa menjual rockmen, aku tidak khawatir menarik Sekte Bangau Abadi. Tapi saya tidak bisa hanya berurusan dengan Sekte Bangau Abadi saja, saya juga perlu memperluas bisnis saya lebih jauh. Fang Yuan mempertimbangkan.</p>
+<p>	Dengan pengalamannya selama lima ratus tahun, Fang Yuan tahu bahwa harga jualnya lebih rendah dari nilai pasar.</p>
+<p>	Sekte Derek Abadi pasti akan mendapat untung dari perdagangan ini.</p>
+<p>	Tapi ini juga diatur oleh Fang Yuan.</p>
+<p>	Itu karena pada saat ini, dia membutuhkan identitasnya sebagai murid Sekte Bangau Abadi, sehingga dia juga perlu menjaga dan mempertahankan hubungan fiktif ini.</p>
+<p>	“Dengan keuntungan ini, tekanan He Feng Yang akan terangkat darinya, dia menginginkan tanah saya yang diberkati, tetapi saya juga perlu waktu untuk tumbuh. Setelah saya menjadi Gu Immortal, apakah saya masih takut dengan Immortal Crane Sect?” Fang Yuan tertawa dengan jelas.</p>
+<p>	Dia melihat surat itu lagi, pada akhirnya, He Feng Yang memutuskan waktu, dan meminta Fang Yuan untuk membuka pintu, untuk mengirim Gu lubang bumi.</p>
+<p>	Ini adalah transaksi berskala sangat besar, Fang Yuan akan menjual enam puluh ribu rockmen. Tapi rockman ini tidak bisa pergi dari pintu tanah yang diberkati.</p>
+<p>	Saat ini, bayangan petir pesona biru itu masih bergerak di sekitar gunung Tian Ti. Jika pintu dibuka, dan berhasil masuk, Fang Yuan akan berada dalam masalah besar.</p>
+<p>	Jadi dalam situasi ini, dia perlu menggunakan lubang bumi Gu.</p>
+<p>	Gu ini berada di peringkat lima, dan terdiri dari dua Gu, Gu utama dan Gu sub.</p>
+<p>	Penggunaan terbesarnya adalah untuk menghubungkan dua tempat dengan satu terowongan. Master Gu akan masuk dari sub Gu, dan keluar dari Gu utama, begitu juga untuk arah yang berlawanan.</p>
+<p>	Lubang bumi Gu sering digunakan untuk menghubungkan dua tanah yang diberkati. Biasanya, lubang bumi Gu digunakan untuk mengangkut dan mengirim sumber daya. Selama perang atau pertempuran, bala bantuan dapat dikirim melalui lubang bumi Gu, membantu segera.</p>
+<p>	“Untuk menjalani transaksi dan mengirim rockmen ini pergi, lubang bumi Gu harus digunakan mau tidak mau. Tapi saya khawatir Gu bumi lubang Anda mungkin memiliki beberapa jebakan di dalamnya, saya lebih suka memperbaikinya sendiri. ”</p>
+<p>	Fang Yuan memikirkan hal ini dan membocorkan aura Musim Semi Musim Gugur Jangkrik, menyempurnakan huruf pedang terbang Gu dan dengan cepat menulis surat kembali kepada He Feng Yang.</p>
+<p>	Setengah hari kemudian, He Feng Yang menerima surat itu, melihatnya hanya untuk menemukan sejumlah besar cacing Gu yang tercantum di dalamnya, dan segala macam bahan.</p>
+<p>	“Oh? Anda tidak ingin menggunakan Gu lubang tanah saya, tetapi Anda memperbaiki resepnya dan ingin memperbaiki versi baru sendiri? ” He Feng Yang sangat marah.</p>
+<p>	“Omong kosong! Lubang bumi Gu telah digunakan selama lima ratus tahun, resepnya diketahui oleh semua Dewa Gu, Anda pikir Anda bisa memperbaikinya lebih lanjut? Fang Yuan, kewaspadaan bajingan ini terlalu tinggi, dia ingin menggunakan kesempatan ini untuk memerasku, sehingga aku tidak akan berani menolak kesepakatannya lagi. Saya tidak perlu melihat untuk mengetahui bahwa Gu peninggalan atau telur musim semi Gu atau beberapa cacing Gu langka di jalur kekuatan disertakan … eh? Tidak ada?”</p>
+<p>	He Feng Yang meliriknya, tetapi tidak melihat peninggalan Gu, telur musim semi Gu, atau jalur kekuatan apa pun yang Gu terdaftar.</p>
+<p>	Tetapi ada banyak Gu yang tidak biasa, dan bahkan beberapa cacing Gu peringkat rendah. Yang tertinggi adalah cacing Gu peringkat lima, jalur bumi membangun Gu gunung, biasanya digunakan untuk meningkatkan tingkat keberhasilan penyempurnaan Gu. Selain itu, dia meminta banyak Gu peringkat empat, Gu bentuk bergerak yang sering terlihat, dan Gu perspektif lain yang sangat berguna.</p>
+<p>	He Feng Yang bimbang: “Melihat daftar ini, sepertinya dia benar-benar akan memperbaiki Gu. Selama keberuntungannya baik-baik saja, bahannya cukup untuk memperbaiki Gu bumi tiga lubang. Jangan bilang, dia benar-benar meningkatkan resep lubang bumi Gu? Tidak, Fang Yuan hanyalah manusia biasa, bagaimana ini bisa terjadi? Tetapi bagaimana jika dia memiliki Gu Immortal di belakangnya? ”</p>
+<p>	Jika itu adalah resep yang ditingkatkan, maka Gu baru pasti akan jauh lebih kuat dari Gu lubang tanah.</p>
+<p>	Hati He Feng Yang goyah.</p>
+<p>	Bahkan jika dia tidak bisa mendapatkan resepnya, setelah Fang Yuan berhasil menyempurnakannya, dia harus memberikan sub Gu kepadanya. Pada saat itu, dia sebagai Gu abadi akan dapat menyimpulkan banyak detail tentang Gu dari sub Gu itu, dan dia memiliki peluang besar untuk menciptakan resep yang sama.</p>
+<p>	Dua hari kemudian, Fang Yuan menerima surat itu.</p>
+<p>	Fang Yuan membukanya dan melihat, seperti yang dia harapkan, He Feng Yang membuat segala macam alasan di dalam surat itu, dengan sengaja mengurangi jumlah banyak bahan dan cacing Gu, motifnya jelas, dia ingin menyelidiki resep asli Fang Yuan.</p>
+<p>	Fang Yuan tertawa dan menggelengkan kepalanya sambil menghela nafas, He Feng Yang ini terlalu teliti dalam pemikiran ini, ini adalah kekuatan dan kelemahan.</p>
+<p>	Meskipun mereka hanya berinteraksi beberapa kali, Fang Yuan sudah melihatnya.</p>
+<p>	Fang Yuan menjawab dengan lembut bahwa He Feng Yang tidak akan mengurangi bahan apa pun, jika tidak, penyempurnaan akan gagal.</p>
+<p>	Tapi He Feng Yang terus berdebat dan menawar, dia mengatakan begitu banyak sampah sehingga dia hampir mempercayai alasannya sendiri.</p>
+<p>	Setelah beberapa kali, Fang Yuan “tanpa daya” memilih untuk menyerah, menulis daftar lain.</p>
+<p>	“Nak, kamu terlalu muda untuk bersaing denganku.” He Feng Yang melihat surat ini daripada menyerahkan sebagian materi, sambil mencari alasan untuk menunda yang lain.</p>
+<p>	Dengan penundaan yang konstan, mereka membuang waktu sekitar delapan hingga sembilan hari.</p>
+<p>	Hanya sampai Fang Yuan menunjukkan sikap yang sangat tidak berdaya dan marah, He Feng Yang berhenti, menyadari bahwa waktunya sudah matang, menggunakan daftar keenam yang memiliki bahan jauh lebih sedikit untuk melakukan penelitiannya.</p>
+<p>	Tetapi keterampilan penyempurnaan Gu-nya tidak bagus, bahkan setelah menelitinya secara menyeluruh, dan mencoba beberapa kali, dia tidak mendapatkan hasil apa pun.</p>
+<p>	Setengah bulan kemudian, di waktu benua tengah, dia menerima Gu lubang bumi dari Fang Yuan.</p>
+<p>	Dia menerimanya seperti harta karun, melakukan penelitian mendalam lagi.</p>
+<p>	Namun kali ini, ia menghabiskan waktu tiga hari sebelum berhasil merekayasa balik resepnya.</p>
+<p>	Melihat resep ini, He Feng Yang berteriak: “Fang Yuan, bajingan kecil! Ini adalah resep biasa untuk Gu lubang bumi!”</p>
+<p>	Segera, dia berteriak dan memarahi Fang Yuan dengan menyebutnya tidak tahu malu, tidak bermoral, licik, keji, dan penghinaannya bahkan meluas ke leluhur Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

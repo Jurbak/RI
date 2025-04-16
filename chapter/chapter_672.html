@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 672 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 672";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_671.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 672">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_673.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 672</h1>
+        <div class="text-left">
+<p>	Bab 672 – Masalah sulit memberi makan Immortal Gu</p>
+<p>	Bab 672: Masalah sulit memberi makan Immortal Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Tiga hari kemudian, Fang Yuan perlahan bangun.</p>
+<p>	Hatinya tenang, dia tidak merasa lelah atau gelisah lagi.</p>
+<p>	“Tampaknya tubuh zombie tidak dapat dibandingkan dengan tubuh fisik yang hidup dalam satu aspek lagi, yaitu, jiwaku tidak hanya lebih mudah melemah, tetapi juga lebih rentan terhadap agitasi.” Fang Yuan menemukan kelemahan lain dari tubuh zombie.</p>
+<p>	Jika jiwanya lemah, itu bisa dengan mudah diselesaikan dengan menggunakan nyali Gu untuk memperkuat jiwanya. Ada banyak Gu nyali di gunung Dang Hun, ini semua adalah barang dengan kualitas terbaik untuk memperkuat jiwanya.</p>
+<p>	Tetapi kejengkelan jiwa membutuhkan ketenangan jiwa. Cara terbaik untuk menenangkan jiwa adalah dengan menggunakan air Danau Bewitching, yang ditemukan di Obsession Death Domain. Air ini tercatat di &lt;&gt;, dipuji oleh Verdant Great Sun sebagai anggur yang luar biasa.</p>
+<p>	Fang Yuan tidak memiliki air Danau Bewitching, tetapi bahkan jika dia memilikinya, dia tidak akan berani meminumnya. Dia menggunakan metode kuno, yang paling efektif — tidur.</p>
+<p>	“Jika saya memiliki tubuh orang normal, saya hanya perlu istirahat sebentar untuk menenangkan kejengkelan di jiwa saya. Tetapi setelah menjadi zombie, saya perlu tidur selama tiga hari berturut-turut. Jalur jiwa melibatkan penguatan jiwa, pemurnian jiwa, dan ketenangan jiwa, ketiga aspek ini, tetapi sebagian besar jalur jiwa Gu Masters fokus pada dua yang pertama. Sekarang saya memikirkannya, itu seharusnya karena tidur adalah cara terbaik untuk menenangkan jiwa, sehingga mereka tidak perlu berinvestasi dalam aspek ini. ”</p>
+<p>	Setelah menyegel Jangkrik Musim Gugur Musim Semi, Fang Yuan memperoleh pemahaman yang lebih dalam tentang jalur jiwa.</p>
+<p>	Selanjutnya, dia menghitung saldo bulan ini.</p>
+<p>	Setelah berurusan dengan roh tanah Lang Ya dua kali, ia mendapatkan enam puluh batu esensi abadi. Tapi dia juga menghabiskan banyak uang.</p>
+<p>	Di surga kuning harta karun, dia membeli lebih dari seribu kunang-kunang cahaya bintang Gu, si pembunuh memindahkan hujan bintang musim semi, benang es dan enam-sembilan debu bintang, sejumlah besar bahan penyempurnaan Gu, sejumlah besar Gu fana, serta sekelompok tua pria berbulu. Dan akhirnya, untuk menyegel Jangkrik Musim Gugur Musim Semi, dia membeli Gu rawa kecil dan Gu pulau pinus, dia menghabiskan total dua puluh batu esensi abadi.</p>
+<p>	Saat ini, Fang Yuan memiliki tiga puluh setengah batu esensi abadi yang tersisa.</p>
+<p>	Jangan berpikir bahwa ini adalah banyak batu esensi abadi, Fang Yuan juga menghabiskan banyak esensi abadi anggur hijau.</p>
+<p>	Ketika menyimpulkan resep Immortal Gu, dia hanya bisa melakukannya sendiri, pertama kali dia berdagang dengan roh tanah Lang Ya, dia hanya memiliki sembilan manik-manik esensi abadi anggur hijau yang tersisa. Setelah pengurangan kedua, dia menghabiskan enam manik-manik esensi abadi, dan meningkatkan metode penyegelan pada Musim Semi Musim Gugur Cicada mengkonsumsi satu manik, saat ini dia memiliki dua manik-manik yang tersisa.</p>
+<p>	Itu perlu untuk meningkatkan segel Musim Semi Musim Gugur Cicada. Sebelumnya, perkiraan biayanya adalah dua puluh tiga batu esensi abadi. Setelah perbaikan, turun menjadi dua puluh. Dengan cara ini, dia menyelamatkan dua batu esensi abadi.</p>
+<p>	Hanya memiliki dua manik-manik esensi abadi anggur hijau yang tersisa sangat berbahaya. Jika dia bertemu dengan kecelakaan, Fang Yuan hanya akan dapat menggunakan segudang diri dua kali sebelum dia tidak akan mampu menghadapi situasi, terutama sekarang, ketika Immortal Crane Sect hampir menyerang.</p>
+<p>	Fang Yuan menggunakan lima belas batu esensi abadi, mengubahnya menjadi esensi abadi anggur hijau miliknya sendiri.</p>
+<p>	Dengan cara ini, esensi abadi anggur hijaunya naik menjadi tujuh belas manik-manik, sementara batu esensi abadinya turun menjadi lima belas setengah keping.</p>
+<p>	Saat ini, krisis dengan celah Musim Semi Musim Gugur Cicada telah diselesaikan untuk sementara. Dan kesulitannya juga lega setelah bersekutu dengan Hei Lou Lan. Berurusan dengan roh tanah Lang Ya memberinya sejumlah besar batu esensi abadi, itu adalah sumber kekuatan untuk menyelesaikan masalah Fang Yuan.</p>
+<p>	Situasi yang benar-benar mengerikan sedikit berkurang. Itu seperti tanah kegelapan dengan awan gelap menjulang, setelah upaya besar Fang Yuan, dia berhasil membuat celah, memungkinkan sinar matahari menembus ke tanah kegelapan.</p>
+<p>	Sekarang di depannya, ada masalah lain, dan masalah ini harus diselesaikan dengan cepat.</p>
+<p>	Itu adalah memberi makan Gu Abadi.</p>
+<p>	Fang Yuan tidak khawatir tentang memberi makan Gu fana. Tapi memberi makan Immortal Gu menjadi masalah besar.</p>
+<p>	Secara keseluruhan, Fang Yuan memiliki terlalu banyak Immortal Gu, dia memiliki Spring Autumn Cicada, Fixed Immortal Travel, Calamity Beckoning, Delight in Water and Mountain, Worldly Wave Trace, Rising Azure Cloud, Cleanse Soul, Connect Luck, dan Woman’s Heart.</p>
+<p>	Dewa Gu Biasa bahkan tidak memiliki satu Gu Abadi. Fang Yuan punya sembilan.</p>
+<p>	Ini adalah anugerah besar, sekaligus beban besar.</p>
+<p>	Musim Semi Musim Gugur Jangkrik baik-baik saja, ia menghabiskan air di sungai waktu, tidak perlu diberi makan.</p>
+<p>	Fixed Immortal Travel pernah diberi satu manik esensi abadi anggur hijau setahun yang lalu di waktu benua tengah, yang bisa bertahan selama enam tahun. Tapi satu tahun di benua tengah bukanlah satu tahun waktu yang berlalu untuk Perjalanan Abadi Tetap. Selama waktu ini di tanah yang diberkati Pengadilan Kekaisaran, bukaan Fang Yuan, dan tanah yang diberkati Hu Immortal, semua ini memiliki aliran waktu yang lebih cepat daripada benua tengah.</p>
+<p>	Dan enam tahun ini adalah angka teoretis, semakin banyak Fang Yuan mengaktifkan Fixed Immortal Travel, semakin banyak waktu ini akan menyusut.</p>
+<p>	Saat ini, meskipun Fixed Immortal Travel masih bisa bertahan untuk sementara waktu, itu hampir membutuhkan makan lagi.</p>
+<p>	Gu Abadi yang tersisa merepotkan.</p>
+<p>	Beberapa hari terakhir ini, Fang Yuan telah menyelidiki dan akhirnya memperoleh informasi penting.</p>
+<p>	Bencana yang memberi isyarat makanan Immortal Gu adalah darah hitam dari binatang buas, ular berkepala enam.</p>
+<p>	Kesenangan dalam air dan gunung Immortal Gu membutuhkan sejumlah besar qi bumi, qi air, dan beberapa batu tawa.</p>
+<p>	Jejak gelombang duniawi Gu membutuhkan puluhan ribu ubur-ubur dunia bawah, serta ribuan belut petir laut dalam.</p>
+<p>	Meningkat awan biru Gu membutuhkan skala naga dari binatang terpencil, naga awan, serta puluhan ribu bola mata dari burung sabit angin.</p>
+<p>	Membersihkan jiwa Immortal Gu membutuhkan daging dan darah lebih dari sepuluh ribu ulat sutra raksasa teratai putih Gu.</p>
+<p>	Hubungkan keberuntungan Immortal Gu membutuhkan lima ribu kilogram pasir dari tempat peristirahatan binatang buas kuno, camar pasir duniawi.</p>
+<p>	Adapun jalur racun Immortal Gu, Hati Wanita, roh tanah Lang Ya sebelumnya mengatakan bahwa itu memakan hati wanita. Gu ini menggabungkan pengasuhan dan pemurnian, semakin banyak hati yang digunakan untuk memberinya makan, semakin kuat racunnya.</p>
+<p>	“Di antara cacing Gu ini, bencana yang memberi isyarat kepada Gu baru saja disempurnakan, sudah membutuhkan makan dan sangat lemah sekarang. Gu Abadi, Kesenangan di Air dan Gunung dan Jejak Gelombang Duniawi, adalah komponen dari Paviliun Air Rumah Gu Abadi, mereka telah berada di dalam tanah yang diberkati Pengadilan Kekaisaran selama bertahun-tahun dan telah diberi makan dengan baik. Cleanse Soul, Connect Luck, Woman’s Heart, dan Rising Azure Cloud semuanya berhibernasi di dalam domain terpencil warisan sejati, selama bertahun-tahun ini, kehendak Giant Sun hanya memberi mereka setengah dari sumber daya yang mereka butuhkan. Sekarang setelah mereka keluar dari wilayah warisan yang sebenarnya, mereka telah bangun sepenuhnya dan sangat lapar, mereka membutuhkan makanan.”</p>
+<p>	“Untungnya, saya memberikan Rising Azure Cloud ke roh tanah Lang Ya, dengan dia memberinya makan, itu tidak akan mati kelaparan. Saya juga telah meninggalkan dua Gu Abadi, Lanskap sebagai Sebelumnya dan Manusia seperti Sebelumnya, dengan Tai Bai Yun Sheng, itulah masalahnya yang harus dihadapi. Fang Yuan menganalisis.</p>
+<p>	Meski begitu, tekanan pada dirinya cukup kuat.</p>
+<p>	Memberi makan Gu Abadi bukan hanya pertanyaan tentang batu esensi abadi.</p>
+<p>	Dunia ini tidak seperti Bumi, Bumi adalah masyarakat yang sangat komersial, selama seseorang memiliki uang, mereka dapat membeli hampir semua hal.</p>
+<p>	Tetapi di dunia Gu, ekonomi tidak berkembang, ada monopoli di banyak pasar, dan sumber daya berharga dan langka yang tak terhitung jumlahnya. Batu esensi abadi adalah mata uang yang keras, tetapi mereka tidak dapat melayani semua tujuan.</p>
+<p>	Misalnya, melihat makanan yang dia butuhkan, binatang buas berkepala enam ular dan naga awan, serta camar pasir duniawi binatang buas kuno, mereka sulit didapat dan memiliki kekuatan besar yang setara dengan Dewa Abadi.</p>
+<p>	Meskipun surga kuning harta karun kadang-kadang menjual daging, tulang, dan bagian lain dari binatang buas yang sunyi, mereka jarang muncul dan akan dibeli dalam beberapa saat ketika tersedia di pasar.</p>
+<p>	Bahkan qi bumi dan qi air tidak mudah diekstraksi.</p>
+<p>	Ulat sutra raksasa teratai putih Gu dan batu tawa adalah barang yang sangat langka, mereka hampir tidak terlihat di surga kuning harta karun.</p>
+<p>	Sebaliknya, Hati Wanita jauh lebih mudah untuk diberi makan, meskipun sedikit merepotkan, kesulitannya lebih rendah.</p>
+<p>	Ada poin penting lainnya, yaitu waktu.</p>
+<p>	Fang Yuan tidak punya cukup waktu untuk menyiapkan makanan ini secara perlahan.</p>
+<p>	Dengan demikian, dia tidak punya pilihan selain membeli sumber daya langka ini di surga kuning harta karun, meskipun ini akan membuat harganya lebih tinggi, dan jalur kebijaksanaan Gu Immortals akan ditinggalkan dengan sejumlah besar jejak untuk membuat deduksi mereka.</p>
+<p>	Tapi Fang Yuan sekarang dikenal sebagai Eight Arm Immortal, untuk saat ini, tidak ada yang akan menghubungkannya dengan tanah yang diberkati Hu Immortal.</p>
+<p>	Bahkan jika mereka mau, dia harus melakukan ini.</p>
+<p>	Bagaimanapun, kelangsungan hidup Gu Abadi jauh lebih penting daripada dicurigai!</p>
+<p>	Tentu saja, dia telah meminta roh tanah Lang Ya sejak lama, serta Hei Lou Lan dan Peri Li Shan, sayangnya dia tidak mendapatkan hasil yang ideal dari mereka.</p>
+<p>	Roh tanah Lang Ya pernah memiliki batu tawa, tetapi dia telah menggunakannya saat memurnikan Gu.</p>
+<p>	Dan beberapa tahun yang lalu, ada Gu Immortal yang kembali dari laut timur, mengirim Peri Li Shan sekumpulan belut petir laut dalam. Tapi jumlahnya hanya seratus, dan mereka hanya digunakan sebagai atraksi hias. Belakangan, karena Peri Li Shan tidak merawat mereka dengan baik, semua belut ini mati.</p>
+<p>	Tapi ini memberi Fang Yuan pengingat.</p>
+<p>	laut timur…</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, ketika dia masih fana, dia melakukan perjalanan ke lima wilayah, dia pergi ke mana-mana dan pernah tinggal di laut timur untuk sementara waktu.</p>
+<p>	Laut timur memiliki sumber daya yang melimpah, paling banyak di lima wilayah, bahkan benua tengah tidak bisa dibandingkan dengannya.</p>
+<p>	Terlebih lagi, selama beberapa tahun terakhir ini, laut timur sedang bergolak, ada banyak peluang yang tersedia di sana, dan manfaatnya juga akan sangat besar.</p>
+<p>	Jika Fang Yuan tidak terjebak dengan masalah gunung Dang Hun, dan karena Tai Bai Yun Sheng menjadi jalan termudah untuk menyelesaikannya, pilihan pertamanya adalah laut timur.</p>
+<p>	Memikirkan tentang tanah yang diberkati Lan Xu, paus naga biru, pulau pelangi dan sebagainya, Fang Yuan membuat keputusannya.</p>
+<p>	Dia memanggil Tai Bai Yun Sheng: “Bai Tua, bagaimana kultivasimu?”</p>
+<p>	Tai Bai Yun Sheng tertawa terbahak-bahak, dia tidak bisa berhenti berbicara: “Luar biasa, kemajuan saya sangat lancar. Saya membantu roh tanah Lang Ya memperbaiki tanah awannya dan mendapatkan tiga batu esensi abadi. Selanjutnya, saya memulihkan beberapa sungai dan mendapatkan dua batu esensi abadi lainnya. Saya kemudian membeli gerakan pembunuh defensif sembilan cincin awan, menghabiskan dua batu esensi abadi. Akhirnya, saya membeli biji teh bola apung di surga kuning harta karun, menghabiskan batu lain. ”</p>
+<p>	“Biji teh bola mengambang sangat umum, Anda benar-benar menghabiskan seluruh batu esensi abadi, sepertinya Anda membeli dalam jumlah besar. Tetapi pilihan Anda benar, saya telah melihat tanah Anda yang diberkati, ada jauh lebih banyak sumber daya jalur waktu daripada sumber daya jalur ruang angkasa. Float ball tea tumbuh perlahan dan mengapung di udara. Anda dapat memaksimalkan keuntungan Anda dan meminimalkan kelemahan Anda. Dalam beberapa tahun, ketika tanaman teh bola apung matang, Anda akan dapat menuai panen dan menjualnya. ” Fang Yuan dievaluasi.</p>
+<p>	“Itulah masalahnya.” Tai Bai Yun Sheng menepuk kakinya: “Setelah tanaman teh bola apung mencapai skala tertentu, saya akan membawa sekelompok burung kolibri giok, mengembangkan tanah saya yang diberkati dengan itu sebagai dasarnya.”</p>
+<p>	Fang Yuan memandang Tai Bai Yun Sheng, berkata: “Burung kolibri giok adalah binatang yang bermutasi, harga kelompok burung kolibri giok tidak akan murah.”</p>
+<p>	Tai Bai Yun Sheng menjawab dengan tenang: “Saya sudah memikirkannya, mulai sekarang saya akan menggunakan Lansekap seperti Sebelumnya untuk mendapatkan batu esensi abadi, dan belajar dari contoh Peri Li Shan. Saya percaya Lanskap saya seperti Sebelumnya tidak kalah dengan janji gunung Peri Li Shan, Gu. ”</p>
+<p>	Fang Yuan mengangguk: “Kamu memiliki lanskap seperti sebelumnya Gu, ke mana pun kamu pergi, kamu akan sangat populer.”</p>
+<p>	Tai Bai Yun Sheng menghela nafas: “Sayang sekali menunjukkan diri saya di depan umum tidak nyaman sekarang, kami adalah satu-satunya yang selamat setelah tanah yang diberkati Pengadilan Kekaisaran dihancurkan. Saat ini, kami sudah dianggap sebagai tersangka utama oleh Dewa Gu dataran utara. Jika kita terkena, konsekuensinya tidak akan terpikirkan. Juga, saksi yang paling penting, Ma Hong Yun, telah menghilang, tampaknya Gu Immortal tertentu menahannya, mungkin saja kita telah menjadi sasaran beberapa Gu Immortals.”</p>
+<p>	“Itulah sebabnya saya pikir laut timur akan menjadi tempat yang baik untuk Anda kunjungi.” Pada titik ini, Fang Yuan akhirnya menyatakan niatnya yang sebenarnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

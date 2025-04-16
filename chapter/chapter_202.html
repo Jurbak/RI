@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 202 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 202";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_201.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 202">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_203.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 202</h1>
+        <div class="text-left">
+<p>	Bab 202</p>
+<p>	Bab 202: Niat membunuh buaya, panggilan sedih seorang gadis muda</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Gergaji Kelabang Emas ….” Bai Ning Bing bergumam dengan ekspresi kompleks saat dia mengelus karapas emas gelap dari Gu peringkat tiga ini.</p>
+<p>	Dia telah sangat menderita karena Kelabang Emas Chainsaw ini selama pertempurannya dengan Fang Yuan. Siapa yang mengira bahwa akan ada waktu di mana Fang Yuan sendiri akan meminjamkannya padanya?</p>
+<p>	Cara Fang Yuan menggunakan Chainsaw Golden Centipede telah meninggalkan kesan abadi padanya.</p>
+<p>	Bai Ning Bing segera menyalin metode Fang Yuan dan melambaikan Kelabang Emas Chainsaw seperti pedang besar.</p>
+<p>	Dari waktu ke waktu, dia menginginkan Kelabang Emas Chainsaw untuk memanjang atau memendek, melambaikannya seperti cambuk. Bilah perak gergaji mesin berputar dan memotong udara, menghasilkan distorsi cahaya yang aneh.</p>
+<p>	“Gu Kanopi Langit!” Dia meletakkan Sky Canopy Gu di lubangnya, dan dalam hati menuangkan esensi purba perak putih di atasnya dengan alis terangkat. Segera, tubuhnya ditutupi dengan armor cahaya putih.</p>
+<p>	“Nasib benar-benar bekerja secara misterius. Untuk berpikir, akan ada hari di mana saya akan menggunakan Gu Anda, ”dia menghela nafas sambil melihat ke arah Fang Yuan.</p>
+<p>	Fang Yuan terdiam; dia duduk bersila di samping arang hangat dengan mata terpejam.</p>
+<p>	Perhatiannya tertuju pada aperture-nya, di mana lautan purba penuh dari bakat kelas A muncul di depannya. Sembilan puluh persen!</p>
+<p>	Bakatnya hanya lebih dari empat puluh persen, dan sekarang telah meningkat lebih dari dua kali lipat.</p>
+<p>	“Meskipun kultivasi saya telah turun dari Peringkat tiga ke Peringkat satu, dengan kerja keras saya selama bertahun-tahun yang terbuang, itu semua masih sepadan!” Fang Yuan puas.</p>
+<p>	Dalam perjalanan kultivasi Guru Gu, ada tiga hal terpenting.</p>
+<p>	Bakat, sumber daya, dan cacing Gu.</p>
+<p>	Tak satu pun dari tiga aspek ini bisa kurang!</p>
+<p>	Sebelumnya, Fang Yuan hanya memiliki bakat kelas C dan harus menggunakan semua jenis sumber daya dan cacing Gu untuk mencoba menebus kekurangan dalam bakatnya. Tahun-tahun yang dihabiskan di gunung Qing Mao cukup sulit dan melelahkan. Kecepatan kultivasinya cukup bagus, tetapi itu adalah hasil dari dia menghabiskan semua cara yang tersedia baginya dan mengambil risiko tinggi.</p>
+<p>	Jika bakatnya adalah nilai A pada saat itu, dia akan menghadapi pemandangan yang sama sekali berbeda dan dapat dengan mudah mencapai Peringkat tiga.</p>
+<p>	“Begitu nasibnya… Aku sekarang memiliki bakat kelas A, tetapi tidak memiliki lingkungan yang aman untuk tumbuh seperti di desa. Selain itu, sumber daya dan cacing Gu yang saya miliki sekarang tidak dapat dibandingkan dengan sebelumnya. ”</p>
+<p>	Fang Yuan sekarang berkeliaran di luar tanah kelahirannya, dan dengan kultivasinya yang lemah, dia bisa menghadapi bahaya fana kapan saja; situasi ini secara alami tidak dapat dibandingkan dengan lingkungan yang aman dan stabil di gunung Qing Mao. Dan tentu saja, tidak akan ada area perdagangan yang stabil untuk saling menguntungkan.</p>
+<p>	“Untungnya, dengan Lotus Harta Karun Esensi Surgawi, masalah terbesar yaitu sumber daya teratasi, jadi setidaknya tidak akan ada kekhawatiran sebelum saya mencapai Peringkat tiga.” Fang Yuan melihat melalui laut purba tembaga hijau sembilan puluh persen, di mana teratai biru dan putih telah berakar di kedalaman lubangnya; kelopaknya sehat dan montok, memancarkan aura suci dan abadi.</p>
+<p>	Teratai Harta Karun Esensi Surgawi ini adalah peringkat tiga dan memiliki potensi besar untuk dikembangkan. Hanya untuk memperbaikinya, mata air roh dasar klan Gu Yue harus disia-siakan.</p>
+<p>	Itu setara dengan pegas roh portabel mini, dan kembali ketika Fang Yuan masih memiliki kultivasi Peringkat tiga, itu terus memulihkan esensi purba Fang Yuan, memberinya kecepatan pemulihan bakat kelas B.</p>
+<p>	Peringkat tiga budidaya memiliki esensi purba perak putih. Fang Yuan sekarang hanya peringkat satu tahap awal dengan esensi purba tembaga hijau; dengan Lotus Harta Karun Esensi Surgawi di aperture-nya, kecepatan pemulihan esensi purbanya dinaikkan ke tingkat yang ekstrem.</p>
+<p>	“Jika saya hanya menggunakan Gu Peringkat satu, kecepatan pemulihan esensi purba saya akan mengejutkan dan hampir tidak ada habisnya. Menggunakan satu atau dua cacing Gu peringkat dua dapat menyebabkan laut purba berkurang, tetapi kecepatan pemulihan akan terus menyeimbangkannya, menyebabkannya relatif stabil. Menggunakan Gu peringkat tiga akan menghabiskan esensi purba dengan sangat cepat, dan konsumsinya akan jauh melampaui kecepatan pemulihan. Laut purba saya akan benar-benar kering dalam beberapa saat, ”Fang Yuan menghitung dalam pikirannya.</p>
+<p>	Bagaimanapun, dia sekarang hanya memiliki esensi purba tembaga hijau dan itu juga merupakan esensi purba hijau giok tahap awal; kualitasnya terlalu rendah.</p>
+<p>	Selain Heavenly Essence Treasure Lotus, Fang Yuan masih memiliki Gu lainnya.</p>
+<p>	Pertama-tama adalah gu vitalnya: Spring Autumn Cicada.</p>
+<p>	Peringkat enam gu ini diberi nomor 7 dalam daftar Gu misterius. Setelah berubah menjadi Gu vital seseorang, itu tidak bisa lagi dikeluarkan dari aperture dan sekarang berada di tengah aperture.</p>
+<p>	Setelah melalui kelahiran kembali yang lain, auranya tidak lagi sama; cahaya kuning-hijau terangnya benar-benar hilang dan sekarang tampak putus asa dan sangat lemah.</p>
+<p>	Itu menyembunyikan sosoknya, dan seiring berjalannya waktu, dia diam-diam menyerap waktu dari sungai waktu dan memulai putaran pemulihan lainnya.</p>
+<p>	Fang Yuan memahami dalam hati, “Aku benar-benar tidak bisa menggunakan Jangkrik Musim Gugur Musim Semi dalam waktu singkat. Dalam keadaan berbahaya seperti itu, jika saya menggunakannya, itu akan diserap oleh sungai waktu dan saya hanya akan membuang hidup saya dengan meledakkan diri.”</p>
+<p>	Tanpa tekanan dari Jangkrik Musim Gugur Musim Semi, cacing Gu lainnya dapat dengan bebas mengeluarkan naluri mereka.</p>
+<p>	Empat jenis cahaya melintas di sekitar tubuh gemuk cacing Minuman Keras Peringkat dua Empat Rasa saat ia berenang di sekitar permukaan laut purba, menikmati momen itu.</p>
+<p>	Sisik Gu yang tersembunyi seperti fosil ikan mas diletakkan dengan tenang di dasar laut, membiarkan air laut purba membersihkan sisiknya.</p>
+<p>	Seekor kumbang hitam dengan sepasang penjepit besi di kepalanya melayang di udara di atas laut; itu adalah Gu Penjarahan.</p>
+<p>	Dan juga, berputar dengannya dan bersenang-senang adalah Yang Gu lapis baja putih dari Gu Rotasi Yin Yang.</p>
+<p>	Peringkat empat Darah Tengkorak Gu terbaring jauh di dalam laut, cahaya darah merah terang sesekali berkedip di permukaannya.</p>
+<p>	Adapun cacing Gu lainnya – Blood Moon Gu telah berubah menjadi jejak bulan sabit merah di telapak tangan Fang Yuan; Komunikasi Bumi Rumput telinga Gu telah berubah menjadi salah satu telinga Fang Yuan dan biasanya tidak muncul; bunga tusita berada di lidah Fang Yuan sebagai tato.</p>
+<p>	Sky Canopy Gu dan Chainsaw Golden Centipede dipinjamkan ke Bai Ning Bing.</p>
+<p>	Menghitung jumlahnya, Fang Yuan memiliki total dua belas cacing Gu.</p>
+<p>	Ini adalah angka yang sangat besar!</p>
+<p>Secara umum, itu normal bagi Master Gu tingkat rendah untuk memiliki dua atau tiga Gu. Ketika seseorang mencapai Peringkat empat atau lima, mereka akan menaikkan angka ini menjadi empat atau lima. Bahkan penyelidik Ilahi Tie Xue Leng hanya mengangkat sekitar tujuh Gu.</p>
+<p>	Jangan tertipu oleh kepala pertama Gu Yue atau Lord Sky Crane, keduanya adalah kasus khusus dan monster tua dengan akumulasi berabad-abad.</p>
+<p>	Jumlah cacing Gu yang dimiliki oleh Fang Yuan tiga hingga empat kali lebih banyak dari Master Gu normal. Lebih banyak angka berarti beban ekonomi yang sangat besar pada Master Gu bersama dengan tekanan untuk mengelola dan membesarkan mereka.</p>
+<p>	Fang Yuan mungkin telah memilih Gu-nya dengan hati-hati dengan sebagian besar dari mereka mudah dipelihara, tetapi dengan barang dan sumber daya yang terbatas di bunga tusita sekarang, Fang Yuan berada di bawah beban yang sangat besar.</p>
+<p>	Menghadapi beban beban ini adalah cacing Four Flavours Liquor karena makanannya adalah minuman keras; ada banyak anggur yang disimpan di bunga tusita, tetapi itu hanya akan dapat mendukung cacing Four Flavours Liquor selama setengah tahun.</p>
+<p>	“Saya perlu menemukan sumber minuman keras baru dalam enam bulan ini, atau saya tidak punya pilihan selain memperbaiki cacing Four Flavours Liquor kembali menjadi cacing Liquor.”</p>
+<p>	Berikutnya adalah Gu Penjarahan.</p>
+<p>	Makanan Penjarahan Gu sulit ditemukan dan jumlah makanan yang disimpan untuknya di bunga tusita hanya bisa bertahan selama lima bulan.</p>
+<p>	Kemudian, itu adalah rumput Telinga Komunikasi Bumi.</p>
+<p>	Komunikasi Bumi Makanan rumput kuping adalah akar ginseng, tapi untungnya ada banyak di bunga tusita, cukup untuk menopangnya selama setahun.</p>
+<p>	Adapun Gu Tengkorak Darah dan Gu Bulan Darah, keduanya membutuhkan darah yang perlu dipikirkan dengan benar.</p>
+<p>	Dan untuk Gu Rotasi Yin Yang, jika mereka utuh dan membentuk bola cahaya Taiji yang lengkap, mereka akan mandiri dalam memberi makan pada transformasi yin dan yang qi. Namun, hanya Yang Gu yang tersisa sekarang; Fang Yuan perlu meluangkan waktu untuk melepaskannya dan membiarkannya menyerap qi yang di udara.</p>
+<p>	Membesarkan Yang Gu ini sangat penting. Hanya dengan Yang Gu, Fang Yuan dapat menekan Bai Ning Bing — mendapatkan pengawal murah dan jaminan untuk bertahan hidup.</p>
+<p>	Ini menandakan bahwa Fang Yuan tidak bisa dengan santai memasuki gua gunung dan bawah tanah. Jika kebetulan dia terjebak dalam situasi khusus di mana yang qi tidak tersedia, Yang Gu akan mati kelaparan, dan pada saat itu, Bai Ning Bing – dengan segala kemarahan dan keputusasaannya – akan menjadi musuh terbesar. ke Fangyuan.</p>
+<p>	Secara keseluruhan, Fang Yuan berada dalam situasi yang canggung sekarang.</p>
+<p>	Dia memiliki banyak Gu peringkat tinggi yang dimilikinya — Peringkat tiga, peringkat empat dan bahkan peringkat enam Gu. Tetapi yang disayangkan adalah dia hanya memiliki kultivasi Peringkat satu saat ini.</p>
+<p>	Baginya sekarang, menggunakan Gu peringkat tinggi cukup merepotkan dan merepotkan.</p>
+<p>	Poin yang lebih penting adalah dia sangat kekurangan Gu dengan kemampuan penyembuhan dan gerakan.</p>
+<p>	“Sekarang yang perlu saya lakukan adalah mengumpulkan beberapa cacing Gu liar dan menyelesaikan masalah ini. Kalau saja aku beruntung dan menemukan Gu yang cocok… Mampu melarikan diri dari kelompok ikan todak antar-jemput bisa dianggap sebagai keberuntunganku. Tapi tidak mungkin aku bisa seberuntung itu setiap saat.” Setelah Fang Yuan memilah-milah pikirannya, dia perlahan membuka matanya dengan ekspresi muram.</p>
+<p>	Ketika dia baru saja membuka matanya, dia melihat Bai Ning Bing berjalan dengan kulit telur putih di tangannya.</p>
+<p>	“Lihat ini. Saya baru saja mencoba Chainsaw Golden Lipan dan mengebor tanah, tetapi untuk berpikir ada telur yang tersembunyi di bawah pantai ini! Sayang sekali itu dihancurkan oleh Chainsaw Golden Centipede, ”kata Bai Ning Bing.</p>
+<p>	Telur ini berukuran setengah dari wastafel, dan kulit telur putihnya dihancurkan secara menyeluruh dan hanya beberapa kuning telur yang tersisa di dalamnya.</p>
+<p>	Fang Yuan hanya melirik kulit telur ini sebelum ekspresinya berubah tegang, “Ini buruk, ini telur buaya setinggi enam kaki. Apakah pantai ini tempat berkembang biak buaya berkaki enam?”</p>
+<p>	Dia dengan cepat berdiri: “Cepat, gunakan Chainsaw Golden Centipede dan periksa apakah ada lebih banyak telur seperti itu di pantai ini.”</p>
+<p>	Tatapan Bai Ning Bing bergetar dan menunjuk ke belakang Fang Yuan, “Sudah terlambat, lihat!”</p>
+<p>	Fang Yuan berbalik dan melihat ratusan ‘kayu mati’ melayang ke arah pantai dari sungai.</p>
+<p>	‘Log mati’ datang ke darat dan mengungkapkan bentuk aslinya; mereka semua adalah buaya yang sangat besar.</p>
+<p>	Buaya ini memiliki karapas tebal, gigi tajam, dan kaki tiga pasang. Saat ini, mata merah mereka menatap tajam ke arah Bai Ning Bing.</p>
+<p>	Kelompok buaya berkaki enam!</p>
+<p>	Bai Ning Bing tanpa sadar mengendurkan tangannya di bawah tatapan buaya; kulit telur putih jatuh ke pasir, pecah lebih jauh dalam prosesnya dan sedikit kuning telur yang tersisa di dalamnya meresap ke dalam pasir.</p>
+<p>	Desis!</p>
+<p>	Buaya berkaki enam itu mendesis marah sebelum maju dengan enam kaki mereka ke arah kedua pemuda itu.</p>
+<p>…</p>
+<p>	Pada saat yang sama, di gunung Qing Mao, di bekas situs desa Gu Yue.</p>
+<p>	Salju menutupi segalanya dan gletser telah terbentuk di mana-mana.</p>
+<p>	Sekelompok orang berdiri di atas salju seperti paku besi yang dipaku ke dunia putih ini.</p>
+<p>	“Ayah…” Tie Ruo Nan berlutut di atas salju dan meneriakkan nama ayahnya dengan air mata mengalir di wajahnya.</p>
+<p>	Lima hingga enam hari yang lalu, Tie Xue Leng bertarung sengit dengan kepala pertama Gu Yue tetapi ketika dia berada di ambang kematian, dia mengingat keselamatan putrinya dan mengirim Gu Wayang Raksasa Gunung dan Gu Bergulat Tangan Besi.</p>
+<p>	Gu Wayang Raksasa Gunung dibentuk menjadi topeng tembaga dan menutupi wajah Tie Ruo Nan, melindunginya; Iron Fist Grappling Gu berubah menjadi tangan raksasa, membawanya pergi dari kekacauan di gunung Qing Mao.</p>
+<p>	Namun, keduanya telah terinfeksi oleh Blood Frenzy Gu dan telah berubah menjadi genangan darah tidak lama setelah menyelesaikan tugas mereka.</p>
+<p>	Tie Ruo Nan bergegas kembali ke gunung Qing Mao dalam keadaan gila, tetapi dalam perjalanan, dia dikepung oleh sekelompok binatang buas.</p>
+<p>	Di saat bahayanya yang besar, bala bantuan keluarga Tie telah tiba. Mereka datang karena Tie Xue Leng; Tie Xue Leng selalu melaksanakan hal-hal dengan sungguh-sungguh. Untuk amannya, dia telah mengirim surat untuk bala bantuan ke klan mereka.</p>
+<p>	Tie Ruo Nan bisa bergegas ke sini dengan bantuan bala bantuan. Namun, pemandangan yang muncul di hadapannya adalah gunung yang dipenuhi es dan salju di mana semua makhluk hidup membeku, dan tidak ada jejak ayahnya.</p>
+<p>	Dia dan bala bantuan keluarga Tie mencari selama beberapa hari dan malam, sebelum akhirnya menerima kenyataan yang kejam.</p>
+<p>	Penyelidik ilahi telah jatuh; ayahnya telah meninggal!</p>
+<p>“Ayah…!” Tie Ruo Nan berteriak dengan suara serak yang dipenuhi dengan kesedihan yang luar biasa seperti ratapan angsa liar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

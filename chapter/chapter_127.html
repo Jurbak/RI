@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 127 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 127";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_126.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 127">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_128.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 127</h1>
+        <div class="text-left">
+<p>	Bab 127</p>
+<p>	Bab 127: Apa yang disebut moral dan hubungan (Bab panjang)</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hanya sampai malam turnamen Gu berakhir.</p>
+<p>	Di lereng aliansi, Master Gu dari ketiga klan tidak lagi terbagi seperti sebelumnya. Gu Masters melapisi lereng dan hanya tiga kelompok padat yang samar-samar terlihat tersisa.</p>
+<p>	Sparring pertempuran Gu adalah bentuk ventilasi dan juga kompromi.</p>
+<p>	Di dunia ini di mana nilai terbesar adalah kekuatan, hanya dengan kekuatan muncul rasa hormat, dan itu membentuk dasar untuk kerja sama.</p>
+<p>	Setelah Xiong Li menantang Fang Yuan, tidak ada orang lain yang datang untuk mencarinya.</p>
+<p>	Fang Yuan hanyalah seorang pemula dan tidak memiliki banyak interaksi dengan Master Gu dua klan lainnya, belum lagi permusuhan apa pun. Adapun klannya sendiri, mereka tidak akan menantang seseorang dari klan mereka sendiri dalam situasi ini.</p>
+<p>	Terutama setelah Fang Yuan mengakui kekalahan, itu menyebabkan Master Gu lainnya kehilangan minat padanya. Terhadap lawan yang ‘malas’, ‘pengecut’ ini, apa gunanya menang?</p>
+<p>	Tidak mau diinjak-injak, ada dua cara. Salah satunya adalah menjadi kuat, kuat sampai tidak ada yang berani menginjakmu. Lain adalah untuk berubah menjadi kotoran anjing, sesuatu yang tak seorang pun ingin menginjak.</p>
+<p>	Fang Yuan tidak peduli dengan kotoran anjing, atau reputasi yang kuat. Dia selalu bertindak tidak bermoral, dan hanya peduli dengan hasilnya. Tanpa ada yang menantangnya, itu membuat hidupnya lebih mudah.</p>
+<p>	Penghinaan dan penghinaan orang-orang di sekitarnya, dia memperlakukannya seperti udara. Jika dia tidak bisa menahan bahkan tatapan ini, hak apa yang dia miliki untuk mengejar jalan iblis?</p>
+<p>	Pertemuan aliansi berakhir dengan sukses, dan klan Gu Yue, klan Bai, dan klan Xiong semuanya mencapai kesepakatan.</p>
+<p>	Pertama, mendeklarasikan aturan. Tiga klan untuk sementara akan mengesampingkan dendam mereka dan melawan gelombang serigala bersama. Di saat-saat bahaya, mereka akan saling membantu. Pada saat yang sama, pembunuhan internal dilarang, dan kelompok pertempuran investigasi akan dibentuk. Begitu mereka menemukan pembunuhan, si pembunuh pertama-tama akan diusir dari klan, kemudian ketiga klan akan membawa penghakiman bersama, membuat mereka membayar dengan nyawa mereka. Jika si pembunuh melarikan diri ke luar, kehidupan keluarga mereka akan hilang.</p>
+<p>	Bahkan jika Guru Gu meninggal, cacing Gu yang diambil dari mayat mereka harus diberikan kepada klan, dan jika digunakan secara diam-diam, mereka akan didakwa dengan pembunuhan. Setelah cacing Gu dikirimkan, mereka dapat menukarnya dengan poin prestasi.</p>
+<p>	Kedua, menyiapkan papan prestasi pertempuran. Dengan grup kecil sebagai satu unit, setiap saat akan menampilkan pencapaian pertempuran grup dari ketiga klan dan peringkatnya. Bola mata serigala petir ditukar dengan sepuluh poin prestasi. Poin prestasi dapat digunakan untuk menukar cacing Gu, batu purba, dan sumber daya lainnya.</p>
+<p>	Munculnya papan prestasi pertempuran secara alami mengilhami pertumpahan darah para Master Gu.</p>
+<p>	Hasil perdebatan pertempuran Gu tidak bisa menjelaskan kekuatan sebenarnya dari kedua belah pihak dalam pertempuran yang sebenarnya. Misalnya dalam kasus Xiong Jiang dan Bai Bing Yi, selain Gu Pengeboran Air, Bai Bing Yi secara alami memiliki metode serangan lain, tetapi Shadow Bond Gu Xiong Jiang hanya memiliki jangkauan efektif sepuluh meter.</p>
+<p>	Selain itu, hasil dari setiap pertempuran dipengaruhi oleh banyak faktor eksternal.</p>
+<p>	Perdebatan pertarungan Gu tidak memiliki elemen yang meyakinkan, yang dapat diberikan oleh dewan prestasi pertempuran sebagai metode kompetisi yang lebih adil.</p>
+<p>	Master Gu dari tiga klan tidak membuang waktu untuk berburu serigala petir, berjuang untuk peringkat yang lebih baik di papan prestasi pertempuran.</p>
+<p>	Ini bukan hanya untuk kemuliaan diri sendiri, tetapi juga untuk reputasi klan.</p>
+<p>	Terutama posisi tiga besar di papan prestasi, itu menunjukkan persaingan yang ketat. Hampir setiap hari, tiga besar akan memiliki semacam perubahan.</p>
+<p>	Sangat cepat, sebulan berlalu.</p>
+<p>	Musim dingin pergi dan musim semi datang, menyebabkan semua makhluk hidup tumbuh sekali lagi.</p>
+<p>	Setelah pertempuran.</p>
+<p>	Fang Yuan menginjak salju yang tersisa, mengatur napasnya serta mengamati medan perang di sekitarnya.</p>
+<p>	Di medan perang, ada lebih dari sepuluh serigala petir, semuanya mati. Darah serigala dan mayat cincang bisa terlihat di mana-mana, dan udara mengeluarkan bau darah kental.</p>
+<p>	Melolong……</p>
+<p>	Pada titik ini, tangisan serigala bisa terdengar dari jarak yang tidak terlalu jauh.</p>
+<p>	Ekspresi Fang Yuan sedikit berubah. Dengan pengalamannya, dia tahu bahwa sekawanan serigala sedang menuju ke sini dengan cepat.</p>
+<p>	Jika itu adalah Guru Gu lainnya, setelah pertempuran sengit, tanpa esensi purba yang cukup di celah mereka, mereka mungkin memiliki pemikiran untuk mundur. Tapi Fang Yuan tidak peduli tentang ini; dia berjongkok dan mulai mengumpulkan bola mata dari mayat serigala.</p>
+<p>	Gerakannya lancar dan sangat efisien, tetapi meskipun demikian, setelah dia selesai mengekstraksi, dia sudah setengah dikelilingi oleh kawanan serigala.</p>
+<p>	Ini adalah sekawanan serigala berukuran sedang dengan sekitar seratus serigala lumpuh, mata serigala kehijauan mereka menunjukkan ekspresi kejam saat mereka menatap Fang Yuan dengan tegas.</p>
+<p>	Fang Yuan menjaga mata serigala dengan baik sebelum berdiri sambil tersenyum. Selanjutnya, tubuhnya berkedip-kedip seperti riak air, dan dia menghilang di tempat.</p>
+<p>	Kawanan serigala yang datang untuk menyerangnya langsung gusar, dan beberapa serigala lumpuh berdiri di jalurnya, menunjukkan perasaan ragu-ragu.</p>
+<p>	Bagaimanapun, mereka adalah binatang buas. Melihat pemandangan ajaib seperti itu, sulit untuk dipahami.</p>
+<p>	“Tapi, ini juga karena raja serigala petir menggunakan mata serigalanya untuk mengamati, dan bukan hidungnya. Serigala petir adalah makhluk fantastik di dunia ini; penglihatan mereka tajam seperti elang, tetapi indera penciuman mereka tidak lebih baik dari manusia. My Stealth Scales Gu melawan serigala petir ini dengan sempurna, tapi tidak bisa bersembunyi dari hidung anjing.” Fang Yuan jelas di hatinya.</p>
+<p>	Stealth Scales Gu berhasil disempurnakan olehnya sebelum turnamen pertempuran Gu. Itu seperti ikan mas fosil, abu-abu di seluruh, berbaring di laut purba Fang Yuan, membiarkan esensi cair mengalir di sekitar sisik ikan yang sangat realistis.</p>
+<p>	Fish Scale Gu yang tidak dimiliki Fang Yuan secara alami diperoleh dengan menukar Black Boar Gu dengan Qing Shu.</p>
+<p>	Dengan Gu Sisik Siluman ini, Fang Yuan bisa mundur dari bawah hidung serigala petir.</p>
+<p>	Dalam beberapa hari ini, situasi ini sudah terjadi berkali-kali.</p>
+<p>	Biasanya, serigala atau anjing memiliki hidung yang sangat sensitif. Tapi serigala petir berbeda — mereka sangat cepat, tetapi tanpa penglihatan yang jelas, mereka akan menabrak pohon atau batu gunung.</p>
+<p>	Tapi alam itu adil, seperti ketika dia memberi serigala petir dengan penglihatannya yang tajam, itu juga menghilangkan indra penciuman mereka.</p>
+<p>	Namun, serigala mahkota petir berbeda.</p>
+<p>	Bahkan dengan Stealth Scales Gu, Fang Yuan dapat melakukan perjalanan dengan bebas di antara gelombang serigala normal, tetapi di depan segudang raja binatang seperti serigala mahkota petir, dia tidak punya tempat untuk bersembunyi.</p>
+<p>	Itu karena mata serigala mahkota petir memiliki Gu Mata Petir yang berada di dalamnya — Gu ini memungkinkan kemampuan untuk melihat melalui segala macam penyelubungan.</p>
+<p>	Selain Gu Mata Petir, sebenarnya ada juga banyak cacing Gu lain yang dapat mendeteksi Fang Yuan yang tersembunyi.</p>
+<p>	Misalnya, Ular Komunikasi Gu, dapat mendeteksi panas. The Beast Language Gu dapat memungkinkan Master Gu dan binatang buas untuk berkomunikasi dan mendapatkan informasi. Clairaudience Gu dapat membuat pendengaran Guru Gu menjadi sangat sensitif.</p>
+<p>	Jadi, bahkan dengan Stealth Scales Gu, itu tidak berarti Fang Yuan benar-benar aman, tetapi paling-paling itu adalah kartu truf yang menyelamatkan jiwa.</p>
+<p>	Ketika dia kembali ke desa, hari masih sore.</p>
+<p>	Hari di musim semi cerah dan indah, dan ada banyak orang yang keluar masuk pintu desa. Apa yang berbeda dari tahun-tahun sebelumnya adalah bahwa orang-orang di jalan kebanyakan adalah Master Gu, sementara hanya ada sedikit manusia.</p>
+<p>	Di bawah pengaruh gelombang serigala, hutan belantara tidak aman. Pemburu tidak berani berburu di pegunungan, dan peternakan hampir ditinggalkan.</p>
+<p>	Di jalanan, para Master Gu memiliki moral yang tinggi, masing-masing kembali dengan bekas darah di mana-mana, atau dengan antusias pergi.</p>
+<p>	Mereka berbicara tentang peringkat papan prestasi pertempuran, atau mendiskusikan pengalaman mereka dalam membunuh serigala petir. Beberapa berbicara tentang Master Gu yang berkinerja baik dari desa lain.</p>
+<p>	Fang Yuan termasuk di antara kerumunan yang berjalan ke desa, dan dia pergi ke alun-alun desa di depan paviliun kepala keluarga.</p>
+<p>	Alun-alun sudah memiliki panggung; poin prestasi dipertukarkan di sini.</p>
+<p>	Sejumlah besar Master Gu berkumpul di sini, dan Master Gu peringkat satu sedang melakukan pekerjaan administrasi. Beberapa Master Gu peringkat dua meremas, menggunakan mata serigala berlumuran darah untuk menukar poin prestasi.</p>
+<p>	Ada juga sebagian dari mereka yang menggunakan poin prestasi mereka untuk ditukar dengan batu purba, cacing Gu atau bahan makanan, dll.</p>
+<p>	Di tengah alun-alun desa, sebuah spanduk besar didirikan, dan di atasnya ada tulisan bahasa dunia ini; itu terus berubah.</p>
+<p>	Ini adalah papan prestasi pertempuran, dan di atasnya ada lebih dari selusin Swimword Gu.</p>
+<p>	Peringkat satu Swimword Gu, setelah dimanipulasi oleh peringkat satu mendukung Gu Masters, dapat dengan bebas mengubah isi tulisan di spanduk.</p>
+<p>	“Hmph, mengapa #1 masih kelompok Bai Bing Yi dari klan Bai?” Beberapa menatap papan prestasi pertempuran, mengerutkan kening.</p>
+<p>	“Coba saya lihat, Bai Bing Yi adalah #1, grup Qing Shu klan kami adalah #2, dan grup Xiong Li adalah #3, grup saya adalah yang ke-137.” Seorang Guru Gu menghitung.</p>
+<p>	Kali ini, seseorang tiba-tiba berkata, “Itu berubah, itu berubah! Grup Qing Shu sekarang menjadi #1. Mereka mendorong Bai Bing Yi dari klan Bai ke #2!”</p>
+<p>	Di papan prestasi pertempuran, simbol yang menunjukkan peringkat kedua kelompok Qing Shu tiba-tiba bergerak, merangkak ke atas dan menarik kelompok Bai Bing Yi ke bawah dengan “tangannya”, naik ke posisi nomor satu itu sendiri, bahkan menggunakan “kakinya” untuk menginjak-injak sekitar.</p>
+<p>	Reaksi manusia seperti itu, secara alami karena Master Gu memanipulasi Gu Swimword.</p>
+<p>	Melihat perubahan yang menarik ini, para Master Gu di alun-alun desa tertawa terbahak-bahak, mengacungkan jempol ke arah kelompok Qing Shu, memuji tanpa henti. Master Gu peringkat satu yang mengendalikan Swimword Gu memiliki wajah merah saat dia menunjukkan ekspresi kegembiraan.</p>
+<p>	“Tuan Qing Shu, Anda memang Guru Gu peringkat dua nomor satu kami!”</p>
+<p>	“Kerja bagus, Tuan Qing Shu.”</p>
+<p>	Gu Yue Qing Shu berjalan di antara kerumunan, tersenyum tipis. Gu Yue Fang Zheng yang berada di belakangnya mengepalkan kedua tinjunya, mengikuti dari dekat dengan ekspresi gembira di wajahnya.</p>
+<p>	Pujian dari seluruh penjuru memenuhi hasrat materialistis yang kuat dari pemuda itu. Ini membuat Fang Zheng merasa seperti sedang berjalan di jalan yang terang, tanpa sadar meningkatkan pengakuannya terhadap klan.</p>
+<p>	“Kakak …” Dia melihat Fang Yuan berdiri di antara kerumunan, mengamati dengan tangan terlipat.</p>
+<p>	“Kakak, kamu masih sendirian, sendirian. Tidak heran Anda selalu berada di peringkat terbawah sejak awal. Hanya dengan menghilangkan prasangka dan melebur ke dalam massa, Anda dapat merasakan kehangatan dan kebahagiaan klan, ”Fang Zheng menghela nafas, merasa bahwa Fang Yuan agak menyedihkan dan menyedihkan.</p>
+<p>	Orang-orang yang seperti Fang Yuan, selalu berjuang sendirian tanpa teman, tidak bisa merasakan kekerabatan dari klan atau persahabatan yang ditempa dari bertarung bersama dengan rekan satu tim Anda.</p>
+<p>	Menghadapi semuanya sendirian tidak hanya berbahaya, tetapi juga duniawi.</p>
+<p>	Seseorang yang hidup tanpa persahabatan, cinta atau kekerabatan, apa artinya hidup?</p>
+<p>	Fang Yuan berdiri di antara kerumunan, menatap papan prestasi yang tinggi. Tanpa ragu, posisi terakhir di peringkat ditulis dengan huruf besar — ​​”Fang Yuan Group”.</p>
+<p>	Master Gu lainnya saat melihat ini, merasa sangat malu, tetapi tatapan Fang Yuan tenang, tidak mempedulikannya sedikit pun.</p>
+<p>	Setelah dipromosikan menjadi ketua kelompok, dia tidak pernah merekrut anggota. Dia adalah pemimpin kelompok penyendiri, kelompok paling istimewa di seluruh tiga klan gunung Qing Mao.</p>
+<p>	Dengan hanya dia saja, tentu hasil hunting hariannya tidak bisa dibandingkan dengan kelompok lain. Tentu saja, dengan kemampuan Fang Yuan saat ini, jika dia berusaha keras, dia pasti tidak akan menjadi yang terakhir.</p>
+<p>	Tapi ini tidak ada gunanya bagi Fang Yuan.</p>
+<p>	Dia tidak membutuhkan banyak poin prestasi, sumber daya hidup atau makanan cacing Gu, dia memiliki persediaan untuk semuanya. Dia telah merencanakan untuk menukar Gu Sisik Ikan sebelumnya, tetapi sekarang dia tidak perlu lagi melakukannya.</p>
+<p>	Saat ini dia berburu serigala petir setiap hari hanya untuk mengadakan pertunjukan untuk memenuhi kuota, dan kedua mengumpulkan beberapa poin prestasi untuk ditukar dengan kelopak anggrek bulan.</p>
+<p>	Bagaimanapun, Moonglow Gu-nya membutuhkan makanan ini.</p>
+<p>	Setengah bulan segera berlalu, dan suasana musim semi meningkat.</p>
+<p>	Pepohonan mulai menumbuhkan daun, dan bunga liar di pinggir jalan bermekaran.</p>
+<p>	Di bawah angin musim semi yang hangat, Master Gu bernyanyi dalam pertempuran, dan situasi pertempuran menjadi lebih baik dan lebih baik.</p>
+<p>	Fang Yuan berjalan di trotoar, melihat wajah bahagia semua orang, pertukaran pujian mereka seperti tindakan berani dan sejenisnya.</p>
+<p>	Tentu saja, ada juga beberapa Master Gu yang sangat khawatir, menunjukkan ekspresi tidak senang. Master Gu ini sebagian besar adalah orang tua, karena dengan pengalaman hidup mereka yang kaya, mereka tahu bahwa gelombang serigala yang sebenarnya akan datang di musim panas dan musim gugur.</p>
+<p>	Fang Yuan menyadari di dalam hatinya.</p>
+<p>	“Apa yang menyebabkan situasi saat ini adalah karena aliansi tiga klan, sehingga orang-orang telah mengurangi kewaspadaan mereka satu sama lain, dan ini memungkinkan Master Gu untuk lebih berinvestasi dalam melawan gelombang serigala. Kedua, serigala petir yang dibasmi hanyalah serigala lumpuh. Ketiga, dengan datangnya musim semi, banyak serigala yang sibuk kawin. Ketika musim panas tiba, serigala yang benar-benar energik dan sehat akan menyerang dari segala arah, menyebabkan kerusakan besar dan kematian pada tiga klan.”</p>
+<p>	Memikirkan hal ini, mata Fang Yuan bersinar dengan cahaya dingin.</p>
+<p>	Dalam gelombang serigala tahun ini, intensitasnya tidak seperti sebelumnya, mencapai tingkat bahaya yang tidak terduga. Bahkan petinggi klan sangat meremehkan keparahan gelombang serigala ini.</p>
+<p>	Dalam ingatannya, sebagian besar Master Gu meninggal, dan kartu truf dari tiga klan hampir sepenuhnya dihabiskan.</p>
+<p>	Fang Yuan tidak pernah berpikir untuk memperingatkan para petinggi. Salah satunya adalah bahwa bahkan jika dia melakukannya, mereka mungkin tidak mendengarkan sarannya, dan bahkan menekankan dari mana dia mendapatkan informasi, yang tidak dapat dia jelaskan. Kedua, tidak ada gunanya memberitahu mereka, itu adalah perbedaan mendasar dalam kekuatan. Ketiga, dan alasan yang paling penting, memperingatkan klan tidak sesuai dengan minat terbesarnya!</p>
+<p>	Saya lebih suka mengecewakan dunia, daripada dikecewakan oleh dunia!!!</p>
+<p>	Apa kekerabatan, persahabatan, cinta – ini hanyalah hiasan dalam hidup, bagaimana bisa dibandingkan dengan ambisi besar seorang pria?</p>
+<p>	Di Bumi, Xiang Yu ingin memasak ayah Liu Bang, dan leluhur dinasti Han Liu Bang bahkan tertawa dan berkata, “Silakan, jangan lupa memberi saya sepotong daging.”</p>
+<p>	Dinasti Tang Li Shi Ming membunuh saudara-saudaranya, tentara Cao Cao tidak memiliki jatah dan memasak orang untuk mengubahnya menjadi daging kering sebagai makanan. Liu Bei meminjam Jing Zhou tapi tidak pernah kembali.</p>
+<p>	Para petinggi memuji nilai dan moral, tapi itu hanya alat untuk mempertahankan kekuasaan mereka.</p>
+<p>	Jika seseorang dikendalikan oleh ini, bagaimana mereka dapat mencapai sesuatu?</p>
+<p>	Mereka yang melangkah ke masyarakat atas, yang tidak memiliki tangan berlumuran darah, menginjak mayat di sepanjang jalan? Dana startup awal seorang kapitalis, prosesnya selalu berdarah. Tangan politisi mana pun kotor, dan yang disebut dermawan hanya menggunakan uang untuk mendapatkan pengakuan di masyarakat.</p>
+<p>	Hanya saja yang sukses cenderung menyembunyikan tindakan masa lalu mereka, dan mereka yang percaya cerita para penerus benar-benar bodoh.</p>
+<p>	“Orang-orang bodoh ini ada di mana-mana, dikendalikan oleh emosi dan moral, mereka pantas dimanipulasi secara bodoh oleh aturan. Yang lebih menyedihkan adalah ketika mereka melihat orang lain tidak dikekang, mereka akan melompat keluar dan mengkritik, mencoba menanamkan moral ini kepada orang-orang, tidak membiarkan orang lain memiliki lebih banyak kebebasan daripada mereka. Dalam proses ini, mereka bahkan akan menikmati superioritas dan kebahagiaan moral yang konyol ini.”</p>
+<p>	Memikirkan hal ini, Fang Yuan memandang Master Gu yang berjalan melewatinya.</p>
+<p>	Orang-orang ini, mereka memiliki tubuh yang penuh dengan kemampuan, dan beberapa bahkan memiliki kultivasi yang lebih tinggi darinya, tetapi untuk apa?</p>
+<p>	Mereka hanyalah pion, hanya anjing yang dikekang.</p>
+<p>	Yang benar-benar menghambat kesuksesan seseorang bukanlah bakat, tetapi pola pikir.</p>
+<p>	Setiap organisasi, begitu seseorang lahir, akan menanamkan moral dan aturan mereka, terus-menerus mencuci otak. Mereka yang ingin melampaui pencapaian kemanusiaan harus mematahkan pengekangan ini pada pola pikir mereka. Sayangnya, kebanyakan orang terjebak oleh ini sepanjang hidup mereka, menggunakan ini untuk bergerak maju dengan motivasi dan bahkan menggunakan kerah mereka yang dirantai sebagai simbol kebanggaan.</p>
+<p>	Berpikir begitu, Fang Yuan tertawa dingin.</p>
+<p>	Berjalan keluar dari pintu desa, dia menarik kembali pikirannya.</p>
+<p>	Ada sesuatu yang penting hari ini, dia bersiap untuk memasuki gua rahasia retakan batu lagi!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

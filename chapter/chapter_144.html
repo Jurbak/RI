@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 144 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 144";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_143.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 144">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_145.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 144</h1>
+        <div class="text-left">
+<p>	Bab 144</p>
+<p>	Bab 144: Pengorbanan adalah hal biasa, dan iman tidak pernah mati</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Saya berkata kepadanya, seseorang memiliki seribu satu alasan untuk hidup. Mengapa Anda hidup, saya tidak bisa menjawabnya, hanya Anda yang memiliki jawabannya. Cari sendiri,” kata Gu Yue Bo.</p>
+<p>	“Lalu pemimpin klan, apa jawabanmu untuk dirimu sendiri?” Fang Zheng berkedip bingung, bertanya.</p>
+<p>	Gu Yue Bo tertawa. Di matanya, gambar Fang Zheng dan Qing Shu tumpang tindih, Gu Yue Qing Shu telah mengajukan pertanyaan yang sama di masa lalu.</p>
+<p>	Pemimpin klan berpikir sejenak, mengingat masa lalu, lalu mengulangi jawaban yang sama yang dia berikan saat itu, “Sebuah organisasi pasti memiliki pengorbanan. Dari saat seseorang dilahirkan, kematian sudah dekat. Antara hidup dan mati, manusia itu rapuh, tapi satu hal yang bisa menghangatkan hati, dan menyinari jiwa kita. Itulah cinta – inilah jawaban saya.”</p>
+<p>	Pengorbanan itu biasa.</p>
+<p>	Gu Yue Qing Shu adalah dia, putra angkat Gu Yue Bo, dan setelah membesarkannya selama bertahun-tahun, pengorbanannya saat ini membawa rasa sakit yang luar biasa bagi ayah angkat ini.</p>
+<p>	Tetapi sebagai pemimpin klan, dia telah melihat terlalu banyak pengorbanan.</p>
+<p>	Ketika seseorang memiliki resolusi hidup dan mati, rasa sakit dan kesedihan menjadi lebih dapat diterima.</p>
+<p>	Fang Zheng menunduk, diam; sepertinya dia sedang berpikir.</p>
+<p>	Pemimpin klan tertawa, mengambil surat dari laci di mejanya. Dia menyerahkannya kepada Fang Zheng.</p>
+<p>	“Ini adalah surat Gu Yue Qing Shu. Ini merekam jawaban atas pertanyaan yang telah dia pikirkan selama bertahun-tahun, saya menyerahkannya kepada Anda sekarang, Anda dapat melihatnya. Ini dia jawabannya.”</p>
+<p>	Tidak diragukan lagi, hati Fang Zheng saat ini sangat tertarik dengan surat ini.</p>
+<p>	Dia membukanya di tempat, dan setelah melihat baris pertama, air matanya mau tidak mau mengalir keluar.</p>
+<p>	Itu adalah tulisan tangan akrab Gu Yue Qing Shu, dalam kata-katanya ada aura ramah yang unik.</p>
+<p>	Paragraf awal mencatat kebingungan dan rasa sakitnya.</p>
+<p>	Berikutnya adalah situasi yang memberinya beberapa ide dengan terus memikirkannya selama beberapa tahun terakhir ini.</p>
+<p>	Fang Zheng melihat surat itu, dan merasa seperti dia telah mengalami seluruh hidup Gu Yue Qing Shu. Dia mengikuti jejak Gu Yue Qing Shu, sampai dia menyelesaikan seluruh suratnya.</p>
+<p>	Pada akhirnya, ini direkam.</p>
+<p>	“Klan itu seperti hutan, dan kami anggotanya seperti pohon di hutan. Pohon-pohon tua memanjangkan cabang-cabangnya dan melindungi yang muda dari hujan dan angin. Ketika pohon muda tumbuh menjadi pohon besar dan tinggi, pohon tua akan berubah menjadi nutrisi dalam tanah, menyuburkan tanah dan menumbuhkan pohon baru. Orang akan selalu mati, dan langit dan bumi tidak akan mengingat kita. Tetapi pohon-pohon baru adalah bukti bahwa pohon-pohon tua telah ada. Di bawah wasiat terus-menerus ini, hutan klan menjadi lebih besar dan menyebar lebih jauh, berjalan menuju jalan kemakmuran dan kemajuan.”</p>
+<p>	“Orang-orang pasti akan mati. Sebagai Master Gu, kita tidak bisa bersembunyi dari kematian yang akan datang. Bahkan Master Gu peringkat tujuh dan delapan hanya bisa hidup sedikit lebih lama. Menjelang kematian, saya juga merasakan ketakutan. Tapi aku sangat mengerti, pada akhirnya, suatu hari aku Gu Yue Qing Shu akan mati juga. Saya mungkin mati karena usia tua, penyakit, atau medan perang. Tetapi pada saat itu, saya bisa pergi dengan damai tanpa penyesalan.”</p>
+<p>	Di akhir surat.</p>
+<p>	“Tuan ayah angkat, pertanyaan yang saya tanyakan sebelumnya, saya pikir saya telah menemukan jawabannya.”</p>
+<p>	Setelah melihat surat itu, Fang Zheng menangis tanpa suara.</p>
+<p>	Dalam benaknya, itu dipenuhi dengan kenangan Qing Shu. Ketika dia melakukan kesalahan, Qing Shu tidak menyalahkan tetapi malah menghiburnya. Saat menghadapi masalah, tatapan menyemangati diberikan, dan saat kehilangan, tangan Qing Shu dengan hangat menyentuh kepala Fang Zheng.</p>
+<p>	Gu Yue Bo menyimpan surat itu dan berkata, “Di masa depan, ketika kamu memikirkan jawabannya, kamu juga dapat menulis surat dan memberitahuku. Pergi, kembali dan istirahat. Bahaya gelombang serigala belum berakhir, kami membutuhkan Anda untuk menyumbangkan kekuatan Anda juga. ”</p>
+<p>	“Tidak.” Fang Zheng perlahan mengangkat kepalanya, mengepalkan tinjunya.</p>
+<p>	“Apa?” Gu Yue Bo bertanya.</p>
+<p>	“Aku sudah menemukan jawabanku.” Nada bicara Fang Zheng dipenuhi dengan tekad yang tak terlukiskan saat dia melanjutkan, “Saya ingin kekuatan! Untuk melindungi keluargaku, dan melindungi mereka dari bahaya apa pun. Saya ingin melindungi klan, dan memperkuat klan! Aku ingin srigala pasang tak lagi bisa menyiksa kita, aku ingin melihat keceriaan kebahagiaan sahabatku! Rasa sakit ini, saya tidak ingin mengulanginya. Saya ingin menggunakan sepasang tangan saya, tubuh saya, jiwa saya, untuk melindungi orang-orang di sekitar saya!”</p>
+<p>	Gu Yue Bo menunjukkan ekspresi terkejut, dan pada saat ini, dia merasa bahwa dia melihat Gu Yue Qing Shu.</p>
+<p>	“Qing Shu, kamu tidak mati sia-sia …” Melihat mata Fang Zheng yang bersinar, pemimpin klan menghela nafas secara emosional di dalam hatinya.</p>
+<p>	Sebuah pohon tua telah tumbang, dan ketika pohon itu perlahan-lahan membusuk di dalam tanah, tunas baru sudah mulai tumbuh dengan cepat.</p>
+<p>	…</p>
+<p>	Ren Zu tidak dapat menahan hati kesepian, sehingga dia menggali kedua matanya, mengubahnya menjadi seorang putra dan putri. Ini mengurangi rasa kesepiannya.</p>
+<p>	Namun hal-hal baik tidak bertahan lama, karena anak-anaknya mulai mendambakan pemandangan dunia luar, melupakan semua tentang ayah mereka Ren Zu dan selalu keluar untuk bermain sampai lupa waktu, dan bahkan lupa untuk merawat Ren Zu.</p>
+<p>	Ren Zu tidak bisa melihat apa-apa, kegelapan total.</p>
+<p>	Tetapi pada saat itu, dia bisa melihat sedikit cahaya.</p>
+<p>	Untuk ini, dia merasa terganggu, dan bertanya pada Gu Sikap.</p>
+<p>	Sikap Gu mengatakan ini padanya, “Oh, ini adalah cahaya abadi yang diberikan oleh Gu Iman.”</p>
+<p>	“Iman?” Bai Ning Bing melihat ini, tertawa dan melemparkan buku yang mencatat legenda kuno itu keluar.</p>
+<p>	Pintu dibuka pada saat ini, dan orang yang masuk hampir dipukul wajahnya oleh buku itu.</p>
+<p>	“Ning Bing, apa yang kamu lakukan?” Yang masuk adalah pemimpin klan Bai.</p>
+<p>	Dia mengerutkan kening, menghibur, “Aku tahu suasana hatimu sedang buruk, tetapi kehilangan lengan kananmu bukanlah apa-apa. Di dunia ini, ada banyak cacing Gu yang bisa menyembuhkan luka seperti itu.”</p>
+<p>	“Di masa lalu, saya meminta para tetua klan untuk tetap berada di sisi Anda dan melindungi Anda, tetapi Anda selalu menolaknya, dan bahkan menyerang para tetua klan. Kamu akhirnya menderita kerugian kali ini ya? ”</p>
+<p>	“Tapi ini hal yang bagus. Sejak muda Anda memiliki jalan yang terlalu mulus, tetapi selama itu bukan kematian, kehilangan seperti itu bukanlah masalah besar. Lukamu sudah sembuh, tetapi gelombang serigala semakin ganas, klan membutuhkan kekuatanmu! ”</p>
+<p>	“Sekelompok anak serigala, berapa jumlahnya?” Bai Ning Bing menutup matanya, berbaring di tempat tidur dan menjawab dengan acuh tak acuh.</p>
+<p>	Wajah pemimpin klan menunjukkan ekspresi serius, “Situasinya tidak terlihat baik, atau lebih tepatnya, pesimis. Menurut pengintaian kami, sudah ada tiga gerombolan serigala petir yang bergerak di dekat desa. Kegagalan Anda membawa pengaruh besar bagi klan kami. Saya harap malam ini, Anda bisa keluar dan menunjukkan diri Anda. Selama Anda berdiri, itu bisa sangat memotivasi klan kami. Apakah kamu mengerti?”</p>
+<p>	“Aku mengerti, aku mengerti. Ini masalah kecil.” Bai Ning Bing menjawab, menunjukkan ketidaksabaran.</p>
+<p>	Jika ada orang lain yang bertindak seperti ini kepada pemimpin klan, mereka akan dihukum berat, tetapi Bai Ning Bing berbeda.</p>
+<p>	Pemimpin klan Bai menghela nafas tak berdaya, menutup pintu dan pergi.</p>
+<p>	Ketika ruangan itu hanya tersisa Bai Ning Bing, dia membuka matanya, menunjukkan tatapan penuh kesepian dan kebingungan.</p>
+<p>	Dia tidak memberi tahu orang lain tentang masalah dengan tubuhnya, dan firasat kematian yang dia rasakan.</p>
+<p>	Dari catatan kuno klan, dia menemukan nama fisik Jiwa Es Gelap Utara. Dalam informasi terbatas itu, sepuluh fisik ekstrem juga dikenal sebagai talenta kematian absolut, karena ketika dinding aperture mencapai batasnya, kekuatan penghancur diri akan sangat besar.</p>
+<p>	Memang benar bahwa pemimpin klan Bai telah membesarkan Bai Ning Bing selama bertahun-tahun, begitu lunak padanya. Namun, jika masalah fisik Jiwa Es Gelap Utara terungkap, Bai Ning Bing tidak ragu bahwa orang pertama yang membunuhnya adalah pemimpin klan Bai ini.</p>
+<p>	“Apa gunanya seseorang hidup?”</p>
+<p>	Di masa lalu, ketika dia mempertimbangkan pertanyaan ini, Bai Ning Bing akan merasa tersesat, merasakan emosi seperti kebosanan, frustrasi dan kemarahan … semua emosi negatif ini.</p>
+<p>	Tapi sekarang, hatinya merasakan kedamaian.</p>
+<p>	Orang-orang akan tumbuh dewasa, belum lagi seorang jenius seperti dia.</p>
+<p>	Di masa lalu, dia tahu bahwa dia akan mati, sehingga dalam keputusasaannya dia ingin hidup, dan dia merasakan ketakutan akan kematian jauh di dalam hatinya.</p>
+<p>	Tapi sekarang, setelah dia hampir mati, dia bisa mengatasinya.</p>
+<p>	Membiarkan esensi purba perak putih peringkat tiga untuk memelihara aperture-nya, dia tidak lagi khawatir.</p>
+<p>	Lagi pula, dia tidak lagi takut mati.</p>
+<p>	Meskipun dia masih bingung tentang arti hidup, dia tahu di mana jawabannya.</p>
+<p>	Jawaban ini, sudah ada di hati Fang Yuan.</p>
+<p>	Perasaan ini tak terlukiskan; itu seperti insting, tapi dia jelas dari itu.</p>
+<p>	Selain itu, Batu Bukaan Gu ada di tangan Fang Yuan.</p>
+<p>	“Fang Yuan… kita akan bertemu lagi,” gumamnya ringan, matanya bersinar dengan cahaya yang cemerlang, seperti kilau berlian.</p>
+<p>	“Stone Aperture Gu …” Di rumah kontrakan, Fang Yuan memegang cacing Gu di tangannya, tenggelam dalam pikirannya.</p>
+<p>	Batu Aperture Gu seperti dadu, kubik dan memiliki tubuh putih abu-abu, sangat kokoh.</p>
+<p>	Gu ini adalah Gu tipe pengeluaran, hilang setelah satu kali digunakan. Penggunaannya adalah untuk mengubah dinding bukaan Guru Gu menjadi dinding batu yang kokoh.</p>
+<p>	Tindakan ini benar-benar menekan potensi bukaan dan pertumbuhannya menjadi kering, memungkinkan Master Gu mencapai kultivasi tahap puncak.</p>
+<p>	Misalnya, Fang Yuan sekarang menjadi peringkat dua tahap tengah, jadi setelah menggunakan Gu, dia bisa langsung menjadi peringkat dua tahap puncak.</p>
+<p>	Tapi harganya, Fang Yuan tidak lagi memiliki kemungkinan untuk naik ke peringkat tiga. Pada saat yang sama, dia akan kehilangan kemampuan untuk meregenerasi esensi purba, sehingga dia hanya bisa menggunakan batu purba untuk mengisinya kembali.</p>
+<p>	The Stone Aperture Gu adalah untuk beberapa Master Gu yang kehabisan akal. Untuk beberapa lubang Guru Gu yang mengalami cedera yang tidak dapat dipulihkan, mengalami retakan dan tidak dapat disembuhkan, mereka harus menggunakan Gu ini.</p>
+<p>	Atau dalam situasi khusus, Guru Gu tidak memiliki harapan untuk maju dan perlu meningkatkan kultivasi mereka dengan cepat untuk hidup. Dengan demikian mereka akan menggunakan Gu ini.</p>
+<p>	“Biaya untuk memperbaiki Stone Aperture Gu ini sangat tinggi. Melihat Bai Ning Bing memurnikan cacing Gu ini, dia mungkin ingin mengubah lubangnya menjadi lubang batu untuk mencegah kematian yang akan segera terjadi. Sayangnya cara ini hanya bisa menunda kematiannya, tapi tidak bisa menghentikan kehancurannya. Jika fisik Jiwa Es Gelap Utara begitu mudah dipatahkan, bagaimana bisa disebut sepuluh fisik ekstrem? ”</p>
+<p>	Gu Bukaan Batu ini tidak berguna bagi Fang Yuan, tetapi Gu Relik baja merah yang dia dapatkan dari tubuh Bai Ning Bing serta Gu Perisai Air sangat berguna.</p>
+<p>	Adapun cacing Gu Fang Yuan diekstraksi dari Gu Yue Man Shi dan tubuh yang lain, mereka tidak luar biasa, dan begitu dia kembali ke klan dia menukarnya dengan sejumlah besar poin prestasi.</p>
+<p>	Karena gelombang serigala, masalah pertempuran Qing Shu dan Bai Ning Bing ditekan oleh ketiga klan, mengendalikan keinginan mereka. Ketiga klan membutuhkan kekuatan satu sama lain untuk bertahan dari cobaan ini terlebih dahulu.</p>
+<p>	Laporan Xiong Lin, mengungkap fakta bahwa Fang Yuan memiliki Gu Giok Putih. Tapi dia menggunakan alasan membelinya dari karavan untuk melewati untuk saat ini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

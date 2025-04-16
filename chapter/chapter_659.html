@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 659 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 659";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_658.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 659">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_660.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 659</h1>
+        <div class="text-left">
+<p>	Bab 659 – Kekotoran manusia</p>
+<p>	Bab 659: Kekotoran manusia</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Mendengar Fang Yuan berkata “tidak cukup”, Hei Lou Lan mendengus tidak senang: “Fang Yuan, kamu tidak begitu jelas tentang situasi dataran utara, aku akan memberitahumu sekarang. Belum lama ini, jalur kebijaksanaan nomor satu dataran utara Gu Immortal, Dong Fang Chang Fan, mengundang semua suku super dan secara pribadi membuat potongan untuk mereka. Syaratnya adalah mereka harus bersekutu dengan suku Dong Fang, dan dalam lima puluh tahun kematiannya, mereka tidak boleh menargetkan atau menekan suku Dong Fang.”</p>
+<p>	“Oh?” Tatapan Fang Yuan terfokus: “Ada hal seperti itu? Lalu, apa yang dia simpulkan?”</p>
+<p>	“Dilaporkan, Dong Fang Chang Fan membuat satu pengurangan untuk setiap suku, mengenai resep Gu, penampilan Gu Abadi, atau beberapa tip untuk membunuh binatang buas yang sunyi. Dia telah menyimpulkan banyak informasi Anda, meskipun saya tidak tahu detail yang lebih dalam. Tapi sekarang, semua orang tahu bahwa Anda bukan Guru Gu dataran utara, tetapi ada juga Guru Gu dataran utara yang berkolusi dengan Anda. ”</p>
+<p>	Murid Tai Bai Yun Sheng menyusut, dia berkata dengan sedikit ketakutan: “Dia benar-benar menyimpulkan begitu banyak hal? Seperti yang diharapkan dari Dong Fang Chang Fan…”</p>
+<p>	Hei Lou Lan mencibir, melanjutkan: “Fang Yuan, hidup kita terikat bersama sekarang! Jika saya mati, siapa yang mengatakan bahwa saya tidak akan mengekspos Anda dan Tai Bai Yun Sheng. Selain itu, apakah kebijaksanaan Gu ada di tanganmu?”</p>
+<p>	Ekspresi Tai Bai Yun Sheng berubah, dia dengan tegas ingin menyangkalnya, tapi dia menahan diri untuk tidak bertindak gegabah.</p>
+<p>	Fang Yuan dengan tenang tertawa: “Bagaimana mungkin! Gu Kebijaksanaan sudah dihancurkan dalam tabir angin asimilasi, bagaimana saya bisa membawanya ke sini?</p>
+<p>	Tai Bai Yun Sheng segera memuji dia dalam pikirannya, keterampilan Fang Yuan dalam berbohong benar-benar spektakuler. Nada dan ekspresinya tanpa cacat, dipenuhi dengan rasa kasihan, penyesalan, dan emosi sedih lainnya, seolah-olah dia benar-benar telah kehilangan kebijaksanaan Gu.</p>
+<p>	Hei Lou Lan tidak bisa melihat kekurangan dalam penampilannya, tetapi selanjutnya, dia menyipitkan mata, berkata dengan nada preman: “Saya tidak peduli jika Anda benar-benar kehilangan kebijaksanaan Gu, saya hanya tahu bahwa kebijaksanaan Gu bisa mengambil inisiatif untuk mengikuti. Anda di bawah tekanan untuk bertahan hidup. Hehe, Anda tidak perlu menyangkalnya sekarang. Saya yakin Anda mengerti ide saya, tidak aman bagi Anda untuk bersembunyi di benua tengah. Tidak masalah jika kebijaksanaan Gu benar-benar ada di tangan Anda, selama saya menyebarkan informasi bahwa kebijaksanaan Gu ada bersama Anda, tidak akan ada tempat bagi Anda untuk bersembunyi! Dewa Gu seluruh dunia akan mengejarmu seperti orang gila, sampai mereka mendapatkan kebenaran. ”</p>
+<p>	“Apakah kamu mengancamku?” Ekspresi Fang Yuan menjadi dingin, dia perlahan berdiri.</p>
+<p>	“Hei Lou Lan, kamu punya nyali. Apakah Anda tidak tahu bahwa Anda sekarang berada di gunung Dang Hun. Selama kami menginstruksikannya, roh tanah akan menggunakan gunung Dang Hun dan membunuhmu di sini.” Tai Bai Yun Sheng berteriak.</p>
+<p>	Hei Lou Lan tertawa dengan kepala tegak, dia berkata tanpa rasa takut: “Hahaha, bahkan jika ini adalah sarang naga atau sarang harimau, apa yang dapat kamu lakukan padaku? Saya membuat beberapa pengaturan sebelum saya datang, selama saya tidak kembali dalam tiga hari, seluruh dataran utara akan tahu bahwa Anda saudara magang adalah penyebab di balik runtuhnya Gedung Yang Benar, lebih jauh lagi, seluruh dunia akan tahu kebijaksanaan itu. Gu bersamamu!”</p>
+<p>	Ekspresi Tai Bai Yun Sheng membeku, Hei Lou Lan memang datang siap, ini menargetkan kelemahannya.</p>
+<p>	Tetapi saat ini, kata-kata menakutkan Fang Yuan membuat tawa Hei Lou Lan berhenti—”Hei Lou Lan, aku tahu kamu tidak takut mati, tetapi apakah kamu melupakan kebencianmu?”</p>
+<p>	Ekspresi Hei Lou Lan berubah, auranya berkurang saat matanya seperti kilat, menatap Fang Yuan: “Katakan kondisimu.”</p>
+<p>	“Kamu harus setuju dengan syarat pertamaku, yaitu kamu harus mengembalikan Fixed Immortal Travel kepada pemiliknya, aku.” Selanjutnya, Fang Yuan mengangkat empat jari: “Kedua, setelah kami bekerja sama, selama proses balas dendam Anda, jarahan akan dibagi empat menjadi enam, untuk Anda dan kami masing-masing. Bagaimanapun, Tai Bai Yun Sheng dan aku adalah dua Dewa Gu.”</p>
+<p>	Hei Lou Lan mendengus: “Apakah kamu pikir kamu memiliki pembantu sementara aku tidak? Tapi tidak apa-apa, saya menerima persyaratan ini. ”</p>
+<p>	Dia ragu-ragu sedikit, tetapi dia masih memilih untuk menyerah, meskipun dia memiliki kepribadian yang keras.</p>
+<p>	Fang Yuan tersenyum ringan, dia bisa melihat ketulusannya dari ini, dia melanjutkan: “Terakhir, aku perlu mengetahui keseluruhan cerita ini, serta alasan mengapa kamu perlu membunuh ayahmu secara pribadi.”</p>
+<p>	Hei Lou Lan terdiam beberapa saat, tetapi dia segera setuju: “Kamu memang terlalu curiga, aku bisa memenuhi ketiga persyaratanmu, ini bukan apa-apa yang tidak bisa aku bicarakan.”</p>
+<p>	Selanjutnya, dalam percakapan mereka, Fang Yuan akhirnya memahami rahasia di balik kehausan Hei Lou Lan untuk membalas dendam.</p>
+<p>	Akar dari semua ini sebenarnya adalah Eighty-Eight True Yang Building.</p>
+<p>	Di True Yang Building, ada warisan sejati yang disebut “metode perpanjangan hidup yin-yang”, telah diambil oleh Hei Cheng sejak lama.</p>
+<p>	Fang Yuan sebenarnya telah melihat gumpalan cahaya kosong dari metode perpanjangan hidup yin-yang secara kebetulan di masa lalu.</p>
+<p>	Warisan sejati ini diciptakan oleh Giant Sun Immortal Venerable ketika dia meneliti tentang Ren Zu untuk metode perpanjangan hidup.</p>
+<p>	Untuk menggunakan metode ini, Gu Immortal pria dan wanita harus bekerja sama, menggunakan sanggama untuk memperpanjang umur salah satu dari mereka.</p>
+<p>	Tapi ada cacat dalam hal ini.</p>
+<p>	Jika satu memperoleh umur, yang lain harus kehilangan umur.</p>
+<p>	Dengan kata lain, itu untuk mentransfer umur satu orang ke orang lain.</p>
+<p>	Kisah Kawin Malam Su Xian telah lama tersebar luas di dataran utara, telah memberi banyak wanita muda di dataran utara keberanian untuk menemukan cinta sejati mereka, untuk mengambil langkah pertama.</p>
+<p>	Dua ratus tahun yang lalu, Su Xian Er adalah putri seorang selir di suku Su, statusnya tidak tinggi dan dia sering menyajikan anggur untuk tamu di jamuan makan, seperti pelayan.</p>
+<p>	Suatu ketika, ketika pemimpin suku Su sedang menghadiri Hei Cheng, Su Xian Er menuangkan anggur untuknya dan jatuh cinta padanya pada pandangan pertama.</p>
+<p>	Namun, pemimpin suku Su menyakiti Hei Cheng secara rahasia, menggunakan racun Gu padanya, menyebabkan kekuatannya jatuh ke titik terendah, dan dia dikejar oleh musuh.</p>
+<p>	Su Xian Er mengetahui hal ini dan berlari keluar dari perkemahan sukunya di tengah malam, untuk menyelamatkan Hei Cheng yang hanya bertemu sekali dengannya.</p>
+<p>	Saat itu, dia hanya memiliki kultivasi peringkat satu, tetapi pada malam hari ada kelompok serigala liar berkeliaran, itu sangat berbahaya dan dia hanya mencari kematian.</p>
+<p>	Namun karena kebetulan, dia menemukan Hei Cheng yang tidak sadarkan diri.</p>
+<p>	Hei Cheng dengan demikian diselamatkan, dan percakapan mereka selanjutnya menjadi klasik yang diturunkan di dataran utara.</p>
+<p>	Dia telah bertanya kepada Su Xian Er: “Saya dikomplotkan oleh pemimpin suku Anda dan Anda adalah anggota suku Su, mengapa Anda menyelamatkan musuh suku Anda?”</p>
+<p>	Su Xian Er kemudian menjawab: “Tuhan memiliki roh yang mulia, gadis yang rendah hati ini jatuh cinta pada pandangan pertama. Pemimpin suku Su berpandangan pendek dan berkomplot melawan tuan di bawah bujukan beberapa orang kecil, tetapi dia tidak pernah mempertimbangkan hasil dari menyinggung suku Hei. Jika dia dibiarkan dengan caranya sendiri, suku Su ditakdirkan untuk menjadi pion pengorbanan antara dua suku super. Orang mengatakan tuan membalas budi yang diterima seratus kali lipat. Gadis yang rendah hati ini menyelamatkan tuan hari ini dan hanya berharap tuan bisa memberi saya tempat tinggal. Adalah adil dan pantas bagi tuan untuk membalas dendam terhadap suku Su, tapi saya harap tuan dapat berbelas kasih dan meninggalkan jejak garis keturunan untuk suku Su. ”</p>
+<p>	Hei Cheng kewalahan melihat pemandangan ini, dia dengan erat memegang tangan Su Xian Er dan bersumpah: “Cintamu sedalam laut, aku, Hei Cheng, bukan orang yang kejam, bagaimana mungkin aku tidak membalasmu? Mulai hari ini dan seterusnya, Anda akan menjadi satu-satunya istri saya! Saya tidak akan peduli dengan keindahan lain, tidak peduli betapa cantiknya mereka. Dalam hidup ini, aku tidak akan pernah mengkhianatimu!”</p>
+<p>	Sejak saat itu, keduanya menjadi pasangan yang saling mencintai dengan setara.</p>
+<p>	Seratus tahun kemudian, mereka berdua menjadi Dewa Gu, dan ceritanya adalah legenda dataran utara.</p>
+<p>	Tetapi kebanyakan orang tidak tahu bahwa suku Su akan segera dimusnahkan.</p>
+<p>	Hei Cheng memiliki banyak istri dan anak, Su Xian Er bukanlah yang pertama, juga bukan yang terakhir.</p>
+<p>	Hei Cheng dan Su Xian Er memiliki seorang putri, dia mengikuti nama keluarga ayahnya, sambil mendapatkan nama Lou Lan. Bertahun-tahun kemudian, Su Xian Er meninggal, dan Hei Cheng sangat sedih, dia mengumumkan kepada publik: Tubuh istrinya telah memburuk setelah melahirkan Hei Lou Lan, dia jatuh sakit parah dan kekuatannya turun drastis, sehingga dia meninggal beberapa tahun. kemudian dalam bencana duniawi tanahnya yang diberkati.</p>
+<p>	“Dia telah memperoleh metode perpanjangan hidup yin-yang di domain terpencil warisan sejati, dia menyimpannya dengan sangat rahasia. Untuk keinginan egoisnya sendiri, dia berbohong kepada ibuku dengan niat buruk. Ibuku tidak tahu detailnya dan karena dia percaya dan bekerja sama dengannya, hampir seluruh umurnya diambil olehnya tanpa ampun.”</p>
+<p>	“Setelah ibuku meninggal, dia menyembunyikan kebenaran, sehingga dia masih bisa secara terbuka menjadi jalan lurus Gu Immortal. Dia menyerap celah ibuku dan mengambil semua cacing Gu yang dia kumpulkan dalam hidupnya. Dia pengecut, bajingan kotor dan tercela, untuk hidup lebih lama, dia benar-benar berkomplot melawan orang yang paling mencintainya!”</p>
+<p>	“Sebelum ibu meninggal, dia melihat warna aslinya dan menyuruhku untuk berhati-hati padanya! Seperti yang diharapkan, ibu benar. Ada masalah dengan kultivasinya, umur yang dia ambil dikonsumsi dengan sangat cepat, dia sekarang menghadapi krisis lain dari umur yang semakin berkurang. Kali ini, targetnya adalah aku.”</p>
+<p>	“Saya memiliki Fisik Bela Diri Sejati Kekuatan Besar, begitu saya maju ke Gu Immortal, fondasi saya akan sangat kuat. Jika dia menggunakan metode perpanjangan hidup yin-yang pada saya, lebih sedikit umur akan terbuang dalam prosesnya, dan dia akan mendapatkan lebih banyak umur!”</p>
+<p>	Hei Lou Lan menumpahkan semua rahasia yang tersembunyi dalam kegelapan, dengan nada tenangnya, seseorang tetap bisa merasakan kebenciannya.</p>
+<p>	Tai Bai Yun Sheng menggelengkan kepalanya saat dia mendengarkan: “Memikirkan bahwa Tuan Hei Cheng adalah orang seperti itu, ini benar-benar mengecewakan …”</p>
+<p>	Dia adalah calon calon Gu Immortal di masa lalu, dengan harapan tinggi untuk menjadi salah satunya, dia telah berinteraksi dengan suku Hei’s Gu Immortal, Hei Bai, secara rahasia, dan dia bahkan direkrut.</p>
+<p>	Jadi, kesan Tai Bai Yun Sheng tentang suku Hei selalu baik.</p>
+<p>	Kata-kata Hei Lou Lan menghancurkan kesan baik ini.</p>
+<p>	“Hmph, ini yang disebut jalan lurus, siapa yang tahu berapa banyak hal kotor dan menjijikkan yang terjadi di bawah permukaan yang mulia ini. Sebaliknya, jalur iblis terdiri dari karakter yang tak terhitung jumlahnya yang lebih lugas! ” Hei Lou Lan mencibir.</p>
+<p>	“Tidak heran kamu tidak menanggapi Hei Cheng ketika dia memanggilmu pada saat tabir angin asimilasi terbelah.” Fang Yuan mengangguk, dia menatap Hei Lou Lan lagi, merasakan emosi yang berbeda.</p>
+<p>	Hei Lou Lan dilahirkan dengan sendok emas, namun ini sebenarnya adalah sebuah tragedi.</p>
+<p>	Ayahnya sendiri menyakiti ibunya, dan sekarang mengincarnya, mencoba mengambil nyawanya.</p>
+<p>	Karena tidak memiliki kehangatan keluarga, di bawah ancaman dan bahaya selama bertahun-tahun, dia tidak punya pilihan selain menyamar sementara diam-diam berusaha keras, bersumpah untuk membalas dendam untuk ibunya.</p>
+<p>	Ini mungkin alasan mengapa dia mendapatkan kepribadian yang tangguh.</p>
+<p>	Dimana ada sebab, pasti ada akibat.</p>
+<p>	Ada pepatah yang mengatakan “pahlawan sering menemui ajalnya”, “pahlawan” di sini juga bisa diganti dengan karakter yang tangguh.</p>
+<p>	Tetapi pada kenyataannya, bukan karena pahlawan dan penakluk sering bertemu dengan situasi putus asa, situasi putus asalah yang menciptakan mereka. Dengan cara ini, mereka adalah orang-orang dengan kehidupan yang sangat menyedihkan, mereka sering mengalami dan merasakan sakit yang jauh lebih besar daripada orang normal. Tetapi karena rasa sakit ini, mereka belajar dan menjadi diri mereka sendiri.</p>
+<p>	Mereka yang hidup dalam kebahagiaan, hidup seperti orang yang lurus, terbuka dan jujur ​​tanpa kesulitan apapun dalam hidup, sambil meraih banyak prestasi dan mendapatkan reputasi dan pujian. Apakah benar-benar ada orang seperti itu dalam kehidupan nyata?</p>
+<p>	Fang Yuan memikirkan Bumi, tentang lima ratus tahun kehidupan sebelumnya, dan mengejek.</p>
+<p>	Di mana ada yang berprestasi tinggi, di situ ada pengorbanan. Mereka yang lebih tinggi seringkali perlu mengorbankan moral mereka.</p>
+<p>	Tentu saja, ada outlier, orang-orang yang beruntung, dan mereka yang mengandalkan keluarga mereka, tetapi berapa lama mereka bisa bertahan, berapa banyak yang tersisa pada akhirnya?</p>
+<p>	Legenda mengatakan, ketika Ren Zu mulai berjalan di jalan kehidupan, visinya berubah, itu adalah kegelapan murni.</p>
+<p>	Dia mengambil langkah pertama.</p>
+<p>	PIop.</p>
+<p>	Pada saat berikutnya, dia melangkah ke lumpur.</p>
+<p>	Dia mengangkat kakinya, menyeka dengan tangannya, itu penuh dengan lumpur lembek dan sangat bau.</p>
+<p>	Dia ragu untuk maju.</p>
+<p>	Pada saat ini, diri Gu berkata: “Oh manusia, jangan ragu, jika Anda ingin berjalan di jalan Anda sendiri, Anda harus mengandalkan kaki Anda sendiri. Saat kakimu melangkah di jalan, jangan takut kotor.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

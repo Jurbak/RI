@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 387 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 387";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_386.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 387">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_388.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 387</h1>
+        <div class="text-left">
+<p>	Bab 387 – Perbudakan Peringkat Lima Gu</p>
+<p>	Bab 387: Perbudakan Peringkat Lima Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Yang lain harus memutar otak dan membuat rencana yang tak terhitung jumlahnya untuk maju melalui putaran; orang-orang seperti Wu Shen Tong dan Wu Gui juga harus dengan cermat merencanakan dan memilih pilihan mereka. Tetapi dengan bantuan roh tanah, Bai Ning Bing hanya perlu bergerak maju.</p>
+<p>	Wu Shen Tong yang menyedihkan, seorang Master Gu tahap puncak peringkat empat besar, bahkan tidak bisa melihat penampilan Bai Ning Bing di akhir.</p>
+<p>	Adapun penampilan Fang Yuan, Bai Ning Bing sama sekali tidak terkejut karena roh tanah telah mengingatkannya.</p>
+<p>	Sebenarnya, ini adalah kerja sama keduanya.</p>
+<p>	Fang Yuan membutuhkan lubang Wu Shen Tong sementara Bai Ning Bing membutuhkan cacing Gu jalur perbudakan Wu Shen Tong dan kelompok anjing yang telah dia kumpulkan.</p>
+<p>	Dengan kematian Wu Shen Tong, kelompok anjing besar miliknya secara alami dimasukkan ke dalam pasukan Bai Ning Bing, meningkatkan pasukan anjingnya yang besar sebanyak sepuluh persen.</p>
+<p>	Melihat kelompok anjing yang besar, Fang Yuan dengan gembira mengangguk: “Pasukan binatang buas anjing Anda telah menjadi formasi awal. Dalam Warisan Raja Quan ini, dengan grup ini, Anda sudah dapat bermain bola salju ke babak final tanpa masalah. Ingat, pada beberapa ronde terakhir, ada sekelompok besar singa mastiff. Mastiff singa ini semuanya adalah binatang yang bermutasi dan memiliki lebih banyak kekuatan pertempuran daripada lima anjing gunung yang hebat. Itu adalah kartu truf Raja Quan. Selain mereka, ada dua kaisar anjing, binatang bermutasi kuno yang lebih kuat dari binatang bermutasi biasa. Kembali pada hari itu, mereka adalah lengan kiri dan kanan Raja Quan, masing-masing dari mereka dapat menandingi peringkat lima Gu Master, Anda harus menaklukkan mereka!</p>
+<p>	Bai Ning Bing mengangguk dan pergi, terus menyerbu sepanjang putaran.</p>
+<p>	“Kamu memang seseorang yang datang dari masa depan, menggunakan Spring Autumn Cicada untuk kembali ke masa lalu. Anda tahu tentang warisan tiga raja luar dalam. ” Roh tanah mentransmisikan suaranya dan memuji, “Saya perlu mengingatkan Anda, bagian esensi abadi hampir habis dan hanya cukup bagi Anda untuk membunuh dua orang lagi. Siapa yang Anda rencanakan untuk dibunuh selanjutnya? ”</p>
+<p>	Fang Yuan mengangguk dan berkata tanpa ragu: “Zhang San San.”</p>
+<p>	Beast plasenta Gu sudah memiliki delapan puluh sembilan persen bakat dan bersinar seperti permata. Dibandingkan dengan bentuk lumpur kasar sebelumnya, perbedaannya seperti siang dan malam.</p>
+<p>	Membunuh dua Master Gu peringkat empat lagi sudah cukup untuk mencapai bakat sembilan puluh persen.</p>
+<p>	Bakat bukaan kedua tidak bisa lebih tinggi dari bukaan pertama Guru Gu. Bukaan pertama Fang Yuan adalah nilai A sembilan puluh persen. Dengan demikian, batas bukaan kedua Gu saat ini juga kelas A sembilan puluh persen.</p>
+<p>	Bahkan jika dia menaikkannya menjadi sembilan puluh sembilan persen, ketika digunakan, Fang Yuan hanya akan memiliki sembilan puluh persen. Bakat sembilan persen yang tersisa akan sia-sia.</p>
+<p>	Tentu saja, jika Fang Yuan dapat meningkatkan bakat aperture pertamanya di masa depan, aperture kedua juga berpotensi meningkat.</p>
+<p>	Zhang San San hanya peringkat empat tingkat atas Gu Master, satu tingkat lebih rendah dari Gu Masters seperti Yi Huo dan Kong Ri Tian.</p>
+<p>	Namun dalam pandangan Fang Yuan, dia adalah musuh yang memiliki ancaman paling besar.</p>
+<p>	Itu karena dia adalah jalur perbudakan Gu Master kedua setelah Wu Shen Tong dan Wu Gui.</p>
+<p>	Fang Yuan punya rencana: “Bai Ning Bing bukanlah jalur perbudakan Gu Master pada akhirnya dan merupakan pemula yang lengkap dalam memimpin kelompok anjing. Nanti dia pasti akan bingung ketika memerintah begitu banyak anjing, akan luar biasa jika dia tidak melakukan kesalahan. Untungnya, saya tidak membutuhkannya untuk memerintah dan mengendalikan binatang anjing, dan hanya membutuhkannya untuk membentuk formasi pertempuran besar untuk melindungi aula utama dan menunggu dengan tenang. ”</p>
+<p>	Seperti ini, itu akan sangat mengisi ketidakmampuannya dalam kemampuan memerintah.</p>
+<p>	Namun, formasi pertempuran seperti itu akan sangat kaku dan jika dia bertemu dengan ahli jalur perbudakan yang mahir, situasinya akan berubah menjadi berantakan.</p>
+<p>	Misalnya, Wu Shen Tong dan Wu Gui hanya perlu memerintahkan sekelompok kecil anjing untuk melakukan beberapa serangan dan menyelidiki situasi sebenarnya. Mereka kemudian dapat mengirim pasukan untuk memancing binatang anjing berulang kali dan menyebabkan kekacauan dalam formasi pertempuran, menciptakan lubang di pertahanan.</p>
+<p>	Fang Yuan perlu memusatkan semua perhatiannya pada tahap penting pemurnian Gu. Roh Tanah juga akan menjadi sangat lemah dan semua pertahanan akan terletak pada kelompok anjing, jadi Fang Yuan secara alami ingin menghilangkan jalur perbudakan Gu Masters yang memiliki ancaman paling besar.</p>
+<p>	Setelah beberapa saat, Fang Yuan membunuh Zhang San San dengan sangat lancar.</p>
+<p>	Bahkan Wu Gui, Wu Shen Tong dan yang lainnya dibunuh oleh Fang Yuan, Zhang San San secara alami tidak bisa lepas dari cakarnya.</p>
+<p>	Tapi kematiannya memberi Fang Yuan kejutan yang tak terduga.</p>
+<p>	Dari celah Zhang San San, Fang Yuan sebenarnya memperoleh peringkat lima perbudakan Gu.</p>
+<p>	Slavery Gu tersedia dari peringkat satu hingga peringkat lima. Setelah Gu ini ditanamkan pada seseorang, itu bisa mengendalikan Guru Gu itu.</p>
+<p>	Peringkat lima perbudakan Gu dapat digunakan untuk mengontrol peringkat lima Guru Gu dan dengan demikian sangat berharga dan sangat langka. Kembali pada hari di gunung Qing Mao, pemimpin klan generasi keempat klan Gu Yue bertengkar hebat dengan biksu anggur bunga. Setelah dia kalah dalam pertempuran, dia meminta maaf dan mengatakan bahwa dia bersedia untuk diperbudak oleh perbudakan Gu dan siap membantu biksu anggur bunga. Pada akhirnya, biksu anggur bunga tertipu oleh kata-kata ini dan pada saat kecerobohannya, dia diserang balik oleh pemimpin klan generasi keempat, sekarat dengan menyesal di gunung Qing Mao.</p>
+<p>	“Master Gu yang Terkenal tidak bisa diremehkan. Zhang San San ini adalah jalur perbudakan Gu Master, tidak aneh baginya untuk memiliki perbudakan Gu. Alasan dia tidak menggunakannya adalah untuk menunggu kesempatan bagus dan mendapatkan peringkat lima ahli. Lagi pula, jika perbudakan peringkat lima Gu digunakan pada peringkat empat Guru Gu, itu akan menjadi kerugian besar. ”</p>
+<p>	Fang Yuan sedikit berpikir dan menebak pikiran Zhang San San.</p>
+<p>	Dia melihat binatang plasenta Gu, bakatnya sudah mendekati sembilan puluh persen, dia hanya perlu membunuh satu lagi.</p>
+<p>	Porsi esensi abadi habis, jadi Fang Yuan hanya bisa membunuh satu lagi.</p>
+<p>	“Dengan perbudakan Gu ini, aku bisa mengendalikan satu orang. Sigh, jika saya tahu Zhang San San ini memiliki Gu ini, saya akan membunuhnya terlebih dahulu dan menggunakan Gu perbudakan untuk menaklukkan peringkat lima Gu Master. ”</p>
+<p>	Fang Yuan merasa menyesal. Jika dia menggunakan Gu ini untuk menaklukkan Tie Mu Bai, itu akan sangat menguntungkan untuk penyempurnaan Gu-nya!</p>
+<p>	Bahkan jika dia tidak mendapatkan Tie Mu Bai, Wu Gui, Ku Mo, Wu Lan Shan atau Chou Jiu juga merupakan pilihan yang sangat bagus.</p>
+<p>	Namun sekarang, mereka semua mati, Fang Yuan paling-paling hanya bisa menaklukkan peringkat empat Gu Master, tetapi menggunakan perbudakan peringkat lima Gu di peringkat empat Master Gu setara dengan menggunakan pisau sapi untuk membunuh ayam, pemborosan nilainya.</p>
+<p>	Namun, meskipun perbudakan peringkat lima Gu sangat berharga dan itu akan membuang-buang nilainya, Fang Yuan masih akan menggunakannya!</p>
+<p>	Dia akan menghadapi risiko yang sangat besar saat menyempurnakan Gu bukaan kedua, dan tidak diragukan lagi akan jauh lebih aman dengan Master Gu peringkat empat kedua di sampingnya.</p>
+<p>	Tapi ada begitu banyak Master Gu peringkat empat di tanah yang diberkati, siapa yang harus dia taklukkan?</p>
+<p>	Yi Huo, Kong Ri Tian, ​​Long Qing Tian, ​​​​Yi Chong bersama dengan Li Fei Le, Tao Zi, Feng Tian Yu, Yan Jun, Li Xian, Hu Mei Er, empat orang tua klan Tie, Tie Ruo Nan dan lainnya; beberapa kuat, beberapa licik, beberapa jahat, beberapa berani, beberapa khusus dalam serangan jarak jauh, beberapa memiliki kemampuan gerakan yang luar biasa, beberapa unggul dalam penyembuhan, beberapa memiliki kekayaan besar, beberapa memiliki koneksi besar …</p>
+<p>	Setiap pilihan memiliki konsekuensinya.</p>
+<p>	Pikiran Fang Yuan bergemuruh seperti kilat dan setelah berpikir sejenak, dia memutuskan pilihan.</p>
+<p>	“Itu akan menjadi dia. Roh tanah, bawa aku. ” Fang Yuan memutuskan dan berkata tanpa ragu-ragu.</p>
+<p>	Setelah sekitar tiga menit, Feng Tian Yu berlutut di depan Fang Yuan dan dengan sepenuh hati berkata: “Bawahan Feng Tian Yu ini menyapa tuan!”</p>
+<p>	“Feng Tian Yu, kamu bisa memperbaiki peringkat lima Gu ketika kamu berada di peringkat tiga. Meskipun peringkat lima Gu meninggal setelah setengah hari, Anda mencapai reputasi instan dari ini. Sekarang, banyak hal telah berubah, klan Anda berkurang dan menghadapi kepunahan, Anda bukan lagi pemimpin klan muda yang memiliki prospek tak terbatas sekali. ” Fang Yuan memandang Feng Tian Yu yang berlutut dan berkata dengan acuh tak acuh.</p>
+<p>	Feng Tian Yu mengangkat kepalanya: “Memiliki tuan sebagai tuanku, ini adalah kehormatan dan kekayaan bawahan ini.”</p>
+<p>	“Bagus kalau kamu mengerti poin ini. Selanjutnya, lanjutkan pengisian melalui putaran sesuai dengan instruksi saya. Warisan Raja Xin memiliki seratus pertempuran yang tak terkalahkan, Gu, bawakan padaku. ” Fang Yuan menginstruksikan.</p>
+<p>	“Ya, bawahan ini akan menghabiskan seluruh kekuatannya untuk melakukan tugas ini untuk tuan!” Feng Tian Yu segera menjawab.</p>
+<p>	Di bawah kendali Gu perbudakan, dia telah menjadi budak Fang Yuan yang setia dan berbakti.</p>
+<p>	Fang Yuan merasa tenang di Feng Tian Yu.</p>
+<p>	Dia bukan hanya seorang grand master terkenal dan berbakat dari jalur pemurnian di Perbatasan Selatan, dia adalah penerima manfaat terbesar dari warisan Raja Xin di kehidupan sebelumnya.</p>
+<p>	Dalam ingatan Fang Yuan, dialah yang memperoleh seratus pertempuran Gu yang tak terkalahkan.</p>
+<p>	Sekarang setelah kelahiran kembali, Fang Yuan tidak hanya akan mendapatkan seratus pertempuran yang tak terkalahkan, tetapi juga mengambil pemilik aslinya sebagai bawahannya.</p>
+<p>	“Feng Tian Yu akan dibimbing oleh roh tanah, tidak akan menjadi masalah baginya untuk menagih melalui warisan Raja Xin. Seperti ini, saya telah memperoleh dua dari tiga warisan raja. ”</p>
+<p>	Namun, ini juga bukan alasan utama Fang Yuan.</p>
+<p>	Alasan mengapa dia memilih Feng Tian Yu adalah karena bakat bawaannya di jalur penyempurnaan.</p>
+<p>	Bagaimanapun, ini adalah pertama kalinya Fang Yuan menyempurnakan Gu aperture kedua. Dengan grandmaster jalur penyempurnaan di sampingnya, itu pasti akan sangat membantu dalam menyempurnakan Gu.</p>
+<p>	Setelah menerima Feng Tian Yu, Fang Yuan mulai mempertimbangkan target terakhirnya untuk dibunuh.</p>
+<p>	Bunuh siapa?</p>
+<p>	Pikiran pertama Fang Yuan bukanlah Yi Huo yang terkuat dan juga bukan Hu Mei Er dan Tao Zi yang berpengaruh, melainkan Tie Ruo Nan.</p>
+<p>	Seperti Tie Mu Bai, Fang Yuan juga sangat memikirkan prospek masa depan Tie Ruo Nan. Jenius seperti itu yang telah diasah melalui cobaan, jika dia dibiarkan tumbuh, dia pasti akan menjadi ancaman besar. Dia lebih menakutkan daripada Yi Huo dan yang lainnya.</p>
+<p>	Namun, masalahnya sekarang adalah, ancaman yang dibawa Tie Ruo Nan kepada Fang Yuan jauh lebih rendah daripada Gu Masters seperti Yi Huo, Kong Ri Tian dan lainnya.</p>
+<p>	Untuk penyempurnaan Gu aperture kedua, jika Fang Yuan membunuh Yi Huo, itu benar-benar akan lebih membantu daripada membunuh Tie Ruo Nan.</p>
+<p>	Membunuh Yi Huo hanya untuk aman, atau membasmi Tie Ruo Nan dengan pertimbangan masa depan?</p>
+<p>	Pikiran Fang Yuan tiba-tiba terganggu oleh roh tanah: “Tidak bagus, sesuatu terjadi!”</p>
+<p>	“Apa?” Fang Yuan terkejut, nada suara roh tanah menyembunyikan sedikit kepanikan.</p>
+<p>	“Tuan Gu peringkat empat telah menemukan area lemah dari tanah yang diberkati. Daerah itu telah rusak parah karena bencana bumi, kekuatan surgawi di daerah itu adalah yang terlemah dan Master Gu dapat menggunakan satu Gu di sana. Sekarang, dia menggunakan peringkat lima Gu untuk menyebarkan racun ke mana-mana. Dia akan membuka jalan ke dunia luar dalam waktu sekitar delapan menit pada tingkat ini, dan membuat lubang di tanah yang diberkati! ”</p>
+<p>	Fang Yuan segera merasakan keseriusan masalah ini.</p>
+<p>	Dalam kehidupan sebelumnya, dia adalah peringkat enam Gu Immortal dan pernah memiliki tanah yang diberkati, secara alami mengetahui pentingnya ini.</p>
+<p>	Jika ada lubang di tanah yang diberkati dan terhubung dengan dunia luar, pengeluaran esensi abadi akan berlipat ganda. Jika tidak dihentikan dan diperbaiki tepat waktu, lubang itu akan tumbuh semakin besar, akhirnya menarik angin asimilasi.</p>
+<p>	Begitu angin asimilasi bertiup, tanah yang diberkati akan dihancurkan.</p>
+<p>	“Saya telah memisahkan dan memotong sebagian besar area dengan lubang di tanah yang diberkati. Tapi ada tiga tempat yang berada di area krusial dan tidak bisa terputus. Memikirkan keberuntungan orang ini sangat bagus untuk benar-benar menabrak salah satu area dan bahkan menyadari lubangnya. Untuk situasi sebenarnya, lihatlah. ” Roh tanah menghela nafas.</p>
+<p>	Sebuah adegan muncul di depan Fang Yuan.</p>
+<p>	Dalam adegan itu, ada seorang Guru Gu mengenakan jubah biru tua, dia kurus dan tatapannya suram.</p>
+<p>	Itu tidak lain adalah Long Qing Tian!</p>
+<p>	Saat ini, dia mengaktifkan satu-satunya peringkat lima racun Gu — langit giok.</p>
+<p>	Di mana-mana di sekelilingnya, tanah dan langit semuanya diliputi oleh lapisan cahaya hijau pucat.</p>
+<p>	Dia yang pernah mewarnai langit hijau giok!</p>
+<p>	Jade sky Gu adalah kartu truf inti Long Qing Tian, ​​​​Gu dari zaman dahulu dan sekarang sudah punah. Long Qing Tian telah menggunakan Gu ini untuk menjelajahi Perbatasan Selatan dan mendapatkan reputasi yang menakutkan karena meracuni banyak orang.</p>
+<p>	Sekarang, dia meracuni bagian dari tanah yang diberkati ini!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

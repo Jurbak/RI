@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 333 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 333";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_332.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 333">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_334.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 333</h1>
+        <div class="text-left">
+<p>	Bab 333</p>
+<p>	Bab 333: Meninggalkan Kota Klan Shang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Dia berasumsi Fang Yuan sedang mencoba memberinya pelajaran. Tapi dia tidak berharap Fang Yuan memiliki niat membunuh, bahkan rela menyerahkan token duri ungu yang berharga!</p>
+<p>	“Hanya karena aku, kamu bertindak begitu kejam, apakah itu sepadan?” Merasakan ‘tekad’ Fang Yuan, Zhou Quan ingin menangis.</p>
+<p>	Dia adalah orang yang normal.</p>
+<p>	Dia juga takut mati.</p>
+<p>	Jika tidak, setelah klan Zhou musnah, dan dia menjadi sendirian dan terluka, dia pasti sudah mati.</p>
+<p>	Tapi dia hidup.</p>
+<p>	Keinginan untuk hidup adalah naluri setiap makhluk hidup.</p>
+<p>	Dia menolak Shang Xin Ci karena dia memandang rendah dirinya. Dia adalah pria yang sombong, pernah menjadi pemimpin klan, bagaimana dia bisa tunduk pada gadis lemah dan tidak berdaya seperti dia?</p>
+<p>	Tapi dia tidak berpikir masalah ini akan meningkat sejauh ini!</p>
+<p>	Sekarang, dia menghadapi ancaman kematian! Kegilaan Fang Yuan adalah sesuatu yang tidak dia harapkan.</p>
+<p>	“Seandainya saya tahu ini akan terjadi, saya akan menerima undangannya. Untuk berpikir itu akan berakhir seperti ini! ” Zhou Quan merasa sangat menyesal.</p>
+<p>	Meskipun dia sombong, dia tidak bodoh.</p>
+<p>	Kelangsungan hidup dan kebanggaan, dia jelas memilih yang pertama. Jika tidak, dia tidak akan tetap hidup seperti anjing yang dipukuli selama bertahun-tahun.</p>
+<p>	“Itu benar, aku mengerti! Tindakan saya menolak Shang Xin Ci sangat memukul reputasinya. Fang Zheng adalah pendukung terbesarnya, jadi dia harus melenyapkanku! Shang Yi Fan telah menyesatkanku…”</p>
+<p>	Merasakan niat membunuh yang kuat dari Fang Yuan, Zhou Quan dengan cepat memikirkan alasannya.</p>
+<p>	Dengan kecerdasannya, hanya dengan sedikit analisis, dia mengerti bahwa rumor sebelumnya semuanya disebabkan oleh Shang Yi Fan.</p>
+<p>	Saat itu, dia masih ceria dan sombong. Desas-desus ini adalah alasan terbaik baginya untuk menolak Shang Xin Ci. Pada saat yang sama, dia bisa merasakan bahwa Shang Yi Fan sangat menghargainya dari rumor ini. Dalam kasus terburuk, dia bisa pergi ke Shang Yi Fan.</p>
+<p>	Apakah itu Shang Yi Fan atau Shang Xin Ci tidak ada bedanya baginya. Selama dia mau membantu, dia bisa menjadikan mereka tuan muda dengan mudah.</p>
+<p>	Ini adalah kepercayaan Zhou Quan.</p>
+<p>	Tapi sekarang dia sangat menyesal.</p>
+<p>	Karena rumor ini, Fang Yuan ingin membunuhnya. Sudah terlambat untuk pergi ke Shang Yi Fan.</p>
+<p>	Fang Yuan adalah seorang maniak, dia tidak mengikuti aturan. Zhou Quan benar-benar kacau kali ini!</p>
+<p>	Zhou Quan terkapar di tanah, tulang-tulangnya sakit karena pertempuran, saat dia dilumpuhkan oleh kaki Fang Yuan di wajahnya.</p>
+<p>	Dia ingin membuka mulutnya dan memohon belas kasihan.</p>
+<p>	Tapi dia tidak bisa mengatakannya.</p>
+<p>	“Banyak sekali orang yang menonton, jika saya memohon di depan umum, reputasi saya akan ternoda. Tapi jika tidak, nyawaku akan hangus…”</p>
+<p>	Karakter menentukan nasib.</p>
+<p>	Pada saat genting, kesombongan Zhou Quan masih mempengaruhi dirinya.</p>
+<p>	“Pepatah mengatakan, orang bijak tunduk pada keadaan . Zhou Quan, karena Anda tidak dapat memahami keadaan Anda, Anda bukanlah orang bijak. Aku menyia-nyiakan token duri ungu untuk membunuhmu, merasa terhormat. Sekarang mati.” Fang Yuan mencibir saat dia mengerahkan kekuatan di kakinya.</p>
+<p>	Zhou Quan merasakan tekanan yang kuat pada dirinya, dia akhirnya meninggalkan semua keraguan dan memohon.</p>
+<p>	Tetapi karena Fang Yuan menggunakan begitu banyak kekuatan, pipinya dirapatkan, dia ingin berbicara, tetapi tidak bisa.</p>
+<p>	Zhou Quan panik!</p>
+<p>	“Tunggu, aku tidak ingin mati, aku ingin mengemis, aku ingin menyerah, biarkan aku berbicara…”</p>
+<p>	Dia berteriak di dalam hatinya, pada saat yang sama, dia melambaikan anggota tubuhnya dengan panik.</p>
+<p>	Dia meraih kaki Fang Yuan, tetapi tubuh Fang Yuan sekuat baja, bahkan tidak bergerak satu inci pun.</p>
+<p>	“Aku daging mati …” Sama seperti Zhou Quan putus asa, dia mendengar suara yang dikenalnya.</p>
+<p>	“Saudara Hei Tu, kasihanilah dia.” Shang Xin Ci bergegas ke tempat kejadian.</p>
+<p>	“Xin Ci, sepertinya kamu masih tahu pada akhirnya. Saya tahu Anda menghargai bakat, tetapi Anda tidak perlu mengemis demi dia. Orang seperti itu pantas mati.” Fang Yuan menjawab dengan dingin, tetapi berhenti mengerahkan kekuatan di kakinya.</p>
+<p>	“Tidak, saudara Hei Tu, aku harus bicara.” Shang Xin Ci sangat bertekad.</p>
+<p>	Dia melanjutkan: “Anda tidak menghabiskan banyak waktu dengan Sir Zhou Quan, saya mengenalnya lebih baik. Sir Zhou selalu bersikeras untuk membangun kembali klan Zhou. Dia menanggung beban berat di pundaknya, dia adalah orang dengan cita-cita mulia di hatinya. Dia pernah mengatakan kepada saya dengan rasa sakit yang luar biasa bahwa dia tidak bisa melupakan mantan anggota klannya. Sebelum istrinya meninggal, dia menyuruhnya untuk membangun kembali rumah mereka. Tahun-tahun ini, dia memikul beban berat dan telah bekerja keras untuk itu. Dia memiliki keluhannya … ”</p>
+<p>	“Apakah begitu?” Fang Yuan mengurangi kekuatan yang dia letakkan di kakinya, ekspresinya berubah.</p>
+<p>	“Kenapa aku tidak ingat pernah mengatakan itu padamu?” Zhou Quan merasa aneh, ketika istrinya meninggal, dia bahkan tidak ada di tempat kejadian.</p>
+<p>	Tapi dia segera mengerti, ini adalah tindakan yang dilakukan Shang Xin Ci dengan Fang Yuan.</p>
+<p>	Sebenarnya, Fang Yuan dan Shang Xin Ci masih berusaha merekrutnya!</p>
+<p>	Mereka menggunakan klan Shang sebagai panggung dan menampilkan pertunjukan yang bagus. Kata-katanya sebelumnya adalah tiketnya keluar dari kekacauan ini.</p>
+<p>	Itu tidak hanya menggambarkan kebaikan dan cinta Shang Xin Ci untuk orang-orang berbakat, itu juga memberinya jalan keluar dari kesulitan ini.</p>
+<p>	“Skema yang hebat, skema yang hebat memang… Saya adalah pemimpin klan Zhou, tetapi hari ini saya kalah dari anak-anak muda ini. Sungguh, generasi baru menggantikan yang lama. Zhou Quan menggertakkan giginya, mendesah tak berdaya.</p>
+<p>	Dia merasakan kemarahan, kebencian, tetapi juga kesedihan dan ketidakberdayaan.</p>
+<p>	“Jadi itu saja. Memikirkan bahwa Sir Zhou adalah orang yang memiliki cita-cita. Tapi Anda terlalu bodoh, membantu Xin Ci tidak bertentangan dengan aspirasi Anda untuk membangun kembali rumah Anda. Anda tidak takut mati karena tujuan Anda, saya terkesan dengan Anda. Tapi tahukah Anda, mati itu mudah, tetapi menahan rasa malu dan tetap hidup untuk cita-cita Anda, bergerak maju dengan tekanan pada Anda, itulah keberanian sejati. Fang Yuan berkata dengan keras.</p>
+<p>	Zhou Quan mendengar ini, dan tahu bahwa ini adalah kesempatan yang diberikan Fang Yuan kepadanya.</p>
+<p>	Ini kemungkinan besar yang terakhir juga.</p>
+<p>	Jika dia tidak menerimanya, hidupnya akan berakhir, tidak ada lagi kesempatan yang tersisa untuknya.</p>
+<p>	Berpikir demikian, lelaki tua ini berkata: “Huh! Generasi baru melahirkan jenius baru, setelah mendengarkan apa yang Anda berdua katakan, saya sangat tercerahkan!</p>
+<p>	Fang Yuan mengendurkan kakinya.</p>
+<p>	Shang Xin Ci sangat gembira, membantu Zhou Quan berdiri.</p>
+<p>	Zhou Quan menahan rasa sakit di tubuhnya, perlahan bangkit, lalu memberi hormat kepada Shang Xin Ci: “Zhou Quan menyapa Nona Xin Ci.”</p>
+<p>	…</p>
+<p>	“Apa katamu? Zhou Quan mengakui gadis itu sebagai tuannya?” Di ruang belajar, Shang Yi Fan mendengar ini dan membeku karena terkejut.</p>
+<p>	“Itu tidak mungkin! Saya tahu kepribadian Zhou Quan, bahkan saat Shang Ya Zi memimpin, dan mengendalikan semua toko, dia tidak bisa merekrutnya. Kemampuan apa yang dimiliki Shang Xin Ci ini, untuk berhasil mendapatkan kesetiaannya ?! ” Shang Yi Fan bereaksi dan berteriak keheranan.</p>
+<p>	“Ini benar-benar terjadi.” Zhang Tua menghela nafas: “Shang Xin Ci masih muda, dia secara alami tidak memiliki kemampuan. Tapi dia memiliki Fang Zheng dan Bai Ning Bing bersamanya, sejujurnya, saya meremehkan Fang Zheng, untuk berpikir bahwa dia sangat licik di bawah fasad yang lugas itu, dia dengan sengaja membuat masalah itu tidak mungkin diselesaikan, dan memaksa Zhou Quan untuk tunduk dia.”</p>
+<p>	“Jika Zhou Quan tidak menyerah, Fang Zheng akan membunuhnya di tempat. Saat ini, seluruh distrik toko sedang membicarakan masalah ini. Ada desas-desus di mana-mana, mengatakan bahwa Zhou Quan telah hidup sambil menanggung penghinaan dan rasa malu, untuk membangun kembali klannya. Setelah tercerahkan oleh Fang Zheng, ia memutuskan untuk bergabung dengan Shang Xin Ci yang memiliki kecintaan pada bakat. Reputasi Shang Xin Ci telah melonjak ke puncak sekarang!</p>
+<p>	Shang Yi Fan mendengar itu dan mengamuk: “Itu berarti semua upaya yang kita sia-siakan sebelumnya, menyebarkan desas-desus, malah membantu mereka? Pembohong, mereka semua pembohong! Semua rumor ini harus dikirim oleh mereka, bagaimana mungkin ada cerita yang begitu menyentuh, hmph!”</p>
+<p>	“Tuan muda Yi Fan, tenanglah, kompetisi belum berakhir, meskipun Shang Xin Ci memiliki beberapa orang sekarang, mereka mungkin tidak benar-benar setia padanya. Sekarang, kami masih memiliki bantuan nyonya, masih ada peluang besar untuk menang. ” Zhang Tua menganalisis dengan tenang.</p>
+<p>	Seperti yang dia sarankan, emosi Shang Yi Fan kembali normal.</p>
+<p>	Dia menggertakkan giginya, matanya bersinar dengan cahaya yang tidak menyenangkan: “Kamu benar, membangun kekuatan membutuhkan banyak waktu. Semua orang yang dia rekrut ini diancam atau dipaksa, bagaimana dia bisa mendapatkan kesetiaan mereka? Hehehe, selanjutnya, saya akan menimbulkan perselisihan di antara mereka, dan kemudian merebus mereka dengan uang, saya yakin itu akan berhasil! ”</p>
+<p>	…</p>
+<p>	Dengan Shang Xin Ci yang bertanggung jawab, Fang dan Bai sebagai wali, Zhou Quan membantu, dan kerjasama dari Wei De Xin dan saudara klan Xiong, bisnis intel di tahap pertempuran akhirnya didirikan.</p>
+<p>	Seperti yang diperkirakan Shang Xin Ci, begitu bisnis dimulai, itu menyebabkan banyak keributan dan reaksi.</p>
+<p>	Hari pertama mereka mulai, mereka mendapatkan kembali modal yang mereka investasikan.</p>
+<p>	Pada hari kedua, bisnis masih booming.</p>
+<p>	Pada hari ketiga, bisnis masih on fire.</p>
+<p>	Setelah tujuh hari, tiga ratus ribu batu purba Shang Xin Ci tumbuh menjadi empat ratus empat puluh ribu.</p>
+<p>	Skema Shang Yi Fan tidak membuat kemajuan. Kekuatan Shang Xin Ci sangat bersatu, dan semua orang tidak dapat digoyahkan. Kesatuan seperti itu membuat tuan muda lainnya merasa terkejut.</p>
+<p>	Shang Yi Fan panik, karena dia tahu: Jika Shang Xin Ci terus berkembang seperti ini, dengan reputasinya saat ini, dia pasti akan menjadi pemenang terakhir.</p>
+<p>	Dengan demikian, dia mulai menggunakan pengaruh ibunya untuk mempengaruhi petinggi klan Shang.</p>
+<p>	Bisnis intel Shang Xin Ci melibatkan tahap pertempuran, itu adalah topik yang sensitif. Para petinggi klan Shang mengadakan pertemuan dan hendak menghentikan operasi bisnis Shang Xin Ci, ketika Shang Yan Fei berdiri, dan menghapus semua keberatan, sepenuhnya mendukung putrinya.</p>
+<p>	Sikap Shang Yan Fei adalah pukulan terakhir bagi Shang Yi Fan.</p>
+<p>	Beberapa bulan kemudian, Shang Yi Fan dan pasukan ibunya kalah telak dari Shang Xin Ci.</p>
+<p>	Shang Xin Ci menjadi salah satu dari sepuluh tuan muda yang menggantikan Shang Ya Zi.</p>
+<p>	Tetapi rasa sakit karena perpisahan mengalahkan kegembiraannya akan kesuksesan.</p>
+<p>	“Saudara Hei Tu, apakah kamu terburu-buru?” Shang Xin Ci berjalan di luar kota, mengucapkan selamat tinggal.</p>
+<p>	“Kamu sudah menjadi tuan muda, dengan bakatmu, kamu pasti akan tumbuh dengan baik di sini. Xin Ci, tidak ada perjamuan yang tidak pernah berakhir, kita akan bertemu lagi di masa depan, jangan sedih.”</p>
+<p>	Fang Yuan menghibur, tetapi kemudian mengubah topik: “Sebelum saya pergi, saya memiliki sesuatu untuk mengingatkan Anda. Selalu pertahankan visi yang luas dan lihat ke depan, di atas sepuluh posisi tuan muda, masih ada pemimpin klan muda Shang Tuo Hai. Di atas Shang Tuo Hai, ada lima tetua klan Shang, ayahmu Shang Yan Fei, dan bahkan tetua tertinggi klan Shang…”</p>
+<p>	“Yakinlah saudaraku, saat itu, ketika Shang Tuo Hai menjadi pemimpin klan muda, dia memiliki kondisi yang sempurna. Tuan muda lainnya juga memiliki hubungan yang baik ketika mereka naik ke tampuk kekuasaan. Tetapi saya tidak memiliki keduanya, saya hanya dapat berinvestasi dalam sumber daya manusia, hanya dengan bakat saya dapat bersaing dengan mereka. Saudaraku, jika Anda butuh sesuatu, beri tahu saya, saya akan melakukan apa saja untuk membantu Anda! Kecemerlangan bersinar di mata Shang Xin Ci.</p>
+<p>	Kata-katanya menyebabkan Fang dan Bai memandangnya untuk kedua kalinya.</p>
+<p>	Seperti yang diharapkan dari pemimpin klan Shang masa depan, bakat wanita yang mengguncang dunia!</p>
+<p>	“Baiklah, sampai waktu berikutnya kita bertemu.” Fang Yuan menatap Shang Xin Ci dalam-dalam, sebelum berbalik untuk pergi.</p>
+<p>	Bai Ning Bing segera mengikuti di belakangnya.</p>
+<p>	Keduanya, satu mengenakan pakaian hitam dan lainnya putih, secara bertahap menghilang ke daerah pegunungan.</p>
+<p>	Shang Xin Ci dan dua pelayannya berdiri di tempat, menatap latar belakang keduanya tanpa bergerak.</p>
+<p>	“Saudara Hei Tu, gunung San Cha sangat berbahaya, harap berhati-hati!” Mata Shang Xin Ci berair saat dia berdoa untuknya di dalam hatinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

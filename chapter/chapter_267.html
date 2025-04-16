@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 267 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 267";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_266.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 267">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_268.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 267</h1>
+        <div class="text-left">
+<p>	Bab 267</p>
+<p>	Bab 267: Sangat meremehkan ketidakberdayaan Fang Yuan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Gu Yue Fang Zheng?” Mendengarkan laporan Wei Yang, Shang Yan Fei sedikit mengernyit.</p>
+<p>	Gu Yue adalah nama keluarga yang berbeda, Shang Yan Fei mencari melalui ingatannya dan segera menemukannya.</p>
+<p>	“Klan Gu Yue, salah satu dari tiga klan di gunung Qing Mao, memiliki sejarah ratusan tahun. Gunung Qing Mao…” Tatapan Shang Yan Fei menjadi cerah saat dia mengingat sebuah intel yang dia dapatkan lebih dari setengah tahun yang lalu.</p>
+<p>	Gunung Qing Mao diserang secara misterius dan dalam semalam, berubah dari gunung yang hijau dan hidup menjadi wilayah es dan salju yang mematikan.</p>
+<p>	Bahkan sampai sekarang, es dan salju di gunung Qing Mao belum sepenuhnya mencair. Tidak ada yang tahu apa yang terjadi di gunung Qing Mao, tetapi dari semua jenis jejak yang ditemukan di sana, orang-orang tahu telah terjadi pertempuran besar antara Master Gu.</p>
+<p>	Sekarang, kehancuran gunung Qing Mao diklasifikasikan sebagai peristiwa misterius dan sudah tersebar di seluruh perbatasan selatan. Mengenai apa yang menyebabkan ini, pendapat berbeda dari orang ke orang.</p>
+<p>	Namun, bagi orang-orang tertentu, jejak yang tertinggal di gunung Qing Mao membuatnya jelas. Rahasia sepuluh fisik ekstrem kurang lebih diketahui oleh para petinggi dunia Guru Gu.</p>
+<p>	Saat dia mendapatkan intel ini, Shang Yan Fei juga segera menebak ini disebabkan oleh salah satu dari sepuluh fisik ekstrem, Fisik Jiwa Es Gelap Utara.</p>
+<p>	“Jika itu masalahnya, asal usul Gu Yue Fang Zheng dapat dijelaskan. Kelompok yang dikirim untuk menyelidiki insiden di gunung Mu Bei juga mengirim surat yang mengatakan tidak ada hal yang mencurigakan.”</p>
+<p>	Shang Yan Fei menyusun garis besar perkiraan dari seluruh urusan dalam pikirannya.</p>
+<p>	“Sekarang, hanya ada satu keraguan yang tersisa. Mengapa mereka menyembunyikan identitas mereka dan bersembunyi di karavan?”</p>
+<p>	Shang Yan Fei sudah memiliki banyak dugaan, tetapi masih perlu diselidiki.</p>
+<p>	“Benar, kamu berdebat dengan mereka, bagaimana keterampilan mereka?” Shang Yan Fei bertanya.</p>
+<p>	Ekspresi Wei Yang serius saat dia dengan hormat melaporkan: “Jenius! Mengingat waktu, keduanya pasti akan melampaui saya. ”</p>
+<p>	“Oh, kamu memiliki pendapat yang tinggi tentang mereka?” Shang Yan Fei sedikit kagum.</p>
+<p>	We Yang mengangguk dan melanjutkan: “Mereka mungkin menyembunyikan kultivasi mereka dengan beberapa cacing Gu, tetapi karena mampu bertahan begitu lama dalam pertempuran, mereka setidaknya harus berada di peringkat tiga. Mempertimbangkan usia mereka yang masih muda, keduanya seharusnya memiliki bakat kelas A. ”</p>
+<p>	Shang Yan Fei tersenyum: “Tapi Wei Yang, Bakat kelas hanya mewakili bakat dan bukan segalanya. Anda, diri Anda sendiri, adalah bukti terbaik untuk ini. Anda hanya memiliki bakat kelas B tetapi telah menjadi salah satu penatua eksternal saya. Selanjutnya, berapa banyak talenta kelas A yang mati di tanganmu selama bertahun-tahun ini? ”</p>
+<p>	Dalam klan biasa, bakat kelas A adalah hal yang luar biasa.</p>
+<p>	Namun, bagi Klan Shang, mereka agak umum.</p>
+<p>	Salah satu alasannya adalah karena itu adalah klan besar dan ada banyak klan. Yang lainnya adalah karena mereka merekrut Master Gu iblis, Master Gu iblis yang membedakan diri mereka di arena pertempuran pasti memiliki bakat yang luar biasa. Dan alasan ketiga adalah karena kekayaan Shang Clan setinggi gunung, mereka memiliki kemampuan untuk membeli cacing Gu yang mengubah bakat.</p>
+<p>	“Kamu terlalu memujiku, tuan pemimpin klan.” Wei Yang dengan rendah hati berkata dan melanjutkan, “Saya juga mengerti logika ini, jadi saya lebih yakin keduanya luar biasa.”</p>
+<p>	“Mereka memiliki bakat tempur yang kaya dan memiliki semacam naluri bawaan terhadap situasi pertempuran, seolah-olah mereka dilahirkan untuk bertarung. Mereka juga tidak memiliki satu set lengkap cacing Gu, tetapi mereka mampu bertahan begitu lama hanya dengan dua hingga tiga Gu, itu benar-benar luar biasa.”</p>
+<p>	“Mengenai watak mereka, mereka tangguh dan tidak putus asa saat dirugikan. Ketika saya memberikan tekanan pada mereka, mereka mampu membuat terobosan dan terus menyesuaikan diri, mereka juga memiliki kerja tim yang diam-diam dan hebat. Saat pertempuran berlanjut, mereka mampu mempertahankan posisi mereka dengan lebih stabil, peningkatan mereka sangat jelas. ”</p>
+<p>	“Secara individu, keduanya memiliki beberapa perbedaan. Gu Yue Fang Zheng lugas, maju dengan keberanian yang tak tertandingi dan memiliki watak yang luhur. Adapun Bai Ning Bing itu, dia cerdas dengan tatapan tajam dan hanya bergerak ketika dia yakin akan hal itu, dia terus-menerus berusaha menemukan kelemahanku selama pertempuran. Secara khusus, Gu Yue Fang Zheng mengakui kehilangannya dengan tenang ketika saya mengatakan saya memiliki sumber cahaya Gu, dia berpikiran luas dan benar-benar memiliki hati yang lebih besar daripada manusia biasa.</p>
+<p>	“Pemimpin klan tuan, keduanya; satu adalah harimau muda dari daratan sementara yang lain adalah seekor naga laut . Satu Yang dan satu Yin, satu mendominasi dan satu lagi licik; kombinasi sempurna, kecemerlangan bintang kembar, masing-masing meningkatkan kekuatan satu sama lain. Jika kita bisa merekrut mereka, itu akan menjadi aset besar bagi Klan Shang!”</p>
+<p>	Shang Yan Fei tergerak.</p>
+<p>	Sebelumnya, dia tidak menempatkan Fang dan Bai di matanya, sekarang minatnya sangat terangsang saat dia mendengarkan Wei Yang.</p>
+<p>	“Wei Yang, kamu telah mengikutiku selama bertahun-tahun, aku percaya pada pandangan ke depanmu. Tetapi tidak perlu meremehkan diri sendiri, mereka mungkin belum tentu dapat mengungguli Anda bahkan setelah mereka dewasa. Anda terhalang oleh kurangnya bakat, jika tidak dengan bakat Anda, Anda akan lebih menonjol dari sekarang. Tidak perlu khawatir, jika reformasi Gu muncul, saya pasti akan membantu Anda mendapatkannya. ”</p>
+<p>	Reformasi Gu bisa meningkatkan bakat Guru Gu; itu sangat langka dan mahal.</p>
+<p>	Mata Wei Yang memerah karena emosi: “Saya tidak akan melupakan kebaikan ini selama saya hidup!”</p>
+<p>	“Saya, Shang Yan Fei, tidak akan pernah memperlakukan pengikut setia saya secara tidak adil. Pergi sekarang, terus layani mereka selama beberapa hari dan lihat apa pendapat mereka tentang Shang Clan dan apakah kita dapat merekrut mereka atau tidak. ”</p>
+<p>	“Ya, pemimpin klan!”</p>
+<p>…</p>
+<p>	Dalam sekejap mata, tiga hari berlalu.</p>
+<p>	Taman Nan Qiu.</p>
+<p>	Di ruang tunggu, Fang Yuan dan Shang Ya Zi duduk berhadapan.</p>
+<p>	Fang Yuan dengan santai mencicipi tehnya sementara ekspresi Shang Ya Zi terlihat agak tidak enak dilihat.</p>
+<p>	“Beberapa hari ini, saya dengan tulus datang untuk mencari Tuan, tetapi Anda telah menaikkan harga Anda lagi dan lagi. Pertama adalah enam ratus lima puluh ribu, tetapi Anda telah meningkatkannya dengan puluhan ribu setiap hari dan sekarang tuan benar-benar menginginkan delapan ratus ribu! Apakah tuan mungkin bermain dengan saya untuk menghabiskan waktu?” Shang Ya Zi merasa tertahan dan berbicara dengan gigi terkatup.</p>
+<p>	Jika sebelumnya, dia pasti sudah meledak marah dan menghancurkan cangkir teh di wajah Fang Yuan.</p>
+<p>	Tapi sekarang, dia tidak bisa melakukan itu.</p>
+<p>	Mengapa?</p>
+<p>	Karena orang ini bisa langsung mengadu kepada pemimpin klan!</p>
+<p>	Saya masih tidak tahu apa hubungan mereka dengan ayah tuan! Hari-hari ini, Wei Yang telah menemani mereka berkeliling kota. Orang macam apa Wei Yang itu? Dia dikenal sebagai jenderal ketiga dan merupakan ajudan tepercaya ayahanda! Tindakannya biasanya tidak mewakili dirinya sendiri, melainkan kehendak ayahanda! Tapi mengapa tuan ayah memberikan perlakuan hormat seperti itu kepada dua orang ini yang muncul entah dari mana?</p>
+<p>	Shang Ya Zi merasa terganggu dan bingung.</p>
+<p>	Sejak hari itu, dia dengan gila menyelidiki keduanya.</p>
+<p>	Tapi itu sia-sia.</p>
+<p>	Dia hanyalah seorang tuan muda, otoritasnya terbatas pada kota klan Shang. Dia jauh dari kemampuan besar Shang Yan Fei.</p>
+<p>	Investigasi tidak membuahkan hasil, jadi dia terpaksa menebak-nebak.</p>
+<p>	Mengapa tuan ayah mengungkapkan niat baiknya? Apakah karena warisan di tangan mereka? Tidak, warisan mungkin menarik bagi klan biasa, tetapi bukan milik kita. Kecuali itu adalah warisan dari peringkat enam Gu Immortal, itu hanya akan menjadi lapisan gula pada kue.</p>
+<p>	Atau karena mereka berbakat? Tidak mungkin, ada begitu banyak Master Gu iblis yang setia di tahap pertempuran, mereka akan mati untuk bergabung dengan klan Shang, dan sangat terampil dalam pertempuran. Jika ayah tidak tertarik pada orang-orang itu, mengapa dia menginginkan keduanya?</p>
+<p>	Tidak peduli bagaimana dia memikirkannya, Shang Ya Zi tidak bisa memikirkan jawaban.</p>
+<p>	Ketika dua tebakan ini ditolak, sebuah pikiran muncul di benak Shang Ya Zi.</p>
+<p>	Apakah kedua ayah ini anak haram? Bukankah Shang Tuo Hai, pemimpin klan muda saat ini, anak haram ayah?</p>
+<p>	Shang Ya Zi merenungkannya lagi dan merasa itu tidak mungkin.</p>
+<p>	Implikasi menjadi garis keturunan ayah terlalu besar; ketika Shang Tuo Hai ditemukan, dia dilindungi dan dijaga dengan kuat, tidak seperti keduanya.</p>
+<p>	Shang Ya Zi terus menderita karena ini tetapi tidak dapat membuat kemajuan.</p>
+<p>	Dan karena ini, dia bahkan lebih takut pada Fang dan Bai. Hal-hal yang paling menakutkan seringkali tidak diketahui.</p>
+<p>	Fang Yuan tahu tuan muda Shang Ya Zi ini menjadi semakin gelisah dan tidak sabar selama beberapa hari ini.</p>
+<p>	Inilah yang ingin dia lihat.</p>
+<p>	Ini juga salah satu alasan dia sengaja menaikkan harga setiap hari.</p>
+<p>	Jika dia langsung mengumpulkan enam ratus lima puluh ribu hingga delapan ratus ribu, negosiasi pasti akan gagal. Tetapi dengan menaikkan harga puluhan ribu kali dan lagi, itu malah akan melemahkan perlawanan Shang Ya Zi di hatinya yang teguh.</p>
+<p>	Waktunya sudah matang.</p>
+<p>	Fang Yuan meletakkan cangkir tehnya dan tersenyum: “Semuanya memiliki nilai. Ini mungkin hanya warisan Guru Gu kepada orang lain, tetapi bagi Anda, tuan muda yang terhormat, ini adalah harapan terakhir untuk melindungi status tuan muda Anda. ”</p>
+<p>	“Karena itu, harganya harus sedikit lebih tinggi, dan saat tanggal evaluasi semakin dekat, harga untuk warisan ini secara alami akan terus meningkat. Jadi, saya telah menaikkan harganya setiap hari, bukankah ini sesuatu yang alami? ”</p>
+<p>	“Hehe, jika harganya diturunkan, bagaimana itu bisa menjadi harapan terakhirmu? Bagaimana itu bisa layak untuk posisi penting seperti tuan muda Shang Clan? Lagi pula, hanya tuan muda Klan Shang yang bisa bersaing untuk posisi pemimpin klan muda. ”</p>
+<p>	Mata Shang Ya Zi bergetar karena marah.</p>
+<p>	Ini pemerasan terang-terangan, orang ini menaikkan harga sesuka hatinya!</p>
+<p>	Bagaimana dia bisa begitu tak tahu malu?</p>
+<p>	Shang Ya Zi berharap dia bisa memotong Fang Yuan menjadi beberapa bagian. Tapi dia memikirkan posisi tuan muda dan nyaris tidak bisa menahan diri: “Kamu benar-benar licik. Jika saya menghabiskan delapan ratus ribu, itu akan menjadi kerugian total dan malah akan menurunkan evaluasi saya. Para tetua yang bertanggung jawab atas evaluasi itu tidak bodoh! Jadi, saya tidak bisa membelinya dengan harga ini. ”</p>
+<p>	Fang Yuan sudah mengharapkan jawaban ini; sudut bibirnya sedikit melengkung membentuk senyuman: “Oleh karena itu, saya punya solusi yang bagus. Saya akan secara terbuka menjualnya kepada Anda dalam enam ratus lima puluh ribu, tetapi Anda sebenarnya akan memberi saya delapan ratus ribu. Anda akan mempertahankan posisi tuan muda Anda dan saya akan mendapatkan harga yang wajar, ini adalah situasi win-win yang lengkap. ”</p>
+<p>	Ekspresi Shang Ya Zi segera berubah dan menatap Fang Yuan dengan mata terbelalak: “Kamu ingin aku membuat akun palsu? Ini tidak mungkin! Jika saya ketahuan, tidak peduli kapan, status tuan muda saya akan dicabut dan terlebih lagi, saya akan menerima hukuman berat. ”</p>
+<p>	Fang Yuan memberikan tatapan sembrono: “Kamu tidak bisa mengatakan itu. Siapa yang mengatakan sesuatu tentang akun palsu? Saya hanya menjual resep rahasia kepada Anda, dan Anda merasa bahwa saya adalah orang yang jujur, dengan baik hati memberi saya beberapa batu purba sebagai hadiah. Tidak ada hubungan antara keduanya! ”</p>
+<p>	Pada saat itu, Shang Ya Zi hanya bisa melihat Fang Yuan, tercengang dan tidak bisa berkata-kata.</p>
+<p>	Dia sebelumnya mengira Fang Yuan tidak tahu malu, tetapi sekarang melihat bahwa dia sangat meremehkan ketidakberdayaan orang ini!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

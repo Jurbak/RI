@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 512 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 512";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_511.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 512">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_513.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 512</h1>
+        <div class="text-left">
+<p>	Bab 512 – Teman Aliansi yang Andal</p>
+<p>	512 Teman Aliansi yang Andal</p>
+<p>	Penerjemah:ChibiGeneral | Editor: ChibiJenderal Dong Fang Yu Liang menghayati namanya sebagai jalur kebijaksanaan Guru Gu, dengan akurat menghitung reaksi Hei Lou Lan.</p>
+<p>	Gerakan pembunuh jiwa kombinasi tiga hati hanyalah umpan untuk memikat Hei Lou Lan agar menyerang. Kemudian, Dong Fang Yu Liang dapat dengan santai membuka kartu asnya – gerakan mematikan yang dirancang khusus untuk membatasi pusaran gelap dan menjebak Hei Lou Lan.</p>
+<p>	Hei Lou Lan telah berada di tenda utama tetapi sekarang dia terjebak; pertahanan di sekitar Fang Yuan tiba-tiba berkurang dengan jumlah yang sangat besar.</p>
+<p>	Mengambil kesempatan ini, Ahli Pedang Bayangan Bian Si Xuan muncul dan menyerbu ke tenda utama untuk sekali lagi membunuh Fang Yuan.</p>
+<p>	Selama Fang Yuan meninggal, kelompok serigala akan segera bubar dan skala kemenangan akan sangat condong ke arah tentara aliansi Dong Fang.</p>
+<p>	Untuk memastikan taktik pemenggalan pemimpin ini berhasil, Dong Fang Yu Liang tidak hanya mengatur Ahli Pedang Bayangan, tetapi juga Guru Gu yang lebih kuat.</p>
+<p>	Dia adalah Dong Po Kuang yang dikenal sebagai ‘Petir Terbang’! Salah satu dari sedikit master terbang di dataran utara, jalur kilat Gu Master dengan kultivasi tingkat atas peringkat empat. Dia belum bergerak bahkan dalam pertempuran kacau sebelumnya, dengan sabar menunggu sampai sekarang untuk mengejutkan dunia dengan satu gerakan!</p>
+<p>	“Lindungi Raja Serigala!”</p>
+<p>	“Bajingan licik, jangan berpikir kamu bisa melakukan apa yang kamu inginkan !!”</p>
+<p>	“Raja Serigala, cepat pergi!”</p>
+<p>	Enam peringkat tiga Master Gu di sekitar tenda utama melompat satu demi satu, mencoba menahan Dong Po Kuang dan Bian Si Xuan.</p>
+<p>	“Enyahlah !!” Dong Po Kuang dengan dingin berteriak, kilat tiba-tiba berderak di sekelilingnya.</p>
+<p>	Tiga Master Gu yang menghalanginya tersambar petir; cacing Gu defensif mereka langsung hancur, dua langsung mati sementara satu terluka parah.</p>
+<p>	“Hehehe.” Bian Si Xuan terkekeh pelan, tubuhnya berubah menjadi bayangan dan dengan cepat bergerak seperti ular berbisa melalui Gu Master yang menghalanginya, dan bergerak melewati mereka.</p>
+<p>	“Apa?”</p>
+<p>	“Kecepatan seperti itu …”</p>
+<p>	“Apakah kekuatan sejati Ahli Pedang Bayangan ini?”</p>
+<p>	Tiga Master Gu terkejut, mereka menatap ke belakang hanya untuk melihat sosok punggung Bian Si Xuan yang menggoda.</p>
+<p>	Mereka ingin mengejar, tetapi ternyata mereka tidak bisa bergerak sama sekali. Tangan dan kaki mereka diikat oleh bayangan gelap, mengikat mereka dengan kuat di tempat.</p>
+<p>	Menghadapi serangan di atas dan di bawah serangan dari Dong Po Kuang dan Ahli Pedang Bayangan, Fang Yuan memucat, tatapannya menunjukkan ekspresi panik saat dia mundur dengan panik dan berteriak: “Cepat, seseorang datang melindungiku!”</p>
+<p>	“Raja Serigala, tidak perlu khawatir, Hei Xiu Yi akan menjagamu.” Satu orang berdiri di belakang Fang Yuan, berpakaian hitam dan memiliki ekspresi tak tergoyahkan. Dia berjalan maju beberapa langkah dan berdiri di depan Fang Yuan.</p>
+<p>	“Mencari kematian!” Dong Po Kuang berteriak, petir di sekujur tubuhnya berderak keras dan berubah menjadi tombak pertempuran yang kemudian dia tikamkan ke arah Hei Xiu Yi.</p>
+<p>	Bian Si Xuan mendengus dan menjentikkan pergelangan tangannya dengan ringan, segera mengeluarkan semburan pedang bayangan.</p>
+<p>	Ekspresi Hei Xiu Yi tidak berubah pada serangan gabungan dari dua ahli ini. Dia menyatukan telapak tangannya di depan dadanya dan mentransfer esensi purba.</p>
+<p>	LEDAKAN!</p>
+<p>	Detik berikutnya, pertahanannya sepenuhnya diaktifkan.</p>
+<p>	Lima puluh enam perisai tulang terbang terbang bersama dan menghalangi di depannya.</p>
+<p>	Lingkaran hijau terbang di atas kepalanya dan menerangi jarak seratus langkah.</p>
+<p>	Cahaya metalik seperti besi hitam membentuk satu set baju besi tebal yang kemudian menutupinya dari atas ke bawah.</p>
+<p>	Sembilan wajah hantu merintih dan menangis saat mereka berputar di sekelilingnya.</p>
+<p>	Pada saat yang sama, angin minyak berwarna coklat tua berhembus di antara perisai tulang yang beterbangan.</p>
+<p>	Tombak petir Dong Po Kuang menembus tujuh perisai terbang dan membuat lubang melalui angin minyak coklat tua, tetapi terhalang oleh baju besi hitam.</p>
+<p>	Pedang bayangan Bian Si Xuan membombardir perisai, menghancurkan delapan belas perisai tetapi digagalkan oleh angin minyak; pedang bayangan tampaknya telah jatuh ke rawa saat momentum mereka menyebar dan tidak lagi menjadi ancaman.</p>
+<p>	Hei Xiu Yi adalah ahli Hei Lou Lan dan juga salah satu dari tiga komandan pasukan elit panji hitam, ahli pertahanan.</p>
+<p>	Menghadapi pertahanan khusus Hei Xiu Yi, Dong Po Kuang dan Bian Si Xuan sebenarnya tertunda untuk sementara waktu, tidak dapat menerobos.</p>
+<p>	Hei Xiu Yi telah menderita kekalahan yang mengerikan selama pertempuran dengan Mo Shi Kuang; itu tidak berarti dia lemah tetapi musuhnya terlalu kuat, seorang ahli top di seluruh dataran utara dalam perjuangan untuk Istana Kekaisaran ini.</p>
+<p>	Sekarang, menghadapi kekuatan gabungan dari Ahli Pedang Terbang dan Pedang Bayangan, Hei Xiu Yi melindungi di sana-sini, dengan kuat melindungi Fang Yuan yang berada di belakangnya selama selusin gerakan.</p>
+<p>	Perangkat Gu-nya telah melengkapi cacing Gu yang berfokus pada pertahanan dan telah dipilih dengan cermat.</p>
+<p>	Dong Po Kuang dan Bian Si Xuan mencoba menerobos beberapa kali, tetapi semuanya gagal.</p>
+<p>	Buntut dari pertempuran ini menyebabkan rasa sakit yang parah pada badak berkepala dua. Badak raksasa menjerit kesakitan dan menghentakkan kakinya, dengan ceroboh menyerbu di medan perang tanpa mempertimbangkan sekutu atau musuh.</p>
+<p>	Ekspresi Hei Xiu Yi berubah lebih berat.</p>
+<p>	Esensi purbanya dengan cepat menipis karena pertempuran yang intens ini, sudah mencapai dasar. Sementara pihak lain memiliki dua orang dan konsumsi esensi purba mereka adalah setengah dari Hei Xiu Yi.</p>
+<p>	Hei Xiu Yi kini dihadapkan pada pilihan yang sulit.</p>
+<p>	Pilihan pertama adalah untuk terus bertahan sampai mati tanpa mempedulikan pengeluaran esensi purbanya dan berharap Hei Lou Lan atau yang lainnya akan datang tepat waktu untuk mendukungnya. Tapi sekarang badak berkepala dua itu mengamuk dengan gila-gilaan dan sudah melakukan perjalanan jauh; seberapa tinggi kemungkinan bala bantuan untuk melintasi medan perang dan tiba tepat waktu?</p>
+<p>	Pilihan kedua adalah untuk melestarikan esensi purba. Tetapi dengan ini, pertahanannya akan jatuh dan peluang musuh untuk menerobos akan meningkat secara dramatis. Jika mereka bisa melewatinya, Fang Yuan yang berada di belakangnya akan berada dalam bahaya besar.</p>
+<p>	‘Apa yang harus saya pilih?’</p>
+<p>	Pandangan ragu-ragu melintas di mata Hei Xiu Yi, tapi segera digantikan oleh tekad.</p>
+<p>	Dia mulai perlahan-lahan mengurangi pertahanan dan tidak lagi terlalu aktif menghadapi serangan musuh. Dong Po Kuang dan Bian Si Xuan segera merasakan perubahan pada Hei Xiu Yi; mereka menyerang beberapa kali dan mengambil beberapa risiko, dan hampir berhasil.</p>
+<p>	Bahkan jika Raja Serigala memiliki identitas penting yang menyangkut seluruh situasi, bahkan jika Hei Xiu Yi ditunjuk oleh Hei Lou Lan untuk membela Chang Shan Yin, tetapi pada saat kritis ini ketika dia dalam bahaya, Hei Xiu Yi tidak dapat memberikan atas hidupnya sendiri.</p>
+<p>	“Jika Lord Hei Lou Lan di belakangku, aku pasti akan mempertaruhkan nyawaku untuk melindunginya. Tapi Chang Shan Yin hanyalah orang luar, selalu bersikap begitu arogan dan meremehkanku, mengapa aku harus mengorbankan hidupku untuk orang seperti itu? Bahkan jika Raja Serigala mati, kami masih memiliki pasukan panji hitam dan masih merupakan lawan yang sepadan. Ya, saya harus menyelamatkan diri dan terus memberikan pelayanan saya kepada suku.”</p>
+<p>	Pikiran Hei Xiu Yi melonjak dengan cepat untuk membenarkan dirinya sendiri dan secara bertahap mulai memiliki hati nurani yang bersih.</p>
+<p>	Dia awalnya menjaga Fang Yuan, tetapi sekarang hanya menjaga dirinya sendiri, sehingga konsumsi esensi purbanya segera melambat.</p>
+<p>	“Sekarang adalah waktunya, bayangan Gu yang tumpang tindih!” Tiba-tiba, Bian Si Xuan melihat celah di pertahanan, matanya bersinar dengan cahaya yang tajam saat dia mengambil kesempatan ini dan mengaktifkan cacing Gu yang dipinjamkan Dong Fang Yu Liang padanya.</p>
+<p>	Gu bayangan yang tumpang tindih ini adalah Gu peringkat empat langka yang sangat sulit ditemukan di pasar dan harganya sebanding dengan banyak Gu peringkat lima.</p>
+<p>	Awalnya, Bian Si Xuan telah setuju dengan Dong Fang Yu Liang agar Gu ini menjadi hadiahnya begitu dia membunuh Fang Yuan.</p>
+<p>	Tapi pembunuhan Bian Si Xuan gagal dan ledakan otak yang dialami Gu juga ditangani oleh Fang Yuan; dengan sifatnya yang bangga, dia secara alami tidak akan menerima bayangan Gu yang tumpang tindih ini. Tetapi sebelum pertempuran ini, Dong Fang Yu Liang telah meminjamkan Gu ini atas inisiatifnya sendiri, hanya untuk berada di sisi yang aman.</p>
+<p>	Bayangan Gu yang tumpang tindih mungkin hanya Gu peringkat empat bagi yang lain, tetapi bagi Bian Si Xuan, itu bisa meningkatkan kekuatan pertempurannya secara eksplosif dan bahkan lebih berharga daripada peringkat lima Gu baginya.</p>
+<p>	Di bawah penggunaan Gu bayangan yang tumpang tindih, beberapa pedang bayangan Bian Si Xuan saling menutupi dan hanya dalam sedetik, hanya satu pedang yang tersisa dari pedang bayangan yang meluap.</p>
+<p>	Pedang bayangan ini gelap seperti jurang dan seperti benda padat; semua kekuatan ofensif dari pedang bayangan telah disatukan di dalamnya.</p>
+<p>	Bian Si Xuan menusukkan pedang ke depan; pedang itu dengan mudah menembus pertahanan Hei Xiu Yi seperti pisau yang memotong tahu, dan menusuk ke arah Raja Serigala.</p>
+<p>	Pertahanan yang telah bertahan lama akhirnya hancur!</p>
+<p>	Dong Po Kuang menghela napas lega pada adegan ini; dia terus menahan Hei Xiu Yi untuk memberikan kesempatan kepada Bian Si Xuan.</p>
+<p>	Tapi Hei Xiu Yi tidak peduli tentang ini karena dia sudah memiliki niat untuk mundur. Sekarang setelah Ahli Pedang Bayangan menyerbu ke arah Chang Shan Yin, ini adalah kesempatan baginya untuk mundur, mengapa dia tidak mengambil kesempatan ini? Karena itu, dia dengan cepat mundur dan langsung melompat dari punggung badak berkepala dua.</p>
+<p>	Dong Po Kuang menatap sosok Hei Xiu Yi yang melarikan diri dengan kaget, dia ragu sejenak sebelum berpikir bahwa lebih baik membunuh Raja Serigala dengan cepat, jadi dia tidak mengejar Hei Xiu Yi.</p>
+<p>	Tetapi ketika dia melihat ke belakang, dia melihat pedang bayangan Bian Si Xuan telah menembus ke dada Chang Shan Yin.</p>
+<p>	Bian Si Xuan menusuknya begitu dalam sehingga hanya gagang pedang bayangan yang tersisa di luar; pedang telah menembus dada Fang Yuan dan sebagian besar mencuat melalui punggungnya.</p>
+<p>	“Raja Serigala, ingat, orang yang membunuhmu adalah Ahli Pedang Bayangan Bian Si Xuan!” Mata Bian Si Xuan memerah, kegembiraan memenuhi wajahnya.</p>
+<p>	Raja Serigala terkenal yang namanya telah menyebar ke seluruh dataran utara mati di tangannya. Kemuliaan ini, pencapaian pertempuran yang brilian ini, menyebabkan seluruh tubuhnya bergidik dalam kebahagiaan.</p>
+<p>	“Ini sudah berakhir!” Dong Po Kuang juga mengangkat alisnya dengan gembira.</p>
+<p>	“Raja Serigala telah mati, pasukanku sekarang berada di atas angin dan kemenangan ada dalam genggaman.” Di kejauhan, Dong Fang Yu Liang yang sedang mengamati pertempuran dengan seorang detektif Gu, mengepalkan tinjunya dengan gembira.</p>
+<p>	Dia mengangkat kepalanya dan tersenyum dengan tenang pada Hei Lou Lan yang bersaing dengan pusaran air awan: “Hei Lou Lan, Chang Shan Yin telah dipenggal. Sekarang berhenti dan akui kekalahanmu, aku akan memberimu posisi seorang jenderal dan juga kesempatan untuk memasuki Istana Kekaisaran.”</p>
+<p>	Tapi yang membuatnya terkejut adalah Hei Lou Lan tidak hanya tidak marah tetapi malah mengungkapkan senyum jahat: “Dong Fang Yu Liang, perhatikan baik-baik dengan mata anjingmu!”</p>
+<p>	Tepat pada saat ini, seruan kaget Bian Si Xuan dan Dong Po Kuang muncul dari punggung badak berkepala dua.</p>
+<p>	“Apa?” Dong Fang Yu Liang memiliki firasat yang sangat buruk dan segera menggunakan Gu investigasinya untuk menatap ke depan.</p>
+<p>	Dia melihat ‘Chang Shan Yin’ sudah berubah menjadi genangan air. Beberapa cacing Gu terbang keluar dengan hanya gambar air Gu yang tersisa di air yang hampir tertusuk menjadi dua oleh pedang bayangan dengan hanya lapisan tipis kulit yang menahan tubuhnya.</p>
+<p>	Ini adalah gambar air Gu dari Setan Air Hao Ji Liu.</p>
+<p>	Sebelumnya, dia telah menggunakan gambar air Gu di majelis pahlawan untuk menipu semua orang dengan menganggapnya sebagai tubuh asli, dan mampu membunuh Anak Hilang Api Chai Ming.</p>
+<p>	Sebelum pertempuran besar ini, Fang Yuan telah mempertimbangkan metode ini dan membuat rencana dengan Hei Lou Lan. Untuk mencegah bocornya berita, pengaturan ini hanya diketahui oleh mereka bertiga.</p>
+<p>	Tubuh asli Fang Yuan tidak pernah berada di tenda utama, melainkan bersembunyi di sudut medan perang. Dengan perawatan serigala Gu, dia telah mengamati medan perang dan memerintahkan kelompok serigala untuk bertarung. Dialog dengan Hei Lou Lan sebelumnya juga merupakan fasad yang disiapkan dengan menggunakan serangkaian cacing Gu.</p>
+<p>	“Sialan, ini palsu.”</p>
+<p>	“Di mana Chang Shan Yin yang asli?”</p>
+<p>	Ekspresi Bian Si Xuan dan Dong Po Kuang berubah sangat tidak sedap dipandang; mereka telah berjuang sangat keras untuk waktu yang lama tetapi hasilnya adalah mereka ditipu!</p>
+<p>	ChibiGeneral ChibiGeneral TRANSLATOR Bisakah Chang Shan Yin yang asli tolong berdiri? Oh tunggu, dia sudah mati.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

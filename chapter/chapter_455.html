@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 455 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 455";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_454.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 455">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_456.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 455</h1>
+        <div class="text-left">
+<p>	Bab 455 – Serangan Malam</p>
+<p>	Bab 455: Serangan Malam</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ada beberapa bintang di langit.</p>
+<p>	Angin yang menusuk tulang bertiup melalui padang rumput di malam hari.</p>
+<p>	Dua serigala punuk bergerak sepanjang malam ini; membawa Gu Master investigasi suku Ge, satu tua dan satu muda.</p>
+<p>	“Huff huff huff, sangat dingin.” Tuan Gu muda meringkuk tubuhnya dan meniupkan udara panas.</p>
+<p>	“Aku menyuruhmu memakai beberapa pakaian lagi, tetapi kamu tidak mau. Ini disebut menderita karena tidak mendengarkan orang tuamu .” Tuan Gu tua itu tertawa, dia mengenakan jubah kulit tebal dengan lengan panjang dan sepatu bot panjang, bersama dengan topi bulu; dia tidak merasakan sedikit pun kedinginan.</p>
+<p>	“Paman, ini pertama kalinya aku kepanduan, aku kurang pengalaman.” Tuan Gu muda bergumam dengan suara lembut sebelum bersumpah, “F * ck, ketika saya pergi untuk pramuka besok, saya pasti akan mengenakan pakaian yang paling tebal.”</p>
+<p>	“Seharusnya tidak terlalu tebal. Pakaian yang terlalu tebal hanya akan mempengaruhi pergerakanmu dalam pertempuran. Selain itu, Anda cenderung tertidur jika terlalu hangat. Kami adalah mata suku Ge, kami harus waspada setiap saat. Yang terbaik adalah pakaian yang akan membuat Anda tetap hangat, sehingga Anda akan merasa dingin jika Anda diam lama, ini akan mendorong Anda untuk terus kepramukaan. Master Gu tua membagikan pengalamannya dengan sungguh-sungguh.</p>
+<p>	Itu sudah hari ketiga sejak pertempuran dengan serigala penyu.</p>
+<p>	Rekan tua Gu Master telah meninggal di medan perang, sehingga Gu Master muda dikirim untuk menutupi celah; Tuan Gu muda masih belum berpengalaman dan membutuhkan bimbingan Tuan Gu yang lama.</p>
+<p>	“Paman …” Tuan Gu muda baru saja akan membuka mulutnya.</p>
+<p>	“Mendiamkan!” Tuan Gu tua tiba-tiba mengulurkan tangannya untuk memberi tanda berhenti, matanya menyipit dan melihat cahaya yang tiba-tiba muncul jauh.</p>
+<p>	“Apa itu?” Tuan Gu yang lama segera berjaga-jaga, dia menggunakan Gu investigasinya tetapi tidak dapat melihat apa pun.</p>
+<p>	“Nak, gunakan Gu tangan-telingamu untuk mendengarkan!” Tuan Gu tua memerintahkan.</p>
+<p>	“Ya!” Tuan Gu muda tidak berani gegabah, dia segera membalikkan tubuhnya dan turun dari punuk serigala dan mengulurkan tangan kanannya.</p>
+<p>	Dia memindahkan esensi purba ke telapak tangan kanannya; rumput tumbuh dari telapak tangan, menciptakan tunas daging. Tunas daging kemudian membuka untuk membentuk telinga.</p>
+<p>	Pria muda itu dengan erat menempelkan telinga ini ke tanah dan mendengarkan dengan penuh perhatian.</p>
+<p>	“Tidak ada yang lain selain suara angin.” Tuan Gu muda melakukan yang terbaik untuk mendengarkan tetapi tidak mendapatkan hasil.</p>
+<p>	Dia tertawa: “Paman, apakah kamu mencoba menakutiku? Bahkan tidak ada kentut.”</p>
+<p>	“Pertempuran baru saja berakhir, jadi mungkin aku terlalu gugup.” Tuan Gu tua menghela nafas. Dia kembali melihat ke kejauhan, tapi tidak ada yang aneh; dia merasa penglihatannya mungkin kabur sebelumnya.</p>
+<p>	“Apa yang perlu dikhawatirkan, ada pemimpin suku tua di sini dan kami juga memiliki Raja Serigala Chang Shan Yin bersama kami. Tidak perlu takut bahkan jika sekelompok serigala penyu datang.” Tatapan pemuda itu melintas ketika dia berbicara tentang Fang Yuan, tidak dapat menyembunyikan pemujaan di matanya.</p>
+<p>	“Ya, memang keberuntungan suku kita untuk mendapatkan bantuan dari Raja Serigala.” Tuan Gu tua menghela nafas saat dia mengingat adegan di medan perang.</p>
+<p>	wah wah wah!</p>
+<p>	Tiba-tiba, suara panah yang bergerak cepat di udara menyebar ke arah mereka!</p>
+<p>	“Siapa?” Gu Master tua berteriak, tanpa sadar dia melompat dari punuk serigala dan berguling dengan mulus beberapa kali.</p>
+<p>	Tuk buk …</p>
+<p>	Tombak tulang tajam menembus tanah satu demi satu.</p>
+<p>	“Serangan musuh!” Master Gu tua memikirkan hal ini saat pertama. Dia dengan cepat berdiri dan buru-buru memperingatkan ke arah Tuan Gu muda.</p>
+<p>	Pemuda itu telah tertusuk oleh tombak tulang dan tewas di tempat.</p>
+<p>	Hati Tuan Gu tua berkedut, tetapi dia tidak punya waktu untuk berduka, segera mengeluarkan sinyal Gu dari lubangnya.</p>
+<p>	Namun sebelum dia bisa mengaktifkannya, dia terkena serangan fatal.</p>
+<p>	Dia dengan kaku berdiri di tempat seperti patung. Garis darah perlahan muncul di lehernya, menjadi lebih jelas dan lebih jelas.</p>
+<p>	Akhirnya, kepalanya condong ke samping dan jatuh ke tanah, benar-benar terpisah dari leher.</p>
+<p>	Darah segar menyembur keluar seperti geyser dari lehernya.</p>
+<p>	Beberapa sosok berjalan keluar dari kegelapan, memimpin mereka adalah tetua luar suku Man, Shi Wu. Dia melihat kedua mayat itu dan dengan bangga berkata: “Semut-semut ini, membunuh mereka semudah membalik telapak tanganku.”</p>
+<p>	“Tuan tetua itu tangguh!”</p>
+<p>	“Dengan tuan tua di sini, investigasi Gu Masters suku Ge hanyalah cangkang kosong!”</p>
+<p>	Beberapa Master Gu yang mengikuti di belakang merasa tersanjung.</p>
+<p>	Shi Wu menyipitkan matanya dalam kegembiraan dan melihat ke arah pasukan suku Ge: “Hmph, suku Ge ini bisa menang lebih awal karena kepanduan mereka, mampu membuat persiapan yang cukup sebelumnya. Kali ini, pemimpin suku tuan telah mengirim hampir semua tetua, suku Ge tidak akan bisa lepas dari malapetaka kali ini! Hehehe, saya benar-benar ingin melihat ekspresi kaget dan ketakutan pada orang-orang ini ketika sepuluh ribu malam serigala menyerang mereka sekaligus. ”</p>
+<p>	Suku Ge mungkin sudah bergerak selama beberapa hari, meninggalkan lembah Hong Yan dan berhasil mengalahkan kelompok serigala penyu, tetapi suku Man tidak berniat untuk membiarkan mereka pergi.</p>
+<p>	Tiga hari setelah serangan kelompok serigala penyu, suku Man Gu Masters secara diam-diam memimpin kelompok serigala malam untuk melakukan serangan gelombang kedua terhadap suku Ge. Pada saat yang sama, tetua suku Man juga pindah untuk membunuh sejumlah besar Master Gu investigasi suku Ge.</p>
+<p>	Konspirasi besar melawan suku Ge sudah berlangsung.</p>
+<p>	Ketika sepuluh ribu kelompok serigala ini ditemukan, mereka hanya berjarak seratus li dari perkemahan.</p>
+<p>	“Serangan serigala! Serangan serigala!” Seorang Guru Gu investigasi yang mengamati dari menara pengawal berteriak.</p>
+<p>	Whoosh Whoosh…</p>
+<p>	Beberapa sinyal Gu ditembakkan ke langit, meledak menjadi kembang api yang cerah.</p>
+<p>	“Semua orang bangun, ada serangan, itu adalah sekelompok serigala malam sepuluh ribu !!” Suku Ge yang tertidur lelap terkejut saat bangun.</p>
+<p>	“Cepat, beri tahu pemimpin suku!” Investigasi Gu Masters bergegas secepat mungkin.</p>
+<p>	Sosok manusia secara bertahap muncul dari mana-mana di kamp suku Ge; keraguan dan teriakan panik bercampur membentuk keributan.</p>
+<p>	Di tenda utama, ekspresi pemimpin suku Ge memucat ketika dia mendapat berita ini.</p>
+<p>	“Tuan Gu investigasi terkutuk itu!” Ini adalah pikiran pertama dari pemimpin suku tua.</p>
+<p>	Tapi dia segera mengerutkan kening.</p>
+<p>	Bahkan jika serigala malam sulit dideteksi di malam hari, tetapi dengan begitu banyak serigala malam, mengapa Gu Master investigasi tidak melapor lebih cepat?</p>
+<p>	Indra tajamnya mencium jejak konspirasi.</p>
+<p>	Dia dengan cepat melemparkan pikiran ini ke belakang pikirannya. Ini bukan waktunya untuk memikirkan ini!</p>
+<p>	“Serigala malam sudah begitu dekat dengan perkemahan, tidak ada waktu untuk membangun garis pertahanan! Apa yang kita lakukan?””</p>
+<p>	Dalam kegelapan tanpa batas ini, tidak ada informasi yang jelas tentang situasi musuh.</p>
+<p>	Pemimpin suku Ge hanya tahu kelompok serigala ini besar, setidaknya sepuluh ribu kelompok serigala. Tapi dia tidak tahu apakah ada kelompok serigala lain atau apakah Gu Master suku Man bersembunyi di sekitarnya.</p>
+<p>	Pada saat yang mendesak ini, pemimpin suku Ge tidak bisa memikirkan tindakan balasan dan hanya bisa mengirim perintah: “Kirim perintahku, semua Master suku Ge Gu akan berkumpul di tenda utama!”</p>
+<p>	Kelompok serigala malam itu cepat dan telah mencapai perkemahan.</p>
+<p>	“Kelompok serigala ada di sini!”</p>
+<p>	“Blokir mereka, kita harus memblokir mereka!”</p>
+<p>	“Cepat, aktifkan bola cahaya Gu.”</p>
+<p>	Seorang Guru Gu yang berada di garis depan menembakkan bola cahaya peringkat dua Gu ke langit.</p>
+<p>	Di bawah penerangan bola cahaya, kelompok serigala malam yang padat menunjukkan penampilan mereka.</p>
+<p>	Serigala malam ini kurus dengan postur yang kuat, mereka memiliki kulit hitam mengkilap tetapi tidak memiliki bulu. Pupil dan cakar hitam mereka memancarkan cahaya yang kejam.</p>
+<p>	Seratus raja serigala menggeram dan menyerbu.</p>
+<p>	“Tuhanku!” Master Gu hanya bisa berteriak kaget sebelum dia dibunuh seketika oleh raja serigala.</p>
+<p>	Kelompok serigala malam itu seperti semburan, menerobos pasak sederhana di sekitar kamp, ​​dan memulai pembantaian mereka.</p>
+<p>	Saat ini, Master Gu suku Ge masih berkumpul menuju tenda utama pusat.</p>
+<p>	Perkemahan luar yang luas telah berubah menjadi pemandangan dunia bawah. Serigala-serigala itu melolong dengan penuh semangat, manusia meratap dalam kesedihan dan tangisan ketakutan meledak bersama-sama.</p>
+<p>	Serigala malam cepat, dan merobek tenda. Banyak manusia yang masih dalam tidur mereka mati dengan kejam di bawah cakar mereka.</p>
+<p>	Mereka menggunakan kematian dan darah sebagai peringatan.</p>
+<p>	Kamp bagian dalam gempar; manusia ketakutan melonjak keluar dan mencoba melarikan diri, menginjak-injak satu sama lain.</p>
+<p>	Sebuah serangan malam!</p>
+<p>	Pemimpin suku Ge berdiri di luar tenda utama; sudut matanya hampir robek melihat pemandangan ini, hatinya berdarah.</p>
+<p>	Pembantaian kelompok serigala memang menyebabkan banyak kematian, tetapi lebih banyak kematian disebabkan oleh orang-orang yang saling menginjak-injak. Situasi kacau seperti itu sudah di luar kendali, menyebabkan rencana pemimpin suku Ge untuk melakukan serangan balik setelah mengatur pasukan menjadi sia-sia.</p>
+<p>	Sebagian besar Master Gu terjebak di antara kekacauan.</p>
+<p>	Hanya banyak tetua dan beberapa Master Gu elit yang berhasil berkumpul di tenda utama.</p>
+<p>	“Keuntungan kami tidak lebih!”</p>
+<p>	Pemimpin suku Ge menutup matanya kesakitan, tubuhnya dingin saat dia jatuh ke dalam keputusasaan dan kesedihan yang mendalam.</p>
+<p>	“Dengan pertempuran ini, bahkan jika kita beruntung mengumpulkan orang-orang yang tersisa, suku Ge akan jatuh ke suku skala kecil! Suku Ge telah jatuh di tanganku! Saya malu menghadapi leluhur saya! Aku adalah pendosa suku Ge!”</p>
+<p>	Di tenda utama; beberapa tetua berteriak, beberapa memiliki ekspresi tak bernyawa dan beberapa panik.</p>
+<p>	“Suku Ge masih belum selesai, semuanya, hanya ada satu cara untuk membalikkan situasi ini!” Mengikuti suara itu, Fang Yuan berjalan ke tenda utama.</p>
+<p>	Mata pemimpin suku Ge bersinar seperti orang yang tenggelam menemukan batang kayu yang menyelamatkan jiwa.</p>
+<p>	“Saudaraku, tolong bicara dengan cepat!” Dia memandang Fang Yuan dan bertanya dengan tergesa-gesa.</p>
+<p>	Fang Yuan langsung ke intinya dan berkata dengan tegas: “Sekarang, kamp dalam kekacauan, kita tidak bisa begitu saja bertahan, situasinya sudah di luar kendali. Hanya dengan menggunakan serangan sebagai pertahanan, kita dapat memiliki kesempatan untuk bertahan hidup.”</p>
+<p>	“Raja Serigala, maksudmu adalah?” Pemimpin suku Ge bergumam.</p>
+<p>	Semua orang saling memandang.</p>
+<p>	Fang Yuan tersenyum ringan: “Saudara Ge, apakah Anda lupa bahwa saya memiliki perbudakan serigala peringkat empat Gu dengan saya?”</p>
+<p>	Dia melihat ekspresi semua orang dan melanjutkan: “Yang di sini adalah semua elit suku Ge, kekuatan pertempuran terkuatnya. Kami akan membentuk kelompok dan segera bergerak keluar, mengalir melawan serangan serigala menuju raja serigala yang tak terhitung jumlahnya. Dalam pertempuran, aku akan menaklukkan banyak sekali raja serigala, dan seluruh situasi akan berbalik!”</p>
+<p>	Ekspresi semua orang berubah.</p>
+<p>	Ini adalah rencana yang benar-benar kacau!</p>
+<p>	Orang harus tahu, Master Gu akan mengandalkan keuntungan medan untuk melawan banyak sekali kelompok binatang buas dan berperang melawan gesekan, tetapi bahkan ini akan menimbulkan banyak korban. Sekarang, Fang Yuan ingin mereka menggunakan darah dan tubuh daging mereka untuk menyerang kelompok binatang buas yang tak terhitung jumlahnya dan membunuh banyak sekali raja serigala di antara serigala yang tak terhitung jumlahnya; ini hanya mencari malapetaka.</p>
+<p>	Metode ini terlalu berisiko, jika orang lain mengatakannya, mereka akan ditegur dengan keras dan bahkan ditertawakan dengan kejam.</p>
+<p>	Namun, Chang Shan Yin mengusulkannya yang menyebabkan semua orang terdiam.</p>
+<p>	“Kegilaan, ini benar-benar gila.” Seorang penatua bergumam.</p>
+<p>	Yang lain menunjukkan ekspresi ragu-ragu; melawan momentum kelompok serigala akan mengakibatkan kematian sembilan dari sepuluh kali. Terus terang, itu meminta mereka untuk menyerahkan hidup mereka dengan imbalan kelangsungan hidup seluruh klan.</p>
+<p>	Master Gu peringkat tiga ini telah menjadi atasan untuk waktu yang lama dan biasanya akan hidup mewah. Mereka semua menghargai hidup mereka.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

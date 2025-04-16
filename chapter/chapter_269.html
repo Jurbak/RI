@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 269 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 269";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_268.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 269">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_270.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 269</h1>
+        <div class="text-left">
+<p>	Bab 269</p>
+<p>	Bab 269: Perjamuan Klan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Sebuah halaman yang luas adalah tempat Shang Yan Fei mengatur perjamuan klan.</p>
+<p>	Itu adalah pesta di luar ruangan, karena di dalam gunung, tidak perlu khawatir tentang badai atau hujan.</p>
+<p>	Halamannya tidak mewah atau elegan, bahkan agak tua.</p>
+<p>	Ada sekitar selusin meja yang diatur dalam lingkaran di halaman, yang sudah terlihat ramai dari sana.</p>
+<p>	Ada beberapa buah dan makanan ringan yang ditata di atas meja dan juga label yang menunjukkan kursi mana milik siapa.</p>
+<p>	Tiga kursi sudah terisi.</p>
+<p>	“Kakak, apakah kamu tahu mengapa tuan ayah memanggil kami kali ini?” Shang Chao Feng bertanya dengan samar sambil memasukkan buah merah ke dalam mulutnya.</p>
+<p>	Shang Qiu Niu yang tertua sedang duduk tegak, matanya terpejam saat dia beristirahat. Mendengar pertanyaan itu, dia membuka matanya dengan sepotong dan berbicara dengan suara yang dalam: “Tuan ayah baru-baru ini keluar dari kultivasi tertutup, dia mengadakan perjamuan klan ini karena dia merindukan kita, apa yang aneh tentang itu?”</p>
+<p>	“Kakak laki-laki mungkin benar, tetapi kapan tuan ayah pernah mengadakan perjamuan santai? Lihat, tidakkah menurutmu ada beberapa kursi lagi hari ini?” Dari samping, Shang Pu Lao menyela.</p>
+<p>	Shang Chao Feng mencibir, dan Shang Qiu Niu memejamkan matanya lagi.</p>
+<p>	Tatapan Shang Pu Lao berkedip, dia bertanggung jawab atas zona lampu merah dan mengelola rumah bordil dari semua ukuran; dia akan menjadi orang tercepat untuk mendapatkan berita apapun. Sebenarnya, dia sudah mendengar beberapa pembicaraan, dia baru saja akan melanjutkan ketika tiba-tiba telinganya berkedut: “Seseorang telah tiba.”</p>
+<p>	Tatapan ketiganya beralih ke gerbang.</p>
+<p>	Derit, gerbang didorong terbuka dan tiga orang masuk.</p>
+<p>	Wei Yang berada di depan diikuti oleh Fang dan Bai.</p>
+<p>	Fang dan Bai sudah pernah ke sini sebelumnya; itu adalah kediaman pribadi tempat mereka dipanggil sebelumnya.</p>
+<p>	“Kediaman pribadi ini adalah tempat di mana pemimpin klan tuan, ketika dia masih seorang tuan muda, ditekan oleh aliansi tuan muda lainnya. Pemimpin klan Lord mundur selangkah dan meninggalkan posisi tuan muda atas kemauannya sendiri, menjadi anggota klan biasa. Selama periode jatuh itu, dia tinggal di sini. Kemudian ketika dia menjadi pemimpin klan, dia mempertahankan tempat ini sebagai pengingat untuk dirinya sendiri dan generasi selanjutnya. Perjamuan klan selalu diadakan di sini. ”</p>
+<p>	Wei Yang membuka gerbang dan memperkenalkan.</p>
+<p>	Segera setelah itu, dia melihat tiga orang di halaman: “Oh, tiga tuan muda sudah ada di sini.”</p>
+<p>	Shang Qiu Niu, Shang Chao Feng dan Shang Pu Lao berdiri satu demi satu dan menangkupkan tangan mereka kepada Wei Yang: “Salam kami, Penatua Wei Yang.”</p>
+<p>	Wei Yang adalah salah satu dari lima jenderal besar di bawah Shang Yan Fei dan tokoh utama dalam klan Shang. Setiap tuan muda yang bersaing untuk posisi pemimpin klan muda harus melalui evaluasinya.</p>
+<p>	“Salam saya untuk ketiga tuan muda, keduanya adalah tamu terhormat yang diundang oleh pemimpin klan tuan.” Wei Yang juga menangkupkan tangannya untuk memberi salam, ekspresinya tenang. Dia adalah seorang penatua, statusnya lebih tinggi dari posisi tuan muda dan sebagai tokoh penting dalam klan, dia tidak akan menjilat tuan muda ini.</p>
+<p>	“Tuan, silakan duduk.” Wei Yang memimpin Fang Yuan dan Bai Ning Bing ke tempat duduk mereka.</p>
+<p>	Tiga tuan muda saling memandang, mereka bisa melihat kebingungan, kejutan dan rasa ingin tahu di mata masing-masing.</p>
+<p>	Ini adalah perjamuan klan, mengapa ada orang asing yang diundang?</p>
+<p>	Siapa dua orang ini? Tempat duduk mereka sebenarnya lebih dekat dengan tempat duduk ayah daripada kita!</p>
+<p>	Wei Yang juga duduk dan melanjutkan sambil tersenyum: “Biarkan aku memperkenalkan diri. Ini adalah Shang Qiu Niu, putra tertua pemimpin klan tuan, dia mengelola zona pengasuhan. Ini adalah putra keempat pemimpin klan Shang Chao Feng, dia mengelola semua arena pertarungan Gu di kota. Ini Shang Pu Lao, dia mengelola semua rumah bordil di zona lampu merah.”</p>
+<p>	Shang Qiu Niu kuat dan suaranya dalam, orang bisa tahu dia orang yang tenang dari satu pandangan. Dia yang tertua, sudah mendekati tiga puluh.</p>
+<p>	Shang Chao Feng memiliki rambut yang berantakan dan jembatan hidung yang tinggi. Dia mengeluarkan aura liar.</p>
+<p>	Shang Pu Lao tampak paling halus; tubuh kurus, wajah putih, mata indah dan bantalan longgar menunjukkan bahwa ia berkeliaran dengan wanita sepanjang tahun.</p>
+<p>	“Qiu Niu menyapa kedua tamu terhormat.” Shang Qiu Niu memimpin untuk menangkupkan tangannya sebagai salam.</p>
+<p>	Wei Yang tidak memperkenalkan Fang dan Bai, ketiganya pintar dan tentu saja tidak akan mengejarnya dengan bodoh.</p>
+<p>	“Tiga tuan muda itu terlalu sopan. Saya Hei Tu dan ini rekan saya Bai Yun.” Fang Yuan memperkenalkan.</p>
+<p>	Nama-nama itu jelas palsu.</p>
+<p>	Hal ini membuat ketiga tuan muda semakin bingung tentang asal usul Fang dan Bai. Mereka hanya bisa tertawa dan melakukan gerakan itu.</p>
+<p>	Saat waktu perjamuan malam semakin dekat, lebih banyak tuan muda muncul.</p>
+<p>	Shang Pi Xiu yang mengelola sarang judi batu; Shang Suan Ni yang mengelola restoran dan toko sutra; Shang Fu Xi yang mengelola lelang; Shang Bi Xi yang mengelola zona penyempurnaan pengganti; dan Shang Ya Zi yang sudah akrab dengan Fang Yuan.</p>
+<p>	Wei Yang memperkenalkan mereka pada Fang dan Bai; semua tuan muda ini kurang lebih mengungkapkan tatapan aneh ketika mereka melihat Fang dan Bai.</p>
+<p>	Mereka duduk ketika pembicaraan dimulai dengan meningkatnya jumlah orang, halaman kecil secara bertahap menjadi hidup.</p>
+<p>	Tepat sebelum perjamuan dimulai, gerbang tiba-tiba terbuka dan seorang tuan muda bergegas masuk.</p>
+<p>	Dia tinggi dan kurus, alisnya tebal dan tatapannya tajam; dia adalah tuan muda Shang Bi An yang bertanggung jawab atas penjaga kota kota klan Shang.</p>
+<p>	Penjaga kota menangani segala macam perselisihan dan kontradiksi, menjaga hukum dan ketertiban di kota, jadi itu yang paling sibuk.</p>
+<p>	Setelah menyapa Fang dan Bai, Shang Bi An baru saja duduk, ketika nyala api berwarna darah berkedip di kursi utama saat Shang Yan Fei muncul.</p>
+<p>	Shang Yan Fei mengenakan jubah putih dengan manset bertatahkan emas. Rambut merahnya beterbangan liar sebelum bersandar di pinggangnya; dikombinasikan dengan wajahnya yang sangat tampan, itu membentuk aura dan karisma yang unik baginya.</p>
+<p>	“Anak-anakmu menyapa tuan ayah.” Banyak tuan muda berdiri satu demi satu sebelum setengah berlutut di tanah dan menyapa Shang Yan Fei dengan bersatu.</p>
+<p>	“Pemimpin klan tuan.” Wei Yang berdiri.</p>
+<p>	Pada saat yang sama, Fang dan Bai juga berdiri untuk menyambutnya.</p>
+<p>	“Ambil tempat dudukmu.” Shang Yan Fei berbaring di kursi bersandaran lebar dan dengan santai melambaikan tangannya.</p>
+<p>	Segera, tujuh lampu indah berwarna memercik seperti hujan.</p>
+<p>	Lampu-lampu indah mendarat di atas meja dan berubah menjadi semua jenis hidangan lezat, aromanya segera menyebar di halaman kecil.</p>
+<p>	Fang Yuan langsung mengenali Gu sebagai Gu kotak makanan gourmet.</p>
+<p>	Itu adalah Gu peringkat lima, terutama digunakan untuk menyimpan makanan lezat dan mempertahankan statusnya.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan berusaha keras untuk mencari nafkah di karavan, dia tidak memiliki siapa pun untuk diandalkan setelah kehancuran klan Gu Yue.</p>
+<p>	Kemunculan tiba-tiba aliansi Master Gu iblis di gunung Yi Tian melampaui garis bawah jalan lurus.</p>
+<p>	Semua klan besar membentuk aliansi dan mengepung gunung Yi Tian.</p>
+<p>	Salah satu kepala pasukan sekutu, Shang Yan Fei menggunakan kotak makanan gourmet Gu ini untuk memenuhi kebutuhan tentara.</p>
+<p>	Hanya dengan lambaian lengan bajunya, puluhan ribu tentara diberikan makanan gourmet, menjadi bantuan besar dalam meningkatkan moral mereka.</p>
+<p>	Sejak itu, kotak makanan gourmet Gu menjadi simbol Shang Yan Fei dan menjadi topik pembicaraan banyak orang.</p>
+<p>	Saat itu, Fang Yuan mampu menjadi bos kecil level terendah dengan kelebihannya sebagai seorang transmigran; dia bergabung dengan sub-cabang karavan yang bertugas mengangkut perbekalan ke jalan yang benar pasukan sekutu.</p>
+<p>	Dia secara pribadi dapat melihat keagungan Shang Yan Fei menggunakan kotak makanan gourmet Gu. Tujuh lampu warna-warni yang mempesona memenuhi langit dan menyinari dunia; itu adalah suasana yang megah dan megah.</p>
+<p>	“Tidak pernah menyangka bahwa saya akan melihat kotak makanan gourmet Gu ini bertahun-tahun sebelumnya dan juga menjadi tamu terhormat klan Shang!” Fang Yuan menghela nafas dalam hati.</p>
+<p>	Ada perbedaan yang jelas antara kehidupan sebelumnya dan kehidupan ini, ini adalah keuntungan besar dari kelahiran kembali.</p>
+<p>	Dan keunggulan ini adalah dari Spring Autumn Cicada yang merupakan akumulasi dan pencapaian dari perjuangan hidupnya sebelumnya.</p>
+<p>	Shang Yan Fei menyebarkan piring dan segera berbicara kepada putra-putranya: “Kami memiliki dua tamu terhormat bersama kami hari ini, Anda semua perlu bersulang. Qiu Niu, kamu yang tertua, beri contoh. ”</p>
+<p>	Dengan Shang Yan Fei secara pribadi memberi tahu mereka, tuan muda klan Shang tidak berani bertindak lambat meskipun mereka bingung.</p>
+<p>	Shang Qiu Niu segera berdiri dan mengangkat gelas anggur, berkata dengan suaranya yang dalam: “Qiu Niu bersulang untuk dua tamu terhormat.”</p>
+<p>	Dengan itu, dia meneguk segelas anggur.</p>
+<p>	Fang Yuan juga meminum segelas anggur sementara Bai Ning Bing masih meminum air.</p>
+<p>	Qiu Niu adalah yang tertua di antara tuan-tuan muda ini; dia hampir tiga puluh tetapi penampilannya terlihat cukup dewasa seolah-olah dia berusia empat puluh.</p>
+<p>	Sebaliknya, ayahnya Shang Yan Fei tampak seperti seorang pemuda berusia dua puluhan. Kontras antara ayah dan anak adalah pemandangan yang cukup menarik.</p>
+<p>	“Saya telah berbicara dengan baik dengan dua tamu terhormat sebelumnya. Tamu yang terhormat, jika Anda punya waktu nanti, Anda bisa datang ke zona saya untuk bersenang-senang, pertempuran Gu benar-benar menarik. ” Shang Chao Feng juga berdiri.</p>
+<p>	Bibir Fang Yuan melengkung menjadi senyuman, dia tahu sedikit tentang Shang Chao Feng meskipun ini adalah pertama kalinya mereka bertemu.</p>
+<p>	Pria ini sangat agresif untuk menang dan kejam dan licik. Dalam kehidupan Fang Yuan sebelumnya, pada suatu waktu, dia telah menjadi penghalang terbesar bagi posisi Shang Xin Ci sebagai tuan muda klan Shang.</p>
+<p>	“Pertarungan Gu saudara keempat terlalu berdarah, yang terbaik masih merupakan kegembiraan bernyanyi dan menari untukmu.” Shang Pu Lao membalas Shang Chao Feng sebelum bersulang untuk Fang dan Bai, matanya yang indah bersinar dengan cahaya, “Saya ingin berbicara tentang romansa dan cinta dengan dua tamu terhormat.”</p>
+<p>	“Jika kita punya waktu, pasti.” Fang Yuan berkata sambil tersenyum dan menenggak anggur.</p>
+<p>	Perjamuan ini tampak seperti untuk selebriti di matanya.</p>
+<p>	Sebagian besar tuan muda klan Shang ini akan memiliki kisah mereka sendiri yang akan menyebar ke seluruh perbatasan selatan di masa depan.</p>
+<p>	Shang Yan Fei memiliki banyak anak tetapi orang-orang ini di sini mampu membedakan diri mereka dalam kompetisi yang begitu ketat, dengan jelas menunjukkan kemampuan mereka yang melampaui orang lain. Orang bisa menyebut mereka raksasa di antara manusia atau batu giok yang tidak dipoles.</p>
+<p>	Selain itu, mereka masing-masing memiliki cara dan gaya mereka sendiri dalam melakukan sesuatu; sekarang saat mereka berkumpul bersama di tempat yang sama, itu seperti mutiara yang bersinar dengan terang dan gelap.</p>
+<p>	Untuk saat ini, tidak banyak yang bisa dikatakan tentang putra tertua Shang Qiu Niu, putra kedua Shang Ya Zi, putra keempat Shang Chao Feng dan delapan putra Shang Pu Lao.</p>
+<p>	Putra kesembilan Shang Suan Ni memiliki mulut seperti singa dan hidung lebar. Dia sepertinya menggunakan beberapa jenis Gu, karena setiap kali dia bernafas, asap kuning muda keluar dari hidungnya dan melingkar di sekelilingnya.</p>
+<p>	Putra kesepuluh Shang Bi Xi bertubuh pendek dan gemuk, tampak jujur ​​dan tampaknya tidak memiliki sesuatu yang luar biasa tentang dirinya. Tapi Fang Yuan tahu Shang Bi Xi menyembunyikan kekuatan besar yang lebih tinggi darinya beberapa kali.</p>
+<p>	Putra kedua belas Shang Bi An akan memiliki aliansi pernikahan dengan Tie Clan, dan menjadi detektif ilahi kedua perbatasan selatan setelah Tie Xue Leng.</p>
+<p>	Putra ketiga belas Shang Fu Xi sangat cerdas, nasihatnya ketika pasukan sekutu jalan lurus menyerang gunung Yi Tian menyebabkan kerusakan besar pada Master Gu iblis berkali-kali.</p>
+<p>	Dan putra kedua puluh satu Shang Pi Xiu, dia adalah yang termuda dan terlambat berkembang. Bertahun-tahun kemudian, ketika klan Shang jatuh ke dalam reruntuhan, dia melemparkan dirinya ke jalan iblis dan menjadi iblis yang reputasi jahatnya menyebar jauh dan luas di perbatasan selatan.</p>
+<p>	“Ayah, maaf aku terlambat.” Saat bersulang berlanjut, gerbang halaman dibuka dan seorang gadis masuk.</p>
+<p>	Dia adalah Shang Chi Wen, putri keenam belas Shang Yan Fei dan memegang kendali atas arena pertempuran. Dia memiliki wajah yang adil dan kedua matanya bersinar dengan tatapan yang cerdas. Dia adalah orang yang hidup dan menawan.</p>
+<p>	Setelah semua orang selesai memanggang anggur, Shang Yan Fei mengangkat cangkir anggurnya dan menghadap Fang dan Bai: “Terima kasih telah melindungi Xin Ci sepanjang jalan, itulah satu-satunya alasan saya bisa mendapatkan anak perempuan baru.”</p>
+<p>	Begitu dia berkata begitu, semua orang yang hadir tercengang.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

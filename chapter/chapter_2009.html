@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2009 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2009";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2008.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2009">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2010.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2009</h1>
+        <div class="text-left">
+<p>	Bab 2009 – Mengikuti Dengan Rela</p>
+<p>	Bab 2009 Mengikuti Dengan Suka Hati</p>
+<p>	Menyerang-!</p>
+<p>	Teriakan Wu Shuai memicu angin dan awan tanpa batas, bergema di seluruh gua-surga.</p>
+<p>	Banyak Dewa Gu di surga gua Sastra Mendalam memiliki perubahan dalam ekspresi mereka, merasa panik dan khawatir ketika mereka merasakan kekuatan ganas Wu Shuai.</p>
+<p>	Gua-surga Sastra yang Mendalam telah hidup dalam damai terlalu lama dan tidak pernah mengalami cobaan seperti itu. Bahkan pemilik gua-surga saat ini, Old Immortal Hua Yu, sangat terkejut.</p>
+<p>	Karena gua-surga Profound Literature adalah jalur informasi gua-surga dan paling terspesialisasi dalam mengumpulkan semua jenis informasi dan petunjuk. Mereka pasti akan mendeteksi invasi apa pun sebelumnya.</p>
+<p>	Namun, Dewa Tua Hua Yu dan yang lainnya sama sekali tidak menyadari invasi ini, dan invasi kejutan Wu Shuai bahkan dapat dianggap sebagai mahakarya, dia mampu menteleportasi Dewa Gu-nya ke berbagai area surga gua, meluncurkan serangan kekerasan di berbagai area penting dan Gu Immortals gua-surga Sastra yang Mendalam.</p>
+<p>	Penyergapan ini bisa dikatakan sangat sukses.</p>
+<p>	Gua-surga Sastra yang Mendalam menderita kerugian besar, tidak hanya potensi masa depan yang dipilih dengan cermat seperti Guru Jiang binasa, bahkan sebagian besar surga gua Gu Immortals of Profound Literature terbunuh.</p>
+<p>	“Bertahanlah, ini adalah rumah kita, kita tidak bisa kehilangannya. Saya sudah meminta bala bantuan, kita tidak bisa membiarkan preman tercela ini berhasil! ” Old Immortal Hua Yu berteriak, sedikit menstabilkan moral para prajurit.</p>
+<p>	Dia kemudian membuka mulutnya dan menggerakkan lidahnya, menyemburkan karakter teks.</p>
+<p>	Karakter-karakter ini seperti badai saat mereka menyelimuti Istana Naga dengan energi beku yang padat.</p>
+<p>	Langkah pembunuh abadi — Kata-Kata Dingin!</p>
+<p>	Saat Istana Naga diserang oleh gerakan ini, lapisan es membeku di permukaannya yang sangat memperlambat kecepatannya. Embun beku terus mengembun dan menyebar, dan dalam sekejap mata, sudah setinggi betis orang dewasa. Jika ini terus berlanjut, seluruh Istana Naga akan disegel dalam es.</p>
+<p>	Wu Shuai mendengus saat dia mengaktifkan gerakan pembunuh defensifnya.</p>
+<p>	Embun beku di permukaan Istana Naga mulai mencair secara bertahap, dan kekuatan Istana Naga terus meningkat, mengeluarkan sinar cahaya oranye.</p>
+<p>	Cahaya oranye melesat ke arah Dewa Tua Hua Yu, yang segera mengubah kata-kata yang dia ucapkan dan menggunakan metode gerakan.</p>
+<p>	Langkah pembunuh abadi — Kata-kata Cepat!</p>
+<p>	Pada saat berikutnya, kecepatannya melonjak dan dia dengan sempurna menghindari cahaya oranye.</p>
+<p>	Gerakan pembunuh abadi — Kata-Kata Kejam!</p>
+<p>	Dewa Tua Hua Yu meludahkan gelombang karakter dari mulutnya, kata-kata hitam keunguan ini seperti panah beracun yang ditembakkan dan diledakkan di Istana Naga.</p>
+<p>	Gemuruh…</p>
+<p>	Serangkaian ledakan memaksa Istana Naga untuk mundur terus-menerus, pada saat yang sama, sejumlah besar asap beracun menyusup ke Istana Naga.</p>
+<p>	Wu Shuai duduk di kursi utama, dia tidak panik saat melihat ini dan segera mengaktifkan metode pertahanan untuk mengatasi bahaya ini.</p>
+<p>	Reputasi Old Immortal Hua Yu tidak layak, dia benar-benar memiliki beberapa keterampilan, untuk dapat menghadapi Istana Naga tanpa kehilangan tanahnya.</p>
+<p>	Tentu saja, ini karena Istana Naga adalah jalur perbudakan Rumah Gu Abadi dan paling mahir dalam aspek perbudakan. Selain itu, Wu Shuai tidak mengungkapkan Empat Jenderal Naga meskipun dia sudah mengumpulkannya. Apa yang biasanya dia gunakan adalah Naga Jahat, yang sudah menjadi kartu truf Istana Naga.</p>
+<p>	Naga Jahat mengamuk!</p>
+<p>	Gu Immortals dari aliansi dua surga membunuh dan menjarah!</p>
+<p>	Wu Shuai sama sekali tidak terburu-buru, karena situasinya sangat menguntungkan baginya.</p>
+<p>	Dewa Tua Hua Yu menjadi semakin cemas saat pertempuran berlanjut, dia tahu dia sudah terjerat dengan Istana Naga dan harus bergantung pada kekuatan eksternal untuk menyelamatkan surga gua Sastra yang Mendalam dari bahaya.</p>
+<p>	Tapi bisakah bala bantuan tiba tepat waktu?</p>
+<p>	Dewa Tua Hua Yu sedang menunggu bala bantuan, tapi dia tahu tidak ada banyak harapan. Meskipun dia memiliki reputasi tinggi, dan hubungan gua-surga Sastra yang Mendalam dengan kekuatan gua-surga di sekitarnya juga cukup dekat, tetapi meminta orang-orang ini untuk memperkuatnya dalam pertempuran melawan musuh yang begitu kuat?</p>
+<p>	Dewa Tua Hua Yu menempatkan dirinya di posisi mereka dan berpikir: jika surga gua di sekitarnya diserang dan meminta bala bantuan, dan musuhnya adalah aliansi dua surga, dia juga akan ragu.</p>
+<p>	Gu Immortals dari aliansi dua surga terus membuat kekacauan.</p>
+<p>	Api pertempuran muncul di mana-mana saat makhluk hidup dimusnahkan.</p>
+<p>	“Old Immortal Hua Yu, gunakan kartu trufmu jika ada yang tersisa, jika kamu tidak menggunakannya sekarang, kamu tidak akan bisa menyelamatkan gua-surgamu. Ha ha ha.” Wu Shuai tertawa liar.</p>
+<p>	Old Immortal Hua Yu terdiam, ekspresinya muram.</p>
+<p>	Efek samping dari pertarungan mereka merusak segala sesuatu di sekitar mereka, menyebabkan lubang muncul di dinding lubang gua-surga, menghubungkan bagian dalam ke dunia luar.</p>
+<p>	Tiba-tiba, tawa Wu Shuai berhenti saat dia berteriak dengan marah: “Kakek tua Laut Qi!”</p>
+<p>	Saat dia selesai berbicara, arus qi yang tak terbatas melonjak dari luar dan berkumpul menjadi tangan raksasa.</p>
+<p>	Tangan itu sebesar gunung saat menghantam Istana Naga dan mengirimnya terbang jauh.</p>
+<p>	Setelah itu, sosok tinggi dan kokoh muncul di langit gua-surga, menatap Istana Naga.</p>
+<p>	“Leluhur Laut Qi!” Old Immortal Hua Yu mendongak dan berkata dengan terkejut dan gembira.</p>
+<p>	Penampilan Qi Sea Ancestor mengejutkannya, tetapi memikirkannya dengan hati-hati, dia merasa itu wajar. Leluhur Laut Qi adalah musuh terbesar Wu Shuai, dia tidak akan duduk dan menonton Wu Shuai memimpin pasukan dua surga untuk melakukan apa pun yang dia suka.</p>
+<p>	Mengaum-!</p>
+<p>	Istana Naga mundur sementara Naga Jahat menggantikannya.</p>
+<p>	Qi Sea Leluhur, bagaimanapun, memegang tangannya di belakang punggungnya tanpa niat untuk menyerang: “Wu Shuai, berhenti sekarang, aku bisa membiarkan kalian semua mundur. Jika kita benar-benar bertarung, aliansi dua surgamu akan tidak ada lagi. ”</p>
+<p>	“Anda….” Suara marah Wu Shuai datang dari Istana Naga: “Leluhur Laut Qi!”</p>
+<p>	Naga Jahat berhenti, Wu Shuai sepertinya sedang berpikir.</p>
+<p>	Dewa Tua Hua Yu menghela nafas lega, melihat ke arah Leluhur Laut Qi dengan tatapan yang sangat berterima kasih.</p>
+<p>	Leluhur Laut Qi melakukan ini untuk melestarikan surga gua Sastra yang Mendalam dan tidak membiarkannya berubah menjadi reruntuhan. Ini tidak mudah! Gu Immortals dari aliansi dua surga tersebar di mana-mana, Leluhur Laut Qi dapat mengambil kesempatan untuk menyerang mereka dan memberikan kerusakan berat pada aliansi dua surga.</p>
+<p>	Tapi Leluhur Laut Qi tidak melakukan ini, sebaliknya, dia menganggap surga gua Sastra yang Mendalam. Terlebih lagi, sebelum ini, Dewa Tua Hua Yu tidak pernah berhubungan dengan Leluhur Laut Qi.</p>
+<p>	“Leluhur Laut Qi mengambil tindakan protektif seperti itu untuk orang luar seperti saya. Dia benar-benar layak menjadi ahli terkenal dan pemimpin jalur lurus Laut Timur!” Old Immortal Hua Yu sangat tersentuh.</p>
+<p>	Namun, pada saat berikutnya, Naga Jahat menyerang dan Istana Naga mengikuti dari belakang.</p>
+<p>	“Leluhur Laut Qi, sudah terlalu lama sejak pertempuran hari itu. Hadapi gerakanku lagi!” Wu Shuai berteriak.</p>
+<p>	“Tercela!” Old Immortal Hua Yu mengutuk ketika dia melihat Wu Shuai menyelinap menyerang.</p>
+<p>	Tapi Leluhur Laut Qi tersenyum seolah dia sudah siap: “Ayo.”</p>
+<p>	Ledakan!</p>
+<p>	Pada saat berikutnya, Naga Jahat dan Istana Naga menabrak dinding qi yang kokoh dan kokoh.</p>
+<p>	Dinding qi runtuh tetapi momentum Naga Jahat dan Istana Naga juga benar-benar habis.</p>
+<p>	“Kakek tua Laut Qi, saya lega bahwa Anda sangat energik. Kita akan bertarung nanti!” Wu Shuai melihat dia tidak dapat memperoleh kemajuan apa pun dan mulai mundur perlahan.</p>
+<p>	Istana Naga dan Naga Jahat meninggalkan medan perang dan pindah dari surga gua.</p>
+<p>	Gu Immortals dari aliansi dua surga tidak berani tinggal lebih lama lagi dan mulai mundur, mereka takut Istana Naga meninggalkan mereka di tempat berbahaya ini.</p>
+<p>	Kelompok Wu Shuai tiba dengan cepat dan pergi dengan cepat, meninggalkan api perang dan kehancuran.</p>
+<p>	Dewa Tua Hua Yu tidak terburu-buru untuk memberikan bantuan bencana dan menstabilkan situasi, sebaliknya, dia terbang menuju Leluhur Laut Qi dan membungkuk dalam-dalam: “Leluhur, Anda membantu kami dalam memukul mundur musuh. Semua orang di surga gua Sastra yang Mendalam berterima kasih atas kebaikan Anda. ”</p>
+<p>	Leluhur Laut Qi tersenyum cerah saat dia memegang tangan Dewa Tua Hua Yu dan menariknya ke atas: “Kami berdua adalah manusia, wajar bagi kami untuk bersatu dan saling membantu melawan varian manusia.”</p>
+<p>	Baca di meionovel.id</p>
+<p>	Dewa Tua Hua Yu berkata dengan penuh kebencian: “Wu Shuai sedang mencoba untuk menjungkirbalikkan aturan manusia, dia adalah orang gila dan orang yang tercela. Dia adalah musuh semua orang di surga gua Sastra Besar, kita tidak akan beristirahat sampai dia mati!”</p>
+<p>	Leluhur Laut Qi mengangguk: “Di era saat ini, masa kacau akan datang, siapa yang bisa menghindarinya? Adalah baik bahwa Anda menyadari ini! ”</p>
+<p>	Dewa Tua Hua Yu menangkupkan tinjunya dan membungkuk lagi: “Melihat yang abadi di dunia ini, hanya kekuatan dan prestise Leluhur yang telah menyebar ke mana-mana, perilaku moralmu layak untuk dihormati. Mulai hari ini dan seterusnya, surga gua Sastra yang Mendalam akan berada di bawah perintah Anda, kami akan mendengarkan pengaturan Anda. ”</p>
+<p>	Leluhur Laut Qi tersenyum: “Saudara Hua Yu, mari bergandengan tangan dalam memerangi varian manusia, kita akan melindungi tanah air kita dan berjuang untuk masa depan yang indah.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

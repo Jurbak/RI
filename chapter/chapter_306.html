@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 306 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 306";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_305.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 306">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_307.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 306</h1>
+        <div class="text-left">
+<p>	Bab 306</p>
+<p>	Bab 306: Lelang (2)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Seiring berjalannya waktu, semakin banyak orang memasuki rumah lelang.</p>
+<p>	“Lihat, itu adalah salah satu dari lima jenderal klan Shang, Pendekar Cahaya Putih!” Seseorang berteriak.</p>
+<p>	Gelar Wei Yang adalah Pendekar Pedang Cahaya Putih, dia juga datang.</p>
+<p>	“Aku sudah memeriksanya, kekuatan pahit Gu yang kamu inginkan adalah item ketiga belas. Tapi, Shang Ya Zi sudah berada di kamar pribadi kelima. Saya mendengar dia dengan sengaja menarik semua asetnya, Anda harus berhati-hati saudara Fang Zheng. ” Wei Yang masuk ke kamar pribadi, memberikan informasi penting kepada Fang Yuan.</p>
+<p>	Menurut logika, urutan barang lelang tidak boleh diungkapkan, dan identitas para tamu juga harus dirahasiakan. Tetapi sebagai salah satu dari lima jenderal besar klan Shang, Wei Yang mengendalikan badan intelijen Feng Yu Manor, sehingga mudah baginya untuk mendapatkan semua informasi yang diinginkannya.</p>
+<p>	Wei Yang menepuk bahu Fang Yuan, masih merasa khawatir: “Shang Ya Zi tidak ada di sini untuk bersenang-senang, dia memiliki setidaknya satu juta dua ratus ribu batu purba di tangan. Kekuatan pahit Gu adalah harta untuk jalur kekuatan Gu Masters, selain Shang Ya Zi, ada dua orang lagi yang merupakan pesaing terbesar Anda, satu adalah Shang Bi Xi, yang lain adalah Ju Kai Bei, Anda harus berhati-hati. ”</p>
+<p>	Putra kesepuluh Shang Bi Xi memiliki ban kura-kura Gu, memiliki kekuatan sepuluh kura-kura, dia adalah jalur kekuatan Gu Master yang tidak kalah dengan Fang Yuan. Dia mengendalikan zona perbaikan pengganti kota klan Shang, meskipun tidak ada banyak keuntungan di sana, saudara kedelapan Shang Pu Lao mengendalikan rumah bordil dan saudara kesembilan Shang Suan Ni mengendalikan restoran dan toko sutra, mereka mendapatkan ember batu purba setiap hari. Jika Shang Bi Xi menginginkan kekuatan pahit Gu, sebagai rekan aliansi, mereka berdua pasti akan membantu.</p>
+<p>	Selain mereka, masih ada Ju Kai Bei.</p>
+<p>	Dia memiliki kultivasi peringkat empat, mendominasi tahap pertempuran kota dalam ketiga.</p>
+<p>	Apa arti kultivasi peringkat empat?</p>
+<p>	Di klan biasa, dia akan menjadi pemimpin klan!</p>
+<p>	Ju Kai Bei adalah Master Gu peringkat empat, tetapi tetap berada di tahap pertempuran dan menolak semua undangan yang dikirim kepadanya oleh segala macam kekuatan.</p>
+<p>	“Saya tidak akan meninggalkan panggung pertempuran kecuali saya mengalahkan Yan Tu!” Dia menyatakan.</p>
+<p>	Yan Tu juga seorang Master Gu peringkat empat, dan sama dengan Ju Kai Bei sebagai ‘setengah langit panggung pertempuran’. Keduanya bersumpah untuk mengalahkan satu sama lain, dan hanya setelah mereka menjadi nomor satu sejati mereka akan meninggalkan panggung pertempuran dengan gemilang.</p>
+<p>	Yan Tu adalah jalur api Gu Master, dia tidak akan memiliki keinginan untuk kekuatan pahit Gu. Tapi Ju Kai Bei adalah jalan kekuatan sejati Gu Master, dia telah memenangkan banyak pertempuran, hanya kalah sesekali dari Yan Tu, dia harus memiliki banyak batu purba pada dirinya!</p>
+<p>	Jadi, baik itu Shang Bi Xi atau Ju Kai Bei, mereka adalah pesaing Fang Yuan.</p>
+<p>	“Aku punya uang cadangan di sini, gunakan untuk saat ini.” Selanjutnya, Wei Yang memberikan Fang Yuan sesepuh Gu.</p>
+<p>	Shang Chi Wen tersentak, sedikit terkejut.</p>
+<p>	Dia tahu Wei Yang dan Fang Yuan dekat, tetapi tidak berpikir hubungan mereka begitu dalam!</p>
+<p>	Dia telah menyelidiki sebelumnya, pelelangan ini memiliki tipe Gu ringan yang akan berguna bagi Wei Yang. Untuk berpikir dia akan menyerahkan batu purba ke Fang Yuan hanya demi dia.</p>
+<p>	Melihat ekspresi ceria orang tua, Gu tua purba ini memiliki hampir satu juta batu purba!</p>
+<p>	Ini berarti Wei Yang menyerah pada Gu-nya sendiri.</p>
+<p>	“Saudara Wei, ini …” Fang Yuan menunjukkan keraguan, saat dia juga mengungkapkan ekspresi terima kasih.</p>
+<p>	“Jangan katakan lagi, terima mereka. Saya hanya meminjamkannya kepada Anda, bukan memberi mereka. Mulai sekarang, saya kreditur Anda. Wei Yang tertawa terbahak-bahak, tidak memberi Fang Yuan kesempatan untuk menolak, memaksa tetua purba Gu ke arahnya.</p>
+<p>	Shang Xin Ci di sisi lain juga mengeluarkan Gu tua purba.</p>
+<p>	“Saudara Hei Tu, ini milikku.”</p>
+<p>	Dalam penatua purbanya Gu, penatua awan itu mengerutkan kening dan kesal, dari situ, orang dapat menyimpulkan bahwa ada sekitar seratus hingga tiga ratus ribu batu purba di dalamnya.</p>
+<p>	Ini adalah uang saku yang diberikan Shang Yan Fei padanya setiap bulan. Dia berhemat dan menabung, mengumpulkannya dan menyerahkan semuanya kepada Fang Yuan sekarang.</p>
+<p>	“Jika saya berbicara lagi, itu akan menjadi munafik. Aku menerima semuanya, aku pasti akan membalasmu nanti!” Fang Yuan tertawa terbahak-bahak, menangkupkan tinjunya dan menyimpan batu purba.</p>
+<p>	Shang Xin Ci tersenyum ringan, tidak memikirkan pembayaran Fang Yuan. Bahkan jika dia harus memberikan ini padanya, dia tidak akan merasa kesal. Tapi dia tahu, dengan amarahnya, dia tidak akan menerima ‘hadiah’ seperti itu, jadi dia hanya bisa ‘meminjamkannya’.</p>
+<p>	“Itu caranya.” Wei Yang mengangguk.</p>
+<p>	Dia memiliki harapan besar untuk Fang Yuan, dan menyukai definisi kebaikan dan dendamnya yang jelas.</p>
+<p>	Di satu sisi, Shang Chi Wen ragu-ragu, tetapi akhirnya tidak mengeluarkan Gu tua purbanya.</p>
+<p>	Tatapannya berkedip-kedip dengan cahaya, saat dia mengubah topik pembicaraan: “Lihat, Ju Kai Bei ada di sini.”</p>
+<p>	Di pintu masuk rumah lelang, seorang pria yang kuat dan berotot muncul.</p>
+<p>	Dia berada di puncak hidupnya, setinggi delapan kaki. Kulitnya erat melilit otot-ototnya, lapis demi lapis. Saat dia berjalan, setiap langkahnya memiliki jarak yang sama persis, menunjukkan sifatnya yang tegas dan disiplin.</p>
+<p>	Dia seperti menara, tinggi dan lurus, memberikan rasa tekanan ke sekelilingnya. Itu menyebabkan orang menjauh darinya, tetapi juga memandangnya dengan hormat dan hormat.</p>
+<p>	Dia adalah Ju Kai Bei.</p>
+<p>	Peringkat empat Gu Master, puncak ahli di tahap pertempuran kota terdalam ketiga!</p>
+<p>	“Senior Ju, tuan muda klan saya Shang Ya Zi mengundang Anda ke ruang pribadi kelima.”</p>
+<p>	“Tuan Ju, tuan muda klan saya Pu Lao sudah berada di kamar pribadi keempat, dan telah menyiapkan jamuan makan.”</p>
+<p>	“Tuan Ju Kai Bei, ini adalah undangan dari tuan muda klanku Chao Feng, terimalah.”</p>
+<p>	…</p>
+<p>	Segera, banyak pelayan berkerumun, mewakili tuan muda mereka dan mengirimkan undangan ke Ju Kai Bei.</p>
+<p>	Tapi Ju Kai Bei mendengus dingin, tidak melihat mereka, berjalan ke baris pertama aula dan duduk.</p>
+<p>	Para pelayan saling memandang sebelum pergi tanpa daya.</p>
+<p>	Waktu berlalu, dan setelah Ju Kai Bei, orang penting lainnya datang.</p>
+<p>	Orang ini tidak gemuk atau kurus, tidak tinggi atau pendek, memiliki wajah yang sama tetapi wajahnya aneh.</p>
+<p>	Bagian kiri wajahnya berwarna merah cerah, dan bagian kanannya berwarna biru pucat. Dua warna membelah wajahnya menjadi dua bagian, dari tengah hidungnya, dua warna terbelah di kedua sisi.</p>
+<p>	“Dia adalah Shang Bu Li, untuk berpikir dia datang.” Wei Yang segera memberi tahu Fang Yuan.</p>
+<p>	“Itu memang dia. “Fang Yuan sedikit mengangguk, memiliki gambaran yang jelas di benaknya.</p>
+<p>	Shang Bu Li, berjudul ‘Pria berwajah dua’, adalah jenderal nomor satu di bawah Shang Yan Fei. Dia memiliki kultivasi peringkat empat, mengendalikan cacing api dan es Gu.</p>
+<p>	Dia adalah subjek klan Shang yang paling penting, dan merupakan tetua klan di klan Shang, yang bertanggung jawab atas perdagangan pelayan di klan Shang, otoritasnya lebih tinggi daripada Wei Yang.</p>
+<p>	Ketika Shang Bu Li muncul, itu menarik banyak salam dan bootlicking. Dia memiliki ekspresi bangga, menyipitkan mata saat dia berjalan perlahan di antara orang-orang, menikmati perasaan dipuji ke surga.</p>
+<p>	Otoritasnya lebih besar dari sepuluh tuan muda.</p>
+<p>	Tuan muda hanya bisa mengendalikan beberapa bisnis klan Shang, tetapi sebagai subjek nomor satu klan Shang, Shang Bu Li menguasai seluruh pasar perdagangan budak di klan Shang.</p>
+<p>	“Shang Bu Li, bisakah kamu berjalan lebih cepat, menyeret langkahmu seperti ini, apakah kamu seorang pria?” Pada saat ini, nada tidak senang mengeluh.</p>
+<p>	Dengan posisi Shang Bu Li, di kota klan Shang, dia berada di urutan kedua setelah pemimpin klan, siapa yang berani bersikap kasar padanya?</p>
+<p>	Shang Bu Li mendengar ini, dan hatinya bergetar, mengecilkan kepalanya saat dia berbalik, membungkuk kepada orang yang berbicara: “Tuan Dokter Su Shou, Bu Li memberi hormat kepada Anda.”</p>
+<p>	Orang yang datang adalah Dokter Su Shou.</p>
+<p>	Dia adalah salah satu dari empat dokter hebat perbatasan selatan, dan memiliki kultivasi peringkat lima, dia pernah merawat luka Fang Yuan.</p>
+<p>	Dia masih mengenakan kemeja putih, dan wajahnya ditutupi kerudung putih, mencegah orang lain melihat penampilannya, tetapi lekuk tubuhnya tidak bisa disembunyikan.</p>
+<p>	Shang Bu Li tidak berani melihat tubuhnya, mengalihkan pandangannya ke lantai di samping kakinya.</p>
+<p>	Dokter Su Shou dan pemimpin klan Shang Yan Fei memiliki hubungan yang rumit, dia memiliki posisi tinggi di klan Shang. Sebagai ‘kekasih yang dikabarkan’ Shang Yan Fei, bahkan jika Shang Bu Li punya sejuta nyali, dia tidak akan berani untuk tidak menghormatinya.</p>
+<p>	“Jangan menghalangi jalanku.” Dokter Su Shou mendengus dingin, membawa delapan pelayan kemeja putihnya dan berjalan melewati Shang Bu Li, memasuki kamar pribadi dan menghilang dari pandangan semua orang.</p>
+<p>	Shang Bu Li menggosok hidungnya, tertawa pahit, tidak ada yang bisa dia lakukan di depan Dokter Su Shou.</p>
+<p>	Tidak lama kemudian, banyak orang muncul lagi.</p>
+<p>	Yan Tu yang memiliki ketenaran yang sama dengan Ju Kai Bei, jenderal kelima Shang Yan Fei Yi Huo, tetua Yi Bu Hui dari klan Yi, tetua Fei Luan Feng dari klan Fei, dan lainnya.</p>
+<p>	“Lelang ini adalah pertemuan para ahli. Ada Master Gu yang sudah mapan, bintang baru generasi baru, pejuang tunggal, dan pemimpin klan besar. Di antara mereka, saya bertanya-tanya berapa banyak yang akan menjadi penghalang saya? ” pikir Fangyuan.</p>
+<p>	“Maaf untuk menunggu lama semuanya, pelelangan resmi dimulai sekarang!” Tuan Gu wanita pembawa acara memiliki penampilan muda yang cantik saat dia berdiri di atas panggung menggunakan suara penguat Gu.</p>
+<p>	Dia tahu semua orang tidak sabar, jadi dia berbicara dengan cepat, dan mulai memperkenalkan item pertama.</p>
+<p>	Panah beku Gu.</p>
+<p>	Peringkat empat Gu, berbentuk seperti lalat pembuangan, tubuhnya biru seperti es, dan mulutnya panjang dan seperti jarum.</p>
+<p>	Gu tipe es semacam ini adalah harta karun di desa klan Ju. Itu seperti klan Gu Yue yang mengumpulkan banyak jenis Gu tipe bulan.</p>
+<p>	“Setelah panah es Gu diaktifkan, energi es berkumpul dan menembakkan panah es untuk menyerang musuh dengan cepat. Seperti semua orang tahu, keuntungan terbesarnya adalah konsumsi esensi purba yang rendah, bahkan Master Gu peringkat tiga dapat menggunakannya. Harga dasarnya adalah tujuh puluh ribu batu purba!” Master Gu wanita dengan cepat memperkenalkan.</p>
+<p>	“Tujuh puluh lima ribu.”</p>
+<p>	“Delapan puluh ribu!”</p>
+<p>	“Delapan puluh lima ribu!”</p>
+<p>	…</p>
+<p>	Tawaran terus meningkat, hingga sembilan puluh ribu, dan kecepatannya menurun drastis. Tawaran Gu Masters meningkat tiga ribu, dibandingkan dengan lima ribu di awal.</p>
+<p>	Setelah patokan seratus ribu, kenaikan tiga ribu menyusut menjadi seribu.</p>
+<p>	“Seratus sepuluh ribu. Kata Bai Ning Bing.</p>
+<p>	“Tamu terhormat dari kamar pribadi kesembilan menawar seratus sepuluh ribu!” Tuan Gu Tuan tuan rumah menaikkan nada suaranya, ini adalah pertama kalinya seorang tamu dari kamar pribadi mengajukan penawaran.</p>
+<p>	“Seratus dua puluh ribu.” Suara Shang Ya Zi keluar dari kamar pribadi kelima.</p>
+<p>	Bai Ning Bing menyipitkan mata, memanggil: “Seratus tiga puluh ribu.”</p>
+<p>	Shang Ya Zi dengan cepat mengikuti: “Seratus empat puluh ribu.”</p>
+<p>	Bai Ning Bing melirik Fang Yuan, berkata: “Seratus lima puluh ribu.”</p>
+<p>	Fang Yuan mengangkat bahu.</p>
+<p>	Tawaran ini jelas membuat Shang Ya Zi menemukan masalah dengan mereka. Bai Ning Bing berada di ruangan yang sama dengan Fang Yuan, jadi dia menjadi sasaran Shang Ya Zi, dia benar-benar dikecam tanpa alasan.</p>
+<p>	“Seratus lima puluh ribu untuk panah es Gu … hmph, aku ingin kalian menderita!” Di kamar pribadi kelima, Shang Ya Zi tertawa sinis, tidak menawar lagi.</p>
+<p>	Meskipun Bai Ning Bing membeli panah es Gu, dia membayar empat puluh ribu ekstra.</p>
+<p>	“Sepertinya Shang Ya Zi ada di sini dengan sepenuh hati.” Wei Yang menghela nafas.</p>
+<p>	Shang Xin Ci juga mengerutkan kening, merasa khawatir dengan Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

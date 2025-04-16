@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 40 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 40";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_39.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 40">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_41.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 40</h1>
+        <div class="text-left">
+<p>	Bab 40</p>
+<p>	Bab 40 – Gu Kodok Tidur di Batu Emas Ungu</p>
+<p>	Semakin jauh berjalan, semakin berkembang dan makmur itu. PKL kecil berkurang sementara tenda besar bertambah jumlahnya.</p>
+<p>	Ada berbagai macam tenda besar yang bisa dilihat – merah, biru, hijau, kuning, dalam berbagai bentuk dan ukuran, beberapa berbentuk silinder. Beberapa mendirikan dua pilar pintu di pintu masuk tenda mereka, sementara yang lain menggantungkan lentera merah besar sebagai gantinya. Di dalam, beberapa tenda memiliki lampu yang menyala, sedangkan yang lain redup dan gelap.</p>
+<p>	Fang Yuan mengamati sekelilingnya saat dia berjalan, akhirnya berhenti di dekat tenda berwarna abu-abu.</p>
+<p>	“Ada di sini,” dia mengevaluasi sambil melihat tenda; itu memiliki dua pilar di pintu masuk, dan ada ukiran di pilar, dua baris bait antitesis (1).</p>
+<p>	Sisi kiri menulis, “Tampilan kecil keberanian, dapatkan keberuntungan selama empat musim.”</p>
+<p>	Sisi kanan menulis, “Tampilan keterampilan yang besar, dapatkan kemakmuran yang baik di keempat arah.”</p>
+<p>	Di tengah masih ada baris lain: “Keberuntungan berubah seiring waktu.”</p>
+<p>	Itu benar, ini adalah sarang perjudian.</p>
+<p>	Sarang judi ini mengambil sekitar satu mu(2) tanah; itu dianggap tenda berukuran besar.</p>
+<p>	Fang Yuan berjalan masuk. Di dalam tenda, ada tiga baris konter di samping. Di meja ada potongan-potongan amber atau fosil. Ada yang sebesar telapak tangan, ada pula yang sebesar wajah. Ada juga yang lebih besar; mereka setinggi manusia. Itu jelas tidak bisa muat di konter, jadi langsung diletakkan di tanah.</p>
+<p>	Berbeda dari toko tenda lainnya, di sini sunyi.</p>
+<p>	Beberapa master Gu berdiri di depan konter, beberapa dengan cermat mengamati batu di konter pajangan sementara yang lain mengambil fosil dan menggosoknya di tangan mereka untuk merasakannya. Ada beberapa yang berdiskusi dengan tenang dengan teman mereka, dan ada yang mendiskusikan harga dengan pegawai toko mereka.</p>
+<p>	Tetapi tidak peduli apa yang mereka diskusikan, mereka berbicara dengan lembut, melakukan yang terbaik untuk tidak mengganggu orang lain.</p>
+<p>	Ini adalah sarang judi batu.</p>
+<p>	Di dunia Gu , ada semua jenis Gu , datang dengan berbagai bentuk dan ukuran dan segala macam efek. Cacing Gu memiliki makanannya masing-masing untuk dikonsumsi. Tanpa makanan, mereka hanya bisa bertahan sebentar sebelum mati.</p>
+<p>	Tapi alam, terhadap bentuk kehidupan, tidak peduli dan baik hati.</p>
+<p>	Jika mereka kekurangan makanan, cacing Gu masih memiliki kesempatan untuk bertahan hidup. Itu untuk hibernasi, menjalani penyegelan diri.</p>
+<p>	Misalnya, jika Moonlight Gu tidak memiliki kelopak Moon Orchid untuk dikonsumsi, ia mungkin mengalami penyegelan sendiri. Ia akan mencoba memaksimalkan konservasi kekuatannya, seperti hibernasi musim dingin, jatuh tertidur lelap. Pada saat ini, tidak hanya cahaya biru di tubuhnya akan menghilang, itu juga akan berubah dari keadaan kristal transparan menjadi batu abu-abu, ditutupi lapisan cangkang batu. Lama kelamaan, kerak batuan akan semakin tebal dan berubah menjadi bongkahan batu.</p>
+<p>	Atau misalnya Cacing Minuman Keras, jika mengalami penyegelan sendiri, ia akan membentuk kepompong putih di sekitarnya, melengkungkan tubuhnya dan tertidur lelap di dalam kepompong.</p>
+<p>	Tentu saja situasi penyegelan dan hibernasi ini mungkin tidak terjadi pada setiap cacing Gu . Ini memiliki kemungkinan kecil untuk terjadi, dan dalam kebanyakan kasus, cacing Gu tidak akan jatuh ke dalam hibernasi tetapi malah mati kelaparan. Hanya sejumlah kecil cacing Gu yang dapat, dalam situasi tertentu, mengalami penyegelan sendiri.</p>
+<p>	Beberapa Master Gu yang secara tidak sengaja mendapatkan batu atau kepompong cacing Gu yang disegel ini akan membangunkan cacing Gu yang tertidur di dalamnya. Dengan demikian mereka akan memiliki keberuntungan. Beberapa master Gu menjadi sukses karena ini, itu menjadi titik balik dalam hidup mereka. Situasi ini sering terjadi di dunia Guru Gu , sering kali merupakan rumor palsu atau nyata, memberikan harapan dan impian kepada orang-orang.</p>
+<p>	Sumber ide di balik sarang judi batu ini berasal dari rumor ini. Tentu saja, semua batu ini tampak sama di luar. Hanya setelah membukanya, seseorang dapat menentukan apakah memang ada cacing Gu yang tersembunyi di dalamnya.</p>
+<p>	“Di sarang perjudian batu berukuran kecil seperti ini, sembilan dari sepuluh batu adalah inti padat, tidak memiliki cacing Gu di dalamnya. Bahkan jika ada cacing Gu di dalam batu, mereka mungkin bukan cacing hidup, kebanyakan dari mereka adalah Gu yang mati . Tetapi begitu seseorang mendapatkan jackpot dari Gu hidup , dalam kebanyakan situasi, seseorang akan dapat memperoleh banyak uang. Jika cacing Gu adalah spesies langka, mereka akan menjadi orang yang sukses dalam hidup atau dibunuh dan dirampok kekayaannya.”</p>
+<p>	Fang Yuan jelas tentang ini di dalam hatinya, sangat akrab dengan situasi di luar pintu-pintu ini.</p>
+<p>	Dalam kehidupan masa lalunya, dia telah berpartisipasi dalam karavan pedagang sebelumnya, menjadi pegawai di sarang perjudian batu. Beberapa waktu kemudian, dia bahkan mengoperasikan sarang judi batunya sendiri, bahkan lebih besar dari yang ini; itu adalah sarang judi batu berukuran sedang. Dia berhasil menipu beberapa penjudi, dan juga terkadang salah menilai, memungkinkan penjudi lain untuk memenangkan cacing Gu yang berharga .</p>
+<p>	Fang Yuan berdiri di pintu sebentar, melihat sekelilingnya sebelum perlahan berjalan ke konter di sisi kiri.</p>
+<p>	Di belakang konter, ada asisten toko setiap beberapa meter, baik pria maupun wanita. Di pinggang mereka tergantung sabuk berwarna hijau, menunjukkan bahwa mereka bukan orang biasa tetapi master Gu peringkat satu . Sebagian besar adalah tahap awal, sementara beberapa yang dipilih adalah tahap tengah.</p>
+<p>	Melihat Fang Yuan di depan konter, seorang Guru Gu wanita yang terdekat berjalan ke arahnya dan tersenyum, dengan lembut berkata, “Tuan muda, cacing Gu apa yang Anda butuhkan? Setiap batu di konter ini dijual dengan harga sepuluh batu purba. Jika ini adalah percobaan pertama Anda, hanya untuk itu, mengapa Anda tidak pergi ke konter yang tepat, batu-batu di sana dijual hanya lima batu purba. Jika Anda mencari sensasi, Anda bisa pergi ke konter kelas atas di tengah, batu yang dijual di sana masing-masing dua puluh batu purba. ”</p>
+<p>	Ini adalah Master Gu wanita yang berpengalaman , telah bekerja di sarang perjudian batu untuk beberapa waktu.</p>
+<p>	Dia memandang Fang Yuan yang masuk, dan memutuskan bahwa dia adalah seorang siswa dari penampilan, usia dan tinggi badannya, dll.</p>
+<p>	Mereka yang datang untuk berjudi semuanya adalah Master Gu . Siswa hanya dianggap sebagai Master Gu kelas dua , baru memulai kultivasi mereka. Karena mereka sering kekurangan keuangan karena memberi makan cacing Gu mereka , di mana mereka akan menemukan uang untuk datang dan berjudi batu?</p>
+<p>	Siswa seperti ini, biasanya mereka hanya datang untuk melihat dan mendapatkan pengalaman yang membuka mata, memuaskan rasa ingin tahu mereka. Sebagian besar hanya pembeli jendela, meskipun jika beberapa memiliki keluarga yang berkecukupan, mereka mungkin mencoba membeli satu untuk dicoba. Tapi kebanyakan hanya membeli fosil termurah.</p>
+<p>	Dengan demikian, Tuan Gu perempuan tidak memiliki harapan terhadap berapa banyak batu yang bisa dibeli Fang Yuan.</p>
+<p>	“Biarkan aku melihat-lihat dulu.” Fang Yuan mengangguk padanya tanpa ekspresi, lalu mulai melihat dengan serius ke tumpukan itu.</p>
+<p>	Dalam ingatannya, seharusnya di konter ini di sarang judi batu ini.</p>
+<p>	Tapi itu sudah 500 tahun, itu terlalu lama. Banyak hal yang sudah tidak jelas baginya, terutama ketika memori 500 tahun adalah kapasitas yang sangat besar, jadi sejujurnya Fang Yuan tidak dapat mengingat dengan jelas.</p>
+<p>	Dia hanya bisa samar-samar mengingat, bahwa selama tahun ini pada malam pertama karavan tiba, seekor burung yang beruntung menghabiskan sepuluh batu purba untuk membeli fosil dengan kilau emas ungu.</p>
+<p>	Setelah dia membukanya di tempat, dia mendapatkan Kodok Kulit Lumpur. Setelah itu Gu kodok ini dibeli oleh orang lain, sehingga menyebabkan dia mendapatkan sedikit kekayaan dari batu purba.</p>
+<p>	Fang Yuan mengerutkan kening setelah mengamati sebentar.</p>
+<p>	Di penghitung ini, fosil dengan pancaran emas ungu berjumlah hingga dua puluh. Di batu mana ada Kodok Kulit Lumpur yang tersembunyi?</p>
+<p>	Setiap batu di sini dijual dengan harga sepuluh batu purba. Saat ini Fang Yuan memiliki sembilan puluh delapan batu purba bersamanya, dan dia bisa membeli hingga maksimal sembilan buah.</p>
+<p>	Tapi secara realistis, dia tidak bisa menghitung seperti ini.</p>
+<p>	Dalam segala jenis risiko dan pertaruhan, seseorang harus mempertimbangkan konsekuensinya.</p>
+<p>	Fang Yuan bukan lagi seorang greenhorn, seperti para penjudi yang mengira mereka diberkati oleh surga. Mereka yang berpikir bahwa mereka diberkati oleh takdir biasanya adalah mereka yang jatuh di bawah kerusakan takdir itu sendiri.</p>
+<p>	“Saya sendirian, tanpa kerabat atau teman yang bisa membantu saya. Saya harus menyimpan beberapa batu purba untuk bertahan hidup, serta membeli makanan untuk cacing Gu saya . ” Dia menghitung dan di bawah reservasi paling dasar, dia bisa membeli paling banyak tujuh keping fosil.</p>
+<p>	“Batu ini, emas ungu bertitik seperti bintang, tapi datar seperti kue dadar, pasti tidak ada katak kulit lumpur di dalamnya.”</p>
+<p>	“Potongan ini memiliki warna emas ungu yang mencolok, tetapi hanya seukuran kepalan tangan. jika memang ada kodok kulit lumpur di dalamnya, batu itu setidaknya 30% lebih besar.”</p>
+<p>	“Fosil emas ungu ini, wah memang besar, tapi permukaannya sangat halus, sedangkan kulit kodok kulit lumpur seharusnya kasar dan tidak rata, ternyata bukan yang ini……”</p>
+<p>	Fang Yuan terus mengamati dan mengevaluasi, menggunakan metode pembatalan.</p>
+<p>	Ketika cacing Gu berhibernasi setelah menyegel diri, mereka akan terbentuk menjadi fosil alami, tidak terdeteksi dari sebagian besar metode deteksi dunia. Metode pendeteksian yang tersisa terlalu kasar, dan setelah digunakan, itu akan langsung membunuh cacing Gu yang hampir tidak hidup.</p>
+<p>	Jadi, ketika Gu Masters memilih batu, mereka hanya bisa mengandalkan tebakan, pengalaman, dan keberuntungan mereka, terkadang mengandalkan sedikit insting.</p>
+<p>	Kalau tidak, ini tidak akan disebut perjudian.</p>
+<p>	Tentu saja, di dunia yang luas ini, ada keajaiban yang tak terhitung jumlahnya, dan seseorang tidak dapat mengecualikan fakta bahwa ada metode deteksi yang sangat lembut, yang memungkinkan Master Gu mengetahui apakah batu itu mengandung cacing Gu .</p>
+<p>	Fang Yuan telah mendengar desas-desus seperti itu di kehidupan masa lalunya, tetapi setelah bereksperimen, menemukan bahwa itu semua bohong.</p>
+<p>	Fang Yuan berasumsi secara pribadi, “Jika metode seperti itu benar-benar ada, itu harus menjadi warisan tersembunyi, dikendalikan di tangan sejumlah kecil orang misterius, tidak berdampak pada bisnis perjudian.”</p>
+<p>	Itu masih jinak di sekitar wilayah pegunungan Qing Mao, tetapi semakin banyak yang bergerak ke timur, semakin banyak sarang perjudian yang makmur. Di wilayah pegunungan Bai Tou(3), setiap desa keluarga memiliki sarang perjudiannya sendiri. Di beberapa benteng berukuran besar, bahkan ada sarang perjudian berukuran besar yang dibangun. Tiga desa yang terkenal dengan judi batunya adalah Desa Pan Shi (4), Desa Gu Mu (5) dan Desa Cang Jing (6), bahkan terdapat sarang judi berukuran besar.</p>
+<p>	Ketiga sarang judi berukuran besar ini masing-masing memiliki sejarah seribu tahun. Saat ini, bisnis mereka masih mekar, dengan jumlah penjudi yang tidak ada habisnya. Tidak pernah ada situasi sapu bersih oleh siapa pun.</p>
+<p>	Saat ini, tenda tempat Fang Yuan berada hampir tidak dapat memenuhi syarat sebagai sarang perjudian berukuran kecil.</p>
+<p>	Jika ada anak berusia 15 tahun lainnya yang datang, mereka pasti akan dibingungkan oleh semua fosil yang berbeda, dan bahkan jika mereka memilihnya, itu akan dilakukan dengan menebak secara acak.</p>
+<p>	Tapi Fang Yuan berbeda.</p>
+<p>	Pertama, dia sudah tahu sebagian dari jawabannya sejak awal, sehingga jangkauan pencariannya menyusut menjadi kurang dari tiga puluh buah.</p>
+<p>	Tentu saja, untuk menemukan satu batu dari dua puluh keping aneh ini juga sangat sulit. Tetapi menggunakan pengalamannya selama lima ratus tahun sebagai pendukung, dengan kumpulan informasi yang begitu kaya, dia memilih enam keping fosil emas ungu yang paling sesuai dengan kriteria setelah mengamati beberapa saat.</p>
+<p>	Dia memiliki kemungkinan 80% untuk yakin bahwa katak kulit lumpur sedang berhibernasi di dalam salah satu dari enam fosil ini!</p>
+<p>	(1) Kuplet antitesis: https://en.wikipedia.org/wiki/Antithetical_couplet</p>
+<p>	(2) Mu (亩): 1 Mu adalah 666 meter²</p>
+<p>	(3) Bai Tou secara langsung berarti Kepala Putih, (4) Pan Shi adalah Monolit, (5) Gu Mu berarti Makam Kuno dan (6) Cang Jing adalah Paus Pucat. Sejujurnya sebagian besar gunung ini tidak akan pernah muncul lagi, jadi Anda tidak perlu mengingatnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

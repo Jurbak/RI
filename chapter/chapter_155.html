@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 155 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 155";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_154.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 155">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_156.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 155</h1>
+        <div class="text-left">
+<p>	Bab 155</p>
+<p>	Bab 155: Pinjam</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Selamat selamat.”</p>
+<p>	“Penatua Fang Yuan masih muda dan menjanjikan. Anda benar-benar menjadi panutan bagi generasi muda!”</p>
+<p>	“Haha, kami benar-benar mengantisipasi kecemerlangan Penatua Fang Yuan saat kami bekerja bersama mulai sekarang.”</p>
+<p>	Kelompok tetua mengepung Fang Yuan dan mengucapkan kata-kata adat.</p>
+<p>	Penatua akademi berdiri di tepi kerumunan, ekspresinya rumit saat dia melihat Fang Yuan.</p>
+<p>	Dia tidak pernah berharap Fang Yuan menjadi penatua. Di kelasnya, dia paling optimis terhadap Fang Zheng, lalu Chi Cheng dan Mo Bei.</p>
+<p>	Tetapi untuk berpikir bahwa orang yang pertama kali mencapai kesuksesan, sebenarnya adalah Fang Yuan!</p>
+<p>	“Bagaimana pencapaian kecilku ini bisa dibandingkan dengan yang lebih tua? Saya masih perlu berterima kasih kepada ajaran klan untuk pencapaian hari ini. Penatua akademi, saya selalu mengukir kata-kata Anda di hati saya, ”Fang Yuan tersenyum hangat, dan dia berbicara dengan rendah hati dan bijaksana.</p>
+<p>	Tetua akademi tidak menyangka bajingan ini mengambil inisiatif untuk menyambutnya.</p>
+<p>	Dia terdiam sesaat sebelum ekspresi puas muncul di wajahnya, “Sepertinya kamu telah banyak matang di tahun-tahun ini, Penatua Fang Yuan. Teruslah berkarya, aku bangga dengan prestasimu. Klan membutuhkan darah baru sepertimu.”</p>
+<p>	Fang Yuan dengan tulus berterima kasih kepada tetua akademi lagi dan juga membalas para tetua lainnya.</p>
+<p>	Dengan pengalamannya selama lima ratus tahun, melakukan tindakan seperti itu sangat mudah.</p>
+<p>	Dia memiliki rasa kesopanan, kata-katanya lembut dan sikapnya rendah hati, membuat semua orang yang mendengarnya merasa seperti mereka sedang berjemur di angin musim semi.</p>
+<p>	Gu Yue Chi Lian acuh tak acuh pada adegan ini, tetapi semakin dia mengamati, semakin dia menjadi takut. Fang Yuan ini tahu bagaimana menghadapi situasi secara memadai, dan setiap kalimat dan kata seolah-olah diucapkan oleh seorang veteran. Apakah dia benar-benar masih remaja? Mungkinkah dia terlahir sebagai politisi?</p>
+<p>	Penatua akademi juga tercengang. Dia memikirkan masa akademi; Fang Yuan sangat memberontak, bahkan mengeksploitasi teman-teman sekelasnya sendiri. Dia mengalami sakit kepala yang tak terhitung jumlahnya karena ini, tetapi Fang Yuan saat ini tampaknya telah benar-benar berubah.</p>
+<p>	Sebaliknya, Gu Yue Mo Chen tidak bingung dengan perilaku Fang Yuan. Bagaimanapun, dia sudah merasakan skema Fang Yuan.</p>
+<p>	Saat ini, saat dia melihat perilaku Fang Yuan yang berbudaya dan lembut, menjadi titik fokus kerumunan, dia terus mendesah bahwa Gu Yue Chi Lian telah membuat langkah besar.</p>
+<p>	Pertukaran berlanjut untuk beberapa waktu. Tapi, terlepas dari pemikiran apa yang dimiliki para tetua, yang hadir di sana tidak bisa tidak melihat Fang Yuan dengan cara baru. Mereka terus-menerus menghela nafas bahwa rumor itu benar-benar tidak dapat diandalkan!</p>
+<p>	Pada akhirnya, Fang Yuan dengan bijaksana menolak beberapa undangan tetua dan meninggalkan paviliun kepala klan sambil tersenyum bersama dengan Gu Yue Chi Lian.</p>
+<p>	“Hmph, apakah kamu puas sekarang? Setelah menjatuhkan Gu Yue Yao Ji, kamu bahkan menyeret faksi Chi-ku ke dalam air panas!” Ketika mereka sampai di ruang belajar, Chi Lian tidak bisa berpura-pura lagi, dan senyum di wajahnya digantikan oleh kemarahan.</p>
+<p>	Fang Yuan duduk di depannya dan dengan santai tersenyum, “Kamu harus berterima kasih padaku untuk ini. Gu Yue Yao Ji turun, ini adalah keuntungan besar bagi faksi Chi-mu.”</p>
+<p>	Tatapan Gu Yue Chi Lian melintas, “Hmph, anak muda, pikiranmu terlalu sederhana. Chi Zhong adalah anggota faksi Chi saya tetapi istrinya dari faksi Yao. Kepala klan menunjuknya sebagai tetua ruang pengobatan sementara justru karena dia ingin menyeimbangkan perselisihan internal antara faksi Chi dan Yao-ku. Anda, bagaimana Anda mengetahui tentang masalah Chi Cheng? ”</p>
+<p>	Pada akhirnya, Gu Yue Chi Lian tiba-tiba menanyakan ini.</p>
+<p>	Dia dengan cermat memperhatikan Fang Yuan dengan tatapan seperti elang.</p>
+<p>	Fang Yuan tanpa peduli mengangkat bahunya dan berkata, “Orang tua, saya tidak punya banyak batu purba yang tersisa, beri saya tiga ribu batu purba.”</p>
+<p>	Bang.</p>
+<p>	Gu Yue Chi Lian membanting meja dengan keras; dia merendahkan suaranya dan meraung, “Fang Yuan! Jangan pernah berpikir bahwa Anda dapat memeras golongan Chi saya hanya dengan mengetahui rahasia itu. Saya sudah tua dan tidak punya waktu lama untuk hidup, jadi paling buruk saya akan menyerahkan hidup saya! Hmph, saya dapat menerima kerja sama, tetapi saya sama sekali tidak akan menerima ancaman apa pun! ”</p>
+<p>	“Aku tidak akan membiarkan apa yang terjadi hari ini terjadi lagi! Jika Anda sembarangan membuat musuh dan menarik faksi Chi saya ke dalam kekacauan Anda, Anda akan menyesalinya! Anda benar-benar berpikir rahasia itu dapat menghancurkan seluruh faksi Chi saya? Heh, jangan terlalu naif. ”</p>
+<p>	Fang Yuan tidak menjawab, tatapannya seperti hantu saat dia membiarkan Gu Yue Chi Lian terus mencaci-maki dia.</p>
+<p>	Ketika Gu Yue Chi Lian membanting meja, auranya mencengangkan seperti harimau, tetapi saat dia terus berbicara, auranya mulai semakin lemah dan pada akhirnya, dia tampak kekurangan energi, menunjukkan a kurang percaya diri.</p>
+<p>	Hanya ketika dia tidak lagi berbicara, Fang Yuan dengan santai tersenyum dan berkata, “Orang tua, jangan terlalu marah. Saya memang kekurangan uang baru-baru ini, dan saya tidak meminta tiga ribu batu purba ini secara gratis, saya hanya meminjamnya. Saya bahkan bisa menandatangani tanda terima pinjaman. ”</p>
+<p>	Gu Yue Chi Lian mendengus, dia berbicara perlahan, “Kamu tidak akan kekurangan batu purba, kamu baru saja menjadi penatua dan tidak tahu perlakuan istimewa yang diberikan klan kepada para tetua. Selama Anda seorang penatua, Anda akan menerima seratus batu purba setiap minggu. Ini adalah jumlah yang Anda terima di waktu biasa, tetapi karena ini adalah waktu gelombang serigala, Anda akan menerima tiga ratus batu purba sebagai uang saku. ”</p>
+<p>	“Tidak hanya itu, kamu juga dapat dengan bebas mengambil cacing Gu peringkat tiga. Demikian pula, resep peringkat satu hingga peringkat tiga klan akan dibuka untuk Anda. Anda dapat memilih resep apa pun yang Anda suka dan memperbaiki cacing Gu peringkat tiga Anda. Ada juga hak istimewa lainnya, misalnya: Tuan Gu Biasa hanya dapat menikahi satu istri, tetapi seorang penatua dapat memiliki satu istri dan dua selir.</p>
+<p>	“Jadi begitu.” Fang Yuan tentu saja tahu ini, tetapi dia berpura-pura ini adalah pertama kalinya dia mendengarnya.</p>
+<p>	“Tetapi meskipun demikian, saya masih ingin meminjam tiga ribu batu purba. Anda juga tahu bahwa saya baru saja naik ke peringkat tiga. Memurnikan cacing Gu peringkat tiga menghabiskan banyak batu purba, ‘kata Fang Yuan ‘dengan tulus’.</p>
+<p>	Gu Yue Chi Lian merenungkan hal ini.</p>
+<p>	Dia merenungkan, “Dengan identitas Fang Yuan sebagai penatua, dia tidak akan pergi sejauh tidak membayar hutangnya. Apakah dia tidak menginginkan reputasinya? Jika seandainya, dia mati dalam gelombang serigala, maka bukankah tiga ribu batu purba saya akan sia-sia? Tunggu, bukankah lebih baik dia mati? Kami dapat terus menyembunyikan masalah tentang bakat Chi Cheng. Tapi bagaimana dia mengetahui rahasia ini? Apakah masih ada orang lain yang mengetahuinya? Saya lebih baik meminjamkan uang kepadanya terlebih dahulu dan menurunkan kewaspadaannya, maka saya dapat menyelidiki rahasianya. ”</p>
+<p>	Saat dia berpikir sampai saat ini, Gu Yue Chi Lian tidak bersikeras lagi dan segera mengeluarkan kuas dan kertas.</p>
+<p>	Fang Yuan menulis tanda terima pinjaman dan menandatangani dengan sidik jarinya.</p>
+<p>	Gu Yue Chi Lian memanggil kepala pelayannya dan memberi beberapa perintah. Segera, beberapa kantong uang penuh batu purba dibawa.</p>
+<p>	Fang Yuan menimbang setiap kantong uang dan tidak menemukan masalah.</p>
+<p>	Dia benar-benar membutuhkan batu purba ini.</p>
+<p>	Dia hampir menghabiskan semua tabungannya untuk memperbaiki Gu Pemakaman Kehidupan Manusia-binatang. Tiga ribu batu purba ini dapat dianggap sebagai bantuan tepat waktu.</p>
+<p>	Dia baru saja naik ke peringkat tiga. Dia perlu memperbaiki cacing Gu peringkat tiga. Hanya dengan begitu dia bisa benar-benar memiliki kemampuan bertarung dan bertahan hidup dari Master Gu peringkat tiga.</p>
+<p>	Dia sudah memiliki rencana kasar mengenai hal ini. Tiga ribu batu purba mungkin tidak cukup. Namun, itu tidak mendesak, dan faksi Chi akan menjadi ladang uangnya yang besar.</p>
+<p>	Batu purba yang dia pinjam kali ini hanyalah permulaan. Jika itu terjadi sekali, itu akan terjadi dua kali; pertama kali sulit, tetapi kemudian menjadi lebih mudah.</p>
+<p>	Soal bayar utang, hehe….</p>
+<p>	Fang Yuan tidak terburu-buru untuk pergi setelah mendapatkan batu purba ini, tetapi malah tersenyum, “Aku masih ingin meminjam sesuatu.”</p>
+<p>	“Jangan berlebihan.” Gu Yue Chi Lian muram, tetapi pada akhirnya, dia masih berkata, “Bicaralah, ada apa?”</p>
+<p>	“Gu Air Pembersih,” mata Fang Yuan menyipit saat dia berkata terus terang.</p>
+<p>	Ada Gu Air Pembersih yang dijual sebelumnya di karavan, dan jika Anda mempertimbangkan siapa yang paling mungkin membeli Gu ini, itu adalah Gu Yue Chi Lian.</p>
+<p>	Dia menggunakan esensi purbanya sendiri untuk memelihara lubang cucunya dan memajukan kultivasinya. Hal ini menyebabkan adanya campuran aura di lubang, yang perlu dimurnikan oleh Gu Air Pembersih.</p>
+<p>	“Itu tidak mungkin!” Gu Yue Chi Lian dengan tegas menolak.</p>
+<p>	Dia memang membeli Gu Air Pembersih itu, tapi dia menyiapkan Gu ini untuk cucunya Gu Yue Chi Cheng. Jika dia ingin membelinya lagi, dia hanya bisa mengandalkan takdir.</p>
+<p>	“Jangan menolakku begitu cepat.” Fang Yuan tertawa, “Saya percaya Anda – Tuan Gu Yue Chi Lian, kepala faksi Chi – tahu mana yang lebih penting, reputasi Gu Air Pembersih atau faksi Chi.”</p>
+<p>	Wajah Gu Yue Chi Lian benar-benar gelap, aura di sekelilingnya menjadi dingin saat dia menatap tajam ke arah Fang Yuan, menggertakkan giginya, “Fang Yuan, tahu apa yang kamu coba lakukan. Anda memeras saya, memeras kepala faksi besar Chi! ”</p>
+<p>	“Tidak, tidak, ini bukan pemerasan, ini diskusi. Saya hanya meminjam Gu Air Pembersih dan akan mengembalikan Anda yang baru di masa depan. Saya dapat menandatangani tanda terima pinjaman untuk ini juga, ”Fang Yuan terkekeh. Namun, nadanya tegas dan itu menunjukkan tekadnya.</p>
+<p>	“Jangan bayangkan itu!” Sikap Chi Lian juga tegas.</p>
+<p>	……</p>
+<p>	Setelah satu jam, Fang Yuan berjalan keluar dari rumah keluarga Chi dengan tiga ribu batu purba dan Gu Air Pembersih.</p>
+<p>	Dan Gu Yue Chi Lian sedang duduk di ruang belajar, melihat dua kwitansi – yang ditulis oleh Fang Yuan – di atas meja. Kemarahan di hatinya seperti sungai yang bergelombang, meluap tanpa henti.</p>
+<p>	Fang Yuan menahan faksi Chi yang menempatkan Chi Lian dalam situasi yang sangat pasif, sehingga kemenangannya masuk akal.</p>
+<p>	Tiga hari kemudian.</p>
+<p>	Fang Yuan duduk bersila di tempat tidur, cahaya putih menyinari wajahnya.</p>
+<p>	Bola cahaya putih mengambang di udara — proses fusi telah mencapai tahap akhir.</p>
+<p>	Fang Yuan menggunakan kesadarannya untuk mempertahankan bola cahaya sambil melemparkan batu purba ke dalamnya.</p>
+<p>	Bola cahaya itu tiba-tiba menghilang dan cacing Gu yang sama sekali baru terbang ke telapak tangan Fang Yuan.</p>
+<p>	Penampilannya seperti kepik besar. Karapasnya yang putih susu setengah lingkaran dihiasi dengan bintik-bintik gelap.</p>
+<p>	Itu cukup besar, seukuran kepalan tangan orang dewasa.</p>
+<p>	Peringkat tiga Sky Canopy Gu!</p>
+<p>	“Aku akhirnya berhasil.” Fang Yuan dengan puas menganggukkan kepalanya, ini adalah kedua kalinya dia mencoba perpaduan ini.</p>
+<p>	Sky Canopy Gu disempurnakan dari perpaduan Peringkat dua Gu Giok Putih dan Gu pertahanan aqua.</p>
+<p>	Pada percobaan pertama, Fang Yuan menggunakan Gu Perisai Air dan Gu Giok Putih. Tetapi fusi itu berakhir dengan kegagalan, yang mengakibatkan kematian Gu Perisai Air.</p>
+<p>	Gu pertahanan aqua yang dia gunakan kali ini telah ditukar dengan kemampuan bertarungnya.</p>
+<p>	Namun, Sky Canopy Gu ini bukan cacing Gu peringkat tiga pertama Fang Yuan. Cacing Gu peringkat tiga pertamanya diperoleh langsung dari klan.</p>
+<p>	Setelah naik ke peringkat tiga dan menjadi penatua, klan akan memberi mereka cacing Gu peringkat tiga.</p>
+<p>	Fang Yuan menggunakan kesempatan ini untuk memilih Thunderwings Gu.</p>
+<p>	Gu ini didapat sebagai rampasan perang setelah para tetua membunuh serigala petir yang gila. Kemampuannya adalah mewujudkan sepasang sayap guntur dan memberi Gu Masters kemampuan untuk terbang dalam waktu singkat.</p>
+<p>	Dengan Thunderwings Gu untuk membantu pergerakan, kelemahan pertempuran terakhir Fang Yuan telah diperbaiki.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

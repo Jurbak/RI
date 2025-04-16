@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 101 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 101";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_100.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 101">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_102.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 101</h1>
+        <div class="text-left">
+<p>	Bab 101</p>
+<p>	Bab 101: Orang itu setua hatinya telah menua</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Dengan kemampuannya, Gu Yue Dong Tu dapat dengan mudah menemukan tempat tinggal Fang Yuan.</p>
+<p>	Dia mengenakan seragam Guru Gu yang jarang dia pakai; dia memiliki balutan kaki di sekitar kakinya dan mengenakan sabuk merah di pinggangnya. Semuanya rapi dan bersih, dan memancarkan perasaan keagungan yang samar.</p>
+<p>	Dia melihat ke arah Fang Yuan yang perlahan-lahan datang dan pandangannya jatuh di sabuk yang terakhir; emosi yang mendalam muncul di hatinya.</p>
+<p>	“Hanya bakat kelas C tetapi dia telah menembus peringkat dua di enam belas, itu benar-benar mengejutkan. Saya benar-benar tidak tahu bagaimana dia berhasil. Namun…kecepatan cepat ini sebagian besar harus dikaitkan dengan cacing Liquor. Sayang sekali cacing Liquor tidak ada gunanya di Peringkat dua. ”</p>
+<p>	Setelah itu, dia melihat senyum tipis tergantung di mulut Fang Yuan.</p>
+<p>	Senyum ini membuat hati Gu Yue Dong Tu menjadi dingin.</p>
+<p>	Kemarahan mengalir di benaknya, “Anak ini bertingkah sangat tenang, apakah dia pikir dia telah membuatku terperangkap di dalam telapak tangannya ?!”</p>
+<p>Fang Yuan perlahan berjalan dan berhenti di depan Gu Yue Dong Tu, dia tahu yang terakhir pasti ada di sini untuknya.</p>
+<p>	Benar saja, Gu Yue Dong Tu membuka mulutnya, “Fang Yuan, kurasa kita bisa bicara.”</p>
+<p>	“Apa yang ingin Anda bicarakan?” Fang Yuan sedikit mengerutkan kening.</p>
+<p>Gu Yue Dong Tu tertawa tetapi kemudian membicarakan hal lain, “Tahukah Anda, saya sama seperti Anda, saya menjadi Guru Gu ketika saya berusia lima belas tahun.”</p>
+<p>	“Itu benar pada saat serigala pasang, ada banyak korban dan kami – siswa – juga tidak punya pilihan selain bertarung. Saya memiliki bakat kelas B; Saya mencapai peringkat dua tahap awal pada usia enam belas tahun, tahap atas pada usia tujuh belas tahun dan tahap puncak pada usia delapan belas tahun. Ketika saya berusia sembilan belas tahun, saya sudah memulai tugas saya ke peringkat tiga. Pada saat itu, saya percaya saya bisa menjadi Guru Gu peringkat tiga pada usia dua puluh. ”</p>
+<p>	“Hahaha, saya terlalu sembrono, saya pikir saya di atas semua orang dan berpikir saya bisa mencapai apa pun. Saya bahkan berpikir saya mahakuasa, saya sama sekali tidak tahu luasnya langit dan bumi. Itu ketika aku berumur dua puluh. Saya pergi keluar untuk melakukan misi dan dipukuli oleh Guru Gu desa Xiong. Saya berada di ambang kematian tetapi untungnya, tetua ruang obat secara pribadi menggerakkan dan menyelamatkan saya. Tapi setelah kejadian itu, bakatku turun ke kelas C, aku tidak bisa pulih dari keterkejutan ini selama delapan tahun.”</p>
+<p>	“Pada ulang tahun saya yang ke dua puluh sembilan, saya mulai melihat diri saya dan dunia ini lagi. Saya menemukan bahwa kekuatan satu orang terbatas. Jadi bagaimana jika saya berhasil menembus peringkat tiga? Hidup dalam masyarakat ini, yang terpenting bukanlah kekuatan individu, tetapi hubungan dengan orang lain.”</p>
+<p>	“Saya memulai hidup baru ketika saya berusia tiga puluh tahun. Saya turun dari garis depan ketika saya berusia empat puluh lima tahun. Seratus Master Gu bersama-sama mengajukan petisi untuk memilih saya sebagai penatua puluhan kali. Meskipun saya hanya memiliki kultivasi tahap puncak peringkat dua, saya tidak dapat mengambil langkah terakhir itu tetapi juga tidak perlu. Saya sudah mencapai kesuksesan. Anggota klan memanggil saya sebagai ‘penatua tersembunyi’. Sebagian besar rekan-rekan saya telah meninggal tetapi hidup saya berlayar dengan lancar. Saya masih memiliki pengaruh pada banyak Master Gu. ”</p>
+<p>	Setelah memberikan laporan panjang lebar, Gu Yue Dong Tu kembali ke topik utama. Dia memandang Fang Yuan, mulutnya melengkung, “Fang Yuan, kamu terlalu muda dan tidak berpengalaman, sama seperti aku saat itu. Percaya bahwa Anda dapat mencapai apa saja dan menyelesaikan semuanya sendiri. Hehe.”</p>
+<p>	Gu Yue Dong Tu menggelengkan kepalanya dan melanjutkan, “Tetapi ketika kamu mendapatkan lebih banyak pengalaman, kamu akan mengerti bahwa manusia adalah makhluk sosial dan bukan binatang tunggal. Terkadang kita perlu menundukkan kepala dan mundur selangkah. Menjadi orang yang ekstremis dan arogan hanya akan membawa keterasingan dan kehancuran. Saya yakin Anda sudah merasakannya; tidak ada kelompok yang akan membawa Anda dan semua orang meninggalkan Anda. Bahkan jika Anda menerima misi warisan keluarga, apa yang akan dilakukan? Sebagai orang yang ditinggalkan oleh semua orang, Anda pasti tidak akan memiliki kesempatan untuk menyelesaikan tugas. Menyerah.”</p>
+<p>	Fang Yuan dengan acuh tak acuh menatap pria paruh baya itu; ekspresinya, tenang.</p>
+<p>	“Aku ingin tahu ekspresi apa yang akan dia tunjukkan jika dia tahu aku memiliki pengalaman lima ratus tahun?”</p>
+<p>	Mata Fang Yuan tidak bisa membantu tetapi mengungkapkan sedikit senyum ketika dia memikirkan ini.</p>
+<p>	Sebenarnya, cara berpikir pamannya telah menjadi konsep hidupnya sejak lama di kehidupan sebelumnya.</p>
+<p>	Dengan demikian, dia telah menciptakan Sekte Setan Bloodwing, mengandalkan sistem dan emosi manusia untuk menciptakan pengaruh yang sangat besar. Sepuluh ribu akan muncul dengan satu panggilannya, merebut sumber daya dan melawan musuh.</p>
+<p>	Namun, ketika dia menerobos ke Peringkat enam, dia melihat pemandangan yang sama sekali baru.</p>
+<p>	Master Gu hingga Peringkat lima adalah manusia tetapi Peringkat enam adalah abadi. Ketika dia berdiri di ketinggian itu dan melihat dunia, dia tiba-tiba mengerti — pengaruh yang sangat besar memang merupakan bantuan yang kuat tetapi pada saat yang sama merupakan beban yang sangat besar.</p>
+<p>	Tidak peduli dunia mana, hanya ada satu hal yang benar-benar bisa diandalkan; itu adalah diri sendiri.</p>
+<p>	Hanya saja orang seperti itu biasanya lemah. Orang-orang tidak tahan dengan kesepian dan suka mengejar cinta keluarga, persahabatan, dan romansa untuk mengisi semangat mereka. Mereka menikmati berada dalam kelompok dan takut sendirian.</p>
+<p>	Ketika mereka menerima kemunduran, mereka akan bersembunyi di grup, mengadu kepada kerabat dan berbagi dengan teman. Mereka tidak berani menghadapi ketakutan dan kekalahan mereka sendiri. Ketika ada rasa sakit, mereka akan sibuk membagikannya; ketika ada sesuatu yang baik, mereka akan bersemangat untuk menyombongkannya.</p>
+<p>	Gu Yue Dong Tu berhasil? Tidak diragukan lagi dia berhasil.</p>
+<p>	Dia tidak bisa berjalan di jalan aslinya, jadi dia pergi ke jalan lain dan pergi ke adegan baru.</p>
+<p>	Tetapi pada saat yang sama, dia juga gagal.</p>
+<p>	Dia telah menundukkan kepalanya karena satu kemunduran; dia tidak lebih dari seorang pengecut, tapi dia puas dengan pelariannya.</p>
+<p>	Gu Yue Dong Tu tidak tahu Fang Yuan telah mencapnya sebagai seorang pengecut. Dia melihat Fang Yuan tidak menjawab, jadi dia pikir yang terakhir terserap dalam pidatonya.</p>
+<p>	Dia melanjutkan, “Fang Yuan, aku tidak akan bertele-tele, kamu bukan Fang Zheng. Jika Anda melepaskan ide Anda untuk mewarisi aset keluarga, Anda akan menerima persahabatan saya dan Anda dapat menggunakan semua koneksi saya. Saya juga akan memberi Anda seribu batu purba. Saya tahu Anda kesulitan mendapatkan uang akhir-akhir ini dan Anda bahkan terlambat membayar sewa dua hari, kan? ”</p>
+<p>	Fang Yuan dengan acuh tak acuh tersenyum dan berbicara, “Paman, kamu tidak sering memakai pakaian ini, kan?”</p>
+<p>	Gu Yue Dong Tu terkejut, dia tidak menyangka Fang Yuan akan tiba-tiba membicarakan hal ini.</p>
+<p>	Fang Yuan memang benar, dia sudah lama pensiun, seragam ini biasanya disimpan jauh di dalam kotak. Dia telah mengenakan seragam ini terutama untuk bertemu Fang Yuan hari ini; itu untuk meningkatkan daya persuasi dan pencegahannya.</p>
+<p>	Fang Yuan menghela nafas, dia mengukur pakaian Gu Yue Dong Tu dan melanjutkan, “Seragam Guru Gu tidak begitu bersih dan rapi. Itu akan tertutup keringat, lumpur dan darah; itu akan tercabik-cabik dan tambalan; itu adalah bau seorang Guru Gu.”</p>
+<p>	“Kamu tua. Paman. Ambisi dan aspirasi besar Anda telah menghilang dari masa muda Anda. Tahun-tahun ini, Anda telah menjalani kehidupan yang mudah dan itu telah merusak hati Anda. Anda berlomba-lomba untuk aset keluarga, bukan untuk berkultivasi tetapi untuk mempertahankan hidup Anda yang kaya. Dengan mentalitas seperti itu, bagaimana Anda bisa menghalangi saya?</p>
+<p>	Wajah Gu Yue Dong Tu langsung berubah pucat, kemarahan melonjak di benaknya.</p>
+<p>	Selalu ada sekelompok orang ‘tua’ di dunia ini. Mereka menggembar-gemborkan pengalaman sosial mereka di mana-mana. Mereka menganggap mimpi orang lain sebagai ilusi; menganggap nafsu orang lain sebagai hal yang sembrono; menganggap kegigihan orang lain sebagai kesombongan. Mereka akan mencari keberadaan dan keunggulan mereka sendiri dengan menguliahi generasi-generasi selanjutnya.</p>
+<p>	Tidak diragukan lagi, Gu Yue Dong Tu adalah orang seperti itu.</p>
+<p>	Dia ingin mendidik Fang Yuan tetapi dia tidak pernah berpikir bahwa Fang Yuan tidak hanya tidak mendengarkannya atau menyerah padanya, tetapi malah akan menceramahinya!</p>
+<p>	“Fang Yuan!” Gu Yue Dong Tu berteriak, “Saya ingin membimbing dan membujuk Anda dengan niat baik sebagai penatua Anda, tetapi Anda tidak tahu mana yang baik dan mana yang buruk. Hmph, karena kamu ingin melawanku, maka jadilah itu. Saya tidak takut untuk memberi tahu Anda bahwa saya sudah tahu isi misi warisan keluarga Anda. Orang-orang muda tidak tahu luasnya langit dan bumi. Haha, aku benar-benar ingin melihat bagaimana kamu akan menyelesaikan misi ini!”</p>
+<p>	Fang Yuan memiliki senyum mengejek di wajahnya, tidak perlu disembunyikan sekarang. Bagaimanapun, mereka tidak bisa lagi berdamai, jadi tidak ada salahnya menikmati ekspresi indah Gu Yue Dong Tu yang akan datang.</p>
+<p>Setelah itu, dia mengeluarkan kantong air kulit banteng dan membukanya; aroma yang khusus untuk anggur madu melayang keluar.</p>
+<p>	“Menurutmu apa yang ada di sini?” Dia bertanya.</p>
+<p>	Gu Yue Dong Tu menjadi pucat karena ketakutan, suasana hatinya langsung turun ke titik terendah sepanjang masa.</p>
+<p>	“Bagaimana ini bisa? Di mana Anda mendapatkan anggur madu ini ?! ” Dia meraung, ekspresi terkejut muncul di wajahnya.</p>
+<p>	Fang Yuan mengabaikannya, menutup tutupnya, mengembalikan kantong air dan berjalan menuju aula urusan internal.</p>
+<p>	Dahi Gu Yue Dong Tu dipenuhi keringat dingin, banyak pikiran berkecamuk di benaknya.</p>
+<p>	“Dari mana dia mendapatkan anggur madu? Saya sudah memastikan bahwa selama dia mencari grup lain, saya akan mendapatkan berita saat pertama. Mungkinkah dia melakukan ini sendirian? Tidak, itu tidak mungkin, dia tidak memiliki cacing pertahanan Gu. Seseorang pasti membantunya. Tidak! Intinya sekarang bukan mencari alasan. Anak ini sudah memiliki anggur madu, dia akan menyerahkan misinya!”</p>
+<p>	Gu Yue Dong Tu sudah panik saat memikirkan ini dan tidak lagi memiliki penampilan yang tenang dari beberapa saat yang lalu.</p>
+<p>	Dia dengan cepat mengejar Fang Yuan, “Fang Yuan, tunggu, semuanya bisa didiskusikan.”</p>
+<p>	Fang Yuan tidak berbicara dan terus berjalan, Gu Yue Dong Tu hanya bisa mengikuti di sampingnya.</p>
+<p>	“Jika seribu batu purba tidak bisa, lalu bagaimana kalau dua ribu, tidak, dua ribu lima ratus.” Gu Yue Dong Tu terus meningkatkan tawarannya.</p>
+<p>	Fang Yuan menutup telinga terhadap Gu Yue Dong Tu, malah semakin menaruh harapan terhadap aset keluarga. Melihat bagaimana Gu Yue Dong Tu begitu cemas dan terus-menerus menaikkan tawaran, aset keluarga yang sebenarnya pasti sangat bagus.</p>
+<p>	Gu Yue Dong Tu berkeringat, dia melihat Fang Yuan tidak bergerak, wajahnya menunjukkan ekspresi garang dan dia mengancam, “Fang Yuan, pikirkan ini dengan jelas! Apa akhir yang akan Anda miliki jika Anda menyinggung saya, hmph, jangan salahkan paman karena berhati dingin jika Anda kehilangan lengan atau kaki di masa depan.</p>
+<p>	Fangyuan tertawa.</p>
+<p>	Gu Yue Dong Tu ini benar-benar orang yang menyedihkan. Dia terikat oleh aturan dan peraturan; kantong air itu jelas berada dalam jangkauannya, tapi dia tidak berani merebutnya. Jika dia bahkan tidak punya nyali sebanyak ini, bagaimana dia bisa berhasil memperjuangkan keuntungan?</p>
+<p>	Kekayaan dan bahaya berjalan beriringan. Tidak peduli dunia mana, jika Anda ingin mendapatkan sesuatu, Anda harus membayar harganya.</p>
+<p>	“Fang Yuan, kamu pikir semuanya akan baik-baik saja setelah kamu mendapatkan aset keluarga! Kamu terlalu muda, kamu tidak memiliki petunjuk tentang masyarakat dan bahayanya!” Gu Yue Dong Tu menggeram di telinga Fang Yuan.</p>
+<p>	Fang Yuan menggelengkan kepalanya dan mengabaikannya, berjalan ke aula urusan internal di depan matanya yang melotot.</p>
+<p>Sebenarnya, dia tidak membenci atau bahkan membenci pamannya ini.</p>
+<p>	Dia telah melihat banyak orang seperti itu dan memahami tipe orang seperti ini.</p>
+<p>	Jika Fang Yuan memiliki cukup batu purba untuk mendukung kultivasinya, dia bahkan tidak akan memperjuangkan aset keluarga. Tapi apa gunanya memberikan manfaat yang tidak signifikan untuk paman lakukan?</p>
+<p>	Untuk alasan apa dia dilahirkan kembali?</p>
+<p>	Bukan untuk periode sesaat ini, tetapi untuk melangkah ke puncak tertinggi. Pejalan kaki jenis ini, selama mereka tidak mengganggu ini dan hanya mengamuk dari samping, Fang Yuan akan meremehkan bahkan menginjak mereka.</p>
+<p>	Namun sayangnya, Gu Yue Dong Tu ini menghalangi jalan Fang Yuan.</p>
+<p>	Karena sudah begitu, maka dia akan menginjak rintangan ini dan bergerak maju.</p>
+<p>	“Fang Yuan! Fang Yuan…” Paman Gu Yue Dong Tu memperhatikan saat Fang Yuan melangkah ke aula urusan internal; seluruh tubuhnya bergetar dan pembuluh darah menonjol di dahinya.</p>
+<p>	Cahaya matahari terbenam menyinari rambutnya yang sudah memutih.</p>
+<p>Dia memang sudah tua.</p>
+<p>	Ketika dia mengalami cedera itu pada usia dua puluh, dia sudah tua.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

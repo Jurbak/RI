@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 418 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 418";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_417.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 418">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_419.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 418</h1>
+        <div class="text-left">
+<p>	Bab 418 – Kerugian dan Keuntungan</p>
+<p>	Bab 418: Kerugian dan Keuntungan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan berjalan keluar dari istana Dang Hun.</p>
+<p>	Gunung kristal merah muda memiliki lubang di mana-mana, batu pecah berserakan di tanah menunjukkan pemandangan yang menyedihkan. Darah merah segar, lumpur kuning keruh, bangkai rubah dan kepiting bercampur menjadi satu.</p>
+<p>	Tubuh raksasa kepiting rawa binatang yang sunyi itu menekan pinggang gunung Dang Hun. Itu seperti gunung kecil, sangat menarik perhatian.</p>
+<p>	Angin sepoi-sepoi bertiup di rambut hitam Fang Yuan, saat mata hitamnya yang menakutkan menatap medan perang.</p>
+<p>	Bau darah yang menyengat memasuki lubang hidung Fang Yuan.</p>
+<p>	Dekat di belakangnya, mata roh tanah Hu Immortal kecil itu merah, karena ada air mata di wajahnya. Dia melaporkan sambil mengendus.</p>
+<p>	“Tuan, kami menderita kerugian besar. Kami kehilangan sekitar 666 km2 tanah, dan kami hanya memiliki enam puluh delapan manik-manik dari esensi abadi yang tersisa. Pasukan rubah kita yang berjumlah empat juta tujuh ratus ribu telah jatuh menjadi tiga ratus sepuluh ribu. Adapun cacing Gu, kami kehilangan sekitar tujuh ratus ribu dari mereka. ”</p>
+<p>	Hu Immortal mengelola tanahnya yang diberkati selama bertahun-tahun, setelah bencana ini, seluruh tanah yang diberkati kehilangan sekitar empat puluh tahun pembangunan.</p>
+<p>	Tapi Fang Yuan tidak berpikir begitu.</p>
+<p>	Ekspresinya lelah, tetapi tatapannya tidak bisa menyembunyikan kebahagiaan di hatinya.</p>
+<p>	Dia selamat dari bencana duniawi ini. Itu adalah hambatan, sekarang setelah dia selamat, Fang Yuan punya waktu untuk memulihkan diri.</p>
+<p>	Dia punya banyak waktu untuk menghadapi bencana duniawi ketujuh.</p>
+<p>	“Berhenti menangis, tanah yang diberkati aman, itu berarti harapan kita juga aman. Gunung Dang Hun tidak runtuh, jadi kami memiliki sumber daya untuk memulai kembali. Meskipun kami kehilangan sebagian tanah, dalam jangka pendek, kami tidak dapat memanfaatkan tanah itu, itu tidak akan menghambat pembangunan kami.”</p>
+<p>	Fang Yuan menepuk kepala roh tanah itu, menghibur: “Lihat, tidak lama kemudian, gunung Dang Hun akan penuh dengan batu nyali, dan kita akan mengendalikan kelompok rockmen lainnya. Yang terpenting, bayangan petir pesona biru itu diasingkan, sekarang, kita bisa berkembang tanpa khawatir. Tanah yang diberkati Hu Immortal pasti akan berkembang lagi! ”</p>
+<p>	Pertempuran ini sangat intens dan tragis, ada banyak rubah dan kepiting yang mati di dekat gunung Dang Hun. Pada saat yang sama, jiwa kepiting rawa hancur berkeping-keping oleh getaran gunung, diserap ke dalam gunung Dang Hun.</p>
+<p>	Dalam waktu dekat, tidak terlalu lama, sejumlah besar gutstones akan muncul di gunung Dang Hun tanpa henti.</p>
+<p>	“Kata-kata Guru … masuk akal.” Little Hu Immortal berhenti menangis dan memikirkannya dengan jelas, sepertinya dia masuk akal.</p>
+<p>	Bencana duniawi itu seperti cobaan, tanah yang diberkati Hu Immortal berhasil melewatinya, tidak hanya ada kerugian besar, tetapi juga keuntungan besar.</p>
+<p>	“Sayang sekali, ada banyak cacing Gu yang hidup di kepiting rawa ini, tapi sekarang gunung Dang Hun membunuh mereka semua.” Little Hu Immortal cemberut, menatap mayat kepiting rawa ini dengan marah.</p>
+<p>	“Bersukacitalah, binatang terpencil ini tidak memiliki Gu Abadi, jika tidak, kita mungkin tidak akan berdiri di sini.” Fang Yuan menghela nafas dalam-dalam.</p>
+<p>	Ini adalah bagian paling beruntung dari cobaan ini.</p>
+<p>	Satu Gu Abadi yang penting dengan kemampuan luar biasa dapat dengan mudah membalikkan seluruh situasi.</p>
+<p>	Bahkan jika kepiting rawa ini memiliki Gu Abadi, dan dibunuh oleh Fang Yuan, bagaimana Fang Yuan akan menangkap Gu Abadi ini juga merupakan masalah besar.</p>
+<p>	Mungkin Gu Immortal liar ini dapat menggantikan bayangan petir pesona biru dan menjadi ancaman besar berikutnya untuk tanah yang diberkati Hu Immortal.</p>
+<p>	Fang Yuan cukup puas telah selamat dari bencana duniawi ini.</p>
+<p>	Bagaimanapun, dia hanya seorang Master Gu fana tingkat empat tingkat atas, namun dia berhasil membunuh binatang buas yang menjadi masalah bahkan bagi Dewa Abadi.</p>
+<p>	“Roh darat, bersihkan medan perang. Simpan mayat kepiting rawa dengan baik, saya akan beristirahat. ” Fang Yuan melihat sekeliling sekali lagi sebelum bersantai, segera merasakan kelelahan yang kuat.</p>
+<p>	Dia memerintahkan lebih dari satu juta rubah, jiwa dan pikirannya terlalu banyak digunakan, dia perlu segera tidur.</p>
+<p>	“Oke.” Little Hu Immortal menjawab dengan cepat saat dia melihat cangkang kepiting rawa dengan mata bersinar.</p>
+<p>	Setiap binatang yang sunyi adalah harta yang bergerak.</p>
+<p>	Darah, bulu, tulang, usus di tubuhnya adalah bahan penyempurnaan Gu yang hebat.</p>
+<p>	“Kamu kepiting terkutuk, aku akan mencabik-cabikmu!” Little Hu Immortal mengangkat dagunya saat mulutnya terbuka, menunjukkan gigi taringnya yang kecil, dengan marah berjalan menuju kepiting rawa sambil bergumam pada dirinya sendiri.</p>
+<p>	…</p>
+<p>	Fang Yuan memiliki tidur yang sangat menyenangkan.</p>
+<p>	Tiga hari kemudian, dia bangun, dan berbaring di tempat tidur, tidak ingin bergerak sama sekali.</p>
+<p>	Kali ini, dia benar-benar mengendurkan tubuh dan pikirannya.</p>
+<p>	Bencana duniawi keenam telah berakhir, Fang Yuan mendapatkan banyak waktu untuk dirinya sendiri, dia akhirnya bisa menarik napas.</p>
+<p>	Sejak kelahirannya kembali, dia telah merencanakan dan melawan, terutama di gunung San Cha, dia memaksakan dirinya memikirkan cara untuk keluar dari kesulitannya.</p>
+<p>	Sekarang, dia akhirnya melindungi tanah yang diberkati. Bagi Fang Yuan, ini adalah tempat yang aman dan stabil.</p>
+<p>	Jika tanah yang diberkati Hu Immortal dihancurkan, dia akan berada dalam masalah besar.</p>
+<p>	Dia mengekspos banyak hal, mari kita ambil contoh, Gu perjalanan abadi yang tetap.</p>
+<p>	Fang Yuan bukan Gu Immortal, dia tidak bisa menyimpan Immortal Gu ini ke dalam lubangnya, begitu auranya bocor, Gu Immortals akan dengan mudah merasakannya dan datang untuk merebutnya darinya.</p>
+<p>	Sekarang, Gu perjalanan abadi tetap ditempatkan di dalam tanah yang diberkati Hu Immortal, dan karena ada esensi abadi, dia bisa memberinya makan tanpa khawatir.</p>
+<p>	Selain itu, ada juga penyempurnaan dari aperture kedua Gu.</p>
+<p>	Tanpa Hu Immortal kecil untuk mengendalikan esensi abadi, Fang Yuan tidak dapat memperbaiki Gu Abadi ini, dia setidaknya harus mencapai ranah Abadi Gu terlebih dahulu. Pada saat itu, perjalanan ilahi Gu mungkin sudah disempurnakan oleh orang lain, sudah terlambat.</p>
+<p>	Setelah melindungi tanah yang diberkati Hu Immortal, itu sangat membantu Fang Yuan.</p>
+<p>	Fang Yuan berbaring sebentar sebelum bangun untuk makan. Setelah mengisi perutnya, dia pergi tidur lagi.</p>
+<p>	Kali ini, dia tidur selama sepuluh jam, dia bangun perlahan karena dia merasa semua kelelahannya telah hilang. Pikirannya jernih, kepalanya bekerja dengan baik, dan kondisinya sebaik mungkin.</p>
+<p>	“Di mana roh tanah?” Dia menghentakkan kakinya, memanggil.</p>
+<p>	Little Hu Immortal merobek ruang dengan swoosh, muncul di hadapannya.</p>
+<p>	“Tuan, saya telah membongkar kepiting itu, kita bisa menjualnya dengan harga bagus!” Wajah Little Hu Immortal merah karena dia sangat puas memecahkan pelakunya untuk kesulitan tanah yang diberkati.</p>
+<p>	“Oh benar, tuan, ada tiga surat di sini, mereka dikirim dari celah pada hari malapetaka.” Little Hu Immortal berkata, mengeluarkan tiga Gu dan menyerahkannya kepada Fang Yuan.</p>
+<p>	Ketika celah cukup besar untuk menjadi terowongan, orang bisa masuk dan keluar. Tapi sebelum itu, hanya cacing Gu yang bisa masuk melalui celah kecil.</p>
+<p>	Ketiga Gu ini semuanya adalah cacing jalur huruf Gu.</p>
+<p>	Satu memiliki penampilan derek kertas, itu adalah derek kertas simbol petir peringkat tiga Gu. Salah satunya adalah burung hijau, peringkat lima dan tampak seperti aslinya, itu adalah surat yang mengirim Gu burung hijau. Satu tampak seperti pedang, itu adalah huruf pedang terbang peringkat tiga Gu.</p>
+<p>	Tatapan Fang Yuan bersinar saat dia mengeluarkan surat yang mengirim Gu burung hijau.</p>
+<p>	Burung hijau berubah menjadi surat, itu dikirim oleh peringkat tujuh Gu Immortal Feng Jiu Ge!</p>
+<p>	Fang Yuan tidak terkejut, saat dia melihat Gu burung hijau ini, dia merasa itu adalah dia.</p>
+<p>	Nada Feng Jiu Ge dalam suratnya tenang, dia pertama kali mengungkapkan kekaguman dan pujiannya untuk Fang Yuan, sebelum menyatakan niatnya — untuk mengatur pertempuran antara Fang Yuan dan putrinya Feng Jin Huang!</p>
+<p>	Tampaknya setelah Feng Jin Huang kembali ke Spirit Affinity House, dia menjadi murung, murung, dan putus asa. Selama periode ini, dia telah berkultivasi dengan rajin, untuk merebut kembali harga dirinya. Pertempuran diprakarsai olehnya, dia ingin bertarung secara adil dan jujur ​​dengan Fang Yuan, mempertaruhkan kemuliaan Rumah Afinitas Roh dan Sekte Bangau Abadi!</p>
+<p>	“Hmph, kamu ingin bertarung, apakah aku harus setuju?” Fang Yuan mencibir dengan jijik.</p>
+<p>	Waktunya sangat ketat, tidak ada cukup waktu untuk berkultivasi, Fang Yuan tidak akan membuang waktu dan usahanya untuk menerima tantangan Feng Jin Huang.</p>
+<p>	Feng Jin Huang lahir di keluarga yang hebat, dia memiliki Dewa Gu sebagai orang tuanya, dan sebuah sekte untuk mendukungnya. Bahkan jika dia memiliki tanah yang diberkati, dan bencana datang, akan ada sekelompok besar orang yang berjuang untuknya.</p>
+<p>	Tapi Fang Yuan sendirian, dia harus mengandalkan dirinya sendiri untuk segalanya. Dia tidak punya mood untuk bermain-main dengan nona kaya ini.</p>
+<p>	“Ide yang bodoh, dia ingin merebut kembali kejayaannya, jadi aku harus bermain bersamanya? Menggelikan!” Fangyuan mendengus. Berbeda dari yang lain, dia tidak takut pada Feng Jiu Ge. Itu karena segera, Feng Jiu Ge akan dipanggil oleh pengadilan surgawi, dan akan berhasil naik, tidak akan mudah baginya untuk turun dan memasuki benua tengah lagi.</p>
+<p>	“Tetapi dalam surat ini, tampaknya pasangan ayah dan anak ini berpikir bahwa saya adalah murid Sekte Bangau Abadi, apa yang terjadi?” Mata Fang Yuan bersinar dengan kecurigaan.</p>
+<p>	Pihak lain adalah Gu Immortal, mereka secara alami tidak akan membuat kesalahan yang begitu rendah. Itu berarti, ada komplikasi tersembunyi.</p>
+<p>	Fang Yuan mengambil surat pedang terbang Gu.</p>
+<p>	Membukanya dan melihatnya, itu adalah surat tantangan lain!</p>
+<p>	Namun dalam surat ini, semuanya adalah sumpah serapah dan cacian, hampir semua leluhur Fang Yuan disebutkan, bahkan kehormatan Sekte Bangau Abadi digunakan untuk menghasut Fang Yuan untuk menerima pertempuran. Akhirnya, bahkan ada ancaman, jika Fang Yuan tidak setuju, dia akan mengungkapkan isi surat ini kepada publik, dan biarkan dunia tahu bahwa Fang Yuan adalah seorang pengecut!</p>
+<p>	Fang Yuan melihat dengan hati-hati, tersenyum ringan: “Oh, ini Jian Yi Sheng bajingan ini.”</p>
+<p>	Jian Yi Sheng, seorang Gu Master jalur logam, penampilan dan kepribadiannya sangat mesum. Dia paling ahli dalam serangan diam-diam, dan paling benci menderita kerugian.</p>
+<p>	Dia adalah salah satu jalur iblis Gu Immortals di gunung Tian Ti, dia benar-benar pengecut yang kejam dan licik.</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, dia disergap olehnya berkali-kali. Dia akhirnya membuat Fang Yuan cukup marah untuk memanggil lautan darah, memaksa Jian Yi Sheng ini untuk bersembunyi di tanahnya yang diberkati, takut berperang. Dia memblokirnya selama dua puluh tahun, sampai Jian Yi Sheng menyadari bahwa dia telah membuat marah orang yang salah. Dia tidak bisa menerimanya, dan akhirnya berlutut di depan Fang Yuan untuk menyerah, tanpa jejak martabat Gu Immortal.</p>
+<p>	Adapun mengapa orang ini menantang Fang Yuan, itu karena dia sangat tidak beruntung.</p>
+<p>	Setelah Fang Yuan membuang sebagian dari tanah yang diberkati, dan melemparkan bayangan petir pesona biru ke arah gunung Tian Ti, Jian Yi Sheng secara kebetulan bertemu dengannya.</p>
+<p>	Pada saat ini, meskipun Jian Yi Sheng adalah Gu Abadi, dia tidak memiliki Gu Abadi, dan dihancurkan oleh bayangan petir pesona biru. Dia melarikan diri kembali ke tanahnya yang diberkati dengan menyedihkan, dan akhirnya berhasil membebaskan diri dari bayangan petir pesona biru.</p>
+<p>	Setelah sampai di rumah, dia menghitung kerugiannya, dan dipenuhi amarah, menghentakkan kakinya. Setelah menemukan pelakunya, dia mengirim surat pedang terbang Gu, menantang Fang Yuan.</p>
+<p>	“Hmph, dia tahu aku fana, tapi masih menantangku sebagai Gu Immortal. Dia bahkan menulis suratnya dengan sangat jujur, berbicara tentang keadilan… omong kosong ini masih tak tahu malu seperti yang saya ingat. Tapi, mengapa dia mengira aku anggota Sekte Bangau Abadi?</p>
+<p>	Fang Yuan membuka derek kertas simbol petir Gu dengan kecurigaan besar.</p>
+<p>	Dia membukanya sedikit, dan pupil matanya menyusut, menunjukkan ekspresi terkejut: “Apa! Fang Zheng masih hidup?”</p>
+<p>	Membaca terus, kecurigaannya terhapus.</p>
+<p>	“Jadi begitu, He Feng Yang dari Sekte Bangau Abadi ini adalah orang yang cerdas, menggunakan metode ini untuk melenyapkan para pesaingnya.”</p>
+<p>	“Tapi dia sangat meremehkanku. Mengapa saya bergabung dengan Immortal Crane Sect? Tetapi apa yang disebutkan dalam surat itu persis seperti yang saya butuhkan sekarang.”</p>
+<p>	Berpikir begitu, Fang Yuan mengambil keputusan.</p>
+<p>	Dia memanggil roh tanah: “Pergi, buka tanah yang diberkati sedikit, dan biarkan Tuan Gu yang menyerupai saya masuk.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

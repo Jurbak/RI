@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 236 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 236";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_235.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 236">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_237.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 236</h1>
+        <div class="text-left">
+<p>	Bab 236</p>
+<p>	Bab 236: Kebaikan akan dihargai?</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Tapi kenapa dia ada di sini? Dan, mengapa dia dipanggil Zhang Xin Ci? Dalam ingatanku, dia jelas seorang Guru Gu, mengapa mereka mengatakan dia tidak memiliki bakat kultivasi dan manusia fana?”</p>
+<p>	Fang Yuan bingung.</p>
+<p>	“Apakah dia bukan Shang Xin Ci dan hanya mirip dalam penampilan? Tapi ini terlalu mirip! Tidak, tunggu sebentar…”</p>
+<p>	Fang Yuan mengaduk-aduk pikirannya, dan tiba-tiba, dia mengekstrak informasi yang sangat lama dari kedalaman ingatannya.</p>
+<p>	“Shang Xin Ci memiliki kehidupan yang sulit. Dia adalah anak haram yang lahir dari pemimpin klan Shang ketika dia pergi bepergian. Dia tidak memiliki ayah sejak muda dan harus bertahan diganggu. Setelah ibunya meninggal, hidupnya menjadi lebih sulit. Dia dipaksa oleh klannya untuk mengikuti karavan dan menjadi pedagang. Pada akhirnya, ketika dia tiba di kota Klan Shang, pemimpin klan Shang merasakan garis keturunannya. Pemimpin klan Shang merasa terkejut dan senang, mengakui dia sebagai putrinya di depan umum. Tapi dia masih merasa berhutang banyak padanya, jadi dia akan menanggung dan menutupi banyak kesalahannya.”</p>
+<p>	Setelah memikirkan ini, tatapan Fang Yuan menjadi cerah.</p>
+<p>	“Jadi begitu, aku mengerti sekarang!”</p>
+<p>	Menggabungkan situasi di depannya dengan petunjuk yang rusak dalam ingatannya, Fang Yuan sampai pada kebenaran.</p>
+<p>	Bertahun-tahun yang lalu, ketika pemimpin klan Shang hanya seorang tuan muda dari klan Shang, dia meninggalkan benihnya di klan Zhang; itu Shang Xin Ci.</p>
+<p>	Klan Shang dan klan Zhang berselisih satu sama lain sejak zaman kuno.</p>
+<p>	Ketika Shang Xin Ci lahir, ibunya tidak berani mengungkapkan tentang pemimpin klan Shang karena ini. Dengan demikian, Shang Xin Ci lahir sebagai anak haram yang memalukan dan mengambil nama keluarga ibunya.</p>
+<p>	Inilah alasan mengapa dia masih dipanggil sebagai Zhang Xin Ci.</p>
+<p>	Setelah ibunya meninggal, dia dipaksa oleh klan untuk menjadi pedagang. Dan setelah dia akhirnya tiba di kota klan Shang, garis keturunannya ditemukan. Ayahnya juga telah menjadi pemimpin klan Shang, dan dengan status yang begitu tinggi, dia mengakuinya di depan semua orang, benar-benar mengubah nasibnya.</p>
+<p>	“Jadi bisa dikatakan, karavan ini adalah perjalanan pertamanya sebagai pedagang!”</p>
+<p>	Jantung Fang Yuan mulai berdebar kencang ketika dia menyadari hal ini.</p>
+<p>	Perlu diketahui, Shang Xin Ci ini adalah saham yang dijamin pasti naik; dia adalah pemimpin klan Shang masa depan. Tidak ada yang akan percaya jika dikatakan sekarang.</p>
+<p>	Tentu saja, masa depan rentan terhadap perubahan.</p>
+<p>	Bahkan di trek asli dalam ingatannya, ada perubahan drastis di dunia, dan bahkan klan Shang yang kuat sudah hancur pada saat dia menjadi pemimpin klan.</p>
+<p>	Bagi Fang Yuan, menunggu sampai dia menjadi pemimpin klan Shang adalah investasi yang sangat panjang tanpa hasil.</p>
+<p>	Nilainya tidak terletak pada saat dia menjadi pemimpin klan, melainkan ketika dia diakui oleh pemimpin klan Shang dan menjadi salah satu tuan muda klan Shang.</p>
+<p>	Sebagai tuan muda, dia pasti akan diberi tanggung jawab atas bagian dari bisnis. Ini adalah tradisi klan Shang untuk memelihara penerus klan.</p>
+<p>	Persis titik inilah yang diinginkan Fang Yuan.</p>
+<p>	Dia membutuhkan cara untuk membuang barang; saluran yang stabil, menguntungkan, dan aman.</p>
+<p>	Dalam rencananya yang penting setelah kelahirannya kembali, ini mutlak diperlukan.</p>
+<p>	Di masa depan, dia pasti akan membuka banyak warisan rahasia. Akan ada banyak hal yang tidak dia butuhkan, dan dengan menjualnya dia akan mengungkapkan nilai yang sangat besar dari mereka.</p>
+<p>	Misalnya, tombak tulang Gu dan tombak tulang spiral Gu di lubang Bai Ning Bing saat ini.</p>
+<p>	Fang Yuan dan Bai Ning Bing hanya membutuhkan salah satu dari mereka, paling banyak satu lagi untuk cadangan. Jika mereka tidak menjualnya, Gu ini akan mati di tangan mereka dan mereka bahkan akan membuang banyak susu untuk memberi mereka makan.</p>
+<p>	Sebelumnya, Fang Yuan bermaksud untuk sementara menggunakan Jia Jin Sheng sebagai saluran untuk membuang barang, maka akan lebih baik jika dia dapat terhubung ke Jia Fu untuk memelihara saluran ini.</p>
+<p>	Hasil; takdir suka bermain dengan orang, karena menjadi sasaran rahasia warisan biksu anggur bunga, dia tidak punya pilihan selain membunuh Jia Jin Sheng.</p>
+<p>	“Ini adalah hadiah yang dikirim surga kepadaku!” Fang Yuan menghela napas dalam-dalam saat tatapannya ke arah Shang Xin Ci yang jauh berubah menjadi terang seperti api.</p>
+<p>	Klan Shang memiliki fondasi yang dalam – setidaknya sebelum badai dahsyat yang melanda Perbatasan Selatan – itu adalah salah satu penguasa perbatasan selatan. Ketika barang curian dijual kepada mereka, para korban tidak akan berani datang mencari masalah.</p>
+<p>	Namun, karena pengaruh mereka terlalu kuat, Fang Yuan juga khawatir tentang kemungkinan pengkhianatan.</p>
+<p>	Mereka berasal dari jalan lurus di permukaan, tetapi inti dari anggota klan Shang semuanya hitam; ini sebenarnya cukup normal.</p>
+<p>	Namun, Shang Xin Ci adalah pengecualian.</p>
+<p>	Dia telah diuji oleh banyak perubahan dan pergolakan dalam sejarah seratus tahun hidupnya. Kebaikan, kelembutan, kebajikan, dan kejujurannya dipuji jauh dan luas di kehidupan Fang Yuan sebelumnya, reputasinya bergema di seluruh Perbatasan Selatan.</p>
+<p>	Yang paling penting adalah dia tidak memiliki fondasi apa pun.</p>
+<p>	Berbeda dari tuan muda lainnya, dia akan berjalan di jalan yang sepi setelah dia tiba di kota klan Shang. Di masa depan, dia akan membuat banyak kesalahan, tetapi itu bukan karena dia tidak cerdas, melainkan karena rahasia tuan muda lainnya yang berencana untuk menekan pesaing mereka.</p>
+<p>	Fang Yuan membutuhkannya sebagai saluran, dan dia juga membutuhkan bantuan eksternal – Fang Yuan – jika dia ingin menjalani kehidupan yang lebih baik di masa depan.</p>
+<p>	Yang terpenting, dia mudah dimanipulasi dan dipengaruhi! Masa muda dan sifatnya yang baik adalah ‘kelemahan’ yang bisa dimanfaatkan Fang Yuan.</p>
+<p>	“Ha ha ha.” Bai Ning Bing tiba-tiba tertawa dari samping, “Kamu menyukainya, kan?”</p>
+<p>	“Apa?” Pikiran Fang Yuan berhenti.</p>
+<p>	“Jangan berpura-pura, kita berdua laki-laki, aku bisa mengerti hanya dengan melihat tatapanmu. Bagaimanapun, gadis kecil ini cukup enak dipandang, tetapi akan sangat sulit bagimu untuk mendapatkannya. Kecuali saya membantu Anda dan menemukan kesempatan untuk diam-diam menculiknya. Sebagai gantinya, berikan Yang Gu kepadaku terlebih dahulu.” Bai Ning Bing mencoba merayu Fang Yuan.</p>
+<p>	Namun, kalimat Fang Yuan berikutnya membuatnya marah: ” Kamu laki-laki?”</p>
+<p>	“Anda!”</p>
+<p>	Hal-hal yang agak merepotkan sekarang. Pertama-tama, Fang Yuan perlu mendekati Shang Xin Ci, lalu mendapatkan kepercayaannya. Namun, dia tidak punya banyak waktu, dia harus menyelesaikan semuanya sebelum dia mencapai kota klan Shang.</p>
+<p>	Ide Bai Ning Bing untuk menangkapnya terlalu bodoh dan berisiko; itu hanya akan menyebabkan situasi menjadi lebih kacau.</p>
+<p>	Fang Yuan sangat jelas alasan mengapa Shang Xin Ci bisa berulang kali ditipu; bukan karena dia bodoh, tapi dia terlalu baik.</p>
+<p>	Dalam kehidupan sebelumnya, ada sosok jalur iblis yang disebut ‘Night Gentleman’; dia adalah seorang pencuri ahli dan licik seperti rubah.</p>
+<p>	Dia telah menipu Shang Xin Ci berkali-kali dengan alasan yang sama. Suatu hari, dia tidak tahan lagi dan bertanya: “Saya selalu mengatakan ini kepada Anda, apakah Anda tidak khawatir saya menipu Anda?”</p>
+<p>	Pada saat itu, Shang Xin Ci telah menjawab: “Kamu mengatakan kamu tidak dapat memenuhi kebutuhan, dan jika kamu tidak dapat segera meminjam beberapa batu purba, keluargamu akan mati kelaparan. Saya tahu bahwa Anda kemungkinan besar menipu saya, tetapi setiap kali Anda mengatakan ini, saya tidak tahan untuk berpikir bahwa bagaimana jika Anda mengatakan yang sebenarnya kali ini? Dan jika saya tidak meminjamkan uang kepada Anda, maka beberapa nyawa mungkin hilang. Meskipun, itu tidak mungkin terjadi, saya tidak ingin bertaruh untuk itu. ”</p>
+<p>	Ketika Tuan Malam mendengar jawaban Shang Xin Ci, dia tidak bisa menghentikan air matanya mengalir. Dia begitu tersentuh olehnya sehingga dia berlutut di tempat.</p>
+<p>	Setelah peristiwa ini, dia berubah dari iblis menjadi benar, dan mengikuti Shang Xin Ci dengan kesetiaan yang tak tergoyahkan, mencapai banyak eksploitasi perang.</p>
+<p>	Matahari perlahan-lahan ditelan oleh pegunungan di barat dan malam berangsur-angsur turun.</p>
+<p>	Antrian panjang orang juga berkurang, sampai semua pelayan menerima makanan dan bubar.</p>
+<p>	“Baiklah, itu saja untuk hari ini. Aku akan datang lagi besok…” Dia bahkan belum selesai berbicara ketika sebuah sosok tiba-tiba melompat di depannya.</p>
+<p>	Wajah macam apa ini!</p>
+<p>	Alis semua terbakar, hanya sedikit rambut yang tersisa dan satu telinga berkurang. Siapa itu jika bukan Fang Yuan?</p>
+<p>	Shang Xin Ci terkejut, para pelayan di belakangnya bahkan berteriak ketakutan.</p>
+<p>	“Apa sih yang kamu lakukan?!” Guru Gu tua yang tinggi dan kokoh itu segera berteriak.</p>
+<p>	“Nona Zhang, tolong belikan barang-barangku!” Fang Yuan tidak peduli dengan Guru Gu tua ini, dan berteriak ke arah Shang Xin Ci.</p>
+<p>	Bai Ning Bing diam-diam berdiri jauh, menikmati penampilan Fang Yuan.</p>
+<p>	“Aku punya satu roti kukus yang tersisa, ambillah, oke?” Shang Xin Ci mengungkapkan senyum lembut, dia tidak merasa jijik terhadap Fang Yuan, hanya simpati. Dia mencoba memikirkan betapa banyak rasa sakit yang dia alami untuk luka parah seperti itu.</p>
+<p>	Huh, orang yang menyedihkan.</p>
+<p>	Fang Yuan tetapi melemparkan roti kukus ke tanah: “Saya tidak membutuhkan ini, saya ingin menjual barang-barang saya! Saya menjual rumah lama saya dan membeli gerobak daun maple ungu ini. Tapi saya belum bisa menjualnya, daunnya akan segera layu; apa arti hidup saya nantinya? Hiks hiks…Saya tidak ingin hidup jika saya tidak bisa menjualnya. Aku harus menghancurkan kepalaku dan mati!”</p>
+<p>	Dia mulai menangis saat berbicara. Dia menghentakkan kakinya dan melolong, ekspresinya menunjukkan sedikit kegilaan dan sangat mengharukan.</p>
+<p>	Bai Ning Bing tercengang.</p>
+<p>	“Keterampilan akting ini, aku benar-benar tidak punya harapan untuk menyusul!”</p>
+<p>	Jika dia tidak tahu tentang Fang Yuan, bahkan dia mungkin telah ditipu oleh Fang Yuan.</p>
+<p>	Dia kemudian mengamati ekspresi dan tatapan orang banyak; tertegun, menghina, simpati, ketidakpedulian, tetapi tidak ada kecurigaan.</p>
+<p>	“Siapa orang ini? Mengisi begitu tiba-tiba, membuatku takut mati! ”</p>
+<p>	“Ketamakan seperti itu, dia benar-benar ingin Lady Zhang membeli barang-barangnya.”</p>
+<p>	“Layani dia dengan benar! Apakah dia pikir perdagangan begitu mudah? ”</p>
+<p>	“Huh, pembeli pasti menuntut harga yang lebih rendah. Ketika saya memikirkan saat-saat yang saya temui … ”</p>
+<p>	Ada berbagai macam diskusi yang terjadi di kerumunan.</p>
+<p>	“Tsk, kamu gila, kamu benar-benar berani menakuti nona muda kami, hentikan sekarang juga!” Lidah Guru Gu tua itu sepertinya mengeluarkan percikan kilat saat dia maju selangkah dan melindungi Shang Xin Ci di belakangnya.</p>
+<p>	“Nona Zhang, saya tidak ingin hidup jika Anda tidak membeli barang-barang saya! Nyonya Zhang, Anda adalah orang yang baik, tolong beli kereta yang berisi daun maple ungu ini dan selamatkan saya.” Fang Yuan meratap tanpa henti.</p>
+<p>	Hati Shang Xin Ci melunak: “Huh, jangan menangis. Saya akan membelinya, tetapi hidup adalah hal yang paling berharga dalam hidup kita, hiduplah dengan benar mulai sekarang dan jangan mudah menyerah pada hidup. Paman Zhang Zhu, beri dia tiga batu purba.”</p>
+<p>	“Nona …” Alis tua Gu Master berkerut.</p>
+<p>	“Hah, berhasil ?!”</p>
+<p>	“Mungkin aku harus melakukan ini juga?”</p>
+<p>	Keributan meletus di antara pemilik kios.</p>
+<p>	“Terima kasih Bu, terima kasih. Nyonya Zhang, Anda adalah penyelamat saya, Hei Tu!” Fang Yuan sangat gembira dan ada tanda-tanda air mata di wajahnya saat dia berulang kali membungkuk.</p>
+<p>	Kelopak mata Tuan Gu tua berkedut, dia melihat ke gerobak di belakang Fang Yuan: “Kereta daun maple ungu ini paling banyak bernilai dua batu purba. Tiga terlalu banyak!”</p>
+<p>	“Paman Zhang Zhu …” kata Shang Xin Ci dengan suara lembut.</p>
+<p>	Master Gu tua menghela nafas dalam-dalam: “Nona, bukannya saya tidak mau berpisah dengan tiga batu purba. Tapi jumlah ini terlalu besar untuk seorang pelayan biasa seperti dia. Itu pasti akan menarik orang-orang yang akan mengincar uang dan skema melawannya. Nona, untuk keselamatannya sendiri, kita harus memberinya dua batu purba. Terlebih lagi, semua penjaja mungkin akan datang besok jika kamu memberikannya seperti ini.”</p>
+<p>	“Paman Zhang Zhu benar, maka tolong beri dia dua batu purba.” Shang Xin Ci merenung sejenak dan langsung setuju.</p>
+<p>	Fang Yuan menerima dua batu purba dengan tangan gemetar, dia menatap Shang Xin Ci dalam-dalam: “Nona Zhang, Anda adalah orang yang hebat, Anda pasti akan dihargai!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

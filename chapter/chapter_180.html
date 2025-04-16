@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 180 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 180";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_179.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 180">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_181.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 180</h1>
+        <div class="text-left">
+<p>	Bab 180</p>
+<p>	Bab 180: Menonton Upacara Kebangkitan lagi</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Sudah waktunya, aku tidak bisa menunggu lebih lama lagi.”</p>
+<p>	Saat malam tiba, Fang Yuan membuka matanya di ruangan yang gelap.</p>
+<p>	Dia sudah melepas seragam Gu Master-nya dan sekarang mengenakan gaun hitam yang menutupi kakinya. Cocok dengan rambut hitam panjangnya, dia akan tampak seperti hantu saat dia bergerak dalam kegelapan.</p>
+<p>	Dia sudah terbiasa memiliki rambut panjang di kehidupan sebelumnya. Beberapa cacing Gu membutuhkan rambut panjang untuk menunjukkan kemampuannya, seperti Gu Rambut Hitam, Gu Rambut Baja dan sebagainya.</p>
+<p>	Memiliki rambut panjang juga cukup nyaman. Anda bisa mempersingkatnya jika ada saatnya Anda harus mengubah penampilan Anda. Tetapi untuk rambut pendek, untuk menumbuhkannya dalam waktu singkat, seseorang harus bergantung pada cacing Gu tertentu.</p>
+<p>	Belum lama ini, dia telah membuat kesepakatan dengan Gu Yue Mo Chen. Saat ini, dia telah menerima Pig Iron Gu dan empat puluh ribu batu purba. Satu-satunya yang tersisa adalah rumput penyembuhan Gu.</p>
+<p>	“Aku hanya bisa melupakan Gu yang menyembuhkan sekarang. Bagaimana semuanya bisa berjalan sesuai keinginan, kenyataan penuh dengan pilihan tak berdaya….”</p>
+<p>	Fang Yuan menghela nafas, lalu berdiri dan dengan ringan membuka pintu sebelum menggunakan Stealth Scales Gu dan menghilang ke dalam malam.</p>
+<p>	Dia dipaksa oleh keadaan untuk membuat langkah ini.</p>
+<p>	Ikatan ayah dan anak perempuannya semakin dekat, dan rencananya untuk menjadi utusan ke desa Xiong juga telah dihentikan.</p>
+<p>	Desa Xiong mampu mempertahankan sebagian besar kekuatan mereka; Klan Bai dan klan Gu Yue tidak berani terlalu memaksa, sehingga pembicaraan kompensasi berakhir dengan kegagalan. Ketiga belah pihak kemudian memutuskan untuk mengadakan kompetisi tiga klan.</p>
+<p>	Fraksi Mo mungkin sengaja merekrut Fang Yuan, tetapi langkah ini menyebabkan Fang Yuan berada di tengah perjuangan politik dan menarik permusuhan setiap tetua.</p>
+<p>	Juga menambahkan Bai Ning Bing yang semakin kuat saat dia mendekati kematiannya, seluruh situasi menjadi lebih tidak menguntungkan bagi Fang Yuan, memaksanya menemui jalan buntu.</p>
+<p>	Bahkan jika Fang Yuan adalah rubah tua, dia masih membutuhkan kekuatan untuk mendukung rencananya. Menghadapi situasi seperti itu, meskipun dia sudah menggunakan semua upaya dan kekuatannya, membuat kemajuan yang jauh lebih cepat daripada yang dia lakukan di kehidupan sebelumnya, kultivasi tahap awal Peringkat tiganya masih belum cukup untuk membalikkan situasi.</p>
+<p>	“Situasinya mengerikan, saya hanya bisa mengambil risiko dan bertaruh pada metode ini!” Fang Yuan berpikir keras, menaruh harapannya pada Lotus Harta Karun Esensi Surgawi.</p>
+<p>	Selama dia memetik Lotus Harta Karun Esensi Surgawi, mata air roh di gua bawah tanah akan sia-sia. Klan pasti akan menyelidiki dengan gila-gilaan, tetapi apa lagi selain penyelidikan?</p>
+<p>	Mata air roh sudah dinonaktifkan, dan bahkan jika mereka mendapatkan Teratai Harta Karun Esensi Surgawi dan menghancurkannya atau memasukkannya kembali ke mata air roh lagi, mata air roh tidak akan pulih.</p>
+<p>	Apa yang bisa klan lakukan untuk bertahan hidup?</p>
+<p>	Hanya ada satu hal: yaitu merebut mata air semangat baru!</p>
+<p>	Namun, hanya ada tiga mata air roh di gunung Qing Mao dan masing-masing ditempati oleh salah satu dari tiga klan. Jika salah satu dihancurkan oleh Fang Yuan, maka klan Gu Yue hanya punya satu pilihan – untuk membuat pilihan di antara keduanya.</p>
+<p>	Pilihan ini adalah perang, perang dengan desa Bai atau desa Xiong.</p>
+<p>	Hanya dengan merebut salah satu mata air roh, klan Gu Yue dapat memiliki dasar untuk melanjutkan keberadaannya. Tidak perlu berbicara tentang Guru Gu yang dapat mendukung kultivasi mereka tanpa dukungan mata air roh.</p>
+<p>	Namun, langkah ini terlalu berbahaya. Tapi Fang Yuan tidak punya pilihan lain karena Jangkrik Musim Gugur Musim Semi pulih begitu cepat sehingga bukaannya sudah mulai terasa beban. Dia tidak punya banyak waktu, jadi dia hanya bisa melawan untuk mendapatkan sedikit kesempatan untuk bertahan hidup dan mencari kehidupan dalam kematian.</p>
+<p>…</p>
+<p>	Aula itu terang dengan semua lampu.</p>
+<p>	Seorang Guru Gu telah mengirimkan Gu Foto-audio, tetapi Gu ini saat ini berada di tangan Gu Yue Bo. “Dasi Penyelidik Ilahi, apa pendapat Anda tentang permintaan saya?” Gu Yue Bo bertanya sambil tersenyum.</p>
+<p>	Tie Ruo Nan mendengus ringan.</p>
+<p>	Tie Xue Leng merenung sejenak sebelum menyetujui, “Baiklah, jika Fang Yuan benar-benar menjadi pembunuhnya, aku akan memberikan cukup waktu baginya untuk berpartisipasi dalam kompetisi tiga klan.”</p>
+<p>“Ayah….” Mata Tie Ruo Nan bersinar dengan cahaya aneh; ini bukan gaya ayahnya.</p>
+<p>	“Hehe, kata-kata Penyelidik Ilahi sangat berharga dan dia tidak pernah mengingkari janjinya. Orang yang rendah hati ini sepenuhnya mempercayai Anda dan juga berterima kasih atas pengertian Anda.” Senyum Gu Yue Bo menjadi lebih lembut, namun dia dengan dingin bersenandung di dalam.</p>
+<p>	Gu Yue Yao Ji diam-diam membawa ayah dan anak Tie ke dalam gua bawah tanah dan membiarkan mereka melihat-lihat catatan sejarah resmi klan. Bagaimana mungkin dia sebagai pemimpin klan tidak mengetahui hal ini?</p>
+<p>	Tapi dia harus menahan amarahnya karena turnamen yang semakin dekat dan juga pergulatan politik yang rumit di klan.</p>
+<p>	Tie Xue Leng mungkin ahli peringkat lima yang kuat, tapi dia tidak punya cara untuk menenangkan ketidakpuasan di hati Gu Yue Bo.</p>
+<p>	“Untungnya, semua isi asli tercatat dalam catatan rahasia klan dan hanya pemimpin klan yang dapat menyimpannya. Sejarah resmi itu untuk dilihat orang luar. ” Gu Yue Bo diam-diam merasa sombong.</p>
+<p>	Catatan sejarah klan Gu Yue dibagi menjadi catatan resmi dan catatan rahasia.</p>
+<p>	Catatan resmi disembunyikan di ruang rahasia di gua bawah tanah dan isinya adalah untuk mencuci otak generasi selanjutnya dan sebenarnya palsu.</p>
+<p>	Tetapi catatan rahasia mencatat semua detail asli tanpa detail palsu. Bahkan ada catatan beberapa rahasia yang tidak pernah bisa diungkapkan.</p>
+<p>	Misalnya, ritual pemanggilan Blood Guillotine Gu yang tidak pernah bisa dicatat dalam catatan resmi, tetapi dicatat secara rinci dalam catatan rahasia.</p>
+<p>	“Pemimpin klan Gu Yue, ayahku telah menyetujui permintaanmu, sekarang tunjukkan gambarnya kepada kami.” Nada bicara Tie Ruo Nan menunjukkan suasana hatinya yang buruk.</p>
+<p>	“Bahkan jika Divine Investigator Tie tidak setuju, saya akan sepenuhnya bekerja sama dengan penyelidikan Anda,” Gu Yue Bo dengan lembut menjelaskan, lalu dia dengan ringan menjepit jarinya, menghancurkan Photo-audio Gu.</p>
+<p>	Meskipun Gu pecah berkeping-keping, itu malah membentuk bola asap tujuh warna yang berisi segala macam suara.</p>
+<p>	Gu Yue Bo dengan ringan meniupnya; asap ini melayang ke dinding, tetapi tidak melewatinya.</p>
+<p>	Seperti setetes tinta yang jatuh ke air, jejak warna-warni mulai muncul di dinding yang bersih.</p>
+<p>	Jejak itu tumbuh lebih besar hingga membentuk gambar Upacara Kebangkitan sebelumnya.</p>
+<p>	Dalam gambar ini, Fang Zheng dengan cepat menemukan dirinya dan juga banyak wajah familiar lainnya.</p>
+<p>	Semua wajah ini menunjukkan kegembiraan saat mereka melihat ke sekeliling gua, wajah mereka penuh dengan ketidakdewasaan anak muda. Mereka seperti anak ayam yang baru belajar mengepakkan sayap dan terbang keluar dari sarangnya.</p>
+<p>	“Itu Fang Yuan….” Demikian pula, Tie Ruo Nan segera menemukan Fang Yuan.</p>
+<p>	Fang Yuan sedang berjalan di dalam kelompok, dan meskipun dia melihat sekeliling seperti yang lainnya, tatapannya tenang dan terlepas. Dalam kelompok usia yang sama, dia seperti burung bangau dalam kelompok ayam. Jika seseorang tidak secara khusus memperhatikannya, orang normal tidak akan menemukan perbedaan antara dia dan yang lainnya.</p>
+<p>	Namun, kelompok di aula sekarang semua berkonsentrasi padanya, memperlihatkan keanehan ini.</p>
+<p>	“Eh? Fang Yuan ini benar-benar aneh.” Saat ini, bahkan Gu Yue Bo tidak bisa membantu tetapi mengungkapkan ekspresi yang sedikit terkejut.</p>
+<p>	Adegan di dinding berubah ketika sekelompok pemuda mencapai lautan bunga.</p>
+<p>	Upacara Kebangkitan dimulai, dan masing-masing anak muda melangkah di sungai bawah tanah dan berjalan menuju lautan bunga di tepi seberang.</p>
+<p>	Cahaya Harapan Gu naik dan turun.</p>
+<p>	Ada juga suara para tetua yang bisa didengar dengan jelas.</p>
+<p>	Adegan-adegan itu muncul dengan sangat jelas sehingga terasa seperti benar-benar ada di sana.</p>
+<p>	Pertama, Gu Yue Mo Bei yang ditemukan memiliki bakat kelas B, menyebabkan kegemparan, kemudian Gu Yue Chi Cheng juga diuji memiliki bakat kelas B.</p>
+<p>	“Benar-benar aneh, Gu Yue Chi Cheng ini terlihat terlalu gugup. Gerakan tubuhnya kaku dan warna kulitnya juga tidak normal, hanya saja cahaya di bawah tanah redup. Tetapi jika seseorang dengan hati-hati melihat ke dalamnya, mereka akan menemukan bahwa sesuatu telah diterapkan pada tubuhnya dan itulah yang menarik Gu Harapan. Hehe, ini jelas curang. ” Tie Ruo Nan percaya diri saat dia mengamati ini.</p>
+<p>Tetapi pada saat berikutnya, dia segera mengerutkan kening.</p>
+<p>	Giliran Fang Yuan. Dia melangkah ke sungai dan mulai bergerak menuju tepi seberang.</p>
+<p>	Cahaya dari Hope Gu tidak kuat. Semakin tinggi harapan, semakin besar kekecewaan, dan desahan dari para pemuda dan penatua dapat didengar oleh semua orang dalam kelompok.</p>
+<p>	Semuanya tampak normal, tetapi kerutan Tie Ruo Nan semakin dalam. Karena ekspresi Fang Yuan tenang sepanjang jalan.</p>
+<p>	Pada saat itu, punggungnya menghadap para tetua dan pemuda; mereka tidak bisa melihat ekspresinya. Namun, saat Tie Ruo Nan mengamati sebagai penonton, dia melihat bahwa ekspresi Fang Yuan tidak berubah sama sekali, acuh tak acuh dan dingin.</p>
+<p>	Seolah-olah, seolah-olah…..dia sudah tahu ini akan terjadi!</p>
+<p>	“Ini tidak mungkin! Jika saya menggantikannya, seorang anak berusia lima belas tahun dengan harapan semua orang pada saya, tetapi diuji hanya memiliki bakat kelas C, bagaimana mungkin saya tidak merasakan sedikit pun frustrasi, kekecewaan, dan keputusasaan? Bagaimana ini bisa, bagaimana ini bisa terjadi!?” Kerutan Tie Ruo Nan hampir membentuk simpul.</p>
+<p>	Keraguan dan kecurigaan besar menutupi pikirannya, bahkan menahan napas.</p>
+<p>	Jantungnya berdetak kencang saat ini karena semua pikirannya melintas di benaknya.</p>
+<p>	Apa yang sedang terjadi?</p>
+<p>	Bagaimana ini bisa terjadi?</p>
+<p>	“Tunggu sebentar, bakat…. Mungkinkah?!” Tie Ruo Nan tiba-tiba mengangkat kepalanya. Intuisinya telah diaktifkan dan dugaan yang sangat berani dan gila terbentuk di benaknya.</p>
+<p>	Cahaya dan bayangan terpantul di wajah Fang Zheng.</p>
+<p>	Upacara Kebangkitan telah menjadi titik balik terpenting dalam hidupnya.</p>
+<p>	Sebelum Upacara Kebangkitan, dia menjalani kehidupan yang rendah dan tidak penting; bukan siapa-siapa. Namun, setelah Upacara Kebangkitan, hidupnya benar-benar berubah. Dia berjemur di bawah lampu dan kepercayaan dirinya juga meledak.</p>
+<p>	Dalam ingatannya, Upacara Kebangkitan adalah gambaran kabur; dia telah melewatinya tanpa menyadarinya.</p>
+<p>	Saat ini, saat dia mengamati ini sebagai penonton, emosi rumit muncul di hatinya yang tidak bisa dia jelaskan dengan kata-kata.</p>
+<p>	Fang Zheng melihat dirinya sendiri ketika gilirannya. Dia ingat betapa rendah dan lemah yang dia rasakan saat itu.</p>
+<p>	Segera, dia melihat bagaimana dia jatuh ke sungai dan berjuang untuk bangun, dan ditarik oleh kakak laki-lakinya Fang Yuan, bagaimana dia memotong sosok yang menyedihkan.</p>
+<p>	Senyum muncul di wajahnya — ini adalah mantan dia, orang yang diejek oleh banyak orang!</p>
+<p>	Kemudian dia melihat dirinya berjalan linglung menuju tepi seberang, dan melihat tubuhnya diselimuti oleh cahaya Gu Harapan bersama dengan kejutan dan kekaguman banyak orang.</p>
+<p>	Saat itu adalah momen kemuliaan, momen keajaiban!</p>
+<p>	Sebuah bakat kelas A, hidupnya tidak akan lagi sama sejak saat itu!</p>
+<p>	“Fang Zheng, aku punya pertanyaan.” Tie Ruo Nan tiba-tiba berbicara, memecahkan ingatan Fang Zheng.</p>
+<p>	“Apa itu? Silahkan bertanya. Saya pasti akan menjawab semua yang saya tahu, ”Fang Zheng berbalik sambil tersenyum.</p>
+<p>	“Ini tentang kakakmu. Ketika kakak laki-lakimu menarikmu ke atas, aku melihat mulutnya bergerak, tetapi ada terlalu banyak kebisingan di sekitarnya. Apa yang dia katakan kepada Anda, bisakah Anda memberi tahu saya kata-kata persis yang dia katakan? ” Tie Ruo Nan bertanya dengan tatapan cerah.</p>
+<p>	“Kata-katanya ….” Fang Zheng mencoba mengingat, “Dia sepertinya mengatakan … jalan?”</p>
+<p>	“Benar. Itu jalan.” Mata Fang Zheng menjadi cerah, “Aku mengingatnya. Dia berkata kepada saya, ‘Jalan menuju masa depan akan menarik’. Hah? Aneh, aku tidak memikirkannya saat itu, tapi sekarang setelah aku mengingatnya, aku pikir kata-kata kakak laki-laki itu mengandung makna yang dalam…seolah-olah, seolah-olah dia sudah tahu bahwa aku memiliki bakat kelas A!”</p>
+<p>“Tidak, dia tidak bermaksud bakat kelas A, tetapi sesuatu yang lain.” Tubuh Tie Ruo Nan bergetar, ekspresinya rumit saat dia menghembuskan napas dari udara keruh.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

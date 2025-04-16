@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 41 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 41";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_40.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 41">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_42.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 41</h1>
+        <div class="text-left">
+<p>	Bab 41</p>
+<p>	Bab 41: Membedah Batu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Aku ingin membeli beberapa batu.” Setelah memilih targetnya, Fang Yuan berkata kepada Master Gu wanita.</p>
+<p>	“Anak baru!” Master Gu perempuan segera berpikir.</p>
+<p>	Bahkan penjudi paling buruk pun akan memperhatikan dengan cermat ketika mereka ingin membeli batu itu. Pertama mereka akan melihat dengan seksama, kemudian meletakkan batu di telapak tangan mereka dan menggosok untuk merasakan permukaan dan beratnya. Bahkan setelah tindakan seperti itu, jika mereka menemukan bahwa perasaan itu hilang, mereka akan menyerah. Tidak ada yang akan mengatakan ‘beli’ di awal.</p>
+<p>	Dan untuk tipe seperti Fang Yuan, yang mengatakan ‘membeli’ di muka, tidak dapat disangkal bahwa dia adalah seorang pemula yang memiliki pengalaman judi batu pertamanya.</p>
+<p>	Meskipun Tuan Gu perempuan memikirkan ini, dia tidak menunjukkan perbedaan dalam ekspresinya, tetapi terus tersenyum seperti bunga, berkata dengan lembut kepada Fang Yuan, “Lalu bagian mana yang kamu pilih?”</p>
+<p>	Fang Yuan menunjuk dan berkata, “Potongan ini.”</p>
+<p>	Dia segera mengambilnya.</p>
+<p>	Fang Yuan menunjuk lagi dan berkata, “Potongan ini.”</p>
+<p>	Dia merasa bingung, tidak menyangka anak muda ini akan membeli dua potong.</p>
+<p>	“Sepertinya anak muda ini adalah tipe orang yang suka berjudi,” dia mengevaluasi secara mental.</p>
+<p>	Tapi selanjutnya, Fang Yuan menunjuk lagi, “Dan bagian ini, bagian itu, aku membeli semuanya.”</p>
+<p>	Master Gu wanita tercengang, merasa sangat terkejut, dia tidak bisa tidak menilai Fang Yuan lagi.</p>
+<p>	“Sepertinya anak muda yang tampak biasa ini memiliki latar belakang keluarga yang sangat baik. Kalau tidak, bagaimana Guru Gu biasa memiliki uang cadangan untuk dibelanjakan seperti ini? ” Memikirkannya, senyum Tuan Gu perempuan menjadi lebih lembut dan ramah. Memikirkan bahwa anak muda di depannya adalah pelanggan nyata.</p>
+<p>	Ini adalah sukacita yang tak terduga!</p>
+<p>	Namun, Fang Yuan mengejutkannya sekali lagi saat dia menunjuk ke batu emas ungu terjauh, “Oh ya, dan kedua keping itu juga.”</p>
+<p>	Tuan Gu perempuan tidak bisa menahan perasaan terkejut secara internal, “Tuan muda yang mana ini dari Desa Gu Yue? Sepertinya dia pewaris cabang keluarga utama. Jika saya bisa berhubungan dengannya, saya mungkin tidak perlu tinggal di sini dan bekerja keras sebagai pegawai toko lagi.”</p>
+<p>	Dengan pemikiran ini, senyum Guru Gu perempuan menjadi lebih lembut dan dia bahkan memandang ke arah Fang Yuan dengan menggoda.</p>
+<p>	Enam batu ditempatkan di depan Fang Yuan.</p>
+<p>	Fang Yuan mengeluarkan enam puluh batu purba dan memberikannya kepada Master Gu wanita.</p>
+<p>	Tindakan pembayarannya menarik perhatian semua Master Gu lainnya di tenda.</p>
+<p>	“Oh? Seseorang akan melakukan pertaruhan.”</p>
+<p>	“Kami sudah menonton selama lebih dari satu jam, tetapi kami belum bertindak. Sekarang seseorang mencobanya, kita mungkin juga menonton. ”</p>
+<p>	“Itu mahasiswa, dia benar-benar mengeluarkan enam puluh batu purba sekaligus, keluarganya pasti kaya. Dia terlihat seperti greenhorn, hmph, berjudi batu tidak begitu mudah. Dia akan terluka parah.”</p>
+<p>	Master Gu berdiri di tempat, berdiskusi dengan lembut, semua mengarahkan pandangan mereka ke arah Fang Yuan.</p>
+<p>	“Tuan muda, apakah Anda ingin membuka batu di tempat? Sarang judi kami menyediakan layanan gratis untuk membuka batu.” Guru Gu perempuan dengan lembut menasihati, mengirimkan tatapan menggoda dengan matanya.</p>
+<p>	Fang Yuan menggunakan sudut matanya untuk melihat kerumunan, bibirnya melengkung menjadi senyum misterius. Dia melambaikan tangannya, menolak Master Gu wanita. “Emas ungu adalah warna keberuntungan saya, dan ini adalah pertama kalinya saya bertaruh, itu sangat berarti. Aku akan membuka batu itu sendiri!”</p>
+<p>	Mata Tuan Gu wanita bersinar lebih terang, berpikir, sikap heroik ini, seperti yang diharapkan dari tuan muda yang kaya.</p>
+<p>	Tidak pernah dalam mimpinya dia bisa membayangkan bahwa Fang Yuan bisa dikatakan tidak memiliki keluarga di desa Gu Yue, seorang gelandangan tanpa dukungan, harus mengandalkan dirinya sendiri untuk segalanya.</p>
+<p>	“Tsk, jadi bagaimana jika kamu punya uang.”</p>
+<p>	“Aku ingin tahu anak kaya mana ini, datang ke sini untuk menyia-nyiakan uang hasil jerih payah orang tuanya!”</p>
+<p>	“Anak muda yang bodoh, bagaimana seseorang bisa memilih batu berdasarkan warna keberuntungan, hiks, tindakan ini sama saja dengan melempar batu purba ke dalam air, dan menunggu untuk melihat riak untuk bersenang-senang.”</p>
+<p>	Master Gu di tenda kehilangan kegembiraan mereka sekaligus. Setelah berpikir bahwa Fang Yuan adalah anak yang hilang, harapan mereka yang sudah rendah menghilang begitu saja.</p>
+<p>	Beberapa Master Gu bahkan menarik kembali pandangan mereka dan berbalik untuk terus memeriksa fosil di konter.</p>
+<p>	Perubahan di sekelilingnya sama sekali tidak memengaruhi kondisi pikiran Fang Yuan. Dia tanpa ekspresi mengaktifkan esensi purba di dalam laut purba, menuangkannya ke Moonlight Gu.</p>
+<p>	Saat berikutnya, tanda bulan sabit di telapak tangan kanannya memancarkan cahaya biru samar seperti air.</p>
+<p>	Fang Yuan menggunakan tangan kanan ini untuk mengambil batu emas ungu, memegangnya di telapak tangannya. Selanjutnya dia menutup jarinya dan perlahan menggosok permukaan fosil.</p>
+<p>	Cahaya biru terus bersinar, gelombang cahaya beriak seperti air saat batu emas ungu menyusut dalam ukuran, sejumlah besar bubuk dari serutan batu jatuh dari celah jari Fang Yuan, mendarat di karpet tenda.</p>
+<p>	“Tuan muda memiliki hasil karya yang bagus!” Master Gu perempuan mengambil kesempatan itu dan segera memuji.</p>
+<p>	“Anak muda ini, dia tidak berguna. Keterampilan yang luar biasa. ” Melihat pemandangan ini, mata para Master Gu bersinar dengan kilatan yang rumit. Mereka mulai melihat Fang Yuan dengan cara baru.</p>
+<p>	Fang Yuan menggunakan cahaya biru untuk menggosok permukaan batu; ini adalah bentuk penggunaan Moonlight Gu yang cermat. Biasanya, seseorang harus menggunakan Moonlight Gu selama dua hingga tiga tahun untuk dapat mencapai level ini.</p>
+<p>	Dengan usia dan identitas siswa Fang Yuan, mampu melakukan ini benar-benar luar biasa.</p>
+<p>	“Lihat, dia menggunakan spesialisasi klan Gu Yue kami, Moonlight Gu.” Beberapa Master Gu menemukan ini dan langsung merasa bangga, mendapatkan kasih sayang untuk Fang Yuan.</p>
+<p>	“Tapi membuka batu dengan metode ini, masih terlalu kasar.” Beberapa Master Gu yang lebih tua dan lebih berpengalaman menggelengkan kepala.</p>
+<p>	Batu emas ungu menjadi lebih kecil dan lebih kecil, dari sedikit lebih besar dari telapak tangan menjadi seukuran kepalan tangan, dicengkeram erat oleh jari-jari Fang Yuan.</p>
+<p>	Cahaya biru semakin kuat saat fosil menjadi seukuran mutiara. Hingga akhirnya yang tersisa hanyalah seonggok serbuk batu, berjatuhan di karpet hingga membentuk bukit kecil.</p>
+<p>	Ini adalah batu yang kokoh, tidak ada cacing Gu di dalamnya.</p>
+<p>	“Seperti yang diharapkan, dia tidak bisa diandalkan.” Master Gu menggelengkan kepala.</p>
+<p>	“Tuan muda, masih ada lima buah yang tersisa,” Guru Gu perempuan itu mendorong.</p>
+<p>	Ekspresi Fang Yuan tenang, sama sekali tidak terpengaruh. Dia meraih potongan kedua batu emas ungu dan terus menggiling. Tapi hasil dari potongan ini masih berupa batu yang kokoh; tidak ada cacing Gu di dalamnya.</p>
+<p>	Bagian ketiga masih sama.</p>
+<p>	Master Gu menjadi tidak sabar. “Berhenti melihat. Dengan mengandalkan warna untuk memilih batu, tidak ada gunanya berjudi ini.”</p>
+<p>	“Jika dia bisa mendapatkan Gu yang baik dari ini, aku akan memakan tumpukan bubuk batu di lantai!” Seseorang tertawa menghina.</p>
+<p>	“Jangan berkecil hati tuan muda, bukankah ada 3 bagian yang tersisa, kamu baru setengah jalan,” Master Gu perempuan terus mendorong Fang Yuan.</p>
+<p>	Fang Yuan meraih potongan keempat, dan ketika dia mencapai ukuran telapak tangan, dia tiba-tiba menghentikan semua tindakan.</p>
+<p>	“Oh? Ada sesuatu!”</p>
+<p>	“Komposisi batuannya berubah, bukan endapan emas ungu, tapi semacam warna hitam tinta.”</p>
+<p>	“Jangan bilang dia benar-benar sangat beruntung karena menebak-nebak?”</p>
+<p>	Gu Master di sekitarnya berseru ringan.</p>
+<p>	“Tuan muda, Anda harus berhati-hati mulai dari sini dan seterusnya. Jangan membuat gerakan tiba-tiba, cacing Gu yang berhibernasi sangat rapuh. Jika kamu menggunakan terlalu banyak kekuatan, kamu akan membunuh cacing Gu di dalamnya.” Master Gu perempuan tidak mengharapkan situasi seperti itu terjadi. Setelah tertegun sejenak, dia segera menyarankan dengan hati-hati.</p>
+<p>	Gerakan Fang Yuan melambat, jari-jarinya perlahan menggosok saat bubuk kecil perlahan jatuh. Terus mengulangi tindakan dengan banyak interval, dia tidak lagi cair seperti sebelumnya.</p>
+<p>	Bubuk batu berwarna hitam perlahan jatuh, dan saat batu itu semakin kecil, gerakan Fang Yuan menjadi lebih lambat dan lebih lembut.</p>
+<p>	Di karpet, bubuk batu terus berkumpul saat batu berwarna hitam Fang Yuan akhirnya dibersihkan.</p>
+<p>	“Huh, sayang sekali, itu adalah batu di dalam batu.”</p>
+<p>	“Sungguh membuang-buang emosi saya, saya benar-benar berpikir ada cacing Gu di dalam.”</p>
+<p>	“Kamu terlalu mudah untuk dibodohi, apakah taruhan rock begitu mudah? Sembilan dari sepuluh semuanya kosong, bagaimana lagi toko itu akan menghasilkan uang? ”</p>
+<p>	“Tuan muda, keberuntunganmu sudah tidak buruk. Mendapatkan batu di batu pertama kali, orang normal tidak bisa melakukannya. ” Master Gu wanita mencoba cara lain untuk menghibur Fang Yuan, sama halnya untuk membuka jalan bagi hasil yang menunggunya.</p>
+<p>	Mendapatkan apa-apa dari batu judi sangat umum, sembilan dari sepuluh kejadian. Menurutnya, Fang Yuan memilih secara acak, peluang mendapatkan fosil Gu hampir nol.</p>
+<p>	Fang Yuan tersenyum tetapi tidak menjawab, dan dia terus mengeluarkan batu kelima.</p>
+<p>	Dia dengan hati-hati menggiling, dan dalam waktu sepuluh napas, permukaan batu berwarna emas ungu semuanya terhapus, memperlihatkan bola lumpur kuning yang permukaannya kasar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

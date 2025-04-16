@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 123 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 123";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_122.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 123">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_124.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 123</h1>
+        <div class="text-left">
+<p>	Bab 123</p>
+<p>	Bab 123: Saya bepergian sendirian melalui surga dan bumi</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Apa masalahnya?” Fang Yuan memandang Chi Shan.</p>
+<p>	Bahkan jika itu musim dingin, dia terus bertelanjang dada, kulit merahnya memancarkan kehangatan yang membuat orang merasa seperti berada di dekat pemanas.</p>
+<p>	Salju putih yang mendarat di tubuhnya langsung meleleh.</p>
+<p>	Ini karena aperture-nya memiliki Double Orifice Stove Gu.</p>
+<p>	Kompor Gu adalah cacing Gu peringkat dua. Itu bisa menyimpan panas internal yang bisa digunakan untuk menyerang. Menahan dingin hanyalah efek samping.</p>
+<p>	Ekspresi Chi Shan rumit, dia menatap Fang Yuan dan berkata dengan serius, “Apakah kamu tahu bahwa akhir-akhir ini, Xiong Li dari klan Xiong telah menemukanmu untuk kontes kekuatan?”</p>
+<p>	“Aku tahu,” Fang Yuan mengangguk.</p>
+<p>	Chi Shan menghela nafas, “Xiong Li menemukanmu untuk kontes kekuatan bukanlah kompetisi belaka, tetapi melibatkan alokasi kepentingan aliansi tiga klan. Di bawah gelombang serigala, non-aliansi berarti kehancuran. Namun setelah membentuk aliansi, masalah terbesar adalah bagaimana mendistribusikan kepentingan dan keuntungan. Hari-hari ini, tiga klan menemui jalan buntu karena itu. ”</p>
+<p>	Fang Yuan memandang Chi Shan, langsung mengerti mengapa dia mencari dirinya sendiri.</p>
+<p>	Negosiasi adalah hal yang paling sulit untuk dilakukan. Untuk kepentingan mereka sendiri, ketiga klan tidak akan menyerah secara otomatis, dan mereka harus berjuang untuk kepentingan terbaik mereka. Meja negosiasi sudah lama dipenuhi dengan bubuk mesiu dan asap, melawan akal sehat.</p>
+<p>	Dalam sistem nilai dunia ini, pertama adalah kekuatan, kedua adalah kekerabatan.</p>
+<p>	Tiga klan Gunung Qing Mao adalah klan individu, memiliki konflik besar satu sama lain sejak lama, masing-masing membawa dendam lama dan mendalam. Tentu saja kekerabatan tidak bisa digunakan untuk meredakan ketegangan mereka. Jadi untuk memecahkan ketegangan, mereka harus mengandalkan kekuatan.</p>
+<p>	Di bumi, ada latihan militer untuk menunjukkan kekuatan seseorang. Di dunia ini, itu bekerja dengan cara yang sama karena ada kontes Gu untuk menampilkan kekuatan satu faksi dan mencapai manfaat yang lebih besar untuk diri mereka sendiri.</p>
+<p>	Xiong Li menemukan Fang Yuan untuk kontes untuk bersaing kekuatan, adalah karena ini.</p>
+<p>	Seperti yang diharapkan, Chi Shan berkata selanjutnya, “Saya telah bersaing dengan Xiong Li, dia memiliki Kekuatan bawaan Beruang Coklat dan sudah memiliki kekuatan satu beruang. Dia juga memiliki Grand Bear Gu, dan dapat meningkatkan kekuatannya dengan beruang lain. Bersama-sama dia memiliki kekuatan dua beruang. Saya jauh melampaui pertandingannya, sebanyak saya ingin menyangkalnya. Tapi sebagai orang terkuat nomor satu di Gunung Qing Mao, gelar itu pasti miliknya.”</p>
+<p>	Dia berhenti sejenak, lalu melanjutkan, “Mari kita bicara bisnis. Kekuatanmu ada di sekitarku, jadi kamu juga bukan lawannya. Tapi Anda tidak bisa kalah, karena Andalah yang membangunkan River Swallowing Toad, pahlawan yang menyelamatkan Gunung Qing Mao. Setelah Anda kalah, kepentingan Klan Gu Yue kami akan dikompromikan. Jadi untuk kepentingan klan, buang kehormatan pribadimu dan hindari pertempuran!”</p>
+<p>	Fang Yuan diam-diam menatap Chi Shan.</p>
+<p>	Chi Shan menunduk, “Saya tahu bahwa masalah ini terhadap Anda sangat sulit. Lagi pula, menghindari persaingan memiliki kerusakan besar terhadap reputasi seseorang. Tapi itu untuk kepentingan klan; jika Anda kalah, klan harus menyerah lebih banyak. Klan telah mengasuh kita, kita secara alami harus berkontribusi pada klan, kan? Klan membutuhkanmu. Mengorbankan reputasi Anda sendiri untuk klan itu wajar! Tetapi masalah ini dimulai karena saya, jadi atas nama pribadi saya, saya akan memberikan kompensasi kepada Anda untuk itu, sebagai bagian dari niat baik saya. ”</p>
+<p>	Mengatakan demikian, Chi Shan menyerahkan tas uang besar kepada Fang Yuan.</p>
+<p>	Fang Yuan menimbangnya, dan terkekeh, “Jadi reputasiku hanya bernilai dua ratus batu purba?”</p>
+<p>	Chi Shan bisa mendengar sarkasme dalam kata-katanya, tatapannya menajam saat dia berkata dengan sungguh-sungguh, “Fang Yuan, tolong jangan marah! Sebelumnya, saya mencoba menghibur Anda dengan kata-kata yang baik, tetapi sebenarnya saya di sini dengan sebuah misi. Menghindari kompetisi adalah perintah atasan klan. Terlepas dari apa yang Anda pikirkan, ini adalah perintah. Saya harap Anda memahami posisi Anda.”</p>
+<p>	Mengatakan demikian, dia berbalik dan pergi, meninggalkan jejak kaki yang dalam di salju.</p>
+<p>	Fang Yuan menatap punggung Chi Shan saat matanya menunjukkan tanda pengertian.</p>
+<p>	“Untuk mendapatkan manfaat terbesar, klan telah menggunakan acara aku mengusir Kodok Menelan Sungai sebagai chip dalam negosiasi. Bagaimanapun, Katak Menelan Sungai adalah bahaya bagi seluruh Gunung Qing Mao. Untuk menyingkirkan chip ini, klan Xiong mengirim Xiong Li untuk menantangku.”</p>
+<p>	“Bagi klan, aku hanyalah bidak catur. Xiong Li sama, dan Chi Shan juga bidak catur. Yang menyedihkan adalah bahwa orang-orang ini rela menjadi bidak, bahkan menikmati kemuliaannya dan menganggapnya wajar; ini benar-benar pencucian otak yang sukses oleh klan. ”</p>
+<p>	“Tapi saya awalnya tidak ingin bersaing dengan Xiong Li, apa yang disebut reputasi hanyalah pujian dari orang lain. Rantai yang mengikat orang ini telah menangkap banyak pahlawan dan jenius di masa lalu. Tapi bagi saya, apa kerugiannya? Hehe, aku harus berterima kasih kepada Chi Shan karena telah mengirimiku dua ratus batu purba.”</p>
+<p>	Memikirkan hal ini, Fang Yuan menyeringai.</p>
+<p>	Mengapa dia menarik tantangan Xiong Li? Hanya karena dia memiliki kemuliaan menyelamatkan desa. Mengapa Chi Shan menantang Xiong Li? Itu hanya untuk reputasi orang kuat nomor satu di Gunung Qing Mao.</p>
+<p>	Apa yang disebut reputasi hanyalah wortel yang dangkal. Itu telah menggoda banyak orang dan menginjak-injak banyak orang lain, memanipulasi banyak orang.</p>
+<p>	Sedih, betapa sedihnya!</p>
+<p>	Salju terus turun perlahan.</p>
+<p>	Seluruh desa Gu Yue diam-diam didirikan di salju. Orang-orang di sampingnya bergegas melalui jalan-jalan.</p>
+<p>	“Yang menggelikan adalah bahwa orang-orang ini memiliki tubuh mereka yang terperangkap oleh kemuliaan fiktif ini!” Mata Fang Yuan terkulai ke bawah saat iris gelapnya yang menakutkan setengah tertutup oleh rambut.</p>
+<p>	Cahaya yang terpantul dari salju menyinari wajahnya. Wajah pemuda itu pucat dan memiliki semacam kedinginan.</p>
+<p>	Tiba-tiba tertawa, Fang Yuan membacakan sebuah puisi, “Salju putih menyelimuti daratan saat aku bepergian sendirian melintasi langit dan bumi. Sendirian tanpa keterikatan apa pun, bayangan kesendirianku berjalan dengan bebas.”</p>
+<p>	Dia mengambil langkah besar dan melanjutkan perjalanan.</p>
+<p>	Sementara yang lain bergegas, Fang Yuan berjalan sendirian.</p>
+<p>	Apakah itu klan, salju atau desa, mereka hanyalah latar belakang yang kabur.</p>
+<p>	Sesaat kemudian, dia sampai di apartemen sewaannya.</p>
+<p>	Bangunan bambu dan kedai anggur, dia sudah menjual semuanya. Dia terus tinggal di flat sewaan, dan meskipun sangat sederhana, Fang Yuan tidak meminta lebih, dia hanya membutuhkan tempat berlindung di atas kepalanya.</p>
+<p>	Duduk di tempat tidur, Fang Yuan mulai berkultivasi.</p>
+<p>	Master Gu dalam berkultivasi untuk menembus ranah besar, membutuhkan kemampuan dan bakat. Tetapi untuk menembus dunia kecil, itu hanyalah akumulasi waktu. Dengan waktu yang cukup, aperture akan terus dipelihara, dan dapat terus meningkat.</p>
+<p>	Sesuai kesepakatan, ketika hari sudah sore, Jiang Ya datang ke kediaman Fang Yuan.</p>
+<p>	“Tuan Fang Yuan, kali ini adalah batu purba, tolong periksa.” Dia berjalan ke ruangan, menyerahkan lima kantong uang dengan hormat, diisi dengan batu purba.</p>
+<p>	Ada lebih dari empat ratus batu purba di dalamnya, dan saat gelombang serigala mendekat, Gu Masters semakin bergantung pada daun vitalitas. Ini menyebabkan harga jual Fang Yuan terus naik.</p>
+<p>	Fang Yuan menyerahkan sembilan daun vitalitas kepada Jiang Ya, bertanya, “Hal yang saya minta Anda beli, sudahkah Anda melakukannya?”</p>
+<p>	Jiang Ya menunjukkan ekspresi kekecewaan, menggelengkan kepalanya, “Tuan Fang Yuan, ini waktu yang buruk. Gelombang serigala akan datang, dan klan telah meningkatkan kendalinya atas sumber daya. Selain hal-hal lain, Gu Sisik Ikan itu hanya sedikit kurang berharga daripada Gu Kulit Giok. Saya sudah mencoba yang terbaik, tetapi sulit untuk segera mendapatkan hasil.”</p>
+<p>	Fang Yuan mengerutkan kening.</p>
+<p>	Fish Scale Gu digunakan dengan Stealth Rock Gu untuk membuat Stealth Scale Gu. Tanpa Fish Scale Gu, dia tidak bisa memperbaiki Stealth Scale Gu.</p>
+<p>	“Bahkan dengan kontrol sumber daya, itu tidak berarti kita tidak dapat menemukan Gu Sisik Ikan. Akar masalahnya adalah kemampuan Jiang Ya yang terlalu kecil. Tampaknya menggabungkan Stealth Scale Gu harus berlarut-larut.” Fang Yuan menghela nafas dalam hatinya.</p>
+<p>	Tapi dia tidak patah semangat.</p>
+<p>	Sembilan dari sepuluh hal di dunia ini tidak akan berjalan sesuai rencana.</p>
+<p>	Inilah hidup, dan ungkapan “berlayar mulus” hanyalah salam yang indah.</p>
+<p>	“Klan Bai menghasilkan Gu Sisik Ikan, dan klan kami juga memilikinya, meski jumlahnya lebih sedikit. Sepertinya masalah ini harus menunggu setelah aliansi formal. ”</p>
+<p>	Fang Yuan tidak terburu-buru, dia tahu bahwa begitu ketiga klan membentuk aliansi, mereka akan membuat papan prestasi pertempuran. Ini akan mendorong Master Gu untuk secara proaktif berburu serigala. Pada saat itu, dia akan dapat menggunakan poin prestasinya untuk menukar sumber daya tiga klan.</p>
+<p>	Tentu saja, Moonlight Gu dari Klan Gu Yue, Gu Kekuatan Beruang dari klan Xiong, dan Stream Gu dari klan Bai adalah tanda tangan klan tersebut, dan tidak akan dapat ditukar.</p>
+<p>	Tapi Fish Scale Gu pasti ada di dalam.</p>
+<p>	Bahaya disertai dengan kesempatan.</p>
+<p>	Bagi Gu Masters, gelombang serigala adalah ujian yang ketat, tetapi juga kesempatan untuk bangkit.</p>
+<p>	Di bawah serangan gelombang serigala, banyak Master Gu yang terkenal meninggal sementara banyak Master Gu mendapatkan ketenaran karenanya. Faksi yang lebih tua di klan akan melemah karena ini, tetapi faksi baru akan naik ke panggung politik.</p>
+<p>	Pada malam hari, tamu tak terduga datang.</p>
+<p>	Gu Yue Qing Shu dan Gu Yue Fang Zheng.</p>
+<p>	Qing Shu sampai ke poin utama, menyebutkan tujuan sebelumnya, ingin membeli cacing Liquor dari Fang Yuan.</p>
+<p>	Pada saat yang sama, dia juga ingin membeli Black Boar Gu, dan bahkan Rumput Vitalitas Sembilan Daun.</p>
+<p>	Rumput Vitalitas Sembilan Daun tidak punya otak; Cacing minuman keras telah lama menjadi cacing Minuman Keras Empat Rasa, bahkan jika Fang Yuan menginginkannya, dia bahkan tidak bisa memproduksinya sekarang, jadi dia menolaknya.</p>
+<p>	Tapi Gu Babi Hitam…</p>
+<p>	“Aku sudah mendapatkan kekuatan babi hutan, jadi Gu Black Boar tidak lagi berharga bagiku. Jalur kemajuan terbaik Black Boar Gu adalah Steel Mane Gu. Meskipun itu adalah Gu dengan serangan dan pertahanan, bagi saya yang sudah memiliki Gu Giok Putih, itu tidak banyak berguna. Saya mungkin juga menukarnya dengan Fish Scale Gu. ”</p>
+<p>	Fang Yuan memikirkan ini, dan menyebutkannya.</p>
+<p>	“Gu Sisik Ikan?” Qing Shu mengerutkan kening, lalu mengangguk, “Aku tahu, kamu kekurangan cacing Gu yang defensif. Fish Scale Gu dapat digabungkan ke dalam Rank dua Scale Armor Gu. Itu bisa memberikan pertahanan yang bagus.”</p>
+<p>	Menggunakan Fish Scale Gu dan Stealth Rock Gu untuk membuat Stealth Scale Gu, resepnya hanya akan ditemukan dua ratus tahun kemudian, jadi wajar jika Qing Shu tidak tahu.</p>
+<p>	Fang Yuan tidak mengekspos dirinya sendiri, “Gu Babi Hitam lebih berharga daripada Gu Sisik Ikan, jadi jika kita menukarnya, Anda harus memberi saya kompensasi perbedaan harga.”</p>
+<p>	“Tentu saja.” Qing Shu mengangguk lalu bertanya, “Jangan pedulikan Rumput Vitalitas Sembilan Daun, apakah kamu benar-benar tidak menjual cacing Liquor? Tidak ada gunanya bagimu, membesarkannya secara gratis hanyalah membuang-buang batu purbamu. ”</p>
+<p>	Fang Yuan menggelengkan kepalanya, “Jangan sebut cacing Liquor, itu tidak untuk dijual.”</p>
+<p>	Qing Shu menggosok hidungnya, tertawa pahit, “Fang Yuan, masalah ini lebih rumit dari yang kamu pikirkan. Apakah Anda tahu Gu Yue Yao Le? Dia adalah cucu dari tetua ruang pengobatan Gu Yue Yao Ji, seorang siswa baru tahun ini, dan memiliki bakat kelas B. Gu Yue Yao Ji mencintai cucunya dan pernah mencoba membeli cacing Liquor di rumah pohon, tetapi tidak berhasil.”</p>
+<p>	“Anda pernah menggunakan cacing Liquor sebelumnya, saya yakin Anda tahu manfaat yang dimilikinya. Saya tidak akan mengatakannya lagi, tetapi Tuan Yao Ji sangat menginginkan cacing Gu ini untuk cucunya. Kasih sayang seorang lansia terhadap cucu-cucunya dapat dimengerti sepenuhnya. Jadi, dia telah datang kepada Anda, dia serius untuk membelinya dan telah menawarkan harga yang tinggi. Dia bahkan berjanji bahwa jika Anda terluka dalam gelombang serigala, Anda akan mendapatkan perhatian khusus dari ruang obat. Saya harap Anda mempertimbangkannya dengan cermat. ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 200 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 200";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_199.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 200">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_201.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 200</h1>
+        <div class="text-left">
+<p>	Bab 200</p>
+<p>	Bab 200: Rakit terbalik di sepanjang Sungai Naga Kuning</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Buku 2: Setan Meninggalkan Gunung</p>
+<p>	Sungai Naga Kuning adalah sungai ketiga di Perbatasan Selatan – lebih dari delapan ribu kilometer. Dimulai dari Gunung Huang Guo, dan melewati pegunungan dan perbukitan seperti Gunung Xuan Ming, Gunung Gui Bei, Gunung Qing Mao, Gunung Bai Gu dan Gunung Lei Ci sebelum akhirnya mengalir ke lautan.</p>
+<p>	Jika seluruh Perbatasan Selatan terlihat melalui pandangan mata burung, orang dapat melihat sungai Naga Kuning membentuk bentuk zig-zag saat mengalir melalui lebih dari setengah Perbatasan Selatan.</p>
+<p>	Beberapa ombak menderu saat mereka berbalik, ombak ganas bergulung-gulung di sepanjang sungai. Itu menembus celah di antara pantai, dan kabut terangkat ke langit biru.</p>
+<p>	Sungai Naga Kuning mengalir deras dan tak henti-hentinya. Banyak makhluk hidup di sungai – ikan, kura-kura, ular, kerang, dan bentuk kehidupan lainnya. Pada saat ini, ada rakit bambu yang terombang-ambing oleh ombak.</p>
+<p>	Rakit hijau ini terlihat cukup usang dan sepertinya perlu diperbaiki. Ada tiang sederhana dan kasar di tengah dengan layar putih lusuh tergantung di atasnya. Tumpukan barang diletakkan di sekitar tiang untuk menstabilkan bagian tengah rakit. Bambu diikat dengan tali rami dan ada banyak loop di beberapa area; mereka jelas dilakukan dengan tergesa-gesa saat rakit berlayar melintasi sungai.</p>
+<p>	Rakit bambu mengalir mengikuti arus sungai, dan setiap kali ombak menerjangnya, rakit mengeluarkan suara berderit yang jauh dari menenangkan.</p>
+<p>	Rakit bambu yang sepertinya bisa pecah setiap saat ini membawa dua anak muda – yang satu berwajah biasa dengan pupil hitam dan rambut hitam, mengenakan gaun hitam; yang lain adalah seorang wanita dengan penampilan peri abadi, pupil biru dan rambut perak, mengenakan gaun putih.</p>
+<p>	Mereka adalah Fang Yuan dan Bai Ning Bing.</p>
+<p>	Setelah pertempuran di gunung Qing Mao – Bai Ning Bing sendiri meledakkan fisik Jiwa Es Gelap Utaranya dan menyegel Lord Sky Crane untuk saat ini – mereka menggunakan semua kekuatan mereka untuk keluar dari es, lalu memotong beberapa bambu Qing Mao untuk membuat ini rakit sebelum segera menabrak jalan untuk melarikan diri.</p>
+<p>	Laba-laba serigala bumi seribu li milik Fang Yuan sudah mati; dan sejak ular abadi bentuk putih Bai Ning Bing terbang dengan sendirinya, tidak ada kabar darinya.</p>
+<p>	Tanpa cacing gu transportasi, keduanya pasti akan ditangkap oleh Lord Sky Crane jika mereka bergerak di darat karena kecepatan mereka akan terlalu lambat. Dengan demikian, Fang Yuan hanya bisa memikirkan metode ini.</p>
+<p>	Banyak anak sungai dari sungai Naga Kuning mengalir melalui gunung Qing Mao. Sebelumnya, Kodok Menelan Sungai Peringkat lima telah mengalir dengan aliran utama sungai Naga Kuning dan secara tidak sengaja mengalir ke kaki gunung Qing Mao.</p>
+<p>Rakit bambu mengalir melalui salah satu anak sungai ke aliran sungai utama, dan saat mengalir bersama sungai, kecepatannya secara alami sangat cepat.</p>
+<p>	“Sudah lima hari, sepertinya orang tua itu tidak akan datang,” gumam Fang Yuan sambil berdiri di atas rakit bambu dan melirik ke belakang.</p>
+<p>	Kecepatan rakit bambu pasti tidak bisa menandingi raja bangau terbang Ironbeak. Tapi raja bangau terbang Ironbeak pasti perlu istirahat dan tidak bisa dibandingkan dengan rakit bambu yang terus mengalir di sungai. Dan seiring berjalannya waktu, Fang Yuan menjadi lebih yakin.</p>
+<p>	Selain itu, Fang Yuan ingat bahwa Lord Sky Crane telah kembali sendirian setelah membunuh kepala pertama Gu Yue. Raja bangau terbang Ironbeak sepertinya sudah mati.</p>
+<p>	Deburan ombak sungai membombardir telinga mereka. Bai Ning Bing melirik Fang Yuan; dia mungkin tidak mengerti detail dalam kata-katanya, tetapi tahu apa yang dia maksud.</p>
+<p>	Dia tertawa keras, “Apa yang kamu khawatirkan! Jika kakek tua itu mengejar kita, kita hanya akan bertarung sampai mati. Bertarung di sungai Naga Kuning ini akan sangat spektakuler. Nah, masalahnya jika kita mati di sini, kita akan berakhir di perut beberapa ikan. Haha, itu terdengar menarik juga.”</p>
+<p>	Fang Yuan mengabaikannya, malah menatap ke kejauhan.</p>
+<p>	Dengan lima hari berlayar, mereka hampir sampai di Gunung Bai Gu.</p>
+<p>	Menurut ingatannya, ada warisan rahasia yang tersembunyi di Gunung Bai Gu. Warisan diatur oleh Master Gu Peringkat empat dari jalan yang benar, untuk seseorang yang ditakdirkan untuk itu.</p>
+<p>	“Saya belum pernah melihat warisan ini secara pribadi di Gunung Bai Gu, dan hanya mendengarnya. Tetapi dikabarkan bahwa warisan ini memiliki beberapa kendala yang mengharuskan dua orang untuk berkoordinasi untuk melewatinya. ”</p>
+<p>	Ketika Fang Yuan memikirkan ini, dia melirik Bai Ning Bing dengan santai.</p>
+<p>	Meskipun mereka bepergian bersama, itu hanya karena situasi dan tekanan dari musuh yang kuat. Dia sendiri hanya berada di peringkat satu tahap awal dan benar-benar membutuhkan bantuan untuk berkeliaran di luar. Tetapi dengan Bai Ning Bing berubah menjadi seorang wanita, dia memiliki pegangan terbesar padanya di Yang Gu, memberinya pilihan selain berkompromi.</p>
+<p>	Setelah memasuki Gunung Bai Gu, bisakah mereka benar-benar berkoordinasi dengan satu pikiran? Itu menjadi tanda tanya besar.</p>
+<p>	Jepret.</p>
+<p>	Tiba-tiba, suara teredam terdengar.</p>
+<p>	“Tidak bagus, talinya sudah lepas.” Suara ini sangat familiar bagi Bai Ning Bing saat dia langsung berteriak.</p>
+<p>	Kekuatan aliran sungai sangat dahsyat, dan dalam lima hari ini, siapa yang tahu berapa kali tali rami yang mengikat rakit itu membusuk karenanya. Untungnya, Fang Yuan telah membuat persiapan yang cukup sebelum mereka berangkat.</p>
+<p>	“Cepat ambil tali rami, aku akan memegangnya sampai saat itu.” Fang Yuan segera berjongkok dan menggunakan tangannya untuk memegang area di mana tali terlepas, mencegah situasi menjadi kacau.</p>
+<p>	Sungai mengalir deras dan deras, butuh banyak tenaga untuk menahan rakit bambu; Bai Ning Bing tidak memenuhi syarat untuk ini, hanya Fang Yuan yang memiliki kekuatan dua babi hutan.</p>
+<p>	Untungnya, situasi ini telah terjadi beberapa kali sebelumnya dan Bai Ning Bing menjadi lebih berpengalaman dalam menangani ini; dia dengan cepat pergi untuk mengikat tali rami di sekitar tiang sederhana dan kasar di tengah perahu.</p>
+<p>	“Ini, ambil!” Dia bergegas dan menyerahkan tali rami.</p>
+<p>	Fang Yuan dengan gesit mengambilnya dan dengan cepat melingkarkannya di sekitar area yang longgar dengan keringat mulai menetes dari kepalanya saat dia berkonsentrasi pada tugas itu. Setelah melilitkan tali rami di sekitar area yang longgar beberapa kali, rakit akhirnya stabil.</p>
+<p>	“Rakit ini sudah mengalami banyak kerusakan, dari kelihatannya hanya bisa bertahan sehari saja. Kita harus mencapai pantai dalam durasi ini.” Fang Yuan menghela nafas.</p>
+<p>	Sungai Naga Kuning sama sekali tidak aman, siapa yang tahu berapa banyak bahaya yang tersembunyi di dalam sungai yang mengamuk ini. Jika rakit bambu runtuh di tengah sungai, Fang Yuan dan Bai Ning Bing tidak punya pilihan selain mengikuti sungai, tanpa tahu apakah mereka akan selamat.</p>
+<p>	Ta.</p>
+<p>	Terdengar suara lembut yang teredam.</p>
+<p>	“Suara apa itu?” Fang Yuan segera mengerutkan alisnya.</p>
+<p>	Bai Ning Bing mendengarkan dengan seksama dengan ekspresi ragu: “Suara apa? Aku tidak mendengar apa-apa.”</p>
+<p>	Akar tumbuh dari telinga Fang Yuan, dan segera dia mendengar suara tatata terus menerus. Seiring dengan suara, rakit bambu juga mulai bergetar.</p>
+<p>	“Benda apa yang menyerang rakit bambu dari sungai!” Bai Ning Bing berteriak kaget.</p>
+<p>	Sinar hitam terbang keluar dari samping rakit bambu dan melewati Bai Ning Bing.</p>
+<p>	Bayangan hitam ini terlalu cepat dan tidak bisa dilihat dengan jelas. Bai Ning Bing hanya merasakan telinganya menjadi dingin, dengan sedikit cairan mengalir di pipinya. Dia tanpa sadar menghapusnya; itu darah!</p>
+<p>	“Apa-apaan ini!” Dia mengutuk ketika dia melihat ke atas, hanya melihat seekor ikan hitam berbentuk gelendong jatuh ke sungai dari udara.</p>
+<p>	“Itu Shuttle Swordfish, sialan, kita harus segera menarik ke arah pantai!” Fang Yuan berteriak sebelum menarik layar.</p>
+<p>	Shuttle Swordfish memiliki kepala dan ekor yang tajam, sedangkan perutnya besar, seperti shuttle tekstil. Mereka hanya muncul di sungai atau lautan besar, berkeliaran dan berburu dalam kelompok ratusan atau ribuan. Mereka adalah karnivora dan sering berburu mangsa sepuluh kali atau bahkan ratusan kali ukuran mereka.</p>
+<p>	wussss!</p>
+<p>	Shuttle Swordfishes melesat keluar dari sungai seperti panah hitam.</p>
+<p>	Rakit bambu bergetar hebat saat banyak Shuttle Swordfish yang menabraknya. Untungnya, bambu Qing Mao adalah bambu kelas atas; itu sangat kuat dan tahan lama. Tapi saat Shuttle Swordfishes terus menusuk rakit bambu dari bawah, rakit itu tampak seperti akan runtuh kapan saja.</p>
+<p>	Layar disesuaikan untuk meminjam kekuatan angin, sehingga rakit bersandar ke samping dan berlayar cepat menuju tepi sungai.</p>
+<p>	Namun, kelompok Shuttle Swordfishes tidak punya niat untuk menyerah. Mereka bergegas ke bawah sungai dan menyerang rakit dengan ganas.</p>
+<p>	Retakan.</p>
+<p>	Sebuah bambu Qing Mao terbelah dan sebuah Shuttle Swordfish menabrak rakit bambu; momentumnya sudah habis saat mendarat di samping Bai Ning Bing.</p>
+<p>	Kepalanya seperti auger dan sisiknya menutupi seluruh tubuhnya, bersinar dengan cahaya suram. Bai Ning Bing menyaksikannya berjuang tanpa daya; setelah dia meledak sendiri, semua cacing Gu yang dia miliki telah dibekukan sampai mati, sementara Gu Rotasi Yin Yang menyelamatkannya tetapi tidak memiliki kemampuan untuk membangkitkan cacing Gu-nya.</p>
+<p>	Retak, retak, retak.</p>
+<p>Mengikuti dari dekat, bambu lain di rakit mulai patah.</p>
+<p>	Itu cukup luar biasa sehingga rakit bambu bahkan bisa menahan gelombang serangan pertama. Tapi itu tidak bisa menahan gelombang kedua.</p>
+<p>	Rakit bambu rusak dan mulai tenggelam di bawah sungai.</p>
+<p>	“Cepat, cepat, cepat!” Fang Yuan mengutuk saat dia melindungi layar. Jika layarnya hilang, rakit akan kehilangan tenaga penggeraknya; Fang Yuan dan Bai Ning Bing akan jatuh ke sungai, kematian mereka adalah hal yang pasti!</p>
+<p>	Shuttle Swordfishes bersiap untuk menyerang gelombang ketiga. Sejumlah besar Ikan Pedang Antar-Jemput melesat seperti anak panah, mematahkan bambu dan mematahkan tali rami; rakit bambu itu pecah.</p>
+<p>	Kanopi Langit Gu!</p>
+<p>	Fang Yuan dengan paksa mengaktifkan Gu Peringkat tiga, segera menyebabkan esensi purba di aperture-nya menurun dalam tingkat yang menakutkan.</p>
+<p>	Ini masih dalam kondisi dia memiliki 90% bakat kelas A bersama dengan Heavenly Essence Treasure Lotus.</p>
+<p>	Esensi purba perunggu hijau peringkat satu tahap awal hampir tidak dapat memenuhi persyaratan untuk Sky Canopy Gu.</p>
+<p>	Bahkan jika armor cahaya putih terbentuk, itu terlihat sangat lemah dan tidak memancarkan aura Gu peringkat tiga.</p>
+<p>	Bang, bang, bang.</p>
+<p>	Serangkaian bunyi tumpul dikeluarkan saat Shuttle Swordfishes menyerang armor putih; mereka tidak dapat menyakiti Fang Yuan. Bai Ning Bing, bagaimanapun, sudah terluka, dan dengan panik menghindari Shuttle Swordfish yang melesat ke arah rakit bambu. Pada saat yang sama, dia berdiri di belakang Fang Yuan, mengandalkannya untuk memblokir sebagian besar serangan.</p>
+<p>	Situasinya sangat kritis; layarnya sudah berlubang dan kecepatan rakit bambu terus berkurang. Ada kurang dari sepertiga rakit bambu yang tersisa, dan itu sudah tenggelam dengan permukaan air mencapai mata kaki Fang Yuan dan Bai Ning Bing.</p>
+<p>	“Sialan, Master Gu peringkat lima tidak bisa membunuhku, tapi aku akan mati oleh kelompok Shuttle Swordfish yang sangat sedikit ini?” Bai Ning Bing menghela nafas panjang.</p>
+<p>	Dengan gelombang serangan lagi, rakit bambu pasti akan tenggelam, dan mereka pasti akan mati setelah jatuh ke sungai.</p>
+<p>	Namun….</p>
+<p>	Shuttle Swordfishes menunda serangan mereka, menyebabkan Bai Ning Bing menahan napas dan mengawasi dengan ketat, tampak gelisah.</p>
+<p>“Kami telah mencapai pantai, Shuttle Swordfishes tidak akan berenang di air dangkal. Huff! Kami aman untuk saat ini.” Fang Yuan menghirup udara keruh. Seluruh tubuhnya sakit dan hampir menyerah.</p>
+<p>	Dia hampir tidak memiliki istirahat dalam beberapa hari terakhir, dengan kebutuhan untuk mengendalikan layar dan menyesuaikan arah rakit dari waktu ke waktu. Itu sudah membebani tubuhnya hingga batasnya.</p>
+<p>	Bai Ning Bing juga terengah-engah di udara dingin, gaun putihnya diwarnai dengan darah. Ada banyak luka di tubuhnya, tapi untungnya dia memiliki bakat bertarung, dan dengan upaya penuh untuk menghindar bersama dengan rakit bambu yang menurunkan momentum pengisian Shuttle Swordfish, dia hanya menderita luka ringan.</p>
+<p>	Fang Yuan melirik Bai Ning Bing, dan tak lama kemudian, rasa sakit yang hebat menjalar ke seluruh tubuhnya.</p>
+<p>	Dia juga terluka, dengan pendarahan yang berlanjut sampai sekarang.</p>
+<p>	Esensi purba di aperture-nya telah benar-benar kering dalam beberapa menit setelah menggunakan Sky Canopy Gu. Tanpa perlindungannya, tubuh dagingnya secara alami tidak bisa menahan Shuttle Swordfishes.</p>
+<p>	Rencana awalnya adalah berlayar satu hari lagi.</p>
+<p>	Namun, kejadian tak terduga bisa terjadi kapan saja. Perencanaan tidak akan pernah bisa menyalip perubahan, dan masih ada jarak dari Gunung Bai Gu, tetapi Fang Yuan tahu mereka harus menarik ke arah pantai sekarang.</p>
+<p>	Layarnya sudah tidak berguna. Fang Yuan telah memberikan semua upayanya untuk mengarahkan rakit dari karang, terdampar menuju pantai.</p>
+<p>	Keduanya memercik melalui air dan menginjak pantai yang lembut; mereka telah sampai di pantai.</p>
+<p>	Bai Ning Bing menutupi lukanya dan duduk di pantatnya. Wajahnya pucat, “Jika ini terus berlanjut, aku bisa mati karena kehilangan banyak darah! Cepat, keluarkan Gu penyembuhanmu. ”</p>
+<p>	Fang Yuan tersenyum pahit, bagaimana dia bisa menarik Gu yang menyembuhkan dari udara tipis?</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

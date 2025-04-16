@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 98 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 98";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_97.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 98">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_99.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 98</h1>
+        <div class="text-left">
+<p>	Bab 98</p>
+<p>	Babak 98: Kesulitan menyempurnakan Gu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Apa? Anak itu, dia adalah Master Gu peringkat dua sekarang, dan bahkan melamar misi pemisahan aset dari aula urusan internal! ” Suara marah dan terkejut Paman Gu Yue Dong Tu bergema di seluruh aula utama.</p>
+<p>	“Itu memang begitu. Meskipun saya menerima batu purba Anda, saya tidak bisa berbuat banyak untuk menghentikannya, saya hanya berhasil memberitahunya untuk mengumpulkan misi dalam tiga hari. Saya hanya bisa mengulur waktu selama itu untuk Anda, itu adalah batas saya. ” Guru Gu setengah baya di sampingnya berkata.</p>
+<p>	Gu Yue Dong Tu mendengus dalam hatinya, dia bisa merasakan makna tersembunyi dari kata-kata Gu Master di aula urusan internal.</p>
+<p>	‘Menunda tiga hari, itu batasnya’, kata-kata seperti itu hanyalah alasan untuk memeras lebih banyak uang.</p>
+<p>	“Tapi, prioritas utama sekarang adalah tetap melakukan semua yang saya bisa untuk mempertahankan aset. Bajingan ini benar-benar terlalu mengganggu! ” Keringat Gu Yue Dong Tu mengucur dari dahinya saat pertumbuhan Fang Yuan begitu cepat sehingga membuatnya merasa seperti terkena serangan jantung.</p>
+<p>	“Aku datang ke sini terutama untuk memberitahumu ini, jadi aku akan pergi sekarang.” Pria paruh baya itu berdiri untuk pergi.</p>
+<p>	“Jangan terburu-buru, saudara. Ada beberapa hal yang masih saya perlukan agar Anda sedikit membantu saya. ” Gu Yue Dong Tu buru-buru berdiri, mengambil kantong uang dan memasukkannya ke tangan Master Gu setengah baya.</p>
+<p>	Tuan Gu laki-laki mengambil seluruh kantong batu purba dan memasukkannya ke dalam saku dadanya, nada suaranya dengan cepat berubah, tertawa keras. “Kakak Dong Tu, kamu terlalu sopan. Kami memiliki hubungan yang hebat, kami sudah saling kenal selama lebih dari sepuluh tahun. Jangan khawatir, saya akan mempersiapkan misi terberat untuk Fang Yuan, tetapi dia mungkin mempekerjakan Master Gu lain untuk membantunya. Anda harus mewaspadai hal ini.”</p>
+<p>	“Hehehe, kamu bisa yakin. Meskipun saya telah pensiun, saya masih memiliki hubungan saya, saya telah mengirim orang untuk mengamatinya. Jika anak itu mempekerjakan orang luar, itu melanggar aturan klan, dan aku masih menunggu untuk mengetahui kelemahannya. Hehe…”</p>
+<p>	“Kalau begitu aku merasa nyaman, selamat tinggal.”</p>
+<p>	“Biarkan aku mengirimmu keluar.”</p>
+<p>	“Tidak apa-apa, silakan tinggal.”</p>
+<p>	Gu Yue Dong Tu menatap Gu Master yang pergi, senyumnya perlahan memudar.</p>
+<p>	“Fang Yuan ini, dia hanya kelas C, bagaimana dia bisa naik ke peringkat dua begitu cepat?! Sialan, apa yang dilakukan Jiao San dan yang lainnya! Bahkan tidak bisa menjaga dari seorang pemula.”</p>
+<p>	“Huh, sekarang Jiao San dan tim semuanya dibunuh oleh gerombolan binatang buas, sungguh orang bodoh yang tidak kompeten. Fang Yuan juga naik ke peringkat dua, dengan cara ini dia pasti bisa menerima misi aset keluarga. Metode saya sebelumnya untuk memblokirnya tidak akan berfungsi lagi. Tapi dia sekarang bekerja sendiri, dan bertujuan untuk menyelesaikan misi pewarisan aset saja sangat sulit.”</p>
+<p>	“Tidak! Keberuntungan anak ini tidak masuk akal, pertama saya mendapatkan Jiao San dan yang lainnya untuk menekannya, dan segera gerombolan binatang buas itu datang. Jika dia mengandalkan keberuntungan ini lagi dan menyelesaikan misi, lalu bagaimana? Aku harus bersiap untuk yang terburuk!”</p>
+<p>	Seekor rubah tua yang licik, Gu Yue Dong Tu yang bisa masuk dan meninggalkan kehidupan pertempuran dengan damai dan hidup sampai sekarang, itu sudah mewakili kesuksesan.</p>
+<p>	Dibandingkan dengan Fang Yuan yang baru merdeka, hubungan interpersonalnya jauh lebih kuat.</p>
+<p>	“Mengumpulkan anggur madu?” Ketika Fang Yuan menerima misi aset, matanya bersinar dengan secercah dingin.</p>
+<p>	Misi ini sangat merepotkan, yaitu mengumpulkan lima Liang(1) anggur madu lebah emas. Lebah emas semuanya berukuran kepalan tangan dengan garis-garis emas dan hitam, dan mereka memiliki sengat tajam yang dikemas dengan serangan yang kuat.</p>
+<p>	Itu tidak semua. Di antara gatal-gatal kecil yang normal, hanya ada madu. Hanya sarang besar atau sedang yang memiliki anggur madu berharga yang terbuat dari akumulasi besar madu.</p>
+<p>	“Misi ini, bahkan untuk kelompok lima orang, sangat sulit. Karena jumlah orang tidak lagi penting, Master Gu yang mengumpulkan anggur madu harus memiliki Gu tipe defensif untuk menahan sengatan. Tampaknya hubungan paman telah menyerang dan menggertak kurangnya cacing Gu defensif saya. Sial baginya …” Fang Yuan tertawa dingin di dalam hatinya.</p>
+<p>	Pada titik ini, itu menunjukkan manfaat yang melekat dari warisan Biksu Anggur Bunga.</p>
+<p>	Mudah melakukan sesuatu secara sembunyi-sembunyi, sulit melakukan sesuatu secara terbuka.</p>
+<p>	Semakin banyak yang bekerja secara terbuka, semakin banyak kartu truf mereka terungkap, dan mereka menjadi lebih mudah untuk dijebak. Sebaliknya, bekerja secara diam-diam membantu menyembunyikan kartu truf dan membuat orang lain tidak dapat menilai situasi Anda, sehingga tidak dapat menyelesaikan masalah sejak awal.</p>
+<p>	“Tapi, jika aku ingin mengumpulkan anggur madu, Gu Kulit Giok saja tidak cukup. Jade Skin Gu hanya Gu Peringkat satu, tetapi jika itu bisa naik ke peringkat dua Gu White Jade, saya akan dapat melakukannya dengan mudah. ​​”</p>
+<p>	Tanpa perlu mencoba mengambil risiko, pengalaman hidupnya yang kaya memungkinkan dia untuk mengambil langkah yang tidak terlalu berguna.</p>
+<p>	Omong-omong, Fang Yuan sudah menjadi Master Gu tahap awal Peringkat dua, tetapi cacing Gu padanya, selain Jangkrik Musim Gugur Musim Semi, semuanya adalah cacing Gu peringkat satu.</p>
+<p>	Situasi ini seperti pria dewasa yang mampu menggunakan tombak hanya memegang belati kecil. Belati tidak dapat menampilkan sepenuhnya kekuatan pria itu, dan hanya dengan tombak yang paling cocok.</p>
+<p>	Fang Yuan memiliki tujuh cacing Gu yang dimilikinya.</p>
+<p>	Gu yang penting Spring Autumn Cicada, Moonlight Gu, Liquor worm, White Boar Gu, Jade Skin Gu dan dua Little Light Gu.</p>
+<p>	Dalam campuran ini, Moonlight Gu dapat bergabung dengan dua Little Light Gu untuk membentuk Moonglow Gu. Gu White Boar dan Gu Kulit Giok dapat menyatu menjadi Gu Giok Putih.</p>
+<p>	Moonglow Gu mewakili lonjakan kekuatan serangan, sementara White Jade Gu adalah peningkatan pertahanan.</p>
+<p>	Jika Fang Yuan memiliki cukup batu purba, dia akan memilih untuk memperbaiki keduanya. Tapi belum lama ini, untuk mendorong kultivasinya ke Peringkat dua, dia menghabiskan sebagian besar batu purbanya. Sekarang, dengan batu purba di tangan, itu hanya cukup untuk sekali pakai.</p>
+<p>	“Tidak diragukan lagi, memilih untuk memperbaiki White Jade Gu adalah pilihan yang lebih baik. Dengan Gu Giok Putih, saya dapat mengambil anggur madu. Dan dengan White Jade Gu, aku bisa maju lebih baik dalam warisan Flower Wine Monk. Tetapi jika fusi ini gagal, hasilnya akan mengerikan. Keuangan saya di ambang kehancuran, jadi tanpa White Jade Gu, saya tidak bisa mendapatkan aset orang tua saya. Terjebak pada titik ini, itu akan sangat memperlambat pertumbuhan saya. ”</p>
+<p>	Fang Yuan merasakan tekanan halus.</p>
+<p>	Dia tahu bahwa dia berada di persimpangan jalan, dan jika fusi ini berhasil, masa depan cerah. Jika dia gagal, maka dia akan jatuh ke dalam jurang. Untuk kembali ke titik saat ini, dia akan membutuhkan lebih banyak upaya dalam manajemen dan menghabiskan waktu lebih lama.</p>
+<p>	……</p>
+<p>	“Gu Masters menggunakan laut purba mereka sebagai pangkalan, dan cacing Gu sebagai metodenya. Gu adalah kebutuhan Master Gu, tanpa Gu mereka bukan Master Gu. Selain kultivasi mereka sendiri, Master Gu juga harus memperbaiki, memelihara, dan menggunakan Gu. ”</p>
+<p>	Di dalam ruangan, pemimpin klan Gu Yue Bo dengan cermat menjelaskan kepada Fang Zheng.</p>
+<p>	“Sempurnakan, pelihara, dan gunakan. Ketiga aspek ini, yang mana pun juga merupakan harta karun pengetahuan yang sangat besar. Bahkan jika Anda menghabiskan seluruh hidup, Anda tidak dapat sepenuhnya menyelesaikannya. Pada aspek pemurnian Gu, Anda sudah tahu cara memperbaiki Gu dan menjadikannya milik Anda. Tapi ini hanya penyempurnaan tunggal. Ada juga aspek fusi yang lebih penting.</p>
+<p>	“Melalui fusi, Anda dapat menggabungkan beberapa cacing Gu menjadi satu dengan peringkat yang lebih tinggi. Inilah evolusi kehidupan. Fang Zheng, Anda sudah menjadi Master Gu peringkat dua, tetapi cacing Gu Anda semuanya peringkat satu. Sudah waktunya kamu memperbaiki cacing Gu peringkat dua. ”</p>
+<p>	Fang Zheng bertanya, “Pemimpin klan, bagaimana cara melakukan fusi?”</p>
+<p>	Gu Yue Bo berkata, “Untuk melebur, kamu harus tahu resepnya. Beberapa cacing Gu tidak dapat digabungkan bersama. Melalui banyak percobaan dan kesalahan, dan kegagalan tanpa akhir, nenek moyang kita telah menemukan beberapa resep. Klan Gu Yue kami memiliki penelitian paling mendalam dengan Moonlight Gu, dan kami sekarang memiliki dua resep peringkat lima di tangan.</p>
+<p>	“Apa itu resep peringkat lima?”</p>
+<p>	“Sesuai dengan resep ini, melalui beberapa fusi, seseorang akhirnya dapat memperbaiki hingga cacing peringkat lima Gu. Fang Zheng, Anda memiliki satu Gu Kulit Giok dan Gu Cahaya Bulan, itu memenuhi syarat untuk salah satu dari resep Peringkat lima. Jika Anda mengikuti resep ini, Anda akhirnya akan mendapatkan peringkat lima Gu — Moonlight Treasure King Gu!”</p>
+<p>	“Raja Harta Karun Cahaya Bulan Gu?” Wajah Fang Zheng penuh dengan keinginan.</p>
+<p>	“Hehehe, memberitahumu tentang Gu Peringkat lima sekarang masih terlalu dini. Ayo, keluarkan Jade Skin dan Moonlight Gu-mu, aku akan mengajarimu cara menggabungkan kedua Gu ini ke dalam Raiment Bulan Peringkat dua!”</p>
+<p>	Mengatakan demikian, ekspresi Gu Yue Bo berubah serius, “Hal terpenting tentang menggabungkan Gu adalah pemikiran paralel, menggabungkan kesadaranmu. Moonlight Gu dan Jade Skin Gu di tangan Anda sekarang tidak memiliki kesadaran liar lagi, ditimpa oleh kesadaran Anda sendiri. Apa yang harus Anda lakukan sekarang adalah menggabungkan dua pemikiran ini bersama-sama.”</p>
+<p>	“Sekering bersama?” Fang Zheng berkedip, bingung.</p>
+<p>	Gu Yue Bo tersenyum, “Jangan khawatir, berlatihlah lebih banyak, kamu akan dapat menggenggam perasaan ini. Mari kita mulai.”</p>
+<p>	“Mm.” Fang Zheng mengangguk, dan di bawah bimbingan Gu Yue Bo, esensi purba baja merah berwarna merah mudanya naik seperti asap, menyelimuti Gu Kulit Giok dan Gu Cahaya Bulan di udara.</p>
+<p>	Fang Zheng memejamkan matanya, merasakan dan memanipulasi kesadaran kedua cacing Gu.</p>
+<p>	Gu Yue Bo berada di luar menonton, dan melihat Gu Kulit Giok dan Gu Cahaya Bulan berputar-putar seperti dua planet.</p>
+<p>	Saat kesadaran menyatu, jarak antara dua cacing Gu memendek.</p>
+<p>	Setelah tiga jam mencoba terus menerus, kesadaran mereka akhirnya dikendalikan oleh Fang Zheng, dan menyatu dengan sempurna.</p>
+<p>	Seketika, Gu Kulit Giok dan Gu Cahaya Bulan keduanya meletus dalam cahaya putih terang.</p>
+<p>	Kedua lampu dihubungkan bersama, membentuk benjolan sebesar wajah.</p>
+<p>	“Pertahankan kondisi ini, dan lemparkan batu purba ke dalam cahaya.” Gu Yue Bo menasihati.</p>
+<p>	Fang Zheng mengeluarkan batu purba dan melemparkannya ke dalam cahaya.</p>
+<p>	Anehnya, setelah melemparkan batu purba, batu itu berubah menjadi gelombang esensi alami murni, benar-benar menyatu dengan gumpalan cahaya. Hanya bubuk batu yang tersisa, berserakan di tempat tidur.</p>
+<p>	“Terus melempar sampai Peringkat dua Gu selesai.” Gu Yuebo berkata.</p>
+<p>	Fang Zheng hendak melempar bidak kedua, tetapi pada titik ini, cahaya menghilang, dan kedua Gu terbang ke dua arah yang berlawanan seolah-olah mereka didorong satu sama lain dengan kejam.</p>
+<p>	Fusi gagal.</p>
+<p>	“Sial, aku lupa mempertahankan fusi kesadaran tadi.” Fang Zheng segera menyadari kesalahannya.</p>
+<p>	“Jangan khawatir, gagal di awal adalah normal.” Gu Yue Bo menghibur, tetapi mengingatkan, “Tapi hati-hati, kamu tidak bisa gagal terlalu banyak, jika tidak baik Moonlight dan Jade Skin Gu akan binasa.”</p>
+<p>	Fang Zheng mengingat kembali Jade Skin Gu dan Moonlight Gu, dan menemukan retakan di permukaan Moonlight Gu, sementara Jade Skin Gu tampak seperti melemah.</p>
+<p>	Hatinya tenggelam, merasakan kesulitan memperbaiki Gu.</p>
+<p>	(1) Liang – satu Liang adalah 31,25 gram.</p>
+<p>	(2) Jadi untuk memperjelas untuk berjaga-jaga: – haluskan Gu, – fusi/peleburan Gu. Fusion adalah bagian dari proses pemurnian Gu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

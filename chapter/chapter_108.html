@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 108 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 108";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_107.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 108">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_109.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 108</h1>
+        <div class="text-left">
+<p>	Bab 108</p>
+<p>	Babak 108: Sepasang mata itu!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Jiang Ya melihat bahwa Fang Yuan berniat untuk keluar, dan buru-buru menghentikannya—”Tuan Fang Yuan, seorang bijak tidak melawan ketika ada kemungkinan melawannya. Man Shi ini sangat kuat, salah satu dari sedikit orang yang berhasil menyelamatkan diri dari Bai Ning Bing, dia tidak bisa diremehkan.”</p>
+<p>	“Menggunakan kehilangannya sebagai ketenaran yang mulia, ketakutan apa yang ada untuk orang-orang seperti ini?” Fang Yuan tertawa ringan, mengulurkan tangannya untuk meletakkannya di bahu Jiang Ya, “Duduk saja di sini dan minum.”</p>
+<p>	“Tuhan …” Jiang Ya hendak mendesak lagi, tapi dia bertemu dengan tatapan dingin Fang Yuan.</p>
+<p>	Rasa dingin di mata Fang Yuan menyebabkan jantungnya berhenti.</p>
+<p>	Dia terikat lidah, tak berdaya duduk di kursi lagi sementara Fang Yuan mengambil beberapa langkah dan meninggalkan ruang yang dipartisi, berjalan menuju aula utama.</p>
+<p>	Dia melihat bahwa di tengah meja persegi, seorang Guru Gu peringkat dua memiliki satu kaki menginjak bangku sementara yang lain menginjak meja.</p>
+<p>	Tubuhnya agak pendek, tetapi lengan dan pinggangnya tebal. Dengan janggut hitam tebal, memanjang ke bawah dari pipinya hingga bertemu di dagunya, tubuhnya memancarkan aura keganasan yang kuat.</p>
+<p>	Tanah di dekatnya telah memecahkan pecahan pot anggur, dan sebagian besar minuman keras telah merembes ke tanah di sepanjang retakan beton di lantai.</p>
+<p>	Hanya dua atau tiga genangan anggur yang terkumpul di permukaan, atau di pot yang pecah.</p>
+<p>	Pria tua penjaga toko itu menundukkan kepalanya saat dia meminta maaf dengan gentar, “Tuan, tolong tenang, jika anggur ini tidak memuaskan Anda, toko akan memberi Anda minuman lagi gratis!”</p>
+<p>	“Hmph, aku tidak mau anggur! Anggur Anda rasanya seperti kotoran, mengapa Anda membuka toko. Kompensasi, saya harus diberi kompensasi! Suasana hati saya yang baik dihancurkan oleh kalian, Anda harus memberi saya kompensasi setidaknya lima ratus batu purba! ” Man Shi menuntut jumlah yang konyol.</p>
+<p>	“Ini sudah ketiga kalinya, sepertinya kedai anggur ini telah menyinggung beberapa orang.”</p>
+<p>	“Huh, jangan minum di sini lagi.”</p>
+<p>	“Cepat, pergi, ketika Gu Masters bertarung, kita manusia menderita.”</p>
+<p>	Orang-orang di sekitarnya dengan panik meninggalkan tempat duduk mereka, hanya beberapa Master Gu yang tersisa dan melanjutkan obrolan mereka.</p>
+<p>	“Aku dengar kedai ini dibuka oleh Fang Yuan, siapa yang mencari-cari kesalahan padanya?”</p>
+<p>	“Oh! Orang yang orang tuanya meninggal dan mewarisi kekayaan mereka, anak yang menjadi kaya dalam semalam?”</p>
+<p>	“Tidak heran orang melakukan ini, bahkan jika itu aku, aku akan cemburu. Bayangkan saja, kita berjuang untuk hidup kita di luar sana demi keberuntungan ini untuk menjalani kehidupan yang stabil. Tapi dia Fang Yuan hanyalah seorang pemula, hak apa yang dia miliki untuk mendapatkan barang-barang ini! ”</p>
+<p>	“Itu benar, bahkan jika nenek moyangnya menjaga generasi masa depan mereka, waktu telah berubah. Sumber daya klan terbatas. Setiap orang hanya bisa mendapatkan sepotong kecil kue. Bagaimana dia, seorang talenta kelas C, bisa menikmati keberuntungan seperti itu di usia ini? Tidak masuk akal!”</p>
+<p>	“Apakah Man Shi mencoba membuatnya marah untuk berduel? Jika mereka berkelahi dengan Gu, dia mungkin bisa mendapatkan sepotong kue.”</p>
+<p>	Seseorang menggelengkan kepalanya, “Heh, kamu pikir para tetua klan itu bodoh?”</p>
+<p>	Seseorang mengangguk, “Mungkin benar. Kebijakan klan ada di sana, apakah kalian tidak mengerti selama bertahun-tahun? Sampai taraf tertentu, mereka memungkinkan kita untuk bersaing, yang kuat harus mendapatkan lebih banyak sumber daya, bukan begitu? Jika yang lemah tidak dapat melindungi aset mereka, mereka harus menyerahkannya. Itu semua untuk kemakmuran klan!”</p>
+<p>	“Mm, masuk akal. Mari kita lihat dulu. Ada sesuatu yang terjadi di sini. Saya mendengar bahwa Man Shi memiliki pensiunan penatua di belakangnya, ”seseorang menekan suaranya dan berkata.</p>
+<p>	“Siapa yang berani pergi, kalian semua berdiri di sana, tidak ada yang pergi!” Di atas meja, Man Shi tiba-tiba berteriak.</p>
+<p>	Para peminum fana itu sudah berada di ambang pintu, tetapi tidak berani untuk tidak patuh, mereka semua berdiri di tempat dengan ngeri. Beberapa pejalan kaki menemukan bahwa ada drama yang terjadi dan mereka pergi ke ambang pintu, berhenti untuk menonton pertunjukan.</p>
+<p>	“Murni di sini untuk mencari masalah!” Fang Yuan setelah melihat adegan ini, wajahnya tanpa emosi, tetapi matanya berkilau dengan cahaya dingin.</p>
+<p>	Man Shi melihatnya.</p>
+<p>	“Oh? Anda benar Fang Yuan itu. Junior, kedai anggurmu menipu uangku dengan anggurmu yang mengerikan. Namun, karena Anda seorang pemula, saya akan memberi Anda kesempatan untuk bertobat dan meminta maaf di depan umum. Jika tidak orang lain akan mengatakan bahwa saya, Man Shi menindas seorang junior dengan status saya. Ha ha ha!”</p>
+<p>	Man Shi tertawa keras, “Selama kamu meminta maaf dan tunduk padaku, masalah ini akan selesai. Saya menjalankan pembicaraan saya, saya akan melakukan apa yang saya janjikan!</p>
+<p>	Dia menepuk dadanya dengan volume yang menggelegar, menunjukkan suasana kemurahan hati, tetapi niatnya tidak bisa berbohong kepada Master Gu di sekitarnya.</p>
+<p>	“Sungguh langkah bajingan.”</p>
+<p>	“Itu benar, Jika Fang Yuan meminta maaf, dia tidak akan bisa lagi mengangkat kepalanya, dan siapa pun akan datang dan menginjaknya dan menggertak kelemahannya. Tetapi jika dia tidak meminta maaf, itu berarti tidak menghormati seorang senior, dan dengan sikap seperti itu, seluruh komunitas akan menjauhkannya.”</p>
+<p>	“Ya, dia terjebak dengan dua keputusan sulit… astaga, apaan sih!!!”</p>
+<p>	Gu Masters berbisik, tetapi tiba-tiba mulut seseorang terbuka lebar, mampu menelan telur bebek.</p>
+<p>	Master Gu yang tersisa berada dalam kondisi yang sama.</p>
+<p>	Beberapa menatap sampai bola mata mereka hampir jatuh.</p>
+<p>	Beberapa tersedak dan menumpahkan anggur di mulut mereka.</p>
+<p>	Beberapa orang menatap dengan sangat tidak percaya, seperti patung.</p>
+<p>	Mereka di sini untuk menonton pertunjukan, pertunjukan yang menyenangkan.</p>
+<p>	Pada akhirnya, Fang Yuan tidak hanya memenuhi keinginan mereka, tetapi juga memberi mereka “kejutan” yang luar biasa. Pria muda itu langsung menjentikkan pergelangan tangannya dan menembakkan pisau bulan.</p>
+<p>	Bangku gereja!</p>
+<p>	Pedang Bulan dari Moonglow Gu!</p>
+<p>	Taring bulan sabit biru yang menakutkan terbang di udara, sebesar wajah. Mengikuti sepanjang meja persegi, itu dengan cepat dipotong seperti tahu menjadi dua bagian.</p>
+<p>	“Eh?!” Tawa Man Shi berdiri, pupil matanya melebar saat moonblade menjadi semakin besar di matanya.</p>
+<p>	Dalam sekejap mata, moonblade biru yang menakutkan sudah berada di dekat wajahnya, menunjukkan setiap helai kumisnya dengan cahayanya.</p>
+<p>	Menghadapi perasaan kematian yang kuat, pada saat-saat terakhir, Man Shi berteriak panik, “Monolith Gu!”</p>
+<p>	Segera, seluruh tubuhnya memiliki cahaya abu-abu yang dalam. Kulitnya berubah dan menjadi kulit batu.</p>
+<p>	Tapi sebelum benar-benar tumbuh, moonblade sudah mengenai dadanya.</p>
+<p>	Dengan suara ringan, kulit batu itu terkoyak dan dada Man Shi menjadi luka diagonal yang besar. Darah tumpah dan mengalir keluar dari lukanya yang besar.</p>
+<p>	“Ah-!” Rasa sakit yang hebat mengalir melalui sarafnya saat Man Shi berteriak ngeri, suaranya penuh dengan ketidakpercayaan dan keterkejutan.</p>
+<p>	Dia tidak pernah berharap Fang Yuan menyerang segera tanpa sepatah kata pun.</p>
+<p>	Dia berani menyerang!</p>
+<p>	Di desa, langsung menggunakan cacing Gu dan menyerang anggota klan?!</p>
+<p>	Belum lagi Man Shi, bahkan para penonton menunjukkan ketidakpercayaan total, dan kehilangan kata-kata.</p>
+<p>	“Situasi apa ini, apakah anak ini gila ?!”</p>
+<p>	“Tidak mengatakan sepatah kata pun dan segera melakukan serangan fatal! Bukankah dia takut membunuh Man Shi dan ditangkap oleh aula hukuman, membayar kejahatannya?”</p>
+<p>	“Pria muda terlalu gegabah.”</p>
+<p>	“Apakah kalian melihat pedang bulan itu? Jelas bukan Moonlight Gu tetapi Moonglow Gu, untuk berpikir bahwa Fang Yuan sudah berhasil dalam fusinya. ”</p>
+<p>	“Fang Yuan, apa yang kamu lakukan ?!” Man Shi berdiri di atas meja persegi, merobek tenggorokannya dan berteriak dalam volume yang menggelegar dengan wajah penuh kekejaman.</p>
+<p>	Otot-otot seluruh tubuhnya menonjol, tumbuh menjadi kulit batu dengan intensitas yang lebih dalam. Lukanya juga tertutup oleh kulit batu, tetapi sejumlah besar darah masih tercurah, meski lebih sedikit dari air mancur.</p>
+<p>	Wajah Fang Yuan tenang saat dia melanjutkan perjalanannya. Dia tidak berbicara, atau lebih tepatnya, dia tidak memiliki niat untuk berbicara.</p>
+<p>	Dia membuat langkah lain untuk membalas Man Shi.</p>
+<p>	Pedang bulan lagi!</p>
+<p>	Bangku gereja.</p>
+<p>	Moonblade terbang melintasi jarak pendek dan melesat keluar.</p>
+<p>	“Anda!” Man Shi tidak punya waktu untuk berbicara, tetapi mengangkat tangannya dan melindungi otak dan dadanya.</p>
+<p>	Anggota tubuhnya ditutupi dengan batu tebal berwarna abu-abu tua, seolah-olah lengannya terbuat dari patung, kokoh dan tebal.</p>
+<p>	Moonblade mengenai lengannya, memotong luka yang dalam, banyak pecahan batu kecil terbang keluar.</p>
+<p>	Kekuatan pedang bulan menyebabkan tubuh Man Shi terbang mundur.</p>
+<p>	Seluruh tubuhnya terbuat dari batu, menyebabkan berat badannya naik drastis. Akhirnya, meja di bawahnya tidak bisa menahan beban, dan dengan retakan, itu runtuh sepenuhnya.</p>
+<p>	Man Shi kehilangan pijakan dan jatuh ke tanah, pertahanannya menunjukkan kelemahan.</p>
+<p>	Fang Yuan berjalan perlahan, matanya bersinar dalam cahaya dingin saat dia menangkap kelemahannya, dan menembakkan moonblade lain ke sana.</p>
+<p>	Moonblade merobek udara dan mengeluarkan suara angin yang menderu.</p>
+<p>	Man Shi buru-buru mengangkat tangannya, tetapi dia meremehkan pengalaman pertempuran sengit Fang Yuan. Meskipun moonblade bergerak lurus, itu membuat terowongan dengan sudut yang tidak sejajar dengan tanah.</p>
+<p>	Lengan Man Shi bisa memblokir setengah dari moonblade, tetapi setengah lainnya mengenai dadanya.</p>
+<p>	Cedera di atas cedera, dada Man Shi kehilangan banyak darah sekarang.</p>
+<p>	“Apakah, apakah dia akan membunuhnya?” Master Gu yang semula duduk di kursi tidak tahan lagi, dan mereka semua bangkit.</p>
+<p>	Manusia fana tidak berani membuat suara apa pun. Mereka menyaksikan dengan ketakutan dan antisipasi.</p>
+<p>	Gu Masters saling membunuh, itu memicu sesuatu yang telah ditekan di hati mereka selama ini.</p>
+<p>	Man Shi menarik napas berat, ingin memanjat. Tetapi karena luka-lukanya, rasa sakit yang hebat menyebabkan kerja kerasnya menjadi sia-sia saat dia jatuh ke tanah sekali lagi dengan bunyi gedebuk.</p>
+<p>	Fang Yuan berjalan perlahan.</p>
+<p>	Man Shi kehilangan banyak darah, dan wajahnya pucat. Dia menatap Fang Yuan dengan ngeri. Fang Yuan berjalan perlahan dengan ekspresi dingin, semakin dekat, memberinya tekanan yang lebih besar setiap detik.</p>
+<p>	“Fang Yuan, kamu tidak bisa membunuhku! Membunuhku, kamu akan ditangkap oleh aula hukuman! ” Man Shi mendorong ke lantai, mencoba bergerak mundur.</p>
+<p>	Dia masih berdarah, dan bersama dengan tubuhnya, mengukir garis merah terang di beton.</p>
+<p>	Galeri itu sunyi.</p>
+<p>	Semua orang terpana oleh aura dingin Fang Yuan dan menahan napas seperti yang mereka inginkan. Tidak ada yang merasa bahwa Man Shi adalah sampah yang tidak berharga. Tanpa ketenangan apa pun, mereka tidak akan bernasib lebih baik jika mereka berada di posisinya.</p>
+<p>	Fang Yuan berjalan ke Man Shi, mengangkat satu kaki dan dengan kasar menginjak luka di dadanya.</p>
+<p>	Rasa sakit itu menyebabkan Man Shi menarik napas dingin.</p>
+<p>	Fang Yuan terus menginjak, dan Man Shi mulai merasakan sakit yang luar biasa; seperti babi hutan yang berkeliaran menginjak-injaknya berulang kali.</p>
+<p>	Dia tidak tahan lagi, berteriak keras. Bahkan dengan perlindungan kulit batu yang tebal, dadanya masih menahan tekanan besar dari Fang Yuan, dan area cedera masih dipenuhi darah.</p>
+<p>	Lebih penting lagi, tangan kanan Fang Yuan diselimuti cahaya bulan biru yang menakutkan, ditahan di tempatnya tetapi belum ditembakkan.</p>
+<p>	Ini adalah gejala sebelum serangan moonblade. Man Shi memikirkan ini dengan cemas karena dia tidak berani menggerakkan otot.</p>
+<p>	“Kamu, kamu tidak bisa membunuhku!” Dia menatap dengan mata terbuka lebar, menggeram dalam kesulitan.</p>
+<p>	“Aku tidak akan membunuhmu.” Fang Yuan mengucapkan kalimat pertama sejak dia tiba.</p>
+<p>	Nada suaranya datar, dan di kedai anggur yang sunyi senyap, itu bergema ke telinga semua orang.</p>
+<p>	“Tapi aku bisa melumpuhkanmu, mematahkan salah satu lengan, atau kakimu. Menurut aturan klan, saya harus memberi Anda kompensasi sejumlah batu purba dan dipenjara untuk beberapa waktu. Tapi bagaimana denganmu? Sisa hidup Anda akan dihabiskan di tempat tidur, cedera Anda akan sangat mengurangi kemampuan pertempuran Anda, dan Anda tidak akan bisa lagi menjalankan misi. Apakah Anda pikir hasil ini dapat diterima untuk Anda? Fang Yuan menatap Man Shi yang luas, perlahan-lahan beralasan.</p>
+<p>	Suara tanpa emosi itu masuk ke telinga Man Shi, menyebabkan jantungnya berhenti dan tubuhnya bergidik.</p>
+<p>	Dia membuka mulutnya, terengah-engah, otaknya menjadi lebih kacau. Kaki Fang Yuan mengerahkan kekuatan yang membuatnya merasa seperti sedang dihancurkan oleh batu, membuatnya merasa lebih sulit untuk bernapas.</p>
+<p>	“Sialan, sialan! Jika aku berjaga-jaga, jika aku tidak lengah dan terluka di awal, bagaimana dia bisa… Urgh!”</p>
+<p>	Suara Man Shi tiba-tiba berhenti saat tatapannya bertemu dengan mata Fang Yuan.</p>
+<p>	Dia berbaring di tanah, menatap ke atas.</p>
+<p>	Mata setengah menyipit Fang Yuan, gelap dan menakutkan memandang rendah dirinya.</p>
+<p>	Sepasang mata macam apa itu?</p>
+<p>	Jika penuh dengan niat membunuh, Man Shi tidak akan takut. Namun, sepasang mata ini dipenuhi dengan ketidakpedulian.</p>
+<p>	Ketidakpedulian ini seperti kesombongan terhadap kenyataan, penghinaan terhadap orang-orang di dunia, menginjak-injak kehidupan dan mengabaikan aturan!</p>
+<p>	“Sepasang mata ini, sepasang mata ini …” Mata Man Shi menyusut menjadi ukuran pin sebagai memori terdalam di hatinya bermain.</p>
+<p>	Mimpi buruk dalam hidupnya!</p>
+<p>	Dua tahun lalu, pada malam hari di hutan bambu.</p>
+<p>	Seorang pria muda dengan pakaian putih, juga menginjak-injaknya di bawah kakinya.</p>
+<p>	“Sialan, sialan! Jika saya telah menyempurnakan Monolith Gu, bagaimana Anda bisa menghancurkan pertahanan saya? Kematian sudah dekat. Dia berteriak dengan hidupnya, penuh kemarahan.</p>
+<p>	“Oh, kalau begitu, aku tidak akan membunuhmu.” Bibir pemuda berpakaian putih itu melengkung, memperlihatkan senyum penuh minat, “Kembalilah ke desa dan kultivasi lebih keras. Sempurnakan Monolith Gu dan mari kita bertanding lagi. Hehehe, saya harap di masa depan, Anda dapat membawa warna kegembiraan dalam hidup saya. ” Mengatakan demikian, pemuda itu mengangkat kakinya, menyelamatkannya.</p>
+<p>	Man Shi bernapas dengan kasar, berbaring di tanah, tidak mengharapkan pergantian peristiwa ini.</p>
+<p>	Dia menatap pemuda berpakaian putih ini dengan kaget.</p>
+<p>	Pria muda itu memandangnya seperti semut, berkata dengan acuh tak acuh, “Mengapa kamu tidak berebut?”</p>
+<p>	Tubuh Man Shi bergetar saat dia buru-buru bangkit dan melarikan diri.</p>
+<p>	Pemuda berbaju putih ini tak lain adalah orang jenius nomor satu desa Bai, Bai Ning Bing. Saat itu, dia hanya peringkat dua, tetapi sudah bisa membunuh tetua klan peringkat tiga!</p>
+<p>	Man Shi melarikan diri darinya dan mempertahankan hidupnya menyebabkan ketenarannya meningkat.</p>
+<p>	Selama dua tahun, ekspresi wajah Bai Ning Bing menjadi kabur dalam ingatannya, dan dia hanya bisa mengingat mata itu.</p>
+<p>	Mata yang memandang kehidupan bersama, dunia dengan ketidakpedulian. Iris yang tinggi dan perkasa, menyembunyikan kebanggaan luar biasa yang tidak bisa dipahami manusia.</p>
+<p>	Untuk berpikir ……</p>
+<p>	Untuk berpikir!</p>
+<p>	Untuk berpikir bahwa di desanya sendiri, dia bisa melihat mata ini!</p>
+<p>	Pada saat ini, hati Man Shi dipenuhi dengan teror, kemarahan dan kemarahan di hatinya menghilang tanpa setetes semangat juang yang tersisa.</p>
+<p>	Fang Yuan dengan cermat mengamati ekspresi wajah Man Shi.</p>
+<p>	Pria muda itu sedikit terkejut, tidak menyangka Man Shi begitu pengecut.</p>
+<p>	Tapi, tidak apa-apa… hanya tikus pengecut.</p>
+<p>	Tujuan Fang Yuan tercapai, dan dia melepaskan kakinya, “Kamu bisa enyah sekarang.”</p>
+<p>	Man Shi merasa seperti dia telah mendengar mantra ilahi saat dia berguling dan keluar dari kedai dengan wajah pucat.</p>
+<p>	Penonton tercengang.</p>
+<p>	Fang Yuan berdiri di tempat, tatapannya menyapu area itu.</p>
+<p>	Master Gu di sekitarnya, Peringkat satu dan beberapa Peringkat dua, menghindari tatapannya tanpa sadar.</p>
+<p>	Penjaga toko dan pegawai semuanya ketakutan dan dengan penuh semangat memujanya. Siapa yang tidak menginginkan pendukung yang kuat?</p>
+<p>	Di belakangnya, Jiang Ya menatap tercengang.</p>
+<p>	Dia mendengar keributan dan berlari keluar, tetapi melihat Fang Yuan mengusir Man Shi.</p>
+<p>	Itu adalah Gu Yue Man Shi ……</p>
+<p>	Hatinya terkejut sampai batasnya, dan tatapannya ke arah Fang Yuan berubah.</p>
+<p>	Kecemburuan telah hilang.</p>
+<p>	Pada titik ini, Jiang Ya mengerti mengapa Fang Yuan memiliki pencapaian seperti itu.</p>
+<p>	“Karena dia tidak pernah menjadi tipe orang yang sama denganku!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

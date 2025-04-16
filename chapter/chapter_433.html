@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 433 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 433";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_432.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 433">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_434.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 433</h1>
+        <div class="text-left">
+<p>	Bab 433 – Pencucian Salju Gu</p>
+<p>	Bab 433: Pencucian Salju Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ge Yao secara bertahap menurunkan kewaspadaannya: “Kata-katamu masuk akal. Jika Anda benar-benar Chang Shan Yin, maka Anda akan menjadi pahlawan besar di dataran utara kita! Untuk orang luar belaka, saya pasti tidak akan mempersulit Anda. Namun bagaimana Anda bisa membuktikan identitas Anda?</p>
+<p>	Fang Yuan terkekeh dan ekspresinya berubah, mengungkapkan jejak arogansi yang dimiliki seorang ahli senior: “Saya, Chang Shan Yin, tidak akan mengubah nama atau nama keluarga saya, saya adalah saya, mengapa saya harus membuktikan diri? Gadis kecil, jika kamu ingin pergi sekarang, aku pasti tidak akan menghentikanmu.”</p>
+<p>	Pernyataan Fang Yuan yang mengizinkannya pergi berhasil mengguncang keraguan Ge Yao, menciptakan keraguan besar di hatinya.</p>
+<p>	Fang Yuan tidak melewatkan kesempatan ini: “Gadis kecil, tidak apa-apa untuk berjaga-jaga, tetapi pikirkan saja, berapa banyak kesempatan yang aku miliki untuk membunuhmu di jalan? Tidak perlu menyebutkan hal lain, pikirkan saja waktu yang kita habiskan untuk terbang. Saya hanya harus melepaskan tangan saya dan Anda akan jatuh ke dalam kelompok tikus spike bumi, kematian Anda pasti. Tapi bukankah aku melakukan itu? Pertemuan kami ditakdirkan; karena kamu memiliki keberanian untuk melarikan diri dari pernikahanmu, mengapa kamu tidak memiliki keberanian untuk menghadapiku?”</p>
+<p>	Ge Yao terdiam.</p>
+<p>	Fang Yuan mengamati ekspresinya dan tahu waktunya sudah matang, menyelesaikan penjelasannya: “Ikutlah denganku, kamu masih muda, tidak aman bagimu untuk berkeliaran di kedalaman padang rumput beracun sendirian. Bukankah kau bilang kau sedang mencari spirea salju? Anda ingin menemukan Gu pencuci salju di menara salju, dan membawanya kembali ke klan untuk mendapatkan pahala besar, memungkinkan Anda untuk membatalkan pernikahan Anda, benar? Sejujurnya, garis pemikiran itu tidak realistis; satu atau dua cucian salju Gu tidak akan mengubah situasimu.”</p>
+<p>	“Kebetulan aku juga butuh cuci salju Gu. Aku akan membawamu untuk mencari spirea salju dan menangkap beberapa Gu pencuci salju, lalu aku akan membawamu kembali ke sukumu dan secara pribadi membujuk ayahmu. Bagaimana menurutmu?”</p>
+<p>	“Betulkah?” Mata Ge Yao segera bersinar terang: “Saya ingat ayah mengidolakan Anda, mengatakan bahwa Anda adalah pahlawan yang hebat. Ayah pasti akan mendengarkanmu. Tapi untuk apa Anda masih membutuhkan Gu pencuci salju? Ibumu sudah meninggal…”</p>
+<p>	“Mendesah!” Suara Fang Yuan melankolis, ekspresinya kesepian; dia menundukkan kepalanya sebelum tersenyum pahit, “Aku sudah tahu ibuku meninggal karena racun lebih dari dua puluh tahun yang lalu. Saya tidak dapat menemukan Gu cuci salju dan kembali tepat waktu, saya tidak berbakti. Tahukah kamu, sejak saat itu, cuci salju Gu sudah menjadi obsesiku? Saya pasti harus menangkap satu dan berlutut di depan makam ibu saya untuk bertobat.”</p>
+<p>	Air mata jatuh di pipi Fang Yuan saat dia membicarakan ini.</p>
+<p>	Gadis itu melihat air mata Fang Yuan dan benar-benar yakin dengan kebohongan Fang Yuan. Hatinya sakit dan terhibur: “Senior Chang Shan Yin, ini bukan salahmu. Semuanya karena Ha Tu Gu terkutuk itu!”</p>
+<p>	“Jangan bicara lagi, ayo pergi.” Fang Yuan melambaikan tangannya dan berjalan ke depan.</p>
+<p>	“Maaf, saya salah. Seharusnya aku tidak meragukanmu.” Ge Yao merasa sedikit bersalah, segera mengikuti di belakang Fang Yuan untuk meminta maaf.</p>
+<p>	Fang Yuan menghibur gadis itu, menyebabkan rasa bersalah batinnya menjadi lebih berat.</p>
+<p>	Keduanya terus berjalan ke kedalaman padang rumput beracun; kabut ungu terus menjadi lebih padat dan bahkan binatang buas yang tahan racun seperti serigala janggut racun jarang muncul.</p>
+<p>	Setelah berjalan dua hingga tiga ratus li, Fang Yuan dan Ge Yao tidak punya pilihan selain menggunakan Gu mereka untuk mendetoksifikasi diri mereka sendiri. Setelah berjalan lima sampai enam ratus li lagi, kabut ungu beracun menjadi begitu padat sehingga mereka bahkan tidak bisa melihat tangan mereka sendiri.</p>
+<p>	Burung pipit kabut Ge Yao, Gu telah kehilangan kegunaannya dalam situasi seperti itu. Namun, Fang Yuan sudah siap dan masih bisa mengintai jarak seribu langkah.</p>
+<p>	“Senior Chang Shan Yin, kita harus kembali. Kita masih bisa pergi ke arah lain, mungkin kita bisa menemukan spirea salju di sana. Jika kita masuk lebih dalam, aku takut…” Wajah Ge Yao diliputi warna ungu, dia sudah mencapai titik di mana dia tidak tahan lagi.</p>
+<p>	Tapi Fang Yuan menggelengkan kepalanya dan menolak untuk menerima sarannya, terus bergerak maju.</p>
+<p>	Gadis itu tidak mengerti, tetapi Fang Yuan mengerti bahwa spirea salju tumbuh di lingkungan yang sangat beracun.</p>
+<p>	Dan padang rumput beracun ini juga memiliki banyak sejarah.</p>
+<p>	Di bagian terdalam dari padang rumput beracun, ada tanah yang diberkati di mana peringkat tujuh Gu Immortal Zi Yan Ran, berjudul Lady Poison Scorpion, tinggal.</p>
+<p>	Rumput beracun yang tak terhitung jumlahnya tumbuh di tanah yang diberkati Zi Du dengan banyak rawa dan rawa-rawa beracun yang besar. Sejumlah besar binatang beracun dan Gu beracun tinggal di tanahnya yang diberkati.</p>
+<p>	Racun dari makhluk beracun ini terakumulasi sedemikian rupa sehingga bahkan tanah yang diberkati tidak dapat menanggungnya.</p>
+<p>	Jadi, setiap beberapa tahun, pintu masuk tanah yang diberkati akan terbuka untuk melepaskan gas beracun yang padat di luar.</p>
+<p>	Sebagian besar gas beracun terbentuk menjadi kabut racun ungu di padang rumput beracun.</p>
+<p>	Beberapa makhluk di anak tangga terendah dari tanah yang diberkati juga mengambil kesempatan ini untuk menyelinap keluar. Jadi, ada sejumlah besar serigala janggut beracun di padang rumput beracun.</p>
+<p>	Setelah periode yang lama dari siklus ini, perubahan total terjadi di sekitar tanah yang diberkati Zi Du. Awan gelap menutupi sekeliling sepanjang tahun, menciptakan dunia tanpa cahaya. Kabut ungu berlama-lama dan menyiksa semua makhluk hidup. Sejumlah besar rumput beracun tumbuh, dan serigala janggut beracun mengamuk di sekitar pinggiran tanah beracun. Padang rumput telah menjadi zona terlarang bagi makhluk hidup dan diberi nama padang rumput beracun oleh manusia karena ketakutan.</p>
+<p>	Tanah yang diberkati Zi Du berada di tengah padang rumput beracun, dan tempat Fang Yuan saat ini berada di sekitar tengah.</p>
+<p>	Di kedalaman padang rumput, kabut beracun yang lebat bertahan sepanjang tahun, mendorong pertumbuhan sejumlah besar spirea salju. Fang Yuan tahu jika dia bertahan untuk bergerak maju sedikit lebih lama, dia pasti akan melihat menara salju.</p>
+<p>	Benar saja, seperti yang dia duga, setelah berjalan maju beberapa ratus langkah lagi, Fang Yuan menemukan menara salju.</p>
+<p>	Menara salju setinggi dua puluh kaki; itu memiliki banyak cabang dan daun di batang hitam pekat, kontras dengan cabang spirea yang tak terhitung jumlahnya yang terkulai putih bersih. Di dalam kabut ungu pekat, itu tampak suci dan mulia.</p>
+<p>	Fang Yuan berjalan ke spirea salju bersama Ge Yao, yang segera berteriak kegirangan.</p>
+<p>	Keduanya mulai dengan hati-hati mengamati daun seputih salju di cabang-cabang spirea.</p>
+<p>	Tak lama kemudian, Ge Yao menemukan satu daun yang telah berubah menjadi Gu.</p>
+<p>	Itu adalah Gu pencuci salju, Gu peringkat empat yang tak ternilai. Kemampuan detoksifikasi Gu yang mencuci salju sangat luar biasa, diakui secara luas oleh Master Gu dataran utara.</p>
+<p>	Keduanya mencari untuk waktu yang lama dan menemukan tiga cuci salju Gu.</p>
+<p>	Fang Yuan hanya mengambil satu dan memberikan dua lainnya kepada Ge Yao, menyebabkan gadis itu dalam hati merasa bersyukur.</p>
+<p>	Setelah dia mendapatkan Gu pencuci salju, Fang Yuan mengeluarkan mutiara gelap.</p>
+<p>	The Immortal Gu, perjalanan abadi tetap, disegel di dalam, dan pada saat itu, diam-diam mengeluarkan sedikit aura abadi itu. Jika aura ini bertahan, itu akan dengan mudah ditemukan oleh Dewa Gu.</p>
+<p>	“Ini adalah waktunya.” Fang Yuan menghendaki dan memanggil seorang Gu dari lubangnya.</p>
+<p>	Dia menuangkan esensi purba ke arah Gu sekaligus, mengubah Gu menjadi lemari besi merah, yang kemudian dengan kuat menyegel mutiara gelap.</p>
+<p>	Segera, aura Immortal Gu dipotong tanpa sedikit pun bocor.</p>
+<p>	Ini adalah cacing Gu yang ditangkap Fang Yuan di gunung San Cha, unik untuk klan Tie – lemari besi Gu.</p>
+<p>	Fang Yuan membawa lemari besi di punggungnya dan berjalan kembali ke arah mereka datang bersama Ge Yao.</p>
+<p>	Setelah berjalan sekitar dua hingga tiga ratus li, Fang Yuan berhenti dan mengeluarkan raja bunga perbendaharaan bumi Gu, menyimpan lemari besi di benang sarinya, lalu menanamnya jauh di bawah tanah.</p>
+<p>	Gu ini adalah Gu peringkat lima dan Fang Yuan harus menghabiskan cukup banyak upaya untuk menanamnya. Esensi purbanya tidak cukup, sehingga untuk suatu periode, dia harus menuangkan esensi purba secara perlahan sambil menyerap batu purba.</p>
+<p>	Butuh waktu empat jam sebelum dia selesai.</p>
+<p>	Di gunung Qing Mao, Fang Yuan telah memperoleh warisan Biksu Anggur Bunga. Biksu Anggur Bunga telah menyembunyikan cacing Gu-nya ke dalam bunga perbendaharaan bumi Gu.</p>
+<p>	Bunga perbendaharaan bumi Gu hanya peringkat dua Gu, dan hanya setelah itu maju lagi dan lagi, itu bisa menjadi raja bunga perbendaharaan bumi peringkat lima.</p>
+<p>	Ketika raja bunga perbendaharaan bumi mekar terbuka, itu sepuluh kali lebih besar dari bunga perbendaharaan bumi. Itu memiliki kelopak emas gelap besar yang selembut sutra dan di kedalaman benang sarinya ada cairan bunga emas gelap.</p>
+<p>	Namun, ketika raja bunga perbendaharaan bumi ditutup, ukurannya lebih kecil dari kepalan tangan bayi.</p>
+<p>	Itu benar-benar meringkuk di kedalaman tanah, tidak mengeluarkan sedikit pun aura.</p>
+<p>	Setelah menanam raja bunga perbendaharaan bumi, Fang Yuan dengan hati-hati menghancurkan semua jejaknya di tanah. Pada saat ini, dia benar-benar dan sepenuhnya menyembunyikan perjalanan abadi Immortal Gu.</p>
+<p>	Bukaan Fang Yuan tidak dapat menyimpan perjalanan abadi yang tetap. Dia hanya bisa menggunakan metode ini untuk menyembunyikan Gu Abadi dan mengambilnya kembali di masa depan.</p>
+<p>	Di padang rumput yang begitu luas, siapa yang mengira Gu Abadi yang sangat berharga dimakamkan di sini?</p>
+<p>	Namun aura Gu Abadi masih menjadi masalah. Auranya akan bertahan lama dan menarik Dewa Gu.</p>
+<p>	Dengan demikian, Fang Yuan sesekali menyegel Gu Abadi ketika dia menguburnya; itu untuk menjaga dari pencarian Gu Immortal.</p>
+<p>	“Kecuali, Dewa Gu yang datang memiliki Gu Abadi investigasi, yang mampu melihat menembus tanah dan mengintai ratusan li jauh ke dalam tanah, kemungkinan penemuannya tipis.”</p>
+<p>	Jika perjalanan abadi tetap Gu benar-benar ditemukan oleh beberapa Dewa Abadi dan diambil, Fang Yuan hanya bisa menghubungkannya dengan nasib buruknya.</p>
+<p>	Namun, bahkan jika itu terjadi, dia sama sekali tidak akan membawa perjalanan abadi tetap bersamanya. Dibandingkan dengan Gu Abadi, dia merasa hidupnya sendiri lebih berharga.</p>
+<p>	Keduanya terus bergerak melalui padang rumput dan kembali ke medan perang itu.</p>
+<p>	Ketika mereka mencapai tempat itu, Fang Yuan mencari arah lain dan tidak bergerak di sepanjang jalan aslinya, menggunakan hati Ge Yao yang kembali, Gu untuk menunjukkan arah.</p>
+<p>	Perjalanan pulang tidak mulus, Fang Yuan dan Ge Yao menghadapi serangan kelompok serigala berulang kali.</p>
+<p>	Mereka bahkan bertemu ribuan kelompok serigala tiga atau empat kali; Fang Yuan hanya bisa meraih Ge Yao dan terbang ke langit untuk menghindari bencana ini.</p>
+<p>	Saat keduanya semakin dekat ke tepi luar padang rumput beracun, jumlah serigala dan kesulitan yang mereka temui berkurang.</p>
+<p>…</p>
+<p>	Sekitar seratus serigala berjanggut beracun menerkam Fang Yuan dan Ge Yao.</p>
+<p>	Fang Yuan tertawa cerah, dia senang bukannya kaget saat dia terbang ke udara dan menunjuk ke bawah.</p>
+<p>	“Perbudakan serigala Gu, pergi!”</p>
+<p>	Perbudakan serigala peringkat dua Gu berubah menjadi gumpalan asap biru dan turun, menyelimuti seratus raja serigala binatang.</p>
+<p>	Seratus raja serigala buas berjuang keras, jiwanya melawan dengan kuat. Tapi di depan seratus jiwa manusia Fang Yuan, itu gagal total.</p>
+<p>	“Melolong, melolong.”</p>
+<p>	Ketika Fang Yuan mendarat di tanah, seratus raja serigala binatang berlari di sekitar kaki Fang Yuan dengan ekornya berayun seperti anak anjing kecil.</p>
+<p>	Kelompok serigala yang dibawanya juga tetap tidak bergerak di bawah komandonya, menjadi antek-antek Fang Yuan.</p>
+<p>	Ini sudah menjadi kelompok serigala kedua yang ditaklukkan Fang Yuan.</p>
+<p>	Saat mereka melanjutkan, kekuatan Fang Yuan menjadi lebih kuat, kelompok serigala di sekitarnya tumbuh lebih besar.</p>
+<p>	Perjalanan kematian mereka sebelumnya tanpa sadar menjadi jalan-jalan santai.</p>
+<p>	Ketika kelompok serigala yang mengikuti Fang Yuan meningkat menjadi seribu serigala, dengan empat ratus raja serigala buas, padang rumput beracun tidak lagi menakutkan.</p>
+<p>	Dengan keamanan ini, Fang Yuan mulai menyelesaikan cacing Gu dari perbatasan selatan.</p>
+<p>	Penduduk asli dataran utara adalah xenophobia; penampilan aslinya akan membuatnya menderita pengucilan dan kewaspadaan ke mana pun dia berjalan, membuatnya sulit untuk melakukan sesuatu, dan cacing Gu perbatasan selatan juga merupakan kelemahan besar yang dapat mengungkap identitasnya.</p>
+<p>	Fang Yuan yang sangat berhati-hati tidak akan membiarkan celah ini ada.</p>
+<p>	Semua cacing Gu pada dirinya yang bukan berasal dari dataran utara harus ditangani.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

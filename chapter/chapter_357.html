@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 357 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 357";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_356.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 357">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_358.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 357</h1>
+        <div class="text-left">
+<p>	Bab 357 – Legenda Pria Berbulu</p>
+<p>	Bab 357: Legenda Pria Berbulu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Rekor paling awal tentang pria berbulu ada di &lt;&gt;.</p>
+<p>	Dikatakan bahwa Ren Zu menggali kedua matanya yang berubah menjadi seorang putra dan putri; putranya adalah Verdant Great Sun dan putrinya adalah Desolate Ancient Moon.</p>
+<p>	Verdant Great Sun suka minum anggur, suatu kali dia menyebabkan insiden saat mabuk dan terjebak di kedalaman jurang biasa. Pada akhirnya, dia mendapat untung dari bencana itu dan memperoleh reputasi Gu yang tampak seperti krisan, dan mampu melarikan diri hidup-hidup.</p>
+<p>	Karena reputasi Gu, reputasi Verdant Great Sun secara bertahap menjadi lebih besar. Segera, berita bahwa Verdant Great Sun adalah seorang pemabuk besar menyebar ke seluruh dunia.</p>
+<p>	Suatu hari, sekelompok lebah madu bergaris harimau membawa sarang lebah mereka dan menemukan Matahari Besar yang Hijau.</p>
+<p>	“Matahari Agung yang Hebat, kami mendengar Anda sangat suka minum anggur dan Anda telah mengatakan bahwa anggur yang dibuat oleh empat monyet surga dan bumi adalah yang paling enak di dunia. Tapi bagaimana anggur yang mereka seduh bisa dibandingkan dengan anggur madu kita? Hari ini, kami secara khusus membawakan madu kami untuk Anda cicipi.”</p>
+<p>	Masing-masing lebah madu ini seukuran macan tutul dengan pola di tubuhnya menyerupai belang harimau; emas dengan garis-garis hitam di atasnya. Mereka berbicara dengan sopan tetapi nada mereka mengandung maksud yang mengancam dan kuat.</p>
+<p>	Matahari Agung yang Hijau mengeluh dalam hatinya, ini benar-benar kemalangan yang menimpa seseorang yang hanya tinggal di rumah . Lebah madu belang harimau sangat kuat, dia tidak cocok dengan salah satu dari mereka, apalagi seluruh kelompok.</p>
+<p>	Verdant Great Sun hanya bisa dengan enggan mencicipi anggur madu di dalam sarang lebah.</p>
+<p>	Dia hanya menyesap ketika matanya cerah.</p>
+<p>	Anggur madu manis tetapi tidak terlalu manis, aroma anggurnya lembut dan sangat lezat, benar-benar harta dunia!</p>
+<p>	“Enak, enak, sangat enak. Anggur madu ini membuat seseorang merasa seperti orang yang paling beruntung di dunia!” Verdant Great Sun meminum seteguk anggur, memujinya ke langit yang tinggi.</p>
+<p>	Lebah madu belang harimau tertawa, merasa sangat bahagia.</p>
+<p>	Sang pemimpin bertanya kepada Verdant Great Sun: “Beri tahu kami mana yang rasanya lebih enak, anggur madu kami atau anggur empat kera langit dan bumi?”</p>
+<p>	Verdant Great Sun sudah mabuk dan lupa tentang teror lebah madu belang harimau, berbicara terus terang: “Mereka semua memiliki kelebihannya sendiri, sangat sulit untuk membandingkannya.”</p>
+<p>	Lebah madu belang harimau sangat marah: Dia bilang anggur kita sebenarnya setingkat dengan monyet-monyet itu? Matahari Agung yang Hijau ini terlalu penuh kebencian, kita perlu memberinya pelajaran!</p>
+<p>	Mereka baru saja akan menyerang ketika tiba-tiba Verdant Great Sun menghilang.</p>
+<p>	Keracunan Matahari Agung yang Menghijau ini berlangsung selama tujuh hari tujuh malam.</p>
+<p>	Dalam kekaburannya, dia mendengar suara memanggilnya dari kegelapan: “Matahari Agung yang Agung, cepat bangun. Jika Anda tidak bangun, Anda akan dimakan … ”</p>
+<p>	Verdant Great Sun terkejut saat bangun.</p>
+<p>	Dia menemukan dia diikat dan dibawa oleh sekelompok orang biadab.</p>
+<p>	Kelompok orang buas ini memiliki rambut di sekujur tubuh mereka dan kedua mata mereka berwarna biru tua. Sudah ada api unggun yang menyala dan di atas api unggun ada kuali.</p>
+<p>	Orang-orang biadab diam-diam duduk, mengucapkan kata-kata yang terdengar menyenangkan.</p>
+<p>	“Kami sedang menyempurnakan Gu abadi dan hanya kekurangan manusia untuk menjadi katalis. Sekarang surga telah mengirimi kami Matahari Agung yang Hebat, itu benar-benar layak untuk dirayakan! ”</p>
+<p>	“Manusia adalah roh dari semua makhluk hidup, Ren Zu adalah leluhur roh. Verdant Great Sun lahir dari mata kirinya dan memiliki energi spiritual yang cukup. Cara saya melihatnya, penyempurnaan akan berhasil kali ini!</p>
+<p>	“Lempar dia ke dalam kuali dengan cepat, kita akan mendapatkan Gu abadi dan hidup selamanya …”</p>
+<p>	Verdant Great Sun menjadi pucat karena ketakutan mendengar kata-kata ini; segera berteriak dan berjuang dengan seluruh kekuatannya.</p>
+<p>	Namun, orang-orang biadab ini tetap tidak tergerak.</p>
+<p>	Pada saat ini, Verdant Great Sun kembali mendengar suara dari sebelumnya di benaknya.</p>
+<p>	“Huh, tidak ada gunanya. Orang-orang biadab ini adalah pria berbulu, dicintai oleh dunia. Mereka memiliki bakat bawaan dalam memurnikan cacing Gu. ”</p>
+<p>	Verdant Great Sun langsung melupakan kesulitannya dan dengan rasa ingin tahu bertanya dalam benaknya: “Siapa kamu?”</p>
+<p>	Suara itu tertawa: “Saya adalah Gu perjalanan ilahi, selama ada orang yang meminum empat anggur tingkat atas yang berbeda di dunia, mereka akan melahirkan saya di dalam hati mereka. Saya dapat membiarkan Anda berteleportasi ke tempat mana pun yang Anda inginkan. ”</p>
+<p>	Verdant Great Sun sangat gembira: “Kalau begitu, tolong cepat bawa aku keluar dari sini.”</p>
+<p>	Perjalanan ilahi Gu menghela nafas: “Tidak ada gunanya. Anda hanya dapat menggunakan saya ketika Anda mabuk. Pikiranmu sudah sadar sekarang sehingga kamu tidak bisa menggunakanku.”</p>
+<p>	Verdant Great Sun tiba-tiba menyadari: “Jadi itu sebabnya saya terjebak di pulau terpencil dan hampir mati kelaparan saat itu. Untungnya, saya mendapatkan reputasi Gu dan bisa meninggalkan jurang biasa. Jadi kaulah yang menyakitiku!”</p>
+<p>	Perjalanan surgawi Gu menjawab: “Huh, manusia, aku tidak punya niat untuk menyakitimu, itu semua karena kamu menggunakan kekuatanku setelah kamu mabuk. Anda tidak perlu menyalahkan saya, terakhir kali Anda hampir ditangkap oleh lebah madu belang harimau, tetapi Anda dapat melarikan diri berkat saya. Satu bahaya dan satu penyelamatan, kita bisa menyebutnya seimbang.”</p>
+<p>	Great Sun juga memikirkan lebah madu bergaris harimau dan tidak lagi menyalahkan perjalanan ilahi Gu.</p>
+<p>	Dia dilemparkan ke dalam kuali oleh orang-orang berbulu.</p>
+<p>	Api besar membakar lebih panas di bawah kuali dan suhu cairan di dalamnya juga melonjak.</p>
+<p>	“Tambahkan batu akik dan paprika merah!” Seorang pria berbulu melemparkan batu akik berharga dan lada merah ke dalam kuali.</p>
+<p>	Cairan di dalam kuali segera berubah menjadi merah dan mewarnai tubuh Verdant Great Sun menjadi merah.</p>
+<p>	“Tambahkan anak rubah asap biru!” Seorang pria berbulu meraih rubah kecil dan melemparkannya ke dalam kuali.</p>
+<p>	Seluruh tubuh rubah kecil itu berbulu dan terlihat sangat lucu dengan matanya yang seperti berlian hitam. Tapi begitu menyentuh cairan, itu berubah menjadi asap biru dan menyatu dengan air.</p>
+<p>	Cairan dalam kuali perlahan mendidih dan Verdant Great Sun juga merasa lebih putus asa, merasa akan sulit untuk melarikan diri dari bencana kali ini.</p>
+<p>	Pria berbulu terus menambahkan banyak bahan tambahan dan cacing Gu.</p>
+<p>	“Tambahkan kesombongan Gu!” Seorang pria berbulu melemparkan Gu ke dalam kuali.</p>
+<p>	Gu ini aneh dan tampak seperti kepiting biru besar. Namun berbeda dengan kepiting asli, cangkang kepitingnya berlubang.</p>
+<p>	Saat melihat Verdant Great Sun, kepiting besar seperti kesombongan Gu sangat bersemangat: “Kamu, kamu adalah Verdant Great Sun? Saya telah mendengar tentang Anda, tetapi tidak pernah berharap saya akan bertemu Anda di sini, itu benar-benar keberuntungan saya. Saya terlalu senang, terlalu bersemangat.”</p>
+<p>	Verdant Great Sun tersenyum pahit: “Bagaimana bisa menjadi keberuntungan ketika kita akan mati.”</p>
+<p>	“Aku tidak peduli dengan kematian. Saya hanya ingin bertanya, bagaimana Anda menjadi begitu terkenal? Saya sangat mengagumi Anda! Saya sangat mengagumi orang-orang seperti Anda.” Vanity Gu bertanya dengan urgensi.</p>
+<p>	“Aku sedang tidak mood untuk membicarakan ini sekarang, aku harus melarikan diri.” Verdant Great Sun berjuang di dalam kuali dan mencoba memanjat, tetapi dengan cepat ditekan ke dalam kuali oleh seorang pria berbulu yang mengawasi.</p>
+<p>	“Cepat, katakan padaku, katakan padaku cepat!” Vanity Gu tidak bijaksana dan dengan sepenuh hati ingin meminta bimbingan.</p>
+<p>	Verdant Great Sun dengan marah menegur: “Tidak bisakah kamu melihat situasi yang kita hadapi sekarang?”</p>
+<p>	Vanity Gu membuka matanya lebar-lebar dan mulai di Verdant Great Sun sebelum berseri-seri dengan senang: “Saya mengerti, saya mengerti sekarang. Jika saya ingin menjadi populer, saya harus menahan panas. Terima kasih atas bimbingannya, terima kasih. Verdant Great Sun, sebagai ucapan terima kasih, saya akan membantu Anda. ”</p>
+<p>	Mengatakan demikian, kesombongan Gu meledak.</p>
+<p>	Ledakan ini tidak intens dan sangat ringan, hanya mengeluarkan suara ‘bang’ yang lembut. Kesombongan Gu berubah menjadi angin beracun yang tak berbentuk dan menyerang hati semua pria berbulu.</p>
+<p>	Mata biru gelap yang jernih dari pria berbulu itu berubah menjadi merah.</p>
+<p>	Verdant Great Sun linglung untuk beberapa saat, sebelum kembali ke akal sehatnya. Dia tidak bisa menahan desahan pada pengorbanan kesombongan Gu, dan segera berteriak: “Meskipun kalian pria berbulu dapat memperbaiki Gu, tapi itu bukan apa-apa. Bahkan jika Anda semua hidup untuk selamanya, lalu bagaimana? Kamu sangat jelek dengan rambut di sekujur tubuhmu, kamu hanyalah kekejian.”</p>
+<p>	Orang-orang berbulu itu tercengang.</p>
+<p>	Jika sebelumnya, mereka tidak akan peduli dengan Verdant Great Sun.</p>
+<p>	Tapi sekarang, racun kesombongan telah menyebar di lubuk hati mereka, menyelimuti kecerdasan mereka.</p>
+<p>	Mendengar teriakan Verdant Great Sun, para pria berbulu mulai membantah dengan keras: “Omong kosong, omong kosong! Kami pria berbulu adalah yang paling sempurna, tidak ada yang lebih indah dari rambut di sekujur tubuh!”</p>
+<p>	Verdant Great Sun tiba-tiba mendapat inspirasi: “Tidak peduli seberapa indah rambutmu, bisakah itu seindah rambutku?”</p>
+<p>	Karena dia telah meminum anggur kuat dari monyet vajra, rambutnya menjadi api yang menyala-nyala.</p>
+<p>	Orang-orang berbulu bingung dengan kata-katanya.</p>
+<p>	Api yang indah itu berkedip-kedip dan berubah sepanjang waktu. Bahkan mereka mau tidak mau mengakui bahwa gerakan rambut Verdant Great Sun itu indah.</p>
+<p>	Great Sun yang Hijau terus merangsang mereka: “Bahkan jika kamu mendapatkan keabadian, kamu tidak akan secantik aku! Lihat rambut saya, itu penuh warna dan karismatik seperti api.”</p>
+<p>	Orang-orang berbulu didorong oleh Verdant Great Sun, dan akhirnya seseorang tidak dapat menahannya: “Kamu memiliki rambut yang luar biasa, aku juga akan memilikinya. Lihat milikku!”</p>
+<p>	Dia kemudian menggunakan obor api untuk menyalakan seluruh tubuhnya.</p>
+<p>	Rambut di tubuhnya terbakar dan dia menjadi pria yang berapi-api.</p>
+<p>	“Hahaha, kamu hanya memiliki rambut yang indah, tetapi seluruh tubuhku sekarang cantik.” Pria berbulu ini berteriak.</p>
+<p>	Segera, pria berbulu lainnya juga bergegas melakukan hal yang sama.</p>
+<p>	Mereka semua menjadi orang yang berapi-api, api membakar mereka dan rasa sakit yang hebat menyebabkan mereka melolong kesakitan.</p>
+<p>	Tetapi ketika mereka menyadari hal ini, sudah terlambat bagi mereka untuk memadamkan api, dan secara bombastis menunjukkan kecantikan mereka.</p>
+<p>	Perjalanan ilahi Gu sangat gembira dan memuji Matahari Agung yang Agung tanpa henti: “Manusia, kamu benar-benar pintar, benar-benar memikirkan metode ini.”</p>
+<p>	Verdant Great Sun melarikan diri dari kuali dan berhasil selamat. Dia menjawab dalam pikirannya dengan senyum dingin: “Bukan aku yang pintar. Kesombongan oranglah yang membuat mereka bodoh. Mereka sering diam-diam menahan rasa sakit karena kecantikan palsu, melepaskan tujuan yang harus benar-benar mereka kejar.”</p>
+<p>	……</p>
+<p>	Emas bulan putih besar, batu tengkorak, gigi sisi naga, rumput musim gugur muda bersama dengan lima puluh batu purba, Gu babi hutan bunga dan Gu sangkar babi hutan.</p>
+<p>	Ini diserahkan kepada Fang Yuan sebagai bahan untuk penyempurnaan Gu.</p>
+<p>	Di depannya, pria berbulu itu sudah duduk bersila di tanah dan menyempurnakan Gu.</p>
+<p>	Meskipun Fang Yuan bukan jalur penyempurnaan Gu Master, dia telah berkelana ke jalur penyempurnaan di kehidupan sebelumnya dan tahu banyak resep.</p>
+<p>	Saat ini, dia memiliki tiga pilihan, setiap pilihan akan memperbaiki Gu baru.</p>
+<p>	Warisan tidak menyebutkan Gu mana yang harus dia sempurnakan, ini berarti Gu yang dia saring harus lebih baik daripada pria berbulu itu.</p>
+<p>	Fang Yuan melihat proses pria berbulu itu memurnikan Gu dan sudah bisa menebak apa yang akan dia perbaiki.</p>
+<p>	Dia mencibir ke dalam, tetapi di wajahnya muncul senyum hormat dan tersanjung: “Tuan pria berbulu, Anda benar-benar luar biasa. Metode penyempurnaan Gu Anda benar-benar membuat yang satu ini menghela nafas dengan takjub. Anda adalah grandmaster penyempurnaan Gu, tidak ada Gu di dunia ini yang tidak dapat Anda saring.”</p>
+<p>	“Ah? Ha ha! Kamu… bijaksana.” Pria berbulu itu tertawa keras, jelas bahagia.</p>
+<p>	Gangguan ini segera menyebabkan penyempurnaan Gu gagal.</p>
+<p>	Ekspresi pria berbulu itu tiba-tiba berubah dan berteriak ketakutan: “Tidak!”</p>
+<p>	Tapi itu sudah terlambat.</p>
+<p>	Kekuatan surgawi turun seperti kilat dan menghantam pria berbulu itu menjadi abu.</p>
+<p>	“Hehe.” Fang Yuan dengan acuh tak acuh tertawa dan mengumpulkan materi di tangannya. Di bawah pimpinan bangau kertas Gu, dia perlahan berjalan menuju putaran berikutnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

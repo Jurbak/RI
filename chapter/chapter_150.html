@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 150 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 150";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_149.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 150">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_151.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 150</h1>
+        <div class="text-left">
+<p>	Bab 150</p>
+<p>	Bab 150: Saya hanya membantu diri saya sendiri</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Bulan purnama keemasan menggantung di langit, awan-awan melayang menebarkan bayangan suram.</p>
+<p>	Ada pertempuran putus asa yang terjadi di luar desa dan cahaya bulan yang cerah adalah berita bagus bagi Master Gu di malam yang gelap.</p>
+<p>	Mayat serigala menumpuk di jebakan dan sudah mencapai titik tengah dinding. Ini memberi platform yang bagus untuk maju bagi serigala petir yang menyerang.</p>
+<p>	Beberapa serigala petir biasa melompat, mencakar dan bahkan langsung melompat melintasi dinding.</p>
+<p>	Namun, serigala petir ini biasanya jatuh atau terhuyung-huyung karena perbedaan ketinggian dan segera disingkirkan oleh Master Gu yang siaga.</p>
+<p>	Pada saat ini, Fang Yuan berdiri di atas menara, bersama dengan banyak Guru Gu lainnya; mereka tanpa henti melemparkan pedang bulan dan serangan lainnya ke kawanan serigala.</p>
+<p>	Di seluruh medan perang, menara ini adalah sumber kerusakan yang paling penting. Kombinasi Master Gu dan menara telah melenyapkan sejumlah besar serigala petir yang berani.</p>
+<p>	“Bunuh, bunuh, bunuh. Hancurkan serigala-serigala ini!”</p>
+<p>“Nana, aku akan membalas dendam untukmu !!”</p>
+<p>“Bersabarlah, sedikit lagi. Keamanan klan ada di tangan kita.”</p>
+<p>	Lingkungan sekitar adalah hiruk-pikuk suara; ada yang berteriak-teriak, ada yang berteriak balas dendam, ada yang berteriak kesakitan, dan ada yang meneriakkan yel-yel.</p>
+<p>	Fang Yuan dengan acuh tak acuh berdiri di sana, tangannya sesekali melemparkan pisau bulan sambil terus mengamati medan perang.</p>
+<p>	Meskipun ada bulan yang cerah, jarak pandangnya tidak bisa dibandingkan dengan siang hari. Tiga serigala petir yang gila berada di belakang, tidak bergerak; sosok mereka tidak jelas.</p>
+<p>	Selama mereka tidak terluka, serigala petir hanyalah umpan meriam dan bahkan serigala petir yang berani hanyalah pengorbanan tingkat tinggi.</p>
+<p>	Tiba-tiba!</p>
+<p>	Serigala petir yang gila tanpa tergesa-gesa maju selangkah, ia membuka mulutnya yang besar dan melemparkan bola petir.</p>
+<p>	Peringkat tiga guntur Gu.</p>
+<p>	Petir ini tidak besar, hanya seukuran batu kilangan. Namun, sejumlah besar listrik biru menakutkan terkondensasi di dalamnya dan kecepatannya sangat cepat.</p>
+<p>	Hampir seketika, bola guntur bertabrakan dengan keras dengan menara tempat Fang Yuan berada.</p>
+<p>	Kemajuan pertempuran sengit telah menemui jalan buntu, banyak Master Gu bertarung tanpa berpikir dan mereka tidak dapat bereaksi terhadap bola petir.</p>
+<p>	Gu Perisai Air, Gu Giok Putih!</p>
+<p>	Fang Yuan hanya bisa melakukan pembelaannya sebelum cahaya putih menutupi pandangannya.</p>
+<p>	LEDAKAN!</p>
+<p>	Suara besar dari ledakan hampir memecahkan gendang telinganya.</p>
+<p>	Sebuah kekuatan tak berbentuk meletus keluar dari ledakan dan mengirimnya terbang.</p>
+<p>	Guntur yang menghancurkan menghancurkan perisai air dalam waktu dua napas. Arus listrik surplus menghantam Fang Yuan dan bahkan dengan pertahanan White Jade Gu, dia masih merasakan semburan mati rasa.</p>
+<p>	Bang.</p>
+<p>	Dia jatuh ke tanah dari ketinggian tiga hingga empat meter. Gu Giok Putih bukanlah Gu Pakaian; itu tidak bisa mengurangi kekuatan pada benturan. Punggung Fang Yuan sakit di sekujur tubuh.</p>
+<p>	Dia dengan cepat bangkit dari tanah, matanya berulang kali berkedip saat tetesan air mata jatuh darinya.</p>
+<p>	Setelah tiga napas waktu, dia perlahan memulihkan penglihatannya.</p>
+<p>	Menara yang dibangun dengan batu tebal itu setengah hancur. Ada banyak mayat hitam terbakar berserakan di tanah. Serangan bola petir telah membuka lubang besar di dinding luar, dan aliran sekawanan serigala yang tak berkesudahan menyerbu ke desa seperti air pasang.</p>
+<p>	Serigala petir yang gila akhirnya memasuki medan perang!</p>
+<p>	Kekuatan tingkat seribu raja binatang sangat luar biasa.</p>
+<p>	Banyak Guru Gu yang ada di sekitar Fang Yuan di menara beberapa saat yang lalu benar-benar mati, beberapa dibiarkan tanpa mayat utuh. Hanya Fang Yuan saja yang selamat.</p>
+<p>	Water Shield Gu yang seperti ubur-ubur tampak sangat kusam di dalam lubangnya.</p>
+<p>	Jika perisai air terus menerus dihancurkan berkali-kali, Gu Perisai Air juga akan rusak dan bahkan bisa binasa.</p>
+<p>	White Jade Gu juga dalam kondisi yang sama.</p>
+<p>	Cacing Gu kuat namun rapuh.</p>
+<p>	Ambil Thunderclap Gu ini misalnya; petirnya sangat kuat dan cepat, juga sulit untuk dilawan. Tapi itu juga memiliki kelemahan — tidak bisa digunakan berulang kali dan membutuhkan beberapa waktu sebelum thunderball kedua bisa ditembakkan.</p>
+<p>	LEDAKAN!</p>
+<p>	Tapi Fang Yuan baru saja berdiri ketika petir lain terbang.</p>
+<p>	“Tidak kusangka raja serigala ini memiliki dua Thunderclap Gu di atasnya!” Kulit Fang Yuan menjadi pucat dan dia buru-buru menghindar.</p>
+<p>	Dia mencoba untuk tidak menggunakan Water Shield Gu dan hanya mengandalkan pertahanan dari White Jade Gu.</p>
+<p>	“Binatang, hentikan kekurangajaranmu!” Pada saat kritis ini, sesosok muncul di udara, cahaya keemasan menyembur keluar dari sosok itu saat dia melawan bola petir ini.</p>
+<p>	Para tetua telah membuat gerakan mereka!</p>
+<p>	Namun, satu penatua masih belum cukup. Segera, penatua itu bergabung dengan dua penatua lainnya.</p>
+<p>	Serigala petir yang gila membutuhkan setidaknya tiga kelompok dengan kerja tim yang hebat untuk bergandengan tangan, atau setidaknya tiga peringkat tiga Gu Masters untuk menghadapinya.</p>
+<p>	Serigala petir yang gila mengambil langkah maju, muncul dari gerombolan serigala yang tidak bisa dibedakan, saat serigala di sekitarnya menyerah.</p>
+<p>	Itu secara bertahap dimulai dari lari yang lambat, dan kemudian menjadi lebih cepat dan lebih cepat, menyerang tembok desa dengan kepala menunduk.</p>
+<p>	Melihat adegan ini, semua Master Gu peringkat satu dan dua melarikan diri ketakutan.</p>
+<p>	Hanya tiga tetua yang masih tersisa di tempat mereka.</p>
+<p>	Semua orang diam-diam mengosongkan bagian medan perang ini dan menyerahkannya kepada mereka.</p>
+<p>	Pertempuran sengit antara tiga tetua dan serigala petir yang gila ini terjadi.</p>
+<p>	Tidak lama kemudian, dua serigala petir hiruk pikuk lainnya juga menyerbu ke arah desa; membuka dua medan perang lagi.</p>
+<p>	Sembilan tetua dan tiga serigala petir yang gila-gilaan terbentuk menjadi tiga medan perang besar. Guntur dan kilat meledak di mana-mana, menghancurkan bangunan bambu. Sebagian besar Master Gu atau serigala petir yang terperangkap dalam tiga pertempuran besar ini tidak memiliki akhir yang baik.</p>
+<p>	Paket serigala yang menyala masih menyerbu ke arah desa, tetapi Fang Yuan tidak bertarung lagi dan pindah ke sudut medan perang, mengamati tiga tahap pertempuran besar dari kejauhan.</p>
+<p>	Tidak diragukan lagi, serangan dari gerombolan serigala ini telah mencapai klimaks.</p>
+<p>	“Tiga serigala petir yang gila; satu memiliki dua Thunderclap Gu dan memiliki kekuatan ofensif yang tinggi; yang lain memiliki Thunder Wings Gu dan dapat terbang dalam waktu singkat, memberikan fleksibilitas yang sangat tinggi dalam pertempuran; yang lain memegang Thunder Roar Gu dan bisa membunuh musuhnya dengan gelombang suara.” Fang Yuan perlahan mendapatkan detail tentang ketiga serigala petir yang gila ini setelah mengamati sejenak.</p>
+<p>	Seribu raja binatang biasanya memiliki tiga-empat peringkat dua dan cacing Gu liar peringkat tiga yang berada di atasnya.</p>
+<p>	Master Gu dapat memberikan respons yang tepat selama mereka memahami cacing Gu ini. Setelah serigala petir yang gila menderita serangan yang ditargetkan, dengan kebijaksanaan rendah mereka, mereka tidak akan mengubah gaya serangan monoton mereka, dan hasil pertempuran pasti.</p>
+<p>	Benar saja, segera beberapa tetua mundur dan tetua lainnya menggantikan mereka.</p>
+<p>	Dengan koordinasi timbal balik di antara mereka dan taktik yang unggul, mereka segera dapat menempati posisi atas. Setelah beberapa saat pertempuran sengit, mereka mengendalikan situasi pertempuran.</p>
+<p>	Kemenangan hanya masalah waktu.</p>
+<p>	“Hasilnya sudah ditentukan.” Tepat ketika Yao Ji menghela nafas, raungan terdengar dari gerbang timur.</p>
+<p>	Serigala petir tumbuh lebih besar, dari ukuran serigala petir normal – seolah-olah udara ditiup di dalamnya – membengkak hingga seukuran gajah.</p>
+<p>	“Sebenarnya ada serigala petir gila lainnya!” Banyak penatua yang khawatir dengan pemandangan ini.</p>
+<p>	Perhatian mereka semua tertuju pada tiga tahap pertempuran. Karena seluruh formasi pertempuran mereka sangat ditekankan pada ketiga area ini, kekuatan di gerbang timur agak tipis dan lemah.</p>
+<p>	“Tidak bagus, Yao Le masih di sana!” Yao Ji tiba-tiba menjadi pucat, dan dia segera melesat ke arah gerbang timur.</p>
+<p>	“Eh, untuk berpikir masih ada kejadian yang tidak terduga. Serigala petir yang gila ini seharusnya memiliki Aura Restraint Gu peringkat tiga; itu menggunakan penyamaran ini untuk bercampur dengan paket serigala petir dan menipu Master Gu di gerbang timur. ”</p>
+<p>	Fang Yuan mengamati dengan cermat; situasi di gerbang timur jauh dari baik.</p>
+<p>	Serigala petir yang gila tiba-tiba muncul dan langsung menghancurkan gerbang timur, menciptakan lubang besar.</p>
+<p>	Serigala petir yang tak terhitung jumlahnya berbondong-bondong di belakang serigala petir yang berani, melolong dengan ganas saat mereka menyerbu ke desa.</p>
+<p>	Gu Yue Yao Le mati rasa karena ketakutan saat dia melihat gerombolan serigala petir menyerbu masuk seperti air pasang.</p>
+<p>	Untungnya, dia memiliki veteran seperti Xiong Jiao Man di sampingnya. Pada saat kritis ini, Xiong Jiao Man mengambil kendali atas dirinya sendiri untuk mengendalikan pemandangan dan memerintahkan, “Cepat, tutup pintu dan jendelanya. Kita perlu mempertahankan tempat ini sampai bala bantuan tiba, dan hanya dengan begitu kita akan memiliki kesempatan bertarung!”</p>
+<p>	Dia baru saja selesai berbicara ketika – BANG – atap bangunan bambu runtuh di bawah serangan serigala petir yang gila.</p>
+<p>	Gu Yue Yao Le berteriak. Perubahan mendadak dalam berbagai peristiwa telah menyebabkan dia kehilangan ketenangannya.</p>
+<p>	Lagipula dia terlalu muda dan hanya memiliki kultivasi peringkat satu. Dia dengan keras kepala tinggal di sini karena dia merasa aman dan tidak pernah berpikir dia akan jatuh ke dalam keadaan berbahaya seperti itu.</p>
+<p>	“Binatang buas, berhenti segera!” Gu Yue Yao Ji berteriak sambil berlari dengan panik.</p>
+<p>	Dia tampak tak berdaya ketika serigala petir yang gila menabrak gedung bambu. Cucu perempuan tercintanya berada dalam situasi berbahaya tetapi meskipun dia memiliki kekuatan, dia tidak dapat membantunya karena itu di luar jangkauannya.</p>
+<p>	Pada saat yang berbahaya ini, sekali lagi Xiong Jiao Man yang melangkah maju.</p>
+<p>	Dia berkehendak dalam pikirannya dan beruang coklatnya yang tersisa menyerbu ke arah serigala petir yang gila dengan raungan.</p>
+<p>	Serigala petir yang gila itu memukul dengan kaki kanannya, membuat beruang coklat seberat empat ratus kilogram ini terbang.</p>
+<p>	Ia membuka mulutnya dan menggigit kepala beruang coklat itu hingga berkeping-keping. Bagaimana mungkin seekor binatang buas biasa menahan kekuatan seribu raja binatang buas?</p>
+<p>	Xiong Jiao Man mengambil waktu ini ketika serigala petir yang gila terjerat dengan beruang coklat untuk bergegas keluar dengan Gu Yue Yao Le di belakangnya, berhasil memisahkan diri dari jarak yang kecil.</p>
+<p>	Serigala petir yang gila meraung. Itu secara alami tidak mau melihat mangsanya melarikan diri seperti ini. Itu melompat dan melintasi selusin meter sekaligus, mendarat di depan Xiong Jiao Man.</p>
+<p>	Tiba-tiba melihat serigala petir yang gila ini muncul di depannya, kaki Gu Yue Yao Le menjadi lunak.</p>
+<p>	Xiong Jiao Man menyeretnya tapi tidak berani maju dengan sembrono; dia hanya bisa mengubah arah dan berlari ke arah luar desa.</p>
+<p>	Serigala petir yang gila baru saja akan menerkam mereka ketika Gu Yue Yao Ji tiba dan melemparkan pisau bulan ungu muda ke punggung serigala; moonblade diam-diam berubah menjadi bola racun dan masuk ke hidung serigala petir yang gila.</p>
+<p>	Serigala petir yang gila segera terbatuk dua kali; itu diracun!</p>
+<p>	Ini adalah Gu Racun Bulan Peringkat tiga.</p>
+<p>	Serigala petir yang gila itu sangat marah, dan dia mengangkat kepalanya dan meraung; raungannya yang ganas terbentuk menjadi kekuatan yang tak terlihat dan menabrak sekitarnya.</p>
+<p>	Thunder Roar Gu menggunakan getaran gelombang suara untuk membunuh, tapi ini bukan Thunder Roar Gu – itu adalah Soundwave Gu yang membentuk kekuatan dorong yang tidak terlihat.</p>
+<p>	Xiong Jiao Man dan Gu Yue Yao Le dikirim terbang ke arah yang berbeda oleh kekuatan dorong ini. Xiong Jiao Man menabrak bangunan bambu; tidak ada lagi gerakan yang terlihat darinya, sedangkan Gu Yue Yao Le dikirim terbang melewati gerbang timur yang rusak dan keluar dari desa.</p>
+<p>	Kejatuhan itu mengejutkannya dan ketika dia mencoba bangun, dia melihat serigala petir membuka mulutnya yang berdarah dan mencoba menggigitnya.</p>
+<p>	Aah—!</p>
+<p>	Dia menjerit nyaring dan pada saat kritis ini, sebuah pedang bulan terbang dan membunuh serigala petir ini.</p>
+<p>	Dia buru-buru berdiri dan melihat dermawan yang menyelamatkannya; dia adalah seorang Guru Gu laki-laki muda. Bagian bawah tubuhnya telah terkubur di bawah dinding yang runtuh.</p>
+<p>	Tuan Gu laki-laki samar-samar tersenyum padanya dengan wajahnya yang berlumuran darah; saat berikutnya, tenggorokannya terkoyak oleh serigala petir yang berkerumun.</p>
+<p>	Air mata mengalir di wajah Gu Yue Yao Le, dan dia menangis sambil berlari.</p>
+<p>Bagian medan perang ini sangat kacau.</p>
+<p>	Karena identitas dan latar belakang Gu Yue Yao Le, ada Master Gu yang membantunya dari waktu ke waktu. Tetapi mereka tidak berdaya bahkan untuk melindungi diri mereka sendiri, apalagi membantunya keluar dari kesulitan ini. Gu Yue Yao Ji juga terjerat dengan serigala petir yang gila dan tidak bisa merawatnya.</p>
+<p>	Gu Yue Yao Le bingung dan benar-benar bingung; hanya ada gambar cakar dan gigi serigala petir di depannya. Dalam keadaan panik, dia tiba-tiba mendengar suara berbicara, “Mundur selangkah!”</p>
+<p>	Dia tanpa sadar mengikuti suara itu dan untungnya bisa menghindari gigitan serigala petir.</p>
+<p>	“Berguling ke kanan.” Suara itu datang lagi.</p>
+<p>	Kesadaran Yao Le masih kosong, tapi tubuhnya sudah bergerak. Terdengar suara gertakan dari mulut serigala; dia telah lolos dari gigitan dengan lebar rambut.</p>
+<p>	Suara itu datang tanpa henti dan gadis muda itu dengan cermat mengikuti mereka. Terkadang ada kesalahan yang dibuat, tetapi pada saat itu sebuah moonblade akan terbang entah dari mana dan mengeluarkannya dari masalah.</p>
+<p>	Hanya ketika tidak ada lagi serigala petir di sekitarnya, Yao Le menemukan bahwa dia sudah aman.</p>
+<p>	Hanya ketika dia secara tidak sadar melayang jauh dari desa dan berada di hutan terpencil.</p>
+<p>	Sesosok manusia muncul di hadapannya.</p>
+<p>Matanya langsung terbuka lebar, “Gu Yue Fang Yuan, kamu yang membantuku?”</p>
+<p>“Tidak, aku hanya membantu diriku sendiri.” Fang Yuan menyeringai, mengungkapkan niat jahat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

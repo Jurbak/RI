@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 309 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 309";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_308.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 309">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_310.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 309</h1>
+        <div class="text-left">
+<p>	Bab 309</p>
+<p>	Bab 309: Aspirasi Xin Ci</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Dengan tawaran sukses dari resep lotus raja harta karun esensi surgawi Wei Yang, pelelangan berakhir.</p>
+<p>	Klan Ju adalah klan yang telah berdiri selama berabad-abad; itu memiliki fondasi yang dalam. Banyak peserta lelang memperoleh sesuatu dari koleksi mereka sementara yang lain dapat mengalami perspektif baru.</p>
+<p>	“Jarang semua orang berkumpul bersama, jangan pergi sekarang, biarkan aku mengadakan pesta.” Fang Yuan mendesak semua orang untuk tetap tinggal.</p>
+<p>	Di sebuah restoran, ada semua jenis makanan lezat, makanan enak dan minuman keras, diletakkan di atas piring batu giok.</p>
+<p>	“Saudara Fang Zheng, ini resep yang Anda inginkan.” Setelah tiga cangkir anggur, Wei Yang mengeluarkan hati yang terukir Gu dan memberikannya kepada Fang Yuan.</p>
+<p>	Gu yang terukir hati seperti kepik dan seukuran jari. Seluruh tubuhnya berwarna merah kirmizi, dan pada karapasnya yang bundar terdapat empat bintik putih berbentuk hati.</p>
+<p>	Gu yang terukir hati adalah Gu tipe penyimpanan.</p>
+<p>	Itu hampir sama dengan kutu buku; mereka digunakan untuk menyimpan informasi.</p>
+<p>	Gu yang terukir hati adalah serangkaian Gu yang dapat berkisar dari peringkat satu hingga peringkat lima. Gu peringkat satu hati terukir hanya memiliki satu titik putih berbentuk hati di karapasnya, sementara peringkat dua memiliki dua dan seterusnya.</p>
+<p>	Gu Wei Yang terukir hati ini memiliki empat tempat yang berarti peringkat empat.</p>
+<p>	Tapi, menggunakan peringkat empat hati terukir Gu untuk menyimpan resep teratai raja harta karun esensi surgawi juga normal.</p>
+<p>	Fang Yuan telah menghabiskan enam ratus tujuh puluh ribu batu purba untuk resep ini. Dia telah membuat Wei Yang menawar untuk menghindari kecurigaan.</p>
+<p>	Melihat Gu yang terukir di hati ini, Fang Yuan tidak menerimanya tetapi berkata: “Karena Saudara Wei Yang telah memperbaikinya, akan lebih baik bagi Anda untuk menggunakannya sekarang sehingga saya tidak perlu memperbaikinya lagi.”</p>
+<p>	“Itu juga berhasil.” Wei Yang menganggukkan kepalanya dan menuangkan esensi purbanya.</p>
+<p>	Gu yang terukir hati berubah menjadi aliran cahaya merah muda tipis dengan suara berderak lembut. Di bawah kendali Wei Yang, aliran cahaya memasuki hati Fang Yuan dan menghilang seketika.</p>
+<p>	Segera, sebuah resep muncul di benak Fang Yuan yang berisi metode untuk memurnikan teratai raja harta karun esensi surgawi.</p>
+<p>	Cacing Gu utama untuk fusi, semua bahan tambahan, setiap langkah dan setiap hal yang membutuhkan perhatian disebutkan di dalamnya.</p>
+<p>	Isinya tidak bisa dilupakan bahkan jika Fang Yuan ingin melupakannya seolah-olah itu tertanam dalam di hatinya. Ini adalah kemampuan Gu yang terukir hati; memberikan memori yang mendalam seperti itu terukir ke dalam tulang dan hati seseorang.</p>
+<p>	Perasaan bahagia muncul di hati Fang Yuan: “Saya memiliki teratai harta karun esensi surgawi tetapi itu hanya peringkat tiga. Masih layak digunakan sekarang, tetapi ketika saya mencapai peringkat empat, penggunaannya akan langsung berkurang. Sekarang saya memiliki resep ini, jika saya dapat memperbaiki teratai raja harta karun esensi surgawi di masa depan, itu tidak diragukan lagi akan sangat membantu saya. ”</p>
+<p>	Fang Yuan tidak tahu resep teratai harta karun esensi surgawi. Mendapatkan resep ini adalah kebahagiaan yang tak terduga.</p>
+<p>	Meskipun resep ini belum dinilai, dengan banyak pengalaman Fang Yuan, dia mampu memberikan penilaian awal bahwa kemungkinan resep ini palsu sangat kecil. Kalau tidak, klan Shang tidak akan memasukkannya ke dalam pelelangan.</p>
+<p>	“Tapi aku masih membutuhkan beberapa Gu untuk menyimpulkannya lebih jauh dan mencegah jebakan atau kesalahan.”</p>
+<p>	“Sekarang saya telah membeli resep ini, saya khawatir beberapa orang memikirkannya. Pasti akan ada banyak orang yang menebak apakah aku memiliki lotus harta karun esensi surgawi. ”</p>
+<p>	“Namun, lotus harta karun esensi surgawi mungkin langka dan berharga, tetapi itu bukan salah satu dari jenis dan merepotkan seperti tengkorak darah Gu. Kalau tidak, saya tidak akan berani membeli resep ini. Sekarang, perakitan set Gu saya hampir selesai dan dengan terobosan kultivasi saya, saya memiliki lebih sedikit kekhawatiran dan tidak ada banyak masalah dalam membeli resep ini. ”</p>
+<p>	Jika sebelumnya, Fang Yuan tidak akan membeli resep ini secara terbuka.</p>
+<p>	Tapi sekarang, dia hanya setengah langkah lagi dari peringkat tiga tahap atas yang bisa dia capai dalam beberapa hari.</p>
+<p>	Setelah itu, dia akan menggunakan Gu peninggalan perak putih dan mencapai peringkat tiga tahap puncak!</p>
+<p>	Kekuatannya benar-benar berbeda dari ketika dia pertama kali datang, dengan token duri ungu melindunginya, ditambah kebanyakan orang hanya menebak, konsekuensinya adalah sesuatu yang bisa dia terima.</p>
+<p>	“Menghitung waktu, Fang Zheng sudah berada di kota klan Shang selama lebih dari dua tahun. Perkembangannya yang cepat benar-benar mengejutkan. Teratai harta karun esensi surgawi … ” Wei Yang berpikir sambil minum anggur, tetapi tidak berbicara.</p>
+<p>	“Mungkinkah Kakak Hei Tu memiliki lotus harta karun esensi surgawi?” Shang Xin Ci juga menebak dalam hati tetapi tidak bertanya.</p>
+<p>	Pada hari pertama kultivasinya, Shang Yan Fei memberitahunya tentang banyak tabu dari Master Gu. Salah satu hal yang tabu adalah untuk tidak sembarangan menanyakan tentang cacing Gu yang dimiliki Master Gu lainnya.</p>
+<p>	Bagi Master Gu, Gu mereka adalah mentega dan roti mereka. Itu adalah masalah pribadi mereka, rahasia mereka dan kartu truf mereka.</p>
+<p>	Begitu cacing Gu mereka terekspos, sangat mudah bagi orang lain untuk menargetkan mereka.</p>
+<p>	Jadi, di antara para Master Gu, adalah hal yang tabu untuk menanyakan apa yang dimiliki oleh Gu worm yang lain.</p>
+<p>	“Fang Yuan memiliki lotus harta karun esensi surgawi, jadi dia membeli resepnya. Ini bisa dimengerti. Tapi mengapa dia melepaskan kekuatan pahit Gu untuk membeli suasana Gu? ”</p>
+<p>	Bai Ning Bing sedang duduk tanpa berbicara. Dia berpikir sebentar tetapi dia tidak bisa melihat melalui gerakan Fang Yuan.</p>
+<p>	“Huh, alangkah baiknya jika aku bisa menjadi tuan muda. Tuan muda klan Shang memiliki kesempatan untuk melamar tiga cacing Gu setiap tahun dari klan dan klan akan mencari Gu tanpa biaya apa pun. ” Shang Xin Ci berkata sambil menghela nafas.</p>
+<p>	Ini adalah kebijakan hebat oleh klan Shang untuk memelihara tuan muda mereka. Selama permintaan itu tidak masuk akal, klan Shang akan mengumpulkan kekuatannya untuk mendapatkan Gu yang diinginkan tuan muda.</p>
+<p>	Jika Shang Xin Ci menjadi tuan muda, akan semudah membalik telapak tangannya untuk mendapatkan kekuatan pahit Gu dengan meminjam kekuatan seluruh klan.</p>
+<p>	Fang Yuan telah mencari kekuatan pahit Gu sejak lama. Satu akhirnya muncul di pelelangan, tetapi Shang Ya Zi mencegahnya untuk mendapatkannya. Shang Xin Ci ingin membantu Fang Yuan.</p>
+<p>	Fang Yuan menepuk bahu Shang Xin Ci dan tersenyum: “Tidak masalah. Siapa tahu, mungkin Shang Ya Zi akan menyerahkan kekuatan pahit Gu kepadaku.”</p>
+<p>	“Kakak kedua menghabiskan delapan ratus sepuluh ribu untuk membeli kekuatan pahit Gu, dia sudah menjadi bahan tertawaan karenanya. Ingin dia menyerahkannya atas kemauannya sendiri, saya khawatir itu tidak mungkin … “Shang Chi Wen menggelengkan kepalanya dari samping, berpikir Fang Yuan terlibat dalam fantasi.</p>
+<p>	“Mungkinkah Kakak Hei Tu sudah memikirkan rencana?” Mata Shang Xin Ci bersinar dengan cemerlang.</p>
+<p>	Wei Yang dan yang lainnya juga melihat dengan rasa ingin tahu.</p>
+<p>	Fang Yuan menunjuk Bai Ning Bing, tampak percaya diri: “Semuanya berkat Ning Bing.”</p>
+<p>	“Aku?” Bai Ning Bing tercengang.</p>
+<p>	“Bicaralah dengan cepat, ide pintar apa yang kamu miliki?” Semua orang tidak bisa menahan diri untuk menjadi lebih penasaran.</p>
+<p>	“Kamu akan mengetahuinya dalam dua hingga tiga hari. Harap tunggu sampai saat itu. ” Fangyuan tertawa.</p>
+<p>	Dia kemudian menatap Shang Xin Ci dengan ekspresi serius: “Xin Ci, apakah kamu benar-benar ingin menjadi tuan muda? Menjadi tuan muda berarti memasuki pusaran politik dan Anda tidak akan lagi memiliki kebebasan untuk bertindak secara independen. Anda sekarang lebih jelas dari situasi klan Shang dari saya. Persaingan antara tuan muda klan Shang sangat ketat, perjuangannya bahkan lebih berdarah. Jika Anda ingin menjadi tuan muda, Anda akan jatuh ke dalam konflik berbahaya ini.”</p>
+<p>	Ini adalah hal yang paling penting; Fang Yuan membutuhkan jawaban yang jelas.</p>
+<p>	Jika Shang Xin Ci tidak memiliki aspirasi seperti itu, tidak ada gunanya membantunya.</p>
+<p>	Di bawah tatapan bersinar Fang Yuan, Shang Xin Ci tersenyum: “Kakak Hei Tu, bahkan sekarang, apakah aku benar-benar memiliki kebebasan? Saya juga benar-benar tidak berdaya dalam hal ini. ”</p>
+<p>	“Seluruh perjalanan ke kota klan Shang setelah bergabung dengan karavan dipenuhi dengan bahaya yang tak terhitung, aku nyaris lolos dari kematian berkali-kali. Saya telah merenungkannya; dunia adalah lautan dan kita adalah perahu kecil di atasnya. Perahu-perahu kecil tampak hanyut bebas mengikuti arus, namun sebagian besar tak berdaya. Hanya dengan budidaya dan pengaruh yang tinggi, perahu kecil dapat berubah menjadi perahu besar dan mampu menahan cobaan dan kesulitan, untuk menyediakan area yang aman bagi orang-orang yang kita sayangi.”</p>
+<p>	Kata-kata Shang Xin Ci biasa saja dan sepertinya tidak mengandung gairah apa pun, tetapi semua orang bisa merasakan emosi heroik darinya.</p>
+<p>	“Besar. Anda memiliki cita-cita.” Wei Yang tertawa.</p>
+<p>	Shang Chi Wen juga melontarkan tatapan kagum.</p>
+<p>	Dia telah berinteraksi dengan Shang Xin Ci untuk waktu yang cukup lama sekarang, tetapi tidak pernah berharap yang terakhir menyembunyikan aspirasi besar seperti itu di bawah penampilannya yang lembut.</p>
+<p>	“Nona saya adalah seorang jenius dalam bisnis, dia lebih dari mampu menjadi tuan muda klan Shang.” Xiao Die berdiri di belakang Shang Xin Ci dan menyela dengan bangga.</p>
+<p>	“Xiao Die …” Shang Xin Ci merasa malu saat dia menatap Xiao Die.</p>
+<p>	Xiao Die hanya menjulurkan lidahnya.</p>
+<p>	“Haha, dia benar. Kalau begitu, kami berdua akan membantumu dan membantumu menjadi tuan muda klan Shang. ” Fang Yuan tertawa keras saat dia merasa lega.</p>
+<p>	Tidak aneh bagi Shang Xin Ci memiliki aspirasi seperti itu.</p>
+<p>	Anak-anak miskin dewasa lebih awal, masa kecil Shang Xin Ci tidak diberkati karena dia sering diganggu oleh klannya. Dia menjadi jelas dari kekejaman dunia bahkan lebih dalam karavan karena dirinya sendiri yang lemah diabaikan. Tidak peduli seberapa lembut orang itu, mereka masih akan sangat terpengaruh oleh pengalaman seperti itu.</p>
+<p>	Namun, sifat Shang Xin Ci baik, berbeda dari Fang dan Bai. Dia ingin menjadi kuat, tidak hanya untuk dirinya sendiri, tetapi lebih untuk kebahagiaan orang-orang di sekitarnya.</p>
+<p>	“Hehehe, ujian master muda tahun ini telah berlalu. Sister Xin Ci akan memiliki kesempatan di tahun mendatang. Tapi, persaingan untuk posisi tuan muda sangat ketat. Tuhan ayah memiliki banyak anak; sementara hanya ada satu posisi master muda yang tersedia setiap tahun, jumlah pesaing bisa mencapai ratusan.” Shang Chi Wen terkekeh dan memberi nasihat kepada Shang Xin Ci.</p>
+<p>	Namun, dia tidak menyetujui ini di dalam hatinya.</p>
+<p>	Kultivasi Shang Xin Ci sangat rendah, hanya di peringkat satu tahap atas sekarang. Bakatnya juga tidak cukup, bahkan tidak memiliki bakat kelas B, sehingga dia tidak memiliki potensi untuk dikembangkan.</p>
+<p>	Ibunya berasal dari klan Zhang yang memiliki kebencian mendalam terhadap klan Shang. Ini adalah kerugian politik terbesarnya.</p>
+<p>	Dia sendirian tanpa pendukung, siapa yang akan membantunya?</p>
+<p>	Satu-satunya keuntungannya adalah Shang Yan Fei menyayanginya. Baginya, Shang Yan Fei membayar harga yang sangat mahal, hampir menantang surga, mengubah bakatnya yang tak berdaya menjadi bakat yang bisa berkultivasi. Ini adalah perlakuan yang tidak diterima oleh anak-anaknya yang lain.</p>
+<p>	Namun, keunggulan ini juga merupakan kerugian dalam beberapa aspek.</p>
+<p>	Shang Xin Ci diisolasi. Dan bahkan Shang Chi Wen iri padanya dalam hati.</p>
+<p>	Semua alasan ini membuat Shang Xin Ci tidak mungkin mendapatkan posisi tuan muda, peluangnya sangat tipis.</p>
+<p>	Fang Yuan secara alami jelas dari kerugian ini. Dalam kehidupan sebelumnya, Shang Xin Ci menjadi tuan muda hanya setelah enam tahun. Tetapi banyak hal telah berubah, Shang Xin Ci adalah satu-satunya kekuatan di kehidupan sebelumnya, tetapi dalam kehidupan ini dia mendapat bantuan Fang Yuan …</p>
+<p>	“Xin Ci, jangan khawatir. Dengan saya membantu Anda, tidak perlu untuk tahun depan, saya akan membantu Anda menjadi tuan muda tahun ini! Fang Yuan tertawa keras</p>
+<p>	“Kalau begitu aku akan menunggu dan melihat.” Shang Chi Wen memiliki senyum di wajahnya sambil melengkungkan bibirnya ke dalam dengan jijik, merasa bahwa semakin banyak Fang Yuan berbicara, semakin tidak masuk akal dia menjadi, membual dengan sangat liar.</p>
+<p>	Wei Yang meletakkan cangkir anggurnya: “Saudara Fang Zheng, persaingan untuk posisi tuan muda klan Shang bukanlah masalah kecil. Sebagai penatua klan, saya tidak bisa ikut campur dalam hal ini. ”</p>
+<p>	“Tidak perlu bantuan Saudara Wei Yang. Rencananya sudah dibuat dua tahun lalu, dan itu semua berkat Ning Bing.” Fang Yuan tersenyum.</p>
+<p>	“Eh?”</p>
+<p>	Seketika, tatapan semua orang terkonsentrasi pada Bai Ning Bing.</p>
+<p>	Menjadi pusat perhatian, Bai Ning Bing masih mempertahankan ekspresi acuh tak acuhnya, tetapi keraguan mulai muncul di benaknya dan dia tidak bisa menahan diri untuk mengutuk diam-diam.</p>
+<p>	“Apa hubungannya ini denganku?”</p>
+<p>	“Ning Bing, Ning Bing, memanggil namaku dengan penuh kasih sayang, apakah dia benar-benar berpikir hubungan kita sehebat itu!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

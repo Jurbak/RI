@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 346 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 346";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_345.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 346">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_347.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 346</h1>
+        <div class="text-left">
+<p>	Bab 346</p>
+<p>	Bab 346: Masuk pertama ke Warisan Raja Quan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Saat tubuhnya memasuki pilar cahaya, Fang Yuan merasakan bobot yang intens.</p>
+<p>	Ketika penglihatannya menjadi jelas, dia mendapati dirinya berdiri di hutan belantara.</p>
+<p>	Yang bisa dia lihat di sekelilingnya hanyalah langit putih keabu-abuan.</p>
+<p>	Di tanah, bebatuan berwarna putih keabu-abuan membentuk gundukan pendek, seperti batu nisan.</p>
+<p>	Tanah berwarna abu-abu tidak subur, keras dan kering, dengan beberapa rumput kuning tumbuh di antara celah-celah.</p>
+<p>	Langit berwarna putih, bumi berwarna abu-abu, dan rumput berwarna kuning. Dunia memiliki tiga warna.</p>
+<p>	Selain itu, tidak ada warna lain.</p>
+<p>	Yang bisa dia dengar hanyalah keheningan, atau lebih tepatnya, keheningan yang mati. Tidak ada angin, tidak ada daun pohon yang bergoyang, tidak ada teriakan burung dan binatang buas.</p>
+<p>	Siapa pun yang berdiri di sini akan merasa bahwa di seluruh dunia ini, dia adalah satu-satunya orang yang tersisa, satu-satunya yang selamat.</p>
+<p>	Berada di tanah kehampaan, kesepian, kesendirian, kehilangan dan bahkan ketakutan akan tumbuh di hati mereka.</p>
+<p>	Meskipun dia pergi ke warisan bersama Bai Ning Bing, saat ini, Fang Yuan sendirian.</p>
+<p>	Tapi Fang Yuan sangat tenang.</p>
+<p>	“Jadi ini Warisan Raja Quan.” Dia melihat sekeliling, bergumam pada dirinya sendiri dengan lembut.</p>
+<p>	Dibandingkan dengan warisan Guru Gu peringkat lima biasa, warisan tiga raja memiliki perbedaan besar.</p>
+<p>	Warisan peringkat lima biasa, baik itu benua tengah, perbatasan selatan, dataran utara, laut timur, atau gurun barat, mereka semua ada di dunia utama.</p>
+<p>	Tapi warisan tiga raja dibangun di dalam tanah yang diberkati Gu Immortal.</p>
+<p>	Saat itu, ketiga raja terjebak dan menemukan warisan dari Gu Immortal kuno secara tidak sengaja, memulai legenda mereka.</p>
+<p>	Ketiga raja itu semuanya jenius di bidangnya masing-masing, setelah gagal naik ke peringkat enam, mereka mendirikan warisan mereka di tanah yang diberkati ini sebelum kematian mereka.</p>
+<p>	Dengan demikian, Fang Yuan tidak lagi berada di dunia utama sekarang.</p>
+<p>	Gu Immortal Blessed Land — dunia kecil yang ada di dalam dunia utama.</p>
+<p>	Setiap dunia memiliki aturan dan hukum yang berbeda.</p>
+<p>	Memasuki dunia berarti mematuhi dan mengikuti aturannya.</p>
+<p>	“Meskipun Bai Ning Bing memasuki warisan bersamaku, dia pasti dikirim ke tempat lain di dunia kecil ini. Tapi itu tidak masalah, selama dia terus maju ke warisan, kita pasti akan bertemu di sepanjang jalan.</p>
+<p>	Fang Yuan tahu bahwa ini adalah hukum ruang yang unik di dalam dunia kecil.</p>
+<p>	Pada saat yang sama, ada juga perbedaan dalam aliran waktu.</p>
+<p>	“Aliran waktu di sini tiga kali lipat dari dunia luar.” Di celah Fang Yuan, Jangkrik Musim Semi Musim Gugur yang tertidur telah terbangun, dan pulih dengan kecepatan tiga kali lipat di dalam dunia ini.</p>
+<p>	Jangkrik Musim Semi Musim Gugur memakan air di sungai waktu.</p>
+<p>	Di dunia kecil ini, aliran air di sungai waktu tiga kali lebih cepat dari dunia luar. Dengan demikian, itu sangat membantu pemulihan Jangkrik Musim Gugur Musim Semi.</p>
+<p>	Tapi ini bukan kabar baik bagi Fang Yuan.</p>
+<p>	Tekanan yang dipancarkan oleh Spring Autumn Cicada dalam kondisi sempurna bukanlah sesuatu yang bisa ditampung oleh aperture peringkat empat.</p>
+<p>	Warisan Raja Quan, meskipun itu adalah kesempatan bagi Fang Yuan untuk tumbuh, itu juga merupakan tanah kematian yang meningkatkan kematiannya.</p>
+<p>	“Tinggal di sini selama satu hari berarti tiga hari di luar. Saya harus cepat, dan menghemat waktu saya.” Fang Yuan merasakan urgensi yang kuat.</p>
+<p>	Untungnya, dengan ingatannya, Warisan Raja Quan dari Guru Gu peringkat lima ini tidak asing baginya.</p>
+<p>	“Jika saya tidak salah, seharusnya ada binatang buas tipe anjing di sekitar sini di suatu tempat …” Fang Yuan bergerak, melihat ke mana-mana, mencari apa yang ada dalam pikirannya.</p>
+<p>	“Guk, guk, guk!”</p>
+<p>	Tiba-tiba, dia mendengar teriakan dari jauh, ketika seekor anjing liar yang lemah berlari ke arah Fang Yuan dengan matanya yang bersinar dalam cahaya hijau yang lemah.</p>
+<p>	Anjing liar ini kurus sampai ke tulang, giginya kuning dan tingginya hanya setinggi lutut Fang Yuan.</p>
+<p>	Itu tampak sangat ganas, jelas lapar, setelah mencium daging manusia yang adalah Fang Yuan, ia bergegas tanpa ragu-ragu.</p>
+<p>	Fang Yuan mengerutkan kening, anjing liar ini sangat biasa, bertemu dengannya di tahap pertama adalah nasib buruknya.</p>
+<p>	Dia berdiri diam di tempat, membiarkan anjing itu berlari ke arahnya.</p>
+<p>	Di lingkungan saat ini, Fang Yuan tidak bisa menggunakan cacing Gu lainnya, dia hanya bisa menggunakan perbudakan anjing peringkat satu Gu.</p>
+<p>	Ini adalah pembatasan hukum di dunia kecil ini.</p>
+<p>	Raja Quan memodifikasi tanah yang diberkati Gu Immortal, memungkinkan Master Gu untuk membawa Gu perbudakan anjing peringkat satu ke dalam warisannya, dan pada saat yang sama, cacing Gu lainnya tidak dapat digunakan.</p>
+<p>	Tentu saja, selain Jangkrik Musim Semi Musim Gugur.</p>
+<p>	Spring Autumn Cicada adalah Gu peringkat enam, setelah cacing Gu mencapai peringkat enam, baik itu dunia utama atau dunia kecil, hanya ada satu di antaranya.</p>
+<p>	Spring Autumn Cicada bukanlah makhluk fana, itu adalah Immortal Gu.</p>
+<p>	Bahkan di tanah yang diberkati, itu bisa digunakan dengan bebas.</p>
+<p>	“Bukan hanya Warisan Raja Quan, Warisan Raja Xin dan Warisan Raja Bao adalah sama. Ketika Tuan Gu awalnya memasuki warisan, mereka hanya dapat menggunakan Gu perbudakan anjing peringkat satu, Gu bangau kertas, dan Gu telur yang meledak. ”</p>
+<p>	Melihat anjing liar bergegas ke arahnya, Fang Yuan mengaktifkan perbudakan anjing Gu di celahnya.</p>
+<p>	Perbudakan anjing Gu ini, tampak seperti batu giok, hanya seukuran ibu jari. Bagian luar batu giok tampak seperti kepala anjing.</p>
+<p>	Fang Yuan hanya menggunakan satu tetes esensi purba emas muda, untuk mengaktifkan Gu perbudakan anjing ini.</p>
+<p>	Perbudakan anjing Gu berubah menjadi cahaya batu giok, meledak dan berubah dari padat menjadi hampa, selanjutnya, ia terbang ke anjing liar dalam sekejap mata.</p>
+<p>	Anjing liar itu berteriak, seolah-olah terluka parah, dan jatuh ke tanah.</p>
+<p>	Karena berlari, ia meluncur di tanah sampai berguling ke kaki Fang Yuan.</p>
+<p>	Setelah beristirahat sebentar, anjing itu bangun.</p>
+<p>	Tapi kali ini, ia tidak menunjukkan taringnya pada Fang Yuan, tetapi sebaliknya, tergeletak di tanah, menjulurkan lidahnya dan mengibaskan ekornya.</p>
+<p>	“Bangun.” Fang Yuan menghendaki.</p>
+<p>	Anjing liar itu menurut dan bangkit.</p>
+<p>	Tubuhnya memiliki bulu yang lembut, bulunya berwarna gelap tetapi tidak ada luka di tubuhnya. Perbudakan anjing Gu langsung masuk ke jiwanya, itu tidak menyebabkan kerusakan pada tubuh fisik anjing.</p>
+<p>	Keempat anggota tubuhnya berada di tanah, dan kepalanya hanya berada di dekat lutut Fang Yuan.</p>
+<p>	Fang Yuan mengamati dan menggelengkan kepalanya.</p>
+<p>	Ini adalah anjing liar biasa, ia memiliki sedikit kekuatan pertempuran. Tapi justru begitu, dia bisa menggunakan Gu perbudakan anjing di atasnya dengan mudah.</p>
+<p>	“Bagaimanapun, saya harus mengandalkannya untuk melewati babak kedua.”</p>
+<p>	Fang Yuan berpikir dalam benaknya, ketika tiba-tiba sebuah kekuatan dari langit dan bumi menelan tubuhnya.</p>
+<p>	Segera, Fang Yuan tidak bisa bergerak satu inci pun.</p>
+<p>	Di depannya, cahaya menyala dan perbudakan anjing kedua Gu muncul di depannya.</p>
+<p>	Fang Yuan tahu ini adalah hadiah dari warisan, serta kunci putaran kedua, jadi dia dengan cepat memperbaikinya.</p>
+<p>	Perbudakan anjing Gu ini juga peringkat satu, mudah untuk disempurnakan.</p>
+<p>	Ketika Fang Yuan memperbaiki Gu ini, dan menyimpannya di lubangnya, dengan swoosh , dia menghilang di tempat, pindah ke lokasi lain dengan kekuatan surgawi.</p>
+<p>	Ini masih hutan belantara, dengan langit putih, tanah abu-abu, dan rumput kuning.</p>
+<p>	Fang Yuan berdiri di gundukan rendah, saat tiga anjing liar mengelilinginya.</p>
+<p>	Mereka semua kurus seperti ranting, saat dua orang menundukkan kepala mencari makanan. Yang ketiga sedikit lebih tua, tergeletak di tanah tak bergerak.</p>
+<p>	Kemunculan Fang Yuan yang tiba-tiba menyebabkan ketiga anjing itu menjadi gila.</p>
+<p>	Mereka mulai berlari seperti disambar petir, menuju Fang Yuan dari ketiga arah.</p>
+<p>	Fang Yuan mengendalikan anjing liar pertama dan mengaktifkan keganasannya. Di bawah perintah Fang Yuan, ia memamerkan cakarnya pada salah satu anjing liar.</p>
+<p>	Tapi itu hanya bisa menghentikan satu anjing liar, segera, yang kedua mendekati Fang Yuan.</p>
+<p>	Fang Yuan memerankan kembali adegan yang sama dari sebelumnya, menggunakan perbudakan anjing kedua Gu dan menjinakkannya.</p>
+<p>	Anjing liar ketiga menerkam, dan Fang Yuan membagi konsentrasinya menjadi dua, memerintahkan kedua anjing liar untuk menyerang.</p>
+<p>	Jika itu adalah Guru Gu biasa, dan tidak akrab dengan perbudakan anjing Gu, mengadakan dua pertarungan pada saat yang sama akan menyebabkan mereka kehilangan arah. Tapi Fang Yuan tidak gugup, bahkan dia belum habis-habisan.</p>
+<p>	Dengan pengalamannya selama lima ratus tahun, Fang Yuan telah memerintahkan banyak kelompok binatang untuk bertempur. Terutama kelelawar darah sayap pedang dari warisan laut darah.</p>
+<p>	Dalam kehidupan ini, untuk warisan gunung San Cha, dia telah berlatih selama beberapa bulan di kota klan Shang, membiasakan diri dengan mengendalikan kelompok anjing.</p>
+<p>	Pertempuran berjalan lancar ke arah yang diharapkan Fang Yuan.</p>
+<p>	Tapi Fang Yuan mengerutkan kening: “Kondisi tubuh anjing liar pertama sangat buruk. Bertarung seperti ini, bahkan jika aku menang, aku hanya akan memiliki satu anjing liar.”</p>
+<p>	Saat dia mempertimbangkan ini, dia secara sadar mengarahkan kedua anjing itu untuk mundur saat bertarung.</p>
+<p>	Akhirnya, Fang Yuan berhasil menggabungkan dua pertempuran bersama.</p>
+<p>	Ini meningkatkan tekanan pada perintah Fang Yuan, tetapi juga memberikan keuntungan besar baginya.</p>
+<p>	Dua anjing liar Fang Yuan bekerja sama dengan sempurna, tetapi musuh mereka bertarung sendirian.</p>
+<p>	Tidak lama kemudian, pertempuran sengit ini berakhir.</p>
+<p>	Mayat dua anjing liar tergeletak di tanah, darah mengalir keluar dari mereka.</p>
+<p>	Anjing-anjing liar yang dikendalikan Fang Yuan berdiri di tanah, penuh luka. Anjing pertama lebih terluka, sedangkan anjing kedua relatif lebih sehat.</p>
+<p>	Pertempuran baru saja berakhir, ketika kekuatan surgawi turun lagi, membungkus Fang Yuan dan dua anjing liar biasa.</p>
+<p>	Penglihatannya berubah lagi, saat keadaan tanpa bobot menyerangnya.</p>
+<p>	“Putaran ketiga …” Fang Yuan segera mengamati sekelilingnya.</p>
+<p>	Kali ini, dia berdiri di atas gundukan, dikelilingi oleh enam anjing liar.</p>
+<p>	“Enam!” Tatapan Fang Yuan terkonsentrasi, merasa tertekan.</p>
+<p>	Dia memiliki dua anjing liar bersamanya, harus bertarung melawan tiga kali kekuatannya, pada saat yang sama, anjing-anjingnya terluka.</p>
+<p>	Tanpa sempat istirahat atau berpikir, keenam anjing itu mendeteksinya dan langsung menyerang.</p>
+<p>	Mata Fang Yuan menjadi cerah, ketika dia melihat sebuah lubang di dekatnya, dia melompat masuk.</p>
+<p>	Dia melompat ke dalam lubang, dengan dinding keras di belakangnya, dia menempatkan kedua anjingnya di depannya.</p>
+<p>	Keenam anjing liar itu bergegas ke arahnya, dengan kecepatan yang berbeda. Dua anjing liar yang sehat bergegas lebih dulu, sementara empat sisanya, dengan luka yang berbeda, jauh di belakang.</p>
+<p>	Melihat ini, Fang Yuan menghela nafas lega.</p>
+<p>	Jika enam anjing ini sehat, dia tidak punya kesempatan. Tetapi dengan keunggulan medan ini, dan manipulasinya yang terampil, dia yakin dapat melewati putaran ini dan melanjutkan ke putaran berikutnya!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

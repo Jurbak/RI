@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 556 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 556";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_555.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 556">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_557.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 556</h1>
+        <div class="text-left">
+<p>	Bab 556 – Ini sebenarnya adalah Warisan Abadi Gu!</p>
+<p>	Bab 556: Ini sebenarnya adalah Warisan Abadi Gu!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Bam!</p>
+<p>	Hei Lou Lan mengangkat kakinya, menendang anggota sukunya Hei Qi Sheng ke tanah.</p>
+<p>	“Hal yang tidak berguna!” Lemak hitam itu mengutuk, otot-otot di wajahnya berkedut saat dia mengungkapkan tatapan kejam dan biadab.</p>
+<p>	Aula itu sunyi, semua Master Gu suku Hei tidak berani berbicara sepatah kata pun.</p>
+<p>	Hei Lou Lan disebut ‘Black Tyrant’, itu karena kepribadiannya yang terkenal kejam dan kejam. Apalagi saat dia dihalangi enam kali pada ronde ke-54, amarahnya tersulut seperti tong mesiu.</p>
+<p>	“Pemimpin suku tuan, itu adalah ketidakmampuanku, aku pantas mati!” Hei Qi Sheng tergeletak di tanah, memohon pengampunan sambil bersujud.</p>
+<p>	“Bodoh! Mengapa ada orang bodoh yang tidak berguna di suku Hei kita ?! ” Hei Lou Lan menggertakkan giginya, menendang Hei Qi Sheng beberapa kali. Melihat dia batuk darah karena tendangan, kemarahan Hei Lou Lan sedikit mereda.</p>
+<p>	Para tetua di sekitarnya diam, tidak berani mengatakan sepatah kata pun.</p>
+<p>	Terakhir kali, para tetua yang memohon untuk Hei Qi Sheng dipukuli sampai mereka menerima luka berat oleh Hei Lou Lan, mereka masih terbaring di tempat tidur sekarang.</p>
+<p>	Kemarahan Hei Lou Lan sedikit berkurang selama kontes Pengadilan Kekaisaran. Tetapi sekarang setelah mereka berada di tanah yang diberkati, temperamennya yang buruk dan sifat kejamnya kembali dengan kekuatan penuh.</p>
+<p>	“Kalian semua juga idiot, sampah tak berguna! Kenapa kalian semua berdiri di sini? Bicaralah, beri tahu saya metode yang baik untuk menerobos ronde ke-54. Jika tidak, saya akan memotong gaji Anda. Suku tidak memberi makan orang yang tidak berguna! Saya memberi Anda batu purba, saya memberi Anda kehidupan mewah, meningkatkan status Anda, untuk apa semua itu? Sekarang saatnya untuk melakukan tugasmu !! ” Hei Lou Lan berteriak, jendela bergetar karena kekuatan suaranya.</p>
+<p>	Para tetua mendesah pahit secara internal. Mereka seperti terong yang terkulai, menundukkan kepala dan berkomunikasi dengan ekspresi mereka, tetapi tidak ada yang berani berbicara lebih dulu.</p>
+<p>	Hei Lou Lan menatap dan melihat sekeliling, mengarahkan pandangannya pada Hei Pei yang lebih tua.</p>
+<p>	Sebagai penatua pertama yang paling senior dan berpengalaman, Hei Pei, dia menggertakkan giginya dan berjalan keluar, membungkuk hormat: “Tuhan, seperti yang saya lihat, putaran ke-54 ini adalah ujian jalur perbudakan, sangat sulit dan tidak dapat lulus tanpa pencapaian perbudakan tingkat master. Meskipun tetua Hei Qi Sheng adalah jalur perbudakan Gu Master yang kami asuh, dia bukan master. Untuk melewati babak ini, kita membutuhkan kekuatan Lord Wolf King.”</p>
+<p>	“Hmph, kamu memintaku untuk mencari bantuan dari luar? Anda ingin membiarkan seluruh dunia melihat kami suku Hei sebagai lelucon, sebagai orang lemah yang membutuhkan bala bantuan dari luar? Tatapan Hei Lou Lan dipenuhi dengan kekejaman saat dia berteriak dengan keras.</p>
+<p>	Hati Hei Pei gemetar, tetapi dia membungkuk dalam-dalam dan menjawab: “Pemimpin suku Tuan kuat dan cerdas, Anda adalah pemimpin yang luar biasa, Tuan Istana Kekaisaran. Dengan kehadiranmu, siapa pun yang berani berpikir bahwa suku Hei tidak berguna akan menjadi orang bodoh nomor satu di dunia ini. Ini bukan penguatan luar tepatnya. Raja Serigala Chang Shan Yin ini adalah bagian dari pasukan aliansi, dia adalah bawahanmu. Menggunakan dia untuk ini adalah hal yang wajar. Saya yakin Chang Shan Yin akan sangat berterima kasih kepada tuan, bagaimanapun juga, dia adalah orang luar tetapi dia diberi kesempatan untuk memasuki Gedung Yang Sejati, itu adalah kehormatan terbesarnya.”</p>
+<p>	Hei Lou Lan mendengar ini dan ekspresi kemarahannya melunak.</p>
+<p>	Para tetua menyaksikan ini saat mereka memuji kefasihan Hei Pei secara internal, dia memang ahli untuk menjadi tetua pertama.</p>
+<p>	Hei Lou Lan berjalan perlahan, dia sangat marah.</p>
+<p>	Saat ini, ia memiliki dua token tamu, mereka diperoleh dari ronde ke-12 dan ke-46 masing-masing sebagai hadiah dari True Yang Building.</p>
+<p>	Bukannya dia tidak ingin menyia-nyiakan token, tetapi begitu dia mengundang Raja Serigala, hadiah untuk menyelesaikan ronde ke-54 akan diberikan kepada Chang Shan Yin.</p>
+<p>	Jika itu adalah anggota sukunya, Hei Lou Lan dapat menggunakan otoritas pemimpin suku untuk menjadikan semua hadiah miliknya. Namun menurut aturan, penghargaan ini harus diberikan kepada penguatan.</p>
+<p>	Hadiah di Eighty-Eight True Yang Building sangat luar biasa, bahkan Hei Lou Lan sangat tersentuh.</p>
+<p>	Baik itu resep Gu, cacing Gu, atau lainnya, setiap item dapat memungkinkan Master Gu bangkit meskipun memiliki latar belakang biasa.</p>
+<p>	Hei Lou Lan berjalan beberapa langkah, menghela nafas pelan.</p>
+<p>	Dia tahu bahwa tidak ada gunanya memaksa Hei Qi Sheng. Suku Hei telah memelihara tiga jalur perbudakan Gu Masters, satu meninggal dalam kontes Imperial Court, sementara Hei Qi Sheng adalah yang lebih kuat dari dua yang tersisa.</p>
+<p>	Tapi dia bukan master perbudakan, master mana pun membutuhkan bakat yang cukup, itu bukan sesuatu yang bisa dipupuk melalui sumber daya yang melimpah.</p>
+<p>	Hei Lou Lan berhenti berjalan: “Di mana Hei Shu?”</p>
+<p>	“Bawahan ada di sini.” Hei Shu berdiri di luar aula, dia adalah pelayan Guru Gu pribadi Hei Lou Lan, mendengar panggilan Hei Lou Lan, dia masuk untuk menyambutnya.</p>
+<p>	“Pergi, undang Raja Serigala ke sini.” Hei Lou Lan menginstruksikan.</p>
+<p>	Mendengar ini, para tetua di aula menghela nafas lega. Hei Qi Sheng yang terbaring di tanah mengendurkan tubuhnya — mimpi buruk ini telah berakhir!</p>
+<p>	“Ya tuan pemimpin suku.” Hei Shu pergi setelah menerima perintahnya.</p>
+<p>	Bam!</p>
+<p>	Hei Lou Lan menendang Hei Qi Sheng lagi: “Kamu sampah, mengapa kamu masih berbaring di sini? Anda ingin Chang Shan Yin melihat betapa menyedihkannya suku Hei kita setelah dia datang ke sini?”</p>
+<p>	“Tuan, tuan saya salah!” Hei Qi Sheng dengan cepat meminta maaf sebesar-besarnya.</p>
+<p>	“Pergilah dan rawat lukamu!!” Hei Lou Lan berteriak.</p>
+<p>	“Ya, ya, ya tuan!” Hei Qi Sheng berjuang untuk bangun, pergi dalam keadaan terhuyung-huyung.</p>
+<p>	Tidak lama kemudian, Hei Shu melaporkan kembali dengan tatapan meminta maaf: “Pemimpin suku Tuan, Tuan Raja Serigala tidak ada di istana suci, dia sedang keluar memberi makan serigala-serigalanya.”</p>
+<p>	“Apa?” Volume Hei Lou Lan menjadi lebih keras, alisnya terangkat saat ekspresi tenangnya menunjukkan kemarahan lagi.</p>
+<p>	Para tetua ketakutan, tetua pertama Hei Pei menuduh Hei Shu: “Kamu junior, kamu tidak tahu bagaimana melakukan pekerjaanmu. Bahkan jika Raja Serigala tidak ada, bagaimana Anda bisa kembali dengan tangan kosong? Bisakah Anda tidak mengirim surat, dan menyatakan niat Anda, bahwa Raja Serigala akan segera merangkak kembali! ”</p>
+<p>	“Tuhan, itu bukan salahku!” Hei Shu berteriak dengan polos: “Saya sudah mengirim surat, tetapi Raja Serigala sudah menjawab. Dia mengatakan bahwa dia memimpin serigala untuk berburu, itu adalah kebiasaan dan dia tidak ingin memotongnya di tengah. Dia ingin kita menunggu, jika kita tidak bisa menunggu, kita bisa memanggil Tang Miao Ming dan yang lainnya sebagai gantinya. ”</p>
+<p>	Seketika, semua orang terkejut.</p>
+<p>	Penatua pertama Hei Pei menatap dengan mata terbuka lebar, dia tidak percaya: “Bagaimana bisa ada orang yang begitu acuh tak acuh? Apakah dia benar-benar mengatakan itu ?! ”</p>
+<p>	“Saya punya bukti nyata! Pemimpin suku tuan, ini adalah surat Gu yang dikirim kembali oleh Raja Serigala Chang Shan Yin!” Hei Shu berkata, menyerahkan surat bintang Gu kepada Hei Lou Lan.</p>
+<p>	Ini adalah jalur bintang Gu, itu peringkat empat dan memberikan balasan tercepat. Tapi itu bersinar di udara saat terbang, itu menciptakan keributan besar dan mudah dicegat.</p>
+<p>	Tentu saja, di tanah yang diberkati Pengadilan Kekaisaran, tidak ada kekhawatiran seperti itu.</p>
+<p>	Pikiran Hei Lou Lan memasuki huruf bintang Gu, saat dia mencibir terus menerus: “Raja Serigala ini memiliki temperamen yang baik, dia mampu mengendalikan keinginannya dengan sangat baik.”</p>
+<p>	“Tuhan, Raja Serigala adalah penyendiri yang sombong, semua orang tahu itu. Cara saya melihatnya, dia sudah tertawa diam-diam, tetapi mencoba untuk memasang muka. ” Tetua pertama Hei Pei menganalisis, sementara tetua lainnya mengangguk setuju.</p>
+<p>	“Hmph, tentu saja dia angkuh. Dia adalah master perbudakan, dan juga master terbang. Jika kalian adalah tuan, apakah kita perlu meminta bantuan orang luar? ” Hei Lou Lan berteriak, menyebabkan para tetua terdiam saat beberapa tetua semakin menundukkan kepala mereka.</p>
+<p>	Sejujurnya, Fang Yuan benar-benar tidak menaruh perhatiannya pada Gedung Yang Benar.</p>
+<p>	Dia melihat Di Qiu di bawahnya, jantungnya berdebar: “Benar-benar tidak ada menara kecil di sini. Menurut medannya, daerah ini seharusnya memiliki menara kecil, tepat di atas Di Qiu, tapi sekarang, ini hanya lubang hitam pekat… mengesankan, Guru Gu yang membuat warisan ini sangat mengesankan!”</p>
+<p>	Tanah yang diberkati Pengadilan Kekaisaran memiliki menara kecil di setiap interval delapan li. Sebenarnya, semuanya adalah bagian dari Eighty-Eight True Yang Building.</p>
+<p>	Eighty-Eight True Yang Building adalah rumah Immortal Gu yang telah disempurnakan oleh Long Hair Ancestor pada hari itu, setinggi peringkat delapan.</p>
+<p>	Selanjutnya, setelah persiapan Giant Sun Immortal Venerable, itu adalah cermin dari dataran utara. Menara-menara kecil ada di seluruh tanah yang diberkati Pengadilan Kekaisaran, mereka bisa dilihat di mana-mana. Setiap menara memiliki ribuan Gu liar, tidak ada yang berani menargetkan mereka atau mereka akan mati.</p>
+<p>	Tapi sekarang tampaknya, Tuan Gu yang mengatur warisan Di Qiu tidak hanya memindahkan menara kecil, dia bahkan mendirikan warisan ini di tempat itu. Metode dan keberanian seperti itu, kemampuan seperti itu, membuat Fang Yuan memastikan bahwa Guru Gu yang misterius ini bukanlah orang yang sederhana.</p>
+<p>	“Tidak, daripada Gu Master, lebih baik aku memanggilnya Gu Immortal! Bahkan dengan waktu yang telah lama berlalu, dan pengaturan Giant Sun Immortal Venerable mungkin telah melemah, tetapi itu bukanlah sesuatu yang dapat diubah oleh manusia. Hanya Dewa Gu yang dapat membuat perubahan kecil pada pengaturan ini, dan menciptakan tempat seperti itu. ” Mata Fang Yuan bersinar dengan ketidakpastian.</p>
+<p>	Dia tidak sengaja mendapatkan warisan Di Qiu, tapi itu adalah warisan Gu Immortal!</p>
+<p>	Cahaya di tanah, bersinar hingga ketinggian seratus ribu kaki, berenang di langit sejauh seratus li, memuji salju harum plum. Apa artinya ini?</p>
+<p>	Harta macam apa yang akan ada di dalam warisan Gu Immortal.</p>
+<p>	“Apakah akan ada Gu Abadi?” Fang Yuan menebak dengan berani.</p>
+<p>	Jika ada Gu Abadi, itu bisa menandingi lantai pertama Gedung True Yang. Karena bahkan di Eighty-Eight True Yang Building, ronde terakhir dari setiap lantai mungkin tidak memiliki hadiah Immortal Gu.</p>
+<p>	“Bahkan tanpa Gu Abadi, warisan Di Qiu dibuat dengan begitu banyak usaha, setidaknya harus ada resep Gu Abadi.”</p>
+<p>	Tanpa Immortal Gu, resep Immortal Gu juga merupakan hadiah besar. Resep Gu Abadi yang lengkap adalah sesuatu yang tidak dijual di dalam surga kuning harta karun.</p>
+<p>	Gu Immortals sebagian besar akan menjual resep sisa. Bahkan jika mereka memiliki resep Immortal Gu yang lengkap, mereka akan memecahnya dan menambahkan beberapa kesalahan sebelum menjualnya.</p>
+<p>	Resep Immortal Gu yang lengkap hanya bisa ditukar. Dan ada beberapa contoh yang terjadi sepanjang sejarah.</p>
+<p>	Fang Yuan menahan imajinasinya, dan mulai berpikir dengan tenang.</p>
+<p>	Dengan petunjuk penting, pemikirannya saat ini telah meningkat pesat.</p>
+<p>	Dia mengumpulkan segala macam petunjuk, menguraikan waktu penciptaan warisan Di Qiu. Seharusnya sudah sangat lama, setidaknya, itu seharusnya sudah ada sejak zaman Paradise Earth Immortal Venerable.</p>
+<p>	Tetapi semakin dia berpikir, semakin banyak pertanyaan yang dia miliki.</p>
+<p>	Mari kita panggil orang ini Gu Immortal Di Qiu untuk saat ini, siapa mereka? Mengapa mereka mendirikan warisan di sini? Sebagai Gu Immortal, bagaimana mereka bisa masuk? Yang terpenting, bagaimana mereka tahu tentang pengaturan di sini, dan prinsip sebenarnya di balik Eighty-Eight True Yang Building?</p>
+<p>	Jika mereka seperti Tai Bai Yun Sheng, dan maju ke ranah Gu Immortal di dalam tanah yang diberkati Pengadilan Kekaisaran, maka akan ada penjelasan baru untuk apa yang terjadi…</p>
+<p>	Fang Yuan merasakan sakit kepala saat dia berhenti berpikir.</p>
+<p>	Satu huruf bintang Gu merobek langit dan terbang ke arahnya.</p>
+<p>	Fang Yuan menerimanya, dan melihat bahwa Hei Lou Lan yang mendesaknya untuk kembali.</p>
+<p>	“Sudahlah, aku akan pergi ke True Yang Building dulu, dan kembali lagi nanti. Gu Immortal Di Qiu kemungkinan besar memanfaatkan kelemahan pengaturan Giant Sun Immortal Venerable, begitu saya memasuki Gedung True Yang, saya mungkin dapat menemukan beberapa petunjuk dan memahami misteri di balik ini!”</p>
+<p>	Berpikir begitu, Fang Yuan menjawab dengan surat itu.</p>
+<p>	Karena Hei Lou Lan menulis surat secara pribadi untuk mendesaknya, Fang Yuan berhenti bertindak arogan lagi, dia segera kembali.</p>
+<p>	“Aku harus mengandalkan kekuatan Wolf King kali ini.” Hei Lou Lan melihat Fang Yuan dan tertawa.</p>
+<p>	Dia sangat cemas di dalam hatinya.</p>
+<p>	Tidak banyak waktu di dalam tanah yang diberkati Pengadilan Kekaisaran. Setelah badai salju sepuluh tahun di luar mereda, tanah yang diberkati Pengadilan Kekaisaran akan ditutup, dan mereka harus pergi.</p>
+<p>	Sebelum itu terjadi, Hei Lou Lan tidak hanya perlu menyelesaikan misi yang diberikan oleh Gu Immortals sukunya, dia juga perlu menemukan jalur kekuatan Immortal Gu untuk dirinya sendiri.</p>
+<p>	Setelah Raja Serigala kembali, Hei Lou Lan dengan cepat mengatur kelompok itu lagi.</p>
+<p>	Geng itu sampai ke gedung, ketika Hei Lou Lan menyerahkan token kuno kepada Fang Yuan: “Ini adalah token tamu. Wolf King tidak memiliki garis keturunan Huang Jin, Anda adalah orang luar dalam perspektif bangunan. Untuk memasukkannya, Anda akan membutuhkan token tamu setiap kali. ”</p>
+<p>	Fang Yuan menerima token dan tertawa ringan tanpa khawatir, mengatakan: “Saya tidak sabar untuk menyaksikan kemegahan Gedung Yang Sejati!”</p>
+<p>	Pada titik ini, Hei Lou Lan tidak mendorong pintu terbuka, melainkan ‘menabrak’ pintu.</p>
+<p>	Fang Yuan mengikutinya, saat token tamu bersinar di tangannya, dia meniru Hei Lou Lan dan memasuki Gedung True Yang juga.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

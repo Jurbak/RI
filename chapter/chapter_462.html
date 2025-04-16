@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 462 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 462";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_461.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 462">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_463.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 462</h1>
+        <div class="text-left">
+<p>	Bab 462 – Bertukar Gu</p>
+<p>	Bab 462: Bertukar</p>
+<p>Penerjemah Gu : ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Anak muda, tolong minum teh. Ini adalah teh asap awan bermutu tinggi, rasakan itu. ” Roh tanah Lang Ya duduk di tepi tempat tidur saat dia menyeduh secangkir teh untuk Fang Yuan secara pribadi.</p>
+<p>	Fang Yuan duduk di tempat roh tanah itu duduk sebelumnya, melihat roh tanah ‘aneh’ ini tanpa berkata-kata.</p>
+<p>	Dalam percakapan sebelumnya, Fang Yuan telah berbicara dengan roh tanah ini, dan mengerti — roh tanah ini suka mengumpulkan resep, ia akan mencoba yang terbaik untuk mendapatkan resep baru yang ditemukannya.</p>
+<p>	Jika itu orang lain, roh tanah pasti sudah memeras dan mengancamnya. Tapi Fang Yuan adalah pewaris Demon Venerable, dia tidak berani melakukannya, jadi dia hanya bisa memohon dengan baik.</p>
+<p>	“Anak muda yang tampan, apakah tehnya tidak enak? Apa kamu senang? Demi teh ini, tolong tukarkan resep kulit manusia itu denganku.” Roh tanah Lang Ya menunjukkan ekspresi tersenyum saat dia mencoba menyenangkan Fang Yuan.</p>
+<p>	Fang Yuan meminum tehnya dalam diam.</p>
+<p>	Gambar misterius, kuat, dan bijaksana dari roh tanah Lang Ya runtuh dengan cepat.</p>
+<p>	“Anak muda, bantu aku, kasihan orang tua ini! Saya tinggal sendirian di sini, saya sangat kesepian, sangat bosan, sangat haus. Saya hanya bisa melihat resep ini setiap hari untuk menghabiskan waktu. Apakah kamu begitu kejam, untuk menolak permintaan orang tua yang menyedihkan sepertiku?” Roh tanah memiliki penampilan kakek, memiliki janggut putih, rambut putih, dan alis putih, menatap Fang Yuan dengan menyedihkan.</p>
+<p>	“Hei, miliki kesadaran diri, kamu adalah roh tanah, bukan manusia.” Mata Fang Yuan berkedut.</p>
+<p>	“Anak muda, apa pun yang Anda katakan, selama Anda akan memberikan resep kepada saya, Anda dapat melakukan apa saja untuk saya!” ‘Kakek’ mengedipkan mata pada Fang Yuan.</p>
+<p>	Fang Yuan mengendalikan keinginannya untuk menendang bajingan ini, saat dia berteriak: “Tidak berarti tidak.”</p>
+<p>	“Tubuh roh tanah Lang Ya bergidik, saat mulai menangis, berguling-guling di tanah: “Tidak, saya ingin bertukar. Saya ingin resepnya, saya ingin resepnya, anak muda, Anda terlalu kejam, terlalu kejam, Anda kurang belas kasih. Mengapa Anda tidak bertukar resep dengan saya, apakah itu akan membunuh Anda? Tolong tukarkan saja.”</p>
+<p>	“Serius, rumor tidak bisa dibandingkan dengan pertemuan di kehidupan nyata …” Kepala Fang Yuan penuh dengan garis-garis hitam sebagai gambar roh tanah Lang Ya yang telah dia pecah berkeping-keping, dan diinjak menjadi pecahan kecil di tanah.</p>
+<p>	Namun, ini menunjukkan kepolosan dan ketulusan roh tanah Lang Ya.</p>
+<p>	Kakek roh tanah berguling-guling di tanah dan menangis untuk waktu yang lama, tetapi Fang Yuan tidak mengalah.</p>
+<p>	Dia tidak punya pilihan selain berdiri, dengan air mata di seluruh wajahnya, bahkan janggut, rambut, dan alisnya basah.</p>
+<p>	“Anak muda, ada apa dengan hati nuranimu? Kamu terlalu kejam, seperti yang diharapkan dari pewaris Demon Venerable … “Kakek itu mengeluh ketika dia melihat Fang Yuan, seperti seorang istri yang baru saja diselingkuhi.</p>
+<p>	Fang Yuan tidak tahan dengan tatapan ini, dia bergidik sambil menghela nafas: “Tidak apa-apa, tidak apa-apa, aku bisa memberimu resep kulit manusia Gu. Tapi kamu harus menunggu sampai waktunya tepat.”</p>
+<p>	“Anak muda, kamu luar biasa, kamu adalah orang paling baik yang pernah ada. Jadi kapan waktunya tepat?” Roh tanah sangat gembira.</p>
+<p>	“Hehehe, lima ratus tahun kemudian.”</p>
+<p>	Kakek roh tanah mengerutkan kening, dan segera merosot: “Itu sangat lama …”</p>
+<p>	“Hmph, ini yang terbaik yang ingin saya tawarkan, mengapa, Anda tidak ingin bertukar lagi?”</p>
+<p>	“Tentu saja saya ingin bertukar. Hanya lima ratus tahun, saya bisa menunggu. Anak muda, aku akan menunggumu, ini adalah perjanjian kita seumur hidup.” Kakek tua itu berkata dengan penuh kasih sayang.</p>
+<p>	Fang Yuan memegangi wajahnya, menghela nafas dalam-dalam: “Saya punya resep di sini, saya ingin menukarnya dengan menghubungkan surga Gu.”</p>
+<p>	Begitu dia mendengar permintaan Fang Yuan, ekspresi roh tanah Lang Ya berubah, dia berdiri tegak dan sedikit mengangkat kepalanya, menunjukkan ekspresi arogan: “Oh, kamu ingin menghubungkan surga Gu …”</p>
+<p>	Dia berbicara perlahan dan santai: “Sejujurnya anak muda, aku punya resep yang tak terhitung jumlahnya di sini. Jika resep yang Anda hasilkan sudah menjadi milik saya, saya tidak akan mengambilnya.”</p>
+<p>	Fang Yuan tertawa dengan percaya diri: “Orang tua, eramu sudah lama berakhir. Bawakan saya kuas dan kertas, saya akan menulis sebagian untuk Anda. ”</p>
+<p>	Tepat setelah dia menulis setengah dari konten, Fang Yuan berhenti.</p>
+<p>	“Tulis, tulis, apa lagi yang ada?” Roh tanah berdiri di samping, menggaruk telinganya saat matanya bersinar. Dia sudah memastikan bahwa ini adalah resep baru, dia belum pernah melihatnya sebelumnya.</p>
+<p>	“Ini adalah resep peringkat lima, di mana surga penghubungmu Gu?”</p>
+<p>	“Nih nih.” Roh tanah melambaikan tangannya dan surga penghubung Gu muncul di atas meja.</p>
+<p>	Fang Yuan selesai menulis resep ini dan menyempurnakan surga penghubung Gu, menyimpannya di celahnya.</p>
+<p>	Di samping, roh tanah melihat resep ini dengan gembira.</p>
+<p>	Cacing Gu dalam resep adalah Gu baru yang ditemukan oleh Master Gu lima ratus tahun kemudian. Selama pertempuran lima wilayah yang kacau, itu adalah era inovasi, semua jenis Gu baru dikembangkan dan diciptakan.</p>
+<p>	Setiap kali era kacau seperti itu muncul, peringkat sembilan Gu Immortal akan lahir.</p>
+<p>	Fang Yuan memiliki ingatan kehidupan sebelumnya, meskipun dia melupakan banyak hal, dia masih memiliki banyak resep di dalam kepalanya.</p>
+<p>	Resep-resep ini, untuk dilebih-lebihkan, lebih maju dari zaman sekarang! Tentu saja roh tanah belum pernah mendengar tentang mereka.</p>
+<p>	“Apakah kamu memiliki perasaan ilahi Gu?” Fang Yuan terus menghubungkan surga Gu dan bertanya.</p>
+<p>	“Ya.”</p>
+<p>	“Menukarkan?”</p>
+<p>	“Kamu masih punya resep?” Kakek roh tanah terkejut dan gembira.</p>
+<p>	Fang Yuan tersenyum ketika dia mengambil kuas dan kertas, menulis sekali lagi.</p>
+<p>	Tapi kali ini, di tengah jalan, roh tanah tertawa: “Anak muda, saya sudah punya resep cacing Gu ini.”</p>
+<p>	“Oh?” Fang Yuan berhenti menulis, ekspresinya tercengang.</p>
+<p>	Dia tidak berpikir bahwa roh tanah itu berbohong. Roh tanah itu murni, ya berarti ya, dan tidak berarti tidak.</p>
+<p>	“Jika kamu tidak percaya padaku, kamu bisa melihat ini.” Roh tanah Lang Ya meraih udara, dan resep kulit sapi muncul, mendarat di atas meja.</p>
+<p>	Fang Yuan melihatnya, itu yang sebenarnya.</p>
+<p>	“Sepertinya cacing Gu dalam ingatanku, meskipun mereka baru muncul lima ratus tahun kemudian, mungkin bukan Gu baru.”</p>
+<p>	Berpikir demikian, Fang Yuan tertawa, berkata kepada roh tanah: “Jangan khawatir, jika ini tidak berguna, saya punya resep lain.”</p>
+<p>	Tapi kali ini, Fang Yuan hanya menulis sepertiganya sebelum roh tanah bertepuk tangan: “Meskipun saya tidak memiliki resep ini, saya memiliki sesuatu yang sangat mirip, lihat ini.”</p>
+<p>	Mengatakan demikian, dia menyerahkan resep kepada Fang Yuan, itu 90% mirip dengan miliknya.</p>
+<p>	Fang Yuan segera mengerti: “Resep saya mungkin telah diperbaiki oleh Guru Gu menggunakan resep kuno.”</p>
+<p>	“Anak muda, resep ini tidak memiliki banyak nilai, saya tidak akan menukarnya.” Kata roh tanah.</p>
+<p>	Fang Yuan merevisi rencananya.</p>
+<p>	Ketika Leluhur Rambut Panjang masih hidup, dia suka mengumpulkan dan meneliti resep. Dia dikenal sebagai orang abadi nomor satu dari jalur penyempurnaan sepanjang masa. Dia hidup untuk waktu yang lama, dan mengumpulkan sejumlah besar resep, dia bisa dikatakan sebagai kolektor yang sangat sukses.</p>
+<p>	Adapun generasi Fang Yuan di zaman baru, mereka belum mencapai puncak periode waktu, setidaknya Great Dream Immortal Venerable belum muncul. Resep cacing Gu dalam ingatan Fang Yuan, dibandingkan dengan akumulasi tanah yang diberkati Lang Ya dari banyak era, tampaknya sangat tidak signifikan.</p>
+<p>	“Lihat ini kalau begitu.” Fang Yuan mulai menulis lagi.</p>
+<p>	Tetapi untuk resep ini, baik tanah yang diberkati Lang Ya memilikinya atau itu adalah resep kuno yang dimodifikasi, roh tanah tidak punya niat untuk mendapatkannya.</p>
+<p>	Fang Yuan tidak berdaya.</p>
+<p>	Dalam ingatannya, ada beberapa cacing Gu yang pasti baru, tetapi mereka memiliki kepentingan besar di masa depan, masing-masing mewakili manfaat besar baginya, dan dapat dengan mudah mengubah situasi daerah. Begitu mereka diekspos oleh tanah yang diberkati Lang Ya, kerugiannya adalah masalah kecil, tetapi itu berpotensi mengubah sejarah, kerugiannya terlalu besar untuk Fang Yuan dibandingkan dengan keuntungannya.</p>
+<p>	“Roh darat, lihat resep ini.” Fang Yuan berpikir, dan menulis resep Gu stargate.</p>
+<p>	Roh tanah melihatnya dan tertarik. Semakin banyak Fang Yuan menulis, semakin banyak minatnya tumbuh.</p>
+<p>	“Saya belum pernah melihat resep ini sebelumnya, mereka agak aneh, sangat aneh.” Kakek tua itu bergumam sambil mengusap dagunya.</p>
+<p>	Ini adalah resep Gu peringkat lima, Fang Yuan berhasil mendapatkan Gu rasa ilahi darinya.</p>
+<p>	“Anak muda, Gu stargate ini menarik, memiliki efek untuk melintasi lima wilayah. Lima wilayah memiliki penghalang masing-masing di perbatasan, tetapi ini sebenarnya dapat menggunakan kekuatan surga hitam. Jenis cacing Gu ini, biasanya hanya Gu lubang bumi dan Gu surga penghubung yang klasik populer. Tapi Gu stargate ini dapat bersaing dengan mereka berdua, dan tidak kalah dengan cara apa pun! Apakah Anda membuat resep Gu ini? ” Roh tanah bertanya.</p>
+<p>	“Tentu saja!” Fang Yuan mengakuinya tanpa ragu-ragu.</p>
+<p>	Dia tidak bersalah dalam meniru dan mengambil kemuliaan ini untuk dirinya sendiri.</p>
+<p>	Selanjutnya, dia mulai membual tanpa malu-malu: “Beberapa resep sebelumnya juga dibuat oleh saya, meskipun saya juga menggunakan beberapa resep saat ini sebagai dasar untuk penelitian saya.”</p>
+<p>	Tindakan ini tidak diragukan lagi memperdalam hubungannya dengan roh tanah Lang Ya.</p>
+<p>	“Teman kecil, kamu memiliki bakat untuk jalur penyempurnaan, aku benar-benar kagum!” Kakek roh tanah berhenti memanggil anak muda Fang Yuan, tetapi mulai memanggilnya teman kecil.</p>
+<p>	“Tapi stargate Gu ini memiliki kelemahan. Anda perlu mengumpulkan cahaya bintang di malam hari untuk mengaktifkannya. Selain itu, tingkat keberhasilan penyempurnaan Gu ini rendah, tetapi jika kami menambahkan beberapa bahan tambahan ke dalamnya, kami dapat meningkatkan tingkat keberhasilan sebesar 30%. ”</p>
+<p>	Selanjutnya, roh tanah mendaftarkan beberapa bahan.</p>
+<p>	Fang Yuan mengerutkan kening saat dia mendengarkan, dia belum pernah mendengar materi ini.</p>
+<p>	Tampaknya mereka adalah material dari zaman dahulu kala, atau terlalu langka dan unik, dengan sedikit penggunaan secara normal.</p>
+<p>	Roh tanah melanjutkan: “Sepertinya Gu stargate ini paling cocok dipasangkan dengan kunang-kunang cahaya bintang. Dengan kunang-kunang cahaya bintang, Anda akan memiliki cahaya bintang, dan Gu stargate dapat digunakan terlepas dari waktu atau lokasi.”</p>
+<p>	“Apa?” Fang Yuan mendengar ini dan jantungnya berdebar kencang, bertanya dengan cepat: “Kunang-kunang cahaya bintang, apa itu kunang-kunang cahaya bintang?”</p>
+<p>	“Kamu tidak tahu tentang kunang-kunang cahaya bintang? Itu benar, mereka sudah sangat langka pada zaman dahulu kala, dan punah pada zaman dahulu. Ketika sembilan surga purba masih ada, sebagian besar kunang-kunang cahaya bintang tinggal di surga oranye. ” Roh tanah mengungkap rahasia kuno lainnya.</p>
+<p>	Fang Yuan kecewa: “Karena sudah punah, tidak perlu menyebutkannya.”</p>
+<p>	“Yang disebut punah hanyalah di alam fana, baru-baru ini, saya melihat segerombolan cahaya bintang ketika melakukan transaksi di surga kuning harta karun, saya pikir itu milik Tuan Bintang Wan Xiang.” Roh tanah teringat.</p>
+<p>	“Betulkah?” Mata Fang Yuan bersinar.</p>
+<p>	Alasan dia bertukar untuk menghubungkan surga Gu dan indra ilahi Gu adalah agar dia bisa menyamar sebagai Gu Immortal dan melakukan transaksi di surga kuning harta karun, untuk mendapatkan sumber daya dan menghentikan ketergantungannya pada Immortal Crane Sect.</p>
+<p>	Kata-kata roh tanah sangat meningkatkan minatnya pada kunang-kunang cahaya bintang.</p>
+<p>	Mata Fang Yuan berputar, tertawa licik: “Roh tanah, saya masih punya banyak resep di sini, tetapi saya hanya ingin kunang-kunang cahaya bintang!”</p>
+<p>	Roh tanah menggelengkan kepalanya: “Saya tidak bisa menukar itu.”</p>
+<p>	“Mengapa?”</p>
+<p>	“Aku tidak punya Gu kunang-kunang cahaya bintang.” Roh tanah mengatakan sebenarnya.</p>
+<p>	Fang Yuan berkata dengan cepat: “Jika Anda tidak memiliki Gu kunang-kunang cahaya bintang, tidak bisakah Anda menggunakan surga penghubung Gu untuk membelinya di surga kuning harta karun?”</p>
+<p>	Roh tanah memandang Fang Yuan dengan ekspresi aneh: “Mengapa saya harus membeli Gu kunang-kunang cahaya bintang?”</p>
+<p>	“Jika kamu tidak membeli Gu kunang-kunang bintang, bagaimana kamu akan menukar resepku?”</p>
+<p>	Roh tanah menggelengkan kepalanya, dengan tegas mengatakan: “Resep Anda hanya bisa ditukar dengan cacing Gu yang saat ini saya miliki di tanah yang diberkati.”</p>
+<p>	Fang Yuan terdiam, roh tanah itu kaku, tidak bisa membuat kompromi seperti itu, bagaimanapun juga, itu bukan manusia, sebagai roh tanah, itu tidak bisa membuat keputusan yang fleksibel.</p>
+<p>	Pada akhirnya, setelah Fang Yuan berbicara sampai bibirnya hampir robek, tidak ada kemajuan.</p>
+<p>	Roh tanah hanya mengikuti aturan.</p>
+<p>	Fang Yuan hanya bisa menghentikan usahanya, tetapi tiba-tiba dia berpikir: “Tunggu, kamu bilang kamu hanya akan menukar Gu yang saat ini berada di tanahmu yang diberkati?”</p>
+<p>	“Ya.”</p>
+<p>	Fang Yuan menjilat bibirnya yang kering: “Kalau begitu aku akan menggunakan resep Immortal Gu untuk menukarkan Heavenly Primeval Treasure Imperial Lotus milikmu, tidak apa-apa?”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 183 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 183";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_182.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 183">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_184.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 183</h1>
+        <div class="text-left">
+<p>	Bab 183</p>
+<p>	Bab 183: Leluhur Laut Darah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Tunggu sebentar, tanah merah?”</p>
+<p>	Pikiran Fang Yuan tersentak saat melihatnya.</p>
+<p>	Dia mengulurkan tangannya dan meraih dinding di sampingnya, mengeluarkan segumpal tanah merah.</p>
+<p>	Tanah merah ini sangat lembut dan memancarkan cahaya merah redup. Fang Yuan hanya menekannya dengan ringan, tetapi itu runtuh.</p>
+<p>	“Jadi, seperti ini.” Dia tampaknya telah mencapai kesadaran.</p>
+<p>	Pertama kali dia memasuki gua rahasia di dalam celah batu, dia melihat bahwa gua rahasia itu penuh dengan tanah merah yang memancarkan cahaya redup; tidak ada kebutuhan untuk sumber pencahayaan lainnya.</p>
+<p>	Dia merasa aneh pada saat itu karena tanah gunung Qing Mao berwarna biru-hitam. Dia mengira ini diatur oleh Biksu Anggur Bunga, tetapi sekarang tampaknya sumbernya adalah danau darah yang aneh ini.</p>
+<p>	Fang Yuan merasa lebih waspada; pengalamannya selama lima ratus tahun hampir menjadi intuisi.</p>
+<p>	“Tempat ini tidak hanya aneh, tapi juga berbahaya. Saya tidak punya waktu untuk bermalas-malasan, saya perlu memikirkan bagaimana pergi dari sini. ” Fang Yuan mengangkat kepalanya dan melihat ke dinding gua, di mana ratusan lubang berada di bagian atas dinding; yang mana yang terhubung dengan mata air roh?</p>
+<p>	Fang Yuan ragu-ragu sejenak.</p>
+<p>	Air bisa mengalir ke bawah sini, tetapi itu tidak berarti bahwa lorong-lorong itu cukup lebar untuk dilewati manusia.</p>
+<p>	“Dan….” Fang Yuan tampak muram saat dia mencoba menggoyangkan kedua sayapnya.</p>
+<p>	Namun, dia tidak bisa mengendalikan sayap petir ini dengan sempurna seperti sebelumnya, dan guntur biru yang awalnya jernih sekarang diwarnai dengan warna merah; itu memberikan perasaan kontradiktif tentang kekuatan dan kelemahan yang ada pada saat yang sama.</p>
+<p>	Thunderwings Gu menjadi tidak dapat diandalkan, sangat mungkin untuk mengacaukan dan menjatuhkan Fang Yuan di tengah penerbangan.</p>
+<p>	Astaga….</p>
+<p>	Arus bawah yang tak dapat dijelaskan melonjak dari dalam danau darah, mengeluarkan aura besar peringkat lima gu.</p>
+<p>	“Itu adalah….” Murid Fang Yuan menyusut; bayangan panjang secara bertahap muncul di danau darah.</p>
+<p>	Panjangnya melebihi empat puluh meter dan lebarnya lebih dari enam meter.</p>
+<p>	Ini adalah ular piton yang sangat besar; itu berdiam di kedalaman danau darah, tetapi sekarang setelah mencium aroma daging pada Fang Yuan, ia keluar untuk memulai perburuan!</p>
+<p>	“Sialan ….” Fang Yuan merasakan dorongan mendesak di dalam hatinya.</p>
+<p>	Saat ini, dia mengandalkan Chainsaw Golden Lipan untuk menusuk dinding, nyaris tidak bisa bertahan di tanah merah yang lembut. Dan dengan rambut panjang dan gaun hitamnya, dia tampak seperti semut hitam dibandingkan dengan danau darah yang sangat besar.</p>
+<p>	Ratusan titik hitam muncul di danau darah dan naik, seperti kawanan ikan yang bepergian.</p>
+<p>	Whoohhh…..</p>
+<p>	Mereka jauh lebih cepat daripada python raksasa dan terbang keluar dari danau darah dalam beberapa saat, mengungkapkan penampilan mereka.</p>
+<p>	Ini bukan ikan, tapi kelelawar.</p>
+<p>	Kelelawar berwarna darah ini memiliki dua telinga runcing panjang dengan dua pasang sayap. Sepasang sayap utama berukuran agak besar, sedangkan sepasang sayap sekunder berada di sisi yang lebih kecil dan berada di bawah sayap utama.</p>
+<p>	Mereka tidak memiliki cakar, tetapi ujung dari kedua pasang sayap itu setajam bilah baja.</p>
+<p>	“Peringkat tiga – kelelawar darah bladewing Gu?” Sebuah nama segera muncul di benak Fang Yuan.</p>
+<p>	Kelompok kelelawar darah bladewing ini mengarahkan aura pembunuhan mereka yang intens ke arahnya, tetapi hal pertama yang muncul di benaknya adalah gambar ‘itu’.</p>
+<p>	Dalam gambar dari Photo-audio Gu, seluruh tubuh Biksu Anggur Bunga berlumuran darah, dengan luka parah hingga hampir mati.</p>
+<p>	Moonshadow Gu tidak dapat menyebabkan cedera seperti itu, tetapi kelelawar darah bladewing ini adalah masalah yang berbeda.</p>
+<p>	“Mungkinkah Biksu Bunga Anggur datang ke tempat ini dan terluka oleh kelelawar darah yang bersayap ini?” Pikiran Fang Yuan berputar dengan cepat.</p>
+<p>	Kematian Flower Wine Monk diselimuti teka-teki. Sekarang, tampaknya sangat mungkin bahwa itu karena tempat ini.</p>
+<p>	“Membidik kelelawar darah ….” Fang Yuan bergumam. Faktanya, Gu ini bukan orang asing baginya.</p>
+<p>	Meskipun Gu ini adalah Gu peringkat tiga, sangat mudah untuk diberi makan, makanannya adalah darah.</p>
+<p>	Dalam kehidupan sebelumnya, dia telah mendirikan Sekte Setan Bloodwing, dan simbol dari sekte tersebut adalah kelelawar darah bladewing. Sumber daya dari sekte iblis lebih dari cukup untuk mendukung hampir sepuluh ribu kelelawar darah pedang Gu, memungkinkan sekte tersebut untuk membangun kekuatan yang menakutkan dan menyebarkan teror.</p>
+<p>	Lebih tepatnya, dia berutang kesuksesannya pada kelelawar darah bladewing.</p>
+<p>	Setelah lebih dari empat ratus tahun dalam kehidupan sebelumnya, dia secara tidak sengaja memperoleh warisan dari Leluhur Laut Darah. Dengan koloni kelelawar darah bladewing dan budidaya Peringkat lima sendiri, ia menjadi penguasa suatu wilayah.</p>
+<p>	Leluhur Laut Darah ini adalah Master Gu jalur iblis peringkat tujuh yang mengambil nyawa semudah memotong rumput, dan reputasi jahatnya sedemikian rupa sehingga bergema di seluruh dunia, namanya tercatat dalam sejarah.</p>
+<p>	Pada awalnya, dia hanya manusia biasa, tetapi melalui keberuntungan dan takdir, dia menjadi Master Gu dari jalur iblis. Dia mulai dari level terendah dan naik pangkat, sebelum menjadi otoritas jalur iblis setelah delapan ratus tahun.</p>
+<p>	Dia tidak memiliki bakat yang tinggi, sehingga dia memiliki esensi purba yang terbatas di aperture-nya. Oleh karena itu, dia sangat tertarik untuk meneliti fusi cacing Gu.</p>
+<p>	Cacing Gu liar memiliki keinginannya sendiri dan dapat menyerap esensi purba alami di udara sendiri. Namun, setelah cacing Gu disempurnakan oleh Guru Gu, tekadnya akan didominasi oleh Guru Gu, dan ia akan kehilangan kemampuan untuk menyerap esensi purba di sekitarnya. Itu hanya akan mampu menyerap esensi purba di celah Guru Gu.</p>
+<p>	Leluhur Laut Darah telah menginvestasikan banyak upaya dalam meneliti Gu yang dapat menyerap esensi purba alami bahkan setelah disempurnakan oleh Master Gu.</p>
+<p>	Master Gu yang saleh sangat takut akan hal ini. Mereka sangat khawatir Leluhur Laut Darah akan berhasil dalam penelitiannya. Akibatnya, mereka mengatur jebakan yang tak terhitung jumlahnya sebelum bergerak untuk membunuh.</p>
+<p>	Pada akhirnya, Leluhur Laut Darah tidak berhasil, tetapi itu juga bukan kegagalan total.</p>
+<p>	Dia berhasil menghasilkan resep fusi dari kelelawar darah bladewing, guillotine darah dan Gu kegilaan darah.</p>
+<p>	Peringkat tiga kelelawar darah bladewing Gu adalah pencapaian pertamanya. Sangat mudah untuk memberi makan, tetapi masih membutuhkan Guru Gu untuk memberikan esensi purba. Koloni kelelawar darah bladewing sangat istimewa; seorang Master Gu hanya perlu mengendalikan kelelawar jantan, dan mereka secara tidak langsung dapat memerintahkan semua kelelawar betina lainnya.</p>
+<p>	Gu yang gila darah adalah pencapaian keduanya. Gu ini tidak berbentuk; sebagai bola esensi darah, ia bertahan dengan menempelkan dirinya pada makhluk lain. Itu adalah Gu Peringkat empat dan memiliki kemampuan yang sangat tidak biasa. Setiap cacing Gu yang terinfeksi oleh auranya dapat menyerap esensi purba alami sesekali. Tapi itu memiliki kerugian besar — ​​cacing Gu yang terpengaruh oleh kegilaan Darah Gu secara bertahap akan meninggalkan kendali Master Gu dan akan berubah menjadi genangan darah setelah jangka waktu tertentu.</p>
+<p>	Guillotine darah adalah pencapaian terakhir Leluhur Laut Darah. Gu ini adalah Gu peringkat lima dan tidak diragukan lagi lebih maju dari dua sebelumnya. Kegunaan dan makannya menyatu menjadi satu. Menggunakan perang untuk menopang dirinya sendiri, itu dikalikan dengan menelan darah Guru Gu. Itu tidak membutuhkan Guru Gu untuk memberinya esensi purba.</p>
+<p>	Sayangnya, setelah Leluhur Laut Darah menciptakan guillotine darah, karena banyak pertempuran dan jebakan oleh jalan yang benar, dia dikalahkan.</p>
+<p>	Dia menderita luka fatal yang tidak bisa disembuhkan, dan dia mengukir jalan keluar berdarah dari lapisan jebakan.</p>
+<p>	Tokoh jalan lurus khawatir tentang serangan balik terakhirnya yang dapat membahayakan diri mereka sendiri, jadi mereka tidak memiliki kecenderungan untuk mengejarnya dan melihat saat dia melarikan diri. Sejak itu, para tokoh jalan lurus ini akan menyesali momen setiap kali mereka mengingatnya; mereka menyesal bahwa mereka membiarkan dia pergi.</p>
+<p>	Leluhur Laut Darah tahu kematiannya adalah hal yang pasti, jadi dia mulai menyiapkan warisan skala besar. Dalam waktu terbatas sebelum kematiannya, dengan kekuatan kultivasi Peringkat tujuh, dia tiba-tiba mendirikan ratusan ribu tanah warisan; warisannya meluas ke mana-mana dari Benua Tengah ke Perbatasan Selatan dan tempat-tempat lain.</p>
+<p>	Tepat sebelum kematiannya, dia tersenyum jahat, “Jalur darah tidak sendirian, warisan akan berlanjut selamanya!”</p>
+<p>	Pernyataan ini sama sekali tidak salah, karena Guru Gu yang tak terhitung jumlahnya mendapat manfaat dari warisannya, dan dengan demikian jalur iblis berkembang pesat.</p>
+<p>	Tidak peduli Gu kelelawar darah bladewing, Gu kegilaan darah atau guillotine darah, mereka semua sangat mudah untuk dibesarkan dan berkembang biak. Mungkin di beberapa lembah biasa-biasa saja, di desa-desa miskin, di gurun tak bertuan, atau di samping beberapa jalur pegunungan, Anda mungkin menemukan dua atau tiga Gu ditinggalkan begitu saja oleh Leluhur Laut Darah.</p>
+<p>	Gu ini mudah untuk dibesarkan dan tidak memiliki permintaan yang tinggi untuk esensi purba, sehingga mereka dapat dengan mudah digunakan oleh Master Gu dengan bakat biasa.</p>
+<p>	Bertahan hidup adalah hal yang sulit di dunia ini, jadi Guru Gu mana yang tidak haus akan kekuatan yang lebih kuat? Cacing Gu yang ditinggalkan oleh Leluhur Laut Darah mewakili kekuatan yang sama sekali baru; kekuatan ini adalah cara cepat dan mudah untuk meningkatkan kekuatan, dan itu menjadi lebih disambut daripada cacing Gu lainnya.</p>
+<p>	Kekuasaan itu sendiri tidak memiliki dosa; itu menjadi baik di tangan yang baik, dan yang jahat di tangan yang jahat. Tetapi di dunia, berapa banyak orang yang bisa memiliki pikiran yang teguh setelah peningkatan kekuatan yang tiba-tiba?</p>
+<p>	Seorang pria yang mendapat uang akan sering menjadi plin-plan. Peningkatan kekuatan yang tiba-tiba pasti akan menyuburkan ambisi yang sebelumnya tidak ada.</p>
+<p>	Akibatnya, banyak Master Gu yang memperoleh warisan Leluhur Laut Darah akan menjadi iblis yang membantai segalanya. Bahkan banyak tokoh jalan lurus telah mengubah sisi mereka.</p>
+<p>	Warisan darah Gu membawa kekacauan dan bahaya besar ke seluruh dunia.</p>
+<p>	Di setiap warisan Leluhur Laut Darah, seringkali hanya ada dua hingga tiga Gu. Namun, warisan ini seperti percikan api yang dapat menyebabkan kebakaran padang rumput jika dibiarkan!</p>
+<p>	Akan ada jalur iblis Gu Masters yang akan sering memiliki darah Gu dan menyebabkan kekacauan. Beberapa dari mereka akan gagal; dibunuh di beberapa desa. Beberapa akan berhasil sementara dan menjadi tokoh besar, merugikan seluruh wilayah.</p>
+<p>	Tidak peduli jika mereka berhasil sementara, atau gagal, pada saat kelelahan mereka, mereka juga akan meninggalkan warisan darah baru.</p>
+<p>	Dengan demikian, bencana darah berlanjut tanpa henti. Tidak hanya itu tidak berakhir dengan kematian Leluhur Laut Darah melalui kekuatan gabungan dari jalan yang benar, itu malah berkembang lebih pesat dengan fondasi yang tertinggal, tidak dapat dihilangkan karena berlanjut untuk selamanya.</p>
+<p>	Sampai-sampai tokoh jalan yang benar akan sering mengutuk, “Master Gu Darah terkutuk ini! Kami telah membunuh gelombang demi gelombang mereka. Tetapi jika kita menjadi sedikit ceroboh, kita akan melihat yang baru muncul entah dari mana!”</p>
+<p>	Sekarang, Warisan Laut Darah sudah diakui secara publik sebagai yang paling populer di seluruh dunia, dengan jumlah warisan terbesar. Tidak ada kompetisi!</p>
+<p>	Dalam arti yang paling ketat, Fang Yuan telah menerima bantuan dari Leluhur Laut Darah.</p>
+<p>	“Dalam kehidupan saya sebelumnya, hanya setelah lebih dari empat ratus tahun, saya menemukan warisan lautan darah dan kemudian dapat memulai pemerintahan saya. Sekarang, jika saya bisa menaklukkan kelelawar darah ini, itu akan seperti menyelesaikan empat ratus tahun upaya. ”</p>
+<p>	Kelelawar darah menyerangnya tetapi Fang Yuan tidak takut.</p>
+<p>	Dia memiliki Jangkrik Musim Gugur Musim Semi, jadi kelelawar ini akan tunduk tanpa pertanyaan di depan aura Peringkat enam. Satu-satunya masalah adalah Python Darah Peringkat lima yang masih tersembunyi, bersembunyi di dalam danau darah.</p>
+<p>	“Tapi situasi ini agak mencurigakan. Warisan Leluhur Laut Darah biasanya hanya memiliki dua-tiga cacing Gu. Kenapa tempat ini memiliki ratusan kelelawar darah bladewing? Mungkinkah… rumor itu benar?”</p>
+<p>	Desas-desus mengatakan bahwa ratusan ribu warisan Leluhur Laut Darah adalah pengalihan, dan warisan yang sebenarnya hanya sedikit.</p>
+<p>	Dalam beberapa warisan ini, Leluhur Laut Darah dikatakan telah menyembunyikan cacing Gu terbaiknya, atau wawasan penelitian atau resep fusi.</p>
+<p>	“Mungkinkah tempat ini menjadi tanah warisan sejati dari Leluhur Laut Darah?” Ketika Fang Yuan memikirkan ini, jantungnya mulai berdetak kencang.</p>
+<p>	Pikirannya bergerak seperti kilat dan meskipun dia memikirkan banyak hal, hanya sedikit waktu yang berlalu dalam kenyataan.</p>
+<p>	Kelelawar darah bladewing menyerangnya satu demi satu; Fang Yuan tenang, rambut panjang dan gaun hitamnya berkibar di udara saat dia memanjat dinding dan akan memanggil Jangkrik Musim Semi Musim Gugur.</p>
+<p>	Tapi tepat pada saat ini, ada perubahan mendadak!</p>
+<p>	“Seperti yang diharapkan, tempat ini menyembunyikan bencana darah!” Suara yang dalam dan tegas, keras seperti benturan antara besi dan batu, datang dari atas gua dan bergema di dalam danau darah.</p>
+<p>	Penyelidik Ilahi Tie Xue Leng!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

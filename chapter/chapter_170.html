@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 170 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 170";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_169.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 170">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_171.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 170</h1>
+        <div class="text-left">
+<p>	Bab 170</p>
+<p>	Bab 170: Bisakah darah Keadilan yang Tidak Dapat Dikorupsi menjadi dingin?</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Fang Yuan memperhatikan sosok Bai Ning Bing berjalan sampai dia jauh.</p>
+<p>	“Saksikan kecemerlangan dunia ini….” Kedua pupil hitamnya bersinar dengan cahaya yang mengesankan. Bai Ning Bing yang tidak lagi bingung lebih berbahaya dari sebelumnya.</p>
+<p>	Hidup dan mati tidak lagi mengganggunya, dan semakin dekat dia dengan kematian, semakin dia akan menunjukkan keanggunan yang tak tertandingi dari Fisik Jiwa Es Gelap Utara.</p>
+<p>	“Namun, ingin melawanku nanti, heh.” Fang Yuan tiba-tiba terkekeh, “Kamu pasti kecewa …”</p>
+<p>	Begitu dia keluar dari asap tebal itu, Fang Yuan telah memutuskan untuk meninggalkan Gunung Qing Mao.</p>
+<p>	Akan menarik untuk bertarung dengan Bai Ning Bing, tapi itu tidak bermanfaat baginya.</p>
+<p>	Bai Ning Bing telah menetapkan definisi kecemerlangan pada Fang Yuan, dan itu karena dia masih muda dan pandangannya tentang dunia terbatas pada Gunung Qing Mao.</p>
+<p>	Fang Yuan, bagaimanapun, berbeda.</p>
+<p>	Dalam rencana besarnya sejak kelahirannya kembali, Gunung Qing Mao hanyalah titik awal.</p>
+<p>	Selama hati memiliki ambisi besar, seseorang pasti berpikiran luas, tidak dibatasi oleh detail kecil dengan orang lain.</p>
+<p>	“Sudah waktunya untuk pergi, lycan petir lebih licik dan lebih sulit ditangani daripada serigala mahkota guntur. Hanya dengan kekuatan klan Bai atau klan Gu Yue saat ini, akan sulit untuk menahan serangannya. Kecuali jika ahli peringkat lima muncul dan membalikkan keadaan, atau mungkin jika kedua klan bersekutu. ”</p>
+<p>	Klan Bai dan Klan Gu Yue memiliki dendam mendalam satu sama lain; mereka akan bersekutu jika situasinya sampai pada titik itu, tetapi aliansi itu tidak akan tulus.</p>
+<p>	Fang Yuan tidak optimis tentang prospek ini.</p>
+<p>	“Keadaan Gunung Qing Mao akan ditentukan oleh pertempuran ini. Jika kedua pemimpin klan sama-sama terbunuh oleh lycan petir, Gunung Qing Mao akan menjadi wilayah serigala petir. Jika salah satu pemimpin klan bertahan, maka dengan aliansi, klan lainnya hanya akan menjadi umpan meriam. Jika lycan petir terbunuh, kedua klan pasti harus direhabilitasi karena korban yang parah. Klan akan membereskan urusan internalnya dan aku akan diselidiki.”</p>
+<p>	Fang Yuan dapat dengan jelas melihat perubahan yang dapat terjadi melalui ini.</p>
+<p>	Ini adalah dunia Gu, dan di sini kekuatan individu dapat menguasai kelompok. Jadi, semakin tinggi kultivasi seorang Guru Gu, semakin banyak kekuatan yang dia miliki untuk membalikkan keadaan.</p>
+<p>	Tidak peduli Klan Bai atau Klan Gu Yue atau paket serigala petir, selama ahli peringkat empat lainnya muncul di antara mereka, hasilnya akan menjadi kesimpulan yang sudah pasti.</p>
+<p>	Namun, apa pun situasinya, mereka semua tidak menguntungkan Fang Yuan.</p>
+<p>	“Waktunya pergi. Meskipun saya masih kekurangan Gu penyembuhan yang ideal, bagaimana seseorang bisa memiliki semua yang dia inginkan? Setelah kembali ke desa, saya akan mengambil Lotus Essence Surgawi dan kemudian mengeluarkan Gu penyembuhan dari penyimpanan klan sebelum segera pergi!</p>
+<p>	Fang Yuan memberikan pandangan terakhir di belakangnya; suara ledakan hebat masih terdengar dari asap hitam.</p>
+<p>	Dia berbalik dan pergi, bergegas menuju desa Gu Yue.</p>
+<p>	Dengan statusnya sebagai penatua, dia bisa dengan paksa membuka penyimpanan klan dan mengeluarkan batu purba serta cacing Gu.</p>
+<p>	Ada kerusuhan di sekitar, orang-orang ketakutan; itu adalah waktu terbaik untuk memanfaatkan situasi.</p>
+<p>	Jika kesempatan ini dilepaskan, tidak peduli apa hasil pertempurannya, situasi umum akan diatur, sehingga sulit untuk mengambil keuntungan.</p>
+<p>	Thunderwings Gu tidak bisa digunakan untuk saat ini, jadi Fang Yuan hanya bisa berlari cepat melewati hutan.</p>
+<p>	Gelombang serigala telah merusak semua yang ada di jalurnya, membuat jalur yang dulu berbahaya menjadi damai dan aman.</p>
+<p>	Segera, Fang Yuan dapat melihat desa Gu Yue di cakrawala.</p>
+<p>	“Hmm? Siapa kamu!” Fang Yuan dengan cepat berhenti; dua orang asing muncul di depannya.</p>
+<p>	Keduanya sama-sama mengenakan pakaian Guru Gu. Salah satunya adalah seorang pria tua. Dia tinggi dan punggungnya tegak lurus, memberikan perasaan mantap seperti gunung dan sedalam kolam yang dalam. Bagian yang paling menarik perhatian adalah topeng tembaga yang dia kenakan di wajahnya.</p>
+<p>	Topeng itu berdesain polos dan memberi kesan antik. Ada tiga lubang di atasnya, memperlihatkan mata dan mulut pemakainya.</p>
+<p>	Matanya menunjukkan perubahan kehidupan dan mengungkapkan aura yang agung dan lurus. Bibirnya mengerucut, kontur di antaranya setajam pisau, mengisyaratkan tekad kuat pria ini.</p>
+<p>	Topeng itu tidak menutupi telinganya, memperlihatkan rambut pelipisnya yang mulai memutih dan memperlihatkan bahwa pria ini seharusnya berusia lebih tua.</p>
+<p>	Yang di sebelah pria itu adalah seorang pemuda dengan alis yang tegak seperti pedang, dan mata yang cerah dan bersinar, secara berkala mengirimkan tatapan tajam yang tampak seperti elang atau harimau.</p>
+<p>	Melihat penampilan ini, usia pemuda harus mirip dengan Fang Yuan. Namun, sabuk orang ini memiliki pelat perak di atasnya, diukir dengan karakter ‘tiga’.</p>
+<p>	Begitu muda dan sudah menjadi Master Gu peringkat tiga, ini menunjukkan bakat luar biasa dalam kultivasi!</p>
+<p>	Ini adalah seorang jenius muda!</p>
+<p>	Namun, tatapan Fang Yuan hanya berhenti sejenak pada pemuda ini, sebelum berbalik ke arah senior.</p>
+<p>	Pemuda ini memiliki kulit yang agak gelap dengan bibir mengerucut yang sama, seluruh tubuh mengeluarkan aura tajam dan profesional, jelas bukan seseorang yang bisa diremehkan.</p>
+<p>	Tetapi area dada yang sedikit menonjol bersama dengan struktur anggota badan dan tenggorokan memungkinkan Fang Yuan untuk langsung melihat identitasnya sebagai seorang gadis.</p>
+<p>	Fang Yuan tidak akan pernah memandang rendah wanita, tetapi dibandingkan dengan gadis heroik ini, identitas pria paruh baya di sampingnya akan mengejutkan siapa pun.</p>
+<p>	“Tie Xue Leng …..” Pikiran Fang Yuan tersentak, dia dalam hati mengingat identitas pria paruh baya ini.</p>
+<p>	Pria itu mengenakan topeng tembaga, dan pelat batu kecubung persegi di ikat pinggangnya diukir dengan karakter —’lima’.</p>
+<p>	Dia adalah Guru Gu Peringkat lima, penegak hukum, detektif hebat, penyelidik nomor satu di Perbatasan Selatan: Penyelidik Ilahi Tie Xue Leng!</p>
+<p>	Dia tidak memihak dan tanpa ampun dalam menegakkan keadilan. Banyak pembudidaya jalur iblis telah ditangkap olehnya dan banyak karakter keji dipenggal. Dia adalah contoh teladan dari jalan lurus, dan telah membuat reputasi yang sangat tinggi untuk dirinya sendiri dengan memecahkan banyak kasus saat dia melakukan perjalanan ke seluruh Perbatasan Selatan.</p>
+<p>	“Adik kecil, tolong tunggu.” Tie Xue Leng menangkupkan tangannya ke Fang Yuan.</p>
+<p>	Dia sudah membuat nama untuk dirinya sendiri untuk waktu yang lama dan juga Guru Gu peringkat lima, tetapi sikapnya sopan dan ramah.</p>
+<p>	“Melihat keadaan adik laki-laki yang terluka dan penampilan yang terburu-buru, apakah pemimpin klan dan tetuamu yang terhormat menghadapi masalah?” Dia bertanya.</p>
+<p>	Fang Yuan secara otomatis mengubah ekspresinya menjadi kecemasan dan keheranan, sementara di dalamnya bercampur keraguan dan ketakutan. “Kalian siapa? Bagaimana Anda tahu ini? Benar, kami mengejar serigala mahkota guntur tetapi kami mengalami masalah dengan menemukan lycan petir. Saya bergegas kembali untuk meminta bala bantuan. ”</p>
+<p>	“Aku Tie Xue Leng, aku sekutu, bukan musuhmu. Saya baru saja datang dari desa Gu Yue. Adik kecil, Anda tidak perlu kembali untuk bala bantuan, gelombang binatang buas menyangkut semua manusia dan kita harus bergandengan tangan untuk menghadapinya. Tie ini akan memberikan kontribusi semampunya.” Tie Xue Leng segera mengambil tugas ini untuk dirinya sendiri.</p>
+<p>	……</p>
+<p>	“Sialan, untuk berpikir bahwa aku, Gu Yue Bo, akan mati di sini hari ini!”</p>
+<p>	“Hmph, bahkan jika kita mati, kita tidak bisa membiarkan lycan petir ini pergi dengan mudah.”</p>
+<p>	Pemimpin klan Gu Yue dan pemimpin klan Bai penuh dengan luka dan hampir kehabisan esensi purba mereka. Saat ini, mereka bisa merasakan aura kematian yang suram.</p>
+<p>	Asap tebal sudah menyebar. Semua tetua telah meninggal, dan hanya dua pemimpin klan ini yang tersisa.</p>
+<p>	Lycan petir juga tidak berjalan dengan baik. Tubuhnya memiliki beberapa luka yang dalam dari mana orang bisa melihat tulangnya. Ia mengatupkan giginya dan mundur ke belakang gerombolan serigala petir, matanya berkedip dengan tatapan licik saat mundur dari pertempuran di garis depan.</p>
+<p>	“Ayo, kamu pengecut!” Pemimpin klan Bai dengan marah meraung.</p>
+<p>	Namun, lycan petir terus mundur ke belakang dan kemudian melolong, memerintahkan serigala petir biasa untuk menyerang dua Master Gu Peringkat empat ini.</p>
+<p>	“Bajingan licik …” Gu Yue Bo dan pemimpin klan Bai saling memandang, dan menghela nafas.</p>
+<p>	Mereka telah bersiap untuk melakukan serangan balik yang kuat sebelum mati, tetapi lycan petir memiliki kebijaksanaan yang tidak kalah dari manusia dan tidak tertipu.</p>
+<p>	“Hidupku sudah berakhir….”</p>
+<p>	“Sialan, kita akan mati di mulut serigala petir biasa ini!”</p>
+<p>	Tepat ketika kedua pemimpin klan ini menjadi sangat putus asa, sebuah suara tiba-tiba datang dari kejauhan, “Dua pemimpin, tunggu sebentar!”</p>
+<p>	Suara itu bergema melalui hutan pegunungan. Tubuh kedua pemimpin klan tersentak dan mereka segera berbalik untuk melihat, melihat sosok tinggi bergegas ke arah mereka.</p>
+<p>	Sosok itu berulang kali melintas, bergerak bebas melalui kawanan serigala. Setelah beberapa saat, sosok itu berdiri di samping dua pemimpin klan.</p>
+<p>	“Kamu adalah?” Kedua pemimpin klan bertanya pada saat yang sama.</p>
+<p>	“Namaku Tie Xue Leng.”</p>
+<p>	Terkesiap…</p>
+<p>	Pemimpin klan Bai menarik napas panjang karena terkejut. Dia terkejut, gembira dan juga bingung; mengapa Tie Xue Leng ada di sini?</p>
+<p>	Gu Yue Bo, di sisi lain, menyadari alasannya saat dia dengan gembira berkata, “Jadi itu adalah Ikatan Penyelidik Ilahi!”</p>
+<p>	Saat dia mengatakan ini, gerombolan serigala menyerbu masuk.</p>
+<p>	“Sekelompok makhluk busuk!” Lidah Tie Xue Leng sepertinya meledak dengan guntur, dan dengan teriakan rendah dia menginginkan Gu di lubangnya.</p>
+<p>	LEDAKAN!</p>
+<p>	Aura tak berbentuk tiba-tiba meletus, memancar dan menelan segalanya.</p>
+<p>	Aura ini seperti gunung, gigih dan tak tergoyahkan. Itu seperti surga itu sendiri karena ia mengabaikan dunia dan melihat melalui segalanya.</p>
+<p>	Gu yang Benar!</p>
+<p>	Hanya seorang Guru Gu yang memiliki hati yang benar yang dapat menggunakannya.</p>
+<p>	Aura yang benar bisa melemahkan makhluk keji; dalam jangkauannya, semakin rendah kemauan musuhnya, semakin banyak efek melemahnya.</p>
+<p>	Tie Xue Leng pernah menggunakan Gu ini untuk membuat Gu Master Peringkat empat kehilangan kekuatan bertarungnya dan menyerah sepenuhnya. Ini adalah seni tertinggi menaklukkan musuh tanpa pertempuran.</p>
+<p>	melolong melolong…</p>
+<p>	Momentum serigala petir berhenti. Anggota badan mereka gemetar di bawah tekanan aura ini, dan mereka tidak berani bergerak maju.</p>
+<p>	Houu!</p>
+<p>	Lightning lycan mengeluarkan teriakan perang dari belakang, mencoba memerintahkan gerombolan serigala petir ini.</p>
+<p>	“Saraf seperti itu!” Tie Xue Leng melotot dan tiba-tiba mengulurkan tangan kanannya, membuat gerakan meraih ke arah lycan petir.</p>
+<p>	Gemuruh….</p>
+<p>	Riak menyebar di langit, dan tangan besi hitam besar merobek langit dan meraih ke arah lycan petir.</p>
+<p>	Peringkat lima Gu Grappling Ironfist!</p>
+<p>	Lycan petir itu licik, tetapi tidak memiliki keberanian. Selain itu, tubuhnya penuh dengan luka sehingga tidak berani melawan gerakan ini secara langsung, dan malah dengan cepat menghindar.</p>
+<p>	Namun, tangan besi hitam ini dengan kuat mengunci lycan petir, dan terus mengejar.</p>
+<p>	Lycan petir tidak bisa melarikan diri dari itu. Kepribadiannya yang jahat dirangsang; itu memberi raungan keras dan dengan keras bertabrakan dengan tangan besi hitam itu.</p>
+<p>	Tangan besar itu hancur, tetapi lycan petir menerima luka serius. Hampir semua tulangnya hampir hancur.</p>
+<p>	Itu mengeluarkan rengekan menyedihkan tetapi tidak berani melawan Tie Xue Leng lagi. Akhirnya, dengan kesal melihat Tie Xue Leng dan dua pemimpin klan, sebelum menyelipkan ekornya dan melarikan diri.</p>
+<p>	“Ini akan melarikan diri!”</p>
+<p>	“Cepat, hentikan!!”</p>
+<p>	Kedua pemimpin klan berteriak, tetapi Tie Xue Leng berdiri di tempat dan tidak bergerak.</p>
+<p>	“Penyelidik Ilahi, tolong selesaikan ini,” Gu Yue Bo menangkupkan tangannya dan memohon.</p>
+<p>	Tie Xue Leng sedikit menggelengkan kepalanya.</p>
+<p>	Pada saat ini, Fang Yuan dan gadis muda itu akhirnya tiba. Mereka telah melihat bagaimana lycan petir telah dipaksa pergi oleh tangan besi.</p>
+<p>	“Ayah! Kenapa kau melakukan itu? Kau terluka!” Gadis muda itu dengan cepat mendekati Tie Xue Leng dan menghentakkan kakinya dengan marah; nada mencelanya penuh dengan kekhawatiran.</p>
+<p>	“Ruo Nan, lycan petir ini sangat licik. Mengejarnya dengan paksa adalah cara terbaik untuk menghadapinya.” Tie Xue Leng berbicara, ketika tiba-tiba tubuhnya sedikit gemetar.</p>
+<p>	Engah! Dia memuntahkan darah dari mulutnya.</p>
+<p>	Ada warna kehijauan yang aneh dan suram dalam darahnya, dan ketika darah itu jatuh ke tanah, itu segera merusak sepetak rumput hijau, mengeluarkan asap yang tidak menyenangkan.</p>
+<p>	Jelas, dia menderita luka serius.</p>
+<p>	“Ayah, apakah kamu baik-baik saja ?!” Gadis muda, Tie Ruo Nan dengan cepat mengangkat tangannya dan mencoba menyembuhkan Tie Xue Leng.</p>
+<p>	“Tidak perlu mempermasalahkannya, kamu tahu lukaku, aku akan merasa jauh lebih baik setelah mengeluarkan darah,” Tie Xue Leng tertawa dan melambaikan tangannya, menolak perawatan.</p>
+<p>	Melihat adegan ini, dua pemimpin klan yang sebelumnya merasakan dendam, langsung merasa malu.</p>
+<p>	“Penyelidik Ilahi tidak mementingkan diri sendiri, Anda membantu kami meskipun Anda menderita cedera serius. Kami akan sangat mengingat bantuan ini.”</p>
+<p>	“Saya telah mendengar nama besar Tie Xue Leng, dan hari ini saya dapat melihat bahwa itu sepenuhnya dibenarkan dan layak untuk dikagumi! Kami berterima kasih kepada Penyelidik Ilahi karena telah menyelamatkan kami!”</p>
+<p>	Kedua pemimpin klan menangkupkan tangan mereka satu demi satu dan mengucapkan terima kasih.</p>
+<p>	“Dewa Penyelidik Ilahi, tolong hormati desa Bai saya dengan kehadiran Anda. Rasa syukur karena menyelamatkan hidup saya ini, saya akan melakukan yang terbaik untuk membalasnya! ” Kata pemimpin klan Bai.</p>
+<p>	Bagaimana mungkin Gu Yue Bo hanya melihat desa Bai mencoba membawa Tie Xue Leng pergi.</p>
+<p>	Dia tahu mengapa Tie Xue Leng ada di sini, dan tersenyum bangga, “Saya tahu bahwa Lord Divine Investigator ada di sini karena permintaan Jia Fu dan telah datang untuk menyelidiki kasus pembunuhan itu. Klan Gu Yue kami akan melakukan yang terbaik untuk bekerja sama!”</p>
+<p>	Ekspresi pemimpin klan Bai berubah ketika dia mendengar ini.</p>
+<p>	Tie Xue Leng berkata, “Begitulah. Namun, yang bertanggung jawab atas penyelidikan ini bukanlah saya, tetapi putri saya Tie Ruo Nan.”</p>
+<p>	“Eh?” Segera, semua orang yang hadir menoleh untuk melihat gadis muda itu.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

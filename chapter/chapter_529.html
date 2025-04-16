@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 529 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 529";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_528.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 529">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_530.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 529</h1>
+        <div class="text-left">
+<p>	Bab 529 – Ketekunan meskipun transmigrasi</p>
+<p>	529 Ketekunan meskipun transmigrasi</p>
+<p>	Penerjemah:ChibiGeneral | Editor: ChibiGeneral</p>
+<p>	Sulit untuk bergerak melalui rawa berlumpur, tetapi pasukan suku Ma sangat bersemangat.</p>
+<p>	Kegembiraan mencaplok pasukan suku Dou serta kegembiraan dari kemenangan yang menentukan masih bisa dilihat di wajah semua orang.</p>
+<p>	Ma Ying Jie sedang menunggang kuda dan saat dia melihat para jenderal dan tentara di sekitarnya dengan puas, saat seorang Gu Master investigasi membawakannya laporan pertempuran terbaru.</p>
+<p>	Dia membuka dokumen dan membaca:</p>
+<p>	“Suku Hei dan suku Liu sudah mulai bertarung. Pertempuran pertama menghasilkan hasil imbang, dan saat ini, keduanya ditempatkan saling berhadapan. Situasinya menemui jalan buntu.”</p>
+<p>	“Tentara Ye Lui disergap pada malam hari oleh aliansi tujuh tentara. Ye Lui Sang sangat kuat dan mengalahkan enam ahli peringkat lima satu demi satu, tetapi dia hanya satu orang dan tidak dapat menyelamatkan situasi. Saat ini, sisa pasukan suku Ye Lui sedang melarikan diri menuju wilayah Qing An.”</p>
+<p>	“Raja Tikus Jiang Bao Ya telah menerima undangan suku Yang dan secara resmi memasuki aliansi suku Yang.”</p>
+<p>	“Tentara Nu Er Tu belum melanjutkan ekspedisi mereka, malah beristirahat dan menangkap sejumlah besar kelompok macan tutul.” …</p>
+<p>	Laporan pertempuran ini menyebabkan Ma Ying Jie tersenyum kegirangan: ‘Hei Lou Lan dan Liu Wen Wu adalah kandidat populer untuk memenangkan kontes Pengadilan Kekaisaran kali ini. Saya tidak berpikir keduanya akan saling berhadapan secepat ini, akan lebih baik jika mereka berdua menderita. Sejak Ye Lui Sang memperoleh Immortal Gu, dia adalah pasukan satu orang. Tapi karena suku Ye Lui tiba-tiba diserang oleh tujuh pasukan, Gunung Bersalju kemungkinan besar memiliki pengaruh di belakangnya.’</p>
+<p>	Suku Ma, untuk maju ke suku super, telah diam-diam bergandengan tangan dengan jalur iblis Gu Immortals yang mendambakan Eighty-Eight True Yang Building. Ma Ying Jie adalah pemimpin suku muda dari suku Ma dan dengan demikian menyadari kesepakatan yang tidak dapat dihindarkan dari suku-suku tersebut.</p>
+<p>	Dataran utara seperti papan catur besar sementara Dewa Gu adalah pemain catur.</p>
+<p>	Selain jalur lurus Gu Masters, jalur iblis Gu Immortals juga memiliki pion sendiri yang mereka dukung. Dan karena suku-suku dengan garis keturunan Huang Jin bersedia bergandengan tangan dengan jalur iblis Gu Immortals untuk memiliki peluang bertahan hidup yang lebih baik. Jika mereka kalah dalam perjuangan untuk Istana Kekaisaran, suku-suku ini akan sering memasuki tanah terberkati dari jalur iblis Gu Immortals untuk melarikan diri dari bencana badai salju.</p>
+<p>	Gu Abadi jarang terjadi.</p>
+<p>	Tetua tertinggi suku Ye Lui telah mempercayakan Gu Abadi kepada Ye Lui Sang; itu setara dengan memasang taruhan di game ini.</p>
+<p>	Menurut aturan yang ditetapkan oleh Giant Sun Immortal Venerable, selama Immortal Gu direnggut oleh manusia dalam perjuangan untuk Imperial Court, Gu Immortals tidak dapat mengambilnya kembali.</p>
+<p>	Taruhan besar seperti itu memiliki risiko yang sesuai.</p>
+<p>	Itu karena Gu Immortal pada Ye Lui Sang yang menyebabkan dia menjadi target Gu Immortals. Jadi mereka menghasut tujuh tentara untuk menyergap tentara Ye Lui.</p>
+<p>	“Raja Tikus telah bergabung dengan suku Yang yang berarti aliansi Raja Tikus dan Raja Elang Yang Po Ying, menyebabkan suku Yang yang diunggulkan ini menjadi pesaing baru untuk memenangkan perjuangan untuk Istana Kekaisaran. Tapi fondasi suku Yang jauh lebih rendah dari suku Ma kita dan Raja Tikus juga sudah lumpuh, mereka tidak terlalu mengancam kita.”</p>
+<p>	“Meskipun Nu Er Tu disebut Raja Macan Tutul, kelompok macan tutulnya telah menimbulkan kerugian besar. Namun, dia telah menangkap kelompok macan tutul liar sendirian tanpa meminta bantuan dari Gu Immortal di belakangnya, ini agak aneh … ”</p>
+<p>	“Tapi secara keseluruhan, situasi suku Ma saya masih jauh lebih baik. Lawan kita selanjutnya lebih lemah dari kita. Selama kita terus menang, terus melahap suku lain dan berkembang, harapan kita untuk memasuki Istana Kerajaan akan menjadi lebih besar dan lebih besar!”</p>
+<p>	Ma Ying Jie tidak bisa menahan diri untuk tidak mengepalkan tinjunya, matanya memancarkan cahaya yang ganas. Ambisi dan tujuan seorang pria mendorongnya untuk membangun prestasi dan pencapaian besar.</p>
+<p>	Dan pada saat yang sama, di dalam pasukan berjiwa tinggi itu ada seorang gadis kecil, yang menangis di dalam kereta.</p>
+<p>	“Nona Xiao Yun, jangan terus bersedih, kematian ayahmu adalah peristiwa yang menyayat hati, tetapi kamu perlu makan, jika tidak kamu akan pingsan karena kelaparan.” Di samping gadis kecil itu, Fei Cai yang cemas menghiburnya dengan cara yang canggung.</p>
+<p>	Gadis kecil yang menangis ini tidak lain adalah Zhao Lian Yun.</p>
+<p>	Ayahnya, pemimpin suku Zhao, telah mengorbankan hidupnya dalam pertempuran besar sebelumnya.</p>
+<p>	Kehilangan perlindungan ayah yang sangat mencintainya, Zhao Lian Yun segera merasakan dunianya runtuh. Pada malam kematian ayahnya, ibu tirinya menikah lagi dengan pemimpin suku Zhao yang baru, dan posisi Zhao Lian Yun merosot tajam.</p>
+<p>	“Akan selalu ada kematian dalam perang, ini normal. Ayah saya juga dibunuh oleh orang lain.” Fei Cai terus membujuk Zhao Lian Yun ketika dia melihat Zhao Lian Yun masih menangis.</p>
+<p>	Zhao Lian Yun tiba-tiba mengangkat kepalanya sambil terisak, menatap Fei Cai dengan kebencian yang tak terpecahkan di matanya yang penuh air mata, dan menendangnya: “Dasar idiot, kamu bahkan tidak tahu bagaimana menghibur orang!”</p>
+<p>	Kesedihan di hatinya tidak palsu. Meskipun dia tiba-tiba tiba di dunia ini dan belum lama sejak kedatangannya, cinta ayahnya terhadapnya dipenuhi dengan ketulusan. Dia sangat bersyukur atas cinta yang tulus ini dan ketergantungannya pada pria itu perlahan-lahan tumbuh menjadi kasih sayang yang sejati.</p>
+<p>	Tapi sekarang, ayahnya telah meninggal di medan perang, membuatnya sendirian dan tak berdaya.</p>
+<p>	“Nona, kamu bersembunyi di sini, kamu benar-benar menyebabkan banyak masalah bagiku! Cepat, ikuti aku, ibumu memanggilmu.” Pada saat ini, tirai kereta dibuka oleh penjaga tua yang kemudian meraih lengan kecil Zhao Lian Yun.</p>
+<p>	Zhao Lian Yun berjuang dan berteriak: “Ibuku sudah mati, dia bukan ibuku! Aku tidak akan pergi!”</p>
+<p>	“Ini bukan terserah kamu!” Penjaga tua itu mengejek dan mencoba menyeret Zhao Lian Yun keluar dari kereta dengan paksa.</p>
+<p>	Ketika dia melayani Zhao Lian Yun, dia digoda dan dikerjai oleh Zhao Lian Yun berkali-kali. Sekarang, saat dia melihat keadaan menyedihkan Zhao Lian Yun, penjaga tua itu merasakan kesenangan membalas dendam.</p>
+<p>	“Lepaskan Nona Xiao Yun!” Fei Cai berteriak dan meninju penjaga tua itu.</p>
+<p>	Penjaga tua jatuh dari kereta karena pukulan berat ini. Dia berdiri dan menyentuh matanya yang telah menjadi ungu karena memar. Dia berteriak dengan suara melengking: “Kamu memukulku, seorang budak berani memukul warga sipil? Siapa yang memberimu nyali besar!! Saya akan melaporkan Anda, Anda akan mati. Kamu akan dikuliti hidup-hidup dan mayatmu akan digantung di bawah sinar matahari sampai mengering!”</p>
+<p>	Penjaga tua itu sangat marah, dan dengan rambutnya yang acak-acakan dan tatapannya yang menyeramkan, dia tampak seperti ayam tua yang sedang melompat.</p>
+<p>	Namun, teriakannya memang menarik orang-orang di sekitarnya.</p>
+<p>	Fei Cai mengepalkan tinjunya dan dengan marah menatap penjaga tua itu sambil dengan kuat melindungi Zhao Lian Yun di belakangnya.</p>
+<p>	Zhao Lian Yun mendorong ke samping lengan Fei Cai dan berdiri di atas kereta, wajahnya yang cantik masih memiliki noda air mata, dia melihat ke penjaga tua dan mengejek: “Ada apa? Anda ingin menghukum Fei Cai? Baik! Laporkan dia, tetapi menurut aturan, Anda harus terlebih dahulu memberi tahu tuannya untuk meminta kompensasi. Karena begitu, pergilah mencari pemimpin suku muda. Fei Cai adalah pemimpin budak Tuan Ma Ying Jie!”</p>
+<p>	“Apa?!” Penjaga tua itu berteriak kaget, teriakannya tiba-tiba berhenti dan kemarahan di hatinya menghilang seperti air pasang, hanya meninggalkan teror yang ekstrem.</p>
+<p>	Bocah bodoh yang gegabah ini sebenarnya adalah budak pribadi tuan Ma Ying Jie? Selain itu, dia adalah pemimpin budak tuan Ma Ying Jie yang bertanggung jawab atas kehidupan sehari-harinya?</p>
+<p>	Seseorang perlu melihat pemiliknya sebelum memukuli anjing itu.</p>
+<p>	Penjaga lama mungkin adalah warga sipil dengan status lebih tinggi dari seorang budak, tapi itu adalah masalah yang berbeda ketika Fei Cai adalah pemimpin budak Ma Ying Jie.</p>
+<p>	Jika dia benar-benar melaporkan dengan ceroboh, dia mungkin malah dikorbankan oleh suku Zhao!</p>
+<p>	Setelah shock, penjaga tua yang kehilangan wajahnya terlihat sangat muram. Dia dengan kaku menatap Zhao Lian Yun: “Gadis kecil, bahkan pemimpin budak pemimpin suku muda Ma Ying Jie tidak dapat melindungimu. Anda adalah orang dari suku Zhao, bahkan setelah kematian Anda, Anda akan menjadi hantu suku Zhao kami. Ibumu adalah wanita suku suku Zhao kami saat ini. Dengarkan aku baik-baik, wanita suku telah mengatur pernikahanmu dengan tuan muda tertua suku Wei! Sekarang bersikaplah dengan benar!”</p>
+<p>	“Apa?!” Zhao Lian Yun tanpa sadar berteriak.</p>
+<p>	“Menikah dengan tuan muda tertua suku Wei adalah berkahmu.” Penjaga tua itu tersenyum sinis.</p>
+<p>	Seluruh tubuh Zhao Lian Yun bergetar dan jatuh di papan kayu kereta.</p>
+<p>	“Nyonya Xiao Yun!” Fei Cai dengan cepat mendukungnya.</p>
+<p>	Penjaga tua itu merasakan kesenangan yang tak tertandingi pada pemandangan ini dan pergi dengan kepuasan luar biasa. Dia masih membutuhkan laporan kepada wanita suku Zhao.</p>
+<p>	Zhao Lian Yun tanpa ekspresi, keterkejutan yang luar biasa ini membuatnya dalam keadaan linglung yang dipenuhi dengan keputusasaan, memungkinkan Fei Cai untuk menahannya di kereta. Selama tiga hari, dia meringkuk di sudut kereta, tanpa bergerak atau berbicara.</p>
+<p>	Bujukan Fei Cai tidak ada gunanya, dan hanya bisa memberinya makan tanpa daya.</p>
+<p>	Zhao Lian Yun seperti boneka kayu, membiarkan Fei Cai mengendalikannya.</p>
+<p>	Fei Cai juga tidak bisa menemaninya sepanjang waktu, dan setiap kali Ma Ying Jie memanggilnya, dia akan segera pergi.</p>
+<p>	Perubahan peristiwa yang tiba-tiba dan kenyataan sedingin es ini menghancurkan kebanggaan bodoh yang dimiliki Zhao Lian Yun sebagai seorang transmigran.</p>
+<p>	Dia tiba-tiba memiliki kesadaran yang mendalam: ‘Seorang transmigran bukanlah sesuatu yang istimewa. Mengapa saya pikir saya bisa membuat badai di dunia ini setelah menjadi begitu biasa di dunia saya sebelumnya?’</p>
+<p>	Selain itu, perempuan didiskriminasi di dataran utara dan diperlakukan sebagai barang yang akan digunakan untuk pernikahan politik. Wanita dataran utara hanya bisa mematuhi pria dan tidak bisa menolak pernikahan paksa pria. Ini adalah aturan yang ditetapkan oleh Giant Sun Immortal Venerable.</p>
+<p>	Sebelumnya, ketika dia mendengar tentang perbuatan Giant Sun Immortal Venerable, dia merasa seperti sedang mendengarkan sebuah cerita, mendengarkan legenda seorang pahlawan. Tapi sekarang, dia secara pribadi mengalami siksaan yang disebabkan oleh Giant Sun Immortal Venerable.</p>
+<p>	“Wanita itu seperti pakaian, sedangkan saudara seperti tangan dan kaki kita.” Ini adalah slogan favorit dari Giant Sun Immortal Venerable, dia memisahkan status pria dan wanita ke tingkat yang sangat tidak adil. Sekarang dia telah menjadi orang yang paling menjijikkan di hati Zhao Lian Yun!</p>
+<p>	“Tidak heran kisah kawin lari malam Su Xian menusuk begitu dalam ke hati orang-orang, menyebabkan wanita dataran utara dengan bersemangat menirunya. Daripada pasif menderita pengaturan nasib, lebih baik mengambil inisiatif untuk mengejar kebahagiaan seseorang. Tapi ini membawa risiko yang tidak diketahui!”</p>
+<p>	Saat dia memikirkan hal ini, kesadaran Zhao Lian Yun tentang lingkungan hidup yang keji diperdalam oleh lapisan lain.</p>
+<p>	“Tuan muda tertua suku Wei adalah sampah yang terkenal. Dia gemuk seperti babi dengan bopeng di seluruh wajahnya dan hanya di peringkat satu tahap puncak tetapi sangat bejat dan sangat plin-plan. Karena ketidakmampuannya, posisi pemimpin suku muda suku Wei jatuh ke tangan adiknya.”</p>
+<p>	“Aku tidak akan menikahi babi itu bahkan jika aku mati! Tapi apa yang harus saya lakukan? Saya hanyalah seorang fana, dan karena saya belum mencapai tiga belas tahun, saya tidak dapat membangunkan aperture saya dan tidak dapat berkultivasi. Mungkin juga saya tidak memiliki bakat kultivasi. Dan orang yang membunuh ayahku adalah Dou E, Master Gu peringkat lima yang telah memihak suku Ma sekarang dan sekarang menjadi petinggi aliansi!”</p>
+<p>	“Siapa yang bisa saya andalkan? Jalan apa yang harus saya ambil?”</p>
+<p>	Kebingungan, keraguan dan ketakutan memenuhi hati Zhao Lian Yun.</p>
+<p>	Di pagi hari keempat, Fei Cai mengangkat tirai kereta dan masuk dengan makanan dan air bersih. Cahaya fajar mengikuti pembukaan tirai dan menyinari wajah Zhao Lian Yun.</p>
+<p>	Zhao Lian Yun terbangun, perlahan membuka matanya yang bengkak.</p>
+<p>	“Kau membawa makanan?” Dia mengambil makanan dari tangan Fei Cai dan mulai melahapnya.</p>
+<p>	“Nona Xiao Yun, apakah kamu baik-baik saja?” Fei Cai senang dengan perubahan ini.</p>
+<p>	“Ya, aku sudah memikirkannya, lebih baik mengandalkan diriku sendiri. Meskipun saya telah terikat oleh pertunangan pernikahan, itu hanya dapat dilaksanakan ketika saya berusia enam belas tahun. Aku masih punya waktu!” Tatapan Zhao Lian Yun bersinar seperti api.</p>
+<p>	“Ah, Nona Xiao Yun, kamu tidak menerima pertunangan itu?” Fei Cai terkejut; dalam kesannya, dataran utara hanya bisa menerima nasib mereka ketika pernikahan mereka diputuskan.</p>
+<p>	Zhao Lian Yun memutar matanya dan berbicara dengan nada lurus: “Hmph, aku bukan orang biasa, aku benar-benar tidak akan berkompromi! Tapi aku tidak bisa pergi ke suku sekarang dan hanya bisa tinggal di sini untuk beberapa waktu, dan mengandalkanmu Fei Cai.”</p>
+<p>	“Tidak masalah.” Fei Cai menepuk dadanya, tertawa bodoh.</p>
+<p>	Hati Zhao Lian Yun menghangat dan nada suaranya berubah lebih lembut: “Fei Cai, ayahmu juga meninggal di medan perang?”</p>
+<p>	“Ya, dia meninggal. Aku patah hati saat itu. Tapi kematian adalah normal di dataran utara. Ayah meninggal dalam pertempuran, dia mati dengan kematian yang mulia.” Fei Cai berkata sambil tersenyum.</p>
+<p>	‘Seperti yang diharapkan, pemenang mengambil semuanya! Di bawah singgasana yang mempesona dan indah terbentang jalan tulang.’ Zhao Lian Yun menghela nafas, sebelum mengutuk, ‘Sungguh penipuan, saya menyeberang ke dunia ini dan belum dewasa tetapi nasib saya telah ditentukan oleh orang lain, saya bahkan tidak bisa mulai merasa marah!’ …</p>
+<p>	Sebuah surat ditempatkan di depan Fang Yuan.</p>
+<p>	Surat khusus ini dikirim secara terbuka oleh musuh dan sekarang dibawa oleh Tuan yang Licik Sun Shi Han.</p>
+<p>	Fang Yuan membukanya dan membaca; surat ini ditulis secara pribadi oleh Chang Biao, mengenang masa lalu dan bagaimana mereka berada di sisi yang berlawanan sekarang. Dia mengundang Raja Serigala untuk berdiskusi sebelum pertempuran dan mengenang masa lalu. Dan pada saat itu, dia bisa membiarkan Chang Ji You bertemu ayahnya.</p>
+<p>	“Cara yang bagus.” Fang Yuan mengejek dan meletakkan surat itu.</p>
+<p>	Pada saat ini, Sun Shi Han tersenyum: “Kelompok serigala bermutasi dan peringkat lima gu mantel jiwa yang mengintai keduanya telah tiba. Tetapi petinggi aliansi ragu-ragu karena surat ini. Mereka berharap Lord Wolf King akan berperang melawan kerabat Anda atas nama kebenaran, untuk membuktikan bahwa Anda tidak bersalah. Kalau tidak, aku khawatir kelompok serigala yang bermutasi ini…”</p>
+<p>	ChibiGeneral ChibiGeneral TRANSLATOR Salahkan diri Anda sendiri karena tidak memiliki OP MC hax Anda. Sesuatu seperti chip AI atau orang tua yang terjebak di otak Anda akan dengan mudah mengeluarkan Anda dari ini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

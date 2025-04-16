@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 69 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 69";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_68.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 69">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_70.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 69</h1>
+        <div class="text-left">
+<p>	Bab 69</p>
+<p>	Bab 69: Hidup itu semurah rumput</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Peta kulit binatang itu sangat tebal, tidak seperti kertas yang bisa dilipat dan dibawa-bawa dengan mudah. Fang Yuan hanya bisa menggulung kulit binatang itu dan memasukkannya kembali ke dalam tabung bambu, di mana dia kemudian mengikat kedua ujung tabung bambu dengan tali rami, dan membawanya di punggungnya.</p>
+<p>	Kedua pemburu itu menatap tajam ke kotak bambu, mata mereka tak terhindarkan menunjukkan tanda-tanda keserakahan. Bagaimanapun juga, mereka bukan idiot — mereka tahu nilai dari peta itu.</p>
+<p>	Peta kulit binatang buas ini adalah sesuatu yang Gu Masters tidak akan repot-repot melihatnya, tetapi bagi manusia, terutama pemburu seperti mereka, itu adalah harta yang paling berharga.</p>
+<p>	Keluarga Wang mulai mewariskan peta ini sejak zaman nenek moyang mereka. Orang tua Wang mampu menjadi pemburu terkenal, namanya dikenal di seluruh daerah dan sekitarnya; peta memiliki banyak kontribusi untuk ini. Itu benar-benar pusaka keluarga yang otentik.</p>
+<p>	“Aku akan bertanya padamu – di rumah Pak Tua Wang, apakah ada orang lain?” Tatapan Fang Yuan gelap, nadanya dingin saat dia bertanya.</p>
+<p>	Kedua pemuda yang berlutut di tanah langsung bergidik ketika mereka mendengar pertanyaan ini dari Fang Yuan. Mereka memikirkan apa yang baru saja berkonspirasi sebelumnya, dan ekspresi serakah dari wajah mereka menghilang dalam sekejap, diganti dengan ketakutan dan teror.</p>
+<p>	“Tidak ada orang lain, seluruh keluarga sudah mati, tuan Gu Master!”</p>
+<p>	“Hunter Wang awalnya punya istri, tapi itu puluhan tahun yang lalu, dan dia dibunuh oleh serigala liar yang mengganggu desa. Sebelum istrinya meninggal, dia melahirkan dua putra dan seorang putri. Tetapi putra tertua Wang Da meninggal di gunung saat berburu tiga tahun lalu. Tidak ada orang lain di keluarga Wang. ”</p>
+<p>	Ini adalah jawaban langsung dari dua pemburu muda.</p>
+<p>	“Begitukah …” Fang Yuan menyipitkan kedua matanya dan dia melihat kedua pria yang berlutut di depannya, tahu bahwa mereka mengatakan yang sebenarnya. Ketika hidup dan mati seseorang ada di tangan orang lain, kemungkinan berbohong sangat kecil.</p>
+<p>	Tapi dia tetap bertanya, “Apakah kamu berbohong padaku?”</p>
+<p>	“Kami tidak akan berani berbohong sedikit pun, Tuan!”</p>
+<p>	“A-aku memikirkan sesuatu! Pak tua Wang sebenarnya juga memiliki menantu perempuan, istri lama Wang Da. Namun setelah Wang Da menghilang, istrinya meninggal karena patah hati. Tahun itu, desa itu bahkan secara khusus mengirimkan lengkungan peringatan kesucian! Tapi rumor mengatakan bahwa istri Wang Da ingin menikah lagi, dan dia benar-benar diburu sampai mati oleh Pak Tua Wang. Ketika Anda membunuh Pak Tua Wang, Tuan, Anda membantu kami warga negara, membasmi kejahatan dan membawa kedamaian bagi orang-orang!”</p>
+<p>	Pemburu lainnya dengan cepat menambahkan, “Itu benar, itu benar. Sebenarnya tuan, kami telah lama menemukan Wang tua ini tidak menguntungkan. Hmph, dia tidak istimewa, hanya saja dia bisa berburu lebih baik dari kita. Kita semua hanyalah manusia biasa, namun dia berpikir dia lebih istimewa dari kita dan dengan sengaja pindah dari desa untuk tinggal di sini. Sebagai generasi muda, kami kadang-kadang akan memintanya untuk mengajari kami dan membagikan pengalamannya, tetapi dia akan langsung mengusir kami dan tidak pernah membiarkan kami muncul lagi di dekat rumah kayu!”</p>
+<p>	Fang Yuan mendengarkan dengan tenang sambil mengangguk. Meskipun keduanya mulai meremehkan Pak Tua Wang dalam upaya untuk mempertahankan hidup mereka, dia tidak merasakan kebencian dari mulut kedua pria ini.</p>
+<p>	Fang Yuan menebak dalam hati bahwa kedua pria yang meminta untuk berkonsultasi untuk masalah berburu ini adalah palsu, dia menduga bahwa mereka baru saja mengingini putri keluarga Wang dan ketampanannya. Namun pada akhirnya mereka ditemukan oleh Pak Tua Wang dan didisiplinkan beberapa kali dengan keras.</p>
+<p>	“Menyingkirkan yang jahat dan membiarkan warga yang taat hukum hidup damai. Cukup bootlicking seperti itu, kali ini saya membunuh mereka karena motif saya hanya untuk peta kulit binatang buas ini. Nah, kalian berdua telah menunjukkan perilaku yang memuaskan, kalian berdua bisa pergi sekarang.” Nada bicara Fang Yuan melunak, tetapi pada saat yang sama tangan kanan di belakang punggungnya bersinar dengan cahaya bulan yang suram.</p>
+<p>	Kedua pemuda yang berlutut di tanah merasakan kejutan dan kegembiraan begitu mereka mendengar ini.</p>
+<p>	“Terima kasih banyak atas belas kasihan Anda, Tuan!”</p>
+<p>	“Tuhan, kemurahan hati dan pemanjaan-Mu, kami akan mengingatnya selamanya!”</p>
+<p>	Mereka bersujud di tanah, lendir dan air mata mereka meluap, suara ketukan tumpul bisa terdengar. Setelah beberapa ketukan, mereka segera bangkit dan berbalik untuk pergi.</p>
+<p>	Meskipun Fang Yuan lebih muda dari mereka dalam usia, tetapi setelah menyaksikan secara langsung seperti apa Fang Yuan dalam melakukan sesuatu, mereka sangat ketakutan dan ketakutan, berharap untuk tidak pernah bertemu Fang Yuan lagi.</p>
+<p>	“Tahan.” Tepat pada saat ini, sebuah suara tiba-tiba melintas.</p>
+<p>	Saat selesai ada swoosh dan Master Gu melompat turun dari puncak pohon.</p>
+<p>	“Kalian berdua tidak bisa pergi, ceritakan apa yang terjadi di sini. Semua itu.” Master Gu yang baru saja melompat ini mengenakan seragam biru tua, dan ada sabuk merah dengan pelat logam di tengahnya. Ada kata ‘Dua’ besar yang diukir di pelat logam.</p>
+<p>	Peringkat dua Gu Master ini memiliki tubuh yang ramping, kedua matanya ramping. Dia mengenakan pelindung lengan di pergelangan tangannya, dan betisnya memiliki ikatan kaki yang kokoh, seluruh tubuhnya memancarkan aura yang sangat mampu.</p>
+<p>	“Orang biasa ini menyapa tuan Jiang He!” Kedua pemuda itu baru saja bangun dengan niat untuk pergi, tetapi begitu mereka melihat Tuan Gu ini, mereka langsung berlutut lagi, bersujud dengan kagum sambil menyapa.</p>
+<p>	Tuan Gu ini adalah seseorang yang mereka kenal — itu adalah Tuan Gu yang ditempatkan di desa.</p>
+<p>	Setiap tahun untuk memperkuat kendali mereka di sekitar mereka, Desa Gu Yue akan mengirim Guru Gu ke desa-desa kecil dan dusun, menempatkan Guru Gu di sana. Ini juga akan mencegah kekuatan lain untuk menyusup dan pada saat yang sama memperkuat pertahanan mereka di perbatasan mereka.</p>
+<p>	Master Gu bernama Jiang He ini tidak peduli dengan dua pemburu yang berlutut di tanah, malah menatap lurus ke arah Fang Yuan, bertanya dengan nada dingin, “Saya adalah Gu Master Jiang He dari klan Gu Yue yang telah ditempatkan di sini, kamu adalah?”</p>
+<p>	Fang Yuan tertawa ringan dan mengulurkan telapak tangan kanannya, di mana Moonlight Gu mengeluarkan bola cahaya bulan di tengah telapak tangannya.</p>
+<p>	Ketika Gu Master Jiang He melihat cahaya bulan di tangan Fang Yuan, tatapannya melunak — Moonlight Gu adalah tanda dari klan Gu Yue, ini adalah sesuatu yang tidak bisa dipalsukan.</p>
+<p>	“Masalah ini sebenarnya sederhana. Putra kedua lelaki tua Wang menyinggung saya, jadi saya membunuh seluruh keluarga dengan marah. Mereka berdua bisa menjadi saksiku.” Fang Yuan dengan lugas mengakui dengan sikap berani dan percaya diri, menunjuk ke dua pemburu yang berlutut pada saat yang sama.</p>
+<p>	Fang yuan tidak berbohong, dan kedua pemburu ini mengangguk dengan tergesa-gesa; tidak ada keraguan.</p>
+<p>	Jiang He menatap kosong sejenak sebelum dia mulai tertawa keras, “Kamu membunuh dengan baik! Hanya sekelompok pelayan petani yang sangat sedikit, untuk benar-benar berani menyinggung tuan mereka, mereka pantas dibunuh !! ”</p>
+<p>	Tapi dia dengan cepat menambahkan dengan perubahan nada, penuh emosi dan makna yang dalam, “Bagaimanapun junior muda, apa yang telah kamu lakukan juga membawa masalah bagiku. Meskipun Pak Tua Wang tinggal jauh dari keramaian dan tinggal di sini sendirian bersama keluarganya, mereka masih penduduk desa yang saya pimpin. Saya dikirim keluar dari klan dan ditempatkan di sini di desa ini, ini berarti saya harus melindungi penduduk desa dan waspada sebagai pertahanan. Sekarang setelah Anda membunuh beberapa orang ini, jumlah penduduk desa akan berkurang. Selama pemeriksaan di akhir tahun penilaian klan terhadap saya akan turun.”</p>
+<p>	Tatapan Fang Yuan bersinar, dan dia langsung tahu bahwa Jiang He ini menggunakan ini sebagai dalih untuk memeras uang darinya.</p>
+<p>	Dia tertawa dan berkata, “Ini tidak terlalu sulit. Senior Anda hanya perlu melaporkan kebenaran kembali. Katakan saja bahwa seluruh keluarga ini dibunuh olehku, dan itu tidak ada hubungannya dengan senior sama sekali.”</p>
+<p>	Ketika Jiang He mendengar ini, kelopak matanya berkedut, kemarahan muncul di hatinya terhadap Fang Yuan yang tidak tahu bagaimana menghargai bantuan. Cara bicaranya menjadi sangat serius, “Kalau begitu aku harus menjalankan bisnis dengan tidak memihak di sini. Junior, jika Anda tidak takut dengan penyelidikan klan maka laporkan nama Anda, saya akan mencatatnya secara rinci seperti apa yang sebenarnya terjadi di atas kertas. ”</p>
+<p>	Kata-katanya membawa implikasi ancaman yang kuat; jika itu adalah anak muda lain, mereka pasti sudah ketakutan dengan pernyataan ini.</p>
+<p>	Tapi Fang Yuan bisa melihat kelemahan Jiang He dari itu, dan dia langsung berkata, “Kalau begitu senior akan melaporkan sebagaimana mestinya. Ah benar, nama keluargaku Gu Yue, dan namaku Fang Yuan.”</p>
+<p>	“Jadi kamu sebenarnya Fang Yuan!” Wajah Jiang He jelas menunjukkan keheranan untuk beberapa saat, “Saya telah mendengar tentang Anda sepanjang waktu dari adik laki-laki saya baru-baru ini. Anda benar-benar memukuli semua teman sekelas Anda, memeras di depan semua orang, mendapatkan enam puluh keping batu purba setiap kali. Setiap kali adik laki-laki saya membicarakannya, dia selalu iri dengan bagaimana Anda bisa mendapatkan uang dengan mudah. Belum lagi saat ketika Anda mempertaruhkan cacing Liquor dan Kodok Kulit Lumpur secara berurutan. Keberuntungan semacam ini pasti membuat orang iri. Oh benar, adik laki-lakiku adalah Jiang Ya, kalian berdua seharusnya sudah lama bertemu.”</p>
+<p>	“Jadi itu dia.” Fang Yuan mengangguk dan mengakui, “Ya, setiap kali saya membeli kelopak anggrek Bulan, saya akan membelinya di toko Jiang Ya.”</p>
+<p>	“Hahaha, karena ini masalahnya maka kita berdua adalah kenalan. Oh baiklah, lupakan saja, masalah ini akan aku tangani!” Ketika dia mengatakan ini, Jiang He menepuk dadanya dengan tangannya, menghilangkan penampilan seseorang dengan semangat kesetiaan dan pengorbanan diri.</p>
+<p>	Dia hanya menggunakan keadaan yang menguntungkan ini, tidak mungkin dia benar-benar melaporkan masalah ini.</p>
+<p>	Setelah melaporkan hal seperti itu, penilaian klan terhadapnya akan tetap turun. Anda mungkin juga melakukan giliran yang baik untuk Fang Yuan, karena untuk kematian keluarga Pak Tua Wang, dia hanya bisa melaporkan bahwa mereka diserang dan diserang oleh binatang buas.</p>
+<p>	Ini adalah kesalahan Pak Tua Wang karena cara-caranya yang tidak biasa dalam bersikeras untuk pindah dari desa, membangun rumah kayu yang jauh dari penduduk!</p>
+<p>	Jiang He tidak takut masalah itu diungkapkan, hanya ada beberapa petani fana di sekitarnya. Hidup mereka adalah rumput keledai yang murah, siapa yang peduli jika mereka mati? Bahkan jika klan mengetahui tentang menutup-nutupi mereka tidak akan peduli tentang masalah kecil seperti itu.</p>
+<p>	“Tapi junior, kamu belum lulus dari akademi dan tidak memiliki seragam Guru Gu seperti yang aku kenakan sekarang. Jika Wang Er melihat pakaian ini, dia akan tahu tentang statusmu sebagai Gu Master dan tidak akan menyinggungmu. Junior kamu orang yang pintar, kan, hehe,” kata Jiang He lagi.</p>
+<p>	Mata Fang Yuan berkedip. Kata-kata Jiang He memiliki makna tersirat, dan sebenarnya memperingatkan dirinya sendiri — jangan keluar dari akademi dan berkeliaran tanpa alasan, dan sebaiknya kau tidak datang ke daerah di bawah yurisdiksiku di sini setelah hari ini untuk menimbulkan masalah dan membunuh orang lagi.</p>
+<p>	“Kalau begitu terima kasih banyak atas saranmu, senior.” Fang Yuan menangkupkan tinjunya untuk memberi salam, mengucapkan selamat tinggal pada Jiang He, segera pergi dari sini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

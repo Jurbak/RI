@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1234 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 1234";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_1233.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 1234">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_1235.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 1234</h1>
+        <div class="text-left">
+<p>	Bab 1234 – Peringkat Sepuluh Gu Abadi!</p>
+<p>	Bab 1234: Peringkat Sepuluh Gu Abadi!</p>
+<p>	Baca di meionovel.id</p>
+<p>	Benua Tengah, Rumah Spirit Affinity.</p>
+<p>	“Langkah pembunuh abadi – Meteor Rain!” Zhao Lian Yun memanggil, cahaya terang keluar dari tubuhnya.</p>
+<p>	Cahaya ini terbang keluar dari tubuhnya, dalam sekejap mata, ia memasuki langit, menghilang.</p>
+<p>	Pada saat berikutnya, ruang putih pucat yang diciptakan oleh formasi Gu tampak tertutup tinta biru, berubah menjadi biru tua.</p>
+<p>	Desir desir desir…</p>
+<p>	Meteor yang tak terhitung jumlahnya jatuh dari langit, menghujani seperti badai panah, itu adalah pemandangan yang megah!</p>
+<p>	Meteor menghujani seekor kura-kura binatang yang terpencil seperti bukit.</p>
+<p>	Empat anggota badan dan kepala kura-kura ditarik ke dalam cangkangnya.</p>
+<p>	Meteor mendarat di punggung kura-kura binatang yang sunyi itu, pecahan-pecahan dibuat dalam jumlah besar, tetapi hujan meteor yang tersisa mendarat di sekitar kura-kura binatang yang sunyi itu, menciptakan lubang-lubang besar yang mengelilingi kura-kura.</p>
+<p>	Hujan meteor berlangsung dua puluh napas waktu sampai berhenti.</p>
+<p>	Zhao Lian Yun dipenuhi keringat, dia bernapas dengan kasar.</p>
+<p>	Sebuah suara datang dari dalam formasi Gu: “Tidak buruk, Zhao Lian Yun, kamu sudah sangat mahir dalam hujan meteor. Selanjutnya, latih gerakan pembunuh defensif Anda. ”</p>
+<p>	Seperti yang dikatakan, kura-kura binatang yang sunyi itu pecah dan berubah menjadi gagak hitam.</p>
+<p>	Ada puluhan ribu burung gagak.</p>
+<p>	Mereka seperti panah hitam, terbang di sekitar saat mereka menembak ke arah Zhao Lian Yun.</p>
+<p>	Mata Zhao Lian Yun bersinar, dia menggertakkan giginya saat dia menggunakan Gu Abadi pertahanannya sebelum burung gagak memukulnya.</p>
+<p>	Tiba-tiba, tubuhnya ditutupi lapisan cahaya perak.</p>
+<p>	Lapisan cahaya keperakan tipis berhasil melindunginya dari benturan dan paruh burung gagak yang tak terhitung jumlahnya.</p>
+<p>	percikan percikan percikan…</p>
+<p>	Tubuh kecil Zhao Lian Yun segera ditutupi seluruhnya oleh gagak hitam.</p>
+<p>	Sejumlah besar burung gagak menyerang perisai perak, suara renyah yang keras bergema tanpa henti.</p>
+<p>	Zhao Lian Yun memiliki ekspresi yang berat.</p>
+<p>	Dia bisa merasakan esensi abadinya keluar dengan cepat.</p>
+<p>	“Aku harus memikirkan rencana!” Zhao Lian Yun punya ide saat dia mulai menggunakan gerakan pembunuh defensif.</p>
+<p>	Pada percobaan pertamanya, dia berhasil mengaktifkan gerakan pembunuh defensif.</p>
+<p>	Langkah pembunuh abadi — Rantai Perak Pengunci Kehidupan.</p>
+<p>	Dari perisai perak di sekitar tubuhnya, enam rantai keperakan terbang keluar.</p>
+<p>	Rantai itu bergerak seperti naga, mereka luar biasa saat mereka terbang di sekitar kelompok gagak, menusuk dan membunuh tanpa henti.</p>
+<p>	Banyak burung gagak mati, segera, dalam sepuluh li ruang di sekitar Zhao Lian Yun, tidak ada burung gagak yang hidup.</p>
+<p>	Rantai perak juga berubah menjadi silinder bundar, melindungi Zhao Lian Yun, membentuk pertahanan yang ketat. Setiap gagak yang menyerang akan dicabik-cabik.</p>
+<p>	“Gerakan pembunuh abadi ini luar biasa, bisa menyerang dan bertahan sekaligus.” Itu memiliki efek yang luar biasa dalam pertempuran pertama ini, Zhao Lian Yun sangat senang.</p>
+<p>	Dewa Abadi yang mengendalikan formasi Gu menghela nafas secara internal: “Zhao Lian Yun ini memang iblis dunia lain, tingkat kultivasinya dinaikkan ke peringkat lima tahap puncak menggunakan peninggalan Gu. Setelah diberi lubang hantu, Gu Abadi, dan esensi abadi oleh Pengadilan Surgawi, dia segera menunjukkan bakatnya. Bakat bertarungnya tidak lemah sama sekali, setelah sedikit berlatih dengan gerakan pembunuh abadinya, dia sudah mahir.”</p>
+<p>	Tentu saja, gerakan pembunuh abadi ini dipilih secara khusus untuk Zhao Lian Yun oleh Pengadilan Surgawi. Mereka sangat kuat dan mudah dikendalikan, mereka juga menggunakan beberapa cacing Gu, langkah-langkah untuk mengaktifkannya sederhana.</p>
+<p>	“Baiklah, selanjutnya, kami akan melatih metode penyembuhanmu. Anda akan terluka, tetapi jangan khawatir atau panik, selama Anda tampil normal dan menggunakan gerakan pembunuh abadi Anda, Anda akan pulih. ” Gu Immortal yang mengendalikan formasi Gu berkata.</p>
+<p>	Zhao Lian Yun mengangguk, melihat burung-burung gagak menghilang di sekelilingnya.</p>
+<p>	Ada kekhawatiran dalam ekspresinya saat dia bertanya: “Saya sudah berlatih selama setengah tahun dalam formasi Gu ini, kapan saya bisa berangkat ke Dataran Utara untuk misi penyelamatan?”</p>
+<p>	Gu Immortal yang mengendalikan formasi Gu menjelaskan: “Jangan khawatir, ini adalah jalur waktu formasi Gu, satu hari di luar adalah satu tahun di sini. Waktu Anda sangat ketat, pertempuran antara Dewa Gu tidak hanya dipengaruhi oleh pelatihan, ada juga banyak situasi yang dapat terjadi dalam pertempuran yang sebenarnya. ”</p>
+<p>	“Kalau begitu beri aku beberapa pelatihan tempur yang sebenarnya!” Zhao Lian Yun berteriak.</p>
+<p>	Formasi super Gu jalur kali ini ditempatkan di Spirit Affinity House.</p>
+<p>	Tetapi semua yang ada di dalamnya diamati oleh Pengadilan Surgawi.</p>
+<p>	Pengadilan Surgawi.</p>
+<p>	Peri Zi Wei menyaksikan Zhao Lian Yun memulai pelatihan tempurnya saat kekhawatiran muncul di wajahnya: “Tuan Duke Long, apakah Anda benar-benar berpikir bahwa pelatihan seperti itu akan memungkinkan Zhao Lian Yun untuk beradaptasi dengan medan perang? Ini terlalu terburu-buru, kekuatan pertempurannya tidak bisa diandalkan.”</p>
+<p>	Meskipun dia minum setengah kilogram air surgawi naga sejati, itu hanya berhasil menyelamatkan nyawa Duke Long.</p>
+<p>	Dia masih sangat tua dan lemah.</p>
+<p>	Saat ini, dia sedang duduk di depan Peri Zi Wei, ada papan catur di antara mereka.</p>
+<p>	Papan catur ini memiliki asal yang sangat besar, itu adalah Rumah Gu Abadi yang secara pribadi dibuat oleh Star Constellation Immortal Venerable — Papan Catur Konstelasi Bintang, itu paling unggul dalam pengurangan jalur kebijaksanaan, itu adalah jalur kebijaksanaan nomor satu Rumah Gu Abadi!</p>
+<p>	Peri Zi Wei tidak cukup memenuhi syarat, tetapi setelah Duke Long bangun, dia segera mengeluarkan Rumah Gu Abadi yang legendaris ini dari perbendaharaan Pengadilan Surgawi dan memberikannya kepada Peri Zi Wei, memungkinkan kemampuan deduksinya mencapai tingkat yang menakutkan.</p>
+<p>	Mendengar keraguan Peri Zi Wei, Duke Long tersenyum ringan: “Kita tidak bisa bergantung pada Zhao Lian Yun, tapi bagaimanapun juga aku tidak bergantung padanya.”</p>
+<p>	Tatapan Peri Zi Wei bersinar: “Tuan Duke Long mengandalkan cinta Gu.”</p>
+<p>	“Betul sekali.” Duke Long mengangguk: “Love Gu sangat unik, bahkan di antara peringkat sembilan Immortal Gu, itu sangat istimewa. Kebanyakan Immortal Gu hanya memiliki satu efek, satu jenis kemampuan. Tapi cinta Gu adalah kebalikannya, ia dapat melepaskan segala macam efek dan menghabiskan berbagai sumber daya di luar esensi abadi. Yang terpenting, kekuatan cinta bisa melawan takdir dan keberuntungan.”</p>
+<p>	“Menolak takdir dan keberuntungan?” Peri Zi Wei bergumam, sedikit terkejut.</p>
+<p>	“Itu benar, cinta bisa melawan takdir sampai batas tertentu. Jika bukan karena itu, bagaimana mungkin Red Lotus Demon Venerable merusak nasib Immortal Gu saat itu?” Duke Long mengungkap beberapa rahasia yang mengejutkan, ketika dia menyebutkan Red Lotus Demon Venerable, dia memiliki nada serius dan ekspresi yang kompleks.</p>
+<p>	Peri Zi Wei sedikit terkejut: “Apa? Saat itu, apakah Red, Red Lotus Demon Venerable mendapatkan pengakuan cinta Gu juga? ”</p>
+<p>	“Dengan tepat.” Duke Long mengkonfirmasi ini: “Teratai Merah bukanlah iblis dunia lain, bagaimana dia bisa merusak Takdir. Itu karena cinta Immortal Gu bersamanya, memungkinkan dia untuk merusak nasib Immortal Gu pada akhirnya. ”</p>
+<p>	“Setelah pertempuran Gunung Yi Tian, ​​​​Zombie Alliance dihancurkan, hanya beberapa anggota Shadow Sect yang tersisa, dan Spectral Soul terperangkap di dalam alam mimpi raksasa. Begitu banyak pelarian nasib telah dihancurkan, ini memungkinkan perbaikan nasib Immortal Gu menjadi jauh lebih mudah dari sebelumnya.</p>
+<p>	Berbicara sampai saat ini, Duke Long perlu mengatur napas, setelah beristirahat sebentar, dia melanjutkan: “Namun, bahkan jika nasib Immortal Gu diperbaiki sepenuhnya, Pengadilan Surgawi kita tidak dapat mendapatkan kembali kejayaannya.”</p>
+<p>	“Ini … karena Giant Sun Immortal Venerable?” Peri Zi Wei menyimpulkan dan segera mendapat jawaban.</p>
+<p>	Duke Long menarik napas dalam-dalam: “Ya, karena setelah Giant Sun Immortal Venerable, jalur keberuntungan muncul di lima wilayah. Di masa lalu, Takdir tidak dapat diubah, selama kita memperbaiki takdir, Pengadilan Surgawi akan kembali ke puncak lagi. Tapi sekarang, kami memiliki jalur keberuntungan. Nasib itu pasti sedangkan keberuntungan tidak pasti, nasib baik adalah ketidakpastian positif bagi diri sendiri sedangkan nasib buruk adalah ketidakpastian negatif bagi diri sendiri.”</p>
+<p>	“Bahkan jika kita memperbaiki nasib Immortal Gu sepenuhnya, kita hanya bisa mengendalikan kepastian, kita tidak bisa mengendalikan ketidakpastian. Hanya dengan mengendalikan jalur keberuntungan juga, kita dapat mengizinkan Pengadilan Surgawi untuk memerintah lima wilayah dan dua surga sepenuhnya. ”</p>
+<p>	“Jadi, Tuan Duke Long, Anda memberi perintah untuk mengumpulkan Dewa Gu elit dari sepuluh sekte kuno besar untuk pergi ke Dataran Utara, untuk merebut kekayaan yang menyaingi surga Gu Abadi. Jika kita mendapatkan Surga Pesaing Keberuntungan, apakah Pengadilan Surgawi dapat mengendalikan keberuntungan? ” Peri Zi Wei bertanya.</p>
+<p>	Duke Long mengangguk sebelum menggelengkan kepalanya: “Seluruh kehidupan kultivasi Giant Sun Immortal Venerable memiliki tiga tahap, keberuntungan diri sendiri, keberuntungan semua makhluk hidup, dan keberuntungan surga dan bumi. Fortune Rivaling Heaven adalah puncak dari semua keberuntungan makhluk hidup. Efek sebenarnya adalah membiarkan pemiliknya terus menyerap keberuntungan semua makhluk hidup di sekitar mereka.”</p>
+<p>	“Seperti sekarang, melihat Ma Hong Yun, kekayaan yang menyaingi surga Efek Gu terkait dengan orang-orang di dekatnya. Itu terus menyerap keberuntungan mereka, mengumpulkan mereka di Ma Hong Yun, itu sebabnya Xue Hu dan Lady Wan Shou terus gagal. Terutama dalam memperbaiki peringkat delapan Immortal Gu, kemungkinannya terlalu rendah. ”</p>
+<p>	“Keberuntungan yang menyaingi surga Immortal Gu mungkin peringkat delapan, tetapi sebenarnya memiliki kekuatan kuasi-peringkat sembilan. Dengan waktu yang cukup, dan jika individu yang terkena memiliki cukup keberuntungan, kekayaan yang menyaingi surga Immortal Gu akan mampu menyerap lebih banyak keberuntungan dan mengumpulkannya menjadi satu orang. Ini juga mengapa Giant Sun Immortal Venerable menamakannya Fortune Rivaling Heaven. Artinya adalah: dengan menyerap keberuntungan semua makhluk hidup, dan mengumpulkannya menjadi satu orang, keberuntungan tertinggi yang menyaingi langit dan bumi akan lahir!”</p>
+<p>	“Jadi begitu.” Mendengar penjelasan rinci Duke Long, Peri Zi Wei memiliki kesadaran.</p>
+<p>	Meskipun Duke Long berasal dari Era Purbakala Lama, selama proses hibernasinya, dia telah bangun beberapa kali, dia tahu banyak rahasia berharga yang hilang.</p>
+<p>	Duke Long melanjutkan: “Jika kita bisa mendapatkan Fortune Rivaling Heaven sekarang, kita akan mendapatkan akumulasi dalam budidaya setengah dari kehidupan Giant Sun Immortal Venerable.”</p>
+<p>	“Di masa depan, jika kita memiliki kesempatan, kita dapat mencari keberuntungan dan keberuntungan surga dan bumi, untuk mengendalikan semua jalur keberuntungan ini, Immortal Gu, termasuk Fortune Rivaling Heaven.”</p>
+<p>	“Ketika nasib Gu diperbaiki, Pengadilan Surgawi akan memerintah tertinggi di dunia.”</p>
+<p>	“Jika kita memiliki kesempatan untuk melangkah lebih jauh dan memperbaiki jalur keberuntungan Immortal Gu dengan takdir Immortal Gu, kita mungkin bisa menciptakan peringkat sepuluh Immortal Gu yang legendaris — Takdir! Pada saat itu, Pengadilan Surgawi akan memahami kedalaman penuh dari kehendak surga, kita akan bertindak dalam kapasitas surga, kita akan menjadi penguasa abadi alam semesta!!”</p>
+<p>	Duke Long berbicara dengan lembut, tetapi menjelang akhir, matanya bersinar, dia menunjukkan tatapan fanatik dan panas.</p>
+<p>	“Peringkat sepuluh Gu Abadi?” Bahkan seorang Gu Immortal di level Peri Zi Wei tidak bisa berkata-kata setelah mendengar rahasia semacam itu.</p>
+<p>	“Di atas peringkat sembilan, benar-benar ada peringkat sepuluh dunia?” Peri Zi Wei bertanya dengan sangat terkejut dan tidak percaya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

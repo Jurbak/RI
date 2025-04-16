@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 115 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 115";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_114.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 115">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_116.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 115</h1>
+        <div class="text-left">
+<p>	Bab 115</p>
+<p>	Bab 115: Maju ke tahap tengah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Membran cahaya tembus pandang, laut purba merah samar dan gelombang bergelombang.</p>
+<p>	Di permukaan laut, dua cacing Liquor putih gemuk sedang menyerap air. Di udara di atas laut, Black Boar Gu seperti kumbang hitam menggoyangkan sayapnya dan melayang di sekitar Relic Gu baja merah.</p>
+<p>	Kerikil seperti White Jade Gu telah tenggelam ke kedalaman laut dan tidak bergerak.</p>
+<p>	Musim Semi Musim Gugur Jangkrik telah menyembunyikan dirinya; itu dalam tidur nyenyak untuk memulihkan diri.</p>
+<p>	“Ini adalah waktunya.” Fang Yuan menghendaki; gelombang laut berhenti, dan sebagian dari esensi purba melonjak dan mengalir ke arah Relic Gu baja merah.</p>
+<p>	Relic Gu baja merah segera bergetar dan terbang, mengeluarkan semburan sinar merah.</p>
+<p>	Itu seperti matahari yang perlahan terbit, sinar cahayanya menyinari dinding aperture.</p>
+<p>	Sinar cahaya sepanas api dan menyilaukan seperti pedang.</p>
+<p>	Black Boar Gu segera tidak tahan dan jatuh ke laut purba.</p>
+<p>	Kedua cacing Liquor juga tenggelam ke kedalaman laut purba.</p>
+<p>	White Jade Gu berkedip di dalam laut.</p>
+<p>	Agar Fang Yuan naik ke peringkat dua tahap tengah dengan metode normal, dia hanya bisa menggunakan metode penggilingan; menggunakan esensi purba merah mudanya untuk membersihkan dinding aperture membran cahaya.</p>
+<p>	Tapi sekarang, Relic Gu baja merah mengeluarkan cahaya merah megah yang menggantikan esensi purba merah muda dan dituangkan langsung ke dinding aperture, memberikan hasil yang menakjubkan.</p>
+<p>	Fang Yuan bisa melihat seluruh membran cahaya menebal dengan kecepatan yang mencengangkan.</p>
+<p>	Cahaya pada membran cahaya mengembun menjadi aliran cahaya, secara bertahap berubah menjadi membran air. Sinar putih berkilauan mengalir terus menerus; menjadi jelas satu saat dan gelap di saat berikutnya.</p>
+<p>	Saat ini, Fang Yuan telah maju ke tahap tengah!</p>
+<p>	Namun, Relic Gu masih meledak dengan sinar cahaya merah.</p>
+<p>	Sinar cahaya memenuhi seluruh bukaan; itu menggantikan esensi purba dan terus-menerus menyuntikkan esensi dan fondasinya ke dalam lubang Fang Yuan.</p>
+<p>	Membran air menerima semuanya dan sinar cahaya yang berkilauan di atasnya seperti air yang mengalir dengan bebas.</p>
+<p>	Ini berlanjut selama sekitar lima belas menit.</p>
+<p>	Relic Gu baja merah telah benar-benar menghabiskan semua energinya; tubuhnya menjadi transparan dan menghilang dalam cahaya merah.</p>
+<p>	Sinar cahaya merah yang menembus juga tiba-tiba menghilang dengan menghilangnya.</p>
+<p>	Aperture memulihkan ketenangannya sekali lagi.</p>
+<p>	Namun membran air telah menjadi lebih tebal. Menggunakan Relic Gu baja merah telah menyelamatkan Fang Yuan dari membuang banyak waktu dan usaha.</p>
+<p>	Seutas esensi purba merah merah muncul di laut purba.</p>
+<p>	Ini adalah esensi purba tahap tengah peringkat dua. Itu lebih kental daripada esensi purba tahap awal merah muda. Itu tenggelam ke kedalaman laut purba dan berlama-lama di sekitar White Jade Gu.</p>
+<p>	Relic Gu baja merah dapat secara langsung memperkuat fondasi aperture. Bagi seorang Guru Gu, ini berarti maju dengan dunia kecil.</p>
+<p>	Jenis cacing Gu ini secara alami lebih baik jika digunakan lebih awal.</p>
+<p>	Bagi seorang Guru Gu, kultivasi yang lebih tinggi berarti kekuatan tempur yang lebih kuat, tingkat kelangsungan hidup yang lebih baik, lebih banyak penyelesaian misi, dan juga lebih banyak pendapatan batu purba. Itu memiliki pengaruh besar pada setiap aspek.</p>
+<p>	Setelah mencapai tahap tengah, Fang Yuan mengambil beberapa batu purba dan mulai memulihkan esensi purbanya. Dia berhenti hanya setelah 44% persen laut purba di lubangnya telah benar-benar terisi dengan esensi purba merah tahap menengah.</p>
+<p>	Setengah jam kemudian, dia sekali lagi melangkah ke hutan batu, menuju area tengah.</p>
+<p>	Dia melangkah ke zona peringatan kelompok monyet; segera, monyet batu mata giok yang marah keluar dari pilar batu.</p>
+<p>	Mereka memekik dan menerkam Fang Yuan.</p>
+<p>	Ekspresi Fang Yuan tidak berubah, sebagian besar perhatiannya tertuju pada gua di lapisan tertinggi pilar batu itu.</p>
+<p>	Saat bertemu dengan monyet batu mata giok biasa, tidak perlu gugup selama Anda tidak dikelilingi oleh mereka. Masalah utamanya adalah raja monyet batu.</p>
+<p>	Cacing Gu apa yang tinggal di atasnya? Fangyuan tidak tahu.</p>
+<p>	Fang Yuan perlahan mundur sambil mengamati dengan hati-hati, tetapi raja monyet batu tidak muncul.</p>
+<p>	Fang Yuan bingung, “Apakah tidak ada raja monyet dalam kelompok monyet ini? Jika ada raja monyet, maka tidak diragukan lagi akan menjadi yang pertama keluar jika seseorang melanggar wilayahnya. Tahan, mungkin sudah keluar!”</p>
+<p>	Saat dia memikirkan hal ini, Jangkrik Musim Semi Musim Gugur yang sedang tidur di lubangnya tiba-tiba muncul. Tubuhnya gemetar saat mengeluarkan teriakan kaget lemah yang hanya bergema di benak Fang Yuan.</p>
+<p>	Peringatan Gu yang vital!</p>
+<p>	Ini hanya muncul ketika Gu yang vital merasa ada ancaman yang kuat terhadap kehidupan Guru Gu.</p>
+<p>	Dalam sepersekian detik itu, rambut Fang Yuan berdiri. Tanpa berpikir dua kali, dia langsung menggunakan White Jade Gu.</p>
+<p>	Lapisan cahaya giok putih terang menutupi seluruh tubuhnya.</p>
+<p>	Detik berikutnya, raja monyet batu – yang tiga kali lebih besar dari monyet batu biasa – tiba-tiba muncul di sisi kiri Fang Yuan dan menyerang dengan cakar tajam di bahu kiri Fang Yuan.</p>
+<p>	Bang.</p>
+<p>	Serangan raja kera batu dihalangi oleh pertahanan Gu Giok Putih; serangannya gagal.</p>
+<p>	Dalam sekejap Fang Yuan menerima serangan ini, White Jade Gu di aperture-nya tiba-tiba menyala dan menghabiskan lima persen dari esensi purba merah.</p>
+<p>	Jika saat Fang Yuan berada pada tahap awal, sepuluh persen esensi purba merah muda akan habis.</p>
+<p>	Dari sini, orang bisa melihat betapa jahat dan ganasnya serangan diam-diam raja monyet batu itu.</p>
+<p>	Meskipun Fang Yuan memiliki karakter yang tenang, dia tidak bisa menahan keringat dingin saat ini. Jika bukan karena dia mengasah dirinya akhir-akhir ini dan memoles kondisinya ke kondisi pertempuran puncak, dia mungkin benar-benar terkena serangan raja monyet batu.</p>
+<p>	Seandainya reaksinya sedikit terlambat, bahu kirinya akan menjadi lumpuh dan tidak dapat digunakan. Fang Yuan kemudian akan berakhir sengsara seperti Gu Yue Man Shi belum lama ini.</p>
+<p>	“Sebenarnya ada cacing Gu tipe penyembunyi liar yang tinggal di raja monyet batu ini!” Fang Yuan buru-buru mundur, dia tidak punya cara untuk mendeteksi cacing Gu yang bersembunyi dan tiba-tiba berakhir dalam kerugian.</p>
+<p>	Raja monyet batu tampaknya lebih licik daripada monyet batu biasa. Setelah serangannya meleset, ia kembali bersembunyi.</p>
+<p>	Ini tidak diragukan lagi merupakan tekanan mental yang besar pada Fang Yuan.</p>
+<p>	Dia menggunakan White Jade Gu untuk membentuk pertahanan di seluruh tubuhnya. Metode seperti itu menggunakan esensi purba setiap saat dan tidak mungkin baginya untuk mempertahankan pertahanan ini.</p>
+<p>	Bahkan ketika dia bertarung dengan pasukan monyet batu sebelumnya, dia hanya akan menggunakan Gu Giok Putih pada saat yang genting.</p>
+<p>	Jika dia terus mempertahankan keadaan ini, maka esensi purbanya akan benar-benar menghilang tidak lama kemudian.</p>
+<p>	Lebih dari lima ratus monyet batu mengepung Fang Yuan dengan agresif.</p>
+<p>	Fang Yuan menggunakan kecepatan terbesarnya untuk mundur dan menarik jarak.</p>
+<p>	Momentum beberapa monyet batu menjadi lebih lemah, sedangkan beberapa lainnya menginjak tanah dan mulai kembali ke rumah mereka.</p>
+<p>	“Kicauan!” Tepat pada saat ini, raja monyet batu mata giok muncul dan memerintahkan dengan suara keras.</p>
+<p>	“Kirik kicauan !!” Kelompok monyet batu segera merespon; kebingungan dan keraguan mereka menghilang dan kembali mengejar Fang Yuan.</p>
+<p>	Lebih dari lima ratus monyet batu mata giok terus-menerus mengejarnya, tetapi Fang Yuan tidak panik; bibirnya menunjukkan senyum dingin sebaliknya.</p>
+<p>	Kecelakaan ini sudah dalam harapannya.</p>
+<p>	Dia telah memilih rute termudah menuju area tengah hutan batu, membuka sebuah lorong. Di sekitar lorong ada sejumlah besar kelompok monyet batu.</p>
+<p>	Fang Yuan sangat akrab dengan bagian ini.</p>
+<p>	Namun, dengan kecerdasan monyet batu yang rendah ini, bagaimana mereka bisa tahu? Di bawah pengawasan raja monyet batu, mereka menyerbu melalui hutan batu, melanggar zona peringatan kelompok monyet lain dan mengakibatkan serangan balik dari kelompok monyet lainnya.</p>
+<p>	Hutan batu berada dalam kekacauan besar!</p>
+<p>	Monyet batu mata giok yang tak terhitung jumlahnya berdiri di tempat mereka, memulai pembantaian untuk mempertahankan rumah mereka.</p>
+<p>	Dalam sepuluh tahun atau lebih, raja kera batu bahkan mungkin maju menjadi raja seribu binatang dan sepenuhnya menyatukan hutan batu ini. Tapi sekarang, itu hanya seratus raja binatang dan tidak memiliki kemampuan untuk mengendalikan begitu banyak kera batu.</p>
+<p>	Berbagai kelompok monyet batu jatuh ke dalam pertempuran yang kacau satu sama lain.</p>
+<p>	Untuk sesaat, yang bisa didengar Fang Yuan hanyalah suara melengking dan teriakan monyet batu.</p>
+<p>	Lima ratus kera batu yang mengejarnya dengan cepat terjerat dengan kelompok kera batu lainnya. Tapi raja monyet batu masih terus mengejar Fang Yuan.</p>
+<p>	Fang Yuan menyerang dan mundur. Dalam periode waktu ini, dia menderita banyak serangan diam-diam dari raja monyet batu dan setiap serangan akan menghabiskan banyak esensi purbanya. Untungnya, dia telah maju ke tahap tengah sebelum ini. Kalau tidak, dengan esensi purba tahap awal, dia tidak akan menangani konsumsi ini.</p>
+<p>	Fang Yuan mendarat dalam posisi yang sangat tidak menguntungkan; dia tidak menemukan kelemahan apapun pada raja kera batu.</p>
+<p>	Satu-satunya kesempatan untuk menyerang terletak pada saat raja monyet batu hendak menyerang. Tetapi bahkan jika Fang Yuan bisa bereaksi, dia bahkan tidak punya waktu untuk melakukan gerakan menyerang.</p>
+<p>	Raja monyet batu memiliki cacing gu tipe penyembunyian dan dengan kuat memegang inisiatif. Itu bisa menyerang Fang Yuan kapan pun dia ingin menyerang. Bahkan jika Fang Yuan melukainya, itu bisa menggunakan cacing gu tipe penyembunyian untuk melarikan diri dengan aman; itu dalam posisi yang tak terkalahkan.</p>
+<p>	“Tanpa cacing Gu penghilang siluman, kemungkinan untuk memenangkan pertempuran ini sangat rendah! Jika saya memiliki metode menyerang area luas, mungkin saya bisa mencobanya. Tapi Moonglow Gu…Aku hanya akan bisa mengenai raja monyet batu ini jika aku beruntung, tapi kemungkinannya terlalu kecil.”</p>
+<p>	Fang Yuan dengan jelas memahami situasi pertempuran dan segera mundur.</p>
+<p>	Namun, raja kera batu tampaknya bertekad untuk membunuhnya.</p>
+<p>	Fang Yuan mundur sekitar seratus meter dari pintu batu ketika dia tiba-tiba berhenti.</p>
+<p>	“Saya hanya memiliki sedikit lebih dari 10% dari esensi purba saya yang tersisa. Itu tidak akan cukup untuk menempuh jarak ratusan meter ini. Dan bahkan jika saya bisa memasuki ruang rahasia kedua dan menutup pintu batu, raja monyet batu ini mungkin akan mendobrak pintunya!”</p>
+<p>	Fang Yuan mengira raja monyet batu akan menyerah setelah mengejarnya untuk waktu yang lama. Namun siapa yang mengira bahwa itu masih terus mengejarnya.</p>
+<p>	Dia sudah keluar dari hutan batu sekarang dan di sekelilingnya ada sepetak tanah kosong.</p>
+<p>	Monyet batu yang tak terhitung jumlahnya bertarung dengan kacau di hutan batu, menyebabkan kegemparan. Suara bising mereka terus bergema di dalam ruang kosong ini.</p>
+<p>	Fang Yuan tidak bergeming; intuisi pertempurannya mengatakan kepadanya bahwa raja kera batu bersembunyi di suatu tempat, menunggunya untuk menunjukkan celah sebelum melakukan serangan fatal.</p>
+<p>	Fang Yuan tahu dia sudah menemui jalan buntu.</p>
+<p>	Peringkat normal dua Gu Masters akan terpisah dari ketakutan ini, tidak mampu menahan tekanan tanpa bentuk ini.</p>
+<p>	Tapi Fang Yuan masih tenang.</p>
+<p>	Situasi ini juga sesuai dengan harapannya, meskipun kemungkinannya sangat rendah. Menurut logika, raja kera batu juga harus memiliki kebiasaan kera batu dan enggan meninggalkan rumahnya. Tetapi untuk beberapa alasan, raja monyet batu ini sangat ingin mengejar dan membunuh Fang Yuan.</p>
+<p>	“Jika Anda memilih untuk mengambil risiko, Anda harus bersedia mempertaruhkan hidup Anda!” Mata Fang Yuan bersinar dengan cahaya dingin; dia kemudian menanggalkan pakaian atasnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

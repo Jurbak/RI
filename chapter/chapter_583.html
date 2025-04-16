@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 583 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 583";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_582.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 583">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_584.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 583</h1>
+        <div class="text-left">
+<p>	Bab 583</p>
+<p>	Bab 583: Membunuh beruang terbang, Kecelakaan di saat-saat terakhir</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Meskipun Gu liar menyerap energi dari udara secara langsung, mampu menggunakan kemampuan mereka secara bebas tanpa batasan pada esensi purba.</p>
+<p>	Tetapi selama pertempuran yang intens, menjelang akhir, Gu liar akan menjadi semakin pasif, jika mereka merasakan bahwa pertempuran sedang berlangsung, mereka akan meninggalkan tuan rumah mereka dan melarikan diri di tempat menggunakan naluri mereka merasakan bahaya.</p>
+<p>	Jadi, ketika menyerang binatang buas, terutama raja binatang buas atau binatang buas yang sunyi, selama paruh pertama pertempuran, biasanya akan mengandung daya tembak paling banyak, setelah beberapa saat, serangan itu perlahan-lahan akan menjadi lebih lemah dan kurang menindas.</p>
+<p>	“Meski begitu, kita tidak bisa membiarkan kelompok rubah dan kelompok elang menderita kerugian seperti itu, kita harus mengundang Tuan Chang Shan Yin untuk turun tangan.” Di samping, Hei Xiu Yi berkata.</p>
+<p>	“Masuk … untuk tujuan apa?” Fang Yuan melipat tangannya, mengejek dengan arogan ketika dia mendengar ini: “Menurut pengaturan pertempuran kita, saya akan menyerang lebih dulu sementara mereka berdua mengambil alih setelah saya, dengan interval seperti itu, kita masing-masing harus bertahan selama lima belas menit. Saat ini, mereka bahkan belum ada di sana selama setengah dari waktu yang dialokasikan, ini belum waktunya bagi saya untuk turun tangan. ”</p>
+<p>	Jika mereka memasuki medan perang sekarang, kelompok serigala hanya akan menghadapi pembantaian kejam hantu beruang terbang, meskipun itu akan melemahkan hantu beruang terbang sebagaimana dimaksud, jika dia bisa mengurangi kerugiannya, Fang Yuan sangat bersedia untuk menonton di pagar. .</p>
+<p>	Adapun kerugian yang lain, apakah itu masalah Fang Yuan?</p>
+<p>	Hei Xiu Yi sangat marah setelah mendengar ini, tetapi karena status Fang Yuan, dia hanya bisa menahan amarahnya: “Tuan Raja Serigala, semua orang mengerahkan upaya penuh mereka untuk pertempuran ini, saat ini Tang Miao Ming dan Hei Qi Sheng adalah bertarung dengan hidup mereka, tetapi tuan mengawasi di samping, bukankah ini terlalu berlebihan? ”</p>
+<p>	“Hmm? Kamu berani menceramahiku?” Fang Yuan mengerutkan kening saat niat membunuhnya melonjak.</p>
+<p>	Meskipun dia melipat tangannya, lengan mengerikan tumbuh dari punggungnya.</p>
+<p>	Lengan mengerikan itu sangat kuat dan kuat, tetapi juga bergerak sangat cepat, langsung menyerang Hei Xiu Yi.</p>
+<p>	Tidak pernah dalam mimpi Hei Xiu Yi dia berpikir bahwa Fang Yuan akan berani mengumumkannya di depan umum, dan terutama selama pertempuran yang begitu penting, mencoba membunuhnya?!</p>
+<p>	Sebelum tinjunya mengenai, dia merasakan angin kencang bertiup ke arahnya, menyebabkan wajahnya sudah terasa sakit.</p>
+<p>	Perasaan takut dan bahaya yang tak tertandingi langsung memenuhi hatinya.</p>
+<p>	Pada saat genting, indra pertempurannya dari pertempuran bertahun-tahun menyelamatkan hidupnya dengan sukses.</p>
+<p>	Dia bereaksi bahkan sebelum berpikir, mengaktifkan Gu pertahanannya dan memasang tiga garis pertahanan.</p>
+<p>	Dia awalnya adalah Guru Gu defensif, dan karena spesialisasinya adalah pertahanan, Hei Lou Lan pernah mengirimnya ke Fang Yuan sebagai bentuk perlindungan.</p>
+<p>	Tetapi selama pertempuran, Hei Xiu Yi menghargai keselamatannya sendiri dan melupakan misinya, meninggalkan Fang Yuan di medan perang.</p>
+<p>	Lengan mengerikan itu tak terbendung, itu menghancurkan tiga pertahanan dengan cepat dan mengenai dadanya.</p>
+<p>	Retakan.</p>
+<p>	Suara renyah bisa terdengar.</p>
+<p>	Tulang rusuk Hei Xiu Yi semuanya hancur, kekuatan mengerikan mengirimnya terbang seperti bola meriam.</p>
+<p>	Dia memuntahkan darah saat terbang di udara.</p>
+<p>	Kemudian dengan suara gemuruh, dia menabrak gundukan kecil beberapa ratus langkah jauhnya.</p>
+<p>	Ketika suara benturan terdengar dan debu mengendap, dia setengah tertanam ke dalam gundukan, jatuh pingsan dan kehilangan kekuatan pertempurannya.</p>
+<p>	“Tuan Raja Serigala ?!”</p>
+<p>	“Apa yang terjadi? Apa yang terjadi! Kenapa mereka berkelahi?”</p>
+<p>	“Hei Xiu Yi mendesak Raja Serigala untuk berperang, keduanya tidak bisa akur dan Raja Serigala tiba-tiba marah, mengirim Hei Xiu Yi terbang!”</p>
+<p>	Melihat peristiwa yang begitu mengejutkan, semua orang terengah-engah.</p>
+<p>	Konflik internal selalu begitu tiba-tiba, begitu parah.</p>
+<p>	Identitas Hei Xiu Yi tidak sederhana, dia adalah salah satu dari tiga komandan tentara panji hitam, orang penting dalam petinggi suku Hei. Fang Yuan menyerangnya dengan intensitas seperti itu tidak berbeda dengan secara terbuka mengejek Hei Lou Lan.</p>
+<p>	Begitu Hei Lou Lan dan Chang Shan Yin berdiri di sisi yang berlawanan, pertempuran ini tidak hanya akan berakhir dengan kegagalan, seluruh istana suci juga akan jatuh ke dalam kekacauan politik!</p>
+<p>	“Raja Serigala, apa yang terjadi? Saya ingin mendengar penjelasan Anda.” Ekspresi Hei Lou Lan seperti air yang tenang saat dia datang untuk menanyai Fang Yuan.</p>
+<p>	Dia biasanya memanggil Fang Yuan “Saudara Shan Yin” untuk menunjukkan hubungan dekat mereka, tetapi sekarang dia memanggilnya “Raja Serigala”, itu menunjukkan kemarahannya.</p>
+<p>	Tapi tidak peduli seberapa marahnya dia, apakah Fang Yuan akan takut?</p>
+<p>	Segera, Fang Yuan balas menatapnya tanpa rasa takut, niat membunuhnya menyebar saat dia mencibir: “Pemimpin suku Hei Lou Lan, kamu datang pada saat yang tepat, bawahanmu benar-benar keluar dari barisan, dia berani menceramahiku? Kurangnya rasa hormat dengan mengabaikan senioritas, saya menghukumnya untuk Anda, tidak perlu berterima kasih kepada saya, jangan lupakan persahabatan kita. ”</p>
+<p>	Menggunakan “rasa tidak hormat” dan “senioritas”, dia mengirim dua alasan begitu saja.</p>
+<p>	Kalimat terakhirnya yang menyebutkan “persahabatan kita” memiliki makna yang lebih dalam.</p>
+<p>	Sepertinya dia mencoba mengatakan bahwa mereka memiliki persahabatan yang hebat, tetapi itu juga bisa berarti bahwa mereka tidak memiliki persahabatan sama sekali!</p>
+<p>	Hei Lou Lan menatap dengan marah!</p>
+<p>	“Chang Shan Yin ini terlalu sombong! Dia berani memukul laki-laki saya! Melihat sikapnya yang melanggar hukum, apakah dia benar-benar berpikir aku tidak bisa melakukan apa pun padanya hanya karena kekuatan pertempurannya yang hebat? ” Black Tyrant meraung di dalam hatinya.</p>
+<p>	Dia berkultivasi di jalur gelap di permukaan, tetapi sebenarnya, karena fisik Bela Diri Sejati Kekuatan Besar, kultivasinya yang sebenarnya ada di jalur kekuatan.</p>
+<p>	Kekuatan pertempurannya luar biasa, tetapi dia tidak bisa menggunakan metode jalur kekuatannya karena itu akan mempercepat bencana salah satu dari sepuluh fisik ekstrem.</p>
+<p>	“Aku akan menanggungnya! Saat ini, kita berada pada momen penting untuk menyerang hantu beruang terbang, jika kita bertengkar sekarang, semuanya akan sia-sia! Yang paling penting sekarang adalah menemukan jalur kekuatanku Immortal Gu dan naik menjadi Gu Immortal!”</p>
+<p>	Selama mereka membunuh hantu beruang terbang kali ini, Hei Lou Lan akan bisa melewati lantai ini dan token pemiliknya akan segera menjadi token pemilik satu sisi.</p>
+<p>	Dengan token pemilik satu sisi, dia akan dapat memeriksa hadiah dari setiap putaran di lantai mana pun, yang memiliki jalur kekuatan Immortal Gu akan menjadi fokus dan targetnya.</p>
+<p>	Tepatnya, sangat penting untuk membunuh hantu beruang terbang, bahkan dengan temperamen dan kekejaman Hei Lou Lan, dia harus menanggungnya.</p>
+<p>	“Aku akan membiarkanmu menjadi sombong sekali saja! Suatu hari, aku akan membuatmu berlutut di kakiku dan menjilat jari kakiku, jika aku menyuruhmu diam, kamu akan diam. Jika saya meminta Anda untuk menggonggong, Anda akan mengibaskan ekor Anda!</p>
+<p>	Hei Lou Lan sangat marah, pembuluh darah muncul di dahinya, tetapi matanya tertuju pada Fang Yuan dengan intens.</p>
+<p>	Sama seperti semua orang merasakan suasana yang berat dari keheningan ini, dan merasa tidak nyaman, Hei Lou Lan tiba-tiba mengangkat kepalanya dan tertawa keras: “Bagus, saudara Shan Yin melakukan pekerjaan dengan baik, orang yang tidak sopan seperti itu memang harus diberi pelajaran. ”</p>
+<p>	Ini mirip dengan Hei Lou Lan yang mundur selangkah, mereka yang tahu temperamennya yang buruk semuanya terkejut.</p>
+<p>	“Sukunya dipukuli sampai dia pingsan di depan umum, Hei Lou Lan benar-benar setuju dengannya?”</p>
+<p>	“Raja Serigala terlalu kuat, dia tidak peduli dengan kekuatan super suku Hei, sekarang bahkan Hei Lou Lan harus mundur selangkah.”</p>
+<p>	“Omong kosong, ini pemimpin suku Hei Lou Lan yang peduli dengan gambaran besarnya! Dia tidak ingin membungkuk ke tingkat Chang Shan Yin! Chang Shan Yin mengalahkan kami anggota suku Hei, suatu hari, dia akan membayar harganya.”</p>
+<p>	Setiap orang memiliki komentar mereka saat mereka berbicara secara rahasia.</p>
+<p>	Mengaum!</p>
+<p>	Raungan babi terbang itu menarik perhatian semua orang lagi.</p>
+<p>	Kelompok elang dan rubah menghadapi kerugian besar.</p>
+<p>	“Aku telah mengecewakan semua bangsawan.” Hidung Hei Qi Sheng berdarah, wajahnya penuh rasa malu.</p>
+<p>	Ekspresi Tang Miao Ming pucat, karena tubuh langsingnya bergoyang karena lemah.</p>
+<p>	“Lindungi mereka berdua.” Tai Bai Yun Sheng berteriak.</p>
+<p>	“Kalian berdua memiliki kontribusi besar untuk ini, aku bisa melihat ketulusanmu. Setelah pertempuran ini, Anda akan sangat dihargai. ” Hei Lou Lan memiliki ekspresi ramah saat dia maju untuk menghibur mereka.</p>
+<p>	Beruang terbang kehilangan rintangannya dan menyerbu ke depan ke arah semua orang.</p>
+<p>	Dengan benar, kelompok serigala harus menyerang untuk terus melemahkan beruang.</p>
+<p>	Tapi Hei Lou Lan memandang Fang Yuan yang melipat tangannya dengan angkuh, tidak mengatakan sepatah kata pun, sebenarnya serigalanya mundur lebih cepat daripada siapa pun di medan perang.</p>
+<p>	“Aku akan bertahan! Suatu hari, aku akan membuatmu membayar mahal!” Hei Lou Lan mengertakkan gigi, tahu bahwa dia tidak bisa membuat Fang Yuan melakukan apa pun, jika dia memaksa Fang Yuan dan ditolak di depan umum, dia akan mendapat pukulan besar untuk reputasinya dan sangat dipermalukan.</p>
+<p>	Karena itu, Hei Lou Lan berteriak keras: “Serang, mulai langkah kedua dari rencana!”</p>
+<p>	“Pergi!”</p>
+<p>	Segera, dua orang terbang keluar seperti kilat.</p>
+<p>	Salah satunya adalah orang yang ramping dan elegan mengenakan gaun biru berkibar, itu adalah White Fairy Xi Xue.</p>
+<p>	Yang lainnya berotot dan stabil, mengenakan jubah kuning, itu adalah pemimpin suku Gu Gu Guo Long.</p>
+<p>	Peri Putih Xi Xue terbang ke udara, lengan bajunya melambai saat dia berteriak dengan cara yang memikat, menyebabkan salju segera turun.</p>
+<p>	Itu adalah cacing Gu peringkat lima tanda tangannya — Gu salju terbang.</p>
+<p>	Gu Guo Long berlari di tanah, kakinya bergerak seperti turbin, ke mana pun dia pergi, asap membubung saat batu-batu terlempar.</p>
+<p>	Itu juga Gu peringkat lima, yang disebut batu pasir yang bergerak.</p>
+<p>	Seketika, salju putih mengambang di udara, sementara pasir dan batu berguling-guling di tanah.</p>
+<p>	Hantu beruang terbang raksasa seperti gunung terjebak di antara salju dan pasir, kecepatannya berkurang drastis karena penglihatannya juga kabur.</p>
+<p>	Ia meraung keras, melambaikan cakarnya di salju dan pasir, tetapi arus udara yang dihasilkan dari serangannya membuat pasir dan salju semakin intens, mengaburkan pandangannya.</p>
+<p>	Melihat ini, Hei Lou Lan tertawa kejam, memerintahkan: “Langkah ketiga!”</p>
+<p>	Kali ini, hampir sepuluh orang menyerbu ke medan perang.</p>
+<p>	Masing-masing dari mereka adalah seorang ahli, ada Bian Si Xuan, Hao Ji Liu, Pei Yan Fei, Gao Yang, Shu Zai, Dou E, Nie Ya Qing, Tao You, Lu Shuang…</p>
+<p>	Master Gu ini adalah peringkat empat tahap puncak atau peringkat lima ahli.</p>
+<p>	Menambahkan Gu Guo Long dan Xi Xue, mereka benar-benar formasi yang kuat.</p>
+<p>	Mereka mengebor salju dan pasir, menyerang dengan ganas ke arah hantu beruang terbang.</p>
+<p>	Hantu beruang terbang meraung terus menerus, sangat gelisah dan menyerang secara acak, tetapi memiliki sedikit efek.</p>
+<p>	Di sisi lain, Master Gu telah menggunakan cacing Gu investigasi mereka sejak awal, visi mereka jelas karena mereka terus-menerus menghindari beruang sambil melepaskan serangan yang kuat.</p>
+<p>	Pei Yan Fei menumbuhkan sayap saat sayap burung layang-layangnya seperti gunting yang merobek langit.</p>
+<p>	Sayap menelan Gu.</p>
+<p>	Mantel emas Gu.</p>
+<p>	Transformasi pelangi Gu.</p>
+<p>	Gerakan pembunuh — Golden Rainbow Strike!</p>
+<p>	Dia berubah menjadi kilatan petir keemasan saat dia menyerang dengan derak sengit.</p>
+<p>	Beruang terbang meraung kesakitan, darah memuntahkan saat luka besar muncul di dadanya, dari bahu kiri ke pinggang kanannya.</p>
+<p>	Nie Ya Qing mengikuti dari dekat.</p>
+<p>	Dia adalah Master Gu peringkat lima, menggunakan tebasan besi kait perak Gu.</p>
+<p>	Telapak tangannya membentuk cakar elang saat dia membidik hantu beruang terbang, menebas dengan jarinya.</p>
+<p>	Segera, beberapa kilatan muncul di udara, beberapa gelap seperti baja sementara beberapa bersinar seperti perak.</p>
+<p>	Cakarnya terus merobek langit, saat kilatan yang tak terhitung jumlahnya menyerang mata, hidung, dan mulut hantu beruang terbang itu.</p>
+<p>	Nie Ya Qing menyerang titik lemahnya, menyebabkan beruang terbang menerima pukulan secara pasif.</p>
+<p>	“Bayangan yang tumpang tindih.” Bian Si Xuan berteriak ringan, saat pedang bayangan di tangannya melambai.</p>
+<p>	Sebuah bayangan pedang gelap terbang beberapa ratus langkah dan menyerang kaki kanan beruang terbang tanpa suara, meninggalkan luka sepanjang sepuluh meter.</p>
+<p>	“Lindungi aku.” Ye Lui Sang berteriak, mengangkat kedua telapak tangannya saat bola api muncul di atasnya, tumbuh dan berkembang dengan kecepatan tinggi.</p>
+<p>	Bola api menjadi lebih besar dan lebih besar, karena medan perang diwarnai merah, cahaya dari bola api tidak dapat disembunyikan oleh salju dan pasir.</p>
+<p>	Beruang terbang juga merasakan bahaya dan berjuang, menyerang ke arah Ye Lui Sang yang ada di udara.</p>
+<p>	Tapi saat berikutnya, itu diserang oleh Dou E, Gu Guo Long, dan Tao You.</p>
+<p>	Dou E adalah jalur transformasi master Gu, berubah menjadi buaya raksasa saat dia bertarung dan mundur.</p>
+<p>	Dia membuka mulutnya, mengeluarkan giginya satu per satu.</p>
+<p>	Gigi itu mengenai tubuh beruang terbang dan tertanam di dalamnya, dalam beberapa saat, mereka meledak, menyebabkan tubuh beruang terbang berlumuran daging dan darah.</p>
+<p>	Gu Guo Long melambaikan lengan bajunya dan lusinan cacing Gu terbang keluar.</p>
+<p>	Cacing Gu ini mendarat di tanah, menyebabkan bumi tumbuh menjadi gundukan.</p>
+<p>	Gundukan itu pecah dan patung raksasa seperti rockmen muncul, berdiri dan menyerang hantu beruang terbang.</p>
+<p>	Tao You adalah jalur bumi Guru Gu.</p>
+<p>	Tapi dia dan Gu Guo Long memiliki metode yang berbeda, dia terus menyerap energi bumi saat dia mengumpulkannya ke dalam dirinya sendiri.</p>
+<p>	Selanjutnya, dia meninju secara berurutan, dengan setiap pukulan menembakkan energi bumi. Terbang di udara, mereka berubah menjadi meteor dan menabrak tubuh beruang terbang.</p>
+<p>	Bam bam bam…</p>
+<p>	Saat meteor yang intens bertabrakan, serangan beruang terbang ke arah Ye Lui Sang melambat.</p>
+<p>	Akhirnya, Ye Lui Sang selesai dengan serangannya dan dia menekan telapak tangannya ke bawah, saat bola api raksasa diturunkan seperti gunung yang turun, mengenai hantu beruang terbang besar tanpa memperhatikan kesejahteraannya.</p>
+<p>	Bam——!</p>
+<p>	Dengan ledakan hebat, telinga menjadi tuli.</p>
+<p>	Angin kencang bergerak, menyebar ke mana-mana, meniup salju dan pasir ke tepi medan perang.</p>
+<p>	Para Master Gu yang ada di sana tertiup angin kencang, terkejut saat pakaian dan rambut mereka ditarik oleh angin.</p>
+<p>	Ketika debu mengendap, sebuah kawah besar terbentuk di medan perang.</p>
+<p>	Di sekitar kawah yang dalam, permukaan seperti pasir bisa terlihat karena panas yang kuat dari api.</p>
+<p>	Hantu beruang terbang itu meringkuk menjadi bola, tidak mengeluarkan suara. Tubuhnya diselimuti oleh lima cahaya yang saling bergantian, hitam, putih, merah, kuning, dan biru.</p>
+<p>	Peringkat lima — lima elemen kulit beruang Gu.</p>
+<p>	Gu ini bisa sangat mengurangi kerusakan dari logam, kayu, air, api, dan cacing jalan tanah, tetapi di bawah serangan begitu banyak ahli, tubuh beruang terbang itu penuh luka karena darah memuntahkan ke mana-mana, dan beberapa luka sangat dalam. tulang dapat terlihat.</p>
+<p>	Master Gu berdiri di tepi kawah, mengawasi beruang terbang.</p>
+<p>	Meskipun beruang terbang itu kuat, setelah dua putaran pertempuran, hasil seperti itu telah diperoleh.</p>
+<p>	“Hati-hati, jangan lupa bahwa itu masih memiliki tarian Gu yang kacau balau.” Sun Shi Han mengingatkan.</p>
+<p>	Master Gu memiliki ekspresi serius karena beberapa mengangguk ringan.</p>
+<p>	Grand chaotic dance Gu adalah peringkat lima Gu, itu bisa menyebabkan beruang terbang menjadi gila, meningkatkan kekuatan dan kecepatannya, pada saat yang sama keempat anggota tubuhnya bisa diputar sesuka hati.</p>
+<p>	Setelah Gu liar ini diaktifkan, tingkat bahaya beruang terbang akan melonjak, jika seseorang tidak berhati-hati dan tertangkap, mereka mungkin berubah menjadi pasta daging dalam waktu tidak lebih dari beberapa saat.</p>
+<p>	“Apa yang harus ditakuti, jangan lupa kita memiliki Tuan Tua Tai Bai di sini, siapa pun yang menyerang lebih dulu akan sangat dihargai olehku!” Hei Lou Lan berteriak, janji hadiahnya membuat mata Guru Gu bersinar cerah.</p>
+<p>	Ketika hadiah besar ditawarkan, orang-orang pemberani muncul.</p>
+<p>	“Aku akan melakukannya!” Hao Ji Liu berteriak, membuat gelombang saat dia menyerbu ke arah beruang terbang.</p>
+<p>	Di bawah tatapan semua orang, dia maju ke arah beruang terbang dengan cepat.</p>
+<p>	Seribu langkah, lima ratus langkah, tiga ratus langkah!</p>
+<p>	Beruang terbang tiba-tiba mengangkat kepalanya, matanya merah darah saat menggeram keras, menembakkan gelembung udara yang tak terlihat.</p>
+<p>	Gelembung itu meluas dengan kecepatan kilat, menutupi Hao Ji Liu dan beruang terbang, karena berkontraksi dengan cepat dan menghilang sepenuhnya.</p>
+<p>	Dalam sekejap, beruang terbang dan Hao Ji Liu keduanya menghilang!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

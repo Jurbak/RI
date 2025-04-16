@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 223 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 223";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_222.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 223">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_224.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 223</h1>
+        <div class="text-left">
+<p>	Bab 223</p>
+<p>	Bab 223: Warisan Tulang Putih (2)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Gemuruh!</p>
+<p>	Ada ledakan, asap dan debu memenuhi udara sebelum dibersihkan untuk mengungkapkan sebuah gua.</p>
+<p>	“Benar-benar ada gua!”</p>
+<p>	“Tidak heran mereka menghilang sepenuhnya, mereka pasti memasuki gua ini.”</p>
+<p>	“Aneh, kenapa ada mekanisme seperti itu di sini? Ah, pemimpin klan ada di sini. ”</p>
+<p>	Pemimpin Klan Bai telah tiba tepat pada waktunya untuk melihat kelompok itu meledakkan dinding dan mengungkapkan terowongan rahasia.</p>
+<p>	“Ini harus menjadi tanah warisan.” Mendampingi pemimpin klan adalah Tie Dao Ku yang menyimpulkannya sekilas.</p>
+<p>	“Jadi seperti itu, tujuan sebenarnya kedua pencuri itu ada di sini!” Pemimpin klan Bai menggertakkan giginya saat cahaya dingin melintas melewati matanya.</p>
+<p>	Akting yang benar-benar hebat!</p>
+<p>	Dia telah mengingat adegan interaksinya dengan keduanya dalam beberapa hari ini, dalam perjalanannya ke sini.</p>
+<p>	Semakin dia ingat, semakin marah dia; dia benar-benar ditipu oleh dua pemuda. Pemimpin Klan Bai yang agung bersama dengan sekelompok klan semuanya bermain di tangan dua junior!</p>
+<p>	Jika kata-kata ini menyebar, itu akan menjadi serangan besar terhadap reputasi klan Bai.</p>
+<p>	“Junior tidak menanganinya dengan benar dan tidak bisa melindungi dua tuan muda, pemimpin klan, saya meminta hukuman.” Bai Lian, Bai Sheng Jing dan yang lainnya dengan gugup berlutut di tanah, meminta maaf.</p>
+<p>	“Berdiri, kamu hanya melakukannya sesuai dengan instruksiku. Jika kita harus menyalahkan seseorang, kita hanya bisa menyalahkan kedua pencuri itu karena terlalu licik!” Kata-kata Bai Clan Leader membebaskan Bai Lian dan kelompoknya dari beban yang berat.</p>
+<p>	“Kamu telah berhubungan dengan dua pencuri ini sepanjang waktu, apakah kamu benar-benar tidak menemukan kekurangan?” Tanya Tie Dao Ku.</p>
+<p>	Ketiga gadis itu berdiri dengan ekspresi rumit.</p>
+<p>	Terutama bagi Bai Lian; dia mengira dia sedang memainkan Fang dan Bai seperti mainan di telapak tangannya, tetapi untuk berpikir bahwa dialah yang dimainkan.</p>
+<p>	“Tidak ada kekurangan.”</p>
+<p>	“Keduanya terlalu mampu berpura-pura!”</p>
+<p>	“Memikirkan kembali sekarang, mereka menggunakan klan Bai kami. Benar-benar licik dan licik.”</p>
+<p>	Ketiga gadis itu menggelengkan kepala sebagai balasan dari Tie Dao Ku.</p>
+<p>	Tie Dao Ku juga telah belajar tentang situasi umum dari Pemimpin Klan Bai di perjalanan. Tentu saja, masalah tentang musim semi roh Bai Clan secara alami tidak terungkap.</p>
+<p>	“Ya… seperti yang kamu katakan, tujuan sebenarnya dua pencuri itu seharusnya berada di tempat ini. Kekuatan mereka tidak cukup untuk membiarkan mereka berkeliaran di sekitar gunung Bai Gu, jadi mereka meminjam kekuatan klan Bai-mu.” Tie Dao Ku menganalisis dari sudut pandang orang ketiga.</p>
+<p>	Wajah Master Gu Bai Clan berubah jelek setelah mendengarnya.</p>
+<p>	Itu memang begitu.</p>
+<p>	Pada hari-hari ini, mereka telah berkorban banyak dan membayar harga yang mahal untuk membuka jalan melalui gunung Bai Gu. Namun, mereka akhirnya membuka jalan bagi Fang dan Bai.</p>
+<p>	“Terkutuklah dua bajingan ini!”</p>
+<p>	“Jika kedua pencuri itu mendarat di tanganku, aku akan memotongnya menjadi beberapa bagian.”</p>
+<p>	“Pemimpin klan, biarkan kelompokku mengambil tugas ini, aku akan membunuh bajingan itu dan menghapus aib ini!”</p>
+<p>	Dalam sekejap, gua gunung dipenuhi dengan keributan yang marah.</p>
+<p>	Bai Clan Leader melihat sekelilingnya sebelum sedikit menganggukkan kepalanya. Bukannya dia tidak menginginkan kematian yang paling kejam bagi Fang dan Bai; sebagai ibu dari Bai Sheng dan Bai Hua, dia benci tidak bisa bersama anak-anaknya saat ini.</p>
+<p>	Semangat berada di puncaknya karena seluruh klan dimotivasi oleh kemarahan.</p>
+<p>	Bai Clan Leader melihat ke arah tetua yang memintanya untuk membiarkan dia mengambil tugas: “Kalau begitu saya perintahkan kelompok Anda untuk membuka jalan melalui terowongan rahasia ini!”</p>
+<p>	“Ya!” Penatua menerima perintah itu.</p>
+<p>	“Tunggu, paku tulang di lorong ini tidak rata dan benar-benar tertutup; bagaimana dua pencuri itu masuk ke dalam? Pasti ada mekanismenya. Biarkan saya memeriksanya terlebih dahulu. ” Tie Dao Ku mengajukan keberatan.</p>
+<p>	Penatua yang baru saja menerima perintah itu melotot: “Ini darurat sekarang, kedua tuan dalam bahaya besar; itu akan memakan waktu lama untuk mencoba mencari mekanismenya secara perlahan!”</p>
+<p>	———————————————————</p>
+<p>	“Bone spike Gu …” Fang Yuan memegang Gu ini dan mengamati detailnya.</p>
+<p>	Gu ini seukuran kepalan tangan dan seperti kaktus bola, dengan duri seperti paku tulang di seluruh permukaannya. Itu juga agak berat.</p>
+<p>	Itu adalah Gu peringkat tiga, Gu khas yang akan merusak musuh dan pengguna; jika musuh menerima seribu kerusakan maka pengguna akan terkena delapan ratus kerusakan.</p>
+<p>	Alasannya adalah ketika seorang Guru Gu menggunakannya, kerangka mereka akan mengalami perubahan sebelum paku tulang yang tajam dan keras keluar.</p>
+<p>	Bahkan sebelum menggunakan paku-paku tulang ini untuk menghadapi musuh, paku-paku tulang ini pertama-tama akan menembus daging dan kulit Guru Gu sendiri. Rasa sakitnya masih sekunder, jika tidak ada Gu penyembuhan yang sesuai untuk dipasangkan dengannya, situasinya akan benar-benar kacau.</p>
+<p>	Musuh mungkin tidak mati, tapi itu pasti akan melukai Master Gu yang menggunakannya.</p>
+<p>	“Gi apa ini?” Bai Ning Bing dengan penasaran menatapnya. Tetapi ketika dia mendengar perkenalan Fang Yuan, dia kehilangan semua minatnya.</p>
+<p>	Bukannya dia takut sakit, tapi dia sudah menggunakan otot es Gu.</p>
+<p>	Semua daging di tubuhnya telah diubah secara permanen menjadi ‘otot es’ oleh kemampuan otot es Gu. Itu tidak hanya memberinya pertahanan tetapi juga menghentikan keringat dan menghentikan pendarahan.</p>
+<p>	Namun, jika dia menggunakan tulang berduri Gu ini, pertama-tama itu akan menghilangkan otot-otot esnya yang baginya merupakan kerugian daripada keuntungan.</p>
+<p>	Fang Yuan juga tidak terlalu tertarik dengan gu paku tulang ini.</p>
+<p>	Tapi bagaimanapun juga Gu peringkat tiga, jadi Fang Yuan memperbaikinya dan menyimpannya di lubangnya untuk saat ini.</p>
+<p>	“Ayo pergi.” Fang Yuan memilih pintu tersembunyi yang muncul terakhir.</p>
+<p>	Bai Ning Bing masih menjadi orang yang mengintai di depan.</p>
+<p>	Sebuah tangga ke bawah tersebar di dalam pintu. Tangga ini panjang, setidaknya sekitar seribu meter.</p>
+<p>	Lampu di sekitarnya berangsur-angsur redup ketika mereka mencapai paruh kedua tangga, dan tangga juga semakin sempit.</p>
+<p>	Pada saat Fang dan Bai mencapai ujung tangga, cahaya hampir sepenuhnya menghilang. Di depan mereka ada pintu yang tertutup rapat.</p>
+<p>	Ada empat kata yang terukir di pintu — Kamar Rahasia Kantung Daging.</p>
+<p>	———————————————————</p>
+<p>	“Tulang-tulang ini benar-benar sangat keras!” Tetua klan Bai mengutuk saat dia menyeka keringat di dahinya.</p>
+<p>	Lima belas menit telah berlalu, tetapi mereka hanya membuka setengah terowongan rahasia ini.</p>
+<p>	Paku tulang padat yang tidak rata ini tidak terlihat berbeda dari batu gunung Bai Gu. Tetapi hanya setelah menyerang mereka, orang akan menyadari betapa mengejutkannya tulang-tulang ini.</p>
+<p>	Ekspresi Bai Clan Leader juga tidak terlihat bagus.</p>
+<p>	Semakin banyak waktu berlalu, semakin berbahaya anak-anaknya.</p>
+<p>	Saat ini, ibu ini merasa satu abad telah berlalu dengan menyakitkan, bukan hanya lima belas menit. Namun, sebagai pemimpin klan, dia harus tenang dan dingin meskipun hanya di permukaan, dia harus menjadi panutan untuk memberikan kepercayaan kepada anggota klannya.</p>
+<p>	Retakan.</p>
+<p>	Tiba-tiba, suara ringan bergema, mekanisme telah dihidupkan, menyebabkan paku tulang yang tersisa dengan cepat menyusut kembali ke lubang di dinding gua.</p>
+<p>	Semua orang terkejut dan melihat ke arah sumber satu demi satu.</p>
+<p>	Tie Dao Ku menyentuh dagunya dan menganalisis dirinya sendiri: “Mekanisme ini agak cerdik. Untuk membuka pintu masuk, seseorang perlu memutar spike tulang spiral. Ini meninggalkan kesan yang mendalam pada orang-orang dan ketika orang datang ke terowongan rahasia ini, mereka akan sering mengandalkan kesan ini dan mencoba memutar paku tulang spiral di dekat mereka. Sayangnya, untuk mematikan mekanisme ini akan membutuhkan seseorang untuk menarik lonjakan tulang spiral dan tidak memelintirnya.”</p>
+<p>	Pada saat itu, semua orang tercengang.</p>
+<p>	Penatua yang telah menerima perintah itu sekarang benar-benar merah dan tampaknya sangat malu.</p>
+<p>	Setelah kelompok melewati terowongan rahasia ini, mereka tiba di aula pertama.</p>
+<p>	“Ini adalah?!” Mereka tercengang.</p>
+<p>	Di sekeliling mereka ada mayat yang terpotong-potong. Mayat-mayat ini adalah hasil dari Bai Ning Bing membunuh cacing Gu yang ada di tong.</p>
+<p>	“Ini harusnya tombak tulang Gu … dan ada juga tombak tulang spiral Gu.” Beberapa penatua dengan cepat mengenali Gu ini.</p>
+<p>	“Ini benar-benar tanah warisan! Sepanjang hidupku, ini pertama kalinya aku mengalaminya!” Seseorang berkata dengan penuh semangat.</p>
+<p>	“Lihat, ada tong besar di tengah, apa yang ada di dalamnya?” Seseorang dengan penasaran menunjuk ke tong.</p>
+<p>	Namun, tong itu tidak memiliki apa pun selain mata air susu.</p>
+<p>	Kelompok klan Bai kecewa dan kemudian menjadi marah.</p>
+<p>	“Para pencuri ini benar-benar tidak meninggalkan ruang untuk kompromi! Mereka tidak meninggalkan apapun.”</p>
+<p>	“Sialan, sangat tidak berperasaan, mereka menghancurkan begitu banyak cacing Gu!”</p>
+<p>	Banyak yang mengutuk dalam kesedihan dan kemarahan.</p>
+<p>	Bahkan para tetua merasa sedih akan hal ini.</p>
+<p>	“Ayo bergerak cepat, semakin cepat kita menangkap mereka, semakin sedikit kerusakan yang kita derita.” Tie Dao Ku berkata, menyebabkan tatapan semua orang menjadi cerah.</p>
+<p>	Dengan stimulasi ini, moral kelompok meningkat lebih tinggi, berharap mereka dapat segera muncul di depan Fang dan Bai.</p>
+<p>	Rombongan kemudian tiba di aula kedua dan melihat tiga pilar batu.</p>
+<p>	“Ada cacing Gu yang tersisa!” Master gu di depan berteriak bahagia.</p>
+<p>	“Tolong lihat pemimpin klan.” Segera, sayap tulang lengan dan pelindung tulang rusuk Gu keduanya muncul di depan mata pemimpin klan.</p>
+<p>	Bai Clan Leader melirik mereka dan kemudian membuat orang-orangnya menyelundup mereka, dia tidak merasakan kebahagiaan apa pun.</p>
+<p>	Dibandingkan dengan cacing Gu, dia lebih memperhatikan keselamatan anak-anaknya.</p>
+<p>	“Apakah kamu melihat? Kedua Gu itu adalah cacing Gu peringkat tiga. ”</p>
+<p>	“Warisan ini benar-benar membuat seseorang mengantisipasi apa yang akan datang.”</p>
+<p>	“Keberuntungan dan kemalangan datang pada gilirannya, pepatah ini benar sekali ….”</p>
+<p>	Beberapa sangat tersentuh dan beberapa kagum.</p>
+<p>	“Tidakkah menurutmu itu aneh? Mengapa mereka meninggalkan Gu ini?” Sebaliknya, Tie Dao Ku bisa dengan jelas merasakan sesuatu yang mencurigakan sebagai penonton.</p>
+<p>	“Tiga, pilih satu, puas hati. Warisan Bai Gu, ditinggalkan untuk keturunan masa depan. ” Seseorang segera menemukan kata-kata yang terukir di pilar batu.</p>
+<p>	“Ini tidak terlihat seperti warisan jalur iblis, saya khawatir itu ditinggalkan oleh jalan lurus Gu Master.”</p>
+<p>	“Ck, hati puas, tapi tidak ada dari kita yang puas.”</p>
+<p>	“Ayo bergerak, cepat. Kita harus menyelamatkan kedua tuan muda itu terlebih dahulu, tidak akan terlambat untuk mengunjunginya lagi nanti.”</p>
+<p>	Kelompok itu saling mendesak dan tiba di aula ketiga.</p>
+<p>	Mereka melihat kerangka itu duduk bersila dan sebuah buku tulang yang sangat besar.</p>
+<p>	“Ulama Tulang Abu-abu…. jadi warisan ini milik senior ini.” Seorang tetua membuka buku itu dan menyadari bahwa ini memang warisan jalan lurus.</p>
+<p>	Alis berkerut Bai Clan Leader sedikit rileks.</p>
+<p>	Ini adalah kabar baik pertama yang dia dengar sampai sekarang.</p>
+<p>	Warisan jalur lurus biasanya ringan dan tidak berbahaya seperti warisan jalur iblis.</p>
+<p>	Namun, Tie Dao Ku mulai cemberut. Dia semakin merasa ada yang tidak beres, kata-kata di pilar batu itu memberikan kekhawatiran yang tak terlukiskan dalam dirinya.</p>
+<p>	Kelompok itu mengambil tengkorak yang hancur dan melihat tulang berduri Gu di dalamnya.</p>
+<p>	Setelah itu, sebagian dinding batu terbuka dan menunjukkan terowongan rahasia baru. Kelompok memasuki bagian ini.</p>
+<p>	——————————————————</p>
+<p>	“Kamar Rahasia Kantung Daging…” Bai Ning Bing bergumam sebelum mencoba membuka pintu.</p>
+<p>	Pintunya tidak terkunci sama sekali dan mudah dibuka.</p>
+<p>	Di balik pintu ada ruangan tersembunyi yang tidak terlalu besar, tapi sangat aneh.</p>
+<p>	Dinding di ruang tersembunyi semuanya terbuat dari daging. Ketika Fang dan Bai masuk ke dalam, mereka merasa seperti memasuki perut monster.</p>
+<p>	Dinding daging terasa hangat dan sedikit berdenyut berirama seolah-olah ada hati di dalamnya.</p>
+<p>	Seolah merasakan kehadiran seseorang, dinding daging tiba-tiba membuka celah kecil dan memperlihatkan gigi putih di sekujurnya.</p>
+<p>	Bai Ning Bing tercengang.</p>
+<p>	Tampaknya ada banyak mulut besar yang terbuka di dinding daging.</p>
+<p>	Mulut terbuka dengan rahang terkatup, memperlihatkan satu set gigi yang rata. Ungkapan ‘memperlihatkan taringnya’ sepertinya sangat cocok dengan adegan ini.</p>
+<p>	Hehehehe… hahaha… hehehe…</p>
+<p>	Mulut ini mengeluarkan semua jenis suara tawa. Tawa bercampur dan bergema di ruang rahasia yang sempit ini; siapapun yang mendengarnya akan merasakan jantungnya berdebar!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

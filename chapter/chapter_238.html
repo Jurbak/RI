@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 238 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 238";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_237.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 238">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_239.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 238</h1>
+        <div class="text-left">
+<p>	Bab 238</p>
+<p>	Bab 238: Nona, selamatkan aku!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Kemarahan pelayan tua melonjak ke langit, dia memutuskan untuk memberi Fang Yuan pelajaran yang tak terlupakan.</p>
+<p>	Bang, dia buka pintunya.</p>
+<p>	Namun, adegan yang muncul di depannya adalah luka dan noda darah Fang Yuan.</p>
+<p>	Pramugara tua itu cukup terkejut, melupakan kemarahannya, dia bertanya: “Kamu, apa yang terjadi? Apakah paket binatang buas menyerbu kita? ”</p>
+<p>	“Tidak, pelayan tua. Pencuri-pencuri itulah yang melukai saya, dan merampas batu-batu purba saya! Pramugara tua, Anda perlu mencari keadilan untuk saya! ” Fang Yuan menyeka air matanya dan berteriak.</p>
+<p>	………</p>
+<p>	“Aduh… sakit!”</p>
+<p>	“Apakah orang gila itu sudah pergi?”</p>
+<p>	“Sialan, orang gila itu terlalu kuat!”</p>
+<p>	Adegan di dalam tenda benar-benar berantakan. Aroma rebusan daging masih ada, tetapi tidak bisa lagi diselamatkan dan pancinya hancur total.</p>
+<p>	Sekelompok pelayan perlahan-lahan memulihkan kesadaran mereka; mereka memiliki hidung berdarah dan wajah bengkak, atau mereka menghirup udara dingin.</p>
+<p>	“Anak … Seorang pemula yang berani mengalahkan kita, ini sudah keterlaluan!”</p>
+<p>	“Kami bahkan belum mencari masalah dengannya, namun dia berani mencari masalah dengan kami terlebih dahulu ?!”</p>
+<p>	“Saya tidak bisa menahan amarah ini. Kita tidak bisa membiarkan ini terjadi, kita harus membalasnya!”</p>
+<p>	“Bagaimana? Bisakah kamu bahkan mengalahkannya? ”</p>
+<p>	“Mengapa kita harus mengalahkannya? Kami hanya akan memberitahunya dan membiarkan pramugara tua menanganinya. Pemula ini terlalu tirani, bagaimana kita masih bisa bekerja sama nanti? ”</p>
+<p>	“Betul sekali. Berikan dua batu purba yang dia lemparkan padaku. Ini akan menjadi buktinya!” Saudara Qiang tiba-tiba berkata.</p>
+<p>	Tenda segera menjadi tenang, semua orang tahu ini hanya alasan yang digunakan oleh Saudara Qiang.</p>
+<p>	Para pelayan yang tidak bisa merebut batu purba melihat ini dengan gembira, melihat monyet kurus dan pelayan lainnya.</p>
+<p>	Keduanya tampak bergumam, tetapi tidak berbicara; jelas, mereka tidak mau menyerahkannya.</p>
+<p>	Saudara Qiang sama sekali tidak bodoh, karena dia berkata dengan bijaksana: “Kita semua terluka, kedua batu purba ini bukan hanya bukti, itu juga biaya pengobatan kita.”</p>
+<p>	Kata-kata ini bergema dengan para pelayan yang ingin berbagi, saat mereka berbicara satu demi satu.</p>
+<p>	“Saudara Qiang benar!”</p>
+<p>	“Monyet, serahkan batu purba itu kepada Saudara Qiang. Atau apakah Anda berpikir untuk menjadi bos? ”</p>
+<p>	“Saudara Qiang memiliki latar belakang yang dalam, hanya dia yang bisa membalaskan dendam kita!”</p>
+<p>	“Saudara Qiang, kami percaya Anda …”</p>
+<p>	Di bawah tekanan semua orang, monyet kurus dan pelayan lainnya hanya bisa mengerutkan bibir, dan dengan enggan menyerahkan batu purba mereka kepada Saudara Qiang.</p>
+<p>	Saat Brother Qiang menerima dan merasakan batu purba yang halus dan mengilap, dia merasa hidungnya tidak terlalu sakit lagi.</p>
+<p>	Namun, tepat pada saat ini, tirai pintu masuk tiba-tiba terangkat.</p>
+<p>	Semua orang terkejut, mengira Fang Yuan telah datang lagi. Tapi yang menatap pemandangan itu adalah pramugara tua.</p>
+<p>	“Pelayan tua, apa yang kamu lakukan di sini!”</p>
+<p>	“Pelayan tua, kami hanya akan mencarimu!”</p>
+<p>	Para pelayan terkejut sekaligus gembira.</p>
+<p>	Ekspresi pelayan tua itu, bagaimanapun, tidak baik, terutama ketika dia melihat dua batu purba di tangan Brother Qiang, penampilannya menjadi lebih suram.</p>
+<p>	Dia mencapai di depan Saudara Qiang dalam beberapa langkah, lalu menyambar batu purba dan memberikan beberapa tamparan keras kepada Saudara Qiang.</p>
+<p>	Saudara Qiang tercengang.</p>
+<p>	Para pelayan lainnya juga tercengang.</p>
+<p>	Setelah beberapa saat, kelompok itu akhirnya bereaksi.</p>
+<p>	“Pelayan tua, mengapa kamu begitu marah?”</p>
+<p>	“Pelayan tua, kamu, apa yang kamu lakukan ?!”</p>
+<p>	Pria tua itu hanya berjalan pergi dan membuka tirai: “Qiang, monyet kurus, kalian sekelompok bajingan, keluar!”</p>
+<p>	Kemudian dia langsung keluar dari tenda.</p>
+<p>	Saudara Qiang menutupi wajahnya, tetapi dia tidak berani menentang pramugara tua itu. Dia menahan amarahnya dan berjalan keluar dari tenda dengan bingung.</p>
+<p>	Para pelayan lainnya juga mengikutinya keluar dari tenda, ketika mereka melihat Fang Yuan berdiri di samping; seluruh tubuhnya terluka dan kainnya berlumuran darah.</p>
+<p>	“Pelayan tua, merekalah yang mencuri batu purba saya!” Fang Yuan menunjuk mereka dan berteriak dengan kemarahan yang benar.</p>
+<p>	“Apa itu!” Para pelayan baru kemudian bereaksi.</p>
+<p>	“Brat, kamu berani memfitnah kami!”</p>
+<p>	“Brengsek, aku akan mengupas kulitmu!!”</p>
+<p>	Sekelompok pelayan sangat marah dan berteriak satu demi satu.</p>
+<p>	Tamparan!</p>
+<p>	Tamparan yang jelas langsung menekan adegan itu.</p>
+<p>	Pelayan yang paling banyak berteriak, menutupi wajahnya, dan tanpa sadar mundur selangkah dari tamparan itu.</p>
+<p>	Pramugara tua itu memandangnya dengan muram: “Mengapa dia tidak mengeluh, hmm? Hehe, kalian semakin tidak terkendali, kamu bahkan berani merebut batu purba rekan kerjamu! ”</p>
+<p>	Pramugara tua sangat menyadari intimidasi pada pendatang baru, tetapi dia senang melihat itu terjadi.</p>
+<p>	Ini adalah proses yang diperlukan. Di satu sisi, itu akan menekan arogansi pendatang baru, membuat pekerjaan pengawasannya lebih mudah; di sisi lain, itu juga bisa mempromosikan keharmonisan antara pendatang lama dan pendatang baru.</p>
+<p>	Namun, intimidasi kali ini terlalu jauh, mereka langsung menyambar batu purba; apa perbedaan antara mereka dan bandit?</p>
+<p>	“Pelayan tua, bukan itu yang kamu pikirkan ….” Seseorang mengeluh.</p>
+<p>	Tamparan!</p>
+<p>	Tamparan jelas lainnya.</p>
+<p>	Nada bicara pelayan tua itu berubah dingin: “Apakah saya menyuruh Anda berbicara?”</p>
+<p>	“Pelayan tua, kita harus angkat bicara!”</p>
+<p>	“Ya, kami dituduh!”</p>
+<p>	Banyak pelayan berteriak, merasa dirugikan. Kami adalah korban di sini!</p>
+<p>	Pramugara tua itu mendidih dalam kemarahan ketika dia berteriak dengan keras: “Kalian mengambil batu purba dan Anda benar-benar berani mengatakan bahwa Anda sedang dituduh. Kedua batu purba ini, apakah itu miliknya atau bukan? Berbicara! Bicaralah dengan jujur!”</p>
+<p>	“Ya ya.”</p>
+<p>	“Memang, tapi…”</p>
+<p>	Tampar tamparan!</p>
+<p>	Dua tamparan, kedua pelayan menutup mulut mereka.</p>
+<p>	Pramugara tua itu menunjuk ke arah mereka dan dengan marah menegur: “Oke, lupakan saja merebut batu purba, kamu benar-benar berani menggunakan pisau! Anda pasti punya nyali! Bicaralah, siapa yang menggunakan pisau itu…”</p>
+<p>	Ketika para pelayan lumpuh dan tidak bisa bekerja lagi, penyembuhan dan pengobatan mereka akan menjadi biaya!</p>
+<p>	Jika hal-hal seperti itu tertunda, target kesalahan master Gu adalah pelayan lama.</p>
+<p>	“Menggunakan pisau?”</p>
+<p>	“Kami tidak!”</p>
+<p>	“Pelayan tua, kita semua berpengalaman, siapa yang tidak tahu tentang ini?”</p>
+<p>	“Beban omong kosong. Apakah Anda pikir saya buta? Jika Anda tidak menggunakan pisau, lalu dari mana lukanya berasal? Apakah Anda memberi tahu saya bahwa dia memotong dirinya sendiri? Pramugara tua itu terus berteriak dengan marah.</p>
+<p>	Bai Ning Bing berpikir dalam hati, sambil melihat pemandangan ini dari sudut gelap tidak jauh: Pramugara tua, Anda cukup pintar, Anda benar-benar dapat menebaknya.</p>
+<p>	Tampar.. Tamparan.. Tamparan…</p>
+<p>	Kemarahan pelayan tua itu telah mencapai puncaknya saat dia menampar para pelayan satu demi satu.</p>
+<p>	Setiap pelayan menerima beberapa tamparan; tidak ada yang berani berbicara karena takut akan otoritas pelayan tua itu.</p>
+<p>	Mereka hanya bisa mengepalkan tangan karena marah. Pembuluh darah di dahi mereka keluar dan suara retakan terpancar dari gigi mereka yang bergemeretak. Mereka semua dipenuhi dengan perasaan kenyang tanpa tempat untuk melampiaskannya.</p>
+<p>	“Kembalilah ke tenda, aku akan menyelesaikan akun denganmu besok.” Tangan pramugara tua itu sudah mati rasa karena tamparan itu; karena dia sudah tua, dia mengalami kesulitan bernapas tetapi kemarahannya juga sebagian besar telah hilang.</p>
+<p>	Para pelayan tidak berani menentang perintah ini, tetapi sebelum pergi, mereka semua dengan marah menatap Fang Yuan, mengukir gambarnya di lubuk hati mereka.</p>
+<p>	Pramugara tua berjalan menuju Fang Yuan dan memberinya batu purba, berkata dengan nada kesal: “Kamu mendapatkan batu purbamu kembali, jangan hilangkan lagi. Aku tidak akan peduli jika kamu kehilangan mereka lagi!”</p>
+<p>	Fang Yuan mengendus dan menangis, dia tampak tergerak dan takut: “Pelayan tua, tolong jaga dua batu purba ini untukku. Aku takut mereka akan diculik.”</p>
+<p>	Pramugara tua terdiam beberapa saat, sebelum merasakan kegembiraan yang meluap-luap. Pedagang selalu dalam bahaya, mungkin suatu hari Fang Yuan akan ditelan oleh binatang buas, bukankah kedua batu purba ini akan menjadi miliknya?</p>
+<p>	“Baiklah, aku akan mengambilnya sendiri untuk melindungi mereka untukmu.” Kata pelayan tua itu.</p>
+<p>	“Terima kasih pramugari tua, kamu benar-benar orang yang baik.” Fang Yuan berulang kali membungkuk dan terus mengucapkan terima kasih.</p>
+<p>	“Baiklah, baiklah, aku lelah, kamu harus istirahat juga.” Pramugara tua melambaikan tangannya dan dengan tidak sabar berjalan pergi. Adapun di mana Fang Yuan tidur, itu bukan urusannya.</p>
+<p>	“Hei Tu ini benar-benar bodoh.” Pramugara tua itu mencibir ke dalam.</p>
+<p>	Setelah semua orang pergi, ekspresi Fang Yuan kembali normal.</p>
+<p>	“Luka di tubuhmu masih berdarah, apakah kamu tidak akan mengobatinya?” Bai Ning Bing datang.</p>
+<p>	“Aku masih berguna untuk mereka, ayo pergi.” Fang Yuan tersenyum.</p>
+<p>	…</p>
+<p>	Di dalam tenda, lampu minyak dinyalakan.</p>
+<p>	Shang Xin Ci sedang memegang sebuah buku, ketika tiba-tiba alisnya sedikit berkerut: “Xiao Die, apakah kamu mendengar itu? Sepertinya seseorang menangis minta tolong?”</p>
+<p>	Gadis pelayan bernama Xiao Die, tertidur dengan kepala perlahan bergerak ke atas dan ke bawah. Tidak apa-apa jika dia tidur di depan wanita muda itu.</p>
+<p>	Saat ini, dia terkejut bangun. Dia mencondongkan telinganya untuk mendengarkan dan segera berkata: “Wah, seseorang menangis minta tolong …”</p>
+<p>	“Siapa yang menangis selarut ini? Kenapa kamu lagi!” Pengawal Shang Xin Ci, Gu Master Zhang Zhu berjalan keluar dan melihat Fang Yuan.</p>
+<p>	Fang Yuan tersungkur di tanah; ingus dan air mata jatuh.</p>
+<p>	“Enyah. Aku akan membunuhmu jika kamu tidak tersesat saat ini juga!” Zhang Zhu berteriak, dia tidak memiliki kesan yang baik tentang Fang Yuan.</p>
+<p>	“Paman Zhang Zhu …” Pada saat ini, Shang Xin Ci dan gadis pelayan berjalan keluar.</p>
+<p>	“Kenapa kamu lagi, apakah kamu menghantui kami ?!” Mata gadis pelayan itu terbuka lebar ketika dia melihat Fang Yuan.</p>
+<p>	Fang Yuan mengabaikan mereka dan hanya menatap Shang Xin Ci: “Nona klan Zhang, hidupku telah dirugikan olehmu dan hanya kamu yang bisa menyelamatkanku!”</p>
+<p>	“Tsk, kamu gila, omong kosong apa yang kamu katakan!” Zhang Zhu berteriak dengan marah.</p>
+<p>	“Nona muda kami sangat baik hati, bagaimana dia bisa menyakitimu? Nona, ayo pergi, jangan perhatikan orang gila ini. ” Gadis pelayan itu mencaci Fang Yuan.</p>
+<p>	Sifat Shang Xin Ci sedemikian rupa sehingga dia tidak pernah bisa melihat penderitaan dan ketidakberdayaan orang lain.</p>
+<p>	Darah Fang Yuan yang basah kuyup dan tubuh yang terluka telah memenangkan simpatinya. Sekarang, dengan kata-katanya, jika Shang Xin Ci tidak terlibat, dia pasti tidak akan bisa tidur nyenyak.</p>
+<p>	“Kamu bilang kamu dirugikan olehku? Apa maksudmu? Paman Zhang Zhu, saya harus menyusahkan Anda untuk menyembuhkannya terlebih dahulu. ” kata Shang Xin Ci.</p>
+<p>	Meskipun Zhang Zhu tidak mau, dia hanya bisa melakukan apa yang dia katakan. Dia mendorong tangannya, bola cahaya putih memasuki tubuh Fang Yuan; pendarahan segera berhenti dan luka secara bertahap menutup.</p>
+<p>	Fang Yuan berkata: “Itu adalah dua batu purba itu, yang lain iri padanya dan menyambar batu purba saya. Saya tidak bisa melawan mereka dan hanya bisa meminta pelayan tua untuk menegakkan keadilan. Mereka telah mengembalikan batu purba, tetapi mengancam bahwa mereka akan memberi saya pelajaran dan membuat hidup saya lebih buruk daripada kematian!</p>
+<p>	“Jadi, seperti itu.” Shang Xin Ci menghela nafas ketika dia mendengar ini.</p>
+<p>	“Kamu menuai apa yang kamu tabur. Lady, kita tidak harus terlibat dengan dia. Dia jelas membawa ini pada dirinya sendiri, menjual dengan harga tinggi, apakah dia pikir semuanya akan baik-baik saja? ” Xiao Die memutar matanya, menunjukkan ketidaksenangannya pada Fang Yuan.</p>
+<p>	Fang Yuan melanjutkan: “Saya telah mendiskusikannya dengan rekan saya, kami hanya bisa mengandalkan Nona Zhang. Kalau tidak, kita akan dibunuh oleh mereka, dua nyawa akan hilang!”</p>
+<p>	“Itu tidak akan sampai membunuh…” Shang Xin Ci menghibur Fang Yuan.</p>
+<p>	Fang Yuan menyelanya: “Nona, Anda tidak tahu betapa gelapnya di sini. Mereka akan berkomplot melawan saya selama serangan binatang buas. Mungkin suatu hari, saya akan dimakan oleh binatang buas, tetapi sebenarnya itu dimanipulasi oleh mereka di belakang layar. Nona, saya mohon Anda membawa kami ke tempat perlindungan Anda, tolong selamatkan kami!”</p>
+<p>	Shang Xin Ci ragu-ragu, tetapi dia akhirnya tidak bisa memaksa dirinya untuk menolaknya, “Baiklah, untuk sementara aku akan membawa kalian masuk.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

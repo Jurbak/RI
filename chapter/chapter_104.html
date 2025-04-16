@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 104 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 104";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_103.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 104">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_105.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 104</h1>
+        <div class="text-left">
+<p>	Bab 104</p>
+<p>	Bab 104: Ingin membeli cacing minuman keras?</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Akhirnya, Fang Yuan tidak turun, dan saudaranya tidak naik.</p>
+<p>	Keduanya bertahan, dan jarak antara lantai menunjukkan bahwa jarak antara saudara-saudara semakin besar.</p>
+<p>	Pembicaraannya tidak lancar.</p>
+<p>	“Saudaraku, kamu terlalu berlebihan! Untuk berpikir bahwa kamu adalah orang seperti itu!” Di lantai bawah, Fang Zheng berdiri, alisnya berkerut erat saat dia berteriak.</p>
+<p>	Fang Yuan tidak marah, tetapi tertawa ringan, “Oh, orang macam apa aku ini?”</p>
+<p>	“Saudara laki-laki!” Fang Zheng menghela nafas dalam-dalam, “Setelah orang tua kami meninggal, Paman dan Bibi mengadopsi kami. Mereka memiliki rasa syukur membesarkan kita. Untuk berpikir bahwa Anda sangat tidak berperasaan, membalas budi dengan balas dendam. Kakak, apakah hatimu terbuat dari batu?”</p>
+<p>	Mengatakan demikian, nada suara Fang Zheng sedikit bergetar.</p>
+<p>	“Aneh sekali, warisan ini menjadi hakku, apa yang bisa dikatakan tentang balas dendam dan bantuan.” Fang Yuan membalas dengan tidak antusias.</p>
+<p>	Fang Zheng menggertakkan giginya, mengakui, “Ya! Aku tahu, warisan ini dari orang tua kita. Tapi Anda tidak bisa mengambil semuanya, setidaknya Anda harus meninggalkan beberapa untuk Bibi dan Paman agar mereka menikmati hidup mereka di masa pensiun, bukan? Melakukan itu, Anda benar-benar membuat hati kami sangat kecewa, Anda membiarkan saya memandang rendah Anda!</p>
+<p>	Berhenti sejenak, dia melanjutkan, “Apakah Anda pernah kembali ke rumah untuk melihat kondisi kehidupan mereka sekarang? Setengah dari pelayan di rumah sudah di PHK, mereka tidak mampu membelinya. Kakak, bagaimana kamu bisa begitu kejam! ”</p>
+<p>	Mata Fang Zheng merah, mencengkeram tinjunya, dia berteriak pada Fang Yuan.</p>
+<p>	Fang Yuan tertawa dingin, dia tahu bahwa Paman dan Bibi telah mengendalikan aset selama ini dan pasti telah mengumpulkan banyak uang. Bahkan jika tidak demikian, hanya dengan keuntungan di akhir bulan dari kedai anggur, mereka akan mampu membayar semua pelayan itu. Mereka hanya berpura-pura miskin sehingga Fang Zheng akan datang dan mencari masalah.</p>
+<p>	Fang Yuan menggunakan tatapannya untuk menilai Fang Zheng dan berkata langsung, “Adikku yang manis, jika aku bersikeras untuk tidak mengembalikan aset, apa yang bisa kamu lakukan? Meskipun Anda berusia enam belas tahun, Anda sudah mengakui mereka sebagai orang tua, jangan lupakan itu. Anda telah kehilangan hak atas warisan.”</p>
+<p>	“Aku tahu!” Tatapan Fang Zheng memiliki cahaya ilahi, “Itulah sebabnya saya di sini untuk menantang Anda dalam tantangan perang tertulis (1). Di arena, mari kita bertanding untuk menentukan kemenangan, jika saya menang, kembalikan sebagian dari aset keluarga kepada ibu dan ayah. ”</p>
+<p>	Pertarungan Gu dunia ini seperti kompetisi seni bela diri di Bumi.</p>
+<p>	Di antara klan, jika mereka memiliki konflik yang tidak dapat diselesaikan, mereka dapat menggunakan metode ini untuk menyelesaikan masalah. Ada banyak jenis pertempuran Gu — 1 lawan 1, 2 lawan 2, pertempuran seni, pertempuran kekuatan, dan pertempuran hidup dan mati.</p>
+<p>	Tentu saja, Fang Yuan dan Fang Zheng tidak akan terlalu serius untuk bertarung sampai mati jika mereka bertarung dengan Gu.</p>
+<p>	Melihat ekspresi tekad saudara itu, Fang Yuan tiba-tiba tertawa, “Sepertinya sebelum ini, Paman dan Bibi secara khusus memberitahumu ya. Tapi, sebagai seseorang yang kalah dariku sebelumnya, kamu memiliki kepercayaan diri untuk memenangkanku?”</p>
+<p>	Fang Zheng menyipitkan mata, dengan enggan memikirkan apa yang terjadi belum lama ini — penghinaan di arena.</p>
+<p>	Sejak saat itu, setiap kali dia memikirkannya, kemarahan akan muncul dari hatinya. Kemarahan ini diarahkan pada Fang Yuan dan juga dirinya sendiri.</p>
+<p>	Dia membenci dirinya sendiri karena tidak berguna, menjadi panik pada saat kritis. Faktanya, dia tampil buruk dalam pertempuran itu. Temponya diambil oleh Fang Yuan, dan dia hanya berpikir untuk menggunakan Jade Skin Gu pada saat terakhir. Pada akhirnya, dia kalah secara tiba-tiba dan sangat marah.</p>
+<p>	Kemarahan Fang Zheng terhadap dirinya sendiri memicu kemarahan yang lebih besar.</p>
+<p>	Jadi, mau tidak mau, dia memiliki pemikiran seperti itu—”Jika saya bisa mengulanginya, saya pasti bisa tampil lebih baik dan mengalahkan kakak laki-laki saya!”</p>
+<p>	Jadi, ketika Paman dan Bibi mengeluh kepadanya, Fang Zheng tidak hanya ingin mengambil kembali warisan untuk mereka berdua, tetapi juga ingin melawan Fang Yuan lagi untuk membuktikan dirinya.</p>
+<p>	“Semuanya berbeda sekarang, saudara.” Fang Zheng memandang Fang Yuan, matanya menyala dengan tekad, api berkobar di sekelilingnya, “Terakhir kali, saya tampil buruk dan kalah dari Anda. Kali ini, saya telah berhasil menyempurnakan worm Moon Raiment Gu peringkat dua. Kamu tidak bisa mematahkan pertahananku lagi!”</p>
+<p>	Mengatakan demikian, dia memancarkan kabut biru muda yang samar-samar di sekitar tubuhnya.</p>
+<p>	Kabut menyelimutinya, dan di dalam kabut, akhirnya terbentuk menjadi pita panjang yang mengambang.</p>
+<p>	Pita itu melingkar di pinggangnya dan melingkari kedua anggota tubuhnya. (2) Bagian tengah pita melayang di atas kepalanya, menyebabkan Fang Zheng mengeluarkan semacam napas magis yang anggun dan misterius.</p>
+<p>	“Memang, itu adalah Pakaian Bulan, betapa bodohnya, mengungkapkan kartu trufmu seperti itu.” Fang Yuan berdiri di tangga, melihat pemandangan ini, tatapannya berbinar.</p>
+<p>	Moon Raiment adalah cacing Gu peringkat dua dengan sifat defensif. Meskipun pertahanannya sedikit lebih rendah daripada Gu Giok Putih, itu bisa membantu orang lain dalam bertahan dan memiliki kontribusi yang lebih besar terhadap pertarungan kelompok kecil.</p>
+<p>	Dengan Gu ini di tangannya, Fang Yuan benar-benar tidak bisa mematahkan pertahanan Fang Zheng dengan tinjunya. Mengirim tinju itu seperti memukul kapas, benar-benar kehilangan kekuatan kinetiknya.</p>
+<p>	Bahkan jika dia menggunakan Moonlight Gu, dia tidak bisa melakukan terobosan kecuali itu adalah Moonglow Gu. Jadi jika Fang Zheng ingin bertarung dan mengundang Fang Yuan ke pertempuran Gu, menurut aturan klan dia harus menerimanya. Tanpa mengungkapkan Gu Giok Putih, Fang Yuan mungkin benar-benar kalah.</p>
+<p>	Nilai adalah nilai A, dan dengan asuhan pemimpin klan, Fang Zheng berkembang pesat. Dapat dikatakan bahwa, selama fase akademi, Fang Yuan menekan Fang Zheng. Tapi sekarang dia harus mengakui, Fang Zheng mulai menunjukkan kecemerlangan seorang jenius dan menunjukkan ancaman yang mengesankan kepada Fang Yuan.</p>
+<p>	“Tapi, kamu pikir aku tidak mengharapkan ini?” Fang Yuan menatap saudaranya, bibirnya melengkung.</p>
+<p>	Dia berkata kepada Fang Zheng, “Adikku yang gigih, tentu saja kamu bisa menantangku. Tapi apakah Anda mendapat persetujuan dari rekan tim Anda? Jika selama pertempuran, kelompok Anda harus menjalankan misi, bagaimana Anda memilihnya?”</p>
+<p>	Fang Zheng berhenti; memang, dia tidak memikirkan hal ini.</p>
+<p>	Dia harus mengakui, saudaranya benar. Kelompok harus bekerja sama, dan jika rekan satu tim ingin melakukan operasi individu, mereka harus melapor terlebih dahulu.</p>
+<p>	“Jadi, sebaiknya kamu kembali, temukan pemimpin Gu Yue Qing Shu milikmu itu, dan jelaskan situasinya. Saya akan menunggu kalian di kedai anggur gerbang utara, ”kata Fang Yuan.</p>
+<p>	Fang Zheng sedikit ragu, lalu menggertakkan giginya, “Aku pergi sekarang, saudara! Tapi izinkan saya memberi tahu Anda, taktik penundaan tidak berhasil. ”</p>
+<p>	Dia datang ke kediaman Gu Yue Qing Shu, dan pelayan keluarga membawanya masuk.</p>
+<p>	Gu Yue Qing Shu sedang berlatih menggunakan Gu-nya.</p>
+<p>	Tubuhnya bergerak di panggung arena taman, sangat lincah dan bugar.</p>
+<p>	“Gu anggur hijau,” katanya ringan, dan dari telapak tangan kanannya, pohon anggur hijau melesat keluar. Itu sekitar lima belas meter. Qing Shu meraih pokok anggur dan menggunakannya sebagai cambuk, membelah, melingkar dan menyapu.</p>
+<p>	Pow pow pow!</p>
+<p>	Bayangan cambuk menyapu lantai, membuat beton di tanah yang rusak beterbangan.</p>
+<p>	“Jarum pinus Gu.” Dia tiba-tiba menyimpan cambuk anggur, dan membalik rambut hijau panjangnya.</p>
+<p>	Segera, dari antara rambut, jarum pinus melesat seperti hujan.</p>
+<p>	Jarum pinus menghantam boneka kayu tidak jauh, menusuk seluruh tubuhnya dan menciptakan lubang kecil yang dekat dan banyak.</p>
+<p>	“Gu Pusaran Bulan.” Selanjutnya, dia meletakkan telapak tangan kirinya, dan lambang bulan sabit berwarna hijau bersinar dalam cahaya hijau terang.</p>
+<p>	Dengan jentikan pergelangan tangannya, moonblade hijau itu terlempar.</p>
+<p>	Berbeda dari lintasan moonblade biasa, moonblade hijau ini lebih melengkung. Saat terbang di udara, ia bergerak dalam lengkungan, membuat musuh lebih sulit untuk diprediksi.</p>
+<p>	“Seperti yang diharapkan dari Master Gu nomor satu di antara peringkat dua, Senior Qing Shu! Dengan serangan seperti itu, aku bahkan tidak bisa bertahan selama sepuluh napas. Dia benar-benar terlalu kuat.” Fang Zheng menatap dengan mulut terbuka lebar, melupakan niat awalnya.</p>
+<p>	“Oh? Fang Zheng, mengapa kamu di sini. Misi sebelumnya baru saja berakhir, kamu harus lebih banyak istirahat, harus menjaga keseimbangan antara bekerja dan istirahat!” Gu Yue Qing Shu saat melihat Fang Zheng, menjauhkan aura bertarungnya dan tersenyum lembut.</p>
+<p>	“Qing Shu Senior.” Fang Zheng membungkuk padanya dengan hormat.</p>
+<p>	Rasa hormat ini tulus dari hatinya. Sejak dia bergabung dengan grup, Fang Zheng telah dirawat dengan penuh perhatian oleh Qing Shu, dan di mata Fang Zheng, Qing Shu seperti kakak laki-laki.</p>
+<p>	“Oh Fang Zheng, sepertinya kamu ada urusan denganku?” Qing Shu menyeka keringat di dahinya sambil menuju Fang Zheng sambil tersenyum.</p>
+<p>	“Seperti ini …” Fang Zheng mengatakan niatnya, serta seluruh cerita.</p>
+<p>	Mendengar itu, alis Qing Shu sedikit terangkat. Yang benar adalah dia telah mendengar banyak tentang Fang Yuan, dan jika dibandingkan dengan Fang Zheng, dia lebih tertarik pada Fang Yuan.</p>
+<p>	“Mungkin juga bertemu dengannya sekali saja.”</p>
+<p>	Berpikir demikian, Gu Yue Qing Shu mengangguk, “Aku juga punya sesuatu untuk didiskusikan dengan saudaramu. Kalau begitu, ayo pergi bersama.”</p>
+<p>	Fang Zheng sangat gembira, “Terima kasih senior!”</p>
+<p>	“Hehehe, tidak perlu berterima kasih padaku, kita berada di grup yang sama.” Qing Shu menepuk bahu Fang Zheng.</p>
+<p>	Fang Zheng bisa merasakan kehangatan di hatinya, matanya dengan enggan memerah.</p>
+<p>	Keduanya sampai di warung. Seorang asisten toko telah menunggu mereka selama ini, dan membawa mereka masuk.</p>
+<p>	Di atas meja persegi di dekat jendela, ada beberapa lauk pauk dan dua cangkir anggur, dan sepanci anggur.</p>
+<p>	Fang Yuan duduk di satu sisi, dan ketika dia melihat Gu Yue Qing Shu, dia tersenyum dan mengulurkan tangannya, “Silakan duduk.”</p>
+<p>	Gu Yue Qing Shu mengangguk pada Fang Yuan. Dia mengambil tempat duduknya, lalu berkata kepada Fang Zheng, “Fang Zheng, pergi berjalan-jalan, aku akan berbicara dengan saudaramu.”</p>
+<p>	Dia adalah orang yang cerdas. Setelah melihat hanya dua cangkir anggur, dia tahu bahwa Fang Yuan ingin mengobrol sendirian.</p>
+<p>	Sebenarnya, dia juga punya niat seperti itu.</p>
+<p>	Fang Zheng mengakui dan meninggalkan toko dengan marah.</p>
+<p>	“Aku mengenalmu, Fang Yuan.” Qing Shu tersenyum, membuka pot anggur dengan terampil, menuangkan secangkir untuk Fang Yuan dan satu untuk dirinya sendiri.</p>
+<p>	“Kamu adalah orang yang sangat menarik dan cerdas.” Mengatakan demikian, dia mengangkat cangkirnya ke arah Fang Yuan.</p>
+<p>	Fang Yuan tertawa dan mengangkat cangkirnya juga untuk mengembalikan roti panggangnya.</p>
+<p>	Keduanya meminumnya dalam satu tembakan bersama.</p>
+<p>	Qing Shu menuangkan lagi untuk Fang Yuan, juga untuk dirinya sendiri.</p>
+<p>	Saat dia menuangkan, dia berkata, “Tidak ada gunanya berbelit-belit ketika berbicara dengan orang pintar. Saya akan buka, saya ingin membeli worm Liquor Anda, berapa banyak yang akan Anda jual?”</p>
+<p>	Dia tidak bertanya kepada Fang Yuan apakah dia menjualnya, tetapi bertanya langsung — Berapa banyak, menunjukkan kepercayaan dirinya yang luar biasa.</p>
+<p>	Dia adalah Master Gu peringkat dua nomor satu. Pada usia muda, ia mencapai peringkat dua tahap puncak, mengalahkan peringkat dua tahap atas Chi Shan dan Mo Yan.</p>
+<p>	Begitu dia muncul, dia mengambil inisiatif dan menuangkan anggur dan memanggang Fang Yuan.</p>
+<p>	Keyakinannya bersama dengan senyum lembutnya membentuk aura yang unik. Itu tidak sombong dan memaksa yang bisa membuat orang jijik, tapi itu membuat orang lain merasakan kegigihannya.</p>
+<p>	Rambut hijaunya yang panjang, dan sinar matahari musim dingin yang menyinari jendela dan ke wajahnya yang cantik dan bergaris-garis lembut. Ini membuat Fang Yuan secara tidak sadar memikirkan cahaya musim semi yang cerah dan indah.</p>
+<p>	“Orang yang benar-benar berbakat. Sayang sekali, ”pikir Fang Yuan.</p>
+<p>	Dia tidak terganggu oleh tindakan Qing Shu yang mengambil alih inisiatif. Faktanya, Fang Yuan sedikit menghargainya, dan dia menghela nafas ringan.</p>
+<p>	(1). Tantangan perang tertulis – SHAOLIN SHOWDOWN!! Pertarungan pertempuran Gu pada dasarnya.</p>
+<p>	(2). Jika Anda benar-benar tidak tahu seperti apa tampilannya, mungkin tautan ini dapat membantu (beri tahu saya jika pernah rusak?)</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

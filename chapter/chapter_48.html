@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 48 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 48";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_47.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 48">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_49.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 48</h1>
+        <div class="text-left">
+<p>	Bab 48</p>
+<p>	Bab 48: Sedikit lucu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hujan selama empat hari sebelum berhenti.</p>
+<p>	Matahari naik tinggi ke langit, merobek tirai hujan, sepertinya itu membuka musim panas itu sendiri.</p>
+<p>	Nafas musim panas samar-samar mulai datang.</p>
+<p>	Cuaca menjadi semakin cerah dan tidak berawan, menyapu napas sentimental musim semi, dan suhu perlahan naik.</p>
+<p>	Di malam musim semi, jangkrik Dragonpill yang hidup telah mundur, meringkuk ke dalam tanah untuk bertelur. Bambu tombak hijau yang khusus ditemukan di Gunung Qing Mao mulai tumbuh liar, dan hampir setiap hari menunjukkan peningkatan tinggi yang nyata.</p>
+<p>	Rerumputan dan pepohonan mulai berubah dari hijau zamrud menjadi hijau tua. Pegunungan hijau yang tak berujung mulai terlihat lebih hijau dan subur.</p>
+<p>	Cuaca cerah sejauh ribuan mil, biru seperti kristal.</p>
+<p>	Bang, bang, bang.</p>
+<p>	Di tempat latihan di akademi, suara pukulan dan tendangan bisa terdengar.</p>
+<p>	Setelah bertukar lebih dari sepuluh pukulan, Gu Yue Mo Bei ditendang di perut oleh Fang Yuan, mundur lima hingga enam langkah, meninggalkan lingkaran yang ditentukan di arena.</p>
+<p>	Instruktur seni bela diri berdiri di depan panggung dan mengevaluasi situasi. Melihat ini, dia segera menyatakan, “Gu Yue Mo Bei telah keluar dari panggung, Gu Yue Fang Yuan menang untuk ke-33 kalinya berturut-turut!”</p>
+<p>	“Hmph, aku kalah darimu lagi.” Gu Yue Mo Bei menggertakkan giginya, matanya menatap tepat ke arah Fang Yuan, “Tapi jangan sombong. Suatu hari, aku akan mengalahkanmu. Aku sudah bisa merasakannya, hari itu sudah dekat!”</p>
+<p>	Fang Yuan menatapnya tanpa ekspresi, dan kemudian kelopak matanya turun ke bawah. “Tendangan itu sebelumnya membuatmu mengalami pendarahan internal. Saya akan menyarankan Anda untuk mengobati cedera itu terlebih dahulu. ”</p>
+<p>	“Cedera kecil ini bukan apa-apa!” Gu Yue Mo Bei membalas di tengah jalan, ketika tiba-tiba ekspresinya berubah dan tenggorokannya tercekat, muntah seteguk darah.</p>
+<p>	Wajahnya pucat, ini adalah pertama kalinya dia menderita tingkat cedera ini! Matanya tidak bisa membantu tetapi menunjukkan tanda-tanda ketakutan.</p>
+<p>	Instruktur seni bela diri bergegas mendekat dan menenangkannya. “Jangan khawatir tentang tingkat cedera ini, Anda hanya perlu istirahat selama beberapa hari. Berhentilah berlatih pukulan Anda dan jangan lakukan latihan keras selama periode ini. ”</p>
+<p>	Saat dia selesai berkata begitu, dua Master Gu yang sedang menunggu di luar bergegas mendekat dan dengan cermat membantu Gu Yue Mo Bei keluar.</p>
+<p>	Gu Yue Mo Bei tidak berani mengatakan apa-apa lagi, tapi dia menatap Fang Yuan dalam-dalam di matanya, dipenuhi dengan kemarahan, kebencian, penyesalan dan kemarahan.</p>
+<p>	“Mo Bei memiliki teknik bela diri yang bagus, tapi dia tidak bisa mengalahkan Fang Yuan.”</p>
+<p>	“Fang Yuan terlalu bagus, pada dasarnya tidak ada yang bisa mengalahkannya!”</p>
+<p>	“Mo Bei benar-benar memuntahkan darah, sungguh menakutkan. Aku tidak ingin melawan pria seperti ini.”</p>
+<p>	“Huh, tapi kata instruktur hari ini adalah latihan pertarungan, di arena! Masing-masing dari kita perlu naik dan bertarung sekali. ”</p>
+<p>	Para siswa berdiri di luar arena, beberapa melihat ke arah Fang Yuan dengan ketakutan, beberapa menghela nafas tanpa henti, beberapa pucat sementara yang lain merasa gentar.</p>
+<p>	Di antara mereka, beberapa terluka. Beberapa memegangi wajah mereka yang memar, beberapa memegangi anggota badan mereka, terengah-engah. Yang lain berbaring di tanah, menggosok paha mereka.</p>
+<p>	“Lanjut!” Melihat tidak ada penantang yang datang, instruktur berteriak.</p>
+<p>	Namun, tidak ada yang menjawab. Biasanya yang berani menantang Fang Yuan hanya Gu Yue Mo Bei, Gu Yue Chi Chen dan Gu Yue Fang Zheng. Tapi ketiganya sudah dipukuli.</p>
+<p>	Keheningan melanda para siswa saat yang lain bahkan sedikit menarik langkah mereka. Instruktur mengerutkan kening melihat ekspresi ketakutan mereka.</p>
+<p>	Dia tidak bisa tidak memikirkan kata-kata sesepuh akademi: “Akhir-akhir ini, Fang Yuan menjadi terlalu dominan, kita harus menekannya. Siswa lain bahkan tidak bisa mengangkat kepala mereka di bawah tekanannya, dan jika ini terus berlanjut, keberanian di hati mereka akan membara. Akademi kami memelihara harimau dan serigala pemberani untuk melawan musuh, bukan domba dan domba yang menakutkan.”</p>
+<p>	“Ada apa dengan kalian semua? Tidak peduli seberapa kuat dia, Fang Yuan baru berusia lima belas tahun, dia salah satu rekanmu! Dia seumuran denganmu, makan makanan yang sama denganmu dan minum air yang sama. Dia tidak memiliki tiga kepala atau enam lengan, dia bukan monster! Kumpulkan keberanianmu dan tunjukkan kebanggaan klan Gu Yue dalam dirimu!” Instruktur berteriak, mencoba yang terbaik untuk memotivasi siswa.</p>
+<p>	“Tapi dia terlalu kuat, kita tidak bisa mengalahkannya.”</p>
+<p>	“Teman sekelas yang melawannya berada dalam kondisi yang menyedihkan. Mo Bei dipukuli sampai muntah darah.”</p>
+<p>	“Fang Yuan semakin kejam dengan serangannya, instruktur, kami tidak berani melawannya.”</p>
+<p>	Para siswa berbicara dengan lembut, dengan lemah membalas.</p>
+<p>	Instruktur itu menghentak dengan marah. Anak-anak muda yang bodoh ini!</p>
+<p>	Dia jelas sebagai pengamat. Fang Yuan telah melalui tiga puluh tiga pertarungan berturut-turut tanpa istirahat di tengah. Meskipun dia terus-menerus menyesuaikan napasnya, staminanya sudah habis.</p>
+<p>	Serangan Fang Yuan semakin tanpa ampun membuktikan fakta ini lebih jauh: Dia tidak bisa lagi tenang seperti sebelumnya, dia kehilangan kendali atas kekuatannya dan situasinya.</p>
+<p>	Jika seseorang berusaha lebih keras, kelelahannya akan terungkap. Dengan hanya beberapa orang lagi, dia bisa dikalahkan di atas panggung!</p>
+<p>	Begitu Fang Yuan dipukuli, kehadirannya yang mendominasi akan berkurang tajam, keberanian para siswa tersulut dan motif untuk menekan Fang Yuan tercapai.</p>
+<p>	Tapi sekarang, para siswa terhalang oleh front tangguh Fang Yuan.</p>
+<p>	Terkadang, yang mengalahkan seseorang bukanlah musuh yang kuat melainkan hati sendiri.</p>
+<p>	Instruktur cemas dalam pikirannya, dan terus memotivasi mereka.</p>
+<p>	Tapi dia tidak baik dengan kata-katanya. Pada awalnya dia mengucapkan kata-kata yang sama ini untuk menyulut kemarahan anak-anak dan membangkitkan beberapa penantang. Tapi sekarang setelah dia mengatakan ini berkali-kali, semua anak muda sudah mati rasa.</p>
+<p>	Fang Yuan melipat tangannya dan menatap ini dengan dingin. Meskipun dia berdiri di tengah panggung, dia bertindak seperti pengamat yang lengkap.</p>
+<p>	Instruktur mendorong selama berabad-abad tetapi para siswa masih saling memandang, tidak ada yang bergerak.</p>
+<p>	Instruktur bela diri tidak bisa membantu tetapi menjadi marah dan tak berdaya. Dia menoleh ke Fang Yuan, dengan sedih menegur, “Fang Yuan, kamu juga bersalah. Pukulan Anda semakin ganas di antara teman sekelas, Anda harus lebih lembut dan ramah, bagaimana Anda bisa menangani pukulan ganas seperti itu? Berhati-hatilah mulai sekarang dan serang dengan hati-hati. Jika Anda menyebabkan teman sekelas lain muntah darah, saya akan menyatakan kehilangan Anda dan mengusir Anda dari panggung!</p>
+<p>	“Instruktur, Anda salah.”</p>
+<p>	Fang Yuan mendengus, tatapannya tidak menunjukkan kelemahan apa pun, menatap tepat ke arah instruktur, “Berlatih dan bertarung, kita secara alami harus memberikan segalanya, jika tidak, bagaimana itu bisa mencapai tujuan pelatihan? Jangan bilang bahwa ketika kita dalam pertempuran, kita juga harus meminta musuh kita untuk lebih lembut dan ramah?”</p>
+<p>	Instruktur menjadi marah, “Hmph, seranganmu ganas, kamu merugikan teman sekelasmu dan kamu berani menggunakan logika bengkok!”</p>
+<p>	“Instruktur, kamu salah lagi.”</p>
+<p>	Fang Yuan tertawa dingin, “Kamu mengatur pertandingan latihan ini dan menaikkan hadiah kemenangan menjadi dua puluh batu purba. Tanpa dorongan Anda, apakah orang-orang ini akan terluka?”</p>
+<p>	“Bajingan!” Instruktur seni bela diri tidak pandai berbicara, dan dia menunjuk Fang Yuan dan merengut, “Apakah kamu masih menginginkan hadiahnya atau tidak? Jika Anda berdebat lebih jauh, bahkan jika Anda mendapatkan tempat pertama, saya akan menyatakan Anda pecundang! Kamu sangat tidak kooperatif dan antisosial, dan kamu berani berdebat dengan gurumu, kamu tidak memiliki hak untuk mengklaim dua puluh batu purba sebagai hadiah!”</p>
+<p>	Fang Yuan tertawa terbahak-bahak. “Ini hanyalah sebuah kompetisi yang hanya memberikan dua puluh batu purba, apakah menurutmu aku peduli?”</p>
+<p>	Mengatakan demikian, dia berbalik dan pergi. Di bawah tatapan bingung kelas, dia berjalan keluar dari tengah arena.</p>
+<p>	Meskipun dia tidak berhasil menjual dinding gambar, Fang Yuan masih memiliki beberapa ratus batu purba yang dimilikinya. Selanjutnya, tujuannya kali ini bukanlah batu purba.</p>
+<p>	“Anda!” Melihat Fang Yuan benar-benar berjalan menuruni panggung, instruktur tertegun tanpa kata-kata, menunjukkan ekspresi kaget dan bingung.</p>
+<p>	Seorang remaja berusia lima belas tahun, bukankah dia seharusnya kompetitif dan penuh semangat?</p>
+<p>	Fang Yuan memiliki bakat bertarung seperti itu, bukankah karakternya seharusnya lebih dari itu? Bagaimana dia bisa mundur dari kompetisi seperti ini?</p>
+<p>	Selanjutnya, Fang Yuan tidak memiliki latar belakang, dia harus ketat pada batu purba. Mengapa dua puluh batu purba tidak dapat menariknya?</p>
+<p>	Pada titik ini, instruktur seni bela diri berdiri di tempat, tidak yakin apa yang harus dilakukan.</p>
+<p>	Fang Yuan tidak masuk ke dalam jebakan, tetapi segera meninggalkan panggung.</p>
+<p>	Instruktur tiba-tiba menyadari: Tidak ada yang bisa dia lakukan untuk Fang Yuan. Dengan statusnya, dia tidak dapat menemukan masalah dengan Fang Yuan secara langsung, dan memaksanya naik ke atas panggung kan?</p>
+<p>	Para siswa di sekitarnya mundur, menjaga jarak dari Fang Yuan. Fang Yuan berdiri di halaman, tanpa seorang pun di sekitarnya. Dengan dia sebagai pusatnya, radius lima langkah di sekelilingnya menjadi ruang hampa.</p>
+<p>	Sayang sekali.</p>
+<p>	Jika mereka berada di samping Fang Yuan, mereka akan mendengar suara terengah-engah Fang Yuan.</p>
+<p>	“Staminaku habis,” Fang Yuan menghela nafas. Meskipun dia menunjukkan penampilan luar yang energik, di balik pakaiannya, tubuhnya sedikit menggigil.</p>
+<p>	Bagaimanapun, dia baru berusia lima belas tahun dan tidak memiliki cacing Gu yang relevan sebagai pendukung. Setelah tiga puluh tiga pertandingan, dia mendekati batas kemampuannya.</p>
+<p>	Meskipun dia memiliki pengalaman bertarung yang kaya dari kehidupan masa lalunya, selama ini, kemampuan bertarung anak-anak muda lainnya telah meningkat secara signifikan. Dari mereka, Fang Yuan sudah bisa merasakan tekanan yang kuat.</p>
+<p>	Tekanan semacam ini tercermin dalam serangan Fang Yuan. Serangannya semakin keras saat dia secara bertahap kehilangan kendali atas kekuatannya. Dibandingkan dengan masa lalu, ketika mereka masih terlalu lemah dan dia bisa mengalahkan mereka dengan mudah, anak-anak hanya akan berakhir dengan luka ringan. Tapi sekarang, kendalinya atas arena semakin lemah, sehingga dia harus menyerang lebih keras untuk mempertahankan citranya.</p>
+<p>	“Pengalaman, bagaimanapun juga, tidak mahakuasa. Pikiran atau teknik apa pun membutuhkan tubuh dengan fondasi yang cukup sebelum nilainya dapat terlihat. ” Fang Yuan menyipitkan matanya. Sebenarnya dia sudah lama melihat melalui pikiran instruktur bela diri.</p>
+<p>	Fang Yuan tidak terkejut, seolah-olah dia sudah mengharapkan ini sejak awal, tekanan tetua akademi padanya.</p>
+<p>	Setelah dia membunuh Gao Wan, orang-orang yang berani menantangnya berkurang. Ketika dia memeras mereka, bahkan lebih banyak orang yang tertindas oleh dominasi Fang Yuan tidak berani melawan, dan mereka dengan patuh menyerahkan batu purba mereka.</p>
+<p>	Setelah waktu yang lama, citra Fang Yuan yang tak terkalahkan akan terbentuk. Ini akan meninggalkan beberapa trauma psikologis pada anak-anak dan membuat mereka tidak percaya diri dalam teknik seni bela diri mereka. Inilah yang tidak ingin dilihat oleh tetua akademi. Dia membutuhkan Fang Yuan untuk memotivasi dan memaksa para siswa untuk berkembang, bukan untuk sepenuhnya memadamkan semangat mereka untuk berperang.</p>
+<p>	Dia ingin melihat kekalahan Fang Yuan.</p>
+<p>	Begitu Fang Yuan dikalahkan, citra tak terkalahkan yang telah dia bangun akan langsung hancur.</p>
+<p>	Pada saat yang sama, itu akan membangkitkan semangat juang para siswa. Setelah beberapa kemunduran, itu akan membentuk keinginan mereka untuk menjadi gigih.</p>
+<p>	Tetapi bagi Fang Yuan, dia membutuhkan bentuk tekanan ini agar dia bisa memeras batu purba dengan lebih mudah.</p>
+<p>	Jika dia dikalahkan, anak-anak muda akan menyadari kelemahannya dan menyerang bersama-sama. Meskipun Fang Yuan memiliki banyak batu purba di tangannya, pemerasan adalah sumber pendapatan utamanya. Tanpa sumber ini, dia akan menggali cadangannya.</p>
+<p>	Dengan demikian, penampilan Fang Yuan di arena dan tiga puluh tiga kemenangan berturut-turut hanyalah untuk mempertahankan pencegahannya terhadap para siswa, dan bukan untuk hadiah dua puluh batu purba.</p>
+<p>	Jika dia menghindari pertempuran sejak awal, itu akan menunjukkan kelemahannya, dan jika terus berlanjut, dia akan mengungkapkan kelemahannya.</p>
+<p>	“Tunggu apa lagi, kenapa tidak ada yang naik ke atas panggung, ayo! Hadiah pertama adalah dua puluh batu purba, kalian semua tidak menginginkannya lagi?” Instruktur berteriak setelah tersadar dari pikirannya.</p>
+<p>	Siswa lainnya mulai bersemangat.</p>
+<p>	Fang Yuan sudah meninggalkan panggung, dan bagi mereka, itu adalah batu besar dari pikiran mereka.</p>
+<p>	“Aku akan pergi!”</p>
+<p>	“Saya akan datang!”</p>
+<p>	Dua anak muda naik ke atas panggung dan mulai bertanding.</p>
+<p>	“Huh, jika aku tahu ini, aku akan menunggu dan tidak terburu-buru naik ke atas panggung. Maka saya tidak akan terlempar dari panggung oleh Fang Yuan. ”</p>
+<p>	“Sayang sekali, memikirkan Fang Yuan pergi.”</p>
+<p>	“Dia benar-benar berani, lihat bahkan instrukturnya bingung harus berbuat apa dengannya.”</p>
+<p>	Mendengar bisikan mereka, instruktur merasa reputasinya runtuh. Dia sangat gelisah di dalam hatinya dan ingin menghukum Fang Yuan secara menyeluruh. Namun, Fang Yuan tidak melakukan kesalahan, dan meninggalkan panggung atas kemauannya sendiri diperbolehkan.</p>
+<p>	Instrukturnya tidak berdaya dan murung. Akhirnya dia menatap Fang Yuan dan menatap Fang Yuan dengan marah.</p>
+<p>	Bibir Fang Yuan sedikit melengkung ke sudut saat dia berpikir, “Metode yang tidak sopan, instruktur ini sedikit imut.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

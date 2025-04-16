@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 235 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 235";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_234.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 235">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_236.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 235</h1>
+        <div class="text-left">
+<p>	Bab 235</p>
+<p>	Bab 235: Shang Xin Ci</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Karavan melakukan perjalanan sepanjang hari, dan memilih sebuah lembah untuk berkemah pada malam hari.</p>
+<p>	Hari itu berjalan cukup baik untuk karavan karena mereka hanya menemukan tiga kelompok binatang kecil.</p>
+<p>	Mereka membunuh dua kelompok dan mengusir satu. Menghitung kerugian dan keuntungan yang mereka peroleh dari membunuh kelompok binatang buas, mereka malah mendapatkan beberapa keuntungan.</p>
+<p>	Matahari terbenam mewarnai awan dengan warna; merah, jingga, merah keabu-abuan, ungu… ada berbagai macam warna. Awan juga terbentuk menjadi segala macam bentuk; muncul seperti singa yang mengaum pada suatu saat, atau pegasus yang berlari kencang pada saat berikutnya, atau lautan bunga yang mekar.</p>
+<p>	Sinar matahari warna-warni menyinari lembah yang menyerupai permata hijau giok. Setelah karavan menyelesaikan semua pengaturan untuk malam itu, ada area tertentu di karavan yang hiruk-pikuk suara.</p>
+<p>	“Ayo, lihat, daging binatang yang baru disembelih hari ini!”</p>
+<p>	“Buttermilk, buttermilk yang harum dan manis…”</p>
+<p>	“Hanya sepuluh potong pakaian yang tersisa, obral stok!”</p>
+<p>	Fang Yuan dan Bai Ning Bing juga ada di antara kerumunan.</p>
+<p>	Mereka menyeret kereta tangan mereka dan menduduki suatu daerah; di sebelah kiri mereka ada kios yang menjual tumbuhan liar dan di sebelah kanan mereka ada kios yang menjual susu.</p>
+<p>	Bai Ning Bing agak tertarik dengan semua ini saat dia melihat sekelilingnya: “Tidak kusangka akan ada bazar kecil seperti ini di karavan.”</p>
+<p>	“Jika ada konsumsi, akan ada transaksi, dan konsumsi itu akan merangsang pasar.” Fang Yuan menjawab.</p>
+<p>	Mata Bai Ning Bing berkedip, kata-kata ini benar-benar tajam.</p>
+<p>	Dia memandang Fang Yuan: “Apakah kamu berencana menjual daun maple ungu ini?”</p>
+<p>	Fang Yuan sedikit menganggukkan kepalanya: “Kami telah memasuki karavan sehingga kami dapat dengan mudah membuangnya sekarang. Menjaga mereka bersama kita hanya akan menarik keserakahan beberapa bajingan. ”</p>
+<p>	Terlebih lagi, tidak mudah untuk melestarikan daun maple ungu.</p>
+<p>	Mereka memilikinya selama lebih dari sehari, dan daun maple ungu di gerobak Fang Yuan sudah menunjukkan tanda-tanda layu. Dan seiring berjalannya waktu, nilainya hanya akan semakin berkurang.</p>
+<p>	Tentu saja, Fang Yuan tidak peduli dengan dua batu purba yang sangat sedikit.</p>
+<p>	Namun, membuangnya begitu saja tidak akan sesuai dengan identitas mereka saat ini, dan hanya akan menimbulkan kecurigaan.</p>
+<p>	“Bazar kecil di karavan terbagi menjadi dua jenis. Yang kita hadapi hanyalah transaksi antar manusia dan itu akan diadakan setiap hari. Jenis lainnya adalah transaksi antara Gu Masters, yang diadakan seminggu sekali. ” kata Fangyuan.</p>
+<p>	Mata biru Bai Ning Bing – ditutupi oleh topi jerami – sedikit cerah: “Akan sangat membantu kita jika kita bisa bergabung dengan bazaar kecil yang diadakan untuk Master Gu. Shang Clan City masih sangat jauh; jika bukan yang lain, kita membutuhkan Gu investigasi untuk mencegah keadaan yang tidak terduga. ”</p>
+<p>	“Aku sudah merencanakan ini tapi masih terlalu dini.” Fang Yuan dengan percaya diri tersenyum ketika dia memikirkan hal tertentu di bunga tusita-nya.</p>
+<p>	Keduanya sedang berdiskusi dengan lembut, ketika seorang pelayan laki-laki berjalan sambil terhuyung-huyung.</p>
+<p>	Dia mengenakan pakaian lusuh dan sobek, wajahnya dipenuhi noda darah; kemiripan yang jelas dengan pengemis. Saat dia berjalan ke kios di samping Fang Yuan, dan melihat panci berisi susu, dia menelan ludahnya: “Saudaraku, bisakah kamu memberiku susu untuk diminum?”</p>
+<p>	“Pergi. Jangan menghalangi bisnis saya! ” Penjual susu dengan tidak sabar melambaikan tangannya.</p>
+<p>	Pelayan laki-laki ini, tanpa daya, berjalan menuju gerobak Fang dan Bai: “Dua saudara laki-laki ….”</p>
+<p>	Dia bahkan belum selesai mengucapkan kalimatnya, ketika Fang Yuan berjalan ke depan dan menendangnya, berteriak dengan nada kejam: “Persetan.”</p>
+<p>	Pelayan laki-laki itu jatuh ke tanah, pakaiannya yang compang-camping ternoda oleh tanah berlumpur hitam. Luka sebelumnya dirangsang oleh tendangan, membuatnya meringis kesakitan.</p>
+<p>	Dia memanjat dengan susah payah, dan menatap Fang Yuan dengan kebencian: “Bagus, aku akan mengingat ini, kita semua adalah manusia, setiap orang mengalami hari yang buruk. Hmph…”</p>
+<p>	Ekspresi Fang Yuan menjadi dingin saat dia mengangkat kakinya lagi.</p>
+<p>	Bam.</p>
+<p>	Pelayan ini jatuh ke tanah lagi.</p>
+<p>	“Berani mengatakan satu kata lagi?” Fang Yuan menatap pelayan ini dengan ganas.</p>
+<p>	Pelayan itu menatap tajam ke arah Fang Yuan saat dia merangkak, tetapi dia tidak berani mencicit sepatah kata pun.</p>
+<p>	Namun, tepat saat dia berdiri, dia kembali bertemu dengan tendangan Fang Yuan.</p>
+<p>	“Aku tidak suka ekspresimu.” Fang Yuan dengan acuh tak acuh berbicara dengan tangan disilangkan di dadanya.</p>
+<p>	Pelayan itu menundukkan kepalanya dan merangkak diam-diam, tidak berani menatap Fang Yuan lagi. Dia tidak terus memohon lagi dan berjalan jauh.</p>
+<p>	Melihat sosoknya yang pergi, Bai Ning Bing bertanya dengan bingung: “Aneh, bagaimana bisa ada pengemis di karavan?”</p>
+<p>	“Ini normal. Hamba ini pasti telah melakukan kesalahan atau tuannya sedang dalam suasana hati yang buruk hari ini. Singkatnya, dia dipukuli oleh seorang Guru Gu dan makanannya juga dibatalkan.” Fang Yuan mengangkat bahunya, tatapannya, bagaimanapun, dengan dingin melirik ke sudut.</p>
+<p>	Di sudut, tiga hingga empat pelayan bertubuh kekar menangkap wajah-wajah baru, menggertak para pendatang baru.</p>
+<p>	Setelah memperhatikan situasi di Fang Yuan, mereka mengalihkan pandangan mereka dan melihat target lain.</p>
+<p>	Manusia memiliki kehidupan yang murah, status mereka sangat rendah, dan kelangsungan hidup mereka sama sulitnya dengan berjalan di atas kawat baja. Di dalam karavan, para Master Gu dapat dengan mudah memukuli mereka sampai mati dan mengambil nyawa mereka seperti memotong rumput. Bagaimanapun, manusia seperti mereka dapat diisi ulang dengan mudah di dusun di sepanjang jalan.</p>
+<p>	Setiap kali karavan menemukan bahaya, akan ada sejumlah besar manusia yang sekarat.</p>
+<p>	Selain itu, ada juga perjuangan rahasia dan hampir putus asa antara manusia itu sendiri. Fang Yuan baru saja tiba di karavan, tetapi dua kelompok sudah ingin mencari masalah untuknya.</p>
+<p>	Dia, tentu saja, tidak takut dengan masalah ini, dan dapat dengan mudah menyelesaikannya, tetapi dia lebih suka menyelesaikannya lebih awal.</p>
+<p>	Tentu saja, ada beberapa manusia yang menjalani kehidupan yang indah.</p>
+<p>	Sebagian besar dari mereka adalah mereka yang memiliki latar belakang atau kerabat dan teman Guru Gu; menggunakan identitas ini untuk melakukan apa yang mereka suka.</p>
+<p>	Setelah pengemis itu pergi, dua kelompok manusia mendekati Fang Yuan.</p>
+<p>	Kepala satu kelompok adalah seorang lelaki tua dengan mata tajam. Setelah menanyakan harganya kepada Fang Yuan, dia segera menurunkan harganya menjadi seperempat. Fang Yuan menganggap identitas kakek tua ini adalah kepala pengawas yang bertugas mengatur tugas para pelayan.</p>
+<p>	Kepala kelompok lain adalah seorang wanita. Dia benar-benar mengenakan pakaian sutra dan matanya memberikan tatapan menggoda. Fang Yuan segera mengerti bahwa dia pasti alat seks dari Master Gu tertentu atau beberapa pria.</p>
+<p>	Kedua kepala itu sama-sama ditemani oleh sejumlah besar orang, dan meskipun mereka manusia biasa, status mereka sangat jelas.</p>
+<p>	Mereka menurunkan harga ke jumlah yang sangat rendah, dengan maksud untuk membeli rendah dan menjual tinggi. Mereka memiliki beberapa kekayaan dan tidak seperti kebanyakan pelayan yang bahkan tidak bisa memastikan apakah mereka bisa makan hari itu.</p>
+<p>	Sementara Fang Yuan tidak membutuhkan gerobak daun maple ungu ini, untuk mencocokkan dengan identitasnya saat ini dan tidak membiarkan kucing keluar dari tas, dia menolak harga yang lebih rendah dari kedua orang ini.</p>
+<p>	Orang tua itu pergi dengan wajah yang menyenangkan tetapi ada ancaman yang tersembunyi dalam nada suaranya. Wanita itu pergi begitu saja sambil memaki dan mengumpat.</p>
+<p>	“Saya akan menjual gerobak berisi daun busuk ini kepada orang berikutnya yang datang untuk menawar.” Tepat ketika Fang Yuan merenungkan tindakan selanjutnya, pasar kecil tiba-tiba menjadi gempar.</p>
+<p>	Beberapa orang dengan semangat bersorak dan berteriak.</p>
+<p>	“Wanita baik hati dari klan Zhang telah tiba!”</p>
+<p>	“Nona Zhang penyayang dan baik hati, dia adalah penjelmaan peri!”</p>
+<p>	“Dia orang yang sangat baik, aku tidak akan kelaparan hari ini…”</p>
+<p>	“Apa yang terjadi?” Bai Ning Bing mengamati situasi dan melihat gambar hijau muncul melalui pintu masuk bazaar.</p>
+<p>	Fang Yuan juga bingung: Ada apa dengan ini ?</p>
+<p>	“Nyonya Zhang!” “Peri Zhang !!” Sekelompok pelayan berbondong-bondong ke wanita itu, dan langsung, pintu masuk bazaar penuh sesak.</p>
+<p>	Orang-orang ini kebanyakan adalah orang-orang yang dihukum oleh Gu Masters dan tidak punya apa-apa untuk dimakan sekarang. Pria yang ditendang Fang Yuan sebelumnya juga ada di antara mereka, mengulurkan leher dan lengannya.</p>
+<p>	“Jangan terburu-buru semuanya, ada banyak, pelan-pelan.” Kata gadis berpakaian hijau itu.</p>
+<p>	Suaranya lembut dan lembut, dan segera tenggelam dalam teriakan orang banyak.</p>
+<p>	“Tutup mulutmu! Berbaris dan datang satu per satu. Siapa pun yang berani bergegas atau berteriak, akan segera ditebas oleh saya! ” Tiba-tiba, suara gemuruh bergema di dalam pasar kecil.</p>
+<p>	Seorang Guru Gu tua tapi tangguh muncul di hadapan semua orang. Dan saat dia menatap semua orang dengan tatapan ganasnya, bazaar kecil yang berisik itu segera terdiam.</p>
+<p>	Ini adalah otoritas seorang Guru Gu!</p>
+<p>	Tidak ada orang yang tidak percaya dia tidak akan melakukan apa yang baru saja dia katakan. Sebagai Guru Gu, selama suasana hati mereka buruk, apa yang dianggap membunuh dua atau tiga manusia?</p>
+<p>	Kerumunan mendorong dan mendorong satu sama lain, dan segera berbaris dalam barisan panjang yang rapi.</p>
+<p>	Di depan antrian, gadis berpakaian hijau itu memegang sekeranjang roti kukus dan membagikannya.</p>
+<p>	Seluruh bazaar kecil itu benar-benar sunyi.</p>
+<p>	Tatapan yang tak terhitung jumlahnya menatap gadis berpakaian hijau dengan hormat, pemujaan dan bahkan cinta.</p>
+<p>	Bai Ning Bing penasaran dan bertanya kepada pemilik kios di samping: “Siapa dia?”</p>
+<p>	“Apa, kamu bahkan tidak tahu tentang Nona Zhang Xin Ci? Anda harus menjadi pendatang baru, kan? ”</p>
+<p>	“Zhang Xin Ci?” Fang Yuan bertanya, alisnya terkunci rapat, “Katakan semua yang kamu tahu!”</p>
+<p>	Pemilik kios mengingat betapa kejamnya Fang Yuan telah menendang pelayan tadi; dia tidak berani menyembunyikan apa pun: “Nona Zhang juga salah satu wakil pemimpin karavan kami. Dia tidak memiliki bakat dalam berkultivasi dan adalah manusia fana seperti kita. Namun, dia memiliki latar belakang yang kuat di klannya, Master Gu di sampingnya adalah pengawalnya. Saya telah hidup begitu lama, tetapi sejujurnya, saya belum pernah melihat orang yang baik hati; Nyonya Zhang membawakan makanan hampir setiap malam untuk para pelayan yang kelaparan. Dia datang bahkan jika cuacanya buruk… Huh, surga tidak adil, mereka mencegah orang seperti itu berkultivasi.”</p>
+<p>	Bai Ning Bing menganggukkan kepalanya dan tersenyum, berkata kepada Fang Yuan: “Sungguh, semua jenis orang ada di dunia ini.”</p>
+<p>	Fangyuan tidak menanggapi.</p>
+<p>	Bai Ning Bing melirik Fang Yuan dengan bingung, dan melihat ada yang salah dengan ekspresi Fang Yuan.</p>
+<p>	Yang terakhir menatap lekat-lekat pada gadis berpakaian hijau, alisnya hampir berkerut.</p>
+<p>	Gadis berpakaian hijau memiliki rambut hitam legam halus yang menutupi bahunya, menonjolkan kecantikannya. Alisnya tipis seperti asap, matanya sebening bulan. Kulitnya seputih salju, dan bibirnya merah muda dan lembut.</p>
+<p>	Dia tidak memiliki riasan di wajahnya, terlihat lembut dan lembut. Senyum tipis yang dia berikan dari waktu ke waktu ketika membagikan roti kukus, murni dan polos.</p>
+<p>	Dia mengenakan pakaian hijau dan memiliki aura segar dan polos. Dia anggun seperti anggrek, anggun seperti teratai dan lembut seperti air. Dalam hal penampilan, dia berada di level yang sama dengan Bai Ning Bing, tapi dia bisa dikatakan cantik sekali dalam seribu tahun.</p>
+<p>	Jika seorang wanita memiliki penampilan yang baik, mereka hanya dapat dianggap tampan, seperti minuman pada umumnya. Hanya dengan watak, mereka bisa disebut cantik, seperti minuman keras yang sudah berumur.</p>
+<p>	Tidak diragukan lagi, gadis berpakaian hijau ini benar-benar cantik.</p>
+<p>	Namun, tidak peduli betapa cantiknya dirimu, betapa mengharukan watakmu, mereka semua tidak ada gunanya di mata Fang Yuan!</p>
+<p>	Fang Yuan tidak melihat penampilannya; tidak peduli seberapa cantik dan watak yang dimiliki seseorang, jika Anda memotong kulit dan daging mereka, mereka semua adalah kerangka.</p>
+<p>	Namun, dia bingung saat memikirkan sosok tertentu: “Bukankah gadis ini Shang Xin Ci?”</p>
+<p>	Shang Xin Ci adalah salah satu tuan muda dari klan Shang.</p>
+<p>	Dalam sebuah klan, putra dan putri pemimpin klan semuanya disebut ‘tuan muda’. Hanya ahli waris yang bisa mendapatkan persetujuan tetua, yang bisa disebut ‘pemimpin klan muda’.</p>
+<p>	Dengan identitasnya sebagai tuan muda dari klan Shang, Shang Xin Ci adalah seorang gadis dengan nasib baik.</p>
+<p>	Semua orang tahu anggota klan Shang serakah dan berbahaya, tapi Shang Xin Ci ini adalah satu-satunya pengecualian. Dia lembut dan lemah, tidak suka berkelahi, dan sangat lunak; dia adalah pengusaha terburuk dari klan Shang.</p>
+<p>	Dalam berbisnis, ia tidak hanya sering merugi, tetapi juga sering ditipu oleh orang lain. Dia dengan mudah mempercayai orang lain, dan yang terpenting adalah dia tidak belajar setelah ditipu dan akan terus ditipu oleh orang lain.</p>
+<p>	Sebagai tuan muda dari klan Shang, dia pernah dianggap sebagai aib dari Klan Shang dan seseorang yang tidak ada yang menganggapnya tinggi. Namun, mengingat dia memiliki garis keturunan pemimpin klan Shang, dia tidak dikeluarkan dari klan.</p>
+<p>	Dia tidak membeda-bedakan manusia tetapi malah merasa sangat simpatik terhadap mereka, memberikan perawatan dan bantuan. Beberapa kali, dia bahkan membeli semua budak dalam lelang, dan ditegur keras oleh pemimpin klan Shang.</p>
+<p>	Namun, nasibnya benar-benar indah, pada akhirnya, dia menjadi kepala Klan Shang!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

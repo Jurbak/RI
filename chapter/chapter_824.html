@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 824 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 824";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_823.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 824">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_825.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 824</h1>
+        <div class="text-left">
+<p>	Bab 824 – Bunga Kerria Racun Darah, Bencana Ketujuh</p>
+<p>	Bab 824: Bunga Kerria Racun Darah, Bencana Ketujuh</p>
+<p>	“Penatua aula pemurnian menghabiskan semua upayanya untuk memelihara mereka bertiga, mereka berada di tingkat atas bahkan di Benua Tengah, mereka benar-benar siswa berharga dari seorang master yang brilian.” Seorang penatua memuji.</p>
+<p>	“Hehehe, aku tersanjung, aku tersanjung. Ketiga anak ini memiliki bakat, tetapi itu sebagian besar karena dukungan Lord Principal, jika tidak, mereka tidak akan begitu akrab dengan langkah-langkah penyempurnaan. ” Penatua aula penyempurnaan sangat sederhana.</p>
+<p>	Kepala akademi tidak berbicara.</p>
+<p>	Penatua aula pemurnian mengalihkan topik saat dia berbicara tentang Hong Yi: “Ngomong-ngomong, putramu, Hong Yi juga memiliki bakat seperti itu, dia ada di final sekarang. Terutama, dia bukan murid dari aula pemurnian, sangat mengesankan bahwa dia berhasil mencapai hasil seperti itu meskipun hanya memiliki sedikit latihan. ”</p>
+<p>	Semua tetua saling memandang, mereka diam-diam membenci tetua aula pemurnian karena menjilati kepala sekolah dengan begitu lancar, tetapi mereka semua menyuarakan persetujuan mereka dengannya.</p>
+<p>	“Memang, memang.”</p>
+<p>	“Dengan garis keturunan Lord Principal dalam dirinya, bagaimana dia bisa menjadi lemah?”</p>
+<p>	“Ketika dia pertama kali memasuki akademi, dia masih tidak mencolok. Tapi sekarang, Hong Yi sudah menjadi pemimpin para murid, di masa depan, dia pasti akan menjadi pemimpin di suatu tempat.”</p>
+<p>	Kepala sekolah mendengus: “Kamu memuji dia karena dia adalah putraku, apakah kamu pikir aku tidak tahu? Dia bisa masuk ke final karena keberuntungannya. Dia mencoba segala sesuatu tanpa menempatkan kerja keras ke salah satu dari mereka. Dengan mempelajari semuanya, dia juga tidak terampil di setiap aspek, setelah kompetisi ini, kirim dia ke pengasingan selama tujuh hari, sehingga dia bisa merenungkan dirinya sendiri.”</p>
+<p>	Para tetua terdiam.</p>
+<p>	Lord Principal memiliki beberapa putra, Hong Yi adalah yang paling cakap, tetapi dia adalah putra seorang selir dan tidak memiliki hubungan yang baik dengan ayahnya, dia memiliki sifat pemberontak dan karenanya sering ditekan oleh kepala sekolah.</p>
+<p>	Kali ini, Hong Yi mendaftar untuk kompetisi jalur penyempurnaan di belakang punggung ayahnya.</p>
+<p>	Saat ini, dahi Hong Yi dipenuhi keringat saat dia melihat gumpalan api di tangannya.</p>
+<p>	Dalam api, cacing Gu secara bertahap mulai terbentuk.</p>
+<p>	“Saya akhirnya pada langkah terakhir, sayang sekali saya membuang terlalu banyak waktu!” Hong Yi mengamati yang lain saat berada di tengah kehalusannya.</p>
+<p>	Dia melihat bahwa api Cao Yu, Xie Lan dan Lu Wen telah menyusut seukuran sumbu, Hong Yi tahu bahwa dia tidak punya harapan untuk menang.</p>
+<p>	Sebenarnya, dia memiliki bakat jalur penyempurnaan yang lebih besar dari Cao Yu dan dua lainnya. Tapi dia berlatih sangat sedikit, salah satu alasannya adalah karena ini bukan jalan utamanya, dia tidak bisa mengalihkan terlalu banyak perhatian karena dia kekurangan waktu yang bisa dia investasikan. Kedua, dia tidak memiliki dukungan finansial, meskipun dia memiliki beberapa pertemuan kebetulan, ayahnya tidak mendukungnya, dia hanya bisa mengolah jalan utamanya.</p>
+<p>	“Brengsek! Ayah sudah memperhatikan niat saya, saya ingin tablet peringatan ibu saya ditempatkan di aula leluhur, tetapi ayah mengikuti aturan leluhur dengan ketat, mengapa dia mengizinkannya? Dia ingin aku menjadi seperti saudara-saudaraku yang lain, menurutinya tanpa pertanyaan, dan tidak menantang gengsinya. Tapi klan Hong benar-benar tidak adil kepada ibuku, ini ketidakadilan! Jika saya tidak mencari keadilan untuk ibu saya, saya bukan anak yang berbakti!”</p>
+<p>	“Lupakan saja, pada titik ini, saya hanya bisa mengambil risiko dan melakukan tembakan dalam kegelapan. Penyempurnaan wajah merah Gu ini biasanya selesai dalam sekejap di tangan master jalur penyempurnaan. Tetapi api sulit dikendalikan, sehingga yang lain melambat pada langkah ini. Saya tidak dapat menyelesaikannya secara instan, tentu saja, tetapi jika saya dapat melampaui kecepatan mereka, saya akan memiliki peluang untuk menang. ”</p>
+<p>	Hong Yi mengambil keputusan, dia segera bertindak.</p>
+<p>	Baik itu para murid di sekitarnya atau para tetua di atas panggung, mereka dengan cepat memperhatikan tindakan Hong Yi.</p>
+<p>	Semua orang menggelengkan kepala.</p>
+<p>	“Dia sangat naif.”</p>
+<p>	“Hong Yi mengambil risiko, tapi bagaimana dia bisa membalikkan keadaan? Kecuali dia adalah master jalur penyempurnaan! ”</p>
+<p>	“Dia jelas bukan master jalur pemurnian, dia mencari malapetakanya sendiri, lihat, apinya sudah di luar kendali.”</p>
+<p>	“Oh tidak!” Hong Yi berteriak dengan cemas, nyala api di tangannya berkedip-kedip, itu membuat suara retak saat terbakar, itu akan meledak.</p>
+<p>	Kekuatan ledakan tidak akan menakutkan, setelah semua ini adalah ujian dari akademi, mereka mengkhawatirkan keselamatan para murid.</p>
+<p>	“Aku gagal!!” Hati Hong Yi tenggelam, nyala api di tangannya benar-benar kehilangan kendali, bahkan terbang menjauh dari tangannya.</p>
+<p>	Seketika, Hong Yi merasa sangat pahit.</p>
+<p>	“Aku masih gagal pada akhirnya… achoo!”</p>
+<p>	Dia telah berlatih pemurnian Gu selama beberapa malam terakhir, dia telah melakukan upaya menit terakhir tetapi mengalami flu dalam prosesnya, karena dia menenangkan dirinya sekarang, dan tubuhnya penuh dengan keringat, dia tidak bisa menahan diri untuk tidak bersin.</p>
+<p>	Bersinnya meniup api dan api padam sekaligus.</p>
+<p>	Wajah merah halus Gu jatuh ke lantai beton panggung dengan suara keras.</p>
+<p>	“Aku… aku berhasil menyempurnakannya ?!” Hong Yi tercengang.</p>
+<p>	Semua orang menghentikan gerakan mereka di tempat.</p>
+<p>	“Guh!” Seorang tetua yang sedang minum teh memuntahkan semua teh di mulutnya.</p>
+<p>	Bahkan kepala sekolah akademi, ayah Hong Yi, berdiri tanpa sadar, dia memiliki ekspresi aneh, dia tercengang: “Ini, bersin ini benar-benar bekerja seperti metode master jalur penyempurnaan, menyebabkan langkah terakhir penyempurnaan diselesaikan dalam sekejap. , menciptakan wajah merah Gu! Hong Yi, anak ini… keberuntungan macam apa ini…”</p>
+<p>	Hu Immortal tanah diberkati.</p>
+<p>	Fang Yuan, Tai Bai Yun Sheng, roh tanah Hu Immortal dan Hei Lou Lan mengambang di udara, menunggu dimulainya malapetaka duniawi.</p>
+<p>	“Bencana duniawi apa yang akan terjadi kali ini?” Little Hu Immortal menatap tuannya.</p>
+<p>	Fang Yuan menyentuh kepala kecilnya: “Jangan khawatir, kali ini, situasinya berbeda dari terakhir kali. Kami memiliki tiga Dewa Gu di sini, dan gunung Dang Hun bersama dengan banyak sumber daya kami dipindahkan, fondasi tanah yang diberkati sangat terkuras. Selanjutnya, saya meningkatkan keberuntungan saya sendiri, saya memiliki keyakinan delapan puluh persen untuk melewati bencana ini. ”</p>
+<p>	Cara surga adalah untuk mengambil surplus sementara mengisi defisit, itu menekankan pada keseimbangan.</p>
+<p>	Semakin dalam fondasi tanah yang diberkati, semakin kuat kesengsaraan surgawi atau bencana duniawi. Dengan demikian, Fang Yuan memindahkan gunung Dang Hun dan semua sumber daya berharga lainnya ke dalam lubang abadi Tai Bai Yun Sheng.</p>
+<p>	Dengan cara ini, dengan sedikit keberuntungan di tanah yang diberkati, kesengsaraan surgawi atau bencana duniawi akan jauh lebih lemah.</p>
+<p>	Di tanah yang diberkati Pengadilan Kekaisaran, dia belajar tentang kekuatan jalur keberuntungan. Dia tahu bahwa semakin kuat keberuntungannya sendiri, semakin lemah kesengsaraan surgawi atau bencana duniawi.</p>
+<p>	Dapat dikatakan bahwa Fang Yuan telah melakukan semua persiapan yang mungkin.</p>
+<p>	Namun meski begitu, masih ada dua puluh persen kemungkinan dia akan gagal dalam melawan bencana duniawi!</p>
+<p>	Alasannya adalah bahwa ada berbagai macam bencana duniawi, tidak diketahui yang mana yang akan datang. Bencana duniawi memiliki segala macam efek aneh, bahkan kemampuan yang langka dan tidak pernah terdengar itu mungkin terjadi, bahkan yang belum pernah terlihat sebelumnya dapat muncul, kesulitan untuk menolaknya akan jauh lebih besar.</p>
+<p>	Saat mereka menunggu, qi bumi mulai bergemuruh saat bencana duniawi dimulai.</p>
+<p>	Tangkai demi tangkai bunga menembus tanah tanah yang diberkati Hu Immortal saat mereka tumbuh dengan cepat, dalam waktu beberapa napas, tangkai bunga merah cerah tumbuh di sekitar tanah yang diberkati Hu Immortal.</p>
+<p>	“Ini adalah …” Para abadi ragu-ragu, bunga-bunga bermekaran ke segala arah.</p>
+<p>	Bunga-bunga ini sangat besar, seukuran wajah seseorang. Kelopaknya lembut dan halus seperti sutra, mereka berlapis di atas satu sama lain, setiap bunga memiliki setidaknya enam lapis kelopak, dan total sekitar seratus kelopak.</p>
+<p>	“Ini adalah kerria racun darah.” Fang Yuan berkata dengan nada tenang.</p>
+<p>	Dia mengenali bunga ini, dia merasa sangat tidak berdaya.</p>
+<p>	Untuk berpikir bahwa bencana duniawi ini adalah jenis bencana darah. Bunga kerria racun darah ini hanya butuh sepuluh napas waktu dari tunas hingga layu. Saat layu, kelopak dan akarnya akan berubah menjadi genangan racun. Darah beracun akan mencemari tanah yang diberkati, menyebabkan kerusakan luas pada kehidupan, yang menyebabkan kerugian besar.</p>
+<p>	Hanya teknik jalur kayu yang khusus menangani bunga kerria racun darah ini. Selain itu, setiap kerria racun darah yang dihancurkan juga akan berubah menjadi genangan darah beracun.</p>
+<p>	Tetapi pada kenyataannya, bahkan jika Fang Yuan memiliki teknik jalur kayu, itu sudah terlambat.</p>
+<p>	Ada begitu banyak bunga kerria racun darah di seluruh tanah yang diberkati Hu Immortal, apa yang bisa dia lakukan untuk menghentikannya?</p>
+<p>	Jadi, meskipun ada tiga Dewa Gu di sisinya, menghadapi lautan bunga kerria racun darah yang luas, mereka tidak berdaya!</p>
+<p>	Bunga kerria racun darah cepat layu, karena darah beracun menutupi permukaan tanah seperti lapisan air. Permukaan air tidak dalam, kira-kira setinggi pergelangan kaki seseorang, tapi itu seluruh tanah yang diberkati Hu Immortal.</p>
+<p>	Danau di bagian timur tanah yang diberkati telah benar-benar tercemar. Kelompok rubah dan kelompok serigala di bagian barat tanah yang diberkati menghadapi kematian yang tak terhitung jumlahnya, mayat tergeletak di genangan darah, darah mereka mengalir keluar dan ditambahkan ke genangan darah beracun.</p>
+<p>	Budak rockman di bagian selatan dibangunkan dengan kasar. Banyak rockmen memiliki bunga kerria racun darah yang tumbuh di tubuh mereka. Setelah bunga layu, darah beracun mengalir keluar saat para rockmen berteriak kesakitan, tetapi hanya sedikit dari mereka yang mati.</p>
+<p>	Tai Bai Yun Sheng merasakan hawa dingin saat dia melihat ke langit, menghela nafas: “Surga benar-benar tidak akan memberi kita waktu yang mudah!”</p>
+<p>	Fang Yuan tersenyum pahit.</p>
+<p>	Hei Lou Lan menghiburnya: “Kesengsaraan sulit untuk ditanggung, situasi saat ini sudah cukup baik. Melihat darah beracun di seluruh tanah yang diberkati, meskipun sebagian besar tanah tercemar dan kerugian Anda parah, qi bumi telah menetap, bencana duniawi ini sudah berakhir. ”</p>
+<p>	Mata Little Hu Immortal berair: “Tuan, kita harus membersihkan darah beracun. Tanahnya tercemar, tidak akan menghasilkan apa-apa selama beberapa tahun ke depan. Kelinci bunga merah muda, kelompok serigala, dan kelompok rubah kami menderita kerugian besar dalam jumlah! ”</p>
+<p>	Fang Yuan segera bergerak.</p>
+<p>	Dia menggunakan air yang menarik Immortal Gu untuk menyedot darah beracun ke dalam lubang abadinya sendiri.</p>
+<p>	Bukaan abadinya adalah tanah mati, penuh dengan energi kematian dan tidak memiliki kehidupan, darah beracun tidak dapat mencemari apa pun.</p>
+<p>	Tapi darah beracun ada di seluruh tanah yang diberkati, jangkauannya terlalu besar, bahkan jika Fang Yuan menggunakan air yang ditarik Immortal Gu, efisiensinya terlalu rendah.</p>
+<p>	Dia merasakan penyesalan di dalam hati: “Jika saya tahu ini, saya tidak akan menyatu menarik gunung Immortal Gu ke dalam gerakan pembunuh, segudang diri, saya akan menyatu menarik air Immortal Gu terlebih dahulu. Dengan begitu, efisiensi saya akan lebih tinggi, dan pengeluaran esensi abadi saya akan lebih rendah!</p>
+<p>	Manusia mengusulkan, surga menentukan, pepatah ini sesuai dengan situasi saat ini.</p>
+<p>	Setelah menghabiskan satu hari dan satu malam, Fang Yuan akhirnya mengekstrak semua darah beracun di tanah yang diberkati ini dan memindahkannya ke lubang abadi.</p>
+<p>	Selama periode ini, dia bekerja tanpa istirahat, dia tidak istirahat atau tidur. Dia menghabiskan cukup banyak esensi abadi anggur hijau selama proses tersebut.</p>
+<p>	Menghapus polusi darah beracun tidak bisa berlarut-larut. Semakin lama dia mengambil, semakin dalam polusi, dan semakin besar efek sampingnya.</p>
+<p>	Meskipun darah beracun telah dihilangkan, tanah di permukaan tanah yang diberkati sepenuhnya beracun, meremasnya dengan tangan akan menghasilkan bubur merah berdarah. Jika tidak diselesaikan, dalam beberapa hari, lapisan tanah ini akan benar-benar membusuk, berubah menjadi darah beracun dan mencemari tanah di daerah lain.</p>
+<p>	Fang Yuan segera mengambil keputusan, menghilangkan lapisan tanah ini.</p>
+<p>	Meskipun Tai Bai Yun Sheng memiliki Lanskap seperti Sebelumnya untuk mengembalikan tanah kembali ke keadaan semula, Fang Yuan tidak mengadopsi metode itu.</p>
+<p>	Jadi, Fang Yuan, Tai Bai Yun Sheng, dan Hei Lou Lan bekerja bersama, menghabiskan beberapa hari dan akhirnya menyingkirkan lapisan tanah. Fang Yuan memindahkan semua tanah beracun ke dalam lubang abadinya, bahkan dengan tubuh zombie abadinya, dia sangat kelelahan.</p>
+<p>	Ada banyak pekerjaan yang harus dilakukan, melihatnya dari perspektif lain, itu adalah hal yang baik bahwa Fang Yuan memindahkan area utara dari tanah yang diberkati sebelumnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

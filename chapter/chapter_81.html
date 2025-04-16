@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 81 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 81";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_80.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 81">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_82.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 81</h1>
+        <div class="text-left">
+<p>	Bab 81</p>
+<p>	Bab 81: Peringkat dua Tahap awal!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Langkah kaki itu semakin dekat, dan segera pohon-pohon hijau tua di sisi lereng dipisahkan dengan paksa. Seorang pria jangkung melangkah maju, muncul dalam pandangan Fang Yuan.</p>
+<p>	Dia memiliki rambut pendek hitam, setiap helai berdiri tegak. Bagian atas tubuhnya telanjang. Dia memiliki tubuh yang besar dan tebal, seluruh otot tubuhnya berwarna merah cerah.</p>
+<p>	Tingginya hampir dua meter, dan selama musim gugur yang dingin, dia mengeluarkan perasaan seperti kuali bergerak, setiap napasnya mampu meningkatkan suhu di sekitarnya.</p>
+<p>	Di pinggangnya, beberapa mayat binatang buas digantung. Ada rubah, kelinci liar, dan ayam, belum lagi serigala tua yang baru saja pergi.</p>
+<p>	Melihat Fang Yuan, dia sedikit terkejut, tetapi dengan cepat mengambil langkah besar dan berjalan melewati Fang Yuan.</p>
+<p>	“Gu Yue Chi Shan.” Melihat punggung pria besar itu pergi, Fang Yuan memikirkan namanya.</p>
+<p>	Dia adalah perwakilan dari faksi Chi, memiliki peringkat dua budidaya tingkat atas. Pengalamannya bahkan mirip dengan Fang Yuan.</p>
+<p>	Orang ini juga sangat berbakat, memiliki kekuatan yang sangat besar sejak muda. Pada usia sepuluh tahun dia secara tidak sengaja memukuli seorang pelayan keluarga sampai mati, dan pada usia dua belas tahun dia bisa memegang penggiling batu yang berat dan memainkannya seperti frisbee.</p>
+<p>	Saat itu, semua keluarga menganggapnya baik, mengira dia adalah nilai A. Tetapi selama upacara kebangkitan, mereka menguji bahwa bakatnya hanya kelas B.</p>
+<p>	Dia memiliki sifat yang awalnya liar dan tidak dapat dijinakkan, memandang rendah semua orang. Tapi dia dengan cepat berubah setelah pengalaman ini, menjadi lebih dewasa. Bahkan dengan bakat kelas B, dia adalah siswa terbaik di levelnya.</p>
+<p>	Setelah satu tahun belajar, ia lulus dari akademi dan berjuang untuk mencapai puncak. Bertahun-tahun kemudian, dia sudah menjadi elit di antara Master Gu peringkat dua klan.</p>
+<p>	Kebahagiaan tidak bisa mengajarkan arti hidup seseorang yang sebenarnya, sementara hanya rasa sakit dan penderitaan yang bisa.</p>
+<p>	“Di klan, seorang anak muda menghadiri upacara kebangkitan pada usia lima belas dan memasuki akademi. Pada usia enam belas, mereka lulus dari akademi dan membentuk kelompok lima orang dan menyelesaikan misi klan, pada saat yang sama mewarisi kekayaan keluarga. Dari enam belas, mereka akan bertarung dan bersaing sambil terus meningkatkan kultivasi mereka. Saat misi menjadi lebih berbahaya, status mereka juga akan meningkat. Beberapa mati dan beberapa hidup. Beberapa terluka, dan tingkat kultivasi mereka turun, menjalani kehidupan yang sederhana setelahnya. Beberapa menjadi Master Gu peringkat tiga setelah semua kesulitan dan maju ke tetua klan, menjadi salah satu petinggi. ”</p>
+<p>	Tatapan Fang Yuan bersinar, memikirkan banyak hal.</p>
+<p>	Semakin banyak Gu Master berkultivasi, semakin sulit, dan maju menjadi jauh lebih sulit. Ditambah dengan lingkungan hidup yang berbahaya dan sulit, mereka yang dapat naik ke peringkat tiga tidak banyak.</p>
+<p>	“Ngomong-ngomong, ini hampir musim dingin. Itu berarti saya telah menghabiskan hampir satu tahun di akademi. Setiap tahun ada dua ujian. Yang pertama adalah ujian tengah tahun, dengan konten yang berbeda setiap tahunnya. Yang kedua adalah ujian akhir tahun, dan isinya tidak pernah berubah, menjadi arena pertarungan. Setelah pertarungan arena, saya tidak bisa lagi tinggal di asrama, dan saya harus pindah.”</p>
+<p>	Pindah, tapi tetap di mana?</p>
+<p>	Fang Yuan tidak bisa tinggal bersama bibi dan pamannya, itulah yang mereka inginkan.</p>
+<p>	Di dunia ini, enam belas berarti dewasa, usia untuk memulai reproduksi. Ditambah dengan banyak rahasia Fang Yuan, dia harus hidup mandiri.</p>
+<p>	“Dalam kehidupan saya sebelumnya, setelah meninggalkan akademi, saya hanya berada di peringkat satu tahap tengah. Kali ini, situasinya jauh lebih baik, saya akan menjadi peringkat satu tahap puncak saat itu. Tapi dengan bakat kelas C, sampai sejauh ini benar-benar sebuah pencapaian. Meskipun ada biayanya, menghabiskan banyak batu purba saya. ”</p>
+<p>	Alis Fang Yuan terangkat, dia tidak memiliki banyak batu purba yang tersisa.</p>
+<p>	Dibatasi oleh bakatnya, batu purba yang dia keluarkan untuk berkultivasi jauh lebih banyak daripada Fang Zheng, Chi Cheng atau Mo Bei.</p>
+<p>	Dia membesarkan enam cacing Gu sendirian!</p>
+<p>	Selanjutnya, penyempurnaan cacing Liquor, memelihara lubang, menggunakan White Boar Gu untuk meningkatkan kekuatan — mereka semua membutuhkan esensi purba. Setelah esensi purba habis, dengan kecepatan pemulihan kelas C, itu tidak dapat memenuhi kebutuhannya, jadi dia hanya bisa menggunakan batu purba dan mengambil esensi alami di dalamnya untuk diisi ulang.</p>
+<p>	Untungnya dia memiliki Jangkrik Musim Gugur Musim Semi, dan juga mengambil dua Gu dari Bunga Perbendaharaan Bumi, sehingga memurnikan cacing Gu tidak menghabiskan banyak batu purbanya. Ini membuatnya merasa sedikit lebih baik.</p>
+<p>	Tetapi setelah ini ketika dia meninggalkan akademi, dia perlu menyewa rumah dan mendapatkan penghasilan.</p>
+<p>	Setelah tahap puncak, itu untuk mendorong Peringkat dua. Proses ini akan menghabiskan banyak batu purba.</p>
+<p>	Setelah Peringkat dua, dia masih harus menggabungkan cacing Gu, dan setiap upaya kombinasi membutuhkan biaya yang besar.</p>
+<p>	Dengan semua faktor ini, dia semakin jelas bahwa situasi keuangannya tidak lagi dapat mendukungnya. Selanjutnya, dia masih harus terus memberi makan cacing Gu dan terus berkultivasi.</p>
+<p>	Jika bukan karena ujian tengah tahun di mana dia menggunakan taring babi hutan untuk menukar beberapa batu purba dan mengurangi tekanan, dia tidak akan bertahan sampai sekarang.</p>
+<p>	“Batu purba, batu purba … Biksu Anggur Bunga tidak memberikan batu purba dalam warisannya, sayang sekali. Memeras teman sekelas saya masih merupakan sumber penghasilan saya yang paling penting. Tapi setelah lulus, tunjangan akademi akan berhenti, dan saya tidak bisa terus memeras. Tetapi jika saya mendapatkan yang pertama untuk ujian akhir tahun, saya bisa mendapatkan seratus lima puluh batu purba sebagai hadiah, ”renung Fang Yuan dalam hatinya.</p>
+<p>	Jika dia bisa mendapatkan tempat pertama, seratus lima puluh batu purba akan meringankan kesulitan keuangannya untuk sementara waktu.</p>
+<p>	…</p>
+<p>	Waktu berlalu, daun musim gugur dan musim dingin datang.</p>
+<p>	Di arena di akademi, tiga tahap telah dibangun.</p>
+<p>	Di samping panggung, di dekat dinding bambu arena, ada tenda dan meja dan kursi panjang.</p>
+<p>	Tetua akademi, pemimpin klan, dan beberapa tetua klan lainnya duduk di bawah tenda.</p>
+<p>	Ada sedikit salju di langit.</p>
+<p>	Lima puluh tujuh siswa berdiri tegak di arena. Masing-masing hidung mereka merah padam karena cuaca, dan setiap napas yang mereka hirup memiliki uap yang keluar dari hidung mereka.</p>
+<p>	Tetua akademi berbicara dengan keras, “Dalam sekejap, satu tahun telah berakhir. Selama tahun ini Anda dilatih di akademi dan sudah mulai memahami kualitas seorang Guru Gu. Besok, kamu akan menjalani ujian akhir tahun untuk menguji hasil kerja kerasmu! Tidak hanya pemimpin klan dan tetua klan akan datang secara pribadi untuk menonton, tetua dan senior keluarga Anda juga akan datang untuk mengamati untuk memilih siswa berprestasi untuk bergabung dengan tim kecil mereka. ”</p>
+<p>	“Penampilanmu besok, akan sangat mempengaruhi masa depanmu. Mendapatkan tempat pertama, tidak hanya seratus lima puluh batu purba, tetapi Anda juga mendapatkan keuntungan dalam memilih cacing Gu! Sekarang, mulailah pemeriksaan kultivasi terakhir dalam kehidupan akademis Anda! ”</p>
+<p>	Mengatakan demikian, sesepuh akademi mengangguk ke Master Gu di sampingnya.</p>
+<p>	Master Gu perempuan menerima instruksi dan memanggil nama dari daftar, “Gu Yue Jin Zhu!”</p>
+<p>	Seorang gadis muda berjalan menuju Guru Gu dengan ekspresi gugup.</p>
+<p>	Master Gu mengulurkan tangannya, menyentuh perut gadis muda itu. Dia memejamkan mata untuk merasakan, lalu membuka matanya dan menyatakan, “Gu Yue Jin Zhu, Peringkat satu tahap tengah. Selanjutnya, Gu Yue Peng.”</p>
+<p>	Satu demi satu, anak-anak muda naik untuk memeriksa. Kemudian mereka berjalan kembali dan kembali ke kelompok.</p>
+<p>	Ekspresi mereka beragam, ada yang senang dan ada juga yang kesal.</p>
+<p>	Hasil terburuk secara alami adalah peringkat satu tahap awal, semuanya adalah talenta kelas D.</p>
+<p>	Sejumlah besar siswa berada di peringkat satu tahap tengah, dan sedikit dari mereka adalah kelas B, kebanyakan kelas C.</p>
+<p>	“Gu Yue Chi Cheng.” Tuan Gu wanita paruh baya memanggil.</p>
+<p>	Dari grup, Gu Yue Chi Cheng terpendek membusungkan dadanya dan berjalan keluar.</p>
+<p>	Setelah memeriksa, Master Gu perempuan membuka matanya, “Gu Yue Chi Cheng, Peringkat satu tahap puncak!”</p>
+<p>	Sampai sekarang, ini adalah Gu Master tahap puncak peringkat pertama.</p>
+<p>	Para tetua klan yang hadir menoleh.</p>
+<p>	Beberapa tetua mengenali, berkata dengan ringan, “Ini adalah cucu Chi Lian, memiliki bakat kelas B, tidak heran.”</p>
+<p>	Di luar tenda, anak-anak muda juga berkomentar.</p>
+<p>	“Chi Cheng adalah peringkat satu tahap puncak, aku ingin tahu apakah Mo Bei juga? Bagaimanapun, mereka adalah saingan. ”</p>
+<p>	“Mampu maju ke tahap puncak, mereka semua adalah nilai A dan B. Huh, kami kelas C dan D menghadapi kepahitan yang tidak bisa dicemburui.”</p>
+<p>	“Hmph!” Gu Yue Mo Bei mendengus, melihat ekspresi bangga Chi Cheng, dia kesal.</p>
+<p>	Gu Yue Fang Zheng mengepalkan tinjunya, bibirnya terkatup rapat, seolah menahan emosinya.</p>
+<p>	“Gu Yue Mo Bei.” Tak lama kemudian, pemeriksa memanggil.</p>
+<p>	Mo Bei yang berwajah kuda dengan cepat berjalan keluar.</p>
+<p>	“Gu Yue Mo Bei, Peringkat satu tahap puncak.” Dengan pernyataan ini, dia berjalan kembali dan menatap tajam ke arah Gu Yue Chi Cheng saat kembali.</p>
+<p>	Pemeriksaan berlanjut, dan salju di langit menjadi lebih kecil, sampai menghilang.</p>
+<p>	Udara dingin yang dingin agak menyegarkan.</p>
+<p>	“Gu Yue Fang Yuan.” Tuan Gu wanita paruh baya memanggil.</p>
+<p>	Fang Yuan berjalan tanpa ekspresi.</p>
+<p>	Segera setelah itu, dia membuka matanya, menatap Fang Yuan dengan kaget, sebelum menyatakan, “Gu Yue Fang Yuan, Peringkat satu tahap puncak!”</p>
+<p>	“Peringkat satu tahap puncak, apakah saya salah dengar? Fang Yuan berkultivasi ke level ini? ” Anak-anak muda terkejut.</p>
+<p>	“Huh, dia hanya beruntung, memiliki cacing Liquor untuk memelihara bukaannya. Bahkan melawan nilai A dan B, dengan nilai C-nya dia tidak dirugikan.” Beberapa anak muda berkata dengan iri.</p>
+<p>	Terutama para talenta kelas C, mereka dengan masam berkata untuk menghibur diri mereka sendiri, “Ini tidak banyak. Cacing Minuman Keras tidak dapat memperbaiki esensi purba peringkat dua, Fang Yuan tidak akan lagi memiliki keuntungan seperti itu lagi. ”</p>
+<p>	“Bahkan jika dia adalah puncak panggung, dia masih kelas C, ini bukan urusan kami.” Mo Bei dan Chi Cheng menatap Fang Yuan, tetapi dengan cepat mengalihkan perhatian mereka ke Fang Zheng, yang masih menunggu gilirannya.</p>
+<p>	Di hati mereka, hanya bakat kelas A Fang Zheng yang menjadi pesaing.</p>
+<p>	“Saudaraku, kamu mengejutkanku. Tapi mulai sekarang, perhatikan baik-baik …” Fang Zheng memandang Fang Yuan yang berjalan turun, matanya bersinar dan mengungkapkan ekspresi antisipasi.</p>
+<p>	“Gu Yue Fang Zheng.” Master Gu perempuan akhirnya berkata.</p>
+<p>	“Bakat kelas A?” Para tetua klan memusatkan perhatian mereka pada Fang Zheng.</p>
+<p>	Fang Zheng berjalan keluar dari kerumunan, dia bisa merasakan tekanan yang dibawa tatapan ini padanya, menyebabkan dia menjadi sedikit gugup.</p>
+<p>	Tapi ketika dia melihat senyum pemimpin klan Gu Yue Bo, kegugupan di hatinya meleleh.</p>
+<p>	Dia berjalan di depan Guru Gu perempuan.</p>
+<p>	Dia menutup matanya, dan kemudian tiba-tiba membuka matanya, berkata dengan kaget, “Gu Yue Fang Zheng, tingkat kultivasi — Peringkat dua tahap awal!”</p>
+<p>	Ledakan.</p>
+<p>	Anak-anak muda meledak menjadi gelombang diskusi.</p>
+<p>	“Apa, dia mencapai Peringkat dua ?!”</p>
+<p>	“Seperti yang diharapkan dari jenius bakat kelas A.”</p>
+<p>	“Luar biasa, dia meninggalkan Mo Bei, Chi Cheng, dan Fang Yuan dalam debu.”</p>
+<p>	“Fang Zheng ini!” Seketika, Mo Bei dan Chi Cheng menatap Fang Zheng dengan kaget.</p>
+<p>	“Hehehe, sebenarnya lebih tinggi dari kehidupanku sebelumnya …” Kelopak mata Fang Yuan terkulai saat dia tertawa. Dia tidak terkejut, dan setelah mengamati ekspresi Fang Zheng sebelumnya, dia bisa menebak hasilnya.</p>
+<p>	“Bagaimanapun juga, bakat kelas.”</p>
+<p>	“Harapan klan kita.”</p>
+<p>	“Ini adalah penghargaan dari pengasuhan pemimpin klan …”</p>
+<p>	Para tetua klan memuji.</p>
+<p>	Seketika, Fang Zheng menjadi pusat perhatian.</p>
+<p>	Setengah tahun yang lalu, Gu Yue Bo memberinya Jade Skin Gu dan memintanya untuk menjadi orang pertama yang naik ke peringkat dua. Dia melakukannya!</p>
+<p>	“Pemimpin klan, saya tidak mengecewakan Anda, saya berhasil! Mulai sekarang, saya akan mencapai lebih banyak lagi, mendapatkan persetujuan dari para tetua klan dan orang-orang di sekitar saya. Saudaraku, aku telah meninggalkanmu, kamu bukan lagi bayangan di hatiku. Aku, Gu Yue Fang Zheng, bukan lagi orang dari dulu!”</p>
+<p>	Fang Zheng berteriak dalam hatinya, matanya bersinar dengan semacam kecemerlangan.</p>
+<p>	Kecemerlangan ini, disebut kepercayaan diri!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 147 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 147";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_146.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 147">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_148.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 147</h1>
+        <div class="text-left">
+<p>	Bab 147</p>
+<p>	Bab 147: Fang Yuan ini terlalu sombong</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Sejak pertempuran sengit Bai Ning Bing dan Qing Shu, Fang Yuan yang mengejar Bai Ning Bing sepanjang jalan menjadi terkenal, dan popularitasnya meningkat.</p>
+<p>	Hari-hari ini, Fang Yuan telah menunjukkan sisi kuatnya dalam gelombang serigala, menuju sendirian untuk berburu serigala petir dan menunjukkan hasil yang mengejutkan.</p>
+<p>	Dia adalah bintang generasi baru yang sedang naik daun. Jika bukan karena kepribadiannya yang aneh dan reputasinya yang buruk, statusnya akan setara dengan Chi Shan dan Mo Yan.</p>
+<p>	Tetapi bagi anggota desa Xiong, Fang Yuan juga pembunuh Xiong Jiang.</p>
+<p>	Jadi, ketika Xiong Jiao Man dan yang lainnya melihat Fang Yuan, mereka menunjukkan ekspresi yang rumit.</p>
+<p>	Fang Yuan menatap mereka dari atas, melambaikan pohon anggurnya, berkata perlahan, “Kalian bisa terus menunggu bala bantuan, atau melarikan diri menggunakan pohon anggur di tanganku dan mendaki gunung.”</p>
+<p>	Siapa yang tahu kapan bala bantuan akan datang?</p>
+<p>	Hal-hal di medan perang selalu berubah.</p>
+<p>	Xiong Jiao Man dan yang lainnya jelas memilih pohon anggur di depan mereka, tetapi Fang Yuan sebenarnya meminta imbalan kepada mereka.</p>
+<p>	Hal ini menyebabkan Master Gu klan Xiong menjadi marah.</p>
+<p>	“Fang Yuan, kami adalah rekan aliansi. Bagaimana kamu bisa melakukan ini!” Seseorang berteriak dengan marah.</p>
+<p>	“Meminta Perbudakan Beruang Gu, betapa tidak tahu malunya kamu!” Seseorang mencibir.</p>
+<p>	Fang Yuan dengan tenang menjawab, “Satu Perbudakan Beruang Gu dan tujuh ratus batu purba, sebagai ganti tujuh nyawamu, ini adalah harga yang murah. Anda dapat menolak saya, dan saya akan kembali ke klan untuk melaporkan keadaan Anda. Hehe, tapi kapan bala bantuan akan datang, apakah mereka akan bertemu dengan sekawanan serigala dalam perjalanan ke sini, yang tidak bisa saya jamin.”</p>
+<p>	Semua orang menjadi tenang.</p>
+<p>	Ekspresi mereka jelek.</p>
+<p>	“Baiklah, aku berjanji padamu. Fang Yuan, kamu benar-benar memenuhi reputasimu.” Akhirnya, Xiong Jiao Man memilih untuk mengalah demi semua orang. Kata-katanya penuh dendam terhadap Fang Yuan.</p>
+<p>	Fang Yuan mengangkat bahu dengan acuh tak acuh, hasilnya seperti yang diharapkan.</p>
+<p>	Dia melemparkan pohon anggur, dan tertawa dingin di dalam hatinya.</p>
+<p>	Empat paket serigala petir yang berani ini terpikat ke sini olehnya, dia ingin menunggu mereka mati sebelum mengambil cacing Gu mereka dan mendapatkan sejumlah besar poin prestasi. Tapi Signal Gu mereka telah menarik perhatian kelompok Master Gu di sekitarnya, dan mereka semua bergegas untuk membantu.</p>
+<p>	Untuk tidak menyia-nyiakan usahanya, Fang Yuan hanya bisa bertindak sebagai Penguat Gu Master sekali saja.</p>
+<p>	Xiong Jiao Man dan yang lainnya menggunakan pohon anggur dan berhasil melarikan diri dari kawanan serigala. Tidak lama kemudian, tiga kelompok Guru Gu tiba, dan salah satunya adalah kelompok Chi Shan.</p>
+<p>	Ini menyebabkan tujuh Master Gu menjadi lebih kesal.</p>
+<p>	Xiong Jiao Man sangat menyesal. Belum lama ini, dia telah menarik kesadarannya dari Perbudakan Beruang Gu dan bekerja sama dengan Fang Yuan dalam memperbaiki cacing Gu, jadi bahkan jika dia ingin kembali pada kata-katanya sekarang, itu tidak mungkin.</p>
+<p>	“Fang Yuan, aku akan mengingatmu.” Xiong Jiao Man menatap mata Fang Yuan dengan tajam.</p>
+<p>	“Ingat atau tidak, itu urusanmu.” Fang Yuan tertawa polos, berbalik dan pergi.</p>
+<p>	“Nona Xiong, kita bertemu lagi.” Di ujung lain, kelompok Chi Shan tiba, berbicara dengan nada sopan.</p>
+<p>	Sejak insiden Bai Ning Bing, klan Gu Yue kehilangan Qing Shu, dan Xiong Li dari klan Xiong meninggal, sehingga kedua klan semakin dekat. Secara politis, klan Bai ditentang oleh dua klan lainnya secara bersama-sama, meskipun aliansi itu masih ada.</p>
+<p>	“Adik perempuan memberi hormat kepada kakak laki-laki Chi Shan.” Xiong Jiao Man mengangkat alisnya yang mengernyit, menangkupkan tinjunya ke arah Chi Shan, melanjutkan, “Kali ini, kami meminta beberapa bala bantuan kepada klan Gu Yue, klan Xiong telah dikelilingi oleh kawanan serigala selama enam hari enam malam.”</p>
+<p>	Hari-hari ini, gelombang serigala semakin parah. Paket serigala petir sudah mulai mengelilingi desa-desa dengan tujuan menyerang.</p>
+<p>	Klan Xiong memiliki posisi terendah di antara tiga klan – terletak di kaki gunung, mereka akan menjadi yang pertama diserang oleh kawanan serigala. Faktanya, ini adalah ketiga kalinya mereka dikepung, dan mereka membutuhkan bala bantuan. Dengan koordinasi serangan dari luar dan dalam bersama-sama, mereka kemudian dapat menyebarkan dan mengalahkan gerombolan serigala petir ini.</p>
+<p>	“Soal bala bantuan tidak masalah, bukankah kita bekerja sama dengan baik dua kali terakhir? Tapi masalah ini, saya harus melapor ke pemimpin klan terlebih dahulu. Ikutlah denganku, ”kata Chi Shan.</p>
+<p>	Xiong Jiao Man dan yang lainnya mengikuti kelompok Chi Shan, datang ke desa Gu Yue.</p>
+<p>	Desa Gu Yue sudah memiliki lapisan pertahanan. Dinding luar sangat diperkuat dengan puluhan menara. Di bawah tembok desa ada parit yang digali dan diisi dengan bambu runcing.</p>
+<p>	Tembok desa telah ditanami dengan Steel Vine Gu dan Poison Flower Gu; sekilas, dindingnya tertutup tanaman rambat yang tajam dan bunga-bunga beracun yang indah semuanya bertunas, lebih dari ratusan atau bahkan ribuan.</p>
+<p>	Memasuki pintu utama, orang dapat melihat bahwa bangunan di sekitarnya, apakah itu tempat tinggal atau kedai, semuanya telah diubah menjadi benteng sementara.</p>
+<p>	Xiong Jiao Man dan enam lainnya, setelah meninggalkan klan Xiong, perjalanan mereka dipenuhi dengan kesulitan. Melintasi gerombolan serigala, mereka semua memiliki luka yang berbeda. Oleh karena itu, mereka digiring ke sebuah bangunan bambu untuk mendapatkan pengobatan.</p>
+<p>	Ada lebih dari sepuluh Master Gu yang menyembuhkan di gedung bambu, sebagian besar Master Gu Peringkat satu, tetapi juga beberapa Master Gu Peringkat dua. Tapi yang membuat Xiong Jiao Man dan yang lainnya terkejut adalah, orang yang bertanggung jawab bukanlah Master Gu penyembuh peringkat dua, tetapi seorang gadis muda.</p>
+<p>	“Letakkan yang tidak sadar ini di kursi anggur.”</p>
+<p>	“Yang di sini patah kakinya, Gu Yue Xing, datang ke sini dan beri dia perawatan.”</p>
+<p>	“Cedera dangkal, Ah Feng, datang ke sini dan hentikan pendarahannya, Ah Xing datang ke sini dan oleskan disinfektan, Xiao Hua pergi menempatkan papan patah pada patah kaki itu, lalu datang ke sini untuk membalut lukanya.</p>
+<p>	Gadis muda itu memiliki rambut hitam, mulut kecil seperti buah persik, kedua matanya bersinar seperti kristal dan wajahnya sedikit tembem, dengan suara yang memikat. Tetapi ketika dia menangani pasien, dia sangat berpengalaman, membuat orang lain terlihat takjub.</p>
+<p>	Xiong Jiao Man tiba-tiba memikirkan satu orang, bertanya, “Adik perempuan ini, apakah kamu Gu Yue Yao Le?”</p>
+<p>	“Adik klan Xiong, Jiao Man, halo. Untuk berpikir Anda tahu nama saya. ” Setelah menugaskan Master Gu ke stasiun mereka, Gu Yue Yao Le berjalan mendekat dan memperkenalkan dirinya.</p>
+<p>	“Saudari Yao Le, Anda adalah karakter yang terkenal. Mewarisi hati baik hati Lord Yao Ji, dan juga sangat berbakat dalam keterampilan medis, bahkan dengan kultivasi Peringkat satu Anda, Anda dikenal sebagai sepuluh bintang yang sedang naik daun di gunung Qing Mao. Bahkan di klan Xiong, ada banyak orang yang mengagumimu, saudari. ” Melihat latar belakangnya yang kuat, Xiong Jiao Man dengan sopan memuji saat dia dalam perjalanan untuk meminta bantuan klan Gu Yue.</p>
+<p>	“Aku tersanjung, saudari Jiao Man.” Gu Yue Yao Le masih muda, dan wajahnya memerah saat dia menunduk malu setelah dipuji.</p>
+<p>	Pada saat ini, seorang Gu Master klan Xiong mengeluh, “Meskipun Anda berdua adalah sepuluh bintang yang sedang naik daun, bahwa Gu Yue Fang Yuan benar-benar tidak dapat dibandingkan dengan Anda, adik perempuan.”</p>
+<p>	“Jangan menyebut Fang Yuan, darahku mendidih memikirkannya!”</p>
+<p>	“Waktu tanpa pahlawan, anak laki-laki mendapatkan ketenaran! Mendesah…”</p>
+<p>	“Moral orang ini kurang, untuk berpikir dia juga sepuluh bintang yang sedang naik daun, dan bahkan posisi nomor satu. Memikirkannya membuatku ingin muntah.”</p>
+<p>	Kalimat ini langsung menarik perhatian orang-orang di sekitarnya, termasuk Gu Master dari klan Gu Yue.</p>
+<p>	“Gu Yue Fang Yuan? Apa yang dia lakukan kali ini?” Seseorang dengan penasaran bertanya.</p>
+<p>	“Hmph, dia mengambil salah satu Gu Perbudakan Beruangku, dan bahkan tujuh ratus batu purba, sebagai hadiah karena telah menyelamatkan kita. Saya belum pernah melihat orang yang begitu tak tahu malu, dan dirusak oleh keserakahan!” Xiong Jiao Man mendengus, melampiaskan ketidakbahagiaannya.</p>
+<p>	“Ini bukan apa-apa, ada hal-hal yang lebih buruk.”</p>
+<p>	“Hatinya lebih hitam dari batu bara, menjual daun vitalitas untuk delapan puluh batu purba, dia mengambil keuntungan dari situasi ini, orang ini serakah dan sangat tidak tahu malu!”</p>
+<p>	“Dia terlalu arogan dan sombong. Teman saya ingin bergabung dengan grupnya, tetapi bukan hanya ditolak, tetapi bahkan dihina di depan umum. Apa masalahnya, dia hanya bakat kelas C. ”</p>
+<p>	“Dia adalah anak hilang yang masih hidup, menyia-nyiakan warisan yang ditinggalkan kedua orang tuanya untuk membeli Relic Gu baja merah dari karavan. Selanjutnya dia mengambil Relic Gu baja merah lainnya dari Bai Ning Bing. Jika saya memiliki dua cacing Gu ini, saya juga dapat memiliki kultivasinya! ”</p>
+<p>	“Tuan Gu Yue Qing Shu adalah yang terbaik, rendah hati dan baik hati, sayang sekali dia meninggal lebih awal.”</p>
+<p>	“Tapi saudaranya Fang Zheng memiliki rasa keadilan, membantu mereka yang membutuhkan dan baik hati, juga memiliki sikap rendah hati Lord Qing Shu, dia benar-benar kebalikan dari saudaranya.”</p>
+<p>	Xiong Jiao Man tidak menyangka ocehannya menyebabkan begitu banyak reaksi dari klan Gu Yue.</p>
+<p>	Dia terkejut. Memikirkan Fang Yuan ini gagal sebagai manusia, dibenci oleh begitu banyak orang.</p>
+<p>	Dia merasa aneh, bertanya, “Karena dia sangat dibenci, mengapa tidak ada yang memberinya pelajaran?”</p>
+<p>	Bangunan bambu itu seketika menjadi sunyi.</p>
+<p>	Klan Gu Yue semua saling memandang, tidak mengatakan sepatah kata pun.</p>
+<p>	Sebenarnya, banyak orang tidak tahan dengan tingkah laku Fang Yuan, serta tindakannya memaksimalkan keuntungan dalam keadaan seperti itu. Banyak orang menemukan masalah dengannya, tetapi hasilnya setiap kali orang yang mencari kesalahan itu sendiri malah membuat kekacauan yang lebih besar.</p>
+<p>	Setelah berkali-kali, tidak ada yang datang untuk mencari kesalahan padanya lagi.</p>
+<p>	Dan Fang Yuan juga dikenal publik sebagai kepala dari sepuluh bintang yang sedang naik daun yang muncul dari gelombang serigala.</p>
+<p>	Semua status ini, berasal dari kekuatan.</p>
+<p>	Kekuatan pertempuran Fang Yuan adalah yang terkuat, jadi dia adalah kepala. Terlepas dari seberapa buruk reputasinya, atau seberapa buruk hubungan manusiawinya.</p>
+<p>	“Fang Yuan itu lagi …” Gu Yue Yao Ji dengan ringan mengerutkan kening, bergumam.</p>
+<p>	Dia belum pernah melihat Fang Yuan, tetapi sudah mendengar banyak tentang dia. Terhadap Fang Yuan, dia memiliki kesan yang buruk tentang dia.</p>
+<p>	“Fang Yuan ini, meskipun seniorku, hal-hal yang dia lakukan tidak dapat dimaafkan, dan dia sangat ekstrem. Dia berani memeras saudari Jiao Man kali ini dan mendapatkan Gu Perbudakan Beruang, tidak peduli tentang perjanjian dua klan kami. Tidak, aku harus memberi tahu nenek dan membiarkannya mengajari Fang Yuan ini, kalau tidak klan Gu Yue kita akan dipermalukan.”</p>
+<p>	Memikirkan hal ini, gadis muda itu tiba-tiba merasa bahwa ada kebutuhan untuk klan yang lebih tinggi untuk keluar dan memberi pelajaran pada Fang Yuan ini.</p>
+<p>	Dia secara alami tidak memiliki kemampuan ini, tetapi dia merasa bahwa neneknya, Gu Yue Yao Ji dari aula pengobatan bisa.</p>
+<p>	Di matanya, neneknya mahakuasa.</p>
+<p>	“Kamu ingin aku berurusan dengan Gu Yue Fang Yuan?” Yao Ji menatap cucunya, ekspresinya kosong, dan segera setelah itu dia mulai gugup.</p>
+<p>	“Cucuku sayang, apakah dia menggertakmu?” Dia buru-buru bertanya.</p>
+<p>	“Dia tidak menggertak saya, tetapi dia menggertak orang lain. Kali ini saudara perempuan klan Xiong, Jiao Man, dia memerasnya, mendapatkan Gu Perbudakan Beruang dan tujuh ratus batu purba. Ini terlalu berlebihan, jika ini terus berlanjut, reputasi klan akan benar-benar hancur olehnya,” kata Gu Yue Yao Le.</p>
+<p>	“Mmm, nenek tahu masalah ini. Cucu tersayang, pergi dulu, nenek tidak akan mengecewakanmu. ” Yao Ji berkata setelah pertimbangan mendalam.</p>
+<p>	“Terima kasih nenek! Nenek Anda tidak tahu tetapi orang ini terlalu jahat, menaikkan harga barang-barangnya dan menggertak yang lemah, dia adalah penjahat sejati. ”</p>
+<p>	Setelah gadis muda itu pergi, Yao Ji tenggelam dalam pikirannya.</p>
+<p>	Dia sudah lama ingin berurusan dengan Fang Yuan, namun tentu saja itu bukan alasan naif seperti Yao Le, tetapi karena Fang Yuan memiliki keuntungan yang cukup untuk dia serang.</p>
+<p>	Pertama adalah cacing Liquor.</p>
+<p>	Meskipun sebelumnya, Yao Ji telah membeli satu dari karavan. Tapi itu diberikan kepada cucunya Yao Le. Dia sendiri masih membutuhkan satu cacing Liquor sebagai bahan untuk memurnikan cacing Gu peringkat tiga yang ingin dia gabungkan.</p>
+<p>	Berikutnya adalah Rumput Vitalitas Sembilan Daun.</p>
+<p>	Rumput Vitalitas Sembilan Daun klan sebagian besar berada dalam kendali Yao Ji, dan dengan mengandalkan penjualan daun vitalitas, dia dapat mengkonsolidasikan otoritas dan statusnya di klan.</p>
+<p>	“Fang Yuan ini terlalu sombong! Pertama saya ingin membeli cacing Liquor nya, tapi dia menolak, apa nyali. Kali ini dia menaikkan harga daun vitalitas dan mendapatkan banyak uang. Apakah dia benar-benar berpikir saya, tetua klan obat, adalah udara tipis? Hmph!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

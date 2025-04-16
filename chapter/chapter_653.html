@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 653 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 653";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_652.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 653">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_654.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 653</h1>
+        <div class="text-left">
+<p>	Bab 653 – Kebangkrutan dan Aliansi Zombie</p>
+<p>	Bab 653: Kebangkrutan dan Aliansi Zombie</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di gua bawah tanah, Fang Yuan mandi dalam cahaya kebijaksanaan dan merenung dalam-dalam.</p>
+<p>	“Meskipun aku terlahir kembali dan memiliki pengalaman lima ratus tahun dari kehidupan masa laluku, tetapi berbeda dengan monster tua seperti Mo Yao dan Giant Sun, aku pucat jika dibandingkan. Dominasi saya sebelumnya dalam aspek ini telah lenyap.”</p>
+<p>	Sepanjang aliran sejarah, ada pahlawan agung sebanyak bintang di langit!</p>
+<p>	Dalam sejarah manusia, Giant Sun Immortal Venerable adalah ahli tak tertandingi yang jarang bisa diproduksi bahkan dalam sejuta tahun.</p>
+<p>	Fairy Mo Yao adalah grandmaster jalur penyempurnaan, dan saat itu adalah peri dari Spirit Affinity House; dia adalah orang yang terkenal dan berpengaruh dengan bakat yang mengejutkan. Pada masa itu, dia akan terdaftar di antara sepuluh Dewa Gu yang terkenal di Benua Tengah yang besar.</p>
+<p>	Fang Yuan memiliki tekad yang kuat dan telah melalui pengalaman unik, tetapi dia juga seorang bintang biasa-biasa saja di langit berbintang yang luas ini. Hanya dengan kekuatan dan fondasinya saat ini, sulit baginya untuk setara dengan para ahli hebat yang muncul dalam sejarah.</p>
+<p>	“Perjalanan ke dataran utara ini jauh melampaui harapan awalku. Jika bukan karena campur tangan dari wasiat Mo Yao, saya bisa tinggal di True Yang Building dan menjelajah secara bertahap menggunakan identitas yang berbeda setiap sepuluh tahun. Tetapi pada titik ini, dadu dilemparkan dan dataran utara pasti akan menjadi gempar besar; ahli yang tak terhitung jumlahnya dan kekuatan yang kuat akan berusaha untuk menemukan masalah dengan saya!</p>
+<p>	Fang Yuan menyimpulkan pengalamannya dan merasakan bahwa kerugian yang dideritanya adalah karena kelemahannya dalam aspek jalur kebijaksanaan.</p>
+<p>	Poin kuatnya adalah dalam menghitung dan merencanakan. Dan berdasarkan pengalamannya yang terpelihara dari kelahiran kembali, kelebihannya semakin diperkuat.</p>
+<p>	Namun, wasiat Mo Yao mampu mengganggu pikirannya yang menyebabkan dia tidak bisa berpikir dengan baik.</p>
+<p>	“Gedung Delapan Puluh Delapan Yang Sejati adalah simbol spiritual dataran utara dan saya adalah penyebab utama yang menyebabkannya digulingkan. Jika saya ditangkap sekarang, konsekuensinya tidak terbayangkan. Meskipun saya bisa bersembunyi di tanah yang diberkati Hu Immortal sekarang, itu sebenarnya tidak aman. Tidak berbicara tentang Sekte Bangau Abadi yang telah mengincar gunung Dang Hun sejak awal, mungkin Dewa Gu dataran utara dapat menemukan asal-usulku dan melacakku melalui pemotongan jalur kebijaksanaan!</p>
+<p>	Fang Yuan tahu dengan jelas bahwa bersembunyi di dalam tanah yang diberkati Hu Immortal tampaknya sangat aman tetapi sebenarnya sama dengan menunggu kematian. Hanya dengan melakukan serangan sebelum musuh-musuh ini memastikan kebenarannya, dia dapat memperbaiki situasi yang berbahaya ini.</p>
+<p>	“Batas gelap Immortal Gu, saya pernah mendengarnya bahkan di kehidupan saya sebelumnya, itu memang bisa menyembunyikan aura dan menghalangi perhitungan. Jika saya bisa mendapatkan Gu ini, saya yakin saya bisa menghindari situasi berbahaya. ”</p>
+<p>	Fang Yuan memikirkan Hei Lou Lan.</p>
+<p>	Wanita ini tidak terlalu penting dan merupakan orang yang luar biasa, kejam. Dia pragmatis dan fleksibel bisa mengambil keuntungan dari situasi; dia mengkhianati leluhurnya untuk kepentingannya sendiri dan ingin membunuh ayahnya sendiri – ini jelas menunjukkan sifat iblis! Dia memiliki Kekuatan Besar True Martial Physique dan juga memperoleh jalur kekuatan Immortal Gu, begitu dia maju menjadi Gu Immortal, jalannya akan menjadi salah satu kemajuan pesat.</p>
+<p>	Orang bisa mengatakan bahwa dia mirip dengan Fang Yuan, tetapi justru karena ini, dalam bekerja sama dengannya, dibutuhkan kehati-hatian yang luar biasa.</p>
+<p>	Apakah itu Immortal Gu Dark Limit atau Fixed Immortal Travel, keduanya adalah hal yang dia inginkan.</p>
+<p>	Pikiran Fang Yuan mulai melambat saat dia berpikir sampai saat ini.</p>
+<p>	Kehendak dalam pikirannya hampir habis.</p>
+<p>	Fang Yuan linglung sejenak, sebelum mundur dari cahaya kebijaksanaan untuk mengaktifkan cacing Gu dan membuat wasiat baru.</p>
+<p>	Pikirannya segera dipenuhi dengan berbagai jenis surat wasiat.</p>
+<p>	“Sangat disayangkan bahwa Gu fana tidak dapat menciptakan terlalu banyak keinginan dan mereka dengan mudah dikonsumsi dalam terang kebijaksanaan. Jika saya dapat menggunakan Gu Abadi untuk membuat wasiat, jumlah mereka akan sangat banyak dan juga dapat dipertahankan untuk jangka waktu yang lama, memungkinkan saya untuk berpikir sebanyak yang saya suka!</p>
+<p>	Fang Yuan merasa menyesal.</p>
+<p>	Dia memiliki jalur kebijaksanaan peringkat enam Immortal Gu, Delight in Water and Mountain yang bisa menciptakan kehendak yang menyenangkan.</p>
+<p>	Namun, Fang Yuan tidak menggunakannya setelah sedikit pertimbangan.</p>
+<p>	Gu Abadi membutuhkan esensi abadi. Dia hanya memiliki sembilan belas manik-manik esensi abadi anggur hijau yang tersisa, dan karena bukaan abadinya telah menjadi tanah mati, menggunakan satu manik esensi abadi berarti satu manik lebih sedikit yang tersisa tanpa pengisian.</p>
+<p>	Dia perlu menyelamatkan esensi abadinya sebanyak mungkin untuk bersiap menghadapi saat-saat dibutuhkan.</p>
+<p>	Karena itu, dia memilih untuk menggunakan Gu fana untuk saat ini.</p>
+<p>	Setelah mengumpulkan sejumlah keinginan fana, Fang Yuan melangkah ke cahaya kebijaksanaan lagi.</p>
+<p>	Kali ini, dia tidak memikirkan situasi eksternal, melainkan berkonsentrasi pada dirinya sendiri.</p>
+<p>	“Saya telah berubah menjadi zombie, kultivasi saya tidak dapat berkembang satu inci pun, bagaimana membangkitkan dan memulihkan tubuh manusia saya adalah masalah pertama. Akan sangat bagus jika saya bisa menggunakan Gu rotasi yin-yang, tetapi saya adalah zombie abadi sementara Gu rotasi yin-yang hanya berada di peringkat empat. Masalah kedua adalah saya sudah bangkrut! ”</p>
+<p>	Fang Yuan telah menginvestasikan hampir semua tabungannya dalam perjalanannya ke dataran utara. Pengeluaran yang dibutuhkannya sekarang sudah lebih besar dari pendapatannya dan dia sekarang menghadapi kebangkrutan.</p>
+<p>	Dia bahkan tidak memiliki satu batu esensi abadi yang dimilikinya sekarang, bahkan tanah yang diberkati Hu Immortal telah menjadi sangat tandus.</p>
+<p>	Sebelum pertempuran yang menentukan di dataran utara, Fang Yuan telah menggunakan batu esensi abadi yang tersisa. Pada saat terakhir, dia bahkan harus menukar barangnya untuk melakukan pembelian. Dia telah menjual hampir semua kelompok rubah dan kelompok serigala di tanah yang diberkati Hu Immortal; di padang rumput besar di tanah yang diberkati, rubah dan serigala hanya bisa terlihat sesekali.</p>
+<p>	Sebagian besar dari hampir sepuluh ribu pria berbulu yang dibeli Fang Yuan di masa lalu juga dijual untuk bantuan darurat. Sekarang hanya ada sekitar dua ribu pria tua berbulu yang berpengalaman dalam memurnikan Gu yang tersisa yang enggan dijual oleh Fang Yuan.</p>
+<p>	Transaksi budak rockmen telah menjadi pilar ekonomi yang kuat bagi Fang Yuan. Tapi setelah Immortal Crane Sect menghentikan transaksi, pilar ini runtuh. Pasar perdagangan rockmen di surga kuning harta karun telah dibagi sepenuhnya dan akan sulit bagi Fang Yuan untuk masuk. Ini menyebabkan situasi yang sudah buruk menjadi lebih buruk.</p>
+<p>	Tidak ada gunanya hanya memiliki kekuatan pertempuran yang kuat. Harus ada sumber daya yang cukup untuk mendukung kultivasi seseorang.</p>
+<p>	Cara Gu melibatkan pemeliharaan, penggunaan, dan pemurnian; Master Gu tidak bisa hanya menggunakan Gu, mereka harus membesarkan dan juga memurnikan Gu.</p>
+<p>	Fang Yuan sekarang menjadi zombie, kultivasinya mengalami stagnasi yang selanjutnya meningkatkan sumber daya yang dia butuhkan. Hanya dengan melakukan itu dia bisa memiliki kesempatan lebih tinggi untuk memulihkan hidupnya.</p>
+<p>	Tiga hari kemudian.</p>
+<p>	Di dalam Istana Dang Hun.</p>
+<p>	Fang Yuan membuat pengaturan sederhana sekali lagi, membangun aula kasar di mana kursi batu diatur dalam dua baris. Kursi utama seluas tempat tidur dengan punggung setinggi monumen, namun ketika Fang Yuan duduk di atasnya, kursi itu pas untuknya.</p>
+<p>	Tai Bai Yun Sheng sedang duduk di kursi pertama di sebelah kiri Fang Yuan; alisnya berkerut saat dia memegang seekor merpati putih kecil dan indah.</p>
+<p>	Merpati putih ini berkedip-kedip dengan cahaya redup, itu adalah merpati peringkat lima Gu.</p>
+<p>	Kesadaran Tai Bai Yun Sheng meninggalkan Gu utusan merpati setelah beberapa saat; dia menghela nafas dalam-dalam dan dengan cemas berkata: “Guru tidak berencana untuk membantu dan menjadikan ini ujian untuk saudara junior.”</p>
+<p>	Fang Yuan mengangguk: “Benar. Guru mengkritik saya dalam surat itu, mengatakan saya serakah untuk keuntungan kecil, tidak mendengarkan nasihatnya sebelum saya pergi dan dengan terburu-buru membuka warisan Di Qiu, yang menyebabkan saya menghadapi kehendak Mo Yao dan menciptakan serangkaian konsekuensi buruk. Jadi kali ini, dia ingin aku menyelesaikan masalah ini sendiri. Huh, gaya master selalu seperti ini, sepertinya aku tidak punya pilihan lain selain bekerja keras!!”</p>
+<p>	Tai Bai Yun Sheng mengangguk, menyetujui kalimat terakhir Fang Yuan.</p>
+<p>	Saat itu, pengemis tua itu menghilang tepat setelah memberinya warisan Gu Immortal, tidak peduli dengan hal lain. Gaya ini sama dengan tes Fang Yuan, sehingga Tai Bai Yun Sheng tidak merasakan sesuatu yang aneh.</p>
+<p>	Tai Bai Yun Sheng bertanya dengan suara pelan: “Saudara laki-laki, Anda mengatakan bahwa tuan telah menerima enam murid warisan. Anda berada di peringkat kelima, menggenggam kekuatan dan jalur perbudakan, dengan dua warisan Gu Immortal. Itu berarti Anda memiliki lima rekan murid lainnya, bagaimana kalau kita meminta bantuan mereka? ”</p>
+<p>	Fangyuan menggelengkan kepalanya.</p>
+<p>	Sungguh lelucon, tentu saja itu tidak mungkin!</p>
+<p>	Isi Gu utusan merpati ini dibuat oleh Fang Yuan. Nama Purple Mountain True Monarch juga dibuat-buat olehnya dengan santai. Enam murid warisan besar bahkan lebih fiktif, bagaimana mungkin seseorang meminta bantuan dari mereka yang tidak ada?</p>
+<p>	“Ini tidak mungkin.” Fang Yuan tersenyum pahit, tatapannya mengungkapkan ketulusan yang luar biasa, “Pertama-tama, saya hanya pernah mendengar guru menyebut rekan-rekan murid ini sesekali. Saya belum pernah melihat mereka secara pribadi dan juga tidak tahu apa identitas mereka atau di mana mereka berada. Lebih penting lagi, ini adalah tugas yang diberikan oleh master! Dia telah menyetujui status Anda dalam surat itu dan telah memberi Anda peringkat sebagai murid kelima, dan telah mengatakan bahwa Anda harus membantu saya selama periode waktu ini untuk menyelesaikan masalah ini. Pada saat yang sama, dia mengizinkan saya untuk mempertahankan dan menggunakan semua rampasan pertempuran dari dataran utara, ini adalah bantuan yang diberikan master kepada saya. Jika saya masih meminta bantuan dari murid-murid lain, itu bukanlah yang diinginkan Guru. Bagaimanapun, ini adalah ujiannya untukku. ”</p>
+<p>	Tai Bai Yun Sheng dengan cemas dan cemas berkata: “Bahkan jika tuan tidak mengatakannya, saya akan tetap berada di sisi adik laki-laki dan menggunakan semua kekuatan saya untuk membantu Anda! Apa rencanamu sekarang?”</p>
+<p>	“Bai Tua, kamu juga membaca isi surat itu. Guru menyebutkan agar saya bergabung dengan Zombie Alliance. ”</p>
+<p>	“Organisasi macam apa Aliansi Zombie ini?” Tai Bai Yun Sheng bertanya. Dia baru saja maju menjadi Gu Immortal, karena itu ada banyak hal tentang Gu Immortal yang tidak dia ketahui.</p>
+<p>	“Aliansi Zombie sama seperti namanya, itu adalah aliansi zombie. Aliansi ini sudah ada sejak lama, dan kabarnya muncul di Era Abad Pertengahan, tiga ratus ribu tahun yang lalu. Sekarang, itu adalah kekuatan super yang tersebar di lima wilayah; markas utamanya berada di laut timur, dengan cabang di masing-masing dari empat wilayah lainnya.” Fang Yuan memperkenalkan.</p>
+<p>	“Itu benar-benar meluas ke seluruh lima wilayah, bisakah mereka menjadi lebih kuat daripada keluarga Huang Jin di dataran utara?” Tai Bai Yun Sheng tergerak.</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Bukan itu masalahnya. Hampir semua anggota Zombie Alliance terdiri dari zombie, dan atasan mereka adalah zombie abadi seperti saya. Sebagian besar, zombie abadi ini adalah Dewa Gu yang mencapai akhir umur mereka dan tidak punya pilihan selain berubah menjadi zombie untuk memperpanjang hidup mereka. Lubang abadi Gu Immortals ini sudah mati; mereka tidak dapat menghasilkan esensi abadi juga tidak dapat menyerap qi langit dan bumi, dan setelah beberapa waktu, tanah mereka yang diberkati akan mulai menyusut dan sebagiannya akan hancur. Dengan demikian, kekuatan pertempuran mereka sering tidak dapat dibandingkan dengan Dewa Gu biasa. Secara alami, zombie abadi tertentu adalah pengecualian. ”</p>
+<p>	Cabang Zombie Alliance lebih lemah dari kekuatan super wilayah masing-masing. Tapi markas di laut timur adalah tingkat yang lebih kuat dari kekuatan super asli.</p>
+<p>	“Jadi seperti itu.” Tai Bai Yun Sheng telah berkembang dalam pengetahuan, dia kemudian bertanya dengan ragu, “Lalu mengapa tuan ingin saudara junior bergabung dengan Zombie Alliance?”</p>
+<p>	Fang Yuan berpikir sejenak sebelum berkata: “Jika Gu Immortal mencapai akhir umur mereka dan berubah menjadi zombie abadi tanpa pilihan lain, maka nanti, jika mereka mendapatkan umur Gu, mereka pasti ingin bangkit. Awalnya, salah satu tujuan didirikannya Zombie Alliance adalah untuk saling membantu dalam meneliti metode untuk mendapatkan kembali tubuh fisik yang hidup. Begitu banyak waktu telah berlalu, mereka pasti telah memperoleh beberapa hasil. Saya pikir tujuan master terletak pada titik ini. ”</p>
+<p>	Tai Bai Yun Sheng senang dan juga khawatir: “Saran ini sangat bagus. Tapi bagaimana Anda akan bergabung dengan Zombie Alliance?”</p>
+<p>	Fang Yuan tertawa: “Bai Tua, kamu tidak perlu khawatir. Bergabung dengan Zombie Alliance sangat sederhana, saya hanya perlu menunjukkan status saya sebagai zombie abadi.”</p>
+<p>	“Sesederhana itu?”</p>
+<p>	“Tentu saja. Zombie Alliance ditekan oleh semua kekuatan super, sehingga mereka beroperasi dengan banyak kesulitan, karena itu mereka sangat ingin memiliki lebih banyak anggota dalam aliansi. Pada saat yang sama, identitas zombie abadi tidak mudah disamarkan. Zombie Alliance telah meneliti sangat dalam dan memiliki banyak metode untuk membedakan antara zombie abadi. Aku berniat untuk bergabung dengan Aliansi Zombie di dataran utara, tapi sebelum ini, kita harus menunggu seseorang.”</p>
+<p>	“Hei Lou Lan.” Tai Bai Yun Sheng berseru.</p>
+<p>	Fang Yuan mengangguk.</p>
+<p>	Dia tidak menyembunyikan rencananya untuk pergi ke dataran utara dari Tai Bai Yun Sheng dan telah mengungkapkan hampir segalanya, karena dia masih perlu meminjam kekuatan yang terakhir di masa depan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

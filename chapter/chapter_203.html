@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 203 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 203";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_202.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 203">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_204.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 203</h1>
+        <div class="text-left">
+<p>	Bab 203</p>
+<p>	Bab 203: Masing-masing dengan tujuan mereka sendiri</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Penyelidik surgawi tewas dalam pertempuran, ini adalah kemuliaan seorang pria dari keluarga Tie. Nona Ruo Nan, belasungkawa saya, ”seorang Guru Gu muda di belakangnya menghibur.</p>
+<p>	Di tanah bersalju, Tie Ruo Nan berlutut saat suara tangisnya melemah, bahunya gemetar dan tinjunya mengepal erat saat salju meleleh di tangannya menjadi air.</p>
+<p>	Tuan Gu muda mengerutkan kening, melanjutkan, “Selama beberapa hari terakhir, kami telah menjelajahi seluruh medan perang. Kami melihat beberapa jejak tertinggal, dan sepertinya ada beberapa yang berhasil melarikan diri dari medan perang ini. Surat Penyelidik Ilahi berbicara tentang warisan laut darah. Saya khawatir Tuan Gu iblis yang mewarisi warisan laut darah mungkin ada di antara yang selamat ini. ”</p>
+<p>	Ketika Tie Ruo Nan mendengar ini, dia berhenti menangis.</p>
+<p>	Dia berdiri dari tanah yang dingin saat angin yang membekukan bertiup, wajahnya yang kurus menunjukkan tekad. “Permusuhan membunuh ayahku lebih besar dari apapun. Siapapun pembunuhnya, aku pasti akan menemukan kebenarannya!”</p>
+<p>	Suara gadis muda itu serak, tetapi ketika dia berbicara, tatapan dan nadanya menjadi sangat ditentukan.</p>
+<p>	Tuan Gu muda menghela nafas, “Investigasi pasti harus dilakukan. Orang-orang keluarga Tie kami tidak bisa mati dengan ketidakadilan. Tapi Nona Ruo Nan, Anda tidak harus pergi. Sebelum datang ke sini, pemimpin klan sudah memberi tahu kami untuk membawa Anda kembali ke desa dengan selamat. ”</p>
+<p>	Tie Ruo Nan menatap dengan mata terbuka lebar, “Apa, jangan berpikir untuk mengusirku!”</p>
+<p>	Tuan Gu muda tersenyum, melihat ke langit.</p>
+<p>	Di langit biru, ada beberapa awan mengambang.</p>
+<p>	Tie Ruo Nan hendak berdebat lagi, tapi tiba-tiba iris matanya mengecil, “Kamu……”</p>
+<p>	Sebelum dia selesai, matanya terpejam dan dia berbaring di salju dengan lembut, tertidur.</p>
+<p>	“Gui Yi.” Tuan Gu muda menelepon.</p>
+<p>	“Di Sini.”</p>
+<p>	“Aku memerintahkan kelompokmu untuk mengawal nona Ruo Nan kembali dengan selamat.”</p>
+<p>	“Ya …” Gui Yi ragu-ragu. “Lalu bagaimana denganmu, tuan muda?”</p>
+<p>	“Aku? Saya harus mengikuti Sungai Naga Kuning dan mengejar mereka, ”Tuan Muda Gu tertawa dengan arogan.</p>
+<p>	…</p>
+<p>	Air dari Sungai Naga Kuning mengamuk dan angin bertiup saat beberapa ratus enam buaya berkaki naik ke pantai, menyerang Fang Yuan dan Bai Ning Bing.</p>
+<p>	“Berengsek….” Bai Ning Bing menggertakkan giginya, merasakan tekanan kuat di hatinya.</p>
+<p>	Jika sebelumnya, kelompok buaya ini bukan apa-apa baginya. Satu badai es dan mereka akan tamat. Tapi sekarang, dia hanya memiliki Sky Canopy Gu dan Chainsaw Golden Centipede, sementara juga tidak memiliki fisik Jiwa Es Gelap Utara.</p>
+<p>	Iris birunya dengan cepat menyapu lingkungan saat Bai Ning Bing memarahi: “Tempat yang bagus yang kamu pilih! Dengan tiga sisi sebagai tebing, bagaimana kita bisa melarikan diri?”</p>
+<p>	“Kenapa panik sekali? Ini hanya seratus kelompok binatang, bukan seribu satu, kalau tidak kita akan menjadi daging mati. Seratus kelompok binatang berarti kita masih memiliki kesempatan untuk bertahan hidup, kita dapat membunuh mereka semua.” Fang Yuan dengan cepat menyimpan pakaian, rak, pot logamnya dan mundur ke belakang Bai Ning Bing.</p>
+<p>	Fang Yuan sangat percaya diri, membuat hati Bai Ning Bing merasa sedikit tenang.” Apa yang kamu lihat? Pergi bunuh mereka!” Fang Yuan mengalihkan pandangannya ke arahnya, mendesak, “Kenapa lagi aku meminjamkanmu cacing Gu? Jangan lupa aku punya Yang Gu.”</p>
+<p>	“Bajingan!” Bai Ning Bing menatap marah, hatinya terbakar saat dia mengutuk. Tidak ada yang tahu apakah dia memarahi buaya berkaki enam, Fang Yuan atau keduanya.</p>
+<p>	Tapi tidak peduli apa, dia memegang Kelabang Emas Chainsaw dan bergegas.</p>
+<p>	Buzzbuzzbuzz!</p>
+<p>	Pisau cukur berputar dengan keras saat agresivitas cacing peringkat tiga Gu muncul, menyebabkan buaya berkaki enam itu menghentikan langkah mereka.</p>
+<p>	“Sekelompok belatung jelek!” Bai Ning Bing terkekeh, bergegas dan menebas.</p>
+<p>	Seekor buaya berkaki enam dipukul di perutnya, menangis saat bunga api terbang, dipotong menjadi dua oleh pisau cukur.</p>
+<p>	Darah segar memuntahkan wajah dan pakaian Bai Ning Bing, saat dia merasakan rangsangan darah, dan niat bertarung muncul di wajahnya.</p>
+<p>	..</p>
+<p>	Chainsaw Golden Centipede diretas dan ditebas, seperti tornado yang lewat. Dua puluh atau lebih enam buaya berkaki mati berturut-turut.</p>
+<p>	Situasi menjadi lebih baik seketika, tetapi ekspresi Fang Yuan menjadi redup, berteriak keras, “Hindari punggung buaya berkaki enam, dan serang perut mereka!”</p>
+<p>	“Hahaha, cacing Gu yang agresif, jauh lebih baik daripada Gu pisau es! Saya suka itu!” Bai Ning Bing mengabaikannya dan tertawa keras.</p>
+<p>	Meskipun dia berubah menjadi seorang wanita dan memiliki kecantikan giok seperti peri es, saat dia melawan insting prianya akan menyebabkan dia berubah menjadi maniak pertempuran.</p>
+<p>	Tapi akhirnya, serangannya mulai menjadi lebih lambat, dan lebih lemah.</p>
+<p>	“Apa yang terjadi? Sebelumnya, saya bisa menebas buaya berkaki enam menjadi dua, tetapi sekarang bahkan setelah tiga pukulan, saya hanya bisa melukainya dengan parah? ”</p>
+<p>	Bai Ning Bing mengangkat Kelabang Emas Chainsaw dan melihat, hanya untuk melihat bahwa pisau cukurnya penyok, dan ketajamannya sangat berkurang.</p>
+<p>	Dia terlahir cerdas, segera memikirkan nasihat Fang Yuan, mendecakkan lidahnya.</p>
+<p>	Seekor buaya besar berkaki enam bergegas menghampirinya dan melompat.</p>
+<p>	Itu membuka mulutnya yang besar dan berdarah, menutupi Bai Ning Bing dengan bayangannya.</p>
+<p>	“Kamu mencari kematian!” Bai Ning Bing menggerakkan tubuh mungilnya, mengangkat Kelabang Emas Chainsaw dan menebas perut buaya berkaki enam itu.</p>
+<p>	Bangku gereja.</p>
+<p>	Setelah suara ringan, perut buaya berkaki enam itu terbelah, sehingga menimbulkan luka parah.</p>
+<p>	Buaya berkaki enam yang malang ini masih berada di udara saat sejumlah besar darah keluar dari lukanya, dan ususnya rontok.</p>
+<p>	Dengan plop, ia mendarat di pantai, mewarnai pasir menjadi merah. Tubuhnya berkedut beberapa kali sebelum berhenti bergerak sepenuhnya.</p>
+<p>	Itu benar-benar mati.</p>
+<p>	“Begitu mudah?” Melihat keefektifan seperti itu, Bai Ning Bing mengangkat alisnya karena terkejut.</p>
+<p>	Punggung buaya berkaki enam itu keras seperti baju besi, tetapi secara komparatif perutnya sangat lembut. Perut putih adalah kelemahan mereka.</p>
+<p>	Dengan pengalaman 500 tahun, Fang Yuan jelas dari informasi seperti itu. Tapi Bai Ning Bing lahir di gunung Qing Mao, tidak pernah berada di luar dan hanya memiliki pendidikan yang sempit, sehingga dia tidak tahu banyak.</p>
+<p>	Melolong!</p>
+<p>	Buaya berteriak.</p>
+<p>	Setelah puluhan buaya dibunuh, binatang buas itu marah dan mulai menjadi liar di bawah ancaman kematian.</p>
+<p>	Mata merah yang tak terhitung jumlahnya menatap Bai Ning Bing dengan kebencian.</p>
+<p>	Binatang buas memiliki kecerdasan yang terbatas. Lycan petir memiliki kecerdasan manusia tetapi itu adalah pengecualian di antara banyak spesies binatang buas.</p>
+<p>	Binatang buas ini akan selalu memperlakukan musuh paling berbahaya sebagai ancaman terbesar, dan yang pertama dibasmi. Adapun Fang Yuan yang tinggal di belakang, mereka mengabaikannya.</p>
+<p>	“Datang.” Bai Ning Bing malah bergerak maju. Dia bukan orang yang keras kepala, dan setelah pukulan itu, dia segera mengubah taktiknya.</p>
+<p>	Ekor kelabang menusuk ke pantai saat tubuhnya menyusut, lalu melebar dan menebas di lapangan dengan pisau cukur. Perut buaya berkaki enam mudah digorok, darah dan usus dimuntahkan.</p>
+<p>	Buaya demi buaya berjatuhan saat Bai Ning Bing membunuh sesuai keinginannya.</p>
+<p>	“Kalau terus begini, kelompok buaya tidak perlu ditakuti. Yang benar-benar mengancam saya bukanlah kelompok binatang buas ini, tetapi Fang Yuan. ” Saat situasi menjadi lebih baik, Bai Ning Bing berpikir dalam hatinya, berpikir dua kali.</p>
+<p>	Yang Gu berada di tangan Fang Yuan, menyebabkan Bai Ning Bing tertahan dan dia harus mematuhi Fang Yuan.</p>
+<p>	Tapi dia jenius klan Bai, jadi ada kesombongan besar di hatinya, bagaimana dia bisa mengundurkan diri untuk ini?</p>
+<p>	“Jika saya membantai Fang Yuan, apakah saya bisa mendapatkan Yang Gu itu?” Mata Bai Ning Bing bersinar dingin saat sebuah pikiran muncul di benaknya.</p>
+<p>	Tapi begitu pikiran ini muncul, itu ditolak.</p>
+<p>Dia memahami Fang Yuan seperti dia memahami dirinya sendiri!</p>
+<p>	Dengan kepribadian Fang Yuan, yang sekuat baja bersama dengan metode kejam dan pemikirannya yang cermat, jika dia benar-benar akan mati, dia akan menghancurkan Yang Gu 100% setiap saat, tidak ada kemungkinan lain.</p>
+<p>	“Selain itu, saya tidak memiliki cacing Gu sama sekali. Sky Canopy Gu, Chainsaw Golden Centipede, mereka semua miliknya … tidak, tidak peduli apa, saya harus mendapatkan cacing Gu saya sendiri!</p>
+<p>	Bibir Fang Yuan melengkung, menatap medan perang.</p>
+<p>	Gerakan Bai Ning Bing menjadi lebih lambat sementara matanya menjadi lebih berkilau, dan dia melihat semuanya.</p>
+<p>	Menuju pikiran kecilnya, Fang Yuan sangat jelas.</p>
+<p>	Dia tidak merasa aneh; dia mengerti kesulitan Bai Ning Bing, dia akan memiliki pemikiran yang sama jika dia berada dalam situasi itu.</p>
+<p>	Mereka berdua adalah orang yang sombong, bagaimana mereka bisa tunduk pada orang lain dan menjadi boneka orang lain?</p>
+<p>	“Tapi, situasinya melampaui pria, jadi bagaimana jika itu jenius? Hehehe.” Fang Yuan tertawa dingin di dalam hatinya.</p>
+<p>	Fang Yuan percaya diri — dengan alat tawar-menawar yang begitu kuat di tangannya, Bai Ning Bing seperti kupu-kupu yang terperangkap dalam jaring. Itu wajar untuk berjuang pada awalnya, tetapi akhirnya dia akan mendarat di telapak tangannya, memahami situasinya dan menjadi jinak, berubah menjadi bidak yang berguna.</p>
+<p>	Pertempuran berlanjut.</p>
+<p>	Sejumlah besar buaya berkaki enam diletakkan di pantai ini.</p>
+<p>	Bai Ning Bing bernapas dengan kasar, berkeringat deras saat serangannya melambat.</p>
+<p>Kehabisan stamina!</p>
+<p>	Kekuatan selalu menjadi kelemahannya. Saat melawan Fang Yuan saat itu, berkali-kali dia mengalami kerugian karena kekuatan dua babi hutan.</p>
+<p>	Sekarang dia berjuang selama satu jam, staminanya habis.</p>
+<p>	Lagi pula, mereka tidak tidur selama hampir lima hari ketika mengambang di atas rakit bambu, dan bahkan setelah istirahat, terlalu singkat untuk pulih.</p>
+<p>	Apa yang membuatnya semakin frustrasi adalah dua benjolan di dadanya. Setiap kali dia bergerak, kedua beban ini bergerak, menyebabkan dia merasa sangat tidak nyaman!</p>
+<p>	“Fang Yuan, apakah kamu tidak membantu ?!” Dia bernapas dengan kasar, memanggil.</p>
+<p>	Mengatakan demikian, dia menghindari serangan buaya berkaki enam dengan sempit, menekan lututnya yang lemah dan berdiri.</p>
+<p>	Fang Yuan berkata dengan dingin, “Begitu saya membantu, saya akan menarik serangan banyak buaya berkaki enam, Anda ingin saya mati? Jika aku mati, kamu tidak akan pernah mendapatkan Yang Gu.”</p>
+<p>	Tiga buaya berkaki enam mendekat dan Bai Ning Bing tidak punya pilihan selain mundur.</p>
+<p>	Dia lelah sampai pingsan saat staminanya mencapai batasnya, dan dia melihat kegelapan di depannya. The Chainsaw Golden Lipan tampak lebih berat, terus-menerus menyeretnya ke tanah.</p>
+<p>	Dia menggertakkan giginya, “Fang Yuan, jika aku mati, bisakah kamu hidup?”</p>
+<p>	“Yakinlah, aku di belakangmu.” Fang Yuan mengistirahatkan punggungnya di tebing, sesuai keinginannya dan Blood Moon Gu terbang keluar dari telapak tangannya, terbang menuju Bai Ning Bing.</p>
+<p>	“Ambil, dan gunakan dengan baik.”</p>
+<p>	Blood Moon Gu berasal dari Moonlight Gu, jadi Bai Ning Bing sangat akrab dengannya. Hanya dengan beberapa penggunaan, dia terbiasa dan moonblade merah cerah menstabilkan situasi.</p>
+<p>	Tetapi situasi yang baik tidak bertahan lama, dan meskipun Bai Ning Bing mendapatkan kembali pijakannya, esensi purbanya mulai menjadi tidak mencukupi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

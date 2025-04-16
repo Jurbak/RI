@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 79 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 79";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_78.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 79">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_80.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 79</h1>
+        <div class="text-left">
+<p>	Bab 79</p>
+<p>	Babak 79: Terobosan ke Gu keenam di tanah warisan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Waktu itu seperti kuda putih yang melewati celah, dan musim panas pergi dengan datangnya musim gugur.</p>
+<p>	Di jalan berdinding, Fang Yuan berdiri sekali lagi di depan batu raksasa yang menghalangi jalan.</p>
+<p>	Karena cuaca semakin dingin, ia mengenakan pakaian polos dan sederhana dengan lengan panjang. Tapi sosok tubuhnya tidak lagi kurus seperti beberapa bulan yang lalu.</p>
+<p>	Dada, dua lengan dan kaki, dan perutnya semuanya menunjukkan otot yang jelas.</p>
+<p>	Otot-otot ini tidak menonjol seperti batu, tetapi itu terlihat seperti jenis merampingkan, cocok dengan tubuh Fang Yuan yang tumbuh perlahan. Cocok juga dengan kulit putihnya, ini memberi orang lain jenis perasaan muda, penuh vitalitas.</p>
+<p>	“Mulai dari tiga hari yang lalu, White Boar Gu berhenti memberiku peningkatan kekuatan. Itu berarti, saya sudah memiliki satu kekuatan babi hutan, sehingga mencapai persyaratan Biksu Anggur Bunga. Hari ini, saya akan mencoba mendorong batu bulat ini lagi!”</p>
+<p>	Mata Fang Yuan bersinar saat dia melangkah maju dengan kaki kanannya, kaki kirinya di belakang, membentuk langkah busur.</p>
+<p>	Lengannya menyentuh permukaan batu bundar saat dia menarik napas dalam-dalam dan mendorong dengan seluruh kekuatannya.</p>
+<p>	Batu besar itu bergerak di bawah tekanan kedua lengannya, bergerak perlahan, secara bertahap mendapatkan momentum dan berguling ke depan.</p>
+<p>	Jalan sebelum batu besar yang menghalangi jalan adalah lereng yang miring. Diubah menjadi batu bundar oleh Flower Wine Monk, itu paling cocok untuk digulung. Ini pasti niatnya, untuk membiarkan pewaris mendorong batu itu ke atas dan memindahkannya.</p>
+<p>	“Sepuluh langkah, dua puluh langkah, tiga puluh langkah …” Fang Yuan perlahan maju, menghitung dalam hatinya, “Minggu lalu, saya mendorongnya menjadi empat puluh lima langkah dan itu adalah batas stamina saya, memaksa saya untuk berhenti. Kali ini, saya bertanya-tanya seberapa jauh saya bisa mendorongnya? ”</p>
+<p>	Empat puluh langkah, empat puluh lima langkah ……</p>
+<p>	Beberapa saat kemudian, Fang Yuan memecahkan rekor aslinya, tetapi itu sudah cukup baginya untuk merasa sangat lelah.</p>
+<p>	Empat puluh enam langkah, empat puluh tujuh langkah ……</p>
+<p>	Fang Yuan bisa merasakan dengan kuat, pada titik ini staminanya hampir habis.</p>
+<p>	Empat puluh delapan, empat puluh sembilan langkah….</p>
+<p>	Dia mengerahkan seluruh kekuatannya dan pindah dua langkah lagi. Akhirnya, dia mencapai batasnya, berkeringat deras. Menggunakan bahu dan kakinya untuk menahan batu di tempatnya, dia menarik napas dalam-dalam beberapa kali.</p>
+<p>	“Haruskah saya menyerah?” Fang Yuan tidak bisa tidak memiliki pemikiran seperti itu. Kemiringan yang menanjak ini, ketika kembali ia harus mengeluarkan sedikit stamina juga. Bagaimanapun, batu itu harus menggelinding ke bawah dan dia harus perlahan-lahan melepaskannya dalam prosesnya.</p>
+<p>	Jika dia melepaskan dan berlari, batu itu akan berguling lebih cepat dan lebih cepat. Fang Yuan tidak ingin berubah menjadi tumpukan daging setelah tidak dapat menghindarinya.</p>
+<p>	Tetapi berpikir sebentar, Fang Yuan merasa marah. Mari kita dorong beberapa langkah lagi.</p>
+<p>	Langkah kelima puluh.</p>
+<p>	Dia tiba-tiba merasa bahwa tekanan dari batu besar telah berkurang. Itu benar-benar berguling ke platform lurus.</p>
+<p>	Fang Yuan mendorong beberapa langkah lagi. Setelah melewati batu besar itu, dia menemukan dirinya berada di sebuah ruangan rahasia.</p>
+<p>	Ruang rahasia ini seperti gua rahasia retakan batu. Dia sementara menamakannya ruang rahasia kedua.</p>
+<p>	Tidak ada apa-apa di ruangan itu. Keempat dinding itu adalah tanah merah yang aneh, bersinar merah. Di ujung lain ruang rahasia, ada pintu batu berwarna abu-abu sederhana. Itu pasti produk yang terburu-buru dari Flower Wine Monk.</p>
+<p>	Fang Yuan beristirahat sebentar tetapi tidak segera membuka pintu batu, karena dia memiliki penemuan baru.</p>
+<p>	Dia menemukan bahwa tanah di depan pintu batu itu sedikit lembab.</p>
+<p>	“Jangan bilang …” Fang Yuan punya pikiran. Dia membungkuk, merentangkan kedua tangannya dan mengendurkan tanah.</p>
+<p>	Bunga Perbendaharaan Bumi kedua!</p>
+<p>	Fang Yuan tertawa terbahak-bahak, dengan hati-hati mengupas kelopak bunga dan mengambil cacing Gu yang tertidur di nektar emas.</p>
+<p>	Begitu dia menggunakan esensi purba, itu langsung disempurnakan.</p>
+<p>	Ini adalah Gu Kulit Giok. Penampilannya seperti kutu busuk, datar dan lebar dengan kepala kecil dan tubuh hijaunya berbentuk oval di angkasa, memancarkan cahaya berwarna giok yang samar.</p>
+<p>	“Saya mendapatkan Gu Babi Putih, dan masih berpikir di mana saya bisa mendapatkan Gu Kulit Giok sehingga saya bisa memperbaikinya menjadi Gu Giok Putih. Memikirkan bahwa Biksu Anggur Bunga sudah menyiapkannya untukku, ”renung Fang Yuan, memikirkan pentingnya Gu Kulit Giok ini.</p>
+<p>	Ini adalah cacing Gu keenam Fang Yuan.</p>
+<p>	Meskipun dia sudah memiliki lima, tidak ada yang defensif. Sekarang dia memiliki Jade Skin Gu, dia bisa menutupi kelemahannya dalam bertahan.</p>
+<p>	Kadang-kadang, pertahanan berarti pelanggaran.</p>
+<p>	Ini tidak sulit untuk dipahami. Mengambil contoh tubuh Fang Yuan. Menggunakan Gu White Boar, kekuatannya tumbuh menjadi kekuatan satu babi hutan. Secara teoritis, dengan kekuatan ini, dia bisa menghancurkan batu dalam satu pukulan, tetapi Fang Yuan tidak pernah melakukan hal seperti itu.</p>
+<p>	Karena dia tahu pertahanannya tidak cukup, jadi dengan satu pukulan, batu itu akan pecah, tetapi tinjunya juga akan berdarah karena kerusakan itu.</p>
+<p>	Sekarang dia memiliki Jade Skin Gu, dia bisa menambah keuntungan yang dia miliki dalam kekuatan. Jelas, ada kelebihan dan kekurangan.</p>
+<p>	Gu Kulit Giok memiliki nilai tinggi, menjadi salah satu Gu peringkat satu pertahanan terbaik. Tidak mudah memberi makan, mengonsumsi dua potong batu giok setiap sepuluh hari.</p>
+<p>	Harga pasar batu giok mahal, dan sumbernya sering menjadi masalah.</p>
+<p>	Fang Zheng juga memiliki Gu Kulit Giok, tetapi dia mendapat dukungan pemimpin klan, memberinya batu giok. Jika Fang Yuan menginginkan batu giok, dia harus membelinya, dan itu bisa dengan mudah mengeksposnya.</p>
+<p>	“Awalnya dalam memberi makan Gu Babi Putih, saya harus membunuh babi hutan secara teratur, dan itu sudah merepotkan. Dengan tambahan Jade Skin Gu ini, apakah saya harus menggali tambang?” Fang Yuan tertawa pahit, melihat masalah baru di depannya.</p>
+<p>	Menjaga Gu Kulit Giok, untuk sementara memeliharanya di lubangnya, Fang Yuan secara bertahap membuka pintu batu.</p>
+<p>	Pintu batu itu berat, dan jika Fang Yuan tidak memiliki dorongan kekuatan White Boar Gu, dia tidak akan bisa memindahkannya. Tapi sekarang, dengan Fang Yuan mendorongnya, pintu perlahan terbuka.</p>
+<p>	Adegan yang diungkapkan kepada Fang Yuan menyebabkan bidang penglihatannya meluas tiba-tiba.</p>
+<p>	Itu bukan lagi terowongan sempit atau ruang rahasia, tetapi sebidang besar hutan batu bawah tanah yang luas.</p>
+<p>	Fang Yuan memperkirakan pada perkiraan awal, ukuran hutan batu itu lebih dari tiga puluh Mu(1)! Di bumi, lapangan sepak bola standar hanya sebelas Mu.</p>
+<p>	“Aku seharusnya berada di dalam gunung Qing Mao sekarang, ruang bawah tanah ini seharusnya terbentuk secara alami.” Fang Yuan menatap dinding batu.</p>
+<p>	Dinding batu di ruang ini tingginya lebih dari enam belas meter, dan langit-langitnya juga terbuat dari batu.</p>
+<p>	Dari atas, ada pilar besar berwarna merah tua yang didirikan. Masing-masing memancarkan cahaya merah samar, begitu pula dindingnya, seperti terowongan dan ruang rahasia. Cahaya meskipun redup, memungkinkan Fang Yuan untuk melihat beberapa hal setidaknya.</p>
+<p>	Fang Yuan melihat jauh, dan setiap pilar batu seperti pohon terbalik, kecuali tanpa cabang, dan hanya meninggalkan batangnya.</p>
+<p>	Permukaan pilar batu itu tidak mulus, dan penuh dengan lubang-lubang gelap yang menakutkan. Banyak pilar terkulai, membentuk hutan batu terbalik di dalam gunung.</p>
+<p>	Alam memiliki jalannya dengan hal-hal.</p>
+<p>	Fang Yuan dengan pengetahuannya yang luar biasa, tidak terkejut, tetapi menatap lubang gelap di pilar, mengerutkan kening lebih intens.</p>
+<p>	Dia tiba-tiba mengerti niat Flower Wine Monk dalam menempatkan Jade Skin Gu.</p>
+<p>	“Jika saya tidak salah …” Fang Yuan memutar tangan kanannya, dan keluarlah pedang bulan.</p>
+<p>	Moonblade biru yang menakutkan terbang melintasi langit dalam lengkungan, tepat mengenai lubang gelap di pilar batu.</p>
+<p>	Suara melengking dan marah datang dari lubang gelap.</p>
+<p>	Dengan ‘swoosh’, monyet abu-abu terbang keluar dari gua dan melompat ke arah Fang Yuan.</p>
+<p>	Pow Pow.</p>
+<p>	Fang Yuan menembakkan tiga pedang bulan.</p>
+<p>	Monyet itu berada di udara dan tidak dapat menyesuaikan posisinya, tetapi ekornya sangat lincah, menyapu beberapa kali dan menyebabkan tubuhnya terbalik di udara. Setelah menghindari dua moonblade, akhirnya terkena yang ketiga, menjatuhkan diri di lantai.</p>
+<p>	Itu sudah mati, tanpa setetes darah.</p>
+<p>	Hanya tubuh abu-abunya yang berubah menjadi batu, dan dalam sedetik, tubuh daging dan darahnya menjadi patung monyet batu.</p>
+<p>	Postur dan ekspresi wajah patung itu persis seperti monyet sebelum mati, ditiru dengan sempurna. Setelah waktu dua napas, permukaan monyet batu retak, dan retakan berkembang di seluruh tubuhnya. Akhirnya dengan ledakan, seluruh sosoknya meledak menjadi pecahan batu kecil.</p>
+<p>	“Ini benar-benar koloni bawah tanah monyet batu mata giok.” Fang Yuan berlutut, menyapu pecahan-pecahan itu ke samping dan mengeluarkan dua mutiara kuning hijau giok. Kedua mutiara ini adalah mata monyet batu mata giok.</p>
+<p>	Hewan aneh ini akan berubah menjadi pecahan batu abu-abu setelah mati, dan hanya matanya yang akan berubah menjadi dua mutiara bulat berwarna hijau giok. Masing-masing sangat berat, mencapai setidaknya lima puluh gram.</p>
+<p>	Ini berarti bahwa selama dia membunuh monyet batu mata giok, masalah makanan Gu Kulit Giok akan teratasi.</p>
+<p>	“Saya tidak hanya harus memberi makan Jade Skin Gu, saya juga harus melanjutkan warisan. Petunjuk selanjutnya dari Flower Wine Monk harus disembunyikan di hutan batu ini.</p>
+<p>	Fang Yuan mengerutkan kening. Hal-hal telah menjadi rumit.</p>
+<p>	Dia mencoba mengambil beberapa langkah ke depan, matanya tertuju pada pilar batu.</p>
+<p>	Pada langkah ketujuhnya, di pilar yang paling dekat dengannya, banyak mata bersinar berwarna giok terlihat mengintip dari lubang batu.</p>
+<p>	Seketika, setetes keringat jatuh dari dahi Fang Yuan.</p>
+<p>	Dia dengan cepat mundur selangkah, dan banyak bola mata di lubang gelap memudar.</p>
+<p>	Terbukti, setiap pasang bola mata berarti monyet batu mata giok. Monyet batu mata giok sangat lincah, dan untuk membunuh satu Fang Yuan harus menggunakan empat bilah bulan.</p>
+<p>	Di pilar batu, setidaknya ada seratus monyet batu bermata giok, dan di seluruh hutan, siapa yang tahu berapa banyak yang ada di sana.</p>
+<p>	Dengan kekuatan Fang Yuan saat ini, dia akan mati karena diserang oleh empat monyet. Jika dia memasukkan pertahanan Jade Skin Gu, Fang Yuan paling banyak bisa menangani dua belas monyet sekaligus.</p>
+<p>	Untungnya, monyet-monyet ini biasanya tidur di lubang gelap mereka dan makan batu ketika mereka lapar atau haus. Pilar batu adalah rumah dan makanan mereka. Kecuali dia berada dalam jarak sepuluh meter dari mereka atau memprovokasi mereka dengan sengaja, mereka tidak akan keluar.</p>
+<p>	Menggunakan kata-kata bumi, mereka adalah sekelompok monyet neet/hikikomori.</p>
+<p>	(1) Mu (亩) – 1 Mu adalah 666 meter²</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

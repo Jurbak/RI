@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 89 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 89";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_88.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 89">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_90.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 89</h1>
+        <div class="text-left">
+<p>	Bab 89</p>
+<p>	Babak 89: Seekor ular sakit-sakitan melingkari kaki</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Kelimanya berdiri di jalan setapak.</p>
+<p>	Gu Yue Jiao San tertawa ramah dan berkata kepada Fang Yuan, “Adik kecil Fang Yuan, penampilanmu benar-benar membuat kami semua terkesan. Sepertinya kami melakukan hal yang benar dengan mengundang Anda untuk bergabung dengan kami. Anda baru saja lulus dari akademi, dan mungkin tidak jelas tentang beberapa hal. Biarkan saya memperkenalkan Anda kepada mereka. ”</p>
+<p>	“Pertama, misi klan, setiap Master Gu harus menyelesaikan setidaknya satu bulan. Semakin Anda menyelesaikan dan semakin sempurna, semakin tinggi evaluasi Anda.”</p>
+<p>	“Kedua, misi didistribusikan oleh aula urusan internal atau aula urusan eksternal, masing-masing Gu Master hanya dapat menerima satu. Setelah diterima, mereka harus menyelesaikannya.”</p>
+<p>	“Ketiga, dalam kondisi khusus, seorang Guru Gu dapat memilih untuk meninggalkan misi, tetapi itu akan menyebabkan penilaian mereka sangat menurun. Pada saat yang sama, Master Gu peringkat satu tidak memiliki hak untuk menyerah, dan hanya Master Gu peringkat dua yang melakukannya. Tapi mereka hanya bisa meninggalkan satu misi dalam setahun.”</p>
+<p>	“Keempat, evaluasi klan sangat penting. Ini menyangkut masa depanmu di klan, dan semakin tinggi evaluasimu, semakin besar masa depanmu dan semakin cerah itu.”</p>
+<p>	Fang Yuan mendengarkan, mengangguk. Hal-hal ini sudah dihafal olehnya. Gu Yue Jiao San benar dan tidak salah mengarahkannya, tetapi banyak isi kunci yang tidak diucapkan.</p>
+<p>	“Baiklah, misi tanah permafrost yang membusuk baru saja selesai. Selanjutnya, saya menerima misi berburu rusa liar. Bahayanya rendah, jadi sangat cocok bagimu untuk berlatih. ” Jiao San berkata kepada Fang Yuan.</p>
+<p>	Fang Yuan tertawa dingin di dalam hatinya, tetapi berkata, “Terima kasih atas perhatianmu, pemimpin kelompok.”</p>
+<p>	Gu Yue Kong Jing segera menindaklanjuti, “Adik laki-laki Fang Yuan, kamu harus benar-benar berterima kasih kepada pemimpin kelompok. Meskipun misi sederhana mudah diselesaikan, mereka memiliki hadiah kecil. Tindakan pemimpin kelompok adalah untuk menjagamu.”</p>
+<p>	Dua Master Gu wanita lainnya juga berbicara, “Ya, ya, adik laki-laki Fang Yuan, tindakan berbicara lebih keras daripada kata-kata. Mengapa Anda tidak berterima kasih kepada pemimpin kelompok dengan mentraktirnya makan siang.”</p>
+<p>	“Adik kecil Fang Yuan, kamu baru saja meninggalkan akademi, masyarakat itu rumit. Hubungan antar manusia sangat penting. Jika Anda tidak tahu apa-apa, tanyakan saja pada kami saat makan siang. ”</p>
+<p>	Gu Yue Jiao San tertawa, dengan sengaja melambaikan tangannya, “Jangan letakkan dia di tempat, dia baru saja meninggalkan akademi, dia harus ketat pada batu purba.”</p>
+<p>	“Bagaimana itu bisa terjadi! Selain itu, hanya menjadi tempat pertama di ujian akhir tahun memberinya seratus batu purba sebagai hadiah, kan? ” Seorang Guru Gu wanita dengan sengaja berkata, dan kemudian menunjukkan ekspresi iri, “Aku benar-benar iri padamu, seratus batu purba adalah jumlah yang sangat besar bahkan bagi kami.”</p>
+<p>	“Pemimpin kelompok, kamu salah mengira adik kami Fang Yuan. Bagaimana dia bisa begitu pelit. Apakah saya benar, adik kecil Fang Yuan?” Gu Yue Kong Jing tertawa terbahak-bahak, seolah dia sangat bahagia.</p>
+<p>	Guru Gu wanita lain semakin dekat dengan Fang Yuan, seolah-olah mereka memiliki hubungan dekat, berkata, “Adik laki-laki Fang Yuan, sebuah nasihat. Anda dapat memilih untuk tidak menyedot kami, tetapi pemimpin kelompok, Anda harus melakukannya. Anda tahu, evaluasi kelompok kami memiliki bagian yang ditulis oleh pemimpin kelompok. Jika dia mengatakan Anda luar biasa, Anda luar biasa. Jika dia mengatakan Anda tampil buruk, itu berarti Anda benar-benar tampil buruk. ”</p>
+<p>	“Itu benar, itu benar. Evaluasi sangat penting bagi kami Gu Masters, kami membutuhkan setidaknya evaluasi yang luar biasa untuk diperhatikan oleh para petinggi. Di masa depan di mana kita memiliki pencapaian yang cukup, kita akan dapat bekerja selama beberapa tahun lebih sedikit!” Kong Jing segera menindaklanjuti.</p>
+<p>	Sepanjang seluruh proses, Gu Yue Jiao San tersenyum dan menonton.</p>
+<p>	Akhirnya dia melambaikan tangannya dengan ekspresi ramah dan sambil tertawa berkata, “Ah, jangan bicara omong kosong. Saya selalu tidak memihak ketika menulis evaluasi saya, dan tidak akan mudah disuap oleh Anda. Tapi jangan khawatir Fang Yuan, Anda adalah pendatang baru, jadi sekarang Anda berada di grup kami, saya akan menjaga evaluasi Anda dengan baik.</p>
+<p>	Jika itu adalah remaja normal, mereka akan dipimpin oleh beberapa orang ini, merasa tersentuh secara diam-diam. Mereka menindas ketidaktahuan dan kenaifan pendatang baru.</p>
+<p>	Tapi iris mata Fang Yuan tenang seperti laut.</p>
+<p>	Pemimpin kelompok yang terlibat dalam evaluasi anggota, itu benar. Ini adalah sistem klan, memberikan wewenang kepada pemimpin kelompok, sehingga mereka dapat mengatur setiap kelompok kecil.</p>
+<p>	Tapi itu tidak separah yang dikatakan orang-orang ini.</p>
+<p>	Untuk evaluasi klan, evaluasi pemimpin kelompok hanya sebagian kecil, dan sebagian besar masih dikaitkan dengan aula urusan internal klan.</p>
+<p>	Atau lebih tepatnya, bahkan jika pemimpin kelompok memiliki pengaruh yang besar terhadapnya, lalu bagaimana?</p>
+<p>	Fang Yuan tidak peduli dengan evaluasinya.</p>
+<p>	Dia sudah memutuskan – dengan cepat meningkatkan kultivasinya, mencapai Peringkat tiga, dan kemudian meninggalkan tempat ini. Dia tidak pernah berpikir untuk tinggal di klan ini selama lebih dari seratus tahun untuk menghabiskan hidupnya.</p>
+<p>	Bagi para petani yang bodoh dan hina ini, evaluasi adalah hal yang paling penting. Tetapi bagi Fang Yuan, itu lebih rendah dari kotoran anjing!</p>
+<p>	Dengan demikian, nada mereka yang agak mengancam tidak ada gunanya bagi Fang Yuan.</p>
+<p>	“Aku mengerti apa yang kalian semua katakan. Saya masih memiliki sesuatu, jadi saya akan pergi, ”kata Fang Yuan setelah terdiam beberapa saat.</p>
+<p>	Eh?</p>
+<p>	Seketika, keempat Master Gu menunjukkan ekspresi terkejut.</p>
+<p>	“Apa artinya ini? Apakah Anda tidak mendengar apa yang kami katakan sebelumnya? ” Seorang Guru Gu perempuan menatap dengan mata terbelalak, berteriak di dalam hatinya.</p>
+<p>	“Apakah kemampuan pemahamanmu benar-benar baik-baik saja?” Gu Yue Kong Jing pada saat ini, benar-benar ingin meraih kerah Fang Yuan dan bertanya padanya.</p>
+<p>	Mulut Jiao San berkedut.</p>
+<p>	Ketidakpedulian Fang Yuan menyebabkan penampilan mandiri mereka terlihat seperti lelucon. Itu membuat skema yang mereka buat menjadi bahan tertawaan.</p>
+<p>	Melihat Fang Yuan berbalik dan berjalan pergi, kemarahan di hatinya berkobar.</p>
+<p>	“Ayo Fang Yuan, jangan pergi begitu cepat, jangan dengarkan omong kosong mereka.” Jiao San mengendalikan emosinya dan menyunggingkan senyum, dengan cepat mengejar dan menghalangi Fang Yuan, “Kamu akan menyewa rumah kan? Biarkan kami pergi bersamamu. Saya memiliki beberapa hubungan pribadi, saya lebih akrab dengan situasi sewa.”</p>
+<p>	“Saya memang akan menyewa rumah, saya tidak bisa tinggal di asrama lagi, apakah Anda punya ide?” Fang Yuan mengangkat alisnya, bertanya dengan tenang.</p>
+<p>	“Saya tahu beberapa rumah yang cukup murah, dan dengan lokasi yang bagus.” Jiao San tersenyum, memimpin jalan.</p>
+<p>	…</p>
+<p>	“Rumahku, lima belas batu purba sebulan, tidak ada harga kedua.”</p>
+<p>	“Pfft, menyewa rumahku dengan delapan batu purba? Dalam mimpimu.”</p>
+<p>	“Anda harus membayar deposit, deposit 25%. Vendor lain juga melakukan ini. ”</p>
+<p>	“Rumah saya memiliki Feng Shui yang bagus, dan tenang di malam hari. Lebih penting lagi, itu menghadap ke paviliun pemimpin klan, Anda tahu seberapa bagus lokasinya. Ini benar-benar murah, hanya dua puluh lima batu purba sebulan. ”</p>
+<p>	Sepanjang jalan sampai malam hari, Fang Yuan tidak menemukan rumah untuk tinggal.</p>
+<p>	“Adik kecil Fang Yuan, kamu terlalu pelit. Desa ini hanya begitu besar, harganya semua seperti ini.”</p>
+<p>	“Menurut pendapat saya, Anda harus mendapatkan rumah di dekat paviliun pemimpin klan, lantai dua sangat luas dan pemandangannya bagus. Adik laki-laki Fang Yuan, jangan terlalu hemat, itu hanya dua puluh lima batu purba. Hadiah yang Anda dapatkan cukup bagi Anda untuk tinggal empat bulan. ”</p>
+<p>	Kedua Master Gu wanita terus mendesaknya dengan niat buruk.</p>
+<p>	Fang Yuan menggelengkan kepalanya, “Saya tidak punya banyak batu purba, saya tidak bisa boros.”</p>
+<p>	“Kalau begitu sewa apartemen bawah tanah, lebih murah.” Mata Gu Yue Kong Jing bersinar dengan kecemerlangan dingin, menyarankan.</p>
+<p>	Fang Yuan mendengus dalam hatinya, Kong Jing ini memiliki hati yang keji!</p>
+<p>	Desa ini sudah memiliki curah hujan yang tinggi, dan sekarang musim dingin, apartemen bawah tanah akan memiliki aliran udara yang buruk, dan penyewa akan mudah masuk angin. Bahkan jika tidak ada penyakit, itu akan menyebabkan masalah dalam jangka panjang.</p>
+<p>	Melihat Fang Yuan tetap diam, Jiao San berkata, “Sebenarnya lantai pertama aula besar itu juga bagus. Tinggal bersama dengan orang lain menyebabkan harga sewa juga berkurang.</p>
+<p>	Fang Yuan menggelengkan kepalanya, “Aku ingin tinggal sendiri, aku tidak suka tinggal bersama orang lain.”</p>
+<p>	Gu Yue Kong Jing mendengus, berkata dengan sedih, “Kamu tidak menginginkan ini, kamu tidak menginginkan itu. Saya tidak mencoba untuk memarahi Anda, adik Fang Yuan, tetapi Anda terlalu pilih-pilih dan berharap terlalu banyak. Dengan standar setinggi itu, itu tidak realistis.”</p>
+<p>	Fang Yuan mendengarkan, tertawa dingin di dalam hatinya sambil berpikir, “Bahkan jika mereka memenuhi kriteria, saya tidak akan menerima rumah yang Anda rekomendasikan.”</p>
+<p>	Tindakannya menenangkan mereka hanya demi berhati-hati, mencari tahu apakah ada jebakan.</p>
+<p>	Tepat saat Fang Yuan hendak pergi, Ibu Shen muncul.</p>
+<p>	“Tuan muda Fang Yuan, akhirnya aku menemukanmu. Akademi tidak bisa lagi ditinggali, dan tuan tua dan istrinya sudah menyiapkan jamuan makan, secara khusus meminta saya untuk mengundang Anda pulang. Di rumah saja jauh lebih baik, tidak perlu menyewa rumah di luar,” desaknya.</p>
+<p>	Akhirnya sampai……</p>
+<p>	Fang Yuan tertawa dingin di dalam hatinya, Ibu Shen ini benar-benar menemukan waktu yang tepat. Menemukannya di sini sekaligus, seseorang pasti telah memberi tahu dia!</p>
+<p>	Seperti yang dia duga, dalangnya adalah paman dan bibinya!</p>
+<p>	Dan Jiao San adalah rantai yang diciptakan paman dan bibinya untuk mengikatnya.</p>
+<p>	Keheningan Fang Yuan tampak seperti keraguan.</p>
+<p>	“Fang Yuan, mengapa kamu tidak tinggal di rumah paman dan bibimu, mengapa membuat hidup menjadi sulit? Menyewa rumah akan menghabiskan banyak batu purba.” Gu Yue Jiao San berbicara dengan sikap ‘prihatin’ pada saat yang tepat saat dia melihat ke arah Fang Yuan, matanya bersinar tidak menyenangkan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

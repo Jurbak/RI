@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 389 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 389";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_388.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 389">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_390.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 389</h1>
+        <div class="text-left">
+<p>	Bab 389 – Hanya satu langkah tersisa</p>
+<p>	Bab 389: Hanya satu langkah tersisa</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	20 Oktober.</p>
+<p>	Di aula utama, sinar cahaya merah samar mulai menghilang dan menyinari sekeliling.</p>
+<p>	Patung-patung relief di ubin perunggu telah menghilang lebih dari setengahnya.</p>
+<p>	Wajah Fang Yuan pucat dan dia tampak kuyu, matanya merah saat tatapannya tertuju pada setiap perubahan pada gumpalan cahaya.</p>
+<p>	Semuanya diam.</p>
+<p>	21 Oktober.</p>
+<p>	Roh tanah membawa kabar buruk; seorang ahli peringkat lima telah memasuki tanah yang diberkati.</p>
+<p>	Fang Yuan melihat gambar itu dan segera mengenali orang ini: “Jadi itu adalah Xiao Mang dari klan Xiao. Dia adalah ahli jalur cahaya dan memiliki peringkat lima Gu cahaya ekstrim. Dalam kehidupanku sebelumnya, dia muncul di gunung San Cha, bagaimanapun juga dia datang.”</p>
+<p>	Roh tanah tersentak: “Gu yang sangat ringan? Maka itu berarti Xiao Mang ini dapat memanggil cahaya kejayaan zaman dahulu! Musuh ini adalah ancaman besar bagi kita!”</p>
+<p>	Roh tanah sangat khawatir.</p>
+<p>	Zaman dahulu kala memiliki sembilan langit; surga putih, surga merah, surga oranye, surga kuning, surga hijau, surga biru, surga biru, surga ungu dan surga hitam.</p>
+<p>	Sinar matahari dari zaman dahulu sangat luar biasa, itu adalah cahaya kemuliaan dan dapat menembus sembilan langit dan menyebarkan kehangatan dan rahmatnya kepada semua makhluk hidup.</p>
+<p>	Saat ini, langit merah, oranye, kuning, hijau, biru, biru dan ungu tidak ada lagi, hanya surga putih dan surga hitam yang tersisa. Sinar matahari tidak lagi mengandung kemuliaan zaman dahulu, dan telah melemah secara ekstrem, hanya mampu menembus langit putih.</p>
+<p>	Peringkat lima cahaya ekstrim Gu, sekali diaktifkan, bisa meledak dengan cahaya intens kemuliaan zaman dahulu. Cahaya ini bahkan tidak memiliki sedikit kekuatan serangan, tetapi bisa menembus segalanya dan menyinari setiap sudut dunia.</p>
+<p>	Artinya, bahkan tanah yang diberkahi ini tidak dapat memutus cahaya yang sudah ada sejak dahulu kala.</p>
+<p>	Fang Yuan mengejek: “Ba Gui, kamu bisa lega. Dia memperoleh Gu cahaya ekstrim dari merampok makam dan merupakan Gu yang tidak lengkap. Dia hanya bisa menggunakannya tiga kali setiap bulan. Jika dia melewati batas ini, Gu akan menghancurkan dirinya sendiri.”</p>
+<p>	Roh tanah menghela nafas lega: “Itu bagus. Hari-hari ini, saya semakin lemah. Pada saat terakhir, Anda harus mengandalkan diri sendiri.”</p>
+<p>	“Hehe, aku selalu suka mengandalkan diriku sendiri.” Fang Yuan tertawa dan terus memurnikan Gu tanpa berkata apa-apa lagi.</p>
+<p>	22 Oktober.</p>
+<p>	Engah…</p>
+<p>	“Sialan, kegagalan lagi!”</p>
+<p>	Fang Yuan memuntahkan seteguk besar darah, matanya menjadi hitam dan hampir kehilangan kesadarannya.</p>
+<p>	Dia mengertakkan gigi dan memegang tanah; dia merasa dunia berputar, dia seperti melihat bintang dan ada suara mendengung terus menerus di telinganya.</p>
+<p>	Terutama, dadanya terasa sesak dan dia merasa ingin muntah.</p>
+<p>	Setelah beberapa lama, perasaan mual ini sedikit mereda.</p>
+<p>	Fang Yuan menghirup udara keruh dan perlahan duduk.</p>
+<p>	“Kegagalan dalam penyempurnaan Gu akan menyebabkan serangan balik. Saya sudah gagal tiga kali dalam langkah ini, bukan karena keterampilan saya buruk, saya sudah melakukannya dengan sempurna tetapi langkah ini tampaknya mengandalkan keberuntungan dan memiliki kemungkinan satu dari sepuluh peluang sukses. Mendesah! Tidak ada waktu!”</p>
+<p>	Fang Yuan tampak pucat, dia menahan rasa sakit dari serangan balik dengan susah payah dan memulai upaya keempatnya.</p>
+<p>	Pada saat ini, esensi abadi dalam kuali perunggu kurang dari empat bagian.</p>
+<p>	23 Oktober.</p>
+<p>	Fang Yuan menghentikan tindakannya dan melihat cacing Gu di tangannya dengan cahaya terang bersinar di matanya.</p>
+<p>	Gu ini seperti kumbang dengan perut besar dan anggun, kepala dan ekor runcing. Itu tidak memiliki kaki atau antena. Bentuknya samar, tampak seperti ukiran samar pada gerabah mentah, tanpa vitalitas seperti batu abu-abu.</p>
+<p>	Roh bumi sangat gembira: “Anak muda, aku benar-benar tidak salah menilaimu! Anda telah berhasil memperbaiki Gu palsu ini, sekarang Anda hanya perlu maju selangkah dan mengubah palsu menjadi nyata dan memperbaiki Gu bukaan kedua yang sebenarnya! ”</p>
+<p>	“Itu benar, hanya satu langkah yang tersisa.” Nada bicara Fang Yuan rumit, santai, namun berat.</p>
+<p>	Memperbaiki aperture kedua Gu ini seperti mendaki gunung. Ada ribuan langkah dan siapa yang tahu berapa kali dia gagal, dan dia hampir tidak beristirahat, tetapi akhirnya dia mencapai tahap ini. Usaha dan investasinya sebelumnya tidak sia-sia, jadi dia santai.</p>
+<p>	Namun, langkah terakhir ini adalah momen paling penting, langkah perubahan kualitatif dan membutuhkan penggunaan Gu perjalanan ilahi Immortal Gu.</p>
+<p>	Meskipun Fang Yuan telah berhasil memperbaiki Jangkrik Musim Gugur Musim Semi, dia tidak pernah menggunakan Gu Abadi untuk memperbaiki Gu Abadi; langkah terakhir ini adalah langkah yang dia tidak yakin, jadi suasana hatinya sedang berat.</p>
+<p>	“Tiga ratus tahun sebagai musim semi, lima ratus tahun sebagai musim gugur. Dengan kesempatan ilahi yang tidak terbatas, berenang dan berkeliaran di alam liar, menambahkan arloji ketiga, dan arloji ketiga lainnya, mendapatkan sembilan. Sembilan sebagai ekstrem, penyempurnaan selesai … Langkah terakhir ini membutuhkan penggunaan Gu umur, Gu perjalanan ilahi dan juga dua Gu penjaga ketiga. Fang Yuan merenung.</p>
+<p>	Dia memahami langkah-langkah sebelumnya dan bahkan bisa memodifikasinya. Tetapi untuk langkah ini, dia hanya sedikit memahami maksud sebenarnya.</p>
+<p>	“Roh tanah, perubahan apa yang terjadi di tanah yang diberkati?” Fang Yuan tiba-tiba bertanya.</p>
+<p>	“Dua kelompok pasukan telah tiba dengan lusinan Master Gu peringkat tiga, masing-masing dipimpin oleh Master Gu peringkat empat; momentum mereka sangat bagus.” Roh tanah menunjukkan pemandangan itu kepada Fang Yuan.</p>
+<p>	“Jadi itu adalah klan Che dan klan Zuo, tsk , dua pemimpin klan memimpin dan tampaknya sebagian besar penatua telah datang.” Fang Yuan mengenali mereka dengan pandangan sekilas.</p>
+<p>	Seluruh gunung San Cha terletak di antara gunung Leng Chan klan Zuo dan gunung Fei Lai klan Che.</p>
+<p>	Kedua klan ini terus berkembang dan dalam beberapa tahun terakhir, telah bersaing di garis depan gunung San Cha dengan maksud untuk mendudukinya.</p>
+<p>	Namun, kemunculan tiba-tiba dari warisan tiga raja benar-benar menghancurkan rencana kedua klan ini.</p>
+<p>	Ada seratus ribu gunung terkenal di seluruh Perbatasan Selatan bersama dengan gunung dan bukit yang tak terhitung jumlahnya yang ditutupi dengan binatang buas dan ganas, lingkungan mereka berbahaya dan sangat sulit untuk dilewati.</p>
+<p>	Pasukan lain hanya bisa mengirim elit mereka. Tetapi kedua klan ini berada di dekatnya dan pada awalnya menahan diri, tetapi sekarang ketika mereka merasakan perubahan aneh dalam warisan, mereka akhirnya mengirim sebagian besar pasukan mereka.</p>
+<p>	Bagi Fang Yuan, ini adalah berita buruk.</p>
+<p>	Pada saat terakhir, semua orang pasti akan menyerang pusat dari tanah yang diberkati, aula utama ini. Klan Che dan pasukan klan Zuo ini semuanya adalah musuh Fang Yuan.</p>
+<p>	“Selain mereka, ketika saatnya tiba, akan ada Li Xian, Hu Mei Er, Yi Huo, Kong Ri Tian dan ahli lainnya. Pada saat terakhir, saya harus berkonsentrasi penuh untuk menyempurnakan Gu dan menyerahkan pertahanan kepada roh tanah, Bai Ning Bing dan Feng Tian Yu. Namun ini hanya bahaya eksternal. ”</p>
+<p>	“Pada langkah terakhir, saya harus menggunakan dua jam tangan ketiga Gu berturut-turut, menyebabkan waktu mengalir sembilan kali lebih cepat pada saya! Ini adalah tonik yang bagus untuk Spring Autumn Cicada dan pada saat itu, tekanannya akan meningkat secara drastis dan membahayakan aperture saya. Ini adalah bahaya internal. ”</p>
+<p>	“Dengan bahaya internal dan eksternal, bahaya mengintai di mana-mana. Tapi aku hanya bisa mengertakkan gigi dan bertahan. Saya sudah mencapai tahap ini, tinggal satu langkah lagi sebelum saya bisa menginjak puncak. Saya akan bertaruh untuk ini. Jika saya benar-benar berhasil, saya akan memiliki aperture kedua dan saat saya berkultivasi ke peringkat enam di masa depan, saya tidak akan tertinggal terlalu jauh di belakang Feng Jin Huang.</p>
+<p>	Dalam rencana Fang Yuan setelah kelahiran kembali, gunung Qing Mao dan Klan Shang hanyalah sebuah platform sedangkan lubang kedua Gu adalah batu loncatan.</p>
+<p>	Tetapi karena akumulasi kecil inilah dia bisa berlari lebih jauh.</p>
+<p>	Selanjutnya, akan ada banyak peluang yang dia tidak memiliki kualifikasi untuk berpartisipasi tanpa kultivasi dan kekuatan tertentu!</p>
+<p>	“Semua makhluk hidup harus melalui survival of the fittest, saya tidak bisa berkompromi dengan peluang ini dan harus membuat setiap detik berharga. Hanya dengan begitu saya tidak akan mengecewakan pengetahuan masa depan saya …. ”</p>
+<p>	Fang Yuan menghela nafas panjang sebelum mulai beristirahat, bersiap untuk hari terakhir.</p>
+<p>	24 Oktober.</p>
+<p>	Fang Yuan terbangun dari tidur nyenyaknya dan perlahan membuka matanya.</p>
+<p>	“Sudah berhari-hari sejak aku tidur dengan nyaman, selanjutnya adalah pertempuran hebat!” Dia berdiri dan perlahan mondar-mandir di sekitar aula utama.</p>
+<p>	Di bawah bimbingan roh tanah, sudah ada dua orang yang berdiri di luar aula utama.</p>
+<p>	“Menguasai!” Feng Tian Yu segera berlutut di depan Fang Yuan dan menawarkan cacing Gu.</p>
+<p>	Gu ini tidak istimewa dalam penampilannya, tampak seperti sepotong batu kapur bundar. Itu tidak lain adalah seratus pertempuran yang tak terkalahkan Gu.</p>
+<p>	“Bawahan dapat menyelesaikan misi, dan setelah melalui ronde keseratus dan menerima Warisan Raja Xin, saya dapat menerima orang-orang berbulu ini.”</p>
+<p>	Di sisinya berdiri beberapa ratus pria berbulu, tubuh mereka dipenuhi dengan rambut lebat dan berdiri di sana dengan tenang.</p>
+<p>	“Bagus.” Fang Yuan mengangguk dan memuji dengan acuh tak acuh, dia tidak terkejut.</p>
+<p>	Pria berbulu ini memiliki sifat bawaan untuk mengikuti orang-orang yang lebih baik dalam menyempurnakan Gu daripada mereka. Tidak mengherankan bagi Feng Tian Yu untuk menerobos penghalang keseratus dan memiliki pengikut ini.</p>
+<p>	Fang Yuan lalu berjalan menuju Bai Ning Bing.</p>
+<p>	Bai Ning Bing melihat ke aula utama perunggu yang besar, tatapannya berkedip dengan sedikit pemahaman: “Sepertinya ini adalah area pusat tanah yang diberkati.”</p>
+<p>	Mengatakan demikian, dia memandang Fang Yuan: “Hmph, kamu paling ingat janjimu.”</p>
+<p>	Fang Yuan tersenyum: “Kamu bisa tenang.”</p>
+<p>	Dia melihat ke belakang Bai Ning Bing, melihat hampir seratus ribu binatang anjing yang sepertinya tidak ada habisnya; ada yang menempati suatu daerah, ada yang saling bercanda dan ada pula yang berlarian sambil membuat kegaduhan.</p>
+<p>	Fang Yuan sedikit mengerutkan alisnya, ini adalah kelemahan dari kemampuan memerintah Bai Ning Bing. Jika itu Zhang San San, Wu Gui atau Wu Shen Tong, salah satu dari mereka dapat mengatur anjing-anjing ini dalam formasi yang ketat dan membuat mereka berdiri di sana tanpa bergerak, seperti tentara.</p>
+<p>	Namun, bagaimanapun juga, ini adalah sesuatu yang sepenuhnya di luar Bai Ning Bing, dia belum pernah menerima pelatihan jalur perbudakan sebelumnya, dan sudah tidak mudah baginya untuk dapat mencapai tahap ini.</p>
+<p>	Bahkan, Bai Ning Bing merasa pusing sekarang, setiap gerakannya sedikit tertinggal dan jiwanya terasa berat, dia merasa tubuhnya seperti boneka.</p>
+<p>	Mengontrol begitu banyak binatang anjing sekaligus benar-benar menuntut banyak darinya.</p>
+<p>	“Dengarkan pengaturan saya sekarang, berada dalam formasi defensif. Tidak peduli bagaimana musuh memprovokasi Anda, jangan mengambil inisiatif untuk menyerang. Ingat itu bagaimanapun caranya, ingatlah.” Fang Yuan memperingatkan.</p>
+<p>	“Oke, karena ini adalah pengaturanmu, apakah ini berhasil atau gagal tidak ada hubungannya denganku.” Bai Ning Bing dengan dingin menjawab.</p>
+<p>	“Hehe, tidak peduli sukses atau gagal, aku akan memberimu Yang Gu.” Fang Yuan meyakinkan sambil tersenyum.</p>
+<p>	“Hmph, lebih baik kamu melakukan apa yang kamu katakan.”</p>
+<p>…</p>
+<p>	“Dua pilar cahaya telah menghilang, ini berarti Warisan Raja Xin dan Raja Quan telah diambil!” Dini hari, di puncak gunung San Cha, ada keributan di antara para Master Gu.</p>
+<p>	“Pembukaan warisan kali ini sangat aneh, itu telah mempertahankan dirinya sendiri sampai hari ini, menyebabkan tanah yang diberkati memburuk dengan sangat cepat.” Seseorang ragu.</p>
+<p>	Tetapi dibandingkan dengan ini, lebih banyak orang yang memperhatikan warisan.</p>
+<p>	“Siapa dua orang beruntung yang mewarisi warisan?”</p>
+<p>	“Saya pikir Warisan Raja Xin harus diwarisi oleh Tuan Tie Mu Bai. Dia belum keluar sejak dia masuk. ”</p>
+<p>	“Warisan Raja Quan mungkin telah diwarisi oleh Wu Gui.”</p>
+<p>	“Tidak, itu harus menjadi tuan klan kami Wu Shen Tong.”</p>
+<p>	“Hmph, seperti yang saya lihat, master perbudakan jalur iblis kami Zhang San San juga memiliki peluang untuk menang.”</p>
+<p>	Kerumunan berdebat sebentar sebelum seseorang akhirnya menemukan sesuatu yang aneh.</p>
+<p>	“Aneh, tidak satu pun dari beberapa Master Gu peringkat lima yang memasuki warisan telah keluar. Apa yang sedang terjadi?”</p>
+<p>	“Warisan Raja Xin dan Raja Quan diwarisi, tetapi mengapa yang lain tidak keluar?”</p>
+<p>	“Mereka ditahan di tanah yang diberkati. Tanah yang diberkati ini sudah mendekati kepunahannya, tidak lama kemudian lorong itu akan terbuka lebar dan membiarkan kita semua masuk dan keluar sesuka hati. ” Suara resonansi menyebar.</p>
+<p>	“Tuan Xiao Mang!” Segera, jalan lurus Gu Masters mengenali identitas pembicara.</p>
+<p>	“Xiao Mang ini belum memasuki warisan setelah dia tiba di gunung San Cha, apa yang dia rencanakan?” Demonic Gu Masters merasa khawatir di dalam hati, kedatangan Xiao Mang telah menekan api mereka.</p>
+<p>	Xiao Mang dengan bangga tersenyum setelah berhasil menarik perhatian semua orang: “Sekarang aku akan menggunakan Gu yang sangat ringan untuk membuka jalan bagi kita!”</p>
+<p>	Ketika dia selesai berbicara, dia membuka matanya lebar-lebar dan dengan marah mengaktifkan esensi purbanya sambil mengangkat tinjunya tinggi-tinggi.</p>
+<p>	Gu ringan ekstrim!</p>
+<p>	Kehendak surga Gu!</p>
+<p>	Tinju kosong Gu!</p>
+<p>	Gerakan mematikan — Tinju Cahaya Abadi!</p>
+<p>	Tiga Gu diaktifkan sekaligus, menyebabkan seluruh langit meredup.</p>
+<p>	Semua orang melihat dengan kaget saat sinar cahaya membentuk kepalan besar seukuran gunung, itu muncul tiba-tiba dan menghilang sama tiba-tiba, menyerang di suatu tempat yang tidak diketahui.</p>
+<p>	Gu ringan ekstrim mungkin tidak memiliki kekuatan menyerang, tetapi ketika dikombinasikan dengan dua Gu lainnya, itu bisa membentuk serangan yang sangat intens!</p>
+<p>	Bam!</p>
+<p>	Sebuah membran tak berbentuk ditembus, tanah yang diberkati bergetar dan sebuah lubang besar terbentuk menjadi lorong yang terhubung ke dunia luar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

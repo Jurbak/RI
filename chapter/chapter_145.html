@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 145 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 145";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_144.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 145">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_146.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 145</h1>
+        <div class="text-left">
+<p>	Bab 145</p>
+<p>	Bab 145: Pengorbanan didorong</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Sebagai orang yang terlibat, Fang Yuan harus melalui penyelidikan klan.</p>
+<p>	Itu bukan investigasi mendalam; keparahan yang semakin meningkat dari gelombang serigala telah menarik hampir semua perhatian petinggi klan. Rumput Telinga Komunikasi Bumi Fang Yuan dan Sisik Siluman Gu masih disembunyikan tetapi bahkan jika mereka diekspos, Fang Yuan hanya bisa menghubungkannya dengan karavan.</p>
+<p>	Bagaimanapun, komunikasi telah terputus karena gelombang serigala; karavan tidak akan datang. Dalam keadaan seperti itu, klan tidak bisa mendapatkan konfirmasi dari karavan dan hanya bisa menunda penyelidikan.</p>
+<p>	Ketika hasil penyelidikan benar-benar keluar, Fang Yuan pasti sudah menjadi peringkat tiga dan meninggalkan gunung Qing Mao.</p>
+<p>	Tentu saja, jika cacing Four Flavours Liquor dan Spring Autumn Cicada terungkap, itu akan menjadi masalah yang sama sekali berbeda.</p>
+<p>	Salah satu dari mereka dapat menyebabkan keributan besar di desa jika terungkap.</p>
+<p>	Empat Flavours Liquor worm mewakili resep perpaduan yang benar-benar baru dan memiliki arti yang sangat signifikan. Fang Yuan tidak akan bisa menjelaskannya bahkan jika dia mendorongnya ke karavan, dan akan diselidiki secara menyeluruh oleh klan.</p>
+<p>	Dan Jangkrik Musim Semi Musim Gugur? Jika ditemukan, gelombang serigala akan sangat dikesampingkan. Bagaimanapun, ini adalah Gu Peringkat enam! Bahkan kepala klan Gu Yue Bo akan segera membuang kesopanan; omong kosong kekerabatan dan posisi kepala klan semua bisa ditinggalkan. Tidak ada keraguan bahwa itu akan disita secara paksa.</p>
+<p>	Juli adalah bulan dengan musim panas yang terik, dan udara panas dipenuhi dengan bau besi darah.</p>
+<p>	Gelombang serigala tumbuh lebih serius dan perkelahian menjadi lebih intens.</p>
+<p>	Banyak yang mulai menyadari bahwa gelombang serigala kali ini adalah skala besar yang jarang terlihat di antara semua sejarah masa lalu.</p>
+<p>	Paket serigala petir yang berani telah jatuh ke peran pendukung sekarang; ribuan paket serigala petir gila-gilaan raja binatang mulai berkeliaran di dekat desa.</p>
+<p>	Ruang hidup umat manusia telah menyusut ke tingkat yang ekstrim.</p>
+<p>	Bahkan markas klan Gu Yue pun demikian; tidak perlu menyebutkan desa di kaki gunung.</p>
+<p>	Sembilan dari sepuluh rumah kosong dan sebagian penduduk desa yang beruntung tinggal di klan dengan memanfaatkan semua jenis koneksi. Tetapi mayoritas penduduk desa hanya bisa meninggalkan rumah mereka dan melakukan perjalanan yang sulit untuk menghindari gelombang serigala.</p>
+<p>	Tujuan mereka adalah desa pegunungan lainnya. Tapi binatang buas, Gu liar, dan serigala petir yang memenuhi seluruh gunung mengurangi harapan mereka hingga jumlah yang hampir tidak berarti.</p>
+<p>	Ini adalah perjalanan tanpa harapan.</p>
+<p>	Klan Gu Yue hanya bisa menyerah pada manusia ini, mereka semua akan mati bahkan sebelum mereka mencapai setengah jalan ke tujuan mereka. Entah karena binatang buas yang ganas atau karena serangan dari serangga.</p>
+<p>	Tidak peduli apakah itu manusia atau Master Gu, mereka semua berjuang antara hidup dan mati. Bahkan para tetua yang biasanya memiliki posisi tinggi, tidak punya pilihan selain mengenakan armor mereka dan pergi ke medan perang.</p>
+<p>	Master Gu yang telah pensiun terdaftar lagi. Ketika gelombang serigala berakhir, mereka yang berhasil hidup pasti tidak akan melampaui sepersepuluh pun.</p>
+<p>	Kekejaman alam ditampilkan dengan segala kemegahannya saat ini. Itu adalah survival of the fittest dan sama sekali tidak bisa dihindari dengan mengucapkan kata-kata hangat.</p>
+<p>	Fang Yuan duduk bersila di tempat tidur; matanya tertutup saat dia melihat aperture-nya.</p>
+<p>	Di aperture-nya, 44% gelombang laut baja merah melonjak naik dan turun. Esensi purba ini semuanya berwarna merah tua. Itu adalah esensi purba merah tua tahap puncak peringkat dua.</p>
+<p>	Esensi purba peringkat dua secara kolektif disebut esensi purba baja merah. Tapi itu memiliki empat alam kecil yang berbeda: tahap awal, tahap tengah, tahap atas dan tahap puncak. Ada juga sedikit perbedaan dalam esensi purba baja merah.</p>
+<p>	Peringkat dua esensi purba tahap awal berwarna merah muda; esensi purba tahap tengah berwarna merah; panggung atas berwarna merah tua dan panggung puncak berwarna merah tua.</p>
+<p>	Beberapa hari yang lalu, Fang Yuan telah maju ke tahap atas. Esensi purba merahnya melewati penyempurnaan cacing Four Flavours Liquor dan bersama dengan pengisian dari batu purba, itu benar-benar berubah menjadi esensi purba merah tua saat ini.</p>
+<p>	Saat ini, dinding aperture bukan lagi sebuah membran berair dengan cahaya yang mengalir, melainkan sebuah membran batu tebal yang dibentuk oleh lapisan demi lapisan cahaya putih yang menumpuk.</p>
+<p>	White Jade Gu dan Stealth Scales gu berada di kedalaman laut baja merah.</p>
+<p>	Cacing Minuman Keras Empat Rasa sedang bermain-main di laut tetapi ketika Jangkrik Musim Semi Musim Gugur perlahan muncul, ia segera tenggelam menuju kedalaman laut.</p>
+<p>	Di bawah aura Jangkrik Musim Gugur Musim Semi, permukaan seluruh laut purba menjadi setenang dan sehalus cermin tanpa gelombang sedikit pun.</p>
+<p>	Kondisi Spring Autumn Cicada semakin membaik.</p>
+<p>	Kedua sayapnya benar-benar pulih, tampak seperti sepasang daun yang lembut. Hanya tubuh utamanya yang masih layu.</p>
+<p>	Fang Yuan akan sering memeriksa Spring Autumn Cicada; dia bisa dengan jelas merasakan kecepatan pemulihan Spring Autumn Cicada meningkat dengan cepat.</p>
+<p>	Jangkrik Musim Gugur Musim Semi seperti pasien yang sekarat sebelumnya, seseorang yang bahkan tidak bisa membuka mulut untuk makan dan hanya bisa mengambil makanan cair untuk mempertahankan kekuatan hidup mereka.</p>
+<p>	Sekarang, pasien ini bisa turun dari tempat tidur dan makan lebih banyak makanan untuk memberi makan dirinya sendiri; kecepatan pemulihan secara alami akan menjadi lebih cepat.</p>
+<p>	Selain Jangkrik Musim Semi Musim Gugur, ada dua anggota baru di celah Fang Yuan.</p>
+<p>	Keduanya diambil dari Bai Ning Bing; salah satunya adalah Gu Perisai Air yang terlihat seperti ubur-ubur saat mengapung di laut. Yang lainnya adalah Relic Gu baja merah.</p>
+<p>	Kemajuan Fang Yuan ke tingkat atas adalah karena esensi purba yang dimurnikan oleh cacing Four Flavours Liquor dan nutrisi terus menerus dari dinding aperture, menyebabkan perubahan kualitatif. Fang Yuan tidak menggunakan Relic Gu baja merah.</p>
+<p>	Hanya berdasarkan tingkat kultivasi, Fang Yuan sudah akan menjadi orang tertinggi ketiga di antara Master Gu peringkat dua dari klan Gu Yue. Xiong Li dan Qing Shu sudah mati; Fang Yuan berada di lima besar bahkan di antara seluruh Gunung Qing Mao.</p>
+<p>	Adapun Chi Shan dan Mo Yan, mereka awalnya berada di peringkat dua tahap atas tetapi telah maju ke tahap puncak belum lama ini. Ini bisa dikatakan telah membangkitkan moral klan yang turun setelah pengorbanan Qing Shu.</p>
+<p>	Fang Yuan mengalami kemajuan dan yang lainnya secara alami juga mengalami kemajuan.</p>
+<p>	Chi Shan dan Mo Yan telah berada di panggung atas untuk waktu yang cukup lama dan terus-menerus ditekan oleh level puncak Qing Shu.</p>
+<p>	Stimulasi kematian yang intens yang dibawa oleh gelombang serigala menyebabkan Gu Masters sangat haus akan kekuasaan, memeras potensi mereka dan mengarah pada kemajuan kultivasi.</p>
+<p>	“Tetapi jika kita menghitung kekuatan bertarung, saya adalah orang nomor satu di antara Master Gu peringkat dua dari seluruh gunung Qing Mao. Sekarang, setelah saya menggunakan Relic Gu baja merah ini, kultivasi saya akan naik ke tahap puncak dan ketika dikombinasikan dengan pengalaman mendalam saya, saya bahkan dapat bertarung dengan Master Gu peringkat tiga sampai tingkat tertentu, ”hitung Fang Yuan.</p>
+<p>	Profil rendah dan kesabarannya telah memberinya banyak keuntungan sekarang.</p>
+<p>	Dia bisa maju ke tahap ini hanya dengan bakat kelas C, seluruh klan akan terkejut jika mereka mengetahui hal ini. Bahkan bakat kelas A Fang Zheng hanya berada di peringkat dua tahap tengah.</p>
+<p>	Secara alami, bahkan jika dia maju ke tahap puncak, Fang Yuan tidak bisa menang melawan Master Gu peringkat tiga.</p>
+<p>Bai Ning Bing mampu melampaui level dan membunuh Master Gu peringkat tiga karena fisik Jiwa Es Gelap Utaranya. Gu Yue Qing Shu juga bisa melakukan itu karena dia memiliki Gu Pesona Kayu, cacing Gu peringkat tiga yang kuat dan istimewa.</p>
+<p>	Sebenarnya, Fang Yuan memiliki kartu truf yang jauh lebih kuat dari mereka — Spring Autumn Cicada.</p>
+<p>	Namun, Gu Peringkat enam ini sangat istimewa, dan Fang Yuan memaksa dirinya untuk tidak menggunakannya. Spring Autumn Cicada belum sepenuhnya pulih dan jika digunakan secara paksa, apakah bisa terlahir kembali akan menjadi tanda tanya besar.</p>
+<p>	Relic Gu baja merah hanya efektif untuk Peringkat dua Master Gu; tidak ada gunanya menyimpannya.</p>
+<p>	Fang Yuan baru saja akan menggunakan Gu ini ketika ada ketukan di pintu.</p>
+<p>	Dong, dong, dong.</p>
+<p>	“Tuan Fang Yuan, ini aku, Gu Yue Jiang Ya,” sebuah suara berteriak setelah ketukan itu.</p>
+<p>	Fang Yuan mengerutkan kening, Jiang Ya ini semakin sombong baru-baru ini; dia akan berulang kali mencarinya untuk meminta daun vitalitas.</p>
+<p>	Jumlah kematian dan orang lumpuh yang semakin meningkat, menyebabkan harga daun vitalitas menjadi semakin tinggi bahkan menjadi situasi permintaan tinggi tetapi tidak ada pasokan.</p>
+<p>	“Berapa kali saya katakan bahwa saya tidak memiliki lebih banyak vitalitas. Enyah.” Fang Yuan dengan dingin mendengus. Bagaimana dia bisa menyerahkan waktu kultivasinya untuk mendapatkan penghasilan batu purba yang sepele.</p>
+<p>	Di luar pintu, Jiang Ya tersenyum menyanjung, “Tuan Fang Yuan, tolong tenangkan amarahmu. Anda menyadari situasi saat ini, pilihan apa yang saya miliki? Banyak Master Gu tahu saya menjual daun vitalitas dan mereka semua mencari saya. Tidak mudah bagi saya kecil untuk melewati hari-hari saya. Bagaimana dengan ini, saya akan membayar sepuluh persen lebih banyak. Tuan Fang Yuan, mohon berbaik hati dan beri saya selusin daun vitalitas. ”</p>
+<p>	Setelah berbicara, dia mulai mengemis dan suaranya terdengar isak tangis.</p>
+<p>	Fang Yuan acuh tak acuh, “Itu urusanmu, apa hubungannya denganku? Hmph, nyalimu semakin besar akhir-akhir ini, kamu lupa kesepakatan di antara kami dan benar-benar membawa orang lain. ”</p>
+<p>	“Ah….” Jiang Ya tersenyum pahit di luar pintu. Dia memandang Guru Gu tua di sampingnya. Dia tidak punya cara lain, Tuan Gu ini sangat kuat dan dengan keras kepala mengikutinya ke sini.</p>
+<p>	“Teman kecil Fang Yuan.” Guru Gu tua ini berbicara, “Saya Gu Yue Ye, saya yakin Anda telah mendengar tentang saya. Saya datang untuk membeli beberapa daun vitalitas dan berharap Anda, teman kecil, dapat menunjukkan rasa hormat kepada saya dan memberikan sedikit waktu untuk memproduksinya.”</p>
+<p>	“Beri kamu rasa hormat. Heh, reputasi apa yang kamu miliki? ” Fang Yuan mencibir. Gu Yue Ye ini agak terkenal, dia adalah pensiunan Guru Gu tetapi telah dibawa kembali oleh klan karena gelombang serigala.</p>
+<p>	Pada periode puncaknya, dia telah mencapai Peringkat tiga. Namun, karena cedera, kultivasinya turun ke peringkat dua tahap puncak dan sekarang karena usia tuanya, kultivasinya semakin turun ke peringkat dua tahap atas.</p>
+<p>	Meskipun kultivasinya sama dengan Fang Yuan, kekuatan bertarungnya tidak dapat dibandingkan dengan yang terakhir.</p>
+<p>	Ekspresi Gu Yue Ye pucat, dia sudah lama mendengar tentang penyendiri yang eksentrik ini, Fang Yuan; seorang anak laki-laki dengan temperamen yang ganas dan keras kepala, arogan dan kasar, menganggap semua orang di bawahnya. Dia telah mempersiapkan hatinya sebelum dia datang ke sini, tetapi untuk berpikir bahwa dia masih meremehkan Fang Yuan.</p>
+<p>	Dia ingin menggunakan reputasinya, tetapi metode yang biasanya berhasil ini tidak berpengaruh pada Fang Yuan.</p>
+<p>	Dia merasa wajahnya terbakar dan hatinya dipenuhi amarah. Dia telah kehilangan semua kehormatannya sekarang!</p>
+<p>	“Bajingan yang tidak sopan ini!” Dia mengutuk dalam hati, tetapi tidak pergi.</p>
+<p>	Dia membutuhkan daun vitalitas!</p>
+<p>	Dia adalah pria yang berpengalaman dan sangat tahu pentingnya daun vitalitas. Terkadang, daun vitalitas bisa berarti perbedaan antara hidup dan mati.</p>
+<p>	Seiring bertambahnya usia, keberanian mereka mulai menyusut.</p>
+<p>	Kembali ketika dia masih muda, dia berdarah panas dan mudah bersemangat. Dia ingin melindungi anggota klan, dia ingin mengubah dunia, dia ingin menjadi pahlawan yang hebat! Pada saat itu, dia memiliki resolusi untuk melihat kematian sebagai pulang ke rumah!</p>
+<p>	Namun, saat ini dia sudah tua dan jauh lebih berkepala dingin. Dia telah melihat melalui banyak aspek kehidupan di tahun-tahun ini dan dapat dikatakan telah merefleksikan dirinya sendiri.</p>
+<p>	Apalagi setelah beberapa anaknya meninggal, hatinya semakin dingin.</p>
+<p>	Setiap organisasi membutuhkan pengorbanan.</p>
+<p>	Sumber daya terbatas. Meskipun diproduksi sepanjang waktu, mereka juga dikonsumsi. Dengan demikian, penambahan dan pengurangan ini membatasi jumlah total.</p>
+<p>	Manusia membutuhkan makanan, pakaian dan tempat tinggal untuk bertahan hidup; ini adalah sumber daya. Master Gu membutuhkan cacing Gu, batu purba, dan makanan untuk diolah; ini juga sumber daya.</p>
+<p>	Menjadi kuat membutuhkan lebih banyak sumber daya. Tetapi jika Anda tidak berkorban, lalu di mana saya bisa mendapatkan lebih banyak sumber daya?</p>
+<p>	Saya lebih suka berkompromi dengan orang lain daripada mengorbankan keuntungan saya!</p>
+<p>	Melindungi, menghormati, cinta keluarga, mimpi, darah panas; mereka semua adalah alasan terhormat untuk berkorban.</p>
+<p>	Tidak ada organisasi yang tidak mendorong pengorbanan diri. Namun, para petinggi tidak akan pernah mengatakan itu, mereka malah akan berbicara tentang ‘melindungi, menghormati, cinta keluarga, mimpi, darah panas, kebahagiaan’ dan seterusnya, dan memberikan segala macam keuntungan materi.</p>
+<p>	Namun, manfaat materi hanyalah omong kosong begitu seseorang mati. Apa yang bisa dinikmati ‘pahlawan hebat’ yang sudah mati?</p>
+<p>	Lihatlah Gu Yue Qing Shu.</p>
+<p>	Dia ‘dengan bahagia’ meninggal dan dikuburkan di dalam tanah; namanya terukir di nisan sebagai semangatnya terus mempengaruhi ‘pahlawan’ masa depan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

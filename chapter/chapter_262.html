@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 262 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 262";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_261.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 262">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_263.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 262</h1>
+        <div class="text-left">
+<p>	Bab 262</p>
+<p>	Bab 262: Tidak dapat menjual</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Tiga ratus sepuluh?</p>
+<p>	Melihat jumlah yang ditunjukkan oleh orang tua, Fang Yuan mengangkat alisnya.</p>
+<p>	Harga cacing minuman keras adalah lima ratus delapan puluh, kutu buku sedikit lebih tinggi, pada enam ratus. Gu babi hutan hitam dan putih juga enam ratus, tetapi semua cacing Gu ini peringkat satu Gu langka, dengan jumlah sedikit, sehingga harganya mahal.</p>
+<p>	Gu peringkat satu biasa sekitar dua ratus lima puluh batu purba.</p>
+<p>	Satu kali pengeluaran Gu seperti rumput vitalitas dihargai lima puluh potong.</p>
+<p>	Mengatur tombak tulang Gu pada tiga ratus sepuluh sudah cukup bagus. Orang tua yang bekerja di toko Tong Ou ini tidak sengaja menekan harga.</p>
+<p>	Namun meski begitu, Fang Yuan berusaha menaikkan harga sebanyak yang dia bisa.</p>
+<p>	Tawar-menawar sudah dikuasai olehnya hingga batas di kehidupan sebelumnya.</p>
+<p>	Hanya dalam beberapa kalimat, orang tua tidak punya pilihan selain menaikkan harga sepuluh batu purba.</p>
+<p>	Satu tombak tulang Gu, tiga ratus dua puluh batu purba.</p>
+<p>	“Baiklah, kita akan berurusan dengan harga ini.” Fang Yuan melambaikan tangannya, dan gelombang cahaya terbang keluar dari lubangnya.</p>
+<p>	Lima puluh enam tombak tulang Gu, melayang di depan orang tua, menyebabkan dia melompat karena kaget.</p>
+<p>	“Begitu banyak …” Dia langsung menyesalinya. Masing-masing dibangkitkan oleh sepuluh batu purba, ini hampir merupakan peningkatan enam ratus batu purba.</p>
+<p>	Yang benar adalah, Fang Yuan mengambil hampir dua ratus tulang tombak Gu dari gunung Bai Gu.</p>
+<p>	Tetapi ketika dia berdagang di sepanjang jalan, tanpa makanan yang cukup, kebanyakan dari mereka sudah mati, hanya sedikit yang tersisa.</p>
+<p>	“Lima puluh enam Gu, yaitu tujuh belas ribu sembilan ratus dua puluh (17920) batu purba, saya akan meminta para pelayan untuk membawa batu purba itu sekarang.” Orang tua itu menyimpan tombak tulang Gu ke dalam lubangnya.</p>
+<p>	“Jangan terburu-buru, lihat ini.” Fang Yuan tersenyum, mengeluarkan tombak tulang spiral Gu.</p>
+<p>	“Gu peringkat dua ini menyerupai tombak tulang Gu …” Orang tua itu menunjukkan keheranan di wajahnya.</p>
+<p>	“Memang, berhasil memperbaiki tombak tulang Gu akan menciptakan Gu tombak tulang spiral ini. Ia memiliki kekuatan spiral, sehingga kemampuan penetrasinya sangat kuat.” Fang Yuan menjelaskan pada waktu yang tepat.</p>
+<p>	Orang tua menguji, dan memverifikasi apa yang telah disebutkan Fang Yuan, memberikan harga tujuh ratus delapan puluh batu purba.</p>
+<p>	Setelah beberapa putaran tawar-menawar, Fang Yuan menaikkan harga menjadi delapan ratus per Gu.</p>
+<p>	Tombak tulang spiral Gu ini disimpan dengan baik olehnya, ada dua puluh di lubangnya.</p>
+<p>	Dengan cara ini, dia menjual semuanya seharga enam belas ribu batu purba.</p>
+<p>	“Sekarang lihat Gu ini, tujuh ribu batu purba.” Fang Yuan memberi harga, dan mengeluarkan Gu spike tulang, memperkenalkan sekali lagi.</p>
+<p>	Orang tua itu memegang paku tulang Gu, tetapi tidak berani mengujinya, tertawa pahit: “Gu ini peringkat tiga, tetapi itu menyakiti musuh dan pengguna. Rasa sakit dari paku tulang yang menembus kulit pasti sangat menyakitkan. Untuk menggunakannya, Gu penyembuhan harus digunakan juga, harga ini terlalu tinggi, saya akan mempertimbangkan enam ribu lima ratus, itu harga yang tepat … ”</p>
+<p>	“Jangan tawar-menawar lagi, aku akan memberi sedikit, enam ribu tujuh ratus.” kata Fangyuan.</p>
+<p>	Setelah dua putaran, orang tua itu menemukan Fang Yuan sangat sulit untuk dihadapi, dia menyeka keringat di dahinya dan mengertakkan gigi: “Setuju.”</p>
+<p>	“Kalau begitu, totalnya empat puluh ribu enam ratus dua puluh (40620) batu purba.” Bola mata Fang Yuan bergerak saat dia memberikan jumlah yang akurat.</p>
+<p>	Orang tua itu tiba-tiba membungkuk, memberi hormat kepada Fang Yuan: “Tamu yang terhormat, cacing Gu yang Anda jual ini, saya belum pernah melihat mereka selama bertahun-tahun berbisnis. Mereka semua saling berhubungan, dengan jalur kemajuan yang jelas, mereka tampak seperti satu silsilah keluarga. Bolehkah saya bertanya kepada Anda, apakah Gu ini dari warisan yang sama?</p>
+<p>	Fang Yuan mengangguk: “Setiap orang cerdas dapat mengetahui, memang, ini diperoleh melalui kesempatan keberuntungan, dan saya mewarisi warisan, mendapatkan cacing Gu ini.</p>
+<p>	Orang tua itu gembira: “Kalau begitu, Anda harus memiliki resep penyempurnaan Gu yang relevan. Keberuntungan tamu yang terhormat benar-benar luar biasa, bahkan orang luar akan iri, apakah mungkin untuk menjual resep ini bersama ke toko saya? ”</p>
+<p>	Fang Yuan mengerutkan kening.</p>
+<p>	Barang mahal ketika langka, tombak tulang Gu, tombak tulang spiral Gu, tulang spike Gu, tidak hanya dia memilikinya, klan Bai juga memilikinya. Tidak masalah jika dia menjualnya.</p>
+<p>	Tapi resep penyempurnaan lengkap, dia mendapatkannya dari ruang rahasia kantung daging, hanya ada satu di dunia. Hal seperti itu tidak bisa dengan mudah dijual.</p>
+<p>	“Apa pun yang berada di bawah peringkat enam, baik Gu dan resep, dapat memiliki harga. Tapi, berapa banyak batu purba yang bisa kamu tawarkan?” Fang Yuan berpikir, dan bertanya.</p>
+<p>	Asalkan harganya sesuai, resep ini bisa dijual.</p>
+<p>	Dia membutuhkan uang.</p>
+<p>	Setelah menjual tombak tulang Gu dan yang lainnya, empat puluh ribu batu purba tidak cukup untuk rencananya.</p>
+<p>	Orang tua itu mengangkat dua jari: “Dua ratus ribu!”</p>
+<p>	Setelah menjual begitu banyak cacing Gu, dia hanya mendapat empat puluh ribu. Tapi resep yang tidak berbentuk, bisa memberinya dua ratus ribu.</p>
+<p>	Beri seseorang ikan dan Anda memberinya makan selama sehari. Ajari seseorang memancing dan Anda memberinya makan seumur hidup.</p>
+<p>	Cara menangkap ikan jauh melebihi nilai ikan itu sendiri.</p>
+<p>	Karena metode tersebut menyiratkan sumber ikan yang berkelanjutan.</p>
+<p>	Ke toko Tong Ou, dengan resep, berarti mereka bisa memproduksi sendiri tombak tulang Gu dan yang lainnya, tanpa henti.</p>
+<p>	Itu berarti barang transaksi jangka panjang, hanya dijual di satu tempat, jadi resep white bone pasti jauh lebih mahal.</p>
+<p>	Tapi Fang Yuan menyeringai: “Dua ratus ribu. Anda berani melaporkan harga ini?”</p>
+<p>	Wajah orang tua itu memerah, harga ini memang rendah, dia dengan cepat berkata: “Tiga ratus ribu!”</p>
+<p>	Fang Yuan tidak berbicara, tetapi berbalik untuk pergi.</p>
+<p>	Orang tua itu menggertakkan giginya: “Lima ratus ribu!”</p>
+<p>	“Harga ini akhirnya terlihat lumayan, saya akan menjualnya seharga enam ratus delapan puluh ribu.” Fang Yuan menyesap tehnya.</p>
+<p>	Wajah orang tua itu pahit: “Lima ratus ribu adalah batas otoritas saya. Tamu yang terhormat, Anda menjual begitu banyak tulang tombak Gu, kami dapat menyewa master resep untuk merekayasa balik resep Anda. Benar-benar tidak buruk untuk menjualnya seharga lima ratus ribu. ”</p>
+<p>	Fang Yuan menggelengkan kepalanya, sikapnya tegas: “Resep di tanganku unik untuk dunia ini, hanya ada satu di seluruh dunia! Setidaknya enam ratus lima puluh ribu, kalau tidak saya tidak akan menjualnya. Di dalam kota klan Shang ini, aku yakin ada toko lain, kan?”</p>
+<p>	” Anda tidak tahu tamu terhormat ini, kota klan Shang memiliki banyak toko, tetapi sebagian besar berada di bawah kendali tuan muda klan saya. Jika Anda tidak dapat menjualnya di sini, tidak ada tempat lain yang akan membelinya juga. Jika Anda tidak menjual resepnya, saya khawatir Anda tidak akan bisa menjual cacing Gu ini juga. ” Orang tua itu menangkupkan tinjunya, kata-katanya tegas dan kompromi, dengan sedikit ancaman.</p>
+<p>	“Oh? Kemudian kita akan melihat tentang itu.” Fang Yuan menyimpan semua cacing Gu ini, dan pergi.</p>
+<p>	“Tamu-tamu yang terhormat, saya dengan tulus menasihati Anda, silakan tinggal dan jual.” Orang tua itu memberikan upaya terakhirnya.</p>
+<p>	Fang Yuan tidak memperhatikannya, segera berjalan keluar ruangan. Bai Ning Bing hanya bisa mengikuti dari belakang.</p>
+<p>	“Tamu yang terhormat, Anda akan datang ke sini lagi.” Orang tua itu tertawa dingin, mengirim keduanya pergi dengan tatapannya.</p>
+<p>	Setelah Fang dan Bai pergi, orang tua itu datang ke ruang rahasia, dan mengaktifkan esensi purbanya, memanggil seorang Gu.</p>
+<p>	Gu ini berubah menjadi kilatan cahaya dan memasuki cermin perunggu.</p>
+<p>	Riak muncul di permukaan cermin, saat wajah seorang pemuda muncul.</p>
+<p>	“Bawahan ini menyapa tuan muda.” Melihat Tuan Gu muda, orang tua itu dengan cepat berlutut di lantai.</p>
+<p>	“Bisnis apa yang kamu miliki?” Pemuda ini adalah salah satu tuan muda dari klan Shang, yang disebut Shang Ya Zi. Dia baru berusia delapan belas tahun, di puncak hidupnya, tetapi dia adalah seorang pecandu alkohol, menyebabkan wajahnya kurus, kulitnya pucat, dan mengeluarkan ekspresi bingung.</p>
+<p>	Orang tua itu berbicara tentang masalah Fang Yuan.</p>
+<p>	Di mata Shang Ya Zi, cahaya licik tapi bersemangat bersinar.</p>
+<p>	Dia berteriak keras: “Bagus. Surga benar-benar meninggalkan jalan bagi mereka yang putus asa. Saya khawatir tentang bagaimana mempertahankan posisi tuan muda saya, dan sekarang surga mengirimi saya hadiah ini. Saya harus mendapatkan warisan ini, dengan kesepakatan ini, saya akan dapat lulus evaluasi tahun ini!</p>
+<p>	“Bawahan ini akan melakukan yang terbaik, tapi saya hanya bertanggung jawab atas toko Tong Ou, seperti yang lain …”</p>
+<p>	“Aku akan mengaturnya, hmph, keduanya ingin menjual cacing Gu, mereka hanya bisa tunduk padaku!” Shang Ya Zi mendengus jijik.</p>
+<p>	Toko Ba Bao…</p>
+<p>	“Maaf tamu, ada instruksi dari atasan, jika kalian berdua ingin menjual Gu, kamu harus pergi ke toko Tong Ou.”</p>
+<p>	Gedung Yuan Fang 1 …</p>
+<p>	“Jadi dua tamu yang terhormat, jika Anda menjual resep, semua bisa dibicarakan.”</p>
+<p>	Toko Bu Dao…</p>
+<p>	“Kalian berdua adalah tamu terhormat, saya seorang pengusaha, mengapa saya mengusir Anda, tetapi saya juga tidak punya pilihan …”</p>
+<p>	Setelah tiga toko, Fang Yuan tidak berhasil menjual cacing Gu-nya.</p>
+<p>	“Haha, untuk berpikir kamu akan memiliki hari ini. Orang tua itu tidak salah, ini memang wilayah mereka.” Bai Ning Bing menyerang Fang Yuan tanpa henti.</p>
+<p>	Setelah beberapa penolakan, wajah Fang Yuan masih tenang: “Pemimpin klan Shang, Shang Yan Fei memiliki banyak anak, tetapi hanya ada satu posisi untuk pemimpin klan muda, dan sepuluh tuan muda. Setiap tahun akan ada evaluasi untuk memilih pemimpin klan muda, dan menghapus tuan muda berkinerja terburuk untuk memberi ruang bagi anak-anaknya yang lain. ”</p>
+<p>	Sebuah cahaya terang melintas di otak Bai Ning Bing: “Jadi begitu, itu berarti tuan muda klan Shang ini bersaing untuk posisi pemimpin klan muda, atau untuk mempertahankan gelar tuan mudanya. Kalau tidak, dia tidak akan membuat keributan seperti itu. ”</p>
+<p>	Fang Yuan tertawa saat dia bertepuk tangan: “Ini adalah kota terdalam ketiga klan Shang, tidak ada pertempuran yang diperbolehkan. Bahkan jika klan Bai datang ke sini, mereka tidak dapat melakukan apa pun di sini. Untuk tuan muda klan Shang, batasan mereka bahkan lebih besar. Dengan evaluasi yang akan datang, setiap gerakan dari mereka akan diamati dengan ketat. Kami tidak terburu-buru, mari kita cari tempat duduk dulu. ”</p>
+<p>	Di klan Shang, tidak ada kekhawatiran tentang kekurangan makanan.</p>
+<p>	Mari kita tunda saja, dan tunggu beberapa hari lagi dengan tombak tulang Gu ini, mari kita lihat siapa yang bertahan lebih lama dari yang lain!</p>
+<p>	Pada saat yang sama, di kota terdalam pertama.</p>
+<p>	“Apakah kamu menyelidiki dengan jelas?” Shang Yan Fei berdiri di jendela, menatap taman.</p>
+<p>	“Wanita ini memang daging dan darahmu, pemimpin klan. Apalagi jiwanya masih utuh, tubuhnya belum diambil alih oleh orang lain. Saya sudah menghubungi klan Zhang, dan mengklarifikasi identitasnya. Tapi ada sesuatu yang aneh, dia adalah bagian dari karavan yang menuju gunung Shang Liang, tetapi kami tidak dapat menemukan siapa pun yang bepergian bersamanya di dalam karavan. ” Tetua klan eksternal Wei Yang menundukkan kepalanya dan melaporkan.</p>
+<p>	Shang Yan Fei mendengarkan dengan tenang, menghela nafas dalam hatinya: “Ya Tuhan, terima kasih telah memberi saya kesempatan untuk membuat perubahan. Aku sudah mengecewakan seorang gadis, aku tidak bisa mengecewakan putriku ini lagi!”</p>
+<p>	…</p>
+<p>	Shang Xin Ci duduk di depan meja, melihat uap panas naik dari tehnya, matanya tidak fokus.</p>
+<p>	Dari kata-kata Xiao Die, dia tahu identitas Shang Yan Fei.</p>
+<p>	Dia tidak berharap ayahnya menjadi pemimpin klan Shang, seorang pria dengan otoritas besar, yang setiap tindakannya dapat berdampak pada seluruh perbatasan selatan!</p>
+<p>	Lalu mengapa dia tidak menemukan ibunya?</p>
+<p>	Bagaimanapun juga, Shang Xin Ci cerdas, dengan cepat memahami alasan mengapa Shang Yan Fei meninggalkan ibunya.</p>
+<p>	Tetapi bahkan di ranjang kematiannya, ibunya sangat merindukannya.</p>
+<p>	Shang Xin Ci merasakan sakit di hatinya, tetapi juga kebencian, tetapi sebagian besar kekosongan.</p>
+<p>	Dia tidak tahu bagaimana menghadapi ayah yang muncul tiba-tiba ini.</p>
+<p>	Tapi melarikan diri tidak mungkin, di luar pintu ada yang mengetuk: ”Ci Er 2 , bolehkah saya masuk?”</p>
+<p>	Xiao Die langsung menjadi gugup.</p>
+<p>	Itu adalah Shang Yan Fei.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

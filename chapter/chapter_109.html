@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 109 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 109";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_108.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 109">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_110.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 109</h1>
+        <div class="text-left">
+<p>	Bab 109</p>
+<p>	Bab 109: Rumah pohon menyembunyikan cacing Liquor</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Gu Yue Man Shi dikalahkan oleh pemula Fang Yuan!</p>
+<p>	Berita itu menyebar dengan cepat dan menyebabkan gelombang kecil gosip di antara Peringkat dua Gu Masters.</p>
+<p>	Semua orang akrab dengan dua karakter utama dari acara ini.</p>
+<p>	Man Shi adalah Master Gu Peringkat dua yang sedikit terkenal yang berhasil melarikan diri dengan nyawanya di bawah tangan Bai Ningbing; dia tidak boleh diendus.</p>
+<p>	Dan Fang Yuan adalah juara tahun ini, banyak yang menyaksikannya mengalahkan Fang Zheng pada penilaian tahunan. Dia juga memperoleh warisan keluarganya dan menjadi kaya dalam semalam, menyebabkan banyak orang menjadi hijau karena iri.</p>
+<p>	Kesenjangan antara keduanya jelas, tetapi bertentangan dengan semua harapan, Fang Yuan yang lebih lemah telah mengalahkan Man Shi yang lebih kuat. Perbedaan seperti itu benar-benar mengejutkan orang-orang.</p>
+<p>	Karena semakin banyak orang terus mendiskusikan acara tersebut, ketenaran Fang Yuan juga meningkat.</p>
+<p>	Peringkat dua Master Gu mulai menganggap serius junior muda ini.</p>
+<p>	“Dia langsung menyerang tanpa mengucapkan sepatah kata pun. Orang-orang muda terlalu impulsif.”</p>
+<p>	“Dia memiliki kekayaan dan juga memurnikan Moonglow Gu, dia memiliki beberapa kemampuan.”</p>
+<p>	“Dia orang gila, dia terlalu keras. Kabarnya, Gu Yue Man Shi harus berbaring di tempat tidur setidaknya selama tiga hari untuk pulih dari luka-lukanya!”</p>
+<p>	Orang-orang mengomentari Fang Yuan.</p>
+<p>	Dia telah melakukan serangan mendadak pada Man Shi, memulai lebih dulu; menimbulkan cedera serius pada serangan pertama dan membangun dominasi besar. Rasanya seperti dia tidak menang dengan jujur.</p>
+<p>	Namun, kemenangan adalah kemenangan dan kekalahan adalah kekalahan.</p>
+<p>	Hasilnya adalah segalanya.</p>
+<p>	Mungkin di Bumi, sebagian besar akan menekankan proses daripada hasil, tetapi di dunia ini di mana bertahan hidup itu sulit, lingkungan yang penuh dengan bahaya mematikan, kemenangan sering berarti bertahan hidup dan kekalahan berarti kematian, kehilangan segalanya.</p>
+<p>	Pemenang mendapatkan segalanya, pecundang kehilangan segalanya; hampir semua orang menyetujui gagasan ini.</p>
+<p>	Fang Yuan telah menang; itu fakta, tidak peduli bagaimana dia melakukannya.</p>
+<p>	Seorang pemula bermunculan dengan menginjak Man Shi, masuk ke mata semua orang.</p>
+<p>	Man Shi telah menjadi batu loncatan, reputasinya hancur. Setelah dia pulih, dia akan mengundurkan diri dari posisi pemimpin kelompok.</p>
+<p>	Ini adalah hasil dari sebuah kegagalan.</p>
+<p>	Kerabat dekat akan bersimpati dengan yang kalah, tetapi mereka lebih menghormati dan mengakui pemenang. Pemenang mewakili kekuatan dan kekuatan berarti keamanan yang lebih baik bagi rakyat.</p>
+<p>	Setelah kejadian ini, Gu Yue Dong Tu dengan bijaksana menghentikan trik kotornya.</p>
+<p>	Gu Yue Man Shi mengundurkan diri akhirnya membuat paman yang cerdik itu menyadari kenyataan. Pertumbuhan Fang Yuan membuatnya merasa tidak berdaya, dendam dan marah.</p>
+<p>	Dia tahu dia sekarang tidak memiliki kesempatan untuk merebut warisan. Melanjutkan tidak ada artinya.</p>
+<p>	Dia telah menggunakan koneksinya dan mempekerjakan orang lain untuk mencari masalah bagi Fang Yuan; ini menghabiskan batu purbanya. Namun Fang Yuan mendapat untung dari semua sisi.</p>
+<p>	Jika kebuntuan berlanjut, bahkan jika dia memiliki sejumlah besar batu purba, pecundang terakhir pasti adalah dia sendiri.</p>
+<p>	Karena dia kehilangan rumah bambu, kedai anggur, dan Rumput Vitalitas Sembilan Daun, dia sekarang tidak memiliki sumber pendapatan; batu purba yang digunakan akan sulit untuk diisi ulang. Sebaliknya, Fang Yuan tidak memiliki batu purba tetapi meningkat dari hari ke hari.</p>
+<p>	Poin utamanya adalah bahwa Gu Yue Dong Tu dengan putus asa menyadari bahwa jalan buntu tidak akan ada manfaatnya.</p>
+<p>	Jadi, ketika dia mendengar Man Shi melarikan diri dalam kekalahan, dia segera menghentikan tindakan tidak berarti ini.</p>
+<p>	Faktanya, ketika Fang Zheng belum bisa membuat masalah bagi Fang Yuan, itu sudah menandakan kekalahan Gu Yue Dong Tu.</p>
+<p>	Dengan ini, bisnis kedai anggur Fang Yuan kembali normal, yang merupakan hal yang menggembirakan.</p>
+<p>	Ada hal lain yang menggembirakan — karavan akan datang lebih awal.</p>
+<p>	Berbaris.</p>
+<p>	Di bawah sinar matahari musim semi yang cerah dan indah, nyanyian ringan dari hari-hari musim semi menghentak dengan irama yang hidup dan ceria saat tiba.</p>
+<p>	Dengan kehangatan musim semi, bunga-bunga bermekaran dan rerumputan tumbuh liar.</p>
+<p>	Gunung Qing Mao adalah pemandangan hijau sejauh mata memandang. Bunga-bunga liar bermekaran di sisi perbukitan yang cerah, membentuk lautan bunga yang berwarna-warni dan indah. Sungai yang gemericik dan menggelegak melonjak seperti nyala api dan terjerat oleh sinar matahari.</p>
+<p>	Jangkrik dragonpill yang baru lahir keluar dari telurnya dan membentuk sekumpulan kawanan baru, memeriahkan malam hari.</p>
+<p>	Pada siang hari, sekawanan besar burung beo merak berwarna-warni melayang-layang di udara, berkicau dan berkicau.</p>
+<p>	Mata air yang hangat menyebarkan kebaikan dan kebaikannya, membiarkan semua makhluk hidup tumbuh dengan cemerlang.</p>
+<p>	Dalam pemandangan seperti itu, sebuah karavan perlahan-lahan menuju ke Gunung Qing Mao.</p>
+<p>	Kumbang hitam gemuk perlahan bergerak maju, punggung mereka dipenuhi orang dan barang.</p>
+<p>	Burung unta yang bangga dengan bulu berwarna cerah sedang menarik kereta tangan. Laba-laba gunung berbulu mengabaikan medan, ular bersayap memutar dan meliuk ke depan, sesekali membuka sayapnya dan terbang ke depan.</p>
+<p>	Kodok Kuningan Harta Karun memimpin karavan. Tingginya dua setengah meter, seluruh tubuhnya berwarna oranye-kuning. Di punggungnya ada Guru Gu Peringkat empat, Jia Fu.</p>
+<p>	Setelah karavan ditempatkan di desa, Fang Yuan menghela nafas dalam hati, “Itu berubah lagi. Dalam ingatanku sebelumnya, karavan ini seharusnya tiba di musim panas. Menurut preseden sebelumnya juga, karavan seharusnya hanya datang di musim panas. Sekarang, bagaimanapun, itu telah datang di musim semi, dua-tiga bulan sebelumnya. Dan skalanya juga jauh lebih besar.”</p>
+<p>	Kelahiran kembali Fang Yuan mengubah situasinya saat ini dan juga memengaruhi lingkungannya, menciptakan perubahan di masa depan.</p>
+<p>	Akar penyebabnya seharusnya karena dia membunuh Jia Jin Sheng.</p>
+<p>	Fang Yuan telah menipu semua orang, jadi Jia Fu secara keliru percaya bahwa kematian Jia Jin Sheng adalah konspirasi oleh saingannya, Jia Gui.</p>
+<p>	Setelah Jia Fu kembali ke klan, dia telah mengambil langkah radikal yang membuat persaingan di antara mereka semakin ketat.</p>
+<p>	Untuk mengejar pencapaian yang luar biasa, saudara-saudara Jia bergegas keluar bahkan sebelum salju tahun itu benar-benar mencair, memimpin karavan untuk menjajakan barang-barang mereka di mana-mana.</p>
+<p>	Pemimpin klan Gu Yue Bo menerima Jia Fu.</p>
+<p>	Dua Master Gu Peringkat empat adalah pemimpin dari kedua belah pihak.</p>
+<p>	“Saudara Gu Yue, saya percaya Anda baik-baik saja?” Jia Fu penuh dengan senyum dan kehangatan, tetapi wajahnya memiliki bekas luka yang panjang sekarang.</p>
+<p>	“Hahaha, saudara Jia Fu, kamu cukup awal tahun ini.” Gu Yue Bo melihat bekas luka di wajah Jia Fu. Hatinya tersentak tetapi dia tidak menanyakannya.</p>
+<p>	“Burung awal mendapatkan cacing. Kali ini, saya telah membawa banyak barang berharga dan saya percaya klan bangsawan Gu Yue akan memiliki banyak kebutuhan. ” Jia Fu telah melakukan upaya besar kali ini untuk memperjuangkan pencapaian yang lebih baik.</p>
+<p>	“Ya, ini kabar baik.” Mata Gu Yue Bo berkilat. Melanjutkan, “Kebetulan lusa adalah Upacara Kebangkitan klan kami, dan saya ingin mengundang saudara Jia untuk menghadirinya.”</p>
+<p>	“Haha, suatu kehormatan bagi saya untuk dapat menyaksikan kemakmuran klan Gu Yue,” Jia Fu segera menangkupkan tangannya dan dengan tulus menjawab.</p>
+<p>	Mengundang orang lain untuk menonton upacara kebangkitan klan memperlakukan mereka sebagai tamu terhormat. Jia Fu bisa merasakan ketulusan klan Gu Yue dari undangan ini.</p>
+<p>	“Faktanya, ada juga masalah lain.” Jia Fu ragu-ragu.</p>
+<p>	“Kamu datang dari jauh, jadi jika kamu memiliki permintaan, tolong katakan. Klan kami pasti akan melakukan yang terbaik untuk memenuhinya.” Gu Yuebo berkata.</p>
+<p>	Jia Fu menghela nafas, “Ah, ini tentang masalah Jia Jin Sheng. Saya secara khusus telah membawa beberapa ahli investigasi dari klan, dan saya harap selama penyelidikan kami, Anda dapat memberi kami beberapa kemudahan. ”</p>
+<p>	Gu Yue Bo segera mengungkapkan ekspresi pemahaman.</p>
+<p>	Rupanya, kematian Jia Jin Sheng telah menyebabkan Jia Fu jatuh ke dalam situasi canggung dan pasif dalam persaingan untuk aset keluarga. Dikatakan bahwa setelah kembali ke klan, Jia Fu bertengkar dengan Jia Gui di depan umum dan situasinya meletus menjadi pertarungan yang sengit. Bekas luka di wajahnya bisa jadi merupakan bekas dari pertarungan itu.</p>
+<p>	Tidak heran dia datang berlari di awal musim semi; dia memiliki banyak tekanan di pundaknya.</p>
+<p>	Fang Yuan sedang berjalan-jalan di sekitar tenda dan kios jalanan.</p>
+<p>	Skala karavan tahun ini jauh lebih besar daripada tahun-tahun sebelumnya. Tidak hanya ada lebih banyak tenda, ada juga rumah Gu.</p>
+<p>	Rumah Gu adalah sesuatu yang hanya dimiliki oleh karavan skala besar. Karavan skala besar biasanya memiliki dua hingga tiga rumah Gu. Karavan Jia Fu paling banyak berskala menengah, tetapi memiliki rumah Gu.</p>
+<p>	Rumah Gu ini adalah pohon besar.</p>
+<p>	Tingginya delapan belas meter dan sepertinya benar-benar mencapai langit. Akar dan cabangnya terpelintir seperti kekusutan naga dan ular.</p>
+<p>	Diameter batang di pangkalan adalah sepuluh meter; itu menurun saat naik tetapi penurunannya tidak terlalu terlihat. Batang coklat sebenarnya bukan satu kesatuan, dan memiliki tiga lapisan ruang di dalamnya.</p>
+<p>	Ada juga jendela di bagasi. Sinar matahari dan udara segar melewati jendela dan memasuki tiga lapisan ruang di dalamnya.</p>
+<p>	Ranting dan daun tampak langka di batangnya. Hanya di puncak pohon itu hijau dan subur. Angin musim semi bertiup, dan dedaunan pohon bergetar dan menciptakan suara gemerisik yang lembut.</p>
+<p>	Ini adalah tipe rumah Gu yang paling umum.</p>
+<p>	Tanaman peringkat tiga Gu bernama ‘gua bintang tiga’.</p>
+<p>	Itu bisa langsung tumbuh begitu esensi purba dituangkan ke dalamnya. Ada tiga kamar yang diatur dalam tiga lapisan ruang ini. Kekuatan pertahanan kamar-kamar ini tidak ada bandingannya dengan tenda.</p>
+<p>	Di tenda-tenda yang terus membentang, sebuah pohon besar berdiri tinggi di tengah seperti menara; itu seperti bangau di antara kawanan ayam.</p>
+<p>	Di dasar pohon besar itu, ada dua pintu lebar yang digunakan sebagai pintu masuk.</p>
+<p>	Fang Yuan mengikuti arus orang dan berjalan ke pohon besar itu.</p>
+<p>	Pohon itu memiliki tiga lapisan ruang yang diubah menjadi tata letak toko. Ada deretan penghitung di dalam dan di atasnya dipajang semua jenis cacing Gu.</p>
+<p>	Counter ini terbuat dari kayu dan merupakan bagian dari pohon besar. Di atas daun dan cabang hijau yang tumbuh, pohon gua bintang tiga Gu dapat menumbuhkan desain yang berbeda sesuai dengan kehendak Guru Gu.</p>
+<p>	Selain konter ini, ada bangku dan bangku untuk pelanggan beristirahat.</p>
+<p>	Dukungan peringkat tiga Gu Master terus-menerus mengoperasikan dan memantau situasi dari suatu tempat di pohon besar ini.</p>
+<p>	Jika seseorang mengambil cacing Gu di konter, Master Gu yang memantau dapat mengoperasikan pohon besar itu untuk segera menutup pintu dan membuat sel penjara sesaat. Cabang yang tak terhitung jumlahnya akan tumbuh liar dan melakukan serangan kelompok. Pada saat yang sama, Gu Master keamanan di pohon juga akan bergerak.</p>
+<p>	Rumah pohon jauh lebih aman daripada tenda sehingga barang-barang yang dijual di dalamnya lebih berharga.</p>
+<p>	Fang Yuan baru saja memasuki lapisan pertama ketika dia melihat penghitung tunggal di tengah dan di atasnya ada cacing Liquor.</p>
+<p>	Banyak Master Gu mengelilingi cacing Liquor ini, menilainya. Beberapa mendecakkan lidah mereka dengan kagum.</p>
+<p>	Fang Yuan menyapukan pandangannya ke tempat itu, di mana penghitung lainnya juga menampilkan banyak cacing Gu yang berharga.</p>
+<p>	Ada Gu Kulit Giok, Gu Angin Puyuh, Gu Batu Bekas Luka, dan sebagainya.</p>
+<p>	Semua worm Gu ini kompatibel dengan gu Moonlight dan dapat bergabung menjadi worm Gu Peringkat yang lebih tinggi.</p>
+<p>	Jia Fu tidak sepenuhnya memahami resep fusion ini, tetapi dengan pengalaman bisnisnya selama bertahun-tahun, dia tahu cacing Gu mana yang mungkin dibutuhkan klan Gu Yue lebih banyak.</p>
+<p>	“Tentu saja, karavan Jia Fu tidak hanya menargetkan desa Gu Yue, dia benar-benar berusaha keras kali ini. Sepertinya dia benar-benar terprovokasi ketika dia kembali ke klan. ” Hati Fang Yuan tergerak ketika dia melihat ini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

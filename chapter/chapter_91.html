@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 91 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 91";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_90.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 91">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_92.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 91</h1>
+        <div class="text-left">
+<p>	Bab 91</p>
+<p>	Bab 91: Fang Yuan, kami sangat mengkhawatirkanmu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Itu adalah malam tanpa tidur, dan begitu hari tiba, Fang Yuan melangkah keluar dari kamar dan mulai membeli barang-barang sembarangan.</p>
+<p>	Kamar tidak dilengkapi dengan baik dan selimutnya robek. Jika dia tinggal lama di sana, hawa dingin akan masuk ke tubuhnya dan menyebabkan dia sakit.</p>
+<p>	Batu purba Fang Yuan sudah setengah habis, tetapi dia masih harus membeli peralatan yang diperlukan. Dia tidak bisa berhemat pada hal-hal ini.</p>
+<p>	Pertama adalah selimut, dia harus mendapatkan selimut besar yang diisi dengan kapas, atau setidaknya dua. Dia juga membutuhkan seprai dan kasur.</p>
+<p>	Dia membutuhkan lampu minyak lain agar bisa menerangi ruangan, dan dia membutuhkan setidaknya dua pot minyak lampu.</p>
+<p>	Memikirkannya, meskipun ruangannya kecil, itu masih bisa menampung meja dan kursi, jadi dia membelinya juga.</p>
+<p>	Yang paling penting, itu adalah kompor.</p>
+<p>	Di musim dingin, jika dia tidak memiliki kompor untuk menghangatkan dirinya saat tidur di kamar, dia masih akan terkejut saat bangun karena kedinginan.</p>
+<p>	Selain itu, dia juga membeli beberapa jatah kering dan air untuk bertahan sekitar tujuh hari.</p>
+<p>	Matahari musim dingin perlahan naik, memancarkan sinar cahaya yang redup.</p>
+<p>	Gu Yue Jiao San dan Master Gu lainnya berdiri di pintu utara desa, menunggu dengan cemas.</p>
+<p>	“Ada yang tidak beres. Tadi malam kami sepakat untuk bertemu di waktu dan tempat ini. Tapi sudah lima belas menit, dan Fang Yuan ini masih belum muncul?” Seorang Guru Gu wanita bertanya.</p>
+<p>	“Tenang dan tunggu saja. Tidak dapat dihindari bahwa seorang pendatang baru terlambat, ”Jiao Sao tertawa. Dia resah karena tidak punya alasan untuk menyalahkan Fang Yuan, tetapi berpikir dia goyah pada hari kedua.</p>
+<p>	“Tidak apa-apa kita menunggu. Bahkan pemimpin kelompok harus menunggunya, anak ini terlalu memikirkan dirinya sendiri!” Gu Yue Kong Jing mengeluh, nadanya marah.</p>
+<p>	Setengah jam kemudian, Fang Yuan masih belum bisa ditemukan.</p>
+<p>	Wajah Jiao San lebih gelap dari malam.</p>
+<p>	“Bajingan ini, apakah dia ingat lokasi yang salah? Kami mengatakan dengan jelas bahwa kami bertemu di pintu utara, ”kata Kong Jing curiga.</p>
+<p>	“Aku akan menunggu di sini, kalian pergi melihat-lihat pintu yang berbeda,” perintah Jiao San, dan ketiganya menurut.</p>
+<p>	Lima belas menit kemudian, mereka kembali tanpa buah.</p>
+<p>	“Apakah Fang Yuan ini melihat melalui taktik kami dan meninggalkan grup secara langsung?” Seorang Guru Gu wanita bertanya.</p>
+<p>	“Kamu terlalu memikirkan dia. Bahkan jika dia adalah tempat pertama dalam ujian akhir tahun, dia masih pemula. Usianya terlihat jelas.” kata Kong Jing.</p>
+<p>	Wajah Jiao San muram, “Itu sekunder dari apakah dia telah melihat melalui kita. Yang penting adalah menemukannya sekarang. Saya khawatir dia telah meninggalkan kita dan mencoba untuk menerobos ke peringkat dua sendirian. Begitu dia mencapai Peringkat dua, dia dapat meninggalkan misi ini dan mengajukan pemisahan aset dari aula urusan internal. Temukan dia, pergi dan temukan dia! Desa ini hanya begitu besar dan hanya ada banyak rumah sewaan, kita harus menemukannya dan tidak memberinya waktu untuk menerobos ke peringkat dua!”</p>
+<p>	“Ya!”</p>
+<p>	……</p>
+<p>	Di dalam kamar, Fang Yuan duduk di tempat tidur.</p>
+<p>	Di depannya ada beberapa kantong uang, dan di dalamnya ada semua batu purba.</p>
+<p>	“Batu purba tidak cukup,” desah Fang Yuan, ekspresinya muram.</p>
+<p>	Batu purba adalah kekuatan pendorong di belakang kemajuan Guru Gu, dan jika mereka kurang, Guru Gu perlu mengandalkan kecepatan pemulihan mereka sendiri untuk esensi purba, yang akan sangat mengurangi kecepatan kultivasi mereka. Pada saat yang sama, tanpa makanan yang cukup, cacing Gu akan mati kelaparan.</p>
+<p>	Batu purba Fang Yuan, selama waktunya di akademi, telah mencapai puncaknya sedikit di atas seribu. Tapi itu tidak bisa menahan pengeluaran dari waktu ke waktu.</p>
+<p>	Master Gu tahap yang sama sampai sekarang, hanya memiliki tiga cacing Gu.</p>
+<p>	Tapi Fang Yuan, setelah mendapatkan nomor satu di ujian akhir tahun, memasuki aula Gu dan memilih Gu Cahaya Kecil lainnya secara gratis.</p>
+<p>	Dia harus memilih, karena jika dia menyerah, itu akan mengundang kecurigaan.</p>
+<p>	Seperti ini, dia memiliki tujuh cacing Gu!</p>
+<p>	Tidak dapat disangkal, ini adalah beban keuangan yang sangat besar.</p>
+<p>	“Jika ini terus berlanjut, saya hanya bisa bertahan selama dua bulan. Saya harus mendapatkan kembali aset keluarga saya, itu adalah dukungan finansial terbesar. Tetapi untuk mendapatkannya kembali, langkah pertama adalah naik ke Peringkat dua. ” Tatapan Fang Yuan gelap.</p>
+<p>	Bagi Fang Yuan, naik ke peringkat dua tidaklah mudah.</p>
+<p>	Untuk budidaya Guru Gu, pertama adalah sumber daya, kedua adalah bakat. Tanpa bakat, jalur kultivasi akan sulit dan pencapaian mereka di masa depan akan lebih rendah.</p>
+<p>	Bakat dibagi menurut kelas D, C, B dan A.</p>
+<p>	Tapi ini hanya distribusi kasar.</p>
+<p>	Faktanya, setiap kelas memiliki perbedaan spesifik lainnya.</p>
+<p>	Mengambil nilai C misalnya — penyimpanan esensi purba di aperture akan menjadi sekitar 40-59%.</p>
+<p>	Esensi purba Fang Yuan adalah 44%, jadi dalam kisaran kelas C, dia hanya kelas menengah ke bawah.</p>
+<p>	Bergegas ke Peringkat dua, dia membutuhkan setidaknya 55% esensi purba hijau hitam. Untuk Master Gu kelas A dan B, ini tidak sulit, dan untuk Master Gu kelas 55-59% C, mereka bisa lulus juga.</p>
+<p>	Jadi, untuk Master Gu kelas C, begitu mereka mencapai akumulasi tertentu, kebanyakan dari mereka akan naik ke Peringkat dua. Hanya sedikit yang bisa mencapai Peringkat tiga.</p>
+<p>	Dengan demikian, bakat dapat menentukan pencapaian sebagian besar orang dalam hidupnya. Fang Yuan diberi bahu dingin, dia tidak bisa menyalahkan orang-orang karena bias.</p>
+<p>	“Meskipun bakat kelas C saya hanya 44%, jika saya ingin menembus tembok dan mencapai ketinggian baru, mencapai Peringkat dua, itu masih bukan tidak mungkin. Cara termudah adalah dengan menemukan bakat membesarkan cacing Gu. Sekunder, saya bisa mendapatkan Gu tipe pendukung seperti cacing Liquor, dan itu bisa membantu menembus penghalang juga. Terakhir, saya dapat memperoleh bantuan dari Guru Gu tingkat tinggi, tetapi menggunakan esensi purba eksternal memiliki reaksi yang sangat besar, kecuali saya bisa mendapatkan Gu Pembersih di masa depan untuk menghilangkan kehadiran eksternal.</p>
+<p>	Fang Yuan memikirkannya sambil menggunakan kedua tangan untuk mengeluarkan batu purba, menggunakan jari-jarinya untuk menggosok permukaan batu yang halus.</p>
+<p>	“Tetapi metode di atas tidak disarankan untuk saya. Saya tidak memiliki Guru Gu yang ramah untuk membantu, dan bahkan jika saya melakukannya, saya tidak akan membiarkan lubang saya berada di bawah belas kasihan mereka. Cacing Gu seperti cacing Liquor terlalu langka, bahkan mendapatkan cacing Liquor adalah keberuntungan ekstrim saya. Adapun bakat membesarkan cacing Gu, saya mendapatkannya di kehidupan saya sebelumnya dan mencapai kultivasi Peringkat enam, dan saya juga tahu di mana menemukannya, tetapi saya tidak bisa pergi ke tempat-tempat itu sekarang dengan kultivasi saya saat ini. Bahkan jika saya mendapatkannya, saya tidak dapat menyimpannya, atau bahkan menggunakannya.”</p>
+<p>	“Tapi selain metode ini, ada metode terakhir yang paling bodoh. Menggunakan batu purba untuk memaksanya!” Berpikir demikian, mata Fang Yuan berkedip saat dia mencengkeram batu purba dengan erat.</p>
+<p>	Kultivasi Gu Master, pertama adalah sumber daya, kedua adalah bakat.</p>
+<p>	Tanpa bakat yang cukup, seseorang dapat mengkompensasi menggunakan sumber daya sampai tingkat tertentu.</p>
+<p>	“Esensi purba saya hanya 44%, saya tidak punya cukup untuk menembus dinding aperture. Tetapi jika saya menyerap esensi purba saat menyerang dinding, saya bisa bertahan lebih lama, dan dalam waktu sekitar empat sampai lima hari, saya akan bisa menghancurkan dinding!</p>
+<p>	Mengambil keputusan, Fang Yuan membuka matanya, hatinya tenggelam ke dalam lubangnya.</p>
+<p>	Laut purba tembaga hijau mengamuk saat ombak menabrak dinding lubang.</p>
+<p>	Tapi kali ini, untuk mencegah esensi purba mengering dan menjadi tidak cukup untuk mempertahankan retakan dan menyebabkan bukaan pulih, Fang Yuan dengan sengaja memperlambat kecepatan serangan.</p>
+<p>	Dengan cara ini, pengeluaran esensi purba perunggu hijau akan sangat berkurang, tetapi pembentukan retakan juga akan melambat. Meski begitu, Fang Yuan terus menyerap esensi alami dari batu purba.</p>
+<p>	Pemulihan esensi purba harus sedikit di atas kecepatan pemulihan retak. Dengan cara ini, meskipun lambat, menunjukkan kemajuan kurang dari 1%, akan ada harapan seiring berjalannya waktu.</p>
+<p>	Satu-satunya hal tentang metode ini adalah selain makan dan buang air besar, Fang Yuan harus berkultivasi tanpa henti. Semakin banyak waktu yang dia buang, semakin banyak batu purba yang terbuang sia-sia dan semakin banyak kerja kerasnya yang sia-sia.</p>
+<p>	Dia bisa berhenti selama maksimal lima belas menit, dan setelah itu jika tidak ada esensi purba untuk terus menyerang, aperture akan pulih sepenuhnya.</p>
+<p>	Jadi, begitu serangan dimulai, dia harus bertahan sampai dia berhasil, dan tidak bisa diganggu. Begitu dia berhenti terlalu lama, dia harus memulai kembali prosesnya.</p>
+<p>	Fang Yuan tidak memiliki begitu banyak batu purba untuk melakukannya beberapa kali.</p>
+<p>	Waktu berlalu ketika berkultivasi, dan dalam sekejap mata, matahari terbenam.</p>
+<p>	Di bawah matahari terbenam, Jiao San dengan ekspresi dingin berkata, “Setelah menemukan selama sehari, kamu masih belum menemukannya?”</p>
+<p>	“Tidak, pemimpin kelompok.” Kong Jing menyeka keringat di dahinya dan berkata, “Anak itu, dia tidak pergi ke salah satu rumah yang kami rekomendasikan, kami tidak tahu di mana dia bersembunyi.”</p>
+<p>	“Hmph! Lanjutkan pencarian besok, kita harus menemukannya. Ingatlah untuk mencari penginapan juga, saya tidak percaya bahwa kita tidak dapat menemukannya. Desa ini hanya begitu besar, di mana pun dia bersembunyi, pasti ada jejaknya!” Jiao San berjalan pergi dengan marah.</p>
+<p>	Hingga sore hari kedua, pencarian mereka akhirnya membuahkan hasil.</p>
+<p>	Seorang Master Gu wanita berjalan ke Jiao San dengan penuh semangat, melaporkan, “Temukan dia, temukan dia! Fang Yuan berada di gedung bambu usang, dan telah menyewa lantai dua. Menurut deskripsi pemiliknya, itu pasti dia. ”</p>
+<p>	“Hmph, seperti yang aku duga, dia benar-benar menyembunyikan dirinya dan mencoba menerobos ke peringkat dua.” Jiao San tertawa sinis, “Ayo pergi dan jadikan diri kita tamu di kamarnya dan tunjukkan perhatian padanya. Bagaimanapun, dia adalah pendatang baru. ”</p>
+<p>	“Hehehe..….” Yang lain juga mulai menyeringai.</p>
+<p>	Keempatnya segera datang ke kediaman Fang Yuan.</p>
+<p>	Ada kertas di pintu.</p>
+<p>	Jiao San menurunkannya dan membacanya. Itu adalah tulisan tangan Fang Yuan, mengatakan bahwa dia harus pergi ke budidaya pintu tertutup selama beberapa hari dan tidak akan pergi, karena dia akan mencoba untuk menerobos ke Peringkat dua. Jika orang lain melihatnya, mereka seharusnya tidak mengganggunya. Jika Jiao San melihatnya, itu adalah aplikasi ‘permintaan absen’.</p>
+<p>	Jiao San mendengus, membuang kertas itu.</p>
+<p>	Bagaimana saya bisa membiarkan Anda naik ke peringkat dua dengan sukses?</p>
+<p>	Dia tertawa dingin, mengetuk pintu.</p>
+<p>	Ketuk ketuk ketuk.</p>
+<p>	“Adik kecil Fang Yuan, apakah kamu di sini?” Dia dengan sengaja berkata dengan keras, “Kami di sini untuk melihat Anda, bagaimana mungkin Anda tidak memberi tahu kami tentang budidaya pintu tertutup Anda, serius.”</p>
+<p>	Tidak ada balasan.</p>
+<p>	Ketuk ketuk ketuk.</p>
+<p>	Jiao San mengetuk dengan keras.</p>
+<p>	“Adik kecil Fang Yuan, bukan karena aku ingin mengomel padamu. Tapi Anda membuat keputusan sendiri. Sekarang Anda adalah anggota kelompok kami, Anda harus mendengarkan instruksi dan mematuhi perintah, bergerak bersama. Kami telah menerima misi berburu rusa liar, ini khusus untuk Anda latih, jadi mengapa Anda tidak berhenti dulu dan menyelesaikan misi bersama kami, lalu berkultivasi, ”mata Jiao San menyipit saat dia berkata dengan nada lembut, meskipun ekspresinya gelap.</p>
+<p>	Masih tidak ada jawaban.</p>
+<p>	JIao San tiba-tiba mengangkat suaranya, “Adik kecil Fang Yuan, mengapa kamu tidak menjawab, apakah sesuatu terjadi padamu? Tidak mudah menembus peringkat dua, Anda dapat meminta kami untuk pengalaman. Fangyuan! Apakah Anda mendengar saya, oh tidak, mungkinkah Anda pingsan?</p>
+<p>	Jiao San berbicara pada dirinya sendiri, menyeringai dingin tetapi suaranya penuh dengan kekhawatiran dan kecemasan.</p>
+<p>	Tiga anggota lainnya mengamati pertunjukan.</p>
+<p>	Kong Jing menyela pada waktu yang tepat, “Pemimpin, Anda mungkin benar, Fang Yuan belum merespons setelah sekian lama, ayo masuk dan selamatkan dia!”</p>
+<p>	“Fang Yuan! Fang Yuan, cepat buka pintunya. Kami benar-benar khawatir jika Anda tetap diam. Jika Anda tidak membuka pintu, kami akan mendobrak masuk. Anda adalah anggota terbaru kami, kami tidak dapat membiarkan Anda dalam bahaya!” Jiao San berteriak keras.</p>
+<p>	Tetap saja, tidak ada jawaban.</p>
+<p>	Mulut Jiao San melengkung, menunjuk ke Kong Jing.</p>
+<p>	Kong Jing mengakui dan mengangkat kakinya.</p>
+<p>	Dengan suara BAM yang keras, seluruh pintu terlempar, menabrak tempat tidur!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

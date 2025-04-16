@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 543 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 543";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_542.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 543">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_544.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 543</h1>
+        <div class="text-left">
+<p>	Bab 543 – Kemenangan telah diputuskan</p>
+<p>	Bab 543: Kemenangan telah diputuskan</p>
+<p>	Penerjemah: ChibiGeneral | Editor: ChibiGeneral</p>
+<p>	Kekuatan mengerikan yang ditunjukkan Fang Yuan menimbulkan tekanan berat pada semua orang di pasukan suku Ma.</p>
+<p>	Keputusasaan dengan cepat menyebar di hati mereka!</p>
+<p>	“Sekarang, kita hanya bisa mengandalkan Raja Tikus, hanya kelompok tikus yang bisa melawan kelompok serigala!” Wajah Ma Shang Feng pucat pasi, kematian Ma Zun membuatnya merasa seperti jatuh ke dalam gua es. Tapi dia adalah pemimpin suku Ma, dan di bawah keputusasaan ini, dia melihat ke arah Jiang Bao Ya.</p>
+<p>	Namun, saat berikutnya, satu-satunya harapan yang tersisa di mata Ma Shang Feng juga hilang.</p>
+<p>	Raja Tikus telah benar-benar melarikan diri!</p>
+<p>	“Surga, Raja Serigala ini adalah monster! Raja Elang, Raja Kuda, Cheng Long, Cheng Hu dan Wu Ye semuanya dibunuh olehnya, apakah aku bisa bertahan jika aku tidak melarikan diri sekarang?”</p>
+<p>	Darah mengalir keluar dari ketujuh lubang wajah Jiang Bao Ya saat dia melarikan diri.</p>
+<p>	Dia tidak bisa berbuat apa-apa tentang ini, dia telah bersumpah racun ketika dia bergabung dengan tentara suku Ma. Sekarang dia meninggalkan pertempuran, dia secara alami menderita serangan balasan dari sumpah racun.</p>
+<p>	Tapi Jiang Bao Ya ingin mundur bahkan jika dia harus mengambil risiko serangan balasan!</p>
+<p>	Performa menakutkan Fang Yuan telah sepenuhnya melenyapkan semua keinginan untuk bertarung di dalam hatinya.</p>
+<p>	“Raja Tikus, kembali sekarang juga!!” teriak Ma Shang Feng.</p>
+<p>	Tapi Jiang Bao Ya mengabaikannya dan berlari dengan liar.</p>
+<p>	Darah dari tujuh lubang wajahnya sedang sekarat di jalan, menunjukkan tekadnya untuk lari!</p>
+<p>	Pelariannya menarik orang-orang di sekitarnya dan segera, sejumlah besar Master Gu suku Ma mulai mundur dengan sejumlah besar suku mengumpulkan kekuatan mereka saat mereka mundur dari medan perang.</p>
+<p>	“Seseorang benar-benar tidak boleh bergantung pada orang luar!” Ma Shang Feng menyemburkan seteguk darah sebelum dia pingsan dan pingsan.</p>
+<p>	Tentara suku Ma benar-benar hancur, situasinya sudah diatur!</p>
+<p>	Meskipun memiliki pasukan elit manusia salju, mereka tidak dapat membalikkan keadaan.</p>
+<p>	Pakar Gu Master juga mulai mundur satu demi satu.</p>
+<p>	‘Saya hampir harus mematahkan segel saya dan menggunakan fisik bela diri saya yang sebenarnya untuk bertarung. Untunglah! Untunglah!’ Di ring pertempuran, Hei Lou Lan yang telah diserang dari segala arah, terengah-engah, tubuhnya penuh luka dan esensi purbanya sangat terkuras, tetapi kilatan tak menyenangkan di matanya menjadi lebih dingin dan lebih tajam.</p>
+<p>	Di bawah perintahnya, pasukan suku Hei memulai perburuan yang kejam.</p>
+<p>	Semakin banyak mereka membunuh, semakin banyak manfaat pertempuran yang akan mereka dapatkan. Bahkan orang bodoh pun mengerti ini.</p>
+<p>	Ketenaran dan kekayaan menghasut tentara suku Hei untuk menjadi seperti serigala kelaparan yang brutal.</p>
+<p>	Pada awalnya, pasukan elit menutupi mundurnya suku Ma, tetapi segera pasukan elit suku Hei bergegas ke mereka dan menembaki mereka. Tentara suku Ma telah benar-benar runtuh dan banyak orang melarikan diri ke segala arah.</p>
+<p>	Fang Yuan tidak bergerak, malah memanggil kelompok serigala untuk melindunginya.</p>
+<p>	“Pendarahan internal yang berat, jiwa telah melemah menjadi lima ratus jiwa manusia …” Fang Yuan memeriksa tubuhnya, menelan darah di mulutnya saat gelombang demi gelombang pusing menyerangnya.</p>
+<p>	Kedua lengan perunggunya diam-diam menghilang. Dampak dari gerakan pembunuh raja bumi empat lengan jauh lebih serius dari yang dia duga.</p>
+<p>	“Beberapa percobaan sebelumnya hanya menggores permukaan. Sekarang saya menggunakannya secara ekstrim, bahkan melampaui batas waktu berteori, masalah telah terjadi. Benar saja, pengetahuan sejati berasal dari latihan.”</p>
+<p>	Gerakan pembunuh adalah koordinasi yang sangat baik antara cacing Gu.</p>
+<p>	Tapi langkah pembunuh tidak disempurnakan hanya dengan merencanakannya.</p>
+<p>	Hanya dengan mempraktikkannya dan merevisinya terus-menerus, gerakan pembunuh dapat disempurnakan. Dan proses untuk menyempurnakannya ini bisa berlangsung sangat lama, berlangsung beberapa generasi dan bahkan lebih dari sepuluh generasi pemotongan dan penyesuaian terus menerus.</p>
+<p>	Raja bumi empat lengan adalah hasil dari Fang Yuan menggunakan pengalamannya selama lima ratus tahun bersama dengan momen inspirasi. Itu dibuat terburu-buru dan masih dalam tahap percobaan.</p>
+<p>	Fang Yuan segera dapat memahami apa yang menyebabkan dampak yang begitu berat.</p>
+<p>	“Itu adalah penguasa bumi peringkat lima Gu. Gerakan pembunuh ini awalnya didasarkan pada pertarungan darat, semakin lama seseorang menyentuh tanah, semakin ringan akibatnya. Tapi saya terbang hampir sepanjang waktu dalam pertempuran ini. Dengan demikian, masalah ini terungkap. ”</p>
+<p>	“Sepertinya gerakan pembunuh raja bumi empat lengan memiliki banyak kekurangan. Dari pertempuran ini, saya bisa melihat terbang jauh lebih nyaman daripada menyerang Gu, dan memiliki ancaman yang jauh lebih tinggi terhadap musuh. Karena saya memiliki pencapaian tingkat master dalam terbang, saya harus memanfaatkan sepenuhnya keunggulan ini. ”</p>
+<p>	Dia tidak mau menyerah terbang, jadi gerakan pembunuh raja bumi empat lengan harus sangat diubah.</p>
+<p>	Fang Yuan duduk di kaisar serigala malam tua, diam-diam merenung sambil melihat pembantaian nakal oleh tentara suku Hei.</p>
+<p>	“Sialan… masih waspada, tidak memberiku sedikit pun kesempatan!” Assassin Wu Ming bersembunyi di kejauhan sambil mengamati Fang Yuan.</p>
+<p>	Dia telah berpikir untuk mengambil keuntungan dari kelalaian Raja Serigala setelah pertempuran, untuk menyelinap menyerangnya.</p>
+<p>	Jika dia berhasil dan membunuh Raja Serigala, suku Ma masih memiliki kesempatan untuk berkumpul kembali dan kembali.</p>
+<p>	Tapi Fang Yuan tidak memberinya kesempatan, hampir seolah-olah dia melihat rencananya.</p>
+<p>	Wu Ming menunggu beberapa saat lagi, tetapi karena ahli suku Hei bergerak lebih sering di dekatnya, dia tidak tahan lagi dan diam-diam mundur.</p>
+<p>	Suku Ma melarikan diri dalam kekalahan, dan saat mereka melarikan diri, pemimpin suku Ma Ma Shang Feng terbangun.</p>
+<p>	Dia masih belum menyerah dan setelah mereka melarikan diri ke garis pertahanan, dia mencoba bertahan dengan mengandalkan garis pertahanan.</p>
+<p>	Tapi gunung Tai Bai Yun Sheng seperti sebelumnya, Gu menghancurkan rencananya. Tentara suku Hei menerobos garis pertahanan, Pan Ping menggunakan pedang tunggalnya Gu dan untungnya berhasil mendapatkan kepala Ma Shang Feng dalam pertempuran yang kacau balau.</p>
+<p>	Dengan kematian pemimpin suku Ma, anggota suku Ma tidak lagi memiliki keinginan untuk berperang.</p>
+<p>	Suku Tao, suku Yang dan suku Qi Lian menyerah satu demi satu. Proses penyerahan tak terhindarkan menarik sebagian besar perhatian suku Hei.</p>
+<p>	“Bergerak lebih cepat, lebih cepat, lebih cepat!” Zhao Lian Yun mendesak dari dalam kereta.</p>
+<p>	Fei Cai mengambil posisi kusir dan menggunakan seluruh kekuatannya untuk menyerang kuda, dua roda kereta bergerak dengan kecepatan tinggi.</p>
+<p>	Fei Cai adalah kepala pelayan Ma Ying Jie dan bertanggung jawab atas kehidupan sehari-hari pemimpin suku muda suku Ma, dia secara alami harus menemani Ma Ying Jie ke pertempuran. Zhao Lian Yun adalah tunawisma dan hanya bisa mengikuti di belakangnya.</p>
+<p>	Suku Ma dikalahkan, keduanya dan manusia lainnya juga melarikan diri untuk hidup mereka.</p>
+<p>	Namun, hanya mengandalkan tenaga kuda, kecepatan kereta tidak bisa melampaui Master Gu. Sementara mereka melarikan diri, mereka terlempar jauh di belakang oleh Master Gu.</p>
+<p>	Tetapi karena Fei Cai dan Zhao Lian Yun adalah manusia biasa, tentara yang mengejar tentara suku Ma melepaskan mereka.</p>
+<p>	Manfaat pertempuran dalam membunuh manusia tidak ada artinya.</p>
+<p>	Tentu saja, jika mereka bertemu dengan Master Gu dalam suasana hati yang buruk atau mereka yang suka membunuh atau serigala yang tidak peduli apakah mereka manusia biasa, hanya satu atau dua gerakan santai dari salah satu dari ini dapat mengirim mereka ke kuburan mereka.</p>
+<p>	Namun, keberuntungan Fei Cai dan Zhao Lian Yun benar-benar bagus, tidak hanya mereka tidak menghadapi situasi seperti itu, mereka benar-benar dapat dengan lancar melarikan diri dari medan perang di bawah mata Guru Gu yang tak terhitung jumlahnya.</p>
+<p>	Keduanya mengerahkan semua upaya mereka untuk melarikan diri.</p>
+<p>	Kuda tua yang menarik kereta berbusa kelelahan dan akhirnya jatuh di padang rumput.</p>
+<p>	Kereta segera terbalik dan pecah.</p>
+<p>	Fei Cai dan Zhao Lian Yun keluar dari kereta yang rusak dalam keadaan menyedihkan. Meskipun mereka terluka, itu tidak serius karena padang rumput yang lembut.</p>
+<p>	“Sekarang kemana kita harus pergi?” Fei Cai ragu-ragu; mereka berada di tanah yang luas tanpa ada tentara atau Master Gu yang mengejar mereka.</p>
+<p>	Zhao Lian Yun terengah-engah tanpa menjawab, dia juga merasa bingung dan tidak berdaya.</p>
+<p>	‘Raja Serigala Chang Shan Yin…sebenarnya ada monster yang begitu menakutkan di dunia ini! Sial, jika aku tahu kau sekuat ini, mengapa aku membujuk ayah untuk melakukan perjalanan sejauh ini untuk berpihak pada suku Ma?’</p>
+<p>	Saat dia memikirkan sosok menakutkan Fang Yuan yang mengamuk di tengah-tengah pasukan yang tak terhitung banyaknya, tubuh dan pikiran Zhao Lian Yun bergetar.</p>
+<p>	Mengingat ayahnya yang telah meninggal di medan perang, situasi tunawisma mereka saat ini dan kekejaman nasib, Zhao Lian Yun mulai menangis dalam kesedihan.</p>
+<p>	“Xiao Yun, jangan menangis, jangan menangis, jangan khawatir, aku masih di sini.” Fei Cai segera menghiburnya.</p>
+<p>	Zhao Lian Yun membenamkan kepalanya di lututnya dan menangis lebih keras.</p>
+<p>	Fei Cai panik saat dia menghibur dan meminta maaf berulang kali, memotong sosok yang sangat canggung.</p>
+<p>	Zhao Lian Yun menangis beberapa saat, lalu tiba-tiba mengangkat kepalanya: “Apa gunanya permintaan maafmu! Saya benar-benar sengsara, bagaimana saya bisa datang ke dunia seperti itu! Sekarang situasi kami putus asa tanpa makan atau bahkan minum. Pada malam hari, bau darah di medan perang akan menarik kelompok demi kelompok binatang untuk mencari makan. Cepat atau lambat, kita akan mati kelaparan, mati kehausan, atau bahkan mati kedinginan.”</p>
+<p>	“Eh? Lalu, lalu apa yang harus kita lakukan?” Fei Cai menatap Zhao Lian Yun dengan ekspresi mencari bantuan.</p>
+<p>	Zhao Lian Yun memutar matanya dan berteriak dengan marah: “Kamu benar-benar sampah! Anda lebih tua dari saya, tidak bisakah Anda memikirkan sesuatu! Anda ingin saya memikirkan segalanya, apakah Anda pikir saya Dong Fang Yu Liang ?! ”</p>
+<p>	Fei Cai menundukkan kepalanya setelah dimarahi, hanya berani melihat kakinya.</p>
+<p>	Tiba-tiba, dia mengangkat kepalanya dengan mata cerah: “Saya, saya telah memikirkan cara yang baik.”</p>
+<p>	“Ah? Cara apa?” Zhao Lian Yun mengangkat alisnya dengan takjub, orang bodoh ini benar-benar memikirkan cara?</p>
+<p>	“Saya merasa bahwa selama kita memiliki kuda, kita dapat melarikan diri jauh dari medan perang. Tanpa bau darah, kita akan dapat menghindari binatang buas. ”</p>
+<p>	Zhao Lian Yun dengan keras menendang Fei Cai: “Apakah menurutmu aku tidak tahu?! Anda bodoh, Anda idiot besar! Metode apa yang bagus ini? Saya juga ingin kuda, di mana Anda akan mendapatkan satu untuk saya?</p>
+<p>	Fei Cai melompat kesakitan karena tendangan Zhao Lian Yun.</p>
+<p>	Tiba-tiba, dia menunjuk ke depan dan berteriak: “Lihat, ada seekor kuda.”</p>
+<p>	Zhao Lian Yun berbalik untuk melihat dan tercengang, berkata: “Fuc … benar-benar ada kuda!”</p>
+<p>	Tetapi dia dengan cepat bereaksi: “Tidak ada kekurangan kuda di dataran utara, tetapi kekurangan kami adalah metode untuk menangkap dan menjinakkannya. Fei Cai, apakah kamu punya metode?”</p>
+<p>	Fei Cai berseru, tangannya masih menunjuk ke depan saat dia berteriak: “Lihat, ada orang di atas kuda!”</p>
+<p>	Zhao Lian Yun berkonsentrasi, benar-benar ada seseorang.</p>
+<p>	Saat kuda itu mendekati keduanya, mata Zhao Lian Yun tiba-tiba terbuka lebar karena identitas orang yang terluka di punggung kuda itu: “Ma Ying Jie!” …</p>
+<p>	“Selamat saudara, selamat. Suku Hei telah memenangkan pertempuran ini, bahkan jika suku Ma mendapat dukungan dari Dewa Gu, mereka tidak dapat membalikkan keadaan.” Hei Bai yang telah mengamati pertempuran selama ini, melihat suku Hei sudah mulai membersihkan medan perang melalui investigasi Gu, dan dengan tidak sabar memberi selamat kepada Hei Cheng yang ada di sampingnya.</p>
+<p>	Hei Cheng dengan ringan tersenyum: “Selamat untukmu juga. Hei Lou Lan, anak ini tidak mengkhianati harapan kami. Ah, benar, jalur iblis Gu Immortal yang mendukung suku Ma telah ditemukan, itu adalah Xue Song Zi dari puncak keenam Gunung Bersalju.”</p>
+<p>	Ekspresi Hei Bai segera berubah berat: “Hmph, jadi itu dia. Jika bukan karena dia ikut campur dan berkelahi denganku karena Gu ayam kayu, Gu Abadi tidak akan lolos dari ikatan, dan aku pasti sudah memiliki Gu ayam kayu.”</p>
+<p>	Hei Cheng menghiburnya sambil tersenyum: “Saudaraku, tidak perlu khawatir, itu akan menjadi hal yang sama jika kita bisa mendapatkan ayam kayu Gu dengan bantuan Eighty-Eight True Yang Building. Ini disebut: jalan menuju kebahagiaan penuh dengan kemunduran. Setelah Anda mendapatkan Gu ayam kayu, Anda akan segera menjadi ahli di antara Dewa Gu. ”</p>
+<p>	“Aku tidak pantas mendapatkan pujian seperti itu!” Hei Bai segera membungkuk pada Hei Cheng dan dengan tulus berkata: “Jika bukan karena bantuan kakak laki-laki yang murah hati, bagaimana saya bisa memiliki kemampuan finansial seperti Xue Song Zi? Kakak laki-laki benar-benar bijaksana dan berpandangan jauh ke depan, menginvestasikan begitu banyak batu esensi abadi, itu adalah keputusan yang luar biasa. Seperti yang diharapkan, menimbun kelompok serigala sebelum mengirim mereka keluar untuk mendapatkan dukungan sekaligus benar-benar membuat Xue Song Zi tidak siap. Kali ini, bahkan jika Xue Song Zi ingin terus mengirim bantuan, tidak ada yang menerimanya.”</p>
+<p>	“Ha ha ha.” Hei Cheng tertawa cerah sebelum menghela nafas, “Tanpa investasi, bagaimana bisa ada keuntungan?”</p>
+<p>	Dia berhenti sejenak dan melanjutkan: “Juga, kami beruntung bahwa suku super terkenal lainnya tidak benar-benar bergerak dalam kontes Pengadilan Kekaisaran ini. Ada juga informasi dari Fairy Tan Bi Ya yang memungkinkan kami mengetahui hubungan rahasia antara suku Ma dan Snowy Mountain. Poin lain, Raja Serigala Chang Shan Yin ini benar-benar junior yang spektakuler, penampilannya luar biasa, yang paling bersinar dalam kontes ini sehingga kecemerlangannya melampaui Master Gu generasi ini di dataran utara.”</p>
+<p>	Hei Bai juga mengangguk, memiliki perasaan yang sama: “Saya telah menyelidiki Chang Shan Yin secara rinci, dia adalah orang dari suku Chang dan sangat terkenal, bahkan kami para Dewa Gu mengenalnya. Kemudian, dia menghilang secara misterius selama lebih dari sepuluh tahun, dia jelas mengalami pertemuan yang kebetulan. Sekarang, dia memupuk jalur perbudakan dan kekuatan, saya melihat gerakan pembunuh yang dia gunakan sebelumnya, dampaknya tidak kecil tetapi memang agak menarik. ”</p>
+<p>	Fang Yuan bisa menyembunyikan luka-lukanya dari orang-orang di sekitarnya, tetapi dia tidak bisa menyembunyikannya dari Dewa Gu.</p>
+<p>	Hei Cheng terdiam beberapa saat sebelum berbicara: “Ini adalah benih Abadi Gu, saya berencana untuk membawanya ke suku Hei. Setelah dia memasuki tanah yang diberkati Pengadilan Kekaisaran, kami akan mengamatinya dengan benar. Jika dia mau bergabung dengan kami dan menawarkan kesetiaannya, dia mungkin bisa menjadi tetua tertinggi eksternal suku Hei kami di masa depan. ”</p>
+<p>	Hei Bai tersenyum: “Kesulitan untuk naik ke alam Gu Immortal tak terkatakan, kakak laki-laki benar-benar sangat memikirkannya. Menurut saya, Tai Bai Yun Sheng juga cukup bagus, kita juga bisa memintanya untuk bergabung dengan suku Hei.”</p>
+<p>	“Mm … tapi dia agak tua.” Hei Cheng mengangguk.</p>
+<p>	Di mata Dewa Abadi ini, hanya Chang Shan Yin dan Tai Bai Yun Sheng yang menarik minat mereka dan mendapatkan perhatian mereka di antara seluruh pasukan aliansi suku Hei!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

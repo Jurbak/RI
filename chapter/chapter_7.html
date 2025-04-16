@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 7";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_6.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 7">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_8.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 7</h1>
+        <div class="text-left">
+<p>	Bab 07</p>
+<p>	Bab 7 – Seorang Guru Gu memiliki 9 peringkat, Anggur Bunga meninggalkan harta karun</p>
+<p>	Segera seminggu berlalu.</p>
+<p>	“Manusia di atas semua makhluk, Gu adalah inti dari langit dan bumi. Di dunia ini ada ribuan spesies, Gu yang tak terhitung jumlahnya . Mereka hidup di mana-mana di sekitar kita – Di tanah, di semak-semak, bahkan di tubuh binatang buas.”</p>
+<p>	“Ketika manusia terus berkembang biak dan tumbuh, para sarjana di masa lalu secara bertahap mengungkap misteri Gu . Mereka yang telah membuka celah, menggunakan esensi purba mereka sendiri untuk memberi makan, memperbaiki, dan memanipulasi Gu ini – orang-orang yang telah mencapai berbagai tujuan ini adalah apa yang kami sebut Master Gu .”</p>
+<p>	“Dan kalian semua telah berhasil membuka aperture kalian di Upacara Kebangkitan 7 hari yang lalu. Dengan koagulasi laut purba, saat ini Anda semua adalah Master Gu Peringkat satu . ”</p>
+<p>	Di akademi desa, tetua akademi berbicara dengan percaya diri dan tenang. Di depannya ada 57 siswa, duduk dan mendengarkan dengan penuh perhatian.</p>
+<p>	Misteri dan kekuatan seorang Guru Gu telah mengakar kuat di hati para pemuda sejak lama. Jadi semua yang diajarkan dan dikatakan oleh tetua, para siswa sangat tertarik.</p>
+<p>	Pada saat ini seorang remaja muda mengangkat tangannya. Dengan izin sesepuh dia berdiri dan bertanya, “Tuan Penatua, saya sudah tahu ini sejak saya masih kecil. Ada Master Gu Peringkat satu , Peringkat dua dan seterusnya, dapatkah Anda menjelaskan lebih detail kepada kami? ”</p>
+<p>	Guru Gu Yue mengangguk dan melambaikan tangannya untuk meminta pemuda itu duduk. “ Gu Masters memiliki 9 peringkat, dari bawah ke atas – Peringkat satu, Peringkat dua, Peringkat tiga hingga peringkat sembilan. Setiap peringkat dianggap sebagai ranah besar, dan dibagi menjadi 4 ranah kecil – tahap awal, tahap tengah, tahap atas, dan tahap puncak. Kalian semua baru saja menjadi Master Gu , jadi kalian semua adalah Peringkat satu tahap awal. ”</p>
+<p>	“Jika Anda semua bekerja keras dalam kultivasi Anda, basis kultivasi Anda secara alami akan naik ke peringkat dua, bahkan peringkat tiga. Tentu saja, semakin tinggi bakat Anda, semakin besar peluang Anda untuk berpromosi. ”</p>
+<p>	“Untuk talenta kelas D, lautan purba membutuhkan sekitar 2-3 lapis bukaan, promosi tertinggi yang dapat dicapai adalah Peringkat satu hingga Peringkat dua. Untuk bakat kelas C, laut purba adalah 4-5 lapisan bukaan. Biasanya kemajuan berhenti di Peringkat dua, tetapi dengan keberuntungan sebagian kecil orang dapat naik ke peringkat 3 tahap awal. Bakat kelas B memiliki lautan purba yang menempati 6-7 lapisan bukaan, mereka dapat berkultivasi ke Peringkat 3, bahkan hingga Peringkat 4. Sedangkan untuk bakat kelas A, lautan purba banyak; dibutuhkan 8-9 lapisan aperture. Bakat semacam ini dalam diri seseorang secara alami adalah yang paling berbakat dan paling cocok untuk kultivasi Guru Gu , mampu mencapai Peringkat 5. ”</p>
+<p>	“Adapun Master Gu yang berada di peringkat 6 ke atas, mereka semua adalah legenda. Saya juga tidak jelas tentang spesifikasinya. Dalam klan Gu Yue, tidak pernah ada penampilan Peringkat 6 Gu Guru, tapi Peringkat 4 dan Peringkat 5 Gu Masters kita punya sebelumnya.”</p>
+<p>	Telinga para remaja itu menajam, mata mereka bersinar terang saat mereka mendengarkan.</p>
+<p>	Banyak dari mereka tidak bisa menahan diri untuk tidak melihat Gu Yue Fang Zheng yang duduk kaku di baris pertama. Bagaimanapun, dia adalah bakat kelas A. Mata mereka dipenuhi dengan perasaan iri dan cemburu. Pada saat yang sama ada beberapa yang menatap sudut di baris terakhir kelas.</p>
+<p>	Bersandar di jendela di sudut adalah Gu Yue Fang Yuan, yang membungkuk di atas meja tidur nyenyak.</p>
+<p>	“Lihat, dia masih tidur,” bisik seseorang.</p>
+<p>“Dia sudah tidur terus menerus selama seminggu, namun dia masih belum bangun?” Seseorang memotong.</p>
+<p>“Masih ada lagi. Saya mendengar bahwa dia terjaga sepanjang malam, berkeliaran di tepi desa. ”</p>
+<p>“Ada orang yang pernah melihatnya lebih dari sekali, rupanya dia memegang toples anggur di malam hari, mati mabuk di luar. Untungnya beberapa tahun ini lingkungan desa sudah dibersihkan, jadi lebih aman.” Rekan-rekan sekolah berbisik di sana-sini, membiarkan segala macam gosip kecil menyebar dengan cepat.</p>
+<p>	“Ah, pukulannya terlalu besar. Seseorang yang dipuji sebagai jenius selama bertahun-tahun secara tak terduga akhirnya menjadi bakat kelas-C pada akhirnya, hehe. ”</p>
+<p>	“Kalau saja itu masalahnya. Dari semua orang, adiknya sendiri dinyatakan mendapat nilai A, sekarang menjadi pusat perhatian, menikmati perlakuan terbaik. Adik laki-laki membumbung ke langit, sedangkan kakak laki-laki jatuh ke tanah, tut tut…”</p>
+<p>	Saat diskusi di antara para siswa semakin keras, alis sesepuh akademi semakin dalam menjadi kerutan. Di seluruh kelas semua remaja duduk dengan hormat, menunjukkan keaktifan. Ini membuat Fang Yuan yang sedang tidur di mejanya sangat menonjol sehingga menyakiti mata.</p>
+<p>	“Sudah seminggu, namun dia masih sangat putus asa. Hmph, awalnya aku pasti disalahpahami olehnya, bagaimana bisa orang seperti ini menjadi jenius!” Penatua itu berpikir dengan tidak puas. Dia telah berbicara berkali-kali kepada Fang Yuan mengenai masalah ini, tetapi tidak berpengaruh – Fang Yuan masih melakukan apa pun yang dia suka. Dia akan tidur di setiap kelas, membuat penatua yang bertanggung jawab untuk mengajar memiliki sakit kepala yang sangat frustrasi.</p>
+<p>	“Lupakan saja, dia hanya kelas C. Jika dia bahkan tidak bisa menahan pukulan semacam ini, memupuknya dengan temperamen seperti itu hanya akan membuang-buang sumber daya klan, tidak ada hal baik yang akan keluar darinya. ” Hati tetua dipenuhi dengan kekecewaan terhadap Fang Yuan.</p>
+<p>	Fang Yuan hanya kelas C, dibandingkan dengan adik laki-lakinya Fang Zheng yang merupakan bakat kelas A, sekarang ini adalah seseorang yang layak bagi klan yang menghabiskan banyak usaha untuk membesarkan!</p>
+<p>	Sementara sesepuh akademi memikirkan semua ini, dia juga menjawab pertanyaan terakhir. “Dalam sejarah klan, ada banyak master yang kuat. Untuk peringkat lima master ada dua. Salah satunya adalah kepala klan generasi pertama, nenek moyang kita. Dialah yang mendirikan Desa Gu Yue. Satu lagi adalah kepala klan keempat. Dia memiliki bakat luar biasa, dan berhasil berkultivasi sampai ke ranah Master Gu peringkat lima . Jika bukan karena serangan diam-diam dari iblis Bunga Anggur Monk yang tak tahu malu itu, dia mungkin bisa mencapai peringkat enam, tapi siapa yang tahu…”</p>
+<p>	Saat dia mengatakan ini, dia menghela nafas panjang. Di bawah peron, para pemuda mulai berteriak dengan marah.</p>
+<p>	“Itu semua karena Biksu Anggur Bunga itu, dia terlalu jahat dan licik!”</p>
+<p>“Sayang sekali bahwa pemimpin klan keempat kami berhati lembut dan baik hati, dan meninggal pada usia muda.”</p>
+<p>“Kalau saja aku lahir beberapa ratus tahun lebih awal! Jika saya melihat iblis itu, saya akan merobek wajahnya yang jelek. ”</p>
+<p>	Kepala klan keempat dan cerita Flower Wine Monk adalah sesuatu yang diketahui oleh seluruh klan Gu Yue.</p>
+<p>	Biksu Anggur Bunga juga merupakan Guru Gu peringkat lima , terkenal di antara faksi Iblis pada masanya selama bertahun-tahun sebagai pencuri bunga besar. Beberapa ratus tahun yang lalu dia melakukan perjalanan ke Gunung Qing Mao. Dia berusaha melakukan kejahatan di Desa Gu Yue, tetapi pada akhirnya ditemukan oleh pemimpin klan generasi keempat. Setelah pertempuran besar yang mengguncang bumi, biksu Flower Wine dipukuli sampai dia harus memohon belas kasihan dengan berlutut. Kepala klan keempat berbelas kasih dan baik hati, berniat untuk menyelamatkan hidupnya. Namun Flower Wink Monk tiba-tiba melancarkan serangan diam-diam, berhasil menimbulkan luka berat pada kepala klan keempat. Kepala klan menjadi marah, membunuh Biksu Anggur Bunga di tempat. Namun luka beratnya tidak dapat disembuhkan dan dengan demikian, dia meninggal.</p>
+<p>	Oleh karena itu di hati klan Gu Yue, kepala klan generasi keempat adalah pahlawan besar yang mengorbankan hidupnya untuk desa.</p>
+<p>	“Biksu Anggur Bunga ya …” Terbangun oleh obrolan berisik di kelas, Fang Yuan membuka matanya yang mengantuk.</p>
+<p>	Dia meregangkan tubuhnya dan berpikir dengan kebencian di hatinya , Biksu Anggur Bunga ini, di mana dia mati? Mengapa saya masih tidak dapat menemukan warisannya setelah mencari di seluruh desa?</p>
+<p>	Dalam ingatannya, ada seorang Gu Master dari klan yang patah hati dan mulai banyak minum. Sekitar dua bulan kemudian dari sekarang, pria itu mabuk berat saat dia berbaring di luar desa. Aroma anggurnya yang berat tanpa sadar menarik cacing Liquor.</p>
+<p>	The Gu Guru sangat gembira, penuh berniat menangkapnya. Cacing Liquor buru-buru melarikan diri, dan saat Master Gu sedang mengejarnya, dia mengikuti jejak cacing Liquor dan menemukan pintu masuk lubang bawah tanah dan masuk.</p>
+<p>	Cacing Minuman Keras adalah jenis Gu yang sangat berharga dan mahal . Master Gu yang setengah mabuk memutuskan untuk mengambil risiko dan memasuki lubang, menemukan dirinya berada di gua bawah tanah rahasia. Setelah itu dia menemukan tulang belulang Biksu Anggur Bunga dan warisan yang dia tinggalkan.</p>
+<p>	Ketika Tuan Gu kembali ke desa, dia melaporkan penemuannya dan segera menyebabkan kehebohan besar di antara seluruh klan. Kemudian Guru Gu itu mendapat banyak manfaat darinya, basis kultivasinya tiba-tiba menjadi luar biasa. Kekasihnya yang pernah meninggalkannya sebelumnya tertarik padanya lagi, dan dia menjadi pembicaraan klan untuk sementara waktu.</p>
+<p>	“Sayangnya saya hanya mendengar sedikit demi sedikit tentang berita ini, jadi saya tidak tahu di mana lokasi akuratnya. Bukannya aku tahu aku akan dilahirkan kembali sampai hari ini. Flower Wine Monk, di dunia mana kamu mati?”</p>
+<p>	Beberapa hari ini dia telah membeli banyak anggur, berkeliaran di sekitar desa begitu malam tiba. Dia ingin menggunakan aroma minuman keras untuk menarik cacing Minuman Keras. Sayangnya dia tidak pernah melihat cacing Liquor muncul, membuatnya merasa sangat kecewa.</p>
+<p>	“Jika saya dapat menemukan cacing Liquor itu dan memurnikannya menjadi Gu vital saya , itu akan jauh lebih baik daripada Moonlight Gu klan . Dalam sekejap mata sudah April, tidak ada banyak waktu tersisa.” Fang Yuan menghela nafas dan menatap keluar jendela.</p>
+<p>	Di bawah langit biru dan awan putih, pegunungan menghijau membentang ke kejauhan. Di sekitarnya ada rumpun bambu. Ini adalah bambu tombak unik Gunung Qing Mao, setiap batang bambu lurus seperti garis, ujung bambu sangat tajam seperti ujung tombak.</p>
+<p>	Tidak terlalu jauh, hutan sudah menghijau. Tunas lembut tumbuh di lautan warna hijau kuning. Sesekali, burung pipit yang cantik dan berwarna-warni akan hinggap di dahan. Angin musim semi bertiup, membungkus kesegaran gunung dan sungai, dan menyebarkannya ke dunia.</p>
+<p>	Tanpa disadari, kelas hampir selesai. Tetua akademi akhirnya memberi tahu, “Minggu ini saya telah mengajari Anda semua cara merenungkan dan memeriksa laut purba bukaan Anda sendiri, dan bagaimana bermeditasi dan beralih di sekitar esensi purba di dalam tubuh Anda. Sekarang saatnya bagi Anda semua untuk memperbaiki Gu vital Anda . Setelah kelas ini berakhir, kalian semua akan pergi ke ruang Gu akademi dan memilih cacing Gu . Setelah memilih Gu Anda , silakan pulang dan fokus untuk memperbaikinya. Ketika Anda akhirnya menyempurnakan Gu Anda, maka Anda dapat kembali ke akademi dan melanjutkan menghadiri kelas. Pada saat yang sama, ini adalah penilaian pertama Anda. Siapa pun yang dapat menyelesaikan penilaian ini terlebih dahulu akan diberi hadiah berupa 20 batu purba yang murah hati. ”</p>
+<p>	T/L Catatan: Maaf atas keterlambatannya, saya sedang sibuk. Inilah Bab 7 yang sudah lama ditunggu-tunggu!!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

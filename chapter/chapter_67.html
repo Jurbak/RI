@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 67 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 67";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_66.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 67">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_68.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 67</h1>
+        <div class="text-left">
+<p>	Bab 67</p>
+<p>	Babak 67: Jangan khawatir, aku akan mengampunimu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Akar pohon menembus ke tanah pegunungan, membiarkan tangan hijau mereka mencapai ke langit. Batang pohon yang tebal dan kokoh saling berhadapan, tampak serupa dari kejauhan. Cabang-cabang dan daun-daun yang rindang terjalin di udara.</p>
+<p>	Di bawah lingkungan pohon-pohon ini adalah sebuah rumah kayu.</p>
+<p>	Rumah kayu itu seluruhnya terbuat dari kulit kayu tebal yang kokoh, mengeluarkan semacam bau tegas yang asli. Rumah kayu itu bukanlah rumah yang baru dibangun, tetapi telah dikumpulkan selama bertahun-tahun. Dengan demikian, permukaan rumah memiliki lumut hijau yang tumbuh di mana-mana, dan beberapa batang pohon mulai menumbuhkan cabang-cabang kecil yang lembut.</p>
+<p>	Di sekitar rumah kayu itu ada pagar tinggi dan besar yang dibangun dari bambu tombak hijau. Bagian belakang dan depan semuanya adalah ladang sayuran, dan di tengah ladang ada sumur buatan.</p>
+<p>	Pada saat ini, seorang wanita muda dan cantik sedang mengambil air dari sumur.</p>
+<p>	Sementara dia mengenakan pakaian sederhana dan polos, ini masih sulit untuk menutupi kulitnya. Dia berusia enam belas tahun, dan dia memiliki sepasang mata hitam besar, hitam dan putih matanya terlihat jelas, dan murni seperti kristal.</p>
+<p>	Sinar matahari menembus melalui dedaunan pohon yang tumpang tindih dan subur, menyinari wajahnya, membiarkan kulitnya memantulkan cahaya seperti salju putih, juga menunjukkan semacam rona merah transparan dan kelembutan padanya.</p>
+<p>	Rambut hitamnya tergerai dengan susah payah dan menutupi setengah cuping telinganya yang lucu.</p>
+<p>	Bibir merah mudanya mengerucut saat ini, dan dia mengepalkan gigi putihnya yang sempurna, wajahnya menunjukkan ekspresi konsentrasi penuh.</p>
+<p>	Dia menggunakan seluruh kekuatannya untuk menarik ember penuh air keluar dari sumur. Dengan napas lagi, dia memindahkan ember ke tanah di luar sumur.</p>
+<p>	“Huff!” Gadis muda itu menyeka dahinya dan menghela napas, menggunakan tangannya yang pucat untuk mengipasi wajahnya sendiri.</p>
+<p>	Mendengar ember menghantam tanah, pintu rumah kayu terbuka, dan seorang lelaki tua keluar.</p>
+<p>	Rambut lelaki tua itu campuran hitam dan putih, wajahnya memiliki lapisan kerutan. Meskipun matanya terlihat lelah, terkadang matanya menunjukkan sedikit kecemerlangan. Bagaikan harimau tua, meski sudah tua, wibawa harimau tetap terlihat.</p>
+<p>	“Nak, ember ini terlalu berat, aku bilang biarkan aku yang membawanya. Kenapa kamu diam-diam menyirami tanaman di belakangku lagi?” Orang tua itu memandang gadis muda itu dan menunjukkan ekspresi kasih sayang.</p>
+<p>	“Ayah!” Gadis muda itu dengan manis memanggil, “Kamu berburu sampai larut malam kemarin, aku ingin kamu tidur nanti hari ini. Ini hanya ember air, lihat, saya bisa membawanya, kan? ”</p>
+<p>	“Kamu, selalu suka bertindak keras!” Suara lelaki tua itu penuh dengan ketidakberdayaan, tetapi matanya sekali lagi memperhatikannya.</p>
+<p>	Dia mengambil langkah besar dan sampai ke sumur, mengulurkan tangannya dan dengan mudah meraih ember, “Ayo, Nak, mari kita menyirami tanaman bersama.”</p>
+<p>	Udara penuh dengan bau rumput liar dan bunga, dan angin musim panas bertiup dengan hangat dan melewati pepohonan, berubah menjadi embusan angin yang menyegarkan.</p>
+<p>	Rumah kayu di gunung memiliki ladang sayur, dan gadis itu menggunakan ember, menurunkan punggungnya untuk menyirami tanaman. Sang ayah bertugas mengambil air, berputar di antara dua ember air. Suasana keluarga yang penuh kasih tampak jelas di ruang mungil ini.</p>
+<p>	“Huh, aku terlalu tua, hanya beberapa ember dan aku sudah kelelahan.” Setelah beberapa saat, lelaki tua itu berdiri di dekat sumur, menyeka keringat di dahinya dan menghela nafas dalam-dalam.</p>
+<p>	Gadis muda itu menoleh ke belakang, tersenyum seperti bunga, berkata, “Ayah, kamu akhirnya menyadarinya. Anda sudah sangat tua, namun Anda ingin bersikap tegar sepanjang waktu. Sudah berapa kali aku memberitahumu, biarkan saudara laki-laki kedua yang berburu, kamu harus beristirahat di rumah menikmati hidupmu di usia ini. ”</p>
+<p>	“Hehehe,” lelaki tua itu tertawa, mengangguk, “Mengandalkan kemampuan kakakmu yang kedua, dia bisa menjelajah gunung ini dengan mudah. Dengan keterampilan memanahnya, itu bahkan melampaui saya di masa muda saya. Tapi saya masih tidak bisa merasa nyaman, hatinya terlalu liar, dan hanya dengan keterampilan seni bela diri dia ingin melambung. Huh, anak muda suka berimajinasi dengan bebas, mereka semua punya masalah ini.”</p>
+<p>	“Ayah…..” Gadis muda itu menyeret kata-katanya.</p>
+<p>	Pria tua itu tertawa lebih keras sekarang, nadanya membawa isyarat nakal, “Oh ya, masih ada kamu. Anda tidak muda lagi, saatnya untuk menikah. Saya telah menemukan pasangan yang baik untuk Anda, dan dengan ketampanan Anda, tidak ada masalah dengan menemukan keluarga yang baik.”</p>
+<p>	Wajah gadis itu menjadi merah seperti tomat. Segera dia merasa terlalu malu sampai dia kehilangan kata-kata.</p>
+<p>	Lelaki tua itu memandang ke langit, membayangkan masa depan yang hebat sambil menghela nafas, “Begitu saudara laki-lakimu yang kedua mengalami kemunduran dan membatasi sifatnya, aku akan pensiun dan tidak pernah pergi ke pegunungan. Selanjutnya saya akan menemukan Anda keluarga yang baik dan melihat Anda menikah dan memiliki anak, lebih disukai anak laki-laki gemuk. Heh heh, ayahmu ingin menjaga cucunya, itu saja yang saya inginkan. Kehidupan seseorang tidak mudah, dan sebagai pemburu, berapa banyak yang bisa memiliki akhir yang baik? Huh, semua partner dan rekanku dari dulu sudah pergi, hanya aku yang tersisa.”</p>
+<p>	“Ayah, kamu salah.” Gadis muda itu menghibur, “Apa maksudmu yang tersisa hanya kamu? Anda masih memiliki kami. ”</p>
+<p>	“Hehe, hm?” Orang tua itu tertawa dan hendak menjawab, tetapi tiba-tiba dia mendengar suara dan menoleh.</p>
+<p>	Pintu masuk kecil dari pagar bambu dirusak dari luar oleh seseorang.</p>
+<p>	“Kamu orang tua Wang?” Ekspresi dingin Fang Yuan dengan matanya yang menakutkan, melangkah maju dengan segumpal cahaya bulan di lengan kanannya.</p>
+<p>	Pria tua itu terkejut ketika dia melihat cahaya bulan di tangan Fang Yuan, dengan cepat berlutut, “Orang tua ini memberi hormat kepada Tuan Gu Master!”</p>
+<p>	“Pak tua Wang, putra Anda berani menyinggung saya, saya telah mengeksekusinya. Bawa mayatnya ke depan!” Fang Yuan berdiri dengan bangga, menatap lelaki tua yang berlutut saat dia mengeluarkan topik utama.</p>
+<p>	Kata-katanya baru saja selesai, dan dua pemburu muda membawa mayat Wang Er masuk.</p>
+<p>	Melihat mayat ini, tubuh orang tua Wang bergetar!</p>
+<p>	“Kakak kedua—!” Gadis muda itu berteriak dengan menyedihkan, bergegas ke depan dan meraih mayat Wang Er, wajahnya memerah karena air mata.</p>
+<p>	“Putri keluarga Wang…” Kedua pemburu muda itu, melihat gadis yang mereka sukai menangis di depan mereka, merasa tidak enak. Mereka ingin menghiburnya, tetapi tidak ada kata yang keluar.</p>
+<p>	“Pak tua Wang, saya dengar Anda seorang pemburu, yang terbaik di antara beberapa desa. Di usia yang begitu tua, Anda masih bisa berburu dan mendapatkan hasil yang bagus setiap saat, ini bagus. ”</p>
+<p>	Fang Yuan berhenti sejenak di sini, dan melanjutkan tanpa ekspresi, “Gambarkan saya peta semua jebakan di daerah pegunungan terdekat sekarang, serta hasil pengamatan Anda terhadap wilayah binatang buas dari pengalaman berburu Anda selama ini. Gambarlah untukku dan aku akan mengampuni dosa putramu karena menyinggungku, jika tidak… hmph.”</p>
+<p>	Desa-desa ini berada di bawah kendali desa Gu Yue. Penduduk desa semuanya adalah budak petani dari klan Gu Yue.</p>
+<p>	Dengan pelanggaran Wang Er karena menyinggung tuannya, menurut aturan klan, seluruh keluarga mereka akan terlibat!</p>
+<p>	Tubuh lelaki tua Wang bergetar lagi, hampir jatuh ke tanah. Dampak seperti ini terlalu tiba-tiba dan hebat baginya.</p>
+<p>	“Pembunuh, kamu adalah pembunuh yang melukai saudaraku! Anda memperlakukan kehidupan manusia seperti ternak, dan Anda berani menghadapi kami? Aku akan membalas dendam untuk saudaraku!!” Gadis muda itu berteriak, suaranya penuh kebencian dan kemarahan terhadap Fang Yuan, dan dia bergegas menuju Fang Yuan.</p>
+<p>	Tapi dia baru setengah jalan ketika dia dihentikan oleh seseorang.</p>
+<p>	Bukan dua pemburu muda itu, tapi ayahnya.</p>
+<p>	“Brengsek yang memalukan!” Pria tua Wang berteriak ketika dia memberi gadis muda itu tamparan keras, mengirimnya ke tanah.</p>
+<p>	“Kakak keduamu sudah mati, apakah kamu ingin mati juga? Apakah Anda ingin ayah tua Anda ini menjadi tua dan sendirian selamanya ?! ” Orang tua itu menangis deras mengatakan ini, tubuhnya gemetar hebat.</p>
+<p>	“Ayah!” Gadis muda itu dibangunkan oleh ini, dan air matanya mengalir. Suaranya penuh dengan kesedihan, ketidakadilan, belas kasihan, kebencian, dan ketidakberdayaan.</p>
+<p>	Pria tua itu membalikkan tubuhnya, menghadap Fang Yuan saat dia berlutut dan meletakkan dahinya di tanah, bersujud dalam-dalam di kaki Fang Yuan. Suaranya bergetar saat dia berkata, “Tuan Gu Master, putraku menyinggungmu dan pantas mati! Saya akan menggambar peta untuk Anda sekarang, tolong lepaskan kami dengan kemurahan hati Anda. ”</p>
+<p>	Ekspresi Fang Yuan berubah lebih lembut, dia menatap lelaki tua itu dengan arogan, berkata, “Tenanglah, selama kamu menggambar dengan jujur, aku akan mengampunimu. Tapi jangan berpikir untuk berbohong padaku, karena jika aku menemukan hal yang mencurigakan, nyawamu akan hangus!”</p>
+<p>	“Saya mengerti, orang tua ini mengerti.” Orang tua Wang bersujud tanpa henti, “Tolong Tuan Gu, izinkan saya mengambil kuas dan kertas saya.”</p>
+<p>	“Tidak dibutuhkan.” Fang Yuan melambaikan tangannya, melihat dua pemburu yang dia paksa, memerintahkan, “Masuk ke ruangan dan temukan kertas dan kuas, dan bawa mereka keluar.”</p>
+<p>	“Ya, Tuan Gu Tuan.” Kedua anak muda itu tidak berani memberontak di bawah otoritas Fang Yuan.</p>
+<p>	“Tuhan, kertas dan kuas ada di atas meja persegi di dapur.” Kata orang tua Wang.</p>
+<p>	Mata Fang Yuan bersinar tetapi dia tetap diam.</p>
+<p>	Kedua pemburu itu menerobos masuk ke dalam rumah dan dengan cepat mengeluarkan kertas dan kuas.</p>
+<p>	Di wilayah selatan, kertas khusus dibuat dari bambu, di mana kualitasnya buruk dan kertasnya keras dengan lapisan hijau. Kertas seperti ini cocok untuk cuaca lembab dari cuaca teritorial selatan.</p>
+<p>	Jika itu kertas nasi, mungkin rusak setelah seminggu karena kelembaban.</p>
+<p>	Pria tua itu membawa kuas dan berlutut di tanah, menggambar garis, lekukan, atau titik hitam.</p>
+<p>	Dia menggunakan lebih dari sepuluh kertas bambu, sebelum menyerahkan semuanya kepada Fang Yuan.</p>
+<p>	Fang Yuan melihat melalui mereka dan membagi kertas bambu ini menjadi dua, menyerahkannya kepada dua pemburu, “Lihatlah jika ada area yang tidak pantas. Setiap kesalahan, saya akan memberi Anda satu batu purba! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

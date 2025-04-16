@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 17 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 17";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_16.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 17">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_18.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 17</h1>
+        <div class="text-left">
+<p>	Bab 17</p>
+<p>	Bab 17 – Mulai memperbaiki cacing Liquor</p>
+<p>	“Dengan bakat kelas C saya, jumlah laut purba saya di aperture hanya 44%. Kecepatan Gu menggunakan esensi purba jauh lebih cepat daripada tingkat pemulihan saya sendiri. Jika saya ingin memperbaiki Gu, saya perlu meminjam bantuan eksternal, yang berarti saya perlu membuang batu purba. ”</p>
+<p>	“Semakin lemah kehendak Gu , semakin kecil perlawanannya, semakin mudah bagiku untuk memperbaikinya. Bagaimanapun setiap makhluk hidup akan selalu memiliki keinginan untuk hidup. Untuk memperbaiki Moonlight Gu, saya setidaknya membutuhkan lima batu purba, paling banyak saya membutuhkan delapan buah.”</p>
+<p>	“Saat ini untuk memurnikan cacing Liquor, saya membutuhkan setidaknya sebelas keping, paling banyak saya membutuhkan enam belas keping.” Meskipun cacing Liquor juga merupakan Gu Peringkat satu seperti Moonlight Gu , tapi itu jelas lebih jarang. Dengan demikian kesulitan proses penyempurnaan juga meningkat.</p>
+<p>	Dengan kata lain, meskipun saat ini Fang Yuan memiliki tujuh belas batu purba, tetapi hanya untuk memurnikan cacing Liquor, dia paling banyak memiliki enam keping, atau setidaknya satu batu purba.</p>
+<p>	Di malam hari, bulan sabit yang cerah memancarkan cahaya bulan yang jernih dan murni. Cahaya bulan seperti tangan lembut wanita suci itu, dengan lembut membelai Desa Gu Yue. Sepanjang jalan rumah-rumah bambu itu seperti batu giok, berdiri dalam jumlah besar. Angin malam bertiup perlahan.</p>
+<p>	Di bawah sinar bulan ini, Fang Yuan menemukan jalan kembali ke penginapan. Pintu penginapan sudah tertutup. Fang Yuan menggedor pintu.</p>
+<p>	“Aku mendengarmu! Aku mendengarmu! Siapa itu, mengetuk pintu selarut ini…” Pekerja penginapan menggerutu saat membuka pintu, matanya sembab karena tidur.</p>
+<p>	Tetapi ketika dia melihat Fang Yuan berdiri di pintu, semua ketidaksenangan dan kantuk dari ekspresinya berubah, dan dia membungkukkan pinggangnya dan berkata dengan senyum tersanjung, “Ah, itu tuan mudanya. Si kecil ini sangat beruntung bisa membuka pintu untuk Yang Mulia. ”</p>
+<p>	Fang Yuan menganggukkan kepalanya, ekspresinya dingin karena ketidakpedulian, dan berjalan ke penginapan.</p>
+<p>	Ekspresinya membuat pekerja itu tertawa dengan lebih rendah hati, dan dia mengambil inisiatif untuk bertanya, “Tuanku, apakah Anda lapar? Apakah Anda ingin saya memberi tahu dapur dan membuatkan beberapa hidangan kecil untuk Anda sebagai makan malam?”</p>
+<p>	“Tidak perlu,” Fang Yuan menggelengkan kepalanya dan hanya memerintahkan, “Pergi dan siapkan air panas untukku, aku ingin mandi sendiri.”</p>
+<p>	“Ya!” Pekerja itu segera mengangguk, “Tuanku, pergilah ke kamarmu dulu. Saya jamin, air panas akan segera dikirim. ”</p>
+<p>	Fang Yuan mengeluarkan suara persetujuan dan naik tangga, menuju lantai dua. Pekerja itu memperhatikan punggung Fang Yuan, kedua matanya berkilauan dalam cahaya, mengungkapkan ekspresi kecemburuan.</p>
+<p>	“Ini adalah Guru Gu , oh kalau saja aku memiliki bakat untuk berkultivasi, betapa bagusnya itu!” Dia mengepalkan tinjunya, menghela nafas dalam-dalam. Kata-kata ini melayang ke telinga Fang Yuan dan dia tersenyum pahit di dalam hatinya.</p>
+<p>	Seorang Guru Gu memiliki kekuatan untuk melampaui manusia, menjadi manusia di atas manusia, tetapi dalam proses ini harga yang harus dibayar juga sangat tinggi.</p>
+<p>	Masalah sulit pertama adalah sumber daya keuangan. Seorang Guru Gu membutuhkan batu purba untuk mengolah, pertempuran juga membutuhkan batu purba, pemurnian Gu juga membutuhkan batu purba, perdagangan juga tidak terkecuali.</p>
+<p>	Tanpa batu purba, bagaimana budidaya bisa dilakukan?</p>
+<p>	Poin ini adalah posisi sulit yang, sebagai manusia biasa yang menonton dari pinggir lapangan, tidak akan dipahami oleh pekerja penginapan.</p>
+<p>	Sama seperti sebelumnya di malam hari, Tuan Muda Gu Jiang Ya melampiaskan kemarahan dan ketidaksenangannya pada para pemburu ketika dia menjatuhkan toples anggur mereka. Maksudnya adalah – Dia sendiri tidak tahan menghabiskan batu purba untuk minum anggur bambu hijau ini, namun para pemburu yang hanya manusia biasa ini sebenarnya memiliki uang sebanyak itu!</p>
+<p>	Untuk melihat sekilas keseluruhan gambar, hanya makna itu saja yang bisa memberi tahu banyak tentang situasi kultivasi seorang Guru Gu . Kekuatan seorang Guru Gu hebat, mereka mencapai lebih dari manusia biasa, tetapi harganya juga bagus. Berkali-kali menggunakan setiap bagian dari batu purba membutuhkan pertimbangan besar, terutama ketika menyangkut Gu Masters peringkat bawah . Jangan tertipu oleh permukaan yang mulia; pada kenyataannya kehidupan seorang Guru Gu terus-menerus tertekan oleh uang.</p>
+<p>	“Belum lagi, saat ranah Master Gu meningkat, sumber daya yang mereka butuhkan juga meningkat. Tanpa dukungan yang tepat, sangat sulit bagi jalan Guru Gu menuju kultivasi. ” Fang Yuan memikirkan kehidupan sebelumnya dan memiliki pemahaman mendalam tentang kenyataan ini.</p>
+<p>	Dia kembali ke kamarnya. Tepat setelah dia menyalakan lampu, pekerja penginapan datang dengan baskom berisi air panas. Tentu saja, ada handuk kain dan perlengkapan mandi lainnya.</p>
+<p>	Fang Yuan membiarkan pekerja itu pergi dan menutup pintu kamar. Dia meletakkan gerendel pintu, membasuh diri dan naik ke tempat tidurnya.</p>
+<p>	Meskipun tubuhnya merasa sedikit lelah, hatinya masih berkobar dengan gelombang kegembiraan. “Saya akhirnya mendapatkan cacing Liquor. Cacing Liquor lebih langka daripada Moonlight Gu , karena dalam arti tertentu itu adalah Gu yang meningkatkan bakat terpendam Guru Gu !”</p>
+<p>	Fang Yuan duduk bersila di tempat tidur dan mengeluarkan cacing Liquor. Cacing Liquor masih tidur nyenyak. Ukuran tubuhnya sedikit lebih besar dari Moonlight Gu , lembut dan putih seperti ulat sutra.</p>
+<p>	Di bawah cahaya, tubuhnya diselimuti lapisan cahaya redup yang goyah, seperti kilau mutiara yang lembut. Dua mata kecil yang menyerupai dua biji wijen hitam dipasang di kepala putihnya yang gemuk, membuatnya tampak sangat naif.</p>
+<p>	Ditempatkan di tangannya, itu tidak berat. Beratnya sekitar setengah telur ayam. Saat menciumnya dengan hati-hati, tubuhnya mengeluarkan aroma aroma anggur. Aroma ini bukanlah aroma anggur bambu hijau tetapi aroma cacing Liquor itu sendiri. Baunya samar dan berkabut, seolah-olah tidak ada. Hidung Fang Yuan berkedut saat dia menghirup aroma cacing Liquor.</p>
+<p>	Aroma anggur bergerak lurus ke bawah ke dalam lubang, memasuki laut purba tembaga hijau. Laut purba melonjak dan beriak sejenak, dengan cepat menyerap anggur. Kilauan esensi purba yang murni dan halus dihasilkan.</p>
+<p>	Esensi purba lainnya memiliki warna hijau zamrud, bersinar dengan kilau tembaga metalik. Namun esensi purba ini berwarna hijau pucat, dan lebih kental daripada esensi purba asli. Ini adalah esensi purba yang bisa dihasilkan oleh Gu Master tingkat satu tingkat menengah .</p>
+<p>	Sadar akan kilau esensi purba hijau pucat di laut tembaga hijaunya, Fang Yuan mengungkapkan senyum puas. “Saat ini basis kultivasi saya hanya tahap awal Peringkat satu. Tetapi dengan kondensasi cacing Liquor, setelah esensi purba disempurnakan, saya akan dapat memiliki esensi purba alam peringkat satu. Keindahan manfaat ini adalah sesuatu yang tidak bisa dikatakan dalam satu atau dua kalimat.”</p>
+<p>	Tapi segera, dia mengambil kembali senyumnya. “Namun saat ini saya belum sepenuhnya menguasai cacing Liquor. Hanya ketika saya memurnikan cacing Liquor dan mengubahnya menjadi Gu vital saya , maka saya akan dapat menggunakannya dengan bebas dan kemudian dengan efisiensi maksimum, memperbaiki esensi purba saya.</p>
+<p>	Berpikir sampai titik ini, dia tidak lagi ragu-ragu dan mulai mengeluarkan semburan esensi purba tembaga hijau dari laut purbanya. Esensi purba dengan erat melilit cacing Liquor, membawanya ke udara sebelum Fang Yuan, dan mulai menyerang tubuhnya.</p>
+<p>	Cacing Liquor merasakan hidupnya dalam bahaya dan segera bangun. Itu mulai berjuang keras, menggunakan kekuatannya sendiri untuk mengusir esensi purba Fang Yuan.</p>
+<p>	“Cacing Liquor ini memiliki ketahanan yang sangat kuat.” Kulit Fang Yuan berubah suram saat dia merasakan tingkat konsumsi esensi purba melebihi lebih dari dua kali lipat dari apa yang telah dikonsumsi Moonlight Gu .</p>
+<p>	“Tidak peduli apa, saya harus memperbaiki cacing Liquor.” Kedua matanya bersinar dengan cahaya yang kuat saat dia terus menuangkan esensi purba ke dalam cacing Liquor.</p>
+<p>	Di dalam ruangan, lilin-lilin di atas meja menyala dengan tenang, menyinari cahaya terang di tengah ruangan sementara sudut-sudut jauh dindingnya gelap. Cahaya lilin terpancar di wajah Fang Yuan tetapi dia sudah memejamkan mata, mengumpulkan semua fokusnya ke cacing Liquor.</p>
+<p>	Semburan terus menerus dari esensi purba berwarna hijau-tembaga yang menyerupai semburan kabut yang dipancarkan keluar dari seluruh tubuh Fang Yuan, kemudian berkumpul bersama dan dengan kuat melilit cacing Liquor. Cacing Liquor melayang di udara, jaraknya kurang dari satu kaki dari wajah Fang Yuan. Itu berjuang dengan sekuat tenaga di tengah-tengah esensi purba tembaga hijau.</p>
+<p>	Waktu berlalu dengan tenang.</p>
+<p>	Saat lilin menyala, mereka menjadi lebih kecil dan cahayanya semakin redup. Bulan sabit di luar jendela perlahan-lahan turun, dan kemudian hari baru tiba.</p>
+<p>	Cahaya pagi masuk melalui celah sempit di jendela dan menyinari ruangan. Itu seperti jendela memiliki tepi yang terang.</p>
+<p>	Fang Yuan membuka matanya dan melihat cacing Liquor di depannya. Tubuh putih cacing Liquor memiliki warna hijau. Ini adalah hasil dari upaya Fang Yuan setelah setengah malam. Namun jelas bahwa volume warna hijau ini bahkan tidak 1% dari tubuh cacing Liquor.</p>
+<p>	Wajah Fang Yuan tampak muram. Kemauan cacing Liquor ini terlalu ulet dan ketahanannya sangat kuat; sederhananya ini berada di luar batas peringkat satu Gu .</p>
+<p>	“ Gu ini kemungkinan besar adalah Gu vital Flower Wine Monk . Biksu Anggur Bunga adalah master Peringkat lima, jadi cacing Minuman Keras ini awalnya Peringkat lima, tetapi karena ia melewati bertahun-tahun tanpa cukup makanan, cukup kenyang dalam satu saat dan kelaparan di saat berikutnya, jadi nilainya juga turun. Saat ini tersisa di level satu, namun keinginannya masih sekuat batu!”</p>
+<p>	Fang Yuan telah menebak yang sebenarnya.</p>
+<p>	Cacing Minuman Keras ini awalnya adalah Gu vital Biksu Anggur Bunga . Kehendak aslinya telah dihapus bersih dan disempurnakan sampai akhir; itu telah menemani Biksu Anggur Bunga sepanjang semua pertempurannya, melewati dunia bawah tanah.</p>
+<p>	Setelah Biksu Bunga Anggur meninggal, tekadnya yang kuat terus ada di cacing Liquor. Saat ini dengan Fang Yuan mencoba untuk memurnikan cacing Liquor, itu sebenarnya berarti melawan kehendak Flower Wine Monk.</p>
+<p>	Ini jauh lebih sulit daripada mencoba memperbaiki Gu alami .</p>
+<p>	Kehendak manusia umumnya lebih kuat daripada Gu alami . Saat menghadapi kematian manusia mampu menghasilkan kekuatan yang bahkan tidak bisa mereka bayangkan sendiri. Belum lagi Biksu Anggur Bunga adalah penguasa dari golongan Iblis. Dia datang dan pergi sendiri, naik turun dunia bawah tanah. Kehendaknya lebih ulet daripada master levelnya dari faksi Benar.</p>
+<p>	“Untuk memurnikan cacing Liquor ini dalam sebulan tidak mungkin, kecuali ada master yang kuat yang dapat menggunakan napas Gu peringkat dua atau tiga untuk menekan cacing Liquor ini dan menekan keinginan di dalam tubuh cacing hingga batas terendah. Di bawah bantuan semacam ini maka saya akan dapat melakukan dua kali lebih banyak dengan setengah usaha. ” Saat dia merenung, Fang Yuan tidak bisa menahan diri untuk tidak menghela nafas.</p>
+<p>	Orang tuanya telah meninggal saat bibi dan pamannya berkomplot melawannya. Dia sendiri tidak memiliki dukungan, jadi di mana dia bisa menemukan bantuan eksternal?</p>
+<p>	Jika dia memiliki bakat kelas A mungkin masih ada kesempatan, tapi dia hanya bakat kelas C. Semua orang di klan tidak optimis tentang dia, jadi siapa yang mau mengeluarkan energi seperti itu untuk datang dan membantunya?</p>
+<p>	Lebih penting lagi, dia tidak bisa mengekspos keberadaan cacing Liquor.</p>
+<p>	Tidak ada cacing Liquor di Desa Gu Yue, dan Fang Yuan tidak dapat menjelaskan tentang asal-usul cacing Liquor ini. Jika itu terungkap, ada kemungkinan besar bahwa petinggi akan mengetahui dan menghubungkannya dengan kasus Biksu Anggur Bunga. Terlalu mudah untuk memikirkan hubungan antara keduanya.</p>
+<p>	“Berdasarkan fakta ini, tujuh belas batu purba tidak akan cukup. Saya membutuhkan setidaknya tiga puluh batu purba! Betapa merepotkan, tetapi tidak peduli seberapa sulitnya aku masih ingin memperbaiki cacing Liquor ini. ” Keinginan Fang Yuan sendiri seperti logam, dan dia sudah bertekad untuk memperbaiki cacing Liquor.</p>
+<p>	Pentingnya Gu vital sangat besar. Itu akan sangat mempengaruhi masa depan arah kultivasi Guru Gu . Meskipun cacing Liquor bukanlah pilihan terbaik dunia untuk Gu vital , itu masih jauh lebih baik daripada Moonlight Gu . Itu juga merupakan pilihan terbaik dalam situasi Fang Yuan saat ini.</p>
+<p>	Menggeram…</p>
+<p>	Pada saat ini perut Fang Yuan muncul dengan teriakan protes.</p>
+<p>	Setelah sepanjang malam tanpa tidur dan berusaha keras untuk memperbaiki cacing Liquor, Fang Yuan secara alami lapar.</p>
+<p>	“Kurasa aku akan pergi dan mengisi perutku dulu dan memikirkan cara untuk mengumpulkan batu purba.” Fang Yuan menggosok perutnya dan turun. Dia pergi ke kafetaria dan memilih tempat duduk di sudut, memesan beberapa jenis hidangan sarapan.</p>
+<p>	Saat dia mulai makan, adiknya Gu Yue Fang Zheng muncul.</p>
+<p>	“Kakak, mengapa kamu tinggal di penginapan, mengapa kamu tidak kembali ke rumah dan tidur tadi malam?” Kakaknya sangat lugas, nada suaranya menyiratkan bahwa itu menuntut penjelasan.</p>
+<p>	T/N: Saya mengerjakan ulang pengukuran sedikit, dulu 4 kali 4, tapi saya mulai menyadarinya seperti 4 x 4. Pengukuran dalam novel ini mengenai volume laut dan bukaan cukup membingungkan untuk saya, bahkan orang yang saya tanya sedikit tidak yakin. Tapi aku perlahan mendapatkan gambaran tentang itu.</p>
+<p>	Maaf atas kebingungannya!</p>
+<p>	Sunting 2: Semua pengukuran mengenai bukaan dan laut diubah menjadi %, 4 kali 4 / 4 x 4 sekarang menjadi 44%. Dikonfirmasi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

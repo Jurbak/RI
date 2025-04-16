@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 51 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 51";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_50.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 51">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_52.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 51</h1>
+        <div class="text-left">
+<p>	Bab 51</p>
+<p>	Bab 51: Mari kita lihat bagaimana Anda akan menjelaskan ini</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Fang Yuan tidak datang ke kelas hari ini. Lihat teman-teman, kursinya kosong. ”</p>
+<p>	“Dia sangat berani! Pelajaran hari ini diajarkan oleh tetua akademi, namun dia tidak berani muncul. ”</p>
+<p>	“Ini buruk, ekspresi penatua jelek, sepertinya Fang Yuan dalam masalah. Hehehe.”</p>
+<p>	Di akademi, anak-anak muda berdiskusi dengan lembut. Beberapa melirik ke arah kursi kosong Fang Yuan, serta ekspresi gelap sesepuh akademi. Sejak dia memulai pemerasan, Fang Yuan berdiri melawan semua orang di kelas. Melihat dia dalam kesulitan, semua siswa bersemangat untuk apa yang akan datang.</p>
+<p>	Ekspresi sesepuh akademi itu kaku saat dia menjelaskan inti dari memelihara lubang sambil diam-diam menatap kursi Fang Yuan.</p>
+<p>	Dia tertawa dingin di dalam hatinya, “Fang Yuan, oh Fang Yuan. Saya masih khawatir tidak dapat menangkap titik lemah Anda kemarin, dan di sini Anda memberikannya kepada saya hari ini. Bagaimanapun, Anda adalah remaja berusia lima belas tahun, saya telah melebih-lebihkan Anda. ”</p>
+<p>	Ekspresi jeleknya kebanyakan palsu. Motifnya adalah menggunakan kesempatan ini untuk mencari masalah dengan Fang Yuan dan menghukumnya, menghilangkan dominasinya yang meningkat di kelas. Tidak dapat disangkal, seiring berjalannya waktu, kehadiran Fang Yuan yang mendominasi semakin kuat, menyebabkan siswa lain hampir tidak bisa bernapas.</p>
+<p>	Dominasi satu sisi bukanlah yang ingin dilihat oleh tetua akademi. Dia ingin melihat seluruh kelas bersinar.</p>
+<p>	“Pria!” Tetua akademi mengangkat jari dan mengetuk meja dengan ringan.</p>
+<p>	“Penatua, subjekmu ada di sini.” Kedua penjaga yang berdiri di luar di pintu masuk.</p>
+<p>	Penatua akademi mendengus di depan umum, “Fang Yuan ini menjadi tidak terkendali, sangat malas dan melewatkan kelas tepat di bawah hidungku. Pergi ke asrama dan bawa dia ke sini untukku. ”</p>
+<p>	“Ya, penatua.” Para penjaga melanjutkan perjalanan mereka. Melihat para penjaga menghilang di luar pintu, akademi meledak dalam diskusi.</p>
+<p>	Banyak siswa bergabung dalam percakapan.</p>
+<p>	“Fang Yuan dalam masalah besar sekarang,” kata seseorang dengan matanya yang bersinar cerah.</p>
+<p>	“Hehe, kita punya acara untuk ditonton nanti.” Yang lain tertawa senang terhadap kesengsaraan Fang Yuan.</p>
+<p>	“Kakak, kamu terlalu sombong. Ini menantang otoritas penatua. Tidak peduli hukuman apa itu, kamu akan menerimanya. ” Gu Yue Fang Zheng melihat ke kursi yang kosong, menghela nafas dalam hati.</p>
+<p>	Bam, bam, bam!</p>
+<p>	Tetua akademi dengan ekspresi tegas, membanting meja tiga kali, “Diam, jangan bicara di kelas!”</p>
+<p>	Auranya saat ini seperti gunung berapi yang akan meletus, menyebabkan ketakutan pada orang lain.</p>
+<p>	Segera, akademi jatuh ke dalam keheningan. Para siswa dengan ketakutan tutup mulut, dengan cepat mengambil posisi. Kecuali, meskipun ekspresi mereka begitu, pikiran mereka sudah mendalami masalah ini.</p>
+<p>	Kelas berlanjut, anak-anak tidak berkonsentrasi sama sekali.</p>
+<p>	Beberapa siswa di dekat jendela melihat keluar terus-menerus.</p>
+<p>	Seiring berjalannya waktu, setelah beberapa saat, langkah kaki terdengar di pintu. Seketika telinga para siswa berkedut, puluhan mata menunjukkan ekspresi cerah.</p>
+<p>	“Tiba …” Tetua akademi juga mendengar langkah kaki dan menyipitkan matanya sebagai hasilnya.</p>
+<p>	Dia sudah memikirkan bagaimana menghadapi Fang Yuan. Dia akan menghukumnya untuk berdiri di luar selama tiga jam.</p>
+<p>	Meskipun hukumannya tidak berat, itu sudah cukup baginya untuk dipermalukan.</p>
+<p>	Sepanjang pelajaran, siswa yang masuk dan keluar akan melihat Fang Yuan berdiri di sana.</p>
+<p>	Dengan cara ini, itu akan merusak citra tak terkalahkan Fang Yuan. Ketika para siswa menyadari bahwa Fang Yuan tidak istimewa, dampaknya terhadap mereka akan sangat berkurang. Hal ini akan mengakibatkan mereka mendapatkan keberanian dan membangkitkan semangat kompetitif mereka.</p>
+<p>	Sebagian besar adalah, karena hukuman Fang Yuan berasal dari akademi, ini akan meningkatkan reputasi akademi.</p>
+<p>	Hanya dengan hormat mereka akan patuh.</p>
+<p>	Jadi, meskipun metodenya sederhana, ia memiliki niat yang dalam di bawahnya.</p>
+<p>	Langkah kaki itu semakin dekat, dan akhirnya seseorang berdiri di luar pintu.</p>
+<p>	Ketuk, ketuk, ketuk.</p>
+<p>	Suara ketukan bisa terdengar.</p>
+<p>	“Hehe, aku akan membukanya!” Siswa di dekat pintu mengajukan diri dan dengan antusias pergi untuk membuka pintu.</p>
+<p>	Akademi menjadi tenang, banyak mata menatap pintu.</p>
+<p>	Retakan.</p>
+<p>	Pintu itu dengan mudah dibuka oleh siswa, memperlihatkan celah.</p>
+<p>	Sinar matahari menyusup dari celah. Siswa yang membuka pintu tiba-tiba membeku, tiba-tiba bergidik.</p>
+<p>	“AHH!!!” Dia tertegun sejenak sebelum tiba-tiba berteriak, tanpa sadar mengambil langkah mundur yang besar. Tubuhnya menabrak meja dan dia langsung kehilangan keseimbangan, jatuh dengan meja ke tanah.</p>
+<p>	Wajah anak laki-laki itu pucat, ekspresinya ngeri, anggota tubuhnya gemetar dan tidak mampu mengerahkan kekuatan. Berbaring di lantai, dia dengan panik mencoba bangun, tetapi jatuh lagi dan lagi.</p>
+<p>	“Apa yang salah?!” Dalam sekejap semua orang tercengang, semuanya mengerutkan kening dalam-dalam.</p>
+<p>	Banyak tatapan penasaran melihat ke arah pintu.</p>
+<p>	Pintu perlahan didorong terbuka oleh orang di luar.</p>
+<p>	Tetua akademi menghentikan kuliahnya karena refleks.</p>
+<p>	Apa yang dilihat semua orang pertama kali, adalah tangan di pintu.</p>
+<p>	Tangan kiri seorang remaja.</p>
+<p>	Tangan kiri dengan darah yang menetes.</p>
+<p>	Tangan berdarah!</p>
+<p>	Melihat tangan berdarah ini, banyak mahasiswi yang menutup mulutnya dan berteriak ketakutan.</p>
+<p>	Pintu perlahan terbuka sepenuhnya.</p>
+<p>	Kecerahan sinar matahari menusuk mata semua orang, menyebabkan mereka menyipitkan mata. Dengan sinar matahari yang cerah sebagai latar belakangnya, bayangan gelap yang melekat pada seorang remaja kurus muncul di hadapan semua orang.</p>
+<p>	Dia tidak tahu mengapa, tetapi sesepuh akademi merasakan perasaan tidak nyaman yang kuat di dalam hatinya.</p>
+<p>	“Ini Fang Yuan!” Seseorang berteriak keras.</p>
+<p>	Setiap orang yang sudah terbiasa dengan sinar matahari dapat dengan jelas melihat siapa orang itu.</p>
+<p>	Yang terlihat di mata mereka adalah Fang Yuan, bermandikan darah, berdiri di luar pintu seolah-olah dia telah melalui pertempuran sengit.</p>
+<p>	Tangan kirinya perlahan ditarik, tangan kanannya menjambak rambut, menyeret seseorang. Lengan kiri orang itu sepenuhnya terlepas dari pangkalan. Dia terbaring tak bergerak, jelas tak sadarkan diri. Darah di bahu kirinya menyembur keluar.</p>
+<p>	“Itu salah satu penjaga yang pergi mencari Fang Yuan!” Seseorang mengenali identitas orang tersebut.</p>
+<p>	“Apa yang sebenarnya terjadi?” Seseorang akan mengamuk.</p>
+<p>	“Dia membunuh lagi, kali ini dia membunuh para penjaga!” Seseorang menunjuk Fang Yuan, berteriak ngeri, semakin keras, seolah-olah itu akan membersihkan teror dan ketakutan di dalam hatinya.</p>
+<p>	Seketika, akademi itu gaduh.</p>
+<p>	Banyak siswa lupa aturan saat ini, dan berdiri dari tempat duduk mereka. Mereka melihat ke arah Fang Yuan dengan ekspresi ketakutan, kaget, dan gugup.</p>
+<p>	Dalam imajinasi mereka, Fang Yuan akan diseret ke sini oleh penjaga kiri dan kanan.</p>
+<p>	Tapi kenyataannya adalah —— Fang Yuan bermandikan darah, ekspresinya dingin seperti iblis yang mendekat. Kedua penjaga, satu hilang sementara yang lain terbaring tak bergerak, darah mengalir dari tubuhnya dengan cepat membentuk genangan air.</p>
+<p>	Aroma darah yang kental meresap ke dalam akademi.</p>
+<p>	Penatua akademi tercengang, dia tidak mengantisipasi adegan seperti itu!</p>
+<p>	Setelah keterkejutannya, datanglah kemarahan yang hebat.</p>
+<p>	Kedua penjaga itu hanyalah seniman bela diri eksternal. Jadi bagaimana jika mereka mati? Tetua akademi tidak terlalu peduli.</p>
+<p>	Tetapi poin penting adalah identitas mereka. Mereka adalah penjaga akademi, mewakili prestise akademi. Mewakili wajah sesepuh akademi.</p>
+<p>	Fang Yuan ini terlalu berani. Tidak hanya dia membunuh Gao Wan, sekarang dia bahkan pergi dan membunuh penjaga akademi!</p>
+<p>	Tidak, ini bukan hanya berani. Dia praktis memprovokasi, menantang prestise akademi klan.</p>
+<p>	Penatua akademi menjadi marah, menunjuk Fang Yuan, berteriak, “Fang Yuan! Apa ini? Anda harus memberi saya penjelasan, alasan yang bagus untuk menghindarkan Anda. Jika tidak, dengan kejahatan membunuh para penjaga, Anda akan dijebloskan ke penjara, menunggu putusan klan! ”</p>
+<p>	Semua siswa bergidik.</p>
+<p>	Bahkan jendela bergetar, seluruh akademi bergema dengan teriakan sesepuh akademi.</p>
+<p>	Hanya Fang Yuan yang tampak tenang, matanya diwarnai racun yang dalam, berperilaku seperti biasa, tidak dapat melihat perubahan apa pun dalam emosinya.</p>
+<p>	Setelah melihat sekeliling, Fang Yuan melepaskan lengan kanannya, dan dengan pukulan, kepala penjaga itu jatuh ke genangan darah, memercik ke celana Fang Yuan.</p>
+<p>	Dia menangkupkan tinjunya ke arah sesepuh akademi, suaranya yang tenang bergema di seluruh akademi yang sunyi, “Penatua Akademi, saya benar-benar memiliki sesuatu untuk dilaporkan.”</p>
+<p>	“Berbicara.” Penatua akademi berbicara dengan kedua tangan di belakang punggungnya, melengkungkan kepalanya saat dia melihat Fang Yuan, ekspresinya sedingin es.</p>
+<p>	Tertawa dingin di dalam hatinya, dia berpikir, “Fang Yuan, kamu membuat semakin banyak kesalahan, meningkatkan keparahan. Aku akan melihat bagaimana kamu akan menjelaskan dirimu sendiri!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

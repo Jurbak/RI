@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2017 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2017";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2016.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2017">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2018.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2017</h1>
+        <div class="text-left">
+<p>	Bab 2017 – Bai Ning Bing Versus Hei Lou Lan</p>
+<p>	Bab 2017 Bai Ning Bing Versus Hei Lou Lan</p>
+<p>	Benua Tengah, di puncak tanpa nama dan biasa tertentu.</p>
+<p>	Empat Dewa Gu tiba di kaki gunung sambil menyembunyikan diri.</p>
+<p>	“Hei Lou Lan ada di gunung ini.” Ying Wu Xie melihat ke puncak dan berbicara.</p>
+<p>	Di sisinya adalah Peri Zi Wei, Pak Tua Zheng Yuan, dan Bai Ning Bing.</p>
+<p>	Setelah Peri Zi Wei dan Pak Tua Zheng Yuan memaksa Bai Ning Bing menyerah, mereka mengetahui keberadaan Ying Wu Xie. Ying Wu Xie adalah jiwa terbelah dari Spectral Soul dan misinya selalu untuk menyelamatkan tubuh utamanya.</p>
+<p>	Tetapi karena kekuatannya dan pengaturan Fang Yuan, Ying Wu Xie tidak dapat memasuki Pengadilan Surgawi. Setelah perang nasib, nasib Gu dihancurkan dan Fang Yuan melarikan diri, sementara Ying Wu Xie berkeliaran di Benua Tengah, membenci Fang Yuan karena tidak menyelamatkan tubuh utama Spectral Soul.</p>
+<p>	Setelah Peri Zi Wei memberikan cukup bukti, Ying Wu Xie mengetahui bahwa tubuh utamanya tidak lagi berada di Pengadilan Surgawi dan telah dibebaskan sendiri.</p>
+<p>	Ying Wu Xie sangat gembira, dia langsung meninggalkan Fang Yuan dan bergabung dengan kelompok Peri Zi Wei.</p>
+<p>	Melalui Ying Wu Xie, kelompok Peri Zi Wei mengetahui bahwa dia baru saja berpisah dari Hei Lou Lan. Dengan demikian, keempat abadi diam-diam tiba di tempat ini.</p>
+<p>	Ying Wu Xie berkata dengan lembut: “Hei Lou Lan adalah orang yang tangguh, meskipun kultivasinya rendah dan kekuatan pertempurannya tidak tinggi karena dirinya di masa depan telah kehilangan efeknya, dia memiliki daya tahan yang besar dan tahu bagaimana menunggu dengan sabar, dia ambisius dan tidak bisa dipandang sebelah mata.”</p>
+<p>	Ying Wu Xie tidak meragukan kekuatan pihaknya, tetapi yang paling dia khawatirkan adalah apakah Hei Lou Lan akan berpihak pada mereka dan mengkhianati Fang Yuan atau tidak.</p>
+<p>	Dalam aspek ini, Peri Zi Wei percaya diri, dia berkata sambil tersenyum: “Saya memiliki keyakinan penuh untuk membuat Hei Lou Lan menyerah. Dia memiliki hubungan yang kompleks dengan Fang Yuan, tetapi tidak tegas. Hei Lou Lan ingin membunuh ayahnya sendiri untuk membalas dendam, ini adalah keinginan terbesarnya. Fang Yuan telah menangkap Hei Cheng dan karena kekuatannya lebih tinggi dari Hei Lou Lan, dia selalu dikendalikan olehnya. Kita bisa menggunakan ini untuk membuatnya menyerah.”</p>
+<p>	Kenali diri Anda dan musuh Anda, dan Anda tidak akan pernah dikalahkan.</p>
+<p>	Saat itu, Peri Zi Wei mencoba segala macam metode untuk menyimpulkan posisi Fang Yuan, tetapi tidak bisa berbuat apa-apa karena Fang Yuan licin seperti belut dan aspek jalur kebijaksanaannya yang paling terampil adalah dalam memblokir deduksi.</p>
+<p>	Peri Zi Wei tidak bisa berbuat apa-apa terhadap Fang Yuan, tapi dia menyelidiki segala sesuatu tentang bawahan Fang Yuan. Tetapi pada saat itu, bahkan jika dia ingin menggunakan cara tidak langsung ini untuk menemukan lokasi Fang Yuan, semuanya berakhir dengan kegagalan.</p>
+<p>	Tapi sekarang, Peri Zi Wei akan melawan Hei Lou Lan. Kegagalan masa lalu itu sekarang telah menjadi sumber kepercayaan dirinya.</p>
+<p>	Segera, Peri Zi Wei membuat pengaturan: “Kali ini, Ying Wu Xie, kamu tetap di belakang. Bai Ning Bing, Anda akan mendekati Hei Lou Lan. Anda dapat mengatakan bahwa Anda memperoleh berita dari Ying Wu Xie dan datang berkunjung. Saat Anda mendekatinya, serang diam-diam dan segel dia di dalam es. Setelah Anda mengendalikannya, saya akan membujuknya. ”</p>
+<p>	“Bagaimana kalau aku pergi dengannya?” Ying Wu Xie tidak merasa yakin.</p>
+<p>	Bai Ning Bing meliriknya dan terbang menjauh.</p>
+<p>	Ying Wu Xie dengan cepat memandang Peri Zi Wei, Peri Zi Wei, bagaimanapun, menggelengkan kepalanya: “Kami akan menontonnya dari sini.”</p>
+<p>	Bai Ning Bing terbang melintasi langit seperti kilatan cahaya putih, dia melihat ke bawah ke puncak dan berteriak: “Hei Lou Lan, apakah kamu di sini?”</p>
+<p>	Setelah beberapa saat, Hei Lou Lan keluar dari gua gunung dan sedikit mengernyit saat dia melihat ke arah Bai Ning Bing: “Mengapa kamu di sini?”</p>
+<p>	Bai Ning Bing tertawa dan menunjuk Hei Lou Lan: “Saya telah bergabung dengan Spectral Soul sekarang dan datang untuk menangkap Anda. Hei Lou Lan, jika kamu pintar, biarkan dirimu ditangkap.”</p>
+<p>	Mata Hei Lou Lan terbuka lebar: “Apakah kamu nyata?”</p>
+<p>	Di kaki gunung, Ying Wu Xie hampir menginjak kakinya dengan marah: “Saya tahu bahwa Bai Ning Bing akan merusak masalah ini. Sifatnya eksentrik dan dia mengutamakan kesenangan. Dia melakukan ini dengan sengaja, dia pasti merasa cara ini akan lebih menarik!”</p>
+<p>	Benar saja, tawa Bai Ning Bing terdengar: “Tentu saja aku nyata!”</p>
+<p>	Mengatakan demikian, dia berubah menjadi cahaya putih dan menyerang Hei Lou Lan.</p>
+<p>	Hei Lou Lan sudah bersiap dan dengan teriakan, dia mengangkat tangannya dan mengirimkan sejumlah besar api untuk melawan cahaya putih.</p>
+<p>	Bai Ning Bing tertangkap basah dan dipaksa kembali ke langit.</p>
+<p>	Tapi dia tampak lebih bersemangat: “Metode jalur api? Anda benar-benar berubah ke jalan ini? Haha, menarik, aku sudah ingin melawanmu! Tapi berapa lama Anda bisa memblokir saya?</p>
+<p>	Langkah pembunuh abadi — Bai Xiang!</p>
+<p>	Bai Ning Bing langsung mengaktifkan metode kartu trufnya, tubuhnya bukan lagi tubuh daging dan darah, dan diselimuti qi es yang meluap yang bahkan menyelimuti puncak gunung.</p>
+<p>	Hei Lou Lan memasuki gua gunung dan Bai Ning Bing mengejar tanpa takut akan jebakan.</p>
+<p>	Keduanya berkelahi di dalam gua, menyebabkan ledakan yang retak dan menghancurkan batu gunung.</p>
+<p>	Setelah beberapa pertukaran, Hei Lou Lan mengalami kerugian dan situasinya tidak terlihat baik.</p>
+<p>	Bakat, temperamen, dan bakat alami Hei Lou Lan berada di level atas, tetapi kekayaannya tidak bagus dan dia bertemu Fang Yuan terlalu dini. Fang Yuan mendominasinya dan menggunakan Hei Cheng untuk mengendalikannya, yang sangat memengaruhi kultivasinya.</p>
+<p>	Kekuatan Hei Lou Lan qi Immortal Gu, kekuatan beruang terbang Immortal Gu, dan kekuatan diri Immortal Gu menjadi milik Fang Yuan. Slavery Immortal Gu juga dipinjam oleh Fang Yuan dan dikonsumsi. Pengalihan bencana Immortal Gu hancur ketika dia mengalami kesengsaraan.</p>
+<p>	Selama periode perang nasib, Hei Lou Lan hampir selalu mengandalkan jurus pembunuh di masa depan. Setelah diri masa depan rusak, Hei Lou Lan kembali ke dirinya sebelumnya.</p>
+<p>	Fang Yuan tidak memanggilnya kembali, Hei Lou Lan juga memiliki ambisi dan tidak ingin dikendalikan oleh Fang Yuan, jadi dia aktif mencari cara untuk bebas.</p>
+<p>	Dia memiliki warisan sejati bibinya, dan setelah cukup merenung, dia dengan tegas berubah untuk mengolah jalur api Blazing Heaven Demonness.</p>
+<p>	Namun sayangnya, sebelum dia memiliki kemajuan yang baik, dia ditemukan oleh Peri Zi Wei dan sekarang dikejar oleh Bai Ning Bing.</p>
+<p>	Hei Lou Lan merasa pahit di dalam, dia ingin mundur tetapi dikejar oleh Bai Ning Bing.</p>
+<p>	Ketika dia perlahan kehilangan kekuatan untuk menyerang dan hendak ditangkap oleh Bai Ning Bing, cahaya putih terbang dari cakrawala.</p>
+<p>	Cahaya putih ini tampak lambat tapi sangat cepat, bentuk Bai Xiang Bai Ning Bing sebenarnya tidak bisa mengelak dan dipukul.</p>
+<p>	Dalam sekejap, Bai Xiang membeku di udara, tidak lagi bergerak.</p>
+<p>	“Hei Lou Lan memiliki bala bantuan ?!” Ying Wu Xie terkejut.</p>
+<p>	“Bukan bala bantuan, ini seharusnya anggota Longevity Heaven.” Peri Zi Wei berkata sambil tersenyum.</p>
+<p>	Ying Wu Xie menyadari, Peri Zi Wei telah memasukkan sifat Bai Ning Bing ke dalam perhitungannya, tujuan utamanya adalah menggunakan Bai Ning Bing untuk memicu penyergapan Longevity Heaven. Alasan dia tidak mengirim Ying Wu Xie sebenarnya karena dia ingin melindunginya, bagaimanapun juga, Ying Wu Xie adalah klon Spectral Soul, dia benar-benar salah satu dari mereka. Dan Bai Ning Bing, yang memiliki Bai Xiang, adalah kandidat yang sempurna untuk menyelidiki penyergapan!</p>
+<p>	“Ini adalah langkah pembunuh jalur waktu, kan Fang Yuan?” Hei Lou Lan memiliki ekspresi kompleks saat dia melihat ke arah cakrawala melalui celah di gua.</p>
+<p>	Peringkat delapan Immortal Gu House Calamity Luck Altar muncul di cakrawala, dan dalam hampir sekejap, tiba di tengah medan perang.</p>
+<p>	Altar Keberuntungan Bencana mengirimkan cahaya kuat yang menyinari Bai Ning Bing yang tidak bergerak.</p>
+<p>	Meskipun gerakan pembunuh Bai Xiang luar biasa, Calamity Luck Altar adalah peringkat delapan Immortal Gu House yang secara pribadi diciptakan oleh Giant Sun Immortal Venerable. Jika Bai Ning Bing dipukul langsung, kematiannya sudah pasti.</p>
+<p>	Peri Zi Wei dengan cepat bergerak, mengirimkan aurora ungu untuk menutupi Bai Ning Bing sambil memblokir cahaya kuat Altar Keberuntungan Bencana.</p>
+<p>	“Aku bertanya-tanya siapa itu, jadi ternyata dia adalah pemimpin Pengadilan Surgawi yang dikalahkan!” Suara Bing Sai Chuan datang dari Altar Keberuntungan Bencana.</p>
+<p>	Peri Zi Wei menggelengkan kepalanya sedikit dan terbang ke langit bersama Pak Tua Zheng Yuan: “Kami telah bergabung dengan Lord Spectral Soul, kami tidak lagi berada di faksi Pengadilan Surgawi.”</p>
+<p>	Bing Sai Chuan mencibir: “Sepertinya aku peduli di sisi mana kamu berada! Hei Lou Lan adalah keturunan Longevity Heaven saya, dia adalah anggota Northern Plains. Jangan pernah bermimpi untuk menyakitinya!”</p>
+<p>	Peri Zi Wei membalas: “Lima wilayah telah bergabung, semua tembok wilayah telah menghilang, apa yang kamu maksud dengan Dataran Utara? Kita harus berjuang untuk memutuskan ke mana Hei Lou Lan pergi.”</p>
+<p>	Bing Sai Chuan tidak berbicara omong kosong, dia langsung mengendalikan Altar Keberuntungan Bencana untuk bertabrakan dengan Peri Zi Wei.</p>
+<p>	Pertempuran besar meletus!</p>
+<p>	Hei Lou Lan dan Bai Ning Bing dikendalikan, tidak bisa bergerak.</p>
+<p>	Wajah Hei Lou Lan pucat, dia sepenuhnya sadar bahwa baik itu Pengadilan Surgawi atau Surga Panjang Umur, mereka mencoba menggunakannya untuk mencari petunjuk tentang Fang Yuan!</p>
+<p>	Ini adalah hasil dari memiliki tingkat kultivasi yang rendah, dia telah menjadi objek bagi kedua belah pihak untuk diperebutkan. Tidak ada yang bertanya apakah dia bersedia atau tidak.</p>
+<p>	Pertempuran ini tidak berlangsung lama, kedua belah pihak menahan diri.</p>
+<p>	Peri Zi Wei yang berinisiatif untuk berhenti: “Tidak perlu bertarung lagi, tidak ada salahnya memberikan Hei Lou Lan kepadamu.”</p>
+<p>	Bing Sai Chuan memiliki Altar Keberuntungan Bencana Rumah Gu Abadi sementara Peri Zi Wei tanpa Papan Catur Konstelasi Bintang dan dalam kondisi lemah. Alasan dia menyerang adalah karena dia ingin memicu gelombang qi dan menggunakannya untuk mengklaim kemenangan.</p>
+<p>	Tapi Bing Sai Chuan jelas tahu rencana Peri Zi Wei dan membuat Altar Keberuntungan Bencana menggunakan sekuat tenaga. Peri Zi Wei melihat pertempuran berubah semakin sengit dan tahu pihaknya harus menggunakan kekuatan penuh mereka jika mereka ingin bertahan sampai gelombang qi tiba, jadi dia langsung memilih untuk berhenti.</p>
+<p>	Baca di meionovel.id</p>
+<p>	“Kami memiliki tujuan yang sama, tidak masalah di mana Hei Lou Lan berakhir. Fang Yuan berada pada kondisi terlemahnya saat ini, jika kita melewatkan kesempatan langka ini dan membiarkannya pulih, itu akan terlambat. Kita bahkan bisa bekerja sama, bagaimana menurutmu, Bing Sai Chuan?” Peri Zi Wei membuat proposal.</p>
+<p>	Kemudian, dia menunjukkan bukti untuk membuktikan faksinya saat ini.</p>
+<p>	“Siapa yang mengira akan ada hari ketika kita bekerja sama!” Bing Sai Chuan terdiam beberapa saat sebelum menghela nafas.</p>
+<p>	Kedua belah pihak memiliki yang terhormat sebagai pendukung mereka dan mereka berdua ingin membunuh Fang Yuan, mereka memiliki kualifikasi untuk bekerja sama serta tujuan yang sama, jadi bekerja bersama memang merupakan pilihan yang bijaksana.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

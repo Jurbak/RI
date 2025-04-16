@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 80 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 80";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_79.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 80">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_81.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 80</h1>
+        <div class="text-left">
+<p>	Bab 80</p>
+<p>	Babak 80: Lonjakan kekuatan pertempuran</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Angin musim gugur berdesir di udara, sementara daun merah melayang tanpa tujuan.</p>
+<p>	Rerumputan liar mengering kuning, dan buah liar berwarna merah cerah atau kuning jingga tergantung di cabang-cabang pohon.</p>
+<p>	“Hum!” Seekor babi hutan berwarna hitam bergegas dengan empat kukunya di tanah, surainya tertusuk-tusuk.</p>
+<p>	Ada lapisan tebal daun jatuh yang menumpuk di permukaan gunung.</p>
+<p>	Saat babi hutan bergegas ke depan, embusan angin terjepit di antara itu, dan daun-daun yang jatuh dikirim menari-nari di belakang tubuhnya.</p>
+<p>	Fang Yuan diam-diam berdiri di sana, menunjukkan ekspresi perhitungan yang dingin saat babi hutan itu mendekat.</p>
+<p>	Membunuh!</p>
+<p>	Dia mengambil langkah besar ke depan, dan kemudian kedua kakinya berdiri kokoh, tidak menghindar sama sekali, menghadap babi hutan secara langsung.</p>
+<p>	Dua taring putih salju babi hutan itu merobek udara dengan niat membunuh yang luar biasa.</p>
+<p>	Fang Yuan membalikkan tubuhnya untuk menghindari taring, bahunya membentur tengkorak babi hutan itu.</p>
+<p>	Ketika mereka akan bertabrakan, bahu Fang Yuan bersinar dengan cahaya berwarna hijau samar.</p>
+<p>	Kulit Giok Gu!</p>
+<p>	Ledakan.</p>
+<p>	Dengan benturan keras, keduanya bertabrakan.</p>
+<p>	Fang Yuan mundur tiga langkah, sementara babi hutan mundur satu langkah.</p>
+<p>	Agar adil, ketika membandingkan kekuatan kedua belah pihak, Fang Yuan lebih kuat. Tapi Fang Yuan berlari dengan kedua kaki sementara babi hutan menggunakan empat untuk mempertahankan kekuatannya, dan pada saat yang sama pusat gravitasi babi hutan lebih rendah dan lebih stabil daripada Fang Yuan.</p>
+<p>	Namun, setelah dipukul dengan keras di kepala oleh Fang Yuan, meskipun babi hutan itu masih berdiri, tubuhnya yang gemuk sudah goyah.</p>
+<p>	Dengan raungan, Fang Yuan bergegas lagi, tangan kirinya meraih gading babi hutan, tangan kanannya terangkat tinggi di udara, cahaya giok warna hijau muda membentuk lapisan pelindung tipis yang menutupi tinjunya.</p>
+<p>	Bam.</p>
+<p>	Tinjunya jatuh kuat ke bawah dan babi hutan menjerit kesakitan, berjuang keras.</p>
+<p>	Otot-otot Fang Yuan di lengan kirinya menegang, dan pembuluh darah hijau muncul seperti kelabang yang melingkari lengannya saat dia menahan babi hutan itu dengan seluruh kekuatannya.</p>
+<p>	Pada saat yang sama, tinju kanannya terus mengangkat dan membanting babi hutan itu.</p>
+<p>	Bam bam bam.</p>
+<p>	Setiap kali tinjunya mengenai kepala babi hutan, pancaran warna hijau di tinjunya akan bersinar satu kali.</p>
+<p>	Babi hutan dihancurkan oleh tinjunya, dan perjuangannya menjadi lebih lemah.</p>
+<p>	“Serangan terakhir!” Mata Fang Yuan bersinar seperti kilat. Dia mengendurkan tubuh bagian atasnya, lengan kanannya terentang lurus dan terangkat ke titik tertinggi, sebelum menghantam dengan kekuatan penuh.</p>
+<p>	Cahaya giok berwarna hijau menempel di lengan kanan Fang Yuan dan mengikuti gerakannya, menggambar busur hijau di udara.</p>
+<p>	Bam.</p>
+<p>	Fang Yuan berlutut di tanah dengan satu lutut, sikunya memukul keras tengkorak babi hutan itu. Bahkan sebelum babi hutan itu bisa berteriak, suaranya sudah berhenti.</p>
+<p>	Seluruh kepala babi berubah bentuk, tengkorak putih yang patah menembus kulit hitam, memperlihatkan bagian luar. Darah segar dan materi otak perlahan mengalir keluar, dan di lapisan serasah daun, itu menginfeksi area kemerahan yang cerah.</p>
+<p>	Angin musim gugur bertiup.</p>
+<p>	Daun beterbangan saat aroma darah babi terpancar.</p>
+<p>	“Hidup, indah seperti bunga musim panas. Kematian, sehalus daun musim gugur, ”gumam Fang Yuan, menghargai bingkai pemandangan ini.</p>
+<p>	Yang selamat hidup dengan cemerlang sementara yang mati kesepian dan menyedihkan.</p>
+<p>	Hidup atau mati, penuh dengan perbedaan yang intens, itu mencerminkan kekejaman alam dan kegembiraan hidup.</p>
+<p>	“Tidak peduli dunia, pemenang selalu mendapatkan semua ketenaran, sementara yang kalah menderita kekalahan di dunia yang tak kenal lelah. Menang dan kalah, bagiku berarti hidup dan mati. Karena aku berjalan di jalan iblis, sekali aku kalah, itu berarti kematian menunggu.”</p>
+<p>	Fang Yuan mendekati mayat itu dan duduk di tanah, mengeluarkan Gu Babi Putih, membiarkannya memakan daging sementara kesadarannya memasuki lubang di tubuhnya.</p>
+<p>	Di dalam celah itu, gelombang laut purba berwarna hijau hitam itu berputar dan jatuh, surut dan mengalir.</p>
+<p>	Ketika laut purba penuh, ia menempati 44% dari ruang. Setelah pertempuran yang intens, Fang Yuan menggunakan Jade Skin Gu beberapa kali untuk meningkatkan pertahanannya, dan beberapa esensi purba dikeluarkan, sehingga hanya tersisa 36% esensi purba.</p>
+<p>	Menghitung jumlahnya, dia hanya menggunakan 8%, bahkan tidak 10% dari totalnya. Tetapi karena ini adalah esensi purba hijau hitam tahap puncak peringkat satu, pengeluarannya dianggap besar.</p>
+<p>	Peringkat satu tahap awal adalah esensi purba hijau giok.</p>
+<p>	Peringkat satu tahap tengah adalah esensi purba hijau pucat.</p>
+<p>	Peringkat satu tingkat atas adalah esensi purba hijau tua.</p>
+<p>	Peringkat satu tahap puncak adalah esensi purba hijau hitam.</p>
+<p>	Esensi berada dalam konsentrasi (jumlah relatif zat tertentu yang terkandung dalam larutan atau campuran atau dalam volume ruang tertentu.).</p>
+<p>	Aktivasi Moonlight Gu membutuhkan 10% dari esensi purba hijau giok, dan dalam hal esensi purba hijau pucat, itu adalah 5%. Untuk esensi purba hijau tua, itu dibelah dua, dan hal yang sama berlaku untuk esensi purba hijau hitam.</p>
+<p>	Artinya, 10% dari esensi purba hijau hitam, setara dengan 20% hijau tua, 40% hijau pucat dan 80% esensi hijau giok.</p>
+<p>	Menggunakan Jade Skin Gu berharga 8% esensi purba hijau hitam, jika diubah menjadi esensi purba hijau giok tahap awal, itu akan menjadi 64%!</p>
+<p>	Jika Fang Yuan masih pada tahap awal, aperture-nya hanya akan memiliki 44% esensi purba, dan setengah jalan menggunakan Gu, esensi purbanya akan benar-benar habis.</p>
+<p>	“Semakin tinggi kultivasi Master Gu, semakin kuat kekuatan pertempuran mereka, dan ini menunjukkan esensi purba. Semakin tinggi panggung, semakin gelap warna esensi purba, dan semakin tahan lama. Esensi purba hijau hitam saya didasarkan pada esensi purba tingkat atas, disempurnakan oleh cacing Liquor. Ini tidak seperti Fang Zheng, yang sudah menempati peringkat satu kultivasi tahap puncak. ” Memikirkan hal ini, tatapan Fang Yuan bersinar.</p>
+<p>	Waktu berlalu, ini sudah akhir musim gugur.</p>
+<p>	Dua bulan telah berlalu sejak percobaan pembunuhan Wang Da.</p>
+<p>	Fang Zheng diracun dan koma selama tujuh hari tujuh malam. Begitu dia bangun dia seperti orang yang berubah, sangat pekerja keras dan juga berkultivasi dengan sangat patuh. Beberapa orang mengatakan, kesulitan dalam hidup adalah kekayaan seperti emas.</p>
+<p>	Terlepas dari apakah pepatah ini benar, Fang Zheng memang muncul dari kesulitan ini berubah dan memperoleh banyak pengalaman. Dia seperti batu giok mentah, dan setelah beberapa pemolesan, dia akhirnya menunjukkan kualitas batu giok yang indah di dalamnya.</p>
+<p>	Dia adalah orang pertama yang maju ke tingkat atas, dan belum lama ini, dia adalah orang pertama yang naik ke tingkat puncak, meninggalkan teman-teman sekelasnya dalam debu. Keuntungan dari bakat kelas A akhirnya mulai terlihat.</p>
+<p>	“Saya juga tidak jauh dari tahap puncak, paling banyak setengah bulan. Sebenarnya, saya telah memelihara aperture saya tanpa henti setiap hari, tetapi bakat kelas C benar-benar tidak dapat bersaing dengan nilai A dan B, dan saya juga punya alasan lain … “Fang Yuan tertawa pahit tanpa suara saat memikirkannya.</p>
+<p>	Sekali dalam beberapa hari, dia harus membunuh monyet batu mata giok untuk memberi makan Gu Kulit Giok. Pada saat yang sama, dia harus mencari di dalam hutan batu untuk menemukan petunjuk selanjutnya dari warisan Biksu Anggur Bunga.</p>
+<p>	Hutan batu itu rumit dengan pilar-pilar batu besar yang terkulai dari langit-langit. Jika Fang Yuan tidak hati-hati dan terlalu dekat dengan pilar mana pun, dia akan memicu serangan semua monyet batu.</p>
+<p>	Beberapa kali ia dikejar oleh puluhan kera batu dan harus kabur. Saat yang paling berbahaya, ketika mundur dia melangkah ke wilayah pilar lain, dan akhirnya memiliki hingga seratus monyet mengejarnya.</p>
+<p>	Untungnya, monyet-monyet ini tidak banyak bergerak, dan setiap kali mereka mengejarnya, mereka tidak akan mengejar terlalu jauh. Setelah jauh, mereka akan kembali ke rumah mereka dan terus menetap.</p>
+<p>	Meski begitu, Fang Yuan berjalan di ambang kematian beberapa kali. Selama masa-masa genting, pertahanan Jade Skin Gu digunakan dengan baik.</p>
+<p>	Penyelidikan dan eksplorasi semacam itu menyebabkan Fang Yuan mencurahkan banyak waktu dan upaya, dan dengan demikian menjadi alasan utama mengapa kultivasinya berkembang sangat lambat.</p>
+<p>	“Meski begitu, ini jauh lebih baik dari kehidupanku sebelumnya. Eksplorasi hutan batu juga bukan tanpa hasil. Setidaknya saya sudah tahu bahwa tembok di sekitar hutan tidak ada masalah. Itu berarti petunjuk selanjutnya dari pewarisan kekuatan, seharusnya ada di suatu tempat di hutan.”</p>
+<p>	Fang Yuan terus berpikir, tetapi tiba-tiba sebuah bayangan melangkahi dahan-dahan kering dan mendekat.</p>
+<p>	Ini adalah serigala tua yang berkeliaran.</p>
+<p>	Itu memiliki mantel bulu coklat, pincang dan memiliki satu mata rusak. Hanya bahaya dan kewaspadaan mata kirinya yang tersisa.</p>
+<p>	Itu menatap Fang Yuan dengan erat, hidungnya berkedut. Serigala dan anjing itu sama, menggunakan indra penciumannya yang tajam, pasti tertarik oleh darah babi.</p>
+<p>	Serigala sering berkelompok, tetapi ada juga serigala yang sendirian seperti ini. Ada persaingan dalam kelompok serigala juga, dan untuk menjaga suasana di dalam kelompok, mereka kadang-kadang menyingkirkan serigala tua yang lumpuh itu.</p>
+<p>	Fang Yuan dengan cepat berdiri dan diam-diam menatap serigala tua ini.</p>
+<p>	Saat itu ketika dia membunuh babi hutan, akan ada sedikit esensi purba yang tersisa di tubuhnya dan itu menyebabkan kekuatan bertarungnya sangat berkurang. Jadi ketika dia bertemu binatang buas lainnya, dia akan memilih untuk menghindarinya.</p>
+<p>	Tapi beberapa bulan ini, kekuatan pertempurannya telah meningkat pesat, dan dengan Jade Skin Gu, melawan serigala lumpuh, itu sudah lebih dari cukup.</p>
+<p>	Pohon-pohon gunung yang tidak terkendali ada di mana-mana dengan daun merahnya.</p>
+<p>	Matahari terbenam menerangi jam yang gelap.</p>
+<p>	Seseorang dan serigala berjarak lima puluh langkah, diam-diam mengamati satu sama lain.</p>
+<p>	Di mata serigala, cahaya hijau bersinar karena menunjukkan ekspresi kejam dan licik. Namun mata Fang Yuan gelap dan menakutkan, iris hitamnya memancarkan niat dingin.</p>
+<p>	Gu Babi Putih keluar. Itu penuh dan kembali ke aperture Fang Yuan dengan puas.</p>
+<p>	Serigala tua memandangi babi hutan, hanya tersisa tulang dan kulit, dagingnya dimakan oleh Gu Babi Putih.</p>
+<p>	Mata serigala bersinar dengan lampu hijau dan mengerut. Awalnya ia mundur beberapa langkah, lalu melompat ke semak-semak.</p>
+<p>	Serigala ini masih hidup sampai hari ini, ia pasti memiliki kecerdasan. Itu sangat merasakan bahaya Fang Yuan, dan memutuskan untuk mundur.</p>
+<p>	Masuk dan keluarnya cepat dan tiba-tiba.</p>
+<p>	Tanpa suara babi hutan yang menerjang, dan tanpa geraman harimau.</p>
+<p>	Melawan Fang Yuan, tanpa suara, pertempuran telah dimulai dan berakhir.</p>
+<p>	“Tema utama hidup dan mati, kegembiraan seperti itu lahir dari alam yang luar biasa.” Fang Yuan berdiri di tempat, dan tidak mengejar. Serigala ini tidak memiliki apa pun yang layak untuk diserang Fang Yuan.</p>
+<p>	Aiiii!</p>
+<p>	Tetapi saat berikutnya, tangisan serigala tua terdengar.</p>
+<p>	Raungan serigala tiba-tiba meletus dan berakhir tiba-tiba. Meski begitu, ada gelombang tebal aura kematian yang meluap.</p>
+<p>	retak retak.</p>
+<p>	Di semak-semak, ada suara ranting yang diinjak.</p>
+<p>	Suara itu tanpa rasa takut dan semakin dekat, menyebabkan iris Fang Yuan menyusut.</p>
+<p>	“Mampu menyingkirkan serigala tua licik itu dalam sedetik …” Tatapannya menjadi semakin dingin.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

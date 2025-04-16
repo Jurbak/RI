@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 63 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 63";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_62.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 63">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_64.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 63</h1>
+        <div class="text-left">
+<p>	Bab 63</p>
+<p>	Babak 63: Memberi hadiah kulit giok di bawah bulan; babi putih tersembunyi di bunga tanah</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari terbenam dan bulan terbit, tanda datangnya malam.</p>
+<p>	Ini adalah salah satu halaman tersembunyi di Desa Gu Yue.</p>
+<p>	Sebuah pohon belalang yang berdiri dengan cabang-cabang yang rumit dan daun-daun yang lebat, puncak pohonnya yang kokoh dan luas yang seperti kanopi kekaisaran jasper, menyelimuti seluruh halaman.</p>
+<p>	Cahaya bulan lembut seperti air, berjalan melalui dedaunan dan cabang-cabang pohon belalang, tumpah ke halaman.</p>
+<p>	Embusan angin bertiup, membuat dedaunan pohon berdesir, bayangan pohon sedikit bergoyang.</p>
+<p>	Di bawah pohon inilah dua orang berdiri.</p>
+<p>	Gu Yue Bo menggunakan tatapan lembut dan menatap Fang Zheng. “Fang Zheng, hari ini kamu memilih Gu keduamu, aku ingin tahu apa itu?”</p>
+<p>	“Melapor kepada pemimpin klan, tuan, hari ini saya memilih Gu Kulit Perunggu.” Gu Yue Fang Zheng berdiri kaku, berkata dengan ekspresi kagum.</p>
+<p>	Gu Yue Bo mengangguk, dan setelah merenung dia menjawab, “Tidak buruk, itu pilihan yang bagus.”</p>
+<p>	Gu Yue Fang Zheng berdiri di depan Gu Yue Bo, tubuhnya menegang dan menegang. Mendengar pujian Gu Yue Bo, dia tidak tahu bagaimana menjawab untuk sementara waktu, jadi pada akhirnya dia hanya tertawa, “Pemimpin klan, aku memilih secara acak.”</p>
+<p>	“Kau pikir aku tidak serius memujimu? Tidak.” Gu Yue Bo menatap Fang Zheng, senyum di wajahnya, “Apakah kamu tahu? Dari memilih Gu, itu menunjukkan watak seseorang.”</p>
+<p>	“Kamu memilih Gu Kulit Perunggu untuk pertahanan. Dipasangkan dengan Moonlight Gu, itu adalah serangan dan pertahanan. Ini menunjukkan sifat murni Anda. Di dunia ini, serangan dan pertahanan seperti frontal dan penyergapan, yin dan yang, lembut dan keras, ini adalah jalan raja.”</p>
+<p>	“Gu Yue Mo Bei memilih Yellow Camel Longhorn Beetle, Gu ini memberikan stamina dan memungkinkan dia untuk mempertahankan pertempuran. Ini menunjukkan sikapnya yang keras kepala dan kuat.”</p>
+<p>	“Adapun Gu Yue Chi Cheng, dia memilih Gu kriket Dragonpill, memungkinkan dia untuk meningkatkan kemampuan menghindarnya. Ini menunjukkan dia tidak suka serangan frontal, menjadi orang yang cerdas, pandai taktik, tetapi juga menunjukkan kelemahan dalam karakternya.”</p>
+<p>	Gu Yue Fang Zheng tercengang setelah mendengarkan, karena dia tidak menyangka bahwa masalah sesederhana itu dapat mengungkapkan informasi dan logika sebanyak itu.</p>
+<p>	Akibatnya, sikapnya terhadap Gu Yue Bo menjadi lebih hormat.</p>
+<p>	“Pemimpin klan, apa yang kakakku pilih?” Fang Zheng memikirkan Fang Yuan dan segera bertanya.</p>
+<p>	Gu Yue Bo tertawa, “Dia memilih Gu Cahaya Kecil, Gu ini digunakan untuk membantu Gu Cahaya Bulan dan dapat membuat serangan pedang bulan lebih kuat. Ini menunjukkan kepribadiannya yang ekstrem, aktif, dan invasif.”</p>
+<p>	“Memang, kakak sepertinya seperti itu.” Fang Zheng bergumam.</p>
+<p>	Gu Yue Bo mempertimbangkan ekspresi Fang Zheng dan mengukirnya di benaknya.</p>
+<p>	Mereka yang menjadi penguasa memiliki kemampuan unik mereka. Meskipun Gu Yue Bo dan Fang Zheng tidak berinteraksi lama, tatapan berpengalaman Gu Yue Bo sudah terlihat melalui Fang Zheng.</p>
+<p>	Dia memberi tahu Fang Zheng tentang keputusan Mo Bei dan Chi Cheng memiliki makna yang lebih dalam.</p>
+<p>	Itu untuk membantu Fang Zheng menganalisis kedua orang ini, karena dia mengantisipasi dia mengalahkan mereka berdua dan menetapkan peran pemimpin klan dengan bakat kelas A-nya.</p>
+<p>	Tapi Gu Yue Bo tidak akan mengatakannya dengan keras, dan tidak akan memicu tindakan Fang Zheng.</p>
+<p>	Sebagai pemimpin klan, setiap kata dan tindakannya memiliki implikasi politik. Jika dia secara langsung mengendalikan Fang Zheng dan berurusan dengan Chi Cheng dan Mo Bei, jika kata-kata menyebar, itu mungkin disalahpahami sebagai serangan politik pemimpin klan. Jika itu masalahnya, implikasinya akan sangat besar dan bahkan dapat menyebabkan perselisihan klan, merugikan seluruh desa.</p>
+<p>	Ada hal lain – Gu Yue Bo sedang menunggu Fang Zheng untuk memahami niatnya. Dia menghabiskan waktu dan upaya untuk mengasuh Fang Zheng, tetapi itu bukan untuk memelihara petarung peringkat empat atau lima. Seorang pejuang tanpa pengetahuan politik seperti pedang bermata dua. Dia membutuhkan pemimpin masa depan untuk klan!</p>
+<p>	“Aku menganalisis kepribadian Mo Bei dan Chi Cheng untuk Fang Zheng, tapi dia tidak menyadari niatku, malah bertanya tentang situasi Fang Yuan. Tampaknya dia memiliki trauma besar tentang Fang Yuan, tetapi dia juga berada pada tahap pemberontakannya. Dia ingin mengalahkan Fang Yuan, itu bisa dimengerti. Huh, jika saja Fang Zheng memiliki kecerdasan Fang Yuan, saya telah melihat banyak anak muda tahun ini, tetapi ketika berbicara tentang kecerdasan politik, Fang Yuan mengalahkan mereka semua. Sangat disayangkan dia hanya memiliki bakat kelas C. ”]</p>
+<p>	Gu Yue Bo menghela nafas dalam-dalam tapi senyumnya menjadi lebih lembut.</p>
+<p>	Dia mengeluarkan cacing Gu dari sakunya.</p>
+<p>	“Ini —– Gu Kulit Giok?” Fang Zheng saat melihat cacing Gu ini, berkata ringan dengan mata terbuka lebar.</p>
+<p>	Gu Yue Bo berkata, “Dibandingkan dengan Gu Kulit Perunggu, Gu Kulit Giok ini jauh lebih baik, tidak hanya menggunakan esensi purba yang lebih sedikit tetapi juga memberikan pertahanan yang lebih besar. Fang Zheng, apakah kamu menginginkannya?”</p>
+<p>	“Pemimpin klan!” Fang Zheng terkejut dan dia menatap Gu Yue Bo, tergagap, “Aku … tentu saja aku menginginkannya.”</p>
+<p>	“Aku bisa memberikannya padamu.” Gu Yue Bo tertawa lebih ramah, “Tapi sebagai pemimpin klan, saya harus tidak memihak dan tidak bisa memberikannya kepada Anda tanpa alasan, jadi saya punya syarat.”</p>
+<p>	Fang Zheng mengangguk berulang kali, menatap lebar, “Kondisi apa?”</p>
+<p>	Senyum Gu Yue Bo menghilang, menunjukkan ekspresi tegas, “Saya ingin Anda menjadi yang pertama menembus peringkat satu ke peringkat dua, menjadi tempat pertama dalam hal kultivasi! Dan Jade Skin Gu ini adalah hadiah kemajuanmu.”</p>
+<p>	“Ah, naik ke Peringkat dua?” Gu Yue Fang Zheng ragu-ragu sejenak. Dia baru saja menjadi peringkat satu tahap tengah; setelah tahap tengah adalah tahap atas, dan setelah itu masih ada tahap puncak.</p>
+<p>	Tapi sekarang Gu Yue Bo ingin dia menjadi orang pertama yang naik ke peringkat dua.</p>
+<p>	“Ada apa, apa kamu takut? Maka saya hanya bisa memberikan Gu ini kepada orang lain. ” Gu Yue Bo berpura-pura menyimpan Jade Skin Gu.</p>
+<p>	Fang Zheng dihasut oleh kalimat ini, segera otaknya memanas saat dia berteriak, “Tidak, aku berjanji padamu! Saya akan mengalahkan semua orang dan menjadi pembudidaya Peringkat dua pertama! ”</p>
+<p>	“Itu caranya.” Gu Yue Bo menunjukkan senyum lembutnya lagi, menempatkan Gu Kulit Giok di tangan Fang Zheng.</p>
+<p>	Dia berpikir dalam hatinya, “Fang Zheng, aku tahu kamu merasa rendah diri, tetapi rasa rendah diri ini terlalu berbahaya bagi pertumbuhanmu. Cara terbaik untuk menghilangkan rasa rendah diri Anda adalah kesuksesan. Anda memiliki bakat kelas A, jadi naik ke Peringkat dua pertama adalah keuntungan terbesar Anda, dan juga kesuksesan termudah yang bisa Anda capai. Kamu harus berhasil, karena jika kamu gagal bahkan ini, aku akan sangat kecewa.”</p>
+<p>	Pada saat yang sama, Fang Yuan melangkah ke gua rahasia di balik celah batu lagi, masuk ke ujung terowongan.</p>
+<p>	Kali ini, dia tidak membawa sekop baja, beliung atau palu, tetapi dengan hati-hati mengamati sekeliling. Dia berkecil hati dengan kemunduran ini pada malam sebelumnya, dan dalam perjalanan kembali ke desa dia merasakan sesuatu yang tidak beres.</p>
+<p>	Baru hari ini di asrama di mana dia menggunakan Jangkrik Musim Gugur Musim Semi untuk memperbaiki Gu Cahaya Kecil, dia tiba-tiba memahami bagian aneh dari situasi ini.</p>
+<p>	“Batu besar yang menghalangi jalanku ini terlalu bulat dan mulus, ini pasti buatan manusia. Artinya, Biksu Bunga Anggur dengan sengaja mengatur ini untuk menghalangi jalan, tetapi mengapa dia mengatur rintangan ini di tempat seperti itu? Fang Yuan merenung.</p>
+<p>	Dia melihat sekeliling lagi.</p>
+<p>	Tanah dari jalan setapak itu halus dan bagian atasnya melengkung; dinding di kedua sisi adalah tanah merah, memancarkan cahaya merah.</p>
+<p>	“Eh?” Ketika dia melihat ke tanah lagi, dia menemukan titik kecurigaan.</p>
+<p>	Tanah di dekat batu raksasa itu berwarna sedikit lebih gelap. Perbedaan warna ini tidak terlalu jelas dan tidak mudah ditemukan di bawah lingkungan yang remang-remang.</p>
+<p>	Fang Yuan berlutut, menyentuh tanah, merasakan basah.</p>
+<p>	Tidak heran warnanya lebih gelap, basah.</p>
+<p>	Tapi jalan ini sangat kering, dari mana airnya berasal?</p>
+<p>	Fang Yuan menggiling tanah dengan jari-jarinya, menemukan bahwa tanah di sepetak bumi ini bermasalah. Sangat lembut dan gembur, tidak menggumpal seperti tanah merah yang kering.</p>
+<p>	Tatapan Fang Yuan bersinar. Pengalaman dan intuisi memberitahunya bahwa daerah ini memiliki ‘kunci’ yang disembunyikan oleh Biksu Anggur Bunga.</p>
+<p>	Dan ‘kunci’ ini adalah petunjuk yang akan memungkinkan dia untuk terus bergerak maju.</p>
+<p>	Fang Yuan mulai menggali tanah. Itu longgar sehingga dia tidak menghabiskan banyak usaha.</p>
+<p>	Setelah menggali sekitar satu inci lebih dalam, ada aroma aneh yang mengalir ke lubang hidung Fang Yuan.</p>
+<p>	“Aroma ini kental dan mewah namun tidak umum, tampaknya halus dan elegan, mungkinkah …” Hati Fang Yuan bergerak ketika dia memikirkan kemungkinan, tangannya bergerak lebih cepat.</p>
+<p>	Saat menggali, area di bawah tanah tiba-tiba memancarkan cahaya emas gelap samar.</p>
+<p>	“Itu benar-benar yang aku pikirkan!” Mata Fang Yuan bersinar, gerakan tangannya menjadi lebih halus, dengan hati-hati menggali tanah di sekitarnya, memperluas lubang ini.</p>
+<p>	Setelah beberapa saat, kuncup bunga berwarna emas gelap yang terkubur di bawah tanah muncul di depannya.</p>
+<p>	Itu dua inci di dalam tanah, seukuran penggilingan batu, permukaan kuncupnya halus dan dengan warna emas gelap, itu tampak misterius dan elegan.</p>
+<p>	“Itu benar-benar Gu Bunga Perbendaharaan Bumi!” Melihat ini, Fang Yuan menarik napas dalam-dalam.</p>
+<p>	Dia tidak ingin mengupas kelopak bunga, tetapi beristirahat di tanah, menyeka tanah dari tangannya. Kemudian dia perlahan mengulurkan tangannya dan membuka kelopak berwarna emas gelap.</p>
+<p>	Gu Bunga Perbendaharaan Bumi seperti kombinasi teratai dan kangkung. Kelopaknya dirajut erat dengan banyak potongan tebal, licin saat dirasakan. Saat Fang Yuan membuka kelopaknya satu per satu, itu seperti mengungkapkan lapisan sutra yang tebal.</p>
+<p>	Setelah meninggalkan tubuh utama, kelopak besar berwarna emas gelap akan menyebar dengan cepat. Itu seperti kepingan salju yang meleleh ke udara.</p>
+<p>	Setelah menemukan sekitar lima puluh hingga enam puluh keping kelopak, kuncupnya telah menyusut menjadi dua, memperlihatkan inti bunga.</p>
+<p>	Kelopak inti lebih kecil dan lebih tipis, teksturnya menjadi lebih halus dan halus. Itu tidak lagi seperti sutra, tetapi lebih seperti kertas tipis. .</p>
+<p>	Gerakan Fang Yuan menjadi lebih lembut dan lebih lambat, hanya membuka sepotong kelopak dalam beberapa napas.</p>
+<p>	Kelopak menjadi semakin transparan, dan setelah beberapa saat, ketika Fang Yuan telah membuka potongan-potongan kelopak seperti kertas tipis, dia menghentikan gerakannya.</p>
+<p>	Gu Bunga Perbendaharaan Bumi saat ini hanya memiliki lapisan kelopak terakhir yang tersisa.</p>
+<p>	Kelopak ini saling tumpang tindih, membentuk bola seukuran kepalan tangan.</p>
+<p>	Kelopaknya tembus pandang, setipis kertas. Di dalam kelopak ini terdapat cairan emas dan di tengah cairan ini, cacing Gu sedang tidur di dalamnya.</p>
+<p>	Fang Yuan melihat dengan seksama, tetapi dia hanya bisa melihat bayangan kabur dari cacing Gu, dan dia tidak bisa membedakan Gu yang mana.</p>
+<p>	Dia dekat dengannya, dan napasnya terhembus pada inti bunga. Inti bunga bulat mulai bergetar, cairan emas juga bergerak lembut di dalam kelopak.</p>
+<p>	Cacing Gu akan mati tanpa makanan, dan hanya beberapa cacing Gu yang bisa menyegel dirinya sendiri. Untuk melindungi dan melestarikan cacing Gu, Master Gu telah memikirkan banyak metode.</p>
+<p>	Gu Bunga Perbendaharaan Bumi adalah salah satunya.</p>
+<p>	Itu adalah tipe Gu sekali pakai, dan setelah ditanamkan di tanah, itu tidak bisa dipindahkan.</p>
+<p>	Makanannya sederhana, yaitu energi bumi. Selama ditanam di tanah, itu akan mampu bertahan dengan energi bumi yang cukup.</p>
+<p>	Itu hanya memiliki satu kegunaan, dan itu mengandung Gu di dalam hati bunga dan merendam Gu dalam cairan emas.</p>
+<p>	Nektar emas ini sampai batas tertentu, meniru keadaan penyegelan dan membiarkan cacing Gu jatuh ke hibernasi.</p>
+<p>	“Biksu Bunga Anggur menanam Gu Bunga Perbendaharaan Bumi ini, jadi Gu di dalam harus untuk pewaris.” Fang Yuan mengulurkan jari dan mengupas kelopak yang tersisa dengan hati-hati, memperlihatkan celah.</p>
+<p>	Cairan keemasan mengalir di sepanjang jarinya, terasa seperti minyak kedelai.</p>
+<p>	Inti bunga mulai melunak dengan hilangnya cairan emas. Fang Yuan menggerakkan jarinya dan kelopaknya terbelah, memungkinkan dia untuk mengambil cacing Gu yang tertidur.</p>
+<p>	Itu adalah kumbang kecil yang lucu. Hanya sebesar kuku ibu jari.</p>
+<p>	Tubuhnya berwarna putih susu, dan jika dilihat dari belakang, bentuknya seperti lingkaran.</p>
+<p>	Kepalanya hanya menempati area kecil, sedangkan bagian tubuh lainnya adalah perutnya yang besar dan gemuk dan kerangka luarnya yang mengkilap.</p>
+<p>	Enam kaki kecilnya juga berwarna krem, tersembunyi di bawah perutnya.</p>
+<p>	“Gu Babi Putih!” Fang Yuan menunjukkan ekspresi kegembiraan di wajahnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

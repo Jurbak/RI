@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 157 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 157";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_156.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 157">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_158.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 157</h1>
+        <div class="text-left">
+<p>	Bab 157</p>
+<p>	Bab 157: Gu Darah Bulan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Hari kedua, ruang rahasia.</p>
+<p>	Di piring batu giok putih mengkilap, ada resep —</p>
+<p>	Gu Bulan Darah.</p>
+<p>	Menggunakan Peringkat dua Moonglow Gu dan Blood Essence Gu untuk menggabungkan dan membentuk cacing Gu peringkat tiga.</p>
+<p>	Setelah diaktifkan, moonblade bersinar merah darah, dengan ukuran wajah. Jika seseorang terluka karenanya, akan ada efek pendarahan terus menerus.</p>
+<p>	“Itu dia.” Tatapan Fang Yuan menyapu informasi dan menghafal resep ini di dalam hati. Kemudian dia menutup matanya dan membaca lagi, dan membuka matanya untuk memeriksa. Setelah beberapa kali, dia memeriksa bahwa dia telah benar-benar menghafal resep ini di dalam hatinya, tanpa margin kesalahan.</p>
+<p>	Dibandingkan dengan Golden Moon, Frost Moon dan Illusionary Moon Gu – tiga klasik, Blood Moon Gu ini jauh lebih tidak lazim.</p>
+<p>	Resep penyempurnaan tiga mantan memiliki hampir seratus ribu kata pengalaman penyempurnaan. Tapi Blood Moon Gu ini hampir tidak memiliki beberapa ribu.</p>
+<p>Dapat dilihat bahwa sepanjang sejarah, Gu Master yang memilih Blood Moon Gu ini sangat langka.</p>
+<p>	Kemampuan menyerang Blood Moon Gu rata-rata. Itu hanya memiliki jarak sepuluh meter, dan bahkan efek pendarahan setelah menyerang tidak optimal.</p>
+<p>	Master Gu dari Peringkat satu hingga lima memiliki esensi purba yang terbatas, dan tidak dapat bertahan untuk pertempuran panjang untuk menentukan pemenangnya. Efek pendarahan, di medan perang yang sebenarnya, hanyalah masalah kecil. Melawan Master Gu yang berpengalaman dalam penyembuhan, mereka bahkan bisa memiliki kemampuan untuk melawan ini.</p>
+<p>	Selanjutnya, Blood Moon Gu memiliki kelemahan terbesar.</p>
+<p>	Setiap beberapa hari dalam sebulan, itu akan mengeluarkan darah segar. Darah akan mengalir tak terkendali dan selama periode ini, kekuatan serangannya akan berkurang sepertiga dari aslinya.</p>
+<p>	Tapi itu memiliki keuntungan terbesar yang disukai Fang Yuan.</p>
+<p>	Itu mudah untuk memberi makan.</p>
+<p>Jauh lebih mudah daripada Golden Moon, Frost Moon dan Illusionary Moon.</p>
+<p>	Makanan yang dibutuhkannya bukan lagi kelopak bunga anggrek bulan, melainkan darah segar.</p>
+<p>	Meskipun darah yang dibutuhkan banyak, tidak terbatas pada satu jenis. Di Gurun Barat itu mungkin menjadi masalah, tetapi Perbatasan Selatan memiliki semua jenis binatang buas di daerah hutan dan pegunungannya.</p>
+<p>	Membunuh mereka akan memudahkan pengambilan darah. Bagi Blood Moon Gu, makanannya ada di seluruh Perbatasan Selatan, di mana-mana.</p>
+<p>	“Selanjutnya, yang harus saya lakukan adalah memperbaiki Gu Bulan Darah ini.” Fang Yuan memutuskan dalam hatinya.</p>
+<p>	Langkah-langkah penyempurnaan, serta hal-hal yang perlu diperhatikan, semuanya dihafal olehnya. Di tangannya, sudah ada Moonglow Gu, tetapi Blood Essence Gu sedikit lebih sulit untuk dipegang.</p>
+<p>	Darah Esensi Gu sangat berharga, mampu mengisi kembali darah seorang Guru Gu. Master Gu dengan itu selalu energik dan bahkan jika mereka terluka dan kehilangan banyak darah, mereka dapat mengisinya kembali dengan mudah. Dengan demikian, kemampuan bertahan mereka dalam pertempuran jauh lebih tinggi daripada yang lain.</p>
+<p>Xiong Jiang pernah sangat menginginkan Gu Esensi Darah.</p>
+<p>	Jika Blood Essence Gu dipasangkan dengan Roaming Zombie Gu, itu akan sangat mengurangi efek sampingnya. Itu akan memungkinkan dia menjadi zombie untuk waktu yang lebih lama tanpa khawatir akan serangan balik.</p>
+<p>Dia sudah menjadi ahli Gu Master peringkat dua, dan memiliki posisi yang agak tinggi, tetapi sampai dia meninggal, keinginannya tidak terpenuhi.</p>
+<p>	Di ruang rahasia, Fang Yuan melihat Digital Shade Gu di atas meja batu lagi.</p>
+<p>	Masih ada banyak waktu hari ini. Dari lima belas menit, dia hanya menggunakan lima menit, jadi masih ada sepuluh menit lagi.</p>
+<p>	Digital Shade Gu kuning mencatat resep Peringkat empat. Digital Shade Gu ungu mencatat peringkat lima resep.</p>
+<p>	Pemilik Digital Shade Gu ini selalu menjadi generasi dari setiap tetua klan Aula Rahasia. Tapi yang bertanggung jawab untuk memberi mereka makan, adalah klan.</p>
+<p>Cacing Gu bisa dipinjam, selama kemauan cacing Gu mengakuinya.</p>
+<p>	Surat wasiat di Digital Shade Gu adalah satu dengan tetua klan Aula Rahasia. Fang Yuan sebagai tetua klan yang baru maju, diakui oleh tetua klan Aula Rahasia sehingga ia dapat dengan bebas menggunakan sebagian dari Digital Shade Gu.</p>
+<p>	Tetapi tetua klan Aula Rahasia tidak berpikir Fang Yuan memiliki wewenang untuk menelusuri resep Peringkat empat dan lima, sehingga Digital Shade Gu kuning dan ungu, bahkan jika ia menggunakan esensi purba, tidak akan ada reaksi apa pun.</p>
+<p>Yang benar adalah, bahkan jika itu adalah cacing Gu alami yang liar, adalah mungkin untuk mendapatkan pengakuan mereka juga.</p>
+<p>	Raja-raja binatang itu seperti ini, sehingga bisa meminjam kemampuan cacing Gu. Di antara manusia, situasi seperti itu juga terjadi, seperti kisah Kodok Menelan Sungai Peringkat lima dan Jiang Fan.</p>
+<p>	Tentu saja, Fang Yuan bisa mengandalkan aura Musim Semi Musim Gugur Jangkrik untuk memperbaiki cacing Gu ini dan mendapatkan resepnya, itu pasti mungkin.</p>
+<p>	Tetapi konsekuensi dari melakukan itu, adalah sesuatu yang belum bisa ditangani Fang Yuan. Manfaat yang terlibat juga tidak cukup baginya untuk bertindak.</p>
+<p>	“Sebenarnya resep yang paling berharga bukanlah resep peringkat empat atau lima ini, tetapi bagaimana merekayasa balik Moonlight Gu. Gu ini berasal dari pemimpin klan generasi pertama, dan atas dasar itu, setelah ratusan tahun, berkembang menjadi skala dan struktur seperti itu, ”pikir Fang Yuan.</p>
+<p>	Fusi Gu adalah untuk mengubah cacing Gu peringkat rendah menjadi cacing peringkat tinggi, sedangkan penggabungan terbalik adalah untuk mengubah cacing Gu peringkat tinggi, kembali ke bentuk yang lebih rendah.</p>
+<p>	Antara naik dan turun, karena proses yang berbeda, apa yang diperoleh bisa menjadi cacing Gu yang sama sekali berbeda.</p>
+<p>Moonlight Gu bukanlah cacing Gu alami, tetapi sesuatu yang didapat dari fusi terbalik oleh pemimpin klan generasi pertama.</p>
+<p>	Cacing Gu di dunia ini sebagian besar adalah spesies baru yang diciptakan oleh banyak Master Gu berdasarkan cacing Gu alami. Jadi, bahkan dengan lima ratus tahun pengalaman Fang Yuan, dia masih memiliki pengetahuan yang terbatas tentang ekologi cacing Gu secara keseluruhan.</p>
+<p>	Dan untuk klan, mereka pasti akan memiliki satu atau beberapa cacing Gu yang unik. Cacing Gu ini bukanlah spesies alami yang langka, tetapi spesies baru yang diciptakan melalui fusi terbalik.</p>
+<p>Atas dasar ini, Master Gu dapat mengembangkan kekuatan yang unik untuk klan mereka.</p>
+<p>	Moonlight Gu klan Gu Yue, Gu Kekuatan Beruang klan Xiong, Stream Gu klan Bai, semuanya sama.</p>
+<p>	Jika mereka menggunakan worm Gu yang umum dan terkenal, mereka akan mudah ditangani, dan mudah ditargetkan.</p>
+<p>Fondasi klan terletak pada mata air purba, karena dapat menghasilkan batu purba. Berikutnya adalah cacing Gu unik yang dapat mencegah kekuatan seseorang diuraikan sepenuhnya. Terakhir adalah garis keturunan, garis keturunan dan kekerabatan adalah rantai penting yang mengikat klan bersama.</p>
+<p>	Jadi, jangan meremehkan Peringkat satu Moonlight Gu – nilai resep fusi terbaliknya jauh lebih besar daripada resep Peringkat empat atau lima.</p>
+<p>Resep untuk membalikkan sekering Moonlight Gu biasanya disimpan oleh pemimpin klan. Selain pemimpin klan, tetua klan paling setia dari generasi itu juga akan mengetahui rahasia resepnya. Pada saat yang sama, Digital Shade Gu dari resep Moonlight Gu juga disembunyikan dengan tepat.</p>
+<p>	Fang Yuan jelas tidak bisa mendapatkan resep dari ruang rahasia ini.</p>
+<p>	“Nilai resep ini sangat tinggi, jadi jika saya bisa mendapatkannya sebelum saya pergi, itu akan menjadi yang terbaik. Tapi aku tidak harus memaksanya.” Fang Yuan sangat jelas tentang masalah ini.</p>
+<p>	Sebagai permulaan, dia tidak berencana untuk membuat organisasi atau kekuatan. Resep Moonlight Gu baginya, bukanlah suatu keharusan.</p>
+<p>	“Namun, Blood Moon Gu dan resep peringkat tiga lainnya adalah yang saya butuhkan.”</p>
+<p>	Meskipun Fang Yuan berada di peringkat tiga sekarang dan memiliki esensi purba perak putih, tidak semua cacing Gu-nya berada di peringkat tiga, jadi dia tidak bisa menampilkan kekuatan bertarung sejati dari Master Gu peringkat tiga.</p>
+<p>	“Saya memiliki Thunderwings Gu dan Sky Canopy Gu, jadi jika saya berhasil memperbaiki Blood Moon Gu, saya akan memiliki tiga cacing Gu peringkat tiga. Tapi itu tidak cukup dekat.”</p>
+<p>	Master Gu biasa dapat mengandalkan klan. Dengan kerja sama klan mereka, serta sumber daya yang cukup, mereka hanya membutuhkan tiga hingga empat cacing Gu.</p>
+<p>	Tetapi Fang Yuan ingin menjelajahi Perbatasan Selatan dan meninggalkan tanah airnya, jadi dia membutuhkan setidaknya enam cacing Gu untuk menghadapi semua situasi.</p>
+<p>	Dengan pengalamannya, enam cacing Gu harus menyerang, bertahan, menyembuhkan, menyimpan, mengintai, dan bergerak – enam atribut untuk memberinya dukungan yang cukup.</p>
+<p>	Untuk serangan, Blood Moon Gu nyaris tidak memenuhi syarat. Untuk pertahanan dia memiliki Sky Canopy Gu. Dari segi gerakan, meskipun Thunderwings Gu menggunakan banyak esensi purba, itu dapat memungkinkan penerbangan sementara dan sangat kuat.</p>
+<p>	Untuk penyembuhan, Rumput Vitalitas Sembilan Daun sedikit lemah. Bagaimanapun, ini adalah Gu peringkat dua, dan bahkan opsi kemajuan tidak memuaskan bagi Fang Yuan.</p>
+<p>Rumput Vitalitas Sembilan Daun Peringkat dua tidak memiliki kemampuan penyembuhan yang luar biasa. Satu-satunya keuntungannya adalah menciptakan vitalitas peringkat satu dan dari menjual itu, Fang Yuan bisa mendapatkan pasokan batu purba yang berkelanjutan, mirip dengan pohon uang.</p>
+<p>	Tetapi setelah itu, Fang Yuan akan melakukan perjalanan ke tempat-tempat di mana tidak ada penduduk, jadi bahkan jika dia menciptakan daun vitalitas, tidak ada Master Gu yang akan membelinya menggunakan batu purba.</p>
+<p>	Untuk pengintaian, Earth Communication Ear Grass memiliki jangkauan yang sangat besar, sehingga bahkan sebagai peringkat dua, itu masih dapat digunakan.</p>
+<p>	Untuk penyimpanan, Fang Yuan tidak memiliki Gu seperti itu. Bagaimanapun, ini adalah Gu yang paling penting. Ini karena setelah dia mulai bepergian sendiri, perbekalan adalah yang paling penting, itu sendiri dapat menjadi dasar dari lima kategori lainnya.</p>
+<p>	Menyimpan makanan untuk memberi makan cacing Gu, makanannya sendiri, dan menyimpan batu purba.</p>
+<p>	Tanpa batu purba, Guru Gu kehilangan kekuatan untuk berkultivasi.</p>
+<p>	Dalam hal ini, Fang Yuan tidak memiliki kemajuan. Sebelum dia mendapatkan worm Gu tipe penyimpanan yang memuaskan, dia tidak akan meninggalkan desa.</p>
+<p>	“Cacing Gu untuk penyimpanan, syarat pertama adalah utilitas yang luas, mampu menyimpan makanan dan batu purba. Selanjutnya, mereka harus mudah diberi makan, dan terakhir, yang terbaik adalah jika mereka memiliki kemampuan untuk memperpanjang tanggal kedaluwarsa barang yang disimpan. Tetapi bahkan di papan sumber daya dari tiga klan, tidak ada cacing Gu yang saya suka. Sepertinya aku hanya bisa memanfaatkan faksi Chi dan memeras sisa tabungan mereka.”</p>
+<p>	Setelah lima belas menit berlalu, Fang Yuan berjalan keluar dari terowongan sambil terus merenung.</p>
+<p>	“Tuan Fang Yuan, halo.” Seorang Guru Gu setengah baya berdiri di luar, secara khusus menunggu Fang Yuan.</p>
+<p>	“Kamu adalah?”</p>
+<p>	Orang itu tersenyum, “Saya Gu Yue Chi Zhong, sesepuh klan ruang obat yang bertindak saat ini.”</p>
+<p>	“Jadi itu dia,” Fang Yuan menyadari, mulai mengamati orang ini dari dekat.</p>
+<p>	Gu Yue Chi Zhong memiliki penampilan yang tepat dengan wajah persegi, dan dia menunjukkan aura stabilitas. Mirip dengan Fang Yuan, dia juga seorang tetua klan, tetapi kultivasinya adalah peringkat tiga tahap tengah.</p>
+<p>	Setelah Fang Yuan menyebabkan Gu Yue Yao Ji pingsan, Gu Yue Chi Zhong telah diperintahkan untuk sementara memimpin ruang pengobatan, dan istrinya adalah anggota penting dari faksi obat, jadi ini adalah pendekatan politik Gu Yue Bo untuk menyeimbangkan kedua faksi. persaingan.</p>
+<p>	Tapi tidak peduli apa, Gu Yue Chi Zhong masih berhasil naik ke peran ini.</p>
+<p>	“Ini adalah tiga ratus batu purba, pembayaran kepada para tetua klan untuk minggu ini. Saya tahu bahwa Anda ada di sini, jadi saya membawa ini juga. Saya harap Anda tidak keberatan saya mengambil tindakan sendiri, ”kata Gu Yue Chi Zhong, menyerahkan kantong uang kepada Fang Yuan.</p>
+<p>	“Pria ini …” Fang Yuan menyipitkan mata, mengambil tasnya.</p>
+<p>	Pembayaran para tetua klan harus dikumpulkan oleh tetua klan itu sendiri. Tapi Gu Yue Chi Zhong bisa mengumpulkannya untuknya, jadi dalam beberapa hal, ini mengisyaratkan Fang Yuan statusnya di klan serta jaringan sosialnya.</p>
+<p>	Tapi petunjuk ini juga tepat waktu, karena menunjukkan tanda niat baik, dan tidak agresif.</p>
+<p>	“Sejujurnya, saya mengambil inisiatif untuk menemukan Tuan Fang Yuan kali ini, karena saya memiliki masalah untuk ditanyakan kepada Anda.”</p>
+<p>	Segera setelah itu, dia langsung ke topik dan menyebutkan niatnya.</p>
+<p>	“Oh, kamu ingin aku menyerahkan Rumput Vitalitas Sembilan Daun?” Fang Yuan menunjukkan ekspresi mendalam yang dalam.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

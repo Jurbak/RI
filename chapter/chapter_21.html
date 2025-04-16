@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 21 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 21";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_20.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 21">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_22.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 21</h1>
+        <div class="text-left">
+<p>	Bab 21</p>
+<p>	Bab 21 – Bagaimana bisa kakak laki-laki itu mendapat nomor satu?</p>
+<p>	Langit belum cerah, dan matahari belum terbit. Langit timur baru mulai cerah, warna gelap di langit perlahan memudar, aroma malam masih tersisa di udara.</p>
+<p>	Jalanan kosong, lalu terdengar suara langkah kaki yang cepat. Udara pegunungan dini hari terasa lembab, namun Gu Yue Fang Zheng tidak merasakan hawa dingin sedikit pun; hatinya penuh dengan antusiasme yang melonjak. Wajahnya merona merah, dan sekarang dia berjalan cepat menuju akademi.</p>
+<p>	“Saya telah berkultivasi dengan keras beberapa hari ini, menghabiskan dua batu purba. Saya tidak tidur sama sekali tadi malam, dan saya akhirnya berhasil menyempurnakan Moonlight Gu . Saya seorang bakat kelas A dan saya sangat pekerja keras. Tidak ada yang bisa lebih cepat dari saya, tidak ada! Ayah dan ibu, sudah kubilang aku tidak akan membiarkanmu merasa kecewa.”</p>
+<p>	Ketika dia memikirkan saat di mana dia memberi tahu bibi dan pamannya tentang kabar baik sebelumnya, mereka menyatakan kebahagiaan dan kelegaan, membuat Fang Zheng merasakan gelombang kegembiraan dan kebanggaan.</p>
+<p>	“Tunggu saja, kalian semua klan yang memandang rendah aku, dan kakak laki-laki. Mulai hari ini dan seterusnya, aku akan membuat kalian semua memandangku, Gu Yue Fang Zheng!”</p>
+<p>	Semakin dia berpikir, semakin Fang Zheng merasa bersemangat. Dia tidak bisa menahan diri untuk tidak mengepalkan tinjunya, dan langkahnya semakin cepat.</p>
+<p>	Dia datang ke pintu masuk akademi.</p>
+<p>	Dua penjaga akademi memandangnya dengan aneh. Mereka bertanya kepadanya, “Umm, Gu Yue Fang Yuan, mengapa kamu kembali?”</p>
+<p>	“Apa, kakak baru saja ada di sini?” Ketika Fang Zheng mendengar mereka, wajahnya menunjukkan sedikit kejutan dan kebingungan.</p>
+<p>	“Ah, terserah!” Dia tidak akan pernah menduga bahwa Fang Yuan akan merebut nomor satu. Dia menggelengkan kepalanya dan menangkupkan kedua tangannya, nada suaranya menunjukkan sedikit arogansi, “Dua kakak laki-laki, aku bukan Gu Yue Fang Yuan, tapi aku Gu Yue Fang Zheng. Saya telah berhasil menyempurnakan Gu vital saya , dan saya di sini untuk datang dan mengambil hadiah utama.”</p>
+<p>	“Kamu Gu Yue Fang Zheng? Kalian bersaudara terlalu mirip, tidak heran tetua akademi itu salah, ”teriak penjaga di sisi kiri, matanya melebar. Penjaga di sebelah kanan menggelengkan kepalanya dan berkata, “Kamu terlambat satu langkah. Tadi malam di larut malam, kakak laki-lakimu Gu Yue Fang Yuan datang dan bertemu dengan tuan tua dan mengambil hadiah utama. ”</p>
+<p>	“Kakak saya!” Fang Zheng tiba-tiba membuka matanya lebar-lebar, berteriak, ” Tunggu , kamu bilang dia mendapat nomor satu?”</p>
+<p>	Bagaimana ini bisa terjadi! Bukankah kakak laki-lakinya bakat kelas C?</p>
+<p>Mendapatkan nomor satu, ini memiliki menjadi lelucon kan ?!</p>
+<p>	“Itu benar. Bagaimana mungkin kita bisa bercanda dengan masalah ini? ” Melihat Fang Zheng dengan tidak percaya, penjaga itu tampak agak tidak senang.</p>
+<p>	“Masalah ini telah dikonfirmasi oleh sesepuh akademi. Pada waktunya daftar nama akan dirilis dan diumumkan. Ada apa, kakakmu tidak memberitahumu tentang itu?” Penjaga lainnya menambahkan.</p>
+<p>	Fang Zheng hanya berdiri konyol di pintu.</p>
+<p>	Kebenarannya jauh berbeda dari imajinasinya; sekarang dia tidak bisa mengerti apa yang baru saja terjadi. Di hati Fang Zheng, ada beberapa ilusi musuhnya. Di antara mereka, yang paling membawa ancaman adalah dua – Gue Yue Mo Bei, dan Gu Yue Chi Lian.</p>
+<p>	Keduanya memiliki bakat peringkat B. Di belakang mereka ada dua cabang keluarga terbesar klan, dan masing-masing dari mereka memiliki kakek yang membawa otoritas besar sebagai penatua, serta kekuatan finansial yang cukup.</p>
+<p>	Jika salah satu dari dua orang ini memenangkan tempat pertama atas dirinya, hati dan pikiran Fang Zheng masih siap. Meskipun dia akan merasakan kehilangan, itu masih bisa diterima.</p>
+<p>	Tapi saat ini, orang yang mengambil nomor satu bukanlah Gu Yue Mo Bei atau Gu Yue Chi Lian; itu bahkan tidak ada lawan di hatinya.</p>
+<p>	Tapi itu Gu Yue Fang Yuan, kakak laki-lakinya!</p>
+<p>Orang dengan bakat kelas C itu!</p>
+<p>Orang yang terjatuh dan menjadi sedih setelah Upacara Kebangkitan!</p>
+<p>Orang yang tidur nyenyak di kelas sepanjang hari!</p>
+<p>Orang yang selalu mabuk berat dan tidak pernah pulang pada malam hari!</p>
+<p>Orang yang menindas Shen Cui, menamparnya dua kali, dan mengambil semua batu purbanya!</p>
+<p>Orang yang selalu menahannya, seperti bayangan yang tertanam di hatinya!</p>
+<p>	“ Bagaimana bisa seperti ini? Itu tidak mungkin! ” Dalam waktu singkat, Fang Zheng meraung dalam hatinya, “Saya sangat pekerja keras, tetapi dia hanya minum setiap hari sampai dia mabuk, namun pada akhirnya dialah yang mendapat nomor satu, apakah ini adil? Mengapa? Kenapa ?!”</p>
+<p>	Matahari terbit dari timur, burung-burung berkicau, dan udara musim semi yang meluap mengambil alih Gunung Qing Mao.</p>
+<p>	Gu Yue Fang Zheng mandi di bawah sinar matahari yang hangat. Dia perlahan menundukkan kepalanya, menggertakkan giginya, melihat bayangan kesepiannya sendiri. Kegembiraan di hatinya telah berubah menjadi balon yang mengeluarkan udara, lama menghilang. Alih-alih yang menggantikannya adalah emosi kebingungan, dendam, keengganan, kebingungan, ketakutan, dan perasaan rumit lainnya.</p>
+<p>	Seiring berjalannya waktu, matahari semakin tinggi.</p>
+<p>	Dinding buletin akademi telah memasang daftar nama baru, dan dalam daftar itu hanya ada dua nama – pertama Fang Yuan, dan kemudian Fang Zheng. Mengikuti munculnya daftar ini, berita itu secara bertahap menyebar.</p>
+<p>	Setelah mendengar berita itu, semua siswa muda yang bertekad menyempurnakan Gu mereka di rumah setelah menerima satu menjadi gempar.</p>
+<p>	“Bagaimana bisa seperti ini!”</p>
+<p>	“Jika Fang Zheng yang mendapat nomor satu, aku masih akan mempercayainya, tapi itu Fang Yuan, bukankah dia bakat kelas C?”</p>
+<p>	“Mungkinkah ada kesalahan, bakat kelas A Fang Zheng benar-benar kalah dari bakat kelas C Fang Yuan, apakah ini Kisah Seribu Satu Malam (1)?”</p>
+<p>	Rumah keluarga cabang Mo.</p>
+<p>	Tanaman hijau di halaman meluap, aroma teh menari-nari.</p>
+<p>	Salah satu tetua klan dari klan Gu Yue, Gu Yue Mo Bei sedang duduk di depan mejanya, melihat pemandangan musim semi di luar jendelanya. Dia dengan santai meminum tehnya dan berkata, “Mo Bei belum melanjutkan menyempurnakan Gu- nya ?”</p>
+<p>	Pengurus rumah tangga yang berdiri di samping buru-buru menjawab, “Setelah dia mendengar tentang berita tentang Fang Yuan di sore hari, tuan muda Mo Bei tampaknya sangat terpengaruh dan tidak berminat untuk terus menyempurnakan Moonlight Gu . Sangat disayangkan, tuan muda Mo Bei hampir saja berhasil. Sebenarnya, jika Fang Zheng mendapat nomor satu itu masih bisa diabaikan, tetapi hanya memiliki untuk menjadi yang C kelas bakat Fang Yuan. Jadi tuan muda Mo Bei kehilangan minatnya, mau bagaimana lagi.”</p>
+<p>	“Hmph! Jangan maafkan dia.” Gu Yue Mo Chen mendengus dingin, wajahnya tegas dan nada suaranya keras, “ Proses kultivasi Guru Gu penuh dengan kesulitan setiap langkah, apa kemunduran kecil seperti ini? Fang Yuan itu hanya kelas C, jadi untuk bisa mendapatkan nomor satu itu mungkin karena keberuntungan. Moonlight Gu yang dia pilih pasti memiliki kemauan yang lemah, jadi begitulah cara dia bisa merebut puncak. Jika Mo Bei tidak bisa melihat melalui ini dan membiarkan kemunduran kecil seperti itu menimpanya, lalu bagaimana dia bisa bertanggung jawab atas cabang keluarga Mo kita di masa depan, bagaimana dia bisa bersaing dengan cabang keluarga Chi? Tidak ada yang diizinkan untuk menasihatinya, biarkan dia memikirkannya sendiri! ”</p>
+<p>	“Ya tuan.” Pengurus rumah tangga tidak berani membantah.</p>
+<p>	Hampir pada saat yang sama, di rumah cabang keluarga Chi.</p>
+<p>	“Huh, Gu Yue Fang Yuan…” Tetua klan Gu Yue Chi Lian menghela nafas panjang, alisnya berkerut saat dia berpikir, melambaikan tangannya. “Seseorang, tolong panggil tuan muda Chi Chen.”</p>
+<p>	Sesaat, Gu Yue Chi Chen masuk ke ruangan dengan ekspresi hilang, berlutut dengan hormat, “Cucumu menyapa kakeknya.”</p>
+<p>	“Sepertinya kamu sudah tahu tentang berita itu,” Gu Yue Chi Lian menatap satu-satunya cucu langsungnya, nadanya lembut. Dia perlahan berkata, “Aku memanggilmu untuk mencegahmu terpengaruh oleh masalah ini. Anda tahu, ketika menyempurnakan Gu vital , pertama-tama orang melihat bakatnya, kedua pada cacing Gu . ”</p>
+<p>	“Bakat Fang Yuan hanya kelas C, namun dia bisa mendapatkan nomor satu kali ini. Ini berarti Gu yang dia pilih -dibandingkan dengan semua Moonlight Gu yang dimiliki rekan- rekanmu – memiliki kemauan yang jauh lebih lemah. Ini sepenuhnya karena keberuntungan. Jadi cucuku, jangan berkecil hati, ini bukan apa-apa kok. Dia hanya talenta kelas C, meskipun dia sama denganmu, tetapi persediaan sumber dayanya tidak sebaik milikmu. Jalannya menuju kemajuan juga akan lebih sulit daripada milikmu, percayalah kakekmu, kamu akan segera melampaui dia. ”</p>
+<p>	“Makanya kamu harus menyingkirkan masalah sepele ini. Fang Yuan tidak akan menjadi lawanmu, dan tidak layak menjadi musuhmu. Musuhmu yang sebenarnya adalah bakat kelas A Fang Zheng dan Mo Bei dari keluarga Mo. Apakah kamu mengerti?”</p>
+<p>	“Ya, terima kasih atas saranmu, kakek. Saya mengerti. Saya akan pergi sekarang dan terus menyempurnakan Gu saya !” Gu Yue Chi Chen telah kehilangan ekspresi sedih di wajahnya, menggantikannya dengan keinginan yang tinggi untuk bertarung.</p>
+<p>	“Mm.” Penatua Gu Yue Chi Lian mengangguk, puas. Senyum ramah muncul dari wajahnya dan dia berkata, “Cucu yang baik. Meskipun bakat Anda hanya kelas C, tetapi Anda dapat yakin bahwa kakek akan mendukung Anda sepenuhnya. Nanti, aku akan keluar dan menggunakan aura cacing peringkat tiga Gu untuk menekan kehendak Moonlight Gumu dan membantumu memperbaiki Gu ini !”</p>
+<p>	(1)天方夜谭 – Saya tidak sepenuhnya yakin apa artinya di sini, tetapi saya hanya mendapatkan malam Arab dari mencari kata itu, Baidu memberi tahu saya bahwa itu adalah judul Dongeng dari Seribu Satu Malam.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 143 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 143";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_142.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 143">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_144.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 143</h1>
+        <div class="text-left">
+<p>	Bab 143</p>
+<p>	Bab 143: Jawaban</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Segera setelah itu, Fang Zheng juga bergegas.</p>
+<p>	“Tuan Qing Shu!” Dia memiliki ekspresi gembira, dengan bodohnya berlari ke arah Gu Yue Qing Shu, tetapi segera dipaksa mundur oleh jarum peniti.</p>
+<p>	“Pemimpin grup, ini aku Fang Zheng !!” Dia berteriak kaget, merasakan sesuatu yang salah untuk pertama kalinya.</p>
+<p>	Tapi bagaimana Gu Yue Qing Shu bisa menjawabnya.</p>
+<p>	“Kakak, ada apa dengan Tuan Qing Shu?” Fang Zheng, di bawah kebingungan dan keterkejutan, hanya bisa menoleh ke Fang Yuan.</p>
+<p>	Tapi Fang Yuan mengabaikannya, berjongkok dan meraih dengan tangan kanannya, membuat bentuk cakar ke arah Bai Ning Bing.</p>
+<p>	Menjarah Gu!</p>
+<p>	Dia diam-diam mengaktifkan Gu ini, dengan cepat merasakan bahwa dia telah mengambil sesuatu.</p>
+<p>	Dia dengan cepat menarik kembali, dan cacing Gu terbang keluar dari tubuh Bai Ning Bing.</p>
+<p>	Itu adalah Relic Gu baja merah!</p>
+<p>	Ini diberikan kepada Bai Ning Bing oleh pemimpin klan Bai, tetapi Bai Ning Bing tidak pernah menggunakannya karena dia dengan cepat mencapai kultivasi Peringkat tiga.</p>
+<p>	Sekarang, itu menjadi jarahan Fang Yuan.</p>
+<p>	Melihat Relic Gu baja merah keluar dari tubuh Bai Ning Bing dan terbang menjauh, mendarat di telapak tangan Fang Yuan, para Master Gu klan Bai cemas sampai mata mereka memerah, mulai berteriak.</p>
+<p>	“Bajingan, jika kamu tidak ingin mati, berhenti sekarang!”</p>
+<p>	“Mencuri cacing Gu klan Bai kami tepat di depan kami !!”</p>
+<p>	“Ini adalah cacing Relic Gu baja merah …”</p>
+<p>	Fang Yuan tertawa dingin. Setelah Relic Gu baja merah diperoleh, dia menggunakan Jangkrik Musim Gugur Musim Semi untuk langsung memperbaikinya tetapi tidak menyimpannya di lubangnya, malah meletakkannya di pakaiannya, memberi kesan bahwa dia belum memperbaikinya.</p>
+<p>	Dia meraih sekali lagi; kali ini kumbang berwarna abu-abu terbang keluar.</p>
+<p>	“Stone Aperture Gu …” Fang Yuan segera mengenali Gu ini. Saat matanya bersinar, dia memperbaikinya sekali lagi dan menyimpannya di tangannya.</p>
+<p>	“Sialan, satu lagi cacing Gu!”</p>
+<p>	“Hentikan dia, hentikan dia, dia berani melakukannya secara terbuka, dia tidak menghargai klan Bai kita.”</p>
+<p>	“Selamatkan Bai Ning Bing, bunuh orang-orang ini!”</p>
+<p>	Klan Bai Gu Masters menggeram, berlari dengan marah dari jalur gunung.</p>
+<p>	Bai Ning Bing mendapat dukungan penuh dari klannya, jadi setiap cacing Gu yang dimilikinya luar biasa. Sekarang mereka direnggut oleh Fang Yuan di depan umum, mereka semua bisa merasakan hati mereka berdarah.</p>
+<p>	Ini terasa lebih buruk daripada membunuh mereka.</p>
+<p>	Melihat orang-orang ini mendekat dengan aura mereka yang mengesankan, Fang Zheng mundur selangkah ketakutan, tetapi Fang Yuan tidak terpengaruh.</p>
+<p>	Dalam adegan saat ini, dia dan Fang Zheng berada di sisi timur jalan gunung sementara klan Bai Gu Masters berada di barat, dan di tengah kedua sisi adalah Gu Yue Qing Shu dan Bai Ning Bing.</p>
+<p>	wussss!</p>
+<p>	Jarum peniti menghujani seperti kucing dan anjing.</p>
+<p>	“Sialan …” Master klan Bai Gu mulai memarahi, karena mereka diblokir oleh Gu Yue Qing Shu.</p>
+<p>	“Gu Yue Qing Shu akan mati kapan saja, waktu yang tersisa hanya memungkinkan saya untuk menggunakan Gu Perampasan sekali, apa kali ini?” Fang Yuan menjadi tenang, menggunakan Gu Plunder lagi.</p>
+<p>	Setiap kali Gu Penjarahan digunakan, ia menghabiskan sejumlah besar esensi purba. Itu tergantung pada seberapa kuat target cacing Gu. Semakin sulit prosesnya, semakin banyak esensi purba yang dikeluarkan. Jika penjarahan gagal, Master Gu bahkan akan menghadapi serangan balasan.</p>
+<p>	Dengan demikian, Gu Perampasan adalah Gu yang agak tidak dapat diandalkan, dengan sedikit penggunaan.</p>
+<p>	Tetapi pada saat ini, Bai Ning Bing hampir mati, kesadarannya kabur dan dia hampir mencapai batasnya. Menjarah cacing Gu-nya tidak sulit sama sekali.</p>
+<p>	Di antara cacing Gu yang dimiliki Bai Ning Bing, yang paling berharga adalah Frost Demon Gu. Gu ini setara dengan Gu Mantra Kayu, memungkinkan seseorang untuk berubah menjadi iblis es. Tetapi jika digunakan untuk waktu yang lama, itu akan menyebabkan kekuatan hidup Guru Gu berkurang, berubah menjadi patung es.</p>
+<p>	Bai Ning Bing tahu kelemahan ini, jadi dia tidak pernah seperti Gu Yue Qing Shu, menggunakan Gu sedemikian rupa.</p>
+<p>	Selain Frost Demon Gu, yang paling berharga kedua adalah Gu peti mati es burung Biru, Gu peringkat tiga. Saat ini, itu berada di tenggorokan Bai Ning Bing.</p>
+<p>	Jika dia bisa menjarah peti mati es burung Biru Gu, itu adalah skenario terbaik. Tapi Gu Perampasan hanyalah Gu Peringkat dua, bahkan jika Tuan Gu menghendakinya, ia tidak harus memiliki kemampuan untuk melakukannya.</p>
+<p>	Akhirnya, Fang Yuan menangkap Gu Perisai Air Bai Ning Bing.</p>
+<p>	Ini tidak buruk sama sekali. Gu Perisai Air bersama dengan Gu Giok Putih dapat memberikan kekuatan pertahanan yang lebih besar bagi Fang Yuan.</p>
+<p>	Roh pohon yang berubah menjadi Gu Yue Qing Shu akhirnya ditebang oleh Master Gu klan Bai.</p>
+<p>	Mereka membelah sangkar kayu dan menyelamatkan Bai Ning Bing yang pingsan setelah kehilangan lengan kanannya.</p>
+<p>	Saat mereka hendak membantai Fang Yuan dan Fang Zheng, bala bantuan klan Gu Yue tiba.</p>
+<p>	Keduanya menemui jalan buntu untuk sementara waktu, sebelum keduanya mundur dalam pengertian bersama.</p>
+<p>	Kematian Qing Shu dan cedera Bai Ning Bing, dengan ancaman gelombang serigala, kerugian seperti itu sudah mengerikan. Jika pertempuran skala besar pecah, untuk setiap klan tekanan mereka untuk bertahan hidup akan sangat meningkat.</p>
+<p>	Terlepas dari dunia mana, orang selalu bersaing untuk keuntungan mereka sendiri.</p>
+<p>	Dan manfaat terbesar di dunia, tidak diragukan lagi adalah “kelangsungan hidup”.</p>
+<p>	Akhirnya, mayat Gu Yue Qing Shu dan cacing Gu, dibawa kembali oleh Master Gu klan Gu Yue.</p>
+<p>	Kedua belah pihak berhati-hati saat mereka mundur dari medan perang.</p>
+<p>	Langit sedang hujan, dan seluruh area itu suram.</p>
+<p>	Sekelompok orang berdiri di lereng di belakang desa, ini adalah kuburan.</p>
+<p>	Sesekali, akan ada beberapa batu nisan lagi yang didirikan di sini.</p>
+<p>	Di dunia ini, sulit bagi orang untuk bertahan hidup, dan apakah itu karena ancaman eksternal atau penyebab internal, akan selalu ada beberapa pengorbanan.</p>
+<p>	Suara tetua klan rendah saat memasuki telinga semua orang, membuat mereka merasa lebih sedih.</p>
+<p>	“Kami memiliki nama keluarga yang sama, kami berasal dari klan yang sama, darah yang sama mengalir di tubuh kami.”</p>
+<p>	“Kita begitu dekat bersama dalam jarak, namun kita selamanya dipisahkan oleh hidup dan mati.”</p>
+<p>	“Rasa sakit ini terasa sakit di hatiku.”</p>
+<p>	“Tunggu aku.”</p>
+<p>	“Suatu hari nanti, aku akan berbaring di sampingmu juga.”</p>
+<p>	“Mari kita berubah menjadi abu dan tanah, karena kita mendukung generasi masa depan kita …”</p>
+<p>	Di atas batu nisan yang baru didirikan, sekelompok orang menundukkan kepala. Beberapa menangis pelan, dan beberapa menatap nama di batu nisan saat mereka dipenuhi dengan kesedihan.</p>
+<p>	Kekejaman kematian seperti lengan bertulang putih, menyayat luka berdarah di hati semua orang.</p>
+<p>	Kecuali beberapa sudah mati rasa karena rasa sakit, sementara yang lain masih terlalu berpengalaman.</p>
+<p>	Gu Yue Fang Zheng termasuk di antara orang-orang ini, matanya yang terkulai menatap batu nisan dengan “Gu Yue Qing Shu”, empat kata ini.</p>
+<p>	Mati?</p>
+<p>	Di matanya, ada ketidakpastian yang tak ada habisnya.</p>
+<p>	Pertempuran kemarin, seluruh proses dan situasi masih terpatri jauh di dalam hatinya.</p>
+<p>	Pengalamannya terbatas, dia tidak mengerti keberanian bergerak dan tragis Gu Yue Qing Shu serta pengorbanannya.</p>
+<p>	Tapi sekarang kebenaran ada di depannya, dia tidak bisa menerimanya secara tiba-tiba.</p>
+<p>	“Mati? Tuan Qing Shu yang baik hati yang selalu tersenyum, menasihati, menunjukkan perhatian dan menjagaku…. Apakah benar-benar mati?”</p>
+<p>	“Kenapa ini terjadi?”</p>
+<p>	“Mengapa di dunia ini, orang baik mudah mati, sedangkan orang jahat berumur panjang?”</p>
+<p>	“Apakah ini mimpi, apakah aku sedang bermimpi sekarang?”</p>
+<p>	Fang Zheng mengepalkan tinjunya, dan perasaan sentuhan yang realistis membuatnya merasa semakin kesal.</p>
+<p>	Diskusi para Master Gu di sekitarnya memasuki telinganya.</p>
+<p>	“Huh, aku tidak percaya kali ini, bahkan Tuan Qing Shu mengorbankan dirinya sendiri.”</p>
+<p>	“Manusia pada akhirnya akan mati, tetapi sangat disayangkan, saya mendengar bahwa Bai Ning Bing masih memiliki vitalitas yang tersisa, dia akhirnya diselamatkan.”</p>
+<p>	“Semoga dia beristirahat dengan baik di bawah tanah, dan memberkati kita dengan harapan untuk selamat dari gelombang serigala ini …”</p>
+<p>	Kerumunan perlahan bubar, sampai Fang Zheng adalah yang terakhir pergi.</p>
+<p>	Bayangan kesepian pemuda itu, menghadap kuburan yang penuh dengan batu nisan sendirian.</p>
+<p>	“Tuan Qing Shu!” Dia tiba-tiba berlutut di tanah, air matanya jatuh ke tanah.</p>
+<p>	Dia tersesat, dia menyesal, dia kesakitan!</p>
+<p>	Menetes. Tetes tetes, tetes tetes…</p>
+<p>	Tetesan hujan seukuran kacang jatuh dari awan gelap, menghantam tanah, menyebabkan daun dan cabang pohon menekuk.</p>
+<p>	Bau tanah mengalir ke lubang hidung Fang Zheng, dan dia menangis dalam kesedihan yang menyakitkan. Suara tangisannya dan tetesan air hujan bercampur menjadi satu; sepuluh jarinya meraih tanah, mencoba mengambil nyawa Qing Shu, tapi akhirnya dia hanya memiliki dua genggam tanah.</p>
+<p>	Hujan mulai turun, dan Bai Ning Bing berbaring di atas ranjang empuk, menatap hujan ini dengan pandangan kosong.</p>
+<p>	Lengan kanannya yang patah sudah dicabut, dibalut perban putih. Matanya juga kembali menjadi hitam, tetapi kultivasinya berada di peringkat tiga, dia tidak lagi menekannya ke peringkat dua.</p>
+<p>	Ketika dia bangun dari tidurnya, dia tiba-tiba kehilangan semua semangat, merasa sangat kosong.</p>
+<p>	Dia berbaring di tempat tidurnya dengan damai, matanya terbuka selama lebih dari sepuluh jam. Dia membiarkan esensi purba perak putih peringkat tiga memelihara bukaannya; dia tidak bisa repot-repot untuk peduli tentang hal itu.</p>
+<p>	Hujan ini memicu kenangan terdalam di hatinya.</p>
+<p>	Di bawah hujan musim panas seperti itu dia secara resmi diadopsi oleh pemimpin klan Bai. Tatapan baik hati dan penuh harapan pemimpin klan jatuh padanya, saat para tetua klan di sekitarnya memberikan kata-kata ucapan selamat, mengalir seperti gelombang pasang.</p>
+<p>	Dia muda berdiri di tanah es tanpa alas kaki, dan dia menatap hujan di luar jendela, tetapi yang dia rasakan hanyalah tersesat dan kesepian.</p>
+<p>	“Apa arti hidup?” Pertanyaan ini mengganggunya selama dua puluh tahun, dan bisa terus mengganggunya, sampai masalah ledakan dirinya muncul kembali.</p>
+<p>	“Apakah itu untuk kekerabatan, untuk klan …” Bai Ning Bing tak terhindarkan memikirkan Gu Yue Qing Shu.</p>
+<p>	Dari muda hingga dewasa, dia telah melihat pengorbanan seperti itu berkali-kali — terkadang itu adalah klan Bai, terkadang mereka dari klan Gu Yue atau klan Xiong.</p>
+<p>	Dia tidak bisa memahami orang-orang fanatik ini, dia dilahirkan sebagai orang yang dingin dan tanpa emosi.</p>
+<p>	Gu Yue Qing Shu tidak bisa memberinya jawaban, jadi Bai Ning Bing memikirkan Fang Yuan.</p>
+<p>	Pertama kali dia melihat Fang Yuan, Fang Yuan sedang duduk di dekat pohon, memakan buah liar yang dia petik, tanpa emosi memulai pertempuran di bawah.</p>
+<p>	Dia bersemangat sampai tubuhnya bergidik, menggigil karena kegembiraan. Alasannya adalah dia melihat dirinya sendiri dari iris mirip jurang yang menakutkan milik Fang Yuan.</p>
+<p>	Tapi sekarang dia memikirkannya, tatapan Fang Yuan memiliki sesuatu yang lebih dari dia.</p>
+<p>	Hal itu, adalah jawaban atas pertanyaannya.</p>
+<p>	Hujan semakin deras dan guntur bergemuruh sementara kilat menyambar di langit.</p>
+<p>	“Apa arti di balik hidup?” Di ruang gelap, Gu Yue Fang Zheng menanyakan pertanyaan yang sama.</p>
+<p>	Pemimpin klan Gu Yue, Gu Yue Bo menghela nafas. Dia menatap dengan sedih pada pemuda yang telah kehilangan jiwanya, dan kemudian melihat ke luar jendela, pada hujan.</p>
+<p>	Keraguan Fang Zheng dapat dimengerti; kematian yang tak terhindarkan selalu mendesak orang untuk berpikir di balik nilai keberadaan yang sebenarnya.</p>
+<p>	“Anda tahu sesuatu? Lebih dari sepuluh tahun yang lalu, ada seorang pemuda lain dengan situasi yang sama seperti Anda, dan menanyakan pertanyaan yang sama kepada saya.” Lama setelah itu, Gu Yue Bo mulai berbicara.</p>
+<p>	“Orang itu, adalah pemimpin klanmu… anak angkatku — Gu Yue Qing Shu.”</p>
+<p>	Fang Zheng tertegun sejenak, mengangkat kepalanya. Sepasang mata merah bengkak, menunjukkan keinginan kuat untuk menjawab.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

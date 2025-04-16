@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 172 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 172";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_171.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 172">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_173.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 172</h1>
+        <div class="text-left">
+<p>	Bab 172</p>
+<p>	Bab 172: Tidak ada yang lebih cocok dari Fang Yuan!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di perjamuan, itu benar-benar sunyi.</p>
+<p>	Semua orang tercengang, menatap Fang Yuan dengan kosong.</p>
+<p>	Mereka tidak menyangka dia akan menjawab seperti ini, langsung mengakuinya dengan jujur.</p>
+<p>	“Lagipula, dia terlalu muda, benar-benar mengucapkan kata-kata seperti itu.”</p>
+<p>	“Hmph, begitu dia mengatakan itu, itu berarti seluruh karir politiknya hancur.”</p>
+<p>	“Mulai sekarang, Fang Yuan ini bukan ancaman lagi …”</p>
+<p>	Para tetua klan dengan marah menilai.</p>
+<p>	Pada titik ini ke dalam gelombang serigala, hasilnya sudah diputuskan. Dalam beberapa bulan ke depan, hanya akan ada kawanan serigala kecil yang bergerak. Saat lycan petir terus memanggil mereka kembali, serta Master Gu membunuh mereka, serigala petir pada dasarnya akan lenyap sepenuhnya pada akhir tahun.</p>
+<p>	Tapi konflik tidak pernah berakhir.</p>
+<p>	Di tempat-tempat dengan orang-orang, ada minat. Dan di mana ada kepentingan yang terlibat, ada konflik.</p>
+<p>	Selama gelombang serigala, itu adalah pertarungan antara manusia dan serigala. Tapi sekarang bagian terberat dari gelombang serigala berakhir, perjuangan internal klan muncul di atas air, berubah menjadi perselisihan internal.</p>
+<p>Gelombang serigala yang menyerang desa menyebabkan banyak Master Gu mati. Beberapa faksi dihancurkan, dan kepentingan yang pernah mereka pegang, secara alami harus didistribusikan.</p>
+<p>	Di antara petinggi klan Gu Yue, awalnya ada banyak tetua klan untuk membagi kue bunga dari seluruh desa. Tapi sekarang hanya Fang Yuan dan para tetua lainnya yang berjumlah kurang dari sepuluh yang tersisa, kue itu masih utuh dan utuh.</p>
+<p>	Untuk membagi kue besar ini di antara mereka sendiri, mereka harus bersaing satu sama lain. Pertempuran politik, meskipun tidak mencolok atau berdarah seperti gelombang serigala, penuh dengan skema, merencanakan dan memasang jebakan; itu sulit dan keras.</p>
+<p>	Pada awalnya, Fang Yuan sebagai satu-satunya penatua yang baru maju, memiliki momentum yang kuat dan menarik perhatian besar. Tapi sekarang dia mengakui kesalahannya, itu benar-benar menghancurkan karir politiknya; itu sama saja dengan melepaskan kesempatan untuk bersaing memperebutkan kue bunga ini dengan para tetua klan lainnya.</p>
+<p>	Seketika, tingkat ancaman Fang Yuan terhadap tetua klan lainnya menjadi jauh lebih rendah.</p>
+<p>	Tatapan mereka ke arah Fang Yuan menunjukkan bahwa tekanan yang mereka rasakan terhadapnya telah berkurang.</p>
+<p>	Pada saat ini, pemimpin klan Gu Yue Bo menghela nafas, “Karena Fang Yuan sendiri mengakuinya, sebagai pemimpin klan, aku harus menghukummu karena tindakan melarikan diri dari pertempuran. Menurut aturan klan leluhur, pelarian akan dilucuti dari status tetua klan mereka, tetapi hasil akhirnya akan diputuskan oleh saya dan tetua klan lainnya. Kami akan memutuskan hukumanmu setelah berdiskusi. Tetapi terlepas dari hasilnya, saya harap Anda dapat menerimanya. ”</p>
+<p>	Yang lain menunjukkan ekspresi aneh.</p>
+<p>	Fang Yuan mengangguk, tidak berbicara, seolah-olah dia telah tunduk pada takdir.</p>
+<p>	Gu Yue Yao Ji mematahkan lengannya sendiri untuk menyelamatkan hidupnya, ini sangat menentukan dan kejam. Fang Yuan sama, kecuali dia kehilangan lebih banyak lagi, melepaskan status tetua klannya.</p>
+<p>	Masalah terbesarnya sekarang, adalah kemunculan tiba-tiba ayah dan anak perempuan keluarga Tie. Jika dia terlibat dalam kekacauan politik sekarang, menghadapi penindasan dari para tetua lainnya, situasinya akan menjadi lebih berbahaya.</p>
+<p>	“Melepaskan, rela melepaskan, antara mengambil dan melepaskan, itulah hidup. Identitas tetua klan adalah untuk berkultivasi lebih baik, itulah satu-satunya tujuan bagi saya. Untuk mengejar kehidupan abadi saya berjalan di jalan setan, saya rela membuang hidup saya sendiri. Apa lagi yang tidak bisa saya buang? Status tetua klan, hmph…”</p>
+<p>	Fang Yuan tidak merasakan sedikit pun penyesalan atau gangguan.</p>
+<p>	Ini adalah keputusan yang paling bijaksana.</p>
+<p>Apalagi meski ada hukumannya, pasti akan diminimalisir.</p>
+<p>	Bagaimanapun, ada sedikit tetua klan yang tersisa, dan sebagai Master Gu peringkat tiga, kekuatannya sangat dihargai. Pemimpin klan harus menghukumnya di satu sisi, tetapi juga perlu meminjam kekuatannya untuk menstabilkan keadaan seluruh desa, jadi dia juga harus menyerah pada Fang Yuan.</p>
+<p>	Adapun tetua klan lainnya, Fang Yuan telah keluar dari kontes politik ini dan tidak lagi memegang ancaman apa pun. Mereka tidak akan menyinggung Fang Yuan lagi. Lagi pula, jika mereka memaksa Fang Yuan untuk membalas, bukankah itu menemukan masalah untuk diri mereka sendiri?</p>
+<p>	“Meskipun ada sistem klan, tetapi apa itu sistem? Hehe, sistem hanyalah alat untuk menjaga kepentingan penguasa. Di satu sisi itu mengatur dan membagi kepentingan tingkat yang lebih rendah, tetapi juga aturan yang memuat yang lebih tinggi saat mereka bersaing satu sama lain.” Fang Yuan tertawa dingin. Hal-hal ini, dia jelas seperti siang hari, kebenaran transparan baginya.</p>
+<p>	“Poin terpenting sekarang, adalah ayah dan anak keluarga Tie. Sial, mereka datang jauh lebih awal dari yang saya perkirakan, bahkan sebelum gelombang serigala benar-benar hilang. Hmph! Tapi perilaku seperti itu sangat cocok dengan kebencian Tie Xue Leng terhadap kejahatan, dan ketidakegoisannya dalam memerangi kejahatan.”</p>
+<p>	Memikirkan hal ini, Fang Yuan merasakan tekanan yang kuat.</p>
+<p>	Meskipun Tie Xue Leng terluka sekarang, kekuatan pertempurannya bukanlah sesuatu yang bisa disaingi Fang Yuan. Seekor unta sekarat yang kelaparan lebih besar dari seekor kuda, begitulah logikanya.</p>
+<p>	“Saya harus meninggalkan desa, tetapi saya juga harus menghindari pengejaran pasangan ayah dan anak Tie, bagaimana saya bisa keluar dari kesulitan ini?”</p>
+<p>	Fang Yuan kesal.</p>
+<p>	Ayah dan anak keluarga Tie ini tidak mudah dibingungkan seperti Jia Fu. Selain itu, kultivasi Fang Yuan terlalu rendah. Bahkan jika dia memiliki seribu satu rencana, apa yang bisa dia lakukan tanpa kekuatan yang sebenarnya?</p>
+<p>	Peringkat tiga dan lima, itu adalah dunia yang berbeda.</p>
+<p>	“Semuanya, aku punya sesuatu untuk dikatakan.” Pada titik ini, Gu Yue Mo Chen yang diam tiba-tiba berkata. Ekspresinya pucat karena dia telah menyeret tubuhnya yang terluka ke perjamuan, dan dia tidak minum anggur, hanya menyeruput teh.</p>
+<p>	Tapi apa yang dia katakan selanjutnya, mengejutkan orang sampai mati, “Ada sesuatu yang harus saya jujur. Penatua Fang Yuan tidak berhasil memasuki medan perang, dan itu karena saya. ”</p>
+<p>	“Apa?”</p>
+<p>	Seketika, para tetua klan lainnya terkejut.</p>
+<p>	“O, apa maksudmu?” Gu Yue Bo bertanya.</p>
+<p>	Fang Yuan mengirim pandangan sekilas, menyembunyikan keterkejutannya.</p>
+<p>	Mengapa Gu Yue Mo Chen ini membela dirinya sendiri?</p>
+<p>	Selama gelombang serigala ini, pewaris faksi Mo, Gu Yue Mo Bei, sayangnya telah meninggal.</p>
+<p>	Meskipun faksi Mo memiliki kemampuan terbesar mereka, melindungi Mo Bei. Di medan perang, banyak kejutan. Terlebih lagi, selama gelombang serigala, semua orang dalam bahaya, kadang-kadang mereka bahkan tidak bisa menjaga diri mereka sendiri, apa lagi terhadap orang lain?</p>
+<p>	Gu Yue Mo Chen menghela nafas, “Sejujurnya, cucu perempuanku Gu Yue Mo Yan telah jatuh cinta pada sesepuh Fang Yuan. Sebelum ini, dia datang untuk memohon padaku, berlutut di tanah dan menangis, tidak ingin melihat Fang Yuan mati di medan perang. Saya hanya memiliki satu cucu perempuan, jadi karena keegoisan, saya menyimpan Fang Yuan di tanah milik saya dan menjatuhkannya. Hanya sampai kami mengejar serigala mahkota petir, aku membiarkannya keluar. Jadi, semuanya karena saya, itu salah saya. Itu tidak ada hubungannya dengan Fang Yuan.”</p>
+<p>	“Apa?”</p>
+<p>	“Oh, benarkah itu?”</p>
+<p>	Para tetua klan curiga.</p>
+<p>	Kata-kata Gu Yue Mo Chen cukup berlebihan; itu agak sulit dipercaya.</p>
+<p>	“Cinta dan hubungan di antara anak muda adalah hal biasa,” Gu Yue Bo mengangguk, menatap Fang Yuan dengan makna yang dalam, ingin mengetahui beberapa petunjuk dari ekspresinya.</p>
+<p>	Tapi Fang Yuan menunduk dengan ekspresi tenang. Tidak ada yang bisa dilihat.</p>
+<p>	Pemimpin klan kecewa.</p>
+<p>Tetua klan lainnya saling bertukar pandang, tidak mengerti mengapa Gu Yue Mo Chen begitu defensif terhadap Fang Yuan.</p>
+<p>	Dia mengatakan ini untuk membantu Fang Yuan, itu berarti dia telah mengorbankan reputasinya sendiri dan menghancurkan prospek politiknya sendiri!!</p>
+<p>	Gu Yue Mo Chen melanjutkan, “Untuk melindungi reputasiku, penatua fang Yuan rela membiarkan dirinya menderita ketidakadilan. Tapi saya sudah melakukan kesalahan sekali, bagaimana saya bisa membuat kesalahan sekali lagi? Ini adalah kebenarannya. Adapun hukumannya, saya mohon pemimpin klan tuan untuk mempertimbangkan. Saya mengakui kesalahan saya dan sesuai aturan, jika status tetua klan saya dilucuti, saya tidak keberatan. ”</p>
+<p>	Pemimpin klan dengan cepat melambaikan tangannya, berkata, “Penatua Mo Chen telah bekerja keras selama ini. Apa yang Anda lakukan itu bisa dimengerti, manusia bukan rumput atau kayu, bagaimana mungkin kita tidak punya perasaan? Sekarang klan kami sangat lemah, kami membutuhkan tetua yang setia dan kuat seperti Anda. Tapi ini masih keegoisan Anda sendiri, jadi hukumannya masih perlu diputuskan. Kami memiliki tamu penting hari ini, jangan bicarakan ini sekarang. Ayo, saudara Tie, aku dan para tetua klan akan bersulang untukmu!”</p>
+<p>	Mengatakan demikian, Gu Yue Bo berdiri.</p>
+<p>	Para tetua klan lainnya juga berdiri, mengangkat cangkir mereka.</p>
+<p>	“Semua orang terlalu baik. Saya masih harus menyusahkan Anda semua nanti, saya harap saya bisa mencari pengertian Anda. ” Tie Xue Leng tidak mengudara, berdiri dan meminum anggurnya.</p>
+<p>	…</p>
+<p>	Di halaman faksi Mo, flora dan fauna berlimpah. Gunung buatan itu memiliki mata air yang mengalir dengan air sebening kristal.</p>
+<p>	Di langit malam, bulan menggantung tinggi di langit seperti piring.</p>
+<p>	Perjamuan telah lama berakhir.</p>
+<p>	Fang Yuan duduk di paviliun pendingin saat dia mendengarkan suara air yang mengalir, dan dia meletakkan cangkir tehnya dengan ekspresi polos.</p>
+<p>	Duduk di seberangnya adalah Gu Yue Mo Chen. Setelah jamuan makan selesai, dia mengundang Fang Yuan untuk berdiskusi.</p>
+<p>	“Ayo, minum teh lagi, teh air jernih daun bambu ini bagus untuk menghilangkan mabuk.” Gu Yue Mo Chen tertawa, menuangkan secara pribadi ke dalam cangkir Fang Yuan.</p>
+<p>	Ekspresi Fang Yuan tenang, dan saat melihat cangkir diisi lagi, dia berkata, “Memang obat yang bagus untuk mabuk.”</p>
+<p>	Mengatakan demikian, dia melihat ke luar paviliun, hanya untuk melihat bahwa bulan putih pucat telah menyinari tanah dengan cahaya bulannya. Di bawah bulan, paviliun itu sunyi dan anggun, tetapi dalam angin ada bayangan yang mengintai, menunjukkan bagaimana halaman faksi Mo berubah dari keadaan makmur, menjadi keadaan yang menurun.</p>
+<p>	Selama perjamuan, Fang Yuan sudah memahami niat Gu Yue Mo Chen. Melihat adegan ini, dia bahkan lebih yakin pada dirinya sendiri.</p>
+<p>	Fraksi Mo tidak memiliki pewaris lagi!</p>
+<p>	Begitu Gu Yue Mo Bei meninggal, seluruh faksi Mo akan kehilangan pewarisnya.</p>
+<p>	Meskipun Mo Bei masih memiliki saudara perempuannya Mo Yan, aturan klan adalah bahwa sejak zaman kuno, ia lebih menyukai laki-laki daripada perempuan, dan aset hanya dapat diwarisi oleh laki-laki dan bukan perempuan.</p>
+<p>	Bahkan jika Gu Yue Mo Yan mendapat peringkat tiga waktu berikutnya dan maju ke klan tetua, asetnya tidak mewakili faksi Mo, tetapi hanya miliknya sendiri. Jika dia menikah dengan siapa pun, aset ini akan ditransfer ke atas nama suaminya.</p>
+<p>	Jika mereka kehilangan pewaris mereka, pengaruh politik klan tidak akan memiliki prospek, dan tidak ada yang akan bergabung dengan mereka.</p>
+<p>	Fraksi Mo telah jatuh ke dalam situasi yang sulit, di ambang kehancuran.</p>
+<p>	Tapi surga selalu meninggalkan jalan, dan faksi Mo tidak benar-benar kehabisan akal; masih ada secercah harapan.</p>
+<p>	Harapan ini ada di tangan Gu Yue Mo Yan.</p>
+<p>	Meskipun dia perempuan, dia bisa menikahi seseorang.</p>
+<p>	Jika menantunya menikah dengan faksi Mo, dia akan memiliki status yang dapat diterima, dan dapat mewarisi faksi Mo!</p>
+<p>	Melihat bahwa Fang Yuan tidak memiliki kecenderungan untuk menyebutkannya, Gu Yue Mo Chen memarahi anak licik ini secara internal, tetapi harus berbicara, “Aku ingin tahu apa yang tetua Fang Yuan pikirkan tentang faksi Mo-ku?”</p>
+<p>	Dia memiliki kesedihan yang tak terkatakan.</p>
+<p>	Sejak cederanya, kultivasinya telah jatuh ke Peringkat dua, tanpa ada peluang untuk mendapatkan kembali Peringkat tiga.</p>
+<p>	Dia hanya bisa mengandalkan cacing Gu untuk menyembunyikan aura aslinya. Tapi kertas tidak bisa menutupi api; dia akan terungkap suatu hari nanti.</p>
+<p>	Satu-satunya pewarisnya telah meninggal, sementara dia sendiri berada di peringkat dua dan akan kehilangan identitas sesepuh klannya. Gu Yue Mo Chen membutuhkan seseorang yang bisa memegang benteng untuk mempertahankan faksi mereka.</p>
+<p>	Saat itu, dia memiliki otoritas dan status, sehingga faksi Mo mengendalikan sejumlah besar kue bunga. Tapi sekarang faksi klan sedang mengatur ulang diri mereka sendiri, dia tidak ingin ada kepentingan lagi. Selama dia bisa mempertahankan apa yang sudah dia miliki, itu akan menjadi kemenangan terbesar.</p>
+<p>	Dia merenungkan kiri dan kanan, dan orang yang paling cocok adalah Fang Yuan tanpa ragu!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 141 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 141";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_140.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 141">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_142.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 141</h1>
+        <div class="text-left">
+<p>	Bab 141</p>
+<p>	Babak 141: Gu Yue Qing Shu vs Bai Ning Bing (Bagian 2)</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Di bawah kekuatan cacing peringkat tiga Gu, mata Qing Shu berubah menjadi warna hijau giok.</p>
+<p>	Pada saat ini, auranya berubah. Dari manusia yang bersemangat, itu berubah menjadi perasaan hutan yang tenang.</p>
+<p>	“Oh?” Bai Ning Bing menunjukkan sedikit keterkejutan tanpa disadari. Dia cemberut dengan ketidakpuasan, “Sepertinya setelah waktu yang lama, kamu mendapatkan beberapa keterampilan baru yang menarik.”</p>
+<p>	Gu Es.</p>
+<p>	Dia menghendaki Gu, dan lima es tajam muncul entah dari mana.</p>
+<p>	“Pergi.” Tangan es Bai Ning Bing menunjuk, dan es itu melesat keluar.</p>
+<p>	Pow Pow.</p>
+<p>	Dari telapak tangan Qing Shu, dua tanaman merambat tumbuh. Tanaman merambat menari di udara seperti dua ular, menari dengan lincah, dengan mudah menangkis es.</p>
+<p>	Es berubah arah, hanya menggores bahu Qing Shu, dan menusuk dalam-dalam ke tanah, batu gunung yang keras, dan hutan yang berdiri seperti patung.</p>
+<p>	Qing Shu dengan mudah menerobos serangan itu, menyebabkan serangan Bai Ning Bing menjadi sia-sia.</p>
+<p>	Bai Ning Bing tertawa dingin, “Kemampuan mencambukmu menjadi lebih baik, tapi aku ingin melihat, berapa banyak es yang bisa kamu blokir?”</p>
+<p>	Mengatakan demikian, mata Bai Ning Bing bersinar dengan cahaya biru lembut.</p>
+<p>	Sepuluh es segera muncul, melayang di depannya sebelum menembak ke arah Qing Shu.</p>
+<p>	Setelah itu, sepuluh lagi diciptakan ……</p>
+<p>	Seperti ini, selama beberapa kali, itu berubah menjadi hujan es.</p>
+<p>	Astaga……</p>
+<p>	Es itu merobek udara, memancarkan suara yang mengejutkan hati orang-orang.</p>
+<p>	Qing Shu mengelak sambil memanipulasi sulur hijaunya dengan kedua tangan, menari seperti bayangan.</p>
+<p>	Teknik mencambuknya setelah latihan yang tak terhitung jumlahnya, telah mencapai tingkat di mana dia bisa memerintahkan mereka seperti jari-jarinya, sepenuhnya selaras.</p>
+<p>	Tapi ada terlalu banyak es; Qing Shu pasti akan melewatkan beberapa, dan bahunya terkena es.</p>
+<p>	Es menembus bahu kanannya, dan ujungnya muncul dari belakangnya.</p>
+<p>	Pin Jarum Gu.</p>
+<p>	Qing Shu mengendalikan rasa sakitnya, menyapu rambutnya yang panjang. Dari ujung rambutnya, banyak jarum peniti berwarna giok melesat keluar.</p>
+<p>	Jarum peniti menelan Bai Ning Bing, tapi dia berhasil mengaktifkan Gu Perisai Air tepat waktu — itu juga menjadi lebih kuat, dan jauh lebih tebal dari sebelumnya, tidak lebih lemah dari pertahanan cacing peringkat tiga Gu.</p>
+<p>	Jarum peniti memasuki perisai air dan melambat hingga berhenti, sebelum dibersihkan oleh arus air.</p>
+<p>	Tapi ini juga memaksa Bai Ning Bing untuk menghentikan serangan esnya.</p>
+<p>	Melihat kesempatan ini, Qing Shu mengabaikan rasa sakit dan mengeluarkan es dari bahunya dengan paksa.</p>
+<p>	Tidak ada darah yang menetes, satu karena udara dingin dari es, dan yang lainnya karena tubuhnya secara bertahap berubah menjadi kayu.</p>
+<p>	Bai Ning Bing menyimpan Gu Perisai Air, tatapannya tertarik pada luka Gu Yue Qing Shu.</p>
+<p>	Dari lubang di bajunya yang sobek, dia bisa melihat luka Qing Shu, memperlihatkan lingkaran batang pohon, dan dagingnya terlihat pulih dengan kecepatan yang bisa diamati, dan pada otot yang baru tumbuh, garis cincin pohon terbentuk.</p>
+<p>	Pada saat yang sama, kedua telinganya mulai menjadi lebih panjang, dan rambutnya berubah menjadi hijau giok, dengan daun hijau tumbuh di dalamnya. Kedua tangannya, dari warna berdaging orang normal, berubah lebih gelap dan lebih pendiam. Kulitnya menjadi lebih keras, dan berubah menjadi kulit pohon cokelat.</p>
+<p>	Ini adalah pertama kalinya dia menggunakan Wood Charm Gu tanpa mempertimbangkan konsekuensinya!</p>
+<p>	Mantra Kayu Gu membuatnya berubah menjadi roh pohon, dan pada saat yang sama, Gu Yue Qing Shu bisa merasakan esensi alam yang kaya di udara.</p>
+<p>	Esensi ini tidak dapat dirasakan oleh Master Gu biasa. Hanya makhluk hidup khusus seperti roh pohon yang bisa merasakan, menyerap, dan menggunakannya.</p>
+<p>	Gu Yue Qing Shu merasa bahwa dia berendam dalam cairan ibunya, esensi kental yang menyelimutinya, memberinya rasa kepuasan yang kuat.</p>
+<p>	Di tubuhnya, Gu Moonwhirl tidak berubah, tetapi Gu Anggur Hijau, Gu Jarum Pin dan rumput vitalitas semuanya menunjukkan tanda-tanda pertumbuhan. Dengan identitas Qing Shu sebagai roh pohon, ketika dia menggunakan atribut kayu cacing Gu ini, kekuatan mereka diperkuat!</p>
+<p>	Gu Yue Qing Shu menarik napas dalam-dalam, dia tidak pernah merasa begitu kuat sebelumnya! Esensi alami yang kaya memberinya sumber esensi purba yang hampir tak terbatas untuk digunakan. Ini adalah kekuatan Gu Mantra Kayu.</p>
+<p>	Namun di dalam hatinya, rasa takut yang mendalam juga muncul.</p>
+<p>	Dia tahu bahwa jika dia serakah atas perasaan yang kuat dan nyaman ini, dan menggunakan Gu Mantra Kayu tanpa menahan diri, dia akhirnya akan berubah menjadi manusia pohon yang mati.</p>
+<p>	Setiap hal memiliki harganya.</p>
+<p>	Gu Yue Qing Shu segera menekan rasa takut ini. Dia menatap Bai Ning Bing dan mengucapkan dua kata—”Ayo bertarung.”</p>
+<p>	Dengan demikian, pertempuran sengit dimulai.</p>
+<p>	Pohon anggur hijau vs pisau es, jarum es vs jarum!</p>
+<p>	Salah satunya adalah fisik Jiwa Es Gelap Utara, dengan tingkat pemulihan esensi purba yang gila, dan yang lainnya adalah roh pohon pesona kayu, menggunakan semua esensi alami sebagai miliknya.</p>
+<p>	Pertempuran ini, telah jauh melampaui ranah Master Gu peringkat tiga biasa.</p>
+<p>	Fang Zheng berdiri di lereng, menyaksikan dengan kaget. Dia belum pernah melihat pertarungan sengit seperti itu!</p>
+<p>	Biasanya, Gu Masters memiliki esensi purba yang terbatas, dan mereka selalu harus menyimpan 10% sebagai cadangan. Hati-hati menggunakannya, seperti es tipis.</p>
+<p>	Tapi sekarang, baik itu Qing Shu atau Bai Ning Bing, keduanya menggunakannya tanpa kendala seolah-olah mereka memiliki persediaan esensi purba yang tidak terbatas.</p>
+<p>	Seluruh jalan hancur oleh pertempuran mereka. Pohon-pohon besar tumbang dan hancur, bebatuan gunung hancur berkeping-keping.</p>
+<p>	Setelah sekian lama……</p>
+<p>	Peti mati es burung biru Gu!</p>
+<p>	Bai Ning Bing mengambil kesempatan dan membuka mulutnya, dan dari dalam, seekor burung biru es terbang keluar.</p>
+<p>	Burung terbang berkicau, tubuhnya seperti merpati, tetapi di bawah dorongan fisik Jiwa Es Gelap Utara, secara bertahap berubah menjadi ukuran elang saat terbang, dan setelah berputar sebentar, terbang menuju Gu Yue Qing Shu.</p>
+<p>	Gu Yue Qing Shu tidak bisa menghindar tepat waktu, jadi dia menghadapinya secara langsung.</p>
+<p>	Bam.</p>
+<p>	Ledakan suara kemudian, Gu Yue Qing Shu membeku dalam kristal es sebesar ruangan.</p>
+<p>	“Sudah berakhir …” Bai Ning Bing menghela nafas karena dia belum sepenuhnya menikmati dirinya sendiri.</p>
+<p>	Dia melihat Gu Yue Qing Shu yang tidak bergerak di dalam kristal es, dan bergumam, “Terima kasih telah memberiku pengalaman yang begitu menarik, pertempuran ini adalah yang paling menarik yang pernah kualami sejauh ini. Qing Shu, kematianmu memiliki arti, aku akan mengingatnya dengan jelas.”</p>
+<p>	“Tuan Qing Shu!” Di lereng, Fang Zheng berteriak keras.</p>
+<p>	“Kenapa kamu berteriak, kamu hanya semut, yang berikutnya adalah kamu.” Bai Ning Bing mendengus, berjalan menuju Fang Zheng.</p>
+<p>	Pada titik ini, suara kristal es yang pecah memasuki telinganya.</p>
+<p>	“Bagaimana ini bisa?” Dia berbalik dan melihat bahwa di dalam kristal es, Qing Shu telah mengalami transformasi besar-besaran.</p>
+<p>	Tubuhnya menjadi lebih besar, dan pakaian Master Gu peringkat duanya hampir robek.</p>
+<p>	Rambutnya berubah menjadi tanaman merambat hijau, dan daun seukuran telapak tangan tumbuh di atasnya tanpa henti, berubah menjadi tanaman hijau yang lebat.</p>
+<p>	Jari-jarinya telah berubah menjadi kayu yang kokoh, anggota tubuhnya menjadi cabang-cabang pohon yang tebal, hanya memiliki bentuk kasar untuk lengan dan kakinya.</p>
+<p>	Dengan suara, kristal es pecah sepenuhnya.</p>
+<p>	Gu Yue Qing Shu berdiri; dia sudah benar-benar berubah dalam penampilan, wajah manusia asli yang halus dan tampan berubah menjadi wajah roh pohon mata besar berhidung tajam.</p>
+<p>	Tingginya tiga meter dengan tubuh yang kuat, mengenakan kulit pohon sebagai baju besinya, dan di atasnya ada banyak daun dan tanaman merambat.</p>
+<p>	Bai Ning Bing menatap transformasinya dengan kaget; dibandingkan dengan Qing Shu ini, dia seperti anak kecil di samping orang dewasa.</p>
+<p>	“Penampilan ini, apakah kamu memperbaiki Gu Mantra Kayu? Gu ini jauh lebih sulit untuk disempurnakan daripada Frost Demon Gu saya! ” Bai Ning Bing menemukan jawabannya.</p>
+<p>	“Pesona kayu roh pohon dapat menggunakan esensi di udara, tidak heran Gu Yue Qing Shu memiliki esensi purba yang begitu banyak.” Dia menyadari sekaligus, tetapi menjadi lebih bingung.</p>
+<p>	Dia mengajukan pertanyaan di dalam hatinya, “Qing Shu, menggunakan Gu Mantra Kayu seperti ini, apakah kamu tidak takut berubah menjadi manusia pohon yang mati? Jadi bagaimana jika Anda memenangkan saya? Anda ditakdirkan untuk mati! ”</p>
+<p>	“Bai Ning Bing…” Suara Gu Yue Qing Shu menjadi rendah, “Aku mengerti kamu seperti aku memahami diriku sendiri. Anda dan saya sama-sama yatim piatu, diadopsi oleh pemimpin klan. Namun kita berjalan di jalan yang berbeda. Pohon yang mati di hutan bukanlah apa-apa, selama hutan itu ada, banyak pohon akan terus tumbuh dan bangkit. Ayo lakukan pertempuran terakhir kita, musuh bebuyutanku!”</p>
+<p>	Mengatakan demikian, ratusan tanaman merambat hijau menyerang Bai Ning Bing seperti ular piton raksasa.</p>
+<p>	“Untuk klan? Bodoh sekali!” Bai Ning Bing mundur dengan tergesa-gesa.</p>
+<p>	Tapi kecepatan tanaman merambat hijau lebih cepat dari sebelumnya beberapa kali, dengan cepat mengejar Bai Ning Bing.</p>
+<p>	Bai Ning Bing mengendalikan tubuhnya dan menghindar dengan gesit. Tanaman merambat hijau setebal lengan menyapu di dekat tubuhnya, mengenai tanah atau batu gunung, menyebabkan tanah terbang dan pecahan batu berhamburan.</p>
+<p>	Perisai Air Gu!</p>
+<p>	Bai Ning Bing tidak bisa menghindar tepat waktu, dan menciptakan perisainya.</p>
+<p>	Qing Shu telah melihat kelemahan cacing Gu ini. Dia tidak menyerang dengan paksa, tetapi memanipulasi tanaman merambat untuk membungkus perisai.</p>
+<p>	Selanjutnya, dia menarik kembali kekuatannya, dan perisai air bersentuhan. Arus air permukaan bergerak cepat saat menabrak tanaman merambat hijau, menyebabkan air memercik ke mana-mana.</p>
+<p>	Perisai air tidak bisa menahan kekuatan pembatasan tanaman merambat hijau, dan ukurannya menyusut, di ambang kehancuran.</p>
+<p>	“Tidak baik! Jika perisai air pecah dan aku terjerat dalam tanaman merambat hijau, aku akan dibunuh oleh Gu Yue Qing Shu!” Bai Ning Bing di perisai air yakin dengan situasinya.</p>
+<p>	Pada saat berikutnya, perisai air meledak.</p>
+<p>	Bam!</p>
+<p>	Badai bilah es meledak dari dalam, menjadi semakin besar.</p>
+<p>	Bai Ning Bing dengan sengaja menarik pertahanan Water Shield Gu — karena bertahan tidak bisa bekerja, dia harus melawan serangan dengan serangan!</p>
+<p>	Seketika, suhu turun dan udara dingin memancar.</p>
+<p>	Badai bilah es putih terbang menuju Qing Shu. Tanaman merambat tidak bisa menghentikan tornado ini, dan dipotong menjadi banyak segmen oleh bilah es.</p>
+<p>	“Waktu yang bagus.” Gu Yue Qing Shu tidak takut, tubuhnya yang besar dengan berani memasuki badai bilah es.</p>
+<p>	Dengan bam, dia mengetuk tornado warna putih.</p>
+<p>	Dia membuka kedua tangannya, membungkusnya.</p>
+<p>	Retak retak……</p>
+<p>	Bilah es yang tajam memotong tubuhnya, dan banyak daun dan kulit pohon dikirim terbang.</p>
+<p>	Rasa sakit yang tertunda menyerangnya saat Qing Shu menggeram kesakitan, tetapi tidak melepaskannya, menggunakan seluruh kekuatannya untuk mencengkeram tornado.</p>
+<p>	Badai bilah es sebenarnya menyusut di bawah kekuatannya.</p>
+<p>	“Brengsek! Maniak yang tidak peduli dengan nyawanya…” Bai Ning Bing memarahi dalam hati. Dalam situasi ini tidak ada cara lain, dia hanya bisa membuat lebih banyak bilah es dan berputar lebih cepat, bersaing dengan Gu Yue Qing Shu.</p>
+<p>	Bilah es menebas tubuh Qing Shu dan berangsur-angsur menjadi tumpul, tetapi di bawah kekuatan Ice Blade Gu, bilah es itu menajam sekali lagi.</p>
+<p>	Pertempuran itu menemui jalan buntu, di luar kendali mereka, dan tidak ada yang bisa menahan diri dan berhenti.</p>
+<p>	Entah Gu Yue Qing Shu membunuh Bai Ning Bing, atau Bai Ning Bing membunuh Qing Shu. Mengadu pelanggaran dengan pelanggaran, pertempuran itu dipenuhi dengan keberanian dan intensitas.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 195 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 195";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_194.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 195">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_196.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 195</h1>
+        <div class="text-left">
+<p>	Bab 195</p>
+<p>	Bab 195: Kalau begitu biarkan aku menjadi iblis</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Generasi pertama Gu Yue tertawa dengan lebih gembira; tiba-tiba, dia berhenti tertawa dan berbalik ke arah Lord Sky Crane, berbicara dengan suara penuh kebencian, “Adik laki-laki, kamu tidak pernah mengira akan ada hari seperti ini, kan?! Kami berdua adalah anak yatim piatu yang dibesarkan oleh tuannya. Tapi sejak muda, tuan selalu lebih memanjakanmu. Mengapa? Bukankah itu karena bakatmu adalah nilai A dan milikku hanya kelas C?”</p>
+<p>	“Tentu saja, dengan bakat kelas A Anda, kultivasi Anda berkembang lebih cepat. Tahukah Anda, dengan bakat kelas C saya, berapa banyak keringat dan usaha yang harus saya lakukan dibandingkan dengan Anda, hampir tidak bisa menandingi kecepatan Anda? Meskipun kami disebut Bangau Kembar dari Jalan Lurus – Anda selalu yang utama dan saya yang kedua. Kamu seperti bintang paling terang, hanya karena kamu jenius kelas A! ”</p>
+<p>	“Bahkan keberuntunganmu bagus dan kamu mendapatkan salah satu warisan sejati leluhur Laut Darah. Blood Skull Gu dapat memurnikan darah kerabat yang terbunuh dan menuangkannya ke dalam lubang, meningkatkannya. Tahukah kamu bagaimana suasana hatiku saat itu? Saya berpikir siang dan malam, memikirkan skema yang tak terhitung jumlahnya. Aku tahu Gu Tengkorak Darah adalah satu-satunya harapanku; dengan itu, saya bisa mengubah hidup saya, mengubah nasib saya!”</p>
+<p>	“Tapi itu milikku, MILIKKU!” Lord Sky Crane sangat marah sehingga dia menghentakkan kakinya berulang kali.</p>
+<p>	“Ya, itu milikmu.” Gen pertama Gu Yue mengangguk, “Bakatmu hebat dan keberuntunganmu juga hebat. Jelas, kami memulai pada saat yang sama, membunuh musuh bersama, tetapi surga hanya menghargai Anda, memberi Anda warisan yang sebenarnya. Tahukah Anda, ketika saya melihat ekspresi bangga Anda dan mendengarkan Anda berbicara tentang rencana masa depan Anda, ketika saya memaksakan diri untuk tersenyum, saya tiba-tiba menyadari.</p>
+<p>	“Langit menyukaimu, memberimu bakat kelas A dan warisan laut darah sejati. Tapi apa yang bisa saya lakukan? Saya hanya bakat kelas C yang tidak signifikan, jadi bagaimana saya bisa berhasil hanya dengan mengandalkan diri saya sendiri? Aku hanya bisa merebut, rob! Ubah apa yang bukan milikku menjadi milikku! Nasib yang telah direncanakan surga bagi saya adalah membiarkan saya tunduk di bawah seseorang, membuat saya menjadi bayangan di belakang orang lain! Tetapi saya marah, karena atas dasar apa dia menempatkan saya di bawah dan Anda di atas?” Gen pertama Gu Yue sebenarnya tampak menangis dan merintih di akhir.</p>
+<p>	Penampilan zombie pemberat darah sangat menakutkan, dan menambah suara aneh ini, siapa pun yang mendengarnya akan merasakan dingin meresap ke tulang mereka.</p>
+<p>	“Karena surga tidak menyukaiku, Guru tidak mencintaiku, orang lain tidak menghargaiku – aku hanya bisa lebih mencintai diriku sendiri, aku hanya bisa lebih menghargai diriku sendiri, aku hanya bisa lebih mengandalkan diriku sendiri. Saya hanya bisa berusaha lebih keras, saya hanya bisa mengambil lebih banyak risiko, saya hanya bisa mengerahkan diri saya lebih banyak! Hanya dengan begitu saya bisa berhasil! Tetapi jalan lurus berbicara tentang kode moral, etika, persahabatan, kualifikasi, hierarki. Saya hanya orang yang kesepian, bukan siapa-siapa tanpa latar belakang, tanpa bakat, dan tanpa sumber daya. Jadi katakan padaku, bagaimana aku bisa berhasil?”</p>
+<p>	“Dengan jalan yang benar, saya hanya bisa membiarkan diri saya dieksploitasi dan diganggu, saya hanya bisa memandang tuan muda dan jenius ini. Bahkan jika saya terus meningkatkan kualifikasi saya sampai saya tua, saya hanya akan mencapai kesuksesan kecil. Ini adalah jalan yang benar … jalan omong kosong!”</p>
+<p>	“Hanya dengan menjadi iblis, meninggalkan etika, persahabatan, aturan sosial dan membayar harga yang mahal, saya bisa mengambil jalan lain di antara duri dan semak berduri, jalan milik saya sendiri! Jadi, saya bersekongkol melawan Anda, merebut warisan sejati laut darah Anda dan menjadi iblis. Haha, dan aku menjadi iblis!”</p>
+<p>	Aku menjadi iblis…</p>
+<p>	Aku menjadi iblis…</p>
+<p>	Suara itu bergema di dalam perisai darah.</p>
+<p>	Di luar perisai, Lord Sky Crane dalam suasana hati yang tenang dan muram.</p>
+<p>	Gen pertama Gu Yue perlahan berhenti tertawa lalu mulai membunuh lagi. Sejumlah besar Master Gu terbunuh, darah mereka diserap oleh Gu Tengkorak Darah dan terkonsentrasi ke dalam air mancur darah, mengalir ke lubang Gu Yue generasi pertama dan meningkatkan bakatnya.</p>
+<p>	Semakin tinggi aptitude, semakin banyak esensi purba yang dapat disimpan di aperture.</p>
+<p>	Saat gen Pertama Gu Yue membunuh semakin banyak klan Gu Yue, bakatnya terus meningkat. Setelah mengunyah batu purba, esensi purbanya meningkat dan kekuatan bertarungnya menjadi lebih kuat.</p>
+<p>	Di luar perisai darah, Lord Sky Crane terbakar dengan kecemasan, tetapi Blood Curtain Skyflower seperti jurang yang dalam; dia tidak bisa berbuat apa-apa selain menghela nafas. Dia telah mencoba untuk mencegahnya, tetapi dia hanya bisa menyerah.</p>
+<p>	Seiring berjalannya waktu, hanya ada beberapa orang yang tersisa di dalam perisai darah.</p>
+<p>	“Bocah, kamu mencuri Lotus Harta Karun Esensi Surgawi. Saya akan memberi Anda kesempatan untuk menebus kejahatan Anda, dengan patuh menyerahkannya dan hidup Anda akan terhindar! ” Gen pertama Gu Yue berjalan mendekat selangkah demi selangkah, niat membunuhnya mengunci Fang Yuan dengan kuat.</p>
+<p>	Fang Yuan tahu peluang untuk bertahan hidup sangat langka, tetapi ekspresinya tidak berubah dan malah mencibir, “Hanya anak-anak berusia tiga tahun yang mungkin tertipu oleh omong kosongmu. Hmph, aku akan menghancurkan Heavenly Essence Treasure Lotus jika kamu mendekat. Anda harus tahu bahwa saya telah menyempurnakan Gu ini dan dapat dengan mudah menyebabkannya hancur sendiri dengan pikiran. Terserah kamu.”</p>
+<p>	Langkah gen pertama Gu Yue melambat, lalu dia dengan tegas dan cepat maju ke arah Fang Yuan.</p>
+<p>	“Brat, kamu punya nyali dan kamu juga pintar. Anda memang keturunan saya, saya akan mengambil darah Anda dan menggunakannya untuk meningkatkan bakat saya. Tentu saja, aku tidak akan membiarkanmu pergi. Awalnya, saya menggunakan golongan darah Gu untuk memurnikan garis keturunan darah pewaris saya, untuk mencoba dan mengeluarkan keturunan dengan fisik Yin Desolate Yin Kuno. Selama saya menyerap darah jenius seperti itu, saya akan dapat meningkatkan bakat saya secara tajam hingga 99% bakat kelas A! ”</p>
+<p>	“Kalau begitu, aku bisa saja membiarkan kalian pergi, tapi sayangnya keberuntunganmu sepertinya tidak bagus. Huh, hal yang paling aku benci dalam hidupku adalah dipaksa. Jika Heavenly Essence Treasure Lotus mati maka biarlah, tetapi kamu pasti akan mati! ”</p>
+<p>	Kata-katanya bahkan belum selesai ketika kedua sayap di punggungnya mengepak, mendorongnya ke depan; dalam sekejap mata, dia muncul di depan Fang Yuan.</p>
+<p>	Gen pertama Gu Yue membuat gerakan meraih dengan tangan kanannya; dalam sepersekian detik itu, pupil Fang Yuan menyusut, dan rambutnya berdiri di ujung saat dia mundur dengan tergesa-gesa.</p>
+<p>	Namun, bagaimana bisa dengan mudah menghindari ahli peringkat lima? Cakar pemberat darah hampir mengenainya, tetapi tiba-tiba sebuah tangan es menembus dari sisinya.</p>
+<p>	BANG.</p>
+<p>	Ada suara tabrakan, dan tangan es pecah dan aura dingin terbang ke mana-mana; gen Pertama Gu Yue harus mundur selangkah.</p>
+<p>	“Bai Ning Bing?!” Fang Yuan terkejut ketika dia berbalik untuk melihat orang yang telah membantunya.</p>
+<p>	Bai Ning Bing mengambil kembali lengannya yang patah, dan udara dingin keluar dari lukanya dan langsung mengembun menjadi tangan es baru seperti sebelumnya. Hanya saja tidak ada daging di tangannya – dia sudah mencapai batas umur dari sepuluh bakat ekstrimnya.</p>
+<p>	“Memikirkan bahwa aku dapat memiliki kematian yang begitu indah. Sayang sekali aku tidak akan bisa melihat kesimpulan dari pertempuran ini!” Bai Ning Bing menghela napas dalam-dalam, lalu tiba-tiba tersenyum dan menatap Fang Yuan dengan pupil matanya yang biru tua, “Fang Yuan, kamu dan aku adalah orang yang sama. Kematianku sudah pasti, tetapi akan sangat disayangkan jika kamu juga mati. Jadi aku akan melindungimu, tapi aku punya syarat.”</p>
+<p>	Bai Ning Bing mungkin hanya Guru Gu peringkat tiga, tetapi saat kematiannya mendekatinya, kekuatan bertarungnya terus tumbuh dengan tajam seperti air mancur. Harapan terakhir untuk menang melawan gen pertama Gu Yue adalah dia!</p>
+<p>	“Kondisi apa?” Tatapan Fang Yuan melintas.</p>
+<p>	Bai Ning Bing merentangkan kedua tangannya seperti sedang memeluk dunia. Mengenakan gaun putih, serasi dengan rambut putih salju dan alisnya yang tajam, dia berkata, “Hiduplah untukku dan saksikan keajaiban dunia yang tak terhitung jumlahnya ini!”</p>
+<p>	Pada saat itu, Fang Yuan tersentuh secara emosional!</p>
+<p>	Pria ini…</p>
+<p>	Fang Yuan memandang Bai Ning Bing dan dia merasa seperti sedang melihat dirinya yang lebih muda di kehidupan sebelumnya.</p>
+<p>	Kata-kata Bai Ning Bing mungkin terdengar seperti omong kosong, tapi itu asli. Mungkin, orang biasa tidak akan pernah mempercayainya, tetapi Fang Yuan memahami makna mendalam yang terkandung dalam kata-kata ini.</p>
+<p>	Bai Ning Bing adalah seorang jenius, bakatnya menentang surga dan tetapi umurnya pendek. Dia telah menemukan jalannya, dan menemukan keyakinannya. Dia tidak takut mati tetapi dia enggan meninggalkan dunia ini.</p>
+<p>	Dia menyesal, tetapi dalam situasi ini di mana dia tidak punya alternatif lain, dia hanya bisa mempercayakan mereka kepada Fang Yuan.</p>
+<p>	“Oh, sebenarnya itu adalah fisik Jiwa Es Gelap Utara! Ck, sayang sekali kamu bukan keturunan dari garis keturunanku, kalau tidak mereka tidak perlu mati. ” Gen pertama Gu Yue tersenyum jahat. “Tapi kamu ingin memblokirku dengan mengandalkan fisik Jiwa Es Gelap Utara ini? Sangat naif!”</p>
+<p>	Sosoknya menghilang dan muncul tepat di depan Bai Ning Bing.</p>
+<p>	LEDAKAN!</p>
+<p>	Terdengar suara ledakan, dan keduanya saling bertukar pukulan.</p>
+<p>	Generasi pertama Gu Yue dipaksa mundur dua langkah sedangkan seluruh tengkorak Bai Ning Bing dan sebagian besar tubuhnya hancur.</p>
+<p>	Tapi di saat berikutnya, kresek, retak …</p>
+<p>	Udara dingin menembus area itu, es dan es mengembun bersama untuk menumbuhkan kembali tubuh dan tengkorak – Bai Ning Bing dibangkitkan!</p>
+<p>	“Apa!” Gen pertama Gu Yue mendapat kejutan dalam hidupnya. Sepuluh bakat ekstrim jarang terlihat dan ini adalah pertama kalinya dia menghadapinya.</p>
+<p>	Dua orang bertukar pukulan lagi. Pada akhirnya, tingkat kultivasi Bai Ning Bing lemah dan ditekan dengan kuat dalam posisi yang tidak menguntungkan, sehingga situasinya terlihat sangat buruk. Namun, tidak peduli bagaimana gen Pertama Gu Yue membunuhnya, dia tidak mati.</p>
+<p>	Pada saat ini, tubuh Jiwa Es Gelap Utara Bai Ning Bing dekat dengan tubuh abadi; tidak peduli seberapa parah lukanya, mereka akan membeku kembali ke keadaan semula dalam hitungan detik.</p>
+<p>	Gu Yue Bo menjadi lebih marah dan juga takut, dan dia dengan gila-gilaan meningkatkan serangan ofensifnya. Bai Ning Bing secara bertahap kehilangan semua warna kehidupan, berubah menjadi manusia es yang bergerak. Bahkan rambut putihnya telah berubah menjadi es tipis.</p>
+<p>	Waktunya akhirnya tiba…</p>
+<p>	Kematian turun pada saat ini.</p>
+<p>	“Kecemerlangan tak terbatas di alam fana, sampai ke ujung dunia, langit dan lautan terbentang. Saat angin meniupkan abuku kembali ke bumi, itu tidak ada bandingannya dengan bulan yang bersinar di pantulan air!” Bai Ning Bing membacakan puisi dengan senyum tipis.</p>
+<p>	Sejak saat itu, ekspresi wajahnya membeku.</p>
+<p>	Ada semburan angin dingin dan kabut seperti es tiba-tiba naik.</p>
+<p>	Meretih…..</p>
+<p>	Sejumlah besar es mulai menyebar dari bawah kakinya, lalu gletser naik seperti kelahiran gunung!</p>
+<p>	Es agung yang bergelombang itu seperti tanah longsor, seperti tsunami, seperti naga yang berguling-guling di atas ombak, saat dihancurkan menuju gen Pertama Gu Yue.</p>
+<p>	Gen pertama Gu Yue terkesiap dan mengeluarkan semua kekuatannya untuk melawannya. Rambut merah di kepalanya berdiri tegak, kabut darah naik dari seluruh tubuhnya, dan sejumlah besar guillotine darah dan kelelawar darah pedang Gu dikirim untuk menabrak gletser dalam upaya untuk memperlambatnya bahkan oleh sedikit.</p>
+<p>	Pada akhirnya, dia masih ditekan oleh gletser, terkurung dan ditelan.</p>
+<p>	Gletser besar memenuhi seluruh perisai darah, tetapi itu tidak menyentuh Fang Yuan karena dia berada di ruang kecil yang sengaja ditinggalkan oleh Bai Ning Bing.</p>
+<p>	Bang.</p>
+<p>	Blood Curtain Skyflower meledak dengan suara lembut. Tanpa hambatan, udara dingin dengan gila-gilaan beterbangan, dan es segera mengembun menjadi gletser yang terus menyebar.</p>
+<p>	“Itu menghancurkan perisai Blood Curtain Skyflower gu! Kekuatan seperti itu…” Lord Sky Crane tidak berani menghadapi gletser saat dia segera terbang ke udara.</p>
+<p>	Di bawah tatapan herannya, gletser terus menyebar dan benar-benar menutupi seluruh gunung Qing Mao dari puncak gunung sampai ke bawah. Dalam hal ini, gunung Qing Mao yang subur dan berkembang berubah menjadi tanah es dan salju yang menyeramkan.</p>
+<p>	Tanah es di bawah kaki Fang Yuan terus naik lebih tinggi, dia juga secara pribadi mengamati adegan ini.</p>
+<p>	Gletser seribu li ini adalah bukti kejatuhan seorang jenius muda, dan di dalamnya terkandung kemarahan dan desahan tak berdaya Bai Ning Bing.</p>
+<p>	“Tidak bagus, aku harus segera meninggalkan tempat ini! Kesadaran Bai Ning Bing melemah dan berangsur-angsur mati, dia sudah kehilangan kendali atas gletser.” Fang Yuan menemukan bahwa ruang tempat dia berada menyusut, es terus mengembun dan bergerak maju, mengompresi ruang tempat dia berada.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

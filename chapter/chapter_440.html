@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 440 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 440";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_439.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 440">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_441.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 440</h1>
+        <div class="text-left">
+<p>	Bab 440 – Interval Sepuluh Tahun Angin dan Salju</p>
+<p>	Bab 440: Interval Sepuluh Tahun Angin dan Salju</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Pemimpin suku Ge memiliki beberapa keraguan ketika dia mendengar nama Chang Shan Yin dalam laporan bawahannya.</p>
+<p>	Sekarang, ketika dia menerima konfirmasi Fang Yuan, dia sangat tersentuh.</p>
+<p>	Semua tetua yang hadir di sana juga berteriak kaget.</p>
+<p>	“Chang Shan Yin?” Ge Guang sedang duduk di samping dan berkata dengan ragu.</p>
+<p>	“Kamu masih muda, tidak tahu itu normal.” Pemimpin suku Ge menghela nafas dan menginstruksikan, “Nak, bersulang untuk Chang Shan Yin. Dia bukan hanya dermawanmu tetapi yang lebih penting, dia adalah pahlawan dataran utara kita!”</p>
+<p>	“Pemimpin suku tua.” Fang Yuan tersenyum pahit dan meletakkan cangkir anggurnya, “Saya hanya gelandangan yang rusak, bukan pahlawan. Mungkin itu adalah berkah dari surga umur panjang, untungnya saya bisa lolos dari ambang kematian. Tetapi saya telah tidur selama dua puluh tahun dan ketika saya bangun, semuanya tampaknya telah berubah. Aku adalah anak yang tidak berbakti dan tidak punya wajah untuk kembali ke sukuku…”</p>
+<p>	Air mata menetes di mata Fang Yuan saat dia mengatakan ini.</p>
+<p>	Para tetua menghela nafas.</p>
+<p>	Pemimpin suku Ge segera menghibur: “Penolong Chang Shan Yin, apa yang kamu katakan? Jika Anda bukan pahlawan dataran utara kami, siapa lagi? Kelompok bandit Ha Tu Gu sangat biadab dan siapa yang tahu berapa banyak suku yang dijarah oleh mereka, yang lebih lemah bahkan musnah dan bahkan ternak pun tidak luput.”</p>
+<p>	“Dengan membunuh mereka, Anda telah menghilangkan ancaman besar di dataran utara kami. Ibumu terluka oleh penjahat, itu bukan karena kamu tidak berbakti. Sebaliknya, akhlak dan perbuatan baik kalian tersebar luas dan diketahui oleh kita semua. Kembalinya Anda adalah keberuntungan untuk jalan lurus dataran utara kami. ”</p>
+<p>	“Pemimpin suku tuan benar!”</p>
+<p>	“Jadi Tuan sebenarnya adalah Chang Shan Yin, ini benar-benar kehormatan bagi kami untuk bisa melihat pahlawan itu.”</p>
+<p>	“Itu benar, kembalinya pahlawan Chang Shan Yin adalah peristiwa yang sangat menguntungkan bagi jalan lurus kita!”</p>
+<p>	Para tetua memuji berulang kali.</p>
+<p>	Mata Ge Guang bersinar, dia baru tahu sekarang bahwa Fang Yuan sebenarnya memiliki asal usul yang hebat dan begitu banyak cerita. Ini meningkatkan rasa hormatnya terhadap Fang Yuan.</p>
+<p>	“Biarkan masa lalu tetap seperti masa lalu. Semuanya, pertemuan kita adalah takdir, mari kita minum untuk itu.” Fang Yuan tidak ingin membicarakan ini; dia mengerti masa lalu Chang Shan Yin, tapi sebaiknya dia menghindari topik itu.</p>
+<p>	Dia menunjukkan ekspresi tertekan dan suram.</p>
+<p>	Semua orang mengamati ekspresinya dan tidak menyebutkan topik itu lagi, hanya berbicara tentang peristiwa yang menggembirakan.</p>
+<p>	Setelah mengkonfirmasi identitas Chang Shan Yin, Fang Yuan menerima banyak perlakuan yang penuh gairah.</p>
+<p>	Perjamuan berlangsung sepanjang jalan dari sore hingga larut malam. Para tetua berbaring setelah minum terlalu banyak, jika bukan karena Fang Yuan berpura-pura mabuk, dia tidak akan bisa pergi.</p>
+<p>	Hari berikutnya, pemimpin suku Ge mengundang Fang Yuan untuk perjamuan lagi.</p>
+<p>	“Penolong Chang Shan Yin, ini adalah hadiah kecil sebagai ucapan terima kasih karena telah menyelamatkan nyawa putraku. Silakan ambil!” Sebelum perjamuan dimulai, pemimpin suku tua memberikan sejuta batu purba kepada Fang Yuan.</p>
+<p>	Fang Yuan agak terkejut karena dia tidak mengira dia akan mendapatkan hadiah sebesar itu.</p>
+<p>	Suku Ge hanyalah suku skala kecil-menengah yang tidak dalam situasi keuangan yang baik; itu bisa dilihat dari posisi kemah mereka dan pakaian orang-orangnya.</p>
+<p>	Saat ini, Fang Yuan berada dalam kemiskinan; batu purba dataran utara ini dapat digunakan untuk menyelesaikan masalahnya saat ini. Dia menerima hadiah itu: “Pemimpin suku Ge, saya tidak menyelamatkan Ge Guang demi uang. Namun, sejujurnya, saya saat ini kehabisan batu purba. Saya tidak akan sopan kalau begitu. Saya pasti akan membalas kebaikan suku Ge di masa depan. ”</p>
+<p>	Mendengar kalimat terakhir Fang Yuan, pemimpin suku Ge, Ge Guang dan kelompok tetua semuanya tersenyum.</p>
+<p>	Mampu berteman dan terhubung dengan ahli heroik seperti Chang Shan Yin adalah hal yang diimpikan oleh suku skala kecil-menengah seperti mereka.</p>
+<p>	Perjamuan berlanjut dan suasananya jauh lebih ramai dari kemarin.</p>
+<p>	Kemarin hanya pertemuan pertama, dan hari ini, kedua belah pihak akrab satu sama lain. Fang Yuan mengangkat cangkirnya dan melamar semua tetua; dia mengingat semua nama mereka dengan jelas.</p>
+<p>	Ini membuat semua tetua merasa kewalahan, membuat mereka merasa lebih dekat dengan Chang Shan Yin.</p>
+<p>	Selama perjamuan, beberapa orang pasti penasaran dengan pengalaman Fang Yuan.</p>
+<p>	Fang Yuan sudah menyiapkan kisah yang bagus dan menceritakannya kepada semua orang. Itu adalah hal yang sama yang dia katakan untuk menipu Ge Guang, tetapi dibandingkan dengan menipu seorang gadis muda, dia berbicara lebih hati-hati kali ini.</p>
+<p>	Dia menceritakan kejadiannya dan mengatakan kultivasinya telah turun dari peringkat empat tahap puncak ke tahap awal karena cedera.</p>
+<p>	Kata-katanya tidak memiliki kekurangan, menyebabkan semua orang terkesiap, menghela nafas dan merasa lebih hormat padanya.</p>
+<p>	Dan Fang Yuan terus mendesah, tidak peduli sedikit pun tentang pencapaiannya di masa lalu; tatapannya menunjukkan perubahan waktu dan nadanya melankolis.</p>
+<p>	Anggota suku Ge menyadari bahwa pahlawan legendaris itu juga memiliki sisi menyakitkan dalam dirinya; melihat orang yang begitu tulus, mereka berduka dan bersimpati padanya, merasa lebih dekat dengan Fang Yuan.</p>
+<p>	Pada hari ketiga, suku Ge masih melanjutkan perjamuan dengan keaktifan yang sangat tinggi.</p>
+<p>	Kali ini, seorang penatua yang aneh muncul di perjamuan. Dia bertanggung jawab atas intelijen suku Ge, dan tepat ketika Fang Yuan mencapai kamp, ​​​​dia telah menerima perintah untuk memimpin kelompok untuk mencari Ge Yao.</p>
+<p>	“Huh, ini semua salahku. Saya memiliki seorang gadis licik, saya telah memanjakannya terlalu banyak, dia benar-benar melarikan diri dari pernikahannya!” Pemimpin suku Ge menghela nafas.</p>
+<p>	“Benar, kakak Chang Shan Yin, kamu kembali dari padang rumput beracun. Apakah kamu melihat adik perempuanku di jalan?” tanya Ge Guang.</p>
+<p>	Fang Yuan dengan tenang menjawab tanpa ragu-ragu, ekspresinya sangat alami: “Maaf, saya hanya memiliki serigala sebagai teman saya dalam perjalanan. Kalian adalah manusia pertama yang saya lihat, jadi saya merasa lebih dekat dengan Anda.”</p>
+<p>	Ge Guang juga dengan santai bertanya dan tidak memiliki harapan.</p>
+<p>	Selain itu, padang rumput beracun sangat besar, Fang Yuan tidak bertemu Ge Yao juga normal. Jika mereka bertemu satu sama lain, itu akan menjadi hal yang langka.</p>
+<p>	“Adik perempuan yang tidak peka ini, aku benar-benar tidak tahu ke mana dia melarikan diri tanpa meninggalkan pesan apa pun. Huh… sudah merepotkan, putra ketiga pemimpin suku Man, Man Duo adalah orang yang ingin menikahinya. Sekarang, saudari telah melarikan diri dari pernikahan, dan karena dia gagal mendapatkannya, Man Duo mungkin mengeluarkannya dari suku Ge. ”</p>
+<p>	Ge Guang menghela nafas dengan kerutan di wajahnya.</p>
+<p>	Para tetua lainnya juga tampak murung. Tekanan suku manusia terhadap mereka semakin meningkat akhir-akhir ini.</p>
+<p>	Tak satu pun dari mereka tahu bahwa Chang Shan Yin yang telah mereka hibur dengan antusias selama tiga hari telah membunuh Ge Yao.</p>
+<p>	“Pohon mati saat digerakkan, manusia hidup saat bergerak. Saudara-saudara suku Ge, mengapa Anda enggan meninggalkan tempat ini? Hanya ada lebih dari satu tahun tersisa sampai badai salju besar. Anda dapat bermigrasi ke utara, berpartisipasi dalam perakitan pahlawan dan mengandalkan suku Huang Jin. Dengan ini, kamu bisa bersembunyi di tanah yang diberkati Wang Ting ketika badai salju besar datang.” Fang Yuan meyakinkan.</p>
+<p>	Dunia Guru Gu adalah dunia dengan lingkungan yang kejam dan tidak mudah untuk bertahan hidup.</p>
+<p>	Di perbatasan selatan, manusia membuat desa berbenteng yang dapat bertahan melawan gelombang pasang, tetapi dataran utara tidak memiliki gunung dan suku-suku harus menderita baptisan angin dan salju.</p>
+<p>	Setiap sepuluh tahun di dataran utara, akan ada badai salju besar yang melanda seluruh dataran utara.</p>
+<p>	Itu akan berlangsung selama berbulan-bulan, langit akan suram dan salju akan melayang ke mana-mana. Angin dingin akan bertiup seperti pisau dan salju putih akan menutupi dunia. Seluruh dataran luas akan membeku menjadi dunia es dan salju.</p>
+<p>	Setiap kali badai salju terjadi, itu akan membawa banyak kematian. Serigala, rubah, elang, tumbuh-tumbuhan dan manusia; tidak ada yang bisa lolos.</p>
+<p>	Terutama selama badai salju, sejumlah besar cacing Gu liar yang kuat akan muncul.</p>
+<p>	Seringkali, setelah badai salju, suku skala besar di dataran utara akan menyusut hingga skala menengah dan skala menengah akan menyusut hingga skala kecil karena banyaknya korban.</p>
+<p>	Pemimpin suku Ge menghela nafas panjang: “Saudara Shan Yin, saya sudah tua dan tidak lagi memiliki ambisi yang saya miliki ketika saya masih muda. Jika kita mencari perlindungan dengan klan Huang Jin, suku Ge kita akan terseret ke dalam pusaran konflik. Adalah baik jika kita berhasil, tetapi konsekuensi kegagalan terlalu berat. Klan Ge kami telah membuat kemajuan dengan susah payah, kami tidak akan bisa menanggung kerugiannya.”</p>
+<p>	“Perjuangan di istana kekaisaran bukanlah sesuatu yang bisa diikuti oleh klan kecil seperti kita. Sebenarnya, lingkungan ini tidak buruk, tanahnya subur dan ada sumber daya yang melimpah. Bahkan ada lembah Hong Yan di dekatnya di mana api bawah tanah menyala. Selama badai salju, suku kami dapat bergerak ke dalam lembah dan selamat dari bencana ini.”</p>
+<p>	Namun, lembah Hong Yan dikendalikan dengan kuat oleh penguasa tempat ini, suku Man.</p>
+<p>	Suku Ge harus berdamai dengan suku Man untuk memasuki lembah Hong Yan.</p>
+<p>	Lamaran pernikahan Man Duo dengan Ge Yao adalah kesempatan yang sangat bagus. Demi keuntungan seluruh suku, mengorbankan kebahagiaan seorang gadis untuk menikah adalah hal yang sangat baik bagi pemimpin suku Ge dan Ge Guang.</p>
+<p>	Mengorbankan keuntungan individu untuk keseluruhan, ini adalah adegan paling umum dalam sebuah organisasi.</p>
+<p>	Namun, Ge Yao melarikan diri dari pernikahan dengan keberadaannya tidak diketahui. Suku Man telah menekan mereka untuk menyerahkan Ge Yao, tetapi suku Ge tidak dapat melakukannya.</p>
+<p>	Fang Yuan segera menyadari niat pemimpin suku Ge dari kata-katanya, mereka ingin berlindung dengan suku Man.</p>
+<p>	Dia memahami ini dengan sangat baik tetapi merasa kasihan di dalam hati.</p>
+<p>	Perakitan pahlawan adalah tujuan target berikutnya. Jika dia bisa membuat suku Ge bermigrasi, dia akan bisa melakukan perjalanan dengan lancar tanpa harus menghadapi banyak bahaya di sepanjang jalan.</p>
+<p>	Setelah menyebutkan badai salju dan suku Man, suasana hati semua orang berubah suram.</p>
+<p>	“Saudara Shan Yin, apakah kamu benar-benar tidak akan kembali ke suku Chang?” Pemimpin suku Ge bertanya.</p>
+<p>	“Tentu saja aku tidak bisa kembali. Jika aku kembali, bukankah peniruan identitasku akan mudah terungkap ?! ” Fang Yuan berpikir dalam benaknya saat berbicara, “Huh, dalam keadaanku saat ini, aku tidak dapat menghadapi orang tua dan anggota sukuku.”</p>
+<p>	Pemimpin suku Ge mengangguk, mengungkapkan pengertiannya dan merasakan simpati.</p>
+<p>	Chang Shan Yin tidur selama dua puluh tahun dan setelah bangun, semuanya telah berubah. Ibunya telah meninggal, istrinya telah menikah lagi dengan saudaranya. Suku Chang telah menjadi tempat sakitnya, itu adalah hal yang normal baginya untuk tidak bisa menghadapi ini untuk sementara waktu.</p>
+<p>	Dalam perjamuan sebelumnya, Fang Yuan telah menyebutkan bahwa dia ingin pergi ke majelis pahlawan dan juga memulihkan kultivasinya dengan cepat.</p>
+<p>	“Saudaraku, jika kamu benar-benar ingin berpartisipasi dalam majelis pahlawan, hanya mengandalkan kelompok serigalamu saat ini, itu tidak akan cukup untuk perjalananmu. Akan lebih baik bagimu untuk beristirahat selama beberapa hari.” Pemimpin klan lama melamar.</p>
+<p>	Fang Yuan mengangguk dan tidak keberatan: “Saya memiliki ide yang sama. Tapi dengan cara ini, saya harus terus memaksakan pada suku Anda. ”</p>
+<p>	“Tentu saja tidak, merupakan kehormatan bagi kami bahwa Anda adalah tamu di sini!” Pemimpin suku tua itu tertawa terbahak-bahak, mengungkapkan kesediaannya.</p>
+<p>	Ge Guang juga tersenyum: “Beberapa hari kemudian, beberapa suku di sekitarnya akan mengadakan pasar bersama. Paman chang bisa datang melihatnya.”</p>
+<p>	Seperti ini, Fang Yuan menginap di suku Ge.</p>
+<p>	Beberapa hari kemudian, suku Ge membubarkan diri dan bergerak ke arah barat daya, berkumpul dengan beberapa suku lainnya.</p>
+<p>	Pasar suku yang sangat besar dengan cepat muncul.</p>
+<p>	Fang Yuan menolak undangan Ge Guang dan memasuki pasar yang ramai dan ramai ini sendirian.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

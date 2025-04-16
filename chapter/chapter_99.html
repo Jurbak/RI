@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 99 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 99";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_98.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 99">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_100.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 99</h1>
+        <div class="text-left">
+<p>	Bab 99</p>
+<p>	Bab 99: Manusia, bukan Tuhan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Menabrak…</p>
+<p>	Ombak besar berjatuhan di laut purba, naik turun.</p>
+<p>	Laut itu berwarna merah terang. Ini bukan laut tembaga hijau dari peringkat satu, tapi laut baja merah.</p>
+<p>	Aperture ditutupi dengan lapisan lapisan cahaya; ini adalah penampilan tahap awal Peringkat dua.</p>
+<p>	Seluruh laut esensi purba baja merah menempati 44% dari aperture. Di atas laut, Jangkrik Musim Semi Musim Gugur muncul.</p>
+<p>	Setelah melalui satu tahun penyembuhan, itu sudah agak pulih.</p>
+<p>	Sebelumnya, tidak ada kilau dari tubuhnya, tampak kasar dan redup seperti kayu yang layu. Sekarang, itu memiliki beberapa gloss untuk itu.</p>
+<p>	Kedua sayapnya seperti daun musim gugur yang menguning dan layu dan ujungnya telah rusak. Sekarang, ada sedikit warna hijau dan ada garis daun hitam di ujungnya, membuat lengkungan lengkap tanpa cacat sebelumnya.</p>
+<p>	“Musim Semi Musim Gugur Jangkrik, musim semi dan musim gugur… Aku mengerti sekarang, ia perlu mengalami perubahan musim semi dan musim gugur untuk pulih. Sejak kelahiran kembali, satu tahun telah berlalu, yang berarti pergantian musim semi dan musim gugur, dan karenanya telah pulih.”</p>
+<p>	Fang Yuan memandang Jangkrik Musim Gugur Musim Semi dan pemikiran ini muncul di dalam dirinya, meningkatkan pemahamannya tentang Jangkrik Musim Gugur Musim Semi pada tahap lain.</p>
+<p>	Seorang Guru Gu perlu memperbaiki, memelihara, dan menggunakan Gu. Di antara mereka ‘penggunaan’ diklasifikasikan lebih lanjut dan berisi banyak sekali variasi. Fang Yuan telah berhubungan dengan Jangkrik Musim Gugur Musim Semi sepanjang waktu; pemahamannya tentang Jangkrik Musim Gugur Musim Semi perlahan-lahan terakumulasi dan semakin dalam.</p>
+<p>	“Tetapi Jangkrik Musim Gugur Musim Semi masih lemah, ia hanya bergerak beberapa langkah dari mendekati kematian. Saya hanya bisa menggunakan auranya untuk menekan cacing Gu dan meningkatkan efisiensi pemurnian tunggal. Adapun sekering, itu tidak akan membantu apa pun. ”</p>
+<p>	Ada cacing Gu mistis yang meningkatkan tingkat keberhasilan fusi. Semuanya memiliki spesialisasi mereka sendiri; Jangkrik Musim Semi Musim Gugur memiliki kemampuan kelahiran kembali.</p>
+<p>	Selain Jangkrik Musim Gugur Musim Semi, ada cacing Liquor gemuk yang meringkuk dalam bola bundar, mengambang dan bermain-main di laut.</p>
+<p>	Gu White Boar seperti kepik dan Gu Kulit Giok yang memiliki warna batu giok hijau berputar-putar satu sama lain.</p>
+<p>	Fang Yuan membuka matanya dan perlahan membuka telapak tangan kanannya. Di dalamnya ada jejak bulan sabit dan dua bintang bersisi lima.</p>
+<p>	Mereka tepatnya adalah kediaman Moonlight Gu dan dua Little Light Gu.</p>
+<p>	Fang Yuan duduk bersila di tempat tidur, garis pandangnya jatuh di sprei.</p>
+<p>	Ada tiga kantong uang di sprei; dua menonjol dan satu sebagian besar menipis. Selain itu, ada juga gading seputih salju dari raja babi hutan. Itu tampak seperti gading gajah, tergeletak di dekat kaki Fang Yuan di sprei.</p>
+<p>	Kelompok ular yang sakit telah menggunakan semua kekuatan mereka untuk membunuh raja babi hutan, tetapi mereka bertemu dengan serangan paket serigala petir dan sebagian besar kulit dan daging raja babi hutan telah dimakan oleh serigala petir. Dua gading putih salju dengan demikian merupakan rampasan perang yang paling berharga.</p>
+<p>	Menurut aturan dan peraturan klan, Fang Yuan – menjadi salah satu anggota dalam membunuh raja babi hutan – menerima salah satu gading raja babi hutan.</p>
+<p>	Fang Yuan melihat barang-barang ini, ekspresinya berat. “Saya tidak memiliki banyak batu purba yang tersisa dan itu hanya cukup untuk satu fusi. Setelah penggabungan ini, tidak peduli sukses atau gagal, kondisi keuangan saya akan turun. Tetapi jika saya tidak menggabungkannya sekarang, batu purba saya hanya akan bertahan selama dua belas hari atau lebih dan saya bahkan akan kehilangan kesempatan untuk menyatu. ”</p>
+<p>	Fang Yuan membesarkan tujuh cacing Gu sehingga dia memiliki beban keuangan yang besar. Dan karena bakat kelas C-nya, dia harus berulang kali menggunakan cacing Liquor untuk meningkatkan kultivasinya dengan cepat. Dengan demikian, konsumsi batu purbanya lebih dari seorang Guru Gu biasa.</p>
+<p>	Baru-baru ini, dia tidak lagi menggunakan batu purba untuk memulihkan esensi purba di lubangnya. Laut baja merah di tubuhnya sekarang semuanya pulih dengan tingkat pemulihan diri alami.</p>
+<p>	Fang Yuan sudah mulai memotong konsumsi batu purba; dia tidak bisa menyalahgunakannya setelah menghitung pengeluarannya.</p>
+<p>	Situasi saat ini seperti dia akan jatuh dari tebing. Dia hanya bisa berpegangan pada rerumputan liar di sisi tebing untuk menstabilkan tubuhnya tanpa terjatuh.</p>
+<p>	Tetapi seiring berjalannya waktu, garis hidup ini akan terus habis. Jika dia tidak mengambil risiko, tidak akan lama baginya untuk jatuh dari tebing.</p>
+<p>	Apa yang harus dia lakukan sekarang adalah menggunakan garis hidup ini dan memanjat tebing dengan seluruh kekuatannya.</p>
+<p>	Jika dia berhasil, dia bisa mengambil kesempatan untuk mendapatkan warisan keluarga dan naik ke tingkat lain dan itu akan menjadi pemandangan yang sama sekali baru di depannya.</p>
+<p>	Jika dia kalah, dia akan jatuh dan mencoba naik ke tahap ini lagi, dia perlu menghabiskan banyak waktu dan energi.</p>
+<p>	“Apa pun yang terjadi, mari kita mulai.” Fang Yuan menarik napas dalam-dalam dan memfokuskan pandangannya.</p>
+<p>	Gu Babi Putih, Gu Kulit Giok!</p>
+<p>	Kedua cacing Gu mengikuti kehendaknya, mengebor keluar dari lubangnya dan melayang di depan Fang Yuan.</p>
+<p>	“Sekering!” Fang Yuan berteriak dalam hati. White Boar Gu dan Jade Skin Gu tiba-tiba memancarkan cahaya menyilaukan dan langsung bertabrakan.</p>
+<p>	Ini adalah benjolan diam, tapi itu menciptakan bola cahaya.</p>
+<p>	Cahaya putih lebih menyilaukan dari sebelumnya.</p>
+<p>	Ini menunjukkan bahwa dua kesadaran Fang Yuan menyatu.</p>
+<p>	Fang Yuan menggunakan kesadarannya untuk mempertahankan bola putih cahaya putih mengeluarkan batu purba dari tas dan melemparkannya ke dalam bola cahaya.</p>
+<p>	Batu-batu purba ditelan oleh bola cahaya dan hanya bubuk batu yang tersisa, berserakan di tempat tidur. Setiap kali bola cahaya menelan batu purba, ujung-ujungnya akan melebar sedikit.</p>
+<p>	Bola cahaya menyerap esensi purba alami dan menjadi lebih besar dan lebih besar.</p>
+<p>	Secara bertahap, itu berubah dari ukuran wastafel menjadi ukuran batu asah.</p>
+<p>	“Hampir sampai.” Fang Yuan menyipitkan matanya; dia dengan tegas melemparkan gading putih salju raja babi hutan itu ke dalam bola cahaya.</p>
+<p>	Jika ada yang menyaksikan adegan ini, mereka akan tercengang. Resep rahasia menggabungkan Gu Babi Putih dan Gu Kulit Giok untuk membentuk Gu Giok Putih sudah dikenal luas dan beredar selama lebih dari seribu tahun, tetapi tidak ada yang pernah mendengar tentang menambahkan gading bersalju raja babi hutan.</p>
+<p>	Namun, tidak digunakan di masa lalu tidak berarti tidak akan digunakan di masa depan.</p>
+<p>	Seratus lima puluh tahun dari sekarang, seorang Guru Gu akan mengimprovisasi resep ini; dia menemukan bahwa menambahkan gading babi hutan akan sangat meningkatkan tingkat keberhasilan fusi.</p>
+<p>	Fang Yuan memiliki pengalaman lima ratus tahun, dia secara alami tahu trik ini.</p>
+<p>	Gading bersalju dilemparkan ke dalam bola cahaya dan transformasi fantastis terjadi segera.</p>
+<p>	Cahaya yang sebelumnya menyilaukan berubah lebih lembut. Cahaya yang secara membabi buta melesat ke mana-mana sekarang memiliki pola gerakan, secara alami berubah antara terang dan gelap.</p>
+<p>	Di bawah tatapan Fang Yuan, bola cahaya perlahan menyusut dan akhirnya menghilang ke udara.</p>
+<p>	Alih-alih Gu Kulit Giok dan Gu Babi Putih, sekarang ada cacing Gu yang benar-benar baru dengan tenang melayang di depan Fang Yuan.</p>
+<p>	Itu seperti kerikil oval, seluruh tubuhnya benar-benar putih; putih ini tidak pucat seperti kertas Xuan dan tidak putih susu seperti susu, tetapi semacam putih lembab seperti kilau batu giok.</p>
+<p>	Ini adalah — Peringkat dua Gu Giok Putih!</p>
+<p>	Baru sekarang Fang Yuan mengeluarkan seteguk udara keruh, hatinya lega.</p>
+<p>	Anda mungkin berpikir bahwa proses ini terlihat sederhana. Bukan itu.</p>
+<p>	Pertama, penyatuan kesadaran membutuhkan multitasking.</p>
+<p>	Menggambar lingkaran dengan satu tangan dan persegi dengan tangan lainnya disebut tugas ganda. Banyak orang bahkan tidak bisa melakukan ini, apalagi multi-tasking yang sangat sulit.</p>
+<p>	Seseorang hanya dapat mencapai multi-tugas setelah bertahun-tahun berkultivasi dengan keras, menderita melalui kekalahan dan kemunduran yang tak terhitung jumlahnya, dan bahkan saat itu seseorang masih membutuhkan beberapa bakat.</p>
+<p>	Fang Yuan dapat melakukan ini dengan sangat mahir karena pengalamannya yang mendalam selama lima ratus tahun; tidak sedikit pun pengalamannya palsu atau palsu.</p>
+<p>	Kedua, adalah pemahaman dan pengetahuan tentang cacing Gu.</p>
+<p>	Semakin dalam pemahaman Master Gu tentang cacing Gu, semakin tinggi tingkat keberhasilan peleburan.</p>
+<p>	Poin ini, dalam waktu sekitar tiga ratus tahun dari sekarang, akan menjadi pengetahuan yang diakui secara luas.</p>
+<p>	Dengan demikian, semakin lama Anda menggunakan worm Gu, semakin besar kemungkinan keberhasilan dalam fusi Gu.</p>
+<p>	Ketiga, adalah resep yang benar dan asli.</p>
+<p>	Misalnya, kali ini, menambahkan gading bersalju seperti sentuhan akhir, meningkatkan tingkat keberhasilan sebesar 20%. Efisiensinya sangat luar biasa.</p>
+<p>	Beberapa resep tersebar luas di dunia ini, tetapi ada banyak resep yang dikumpulkan orang dan tidak diedarkan.</p>
+<p>	Seperti di desa Gu Yue, resep pemurnian Moonlight Gu dipegang oleh sejumlah kecil tetua dan generasi pemimpin klan yang berurutan.</p>
+<p>	Terutama yang peringkat lima ke atas resep. Mereka akan disembunyikan dan dihargai seperti nyawa mereka. Banyak Master Gu tidak akan menyebarkan resep ini sampai mati.</p>
+<p>	Tetapi bahkan dengan tiga poin ini, tidak ada jaminan kesuksesan yang mutlak. Bahkan orang seperti Fang Yuan yang memiliki ingatan lima ratus tahun, banyak pengalaman, pemahaman mendalam tentang cacing Gu, dapat melakukan banyak tugas dan mengetahui banyak resep, memiliki kemungkinan gagal saat menggabungkan cacing Gu.</p>
+<p>	Orang hanya bisa mengatakan bahwa tingkat kegagalannya lebih rendah.</p>
+<p>	Menggabungkan cacing Gu adalah evolusi kehidupan, sejenis ciptaan. Ini memadatkan waktu hingga ekstrem, membuat proses evolusi yang panjang membuahkan hasil dalam sekejap.</p>
+<p>	Di bumi, hanya dewa yang bisa melakukan ini.</p>
+<p>	Ini tidak diragukan lagi merupakan keajaiban hidup. Master Gu membuat intervensi ilahi dengan tubuh fana, bagaimana itu bisa berhasil setiap saat?</p>
+<p>	Jika berhasil setiap saat, itu bukan manusia, tetapi dewa.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 1";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="#" class="btn"  style="visibility:hidden;">« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 1">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 1</h1>
+        <div class="text-left">
+<p>	Bab 01</p>
+<p>	Bab 1 – Hati iblis tidak pernah menyesal bahkan dalam kematian</p>
+<p>	“Fang Yuan, diam-diam serahkan Jangkrik Musim Gugur Musim Semi dan aku akan memberimu kematian cepat!”</p>
+<p>	“Bajingan tua Fang, berhentilah mencoba melawan lagi, hari ini semua faksi utama keadilan telah bergabung bersama hanya untuk menghancurkan sarang iblismu. Tempat ini sudah tertutup jaring yang tak terhindarkan, kali ini kau pasti akan dipenggal!”</p>
+<p>	“Fang Yuan kau iblis sialan, hanya karena kau ingin mengolah Jangkrik Musim Gugur Musim Semi, kau telah pergi dan membunuh ribuan orang. Kamu telah melakukan terlalu banyak dosa keji yang tak terampuni!”</p>
+<p>	“Iblis, 300 tahun yang lalu kau menghinaku, merampas kemurnian tubuhku, membunuh seluruh keluargaku dan mengeksekusi sembilan generasiku. Sejak saat itu dan seterusnya, aku membencimu dengan hasrat yang membara! Hari ini, aku ingin kamu mati!”</p>
+<p>	……</p>
+<p>	Fang Yuan mengenakan jubah hijau tua yang telah dicabik-cabik. Rambutnya acak-acakan dan seluruh tubuhnya berlumuran darah. Dia melihat sekeliling.</p>
+<p>	Jubah berdarah melambai ringan di angin gunung seperti bendera perang.</p>
+<p>	Darah segar mengalir dari banyak luka di tubuh. Hanya dengan berdiri di sana sebentar, Fang Yuan telah mengumpulkan banyak darah di bawah kakinya.</p>
+<p>	Musuh mengelilinginya di sekelilingnya; sudah tidak ada jalan keluar.</p>
+<p>	Itu adalah kesimpulan yang sudah pasti bahwa dia akan mati di sini.</p>
+<p>	Fang Yuan memahami situasinya dengan jelas, tetapi bahkan dalam menghadapi kematian, ekspresinya tidak berubah, itu tenang.</p>
+<p>	Tatapannya tenang, matanya seperti genangan air yang dalam di sumur, begitu dalam sehingga sepertinya tidak ada habisnya.</p>
+<p>	Faksi utama keadilan yang mengelilinginya bukan hanya para tetua yang berpengalaman, tetapi juga para pahlawan muda dan berbakat. Di sekitar Fang Yuan yang terkepung, ada yang meraung, ada yang mencibir; ada mata yang berkilauan dengan cahaya, beberapa memegang luka mereka sambil melihat dengan ketakutan.</p>
+<p>	Mereka tidak bergerak; semua orang waspada terhadap serangan terakhir Fang Yuan.</p>
+<p>	Selama 6 jam momen menegangkan ini berlangsung hingga malam tiba, matahari memancarkan sinarnya ke sisi gunung. Pada saat itu, seolah-olah tempat itu terbakar.</p>
+<p>	Fang Yuan, yang diam seperti patung sepanjang waktu, perlahan membalikkan tubuhnya.</p>
+<p>	Sekelompok prajurit tiba-tiba disiagakan dan mereka semua mengambil langkah mundur yang besar.</p>
+<p>	Sekarang batu gunung abu-abu di bawah kaki Fang Yuan telah lama ternoda merah tua. Karena kehilangan terlalu banyak darah, wajahnya menjadi pucat pasi; di sisa-sisa matahari terbenam, tiba-tiba memiliki kilau cemerlang di atasnya.</p>
+<p>	Melihat matahari terbenam, Fang Yuan tertawa ringan. “Matahari terbenam di atas gunung biru, bulan musim gugur dengan angin musim semi. Pagi itu baik-baik saja seperti rambut dan malam seperti salju, apakah Anda berhasil atau gagal ketika Anda melihat ke belakang, tidak ada yang tersisa. ”</p>
+<p>	Saat dia mengatakan ini, ingatan tentang kehidupan sebelumnya di Bumi muncul di depan matanya.</p>
+<p>	Dia awalnya adalah seorang sarjana Cina di Bumi yang kebetulan berada di dunia ini. Dia mengalami kehidupan yang sulit selama 300 tahun dan melewati 200 tahun lagi; sekitar lebih dari 500 tahun hidupnya berlalu dalam sekejap mata.</p>
+<p>	Begitu banyak kenangan yang terkubur jauh di dalam hati mulai hidup kembali, tumbuh menjadi kehidupan di depan matanya.</p>
+<p>	“Aku gagal pada akhirnya.” Fang Yuan menghela nafas dalam hatinya secara emosional, namun tidak ada penyesalan.</p>
+<p>	Hasil akhir ini adalah sesuatu yang telah dia ramalkan. Ketika dia membuat keputusan di awal, dia telah mempersiapkan diri untuk ini.</p>
+<p>	Menjadi iblis berarti menjadi tanpa ampun dan kejam, seorang pembunuh dan perusak. Tidak ada tempat di surga atau di bumi untuk hal seperti itu – berubah menjadi musuh bagi dunia, masih harus menghadapi konsekuensinya.</p>
+<p>	“Jika Jangkrik Musim Semi Musim Gugur yang baru saja saya kembangkan efektif, saya akan tetap menjadi iblis di kehidupan saya selanjutnya!” Dengan pemikiran ini, Fang Yuan tidak bisa menahan tawa.</p>
+<p>	“Iblis jahat, apa yang kamu tertawakan?”</p>
+<p>	“Hati-hati semuanya, iblis akan menyerang sebelum saat-saat terakhirnya!”</p>
+<p>	“Cepat dan serahkan Jangkrik Musim Gugur Musim Semi!!”</p>
+<p>	Kelompok panglima perang maju ke depan; pada saat ini, dengan ledakan keras, Fang Yuan diliputi gelombang energi yang menyilaukan.</p>
+<p>	……</p>
+<p>	Hujan musim semi dengan tenang menghujani Gunung Qing Mao.</p>
+<p>Saat itu sudah larut malam, angin sepoi-sepoi bertiup dengan hujan ringan.</p>
+<p>	Namun Gunung Qing Mao tidak tertutup kegelapan; dari sisi bawah ke kaki gunung, puluhan lampu kecil bersinar seperti pita terang.</p>
+<p>	Lampu-lampu ini bersinar dari gedung-gedung tinggi, meskipun tidak bisa dikatakan menandingi sepuluh ribu lampu, namun jumlahnya masih beberapa ribu.</p>
+<p>	Terletak di gunung adalah Desa Gu Yue(1), memberikan sentuhan peradaban manusia yang kaya pada gunung sepi yang luas itu.</p>
+<p>	Di tengah Desa Gu Yue ada paviliun yang megah. Sebuah upacara besar sedang diadakan pada saat ini, dan lampu-lampu itu bahkan lebih terang dari sebelumnya, memancar dengan kemuliaan.</p>
+<p>	“Leluhur, tolong berkati kami! Kami berdoa agar upacara ini akan membawa banyak pemuda dengan bakat dan kecerdasan luar biasa, membawa darah dan harapan baru bagi keluarga mereka!” Kepala klan Gu Yue memiliki penampilan setengah baya, cambangnya beruban dan dia mengenakan jubah putih upacara, berlutut di lantai kuning kecoklatan. Tubuhnya tegak dengan kedua tangan dirapatkan, mata tertutup rapat sambil berdoa dengan sungguh-sungguh.</p>
+<p>	Dia menghadapi kasus hitam tinggi; ada tiga lapisan pada kasing, semuanya menyimpan tugu peringatan leluhur. Di kedua sisi tablet ada dupa tembaga, asapnya membubung.</p>
+<p>	Di belakangnya ada lebih dari 10 orang yang berlutut dengan cara yang sama seperti dia. Mereka mengenakan pakaian upacara putih longgar, dan semuanya adalah tetua klan, anggota penting, dan mereka yang memiliki banyak otoritas.</p>
+<p>	Setelah selesai berdoa, kepala klan Gu Yue menekuk pinggangnya dengan kedua tangannya menekan lantai dan bersujud. Saat dahinya membentur lantai kuning kecoklatan, terdengar bunyi gedebuk ringan.</p>
+<p>	Di belakangnya, para tetua dan anggota klan penting dengan sungguh-sungguh dan diam-diam mengikutinya.</p>
+<p>	Dengan ini, aula dipenuhi dengan bunyi gedebuk ringan saat kepala-kepala itu membentur lantai.</p>
+<p>	Ketika upacara selesai, kerumunan orang perlahan bangkit dari tanah dan diam-diam berjalan keluar dari kuil suci.</p>
+<p>	Di lorong, desahan lega terdengar dari kerumunan tetua dan suasana mengendur. Kebisingan diskusi perlahan meningkat.</p>
+<p>	“Waktu berlalu terlalu cepat, dalam sekejap mata, satu tahun telah berlalu.”</p>
+<p>	“Upacara sebelumnya terasa seperti baru terjadi kemarin, saya masih bisa mengingatnya dengan jelas.”</p>
+<p>	“Besok adalah pembukaan upacara akbar tahunan, aku ingin tahu darah klan baru apa yang akan muncul tahun ini?”</p>
+<p>	“Ah, aku berharap beberapa pemuda yang sangat berbakat akan muncul. Klan Gu Yue belum pernah melihat seorang jenius muncul selama tiga tahun sekarang.”</p>
+<p>	“Sepakat. Desa Bai, Desa Xiong beberapa tahun ini semua memiliki beberapa jenius berbakat muncul. Terutama Bai Ning Bing dari klan Bai, bakat alaminya cukup mengerikan.”</p>
+<p>	Tidak jelas siapa yang menyebut nama Bai Ning Bing, tetapi wajah para tetua mulai menunjukkan kekhawatiran.</p>
+<p>	Kualifikasi anak laki-laki itu sangat bagus; hanya dalam waktu singkat selama dua tahun pelatihan, dia telah mencapai level Master Gu level tiga.</p>
+<p>Di generasi muda, dia bisa dikatakan sebagai yang paling menonjol. Sampai-sampai generasi yang lebih tua pun bisa merasakan tekanan dari para pemuda yang menjanjikan.</p>
+<p>	Pada waktunya, dia pasti akan menjadi pilar klan Bai. Setidaknya dia juga akan menjadi prajurit yang kuat secara mandiri. Tidak ada yang pernah meragukan fakta ini.</p>
+<p>	“Namun bagi para pemuda yang akan mengikuti upacara tahun ini, tidak semua harapan hilang.”</p>
+<p>	“Kamu benar, pihak Fang Zhi telah muncul sebagai seorang jenius muda. Mampu mulai berbicara setelah tiga bulan, mampu berjalan setelah empat bulan. Pada usia lima tahun ia sudah bisa membaca puisi, tampaknya sangat cerdas, terutama berbakat. Sayang sekali orang tuanya meninggal lebih awal, sekarang dia dibesarkan oleh paman dan bibinya. ”</p>
+<p>	“Ya, yang satu ini memiliki kebijaksanaan di usia muda, juga menyimpan ambisi besar. Dalam beberapa tahun terakhir saya telah mendengar ciptaannya ‘Jiang Jing Jiu’, ‘Yong Mei’ dan ‘Jiang Cheng Zi’, sungguh jenius!”</p>
+<p>	Kepala klan Gu Yue adalah yang terakhir keluar dari kuil leluhur. Setelah perlahan menutup pintu, dia mendengar diskusi yang terjadi di koridor di antara para tetua klan.</p>
+<p>	Dia langsung tahu bahwa para tetua sedang mendiskusikan tentang pemuda yang dikenal sebagai Gu Yue Fang Yuan pada saat itu.</p>
+<p>Sebagai kepala klan, wajar untuk memperhatikan anak-anak muda yang luar biasa dan terkemuka. Dan kebetulan Gu Yue Fang Yuan adalah yang paling menarik perhatian di antara para junior.</p>
+<p>	Pengalaman telah menunjukkan bahwa mereka yang memiliki ingatan fotografis di usia muda, atau mereka yang memiliki kekuatan yang dapat menandingi orang dewasa, atau memiliki bakat bawaan yang hebat, semuanya memiliki kualifikasi kultivasi yang luar biasa.</p>
+<p>	“Jika anak ini menunjukkan potensi nilai A, dengan sangat hati-hati dia bahkan bisa bersaing dengan Bai Ning Bing. Bahkan jika itu kelas B, di masa depan dia juga bisa menjadi panji Klan Gu Yue. Tetapi dengan kecerdasan awal semacam ini, persentase nilai B tidak terlalu besar, tetapi sangat mungkin untuk menjadi nilai A. ” Dengan pemikiran ini, kepala klan Gu Yue melengkungkan bibirnya perlahan menjadi senyuman.</p>
+<p>	Seketika, dengan batuk dia menghadap para tetua klan dan berkata, “Semuanya, waktunya sudah larut, untuk upacara pembukaan besok kalian semua harus beristirahat dengan baik malam ini dan menjaga tingkat energi kalian.”</p>
+<p>	Mendengar kata-katanya, para tetua tampak terkejut. Mereka saling memandang dengan sedikit kehati-hatian di mata mereka.</p>
+<p>	Kata-kata kepala klan bermaksud baik, tetapi semua orang tahu apa yang ingin dia sampaikan.</p>
+<p>	Setiap tahun untuk bersaing memperebutkan para genius muda ini, para tetua akan bertarung di antara mereka sendiri sampai telinga memerah dan kepala berdarah.</p>
+<p>	Mereka harus tetap beristirahat dengan baik dan mengisi kembali diri mereka sendiri sampai besok tiba di mana kompetisi dimulai.</p>
+<p>	Terutama dengan Gu Yue Fang Yuan, yang potensi nilai A-nya sangat besar. Belum lagi fakta bahwa kedua orang tuanya telah meninggal, dan juga bahwa dia adalah salah satu dari dua keturunan satu-satunya yang tersisa dari garis keturunan Fang Zhi. Jika seseorang bisa mendapatkan tangan mereka dan membawanya ke garis keluarga mereka sendiri, dengan sangat hati-hati dan pelatihan, seseorang dapat mengamankan dirinya sendiri selama seratus tahun kemakmuran!</p>
+<p>	“Namun, saya akan melanjutkan dan mengatakan apa yang perlu dikatakan terlebih dahulu. Saat Anda berkompetisi, lakukan dengan adil; tidak ada trik dan konspirasi yang diperbolehkan, atau merusak persatuan klan. Harap ingat ini, kalian semua! ” Kepala klan diinstruksikan dengan ketat.</p>
+<p>	“Kami tidak akan berani, kami tidak akan berani.”</p>
+<p>“Kami akan mengingatnya.”</p>
+<p>	“Kalau begitu ini selamat malam, harap berhati-hati.”</p>
+<p>	Para tetua klan perlahan bubar dengan pikiran yang dalam.</p>
+<p>	Tidak lama setelah itu, koridor panjang menjadi sunyi. Angin dari hujan musim semi bertiup melalui jendela, dan kepala klan dengan ringan berjalan menuju jendela.</p>
+<p>	Segera, dia menghirup udara segar lembab gunung, betapa menyegarkan rasanya.</p>
+<p>	Ini adalah lantai tiga garret; kepala klan melihat ke luar jendela. Dia bisa melihat setengah dari seluruh Desa Gu Yue.</p>
+<p>	Bahkan jika sudah larut malam, sebagian besar rumah di desa masih menyala, yang tidak biasa.</p>
+<p>	Besok adalah upacara pembukaan, dan itu mempengaruhi kepentingan terbaik semua orang. Semacam suasana gembira namun tegang telah menyelimuti hati orang-orang klan, dan dengan demikian secara alami banyak orang tidak bisa tidur nyenyak.</p>
+<p>	“Ini adalah harapan untuk masa depan klan.” Dengan banyak lampu menari di matanya, kepala klan menghela nafas.</p>
+<p>	Pada saat yang sama, sepasang mata jernih diam-diam menatap cahaya yang sama yang berkilauan di malam hari, penuh dengan perasaan kompleks di dalamnya.</p>
+<p>	“Desa Gu Yue, ini 500 tahun yang lalu?! Sepertinya Jangkrik Musim Gugur Musim Semi benar-benar bekerja …” Fang Yuan diam-diam menatap, berdiri di dekat jendela, membiarkan hujan dari angin menerpa tubuhnya.</p>
+<p>	Penggunaan Spring Autumn Cicada adalah untuk membalikkan waktu. Dalam peringkat Sepuluh Besar Gu Mistik, Jangkrik Musim Gugur Musim Semi berhasil menduduki peringkat tujuh, tentu saja itu bukan makhluk belaka.</p>
+<p>	Singkatnya, itu adalah kemampuan untuk dilahirkan kembali.</p>
+<p>	“Dengan penggunaan Jangkrik Musim Gugur Musim Semi, aku telah terlahir kembali, kembali ke masa 500 tahun yang lalu!” Fang Yuan mengulurkan tangannya, pandangannya terpaku pada telapak tangannya yang muda dan lembut, pucat, lalu perlahan mengepalkannya, merangkul kebenaran dari kenyataan ini dengan sekuat tenaga.</p>
+<p>	Suara hujan gerimis yang menghantam ambang jendela dengan lembut memenuhi telinganya, dia perlahan menutup matanya, membukanya setelah beberapa lama. Dia menghela nafas, “Pengalaman 500 tahun, itu benar-benar terasa seperti mimpi.”</p>
+<p>	Tapi dia tahu dengan jelas: Ini jelas bukan mimpi.</p>
+<p>	Catatan TL:</p>
+<p>	Novel ini memiliki nama lain, Taois Gu.</p>
+<p>	Nama Cina diucapkan sebagai Gu Zhen Ren , Gu adalah nama serangga mistis yang digunakan dalam novel ini. Saya menggunakan nama Pendeta Kegilaan karena saya merasa itu lebih cocok daripada Gu Taois; karakter utama sama sekali bukan orang suci atau orang baik. Bahkan sebagai peringatan, Anda dapat mengatakan bahwa MC adalah penjahat yang sangat kejam, jadi jangan berharap roller coaster menghampiri Anda.</p>
+<p>	(1) Gu Yue: Artinya Bulan Kuno dalam terjemahan langsung. Klan agak memiliki afinitas dengan hal-hal bulan. ‘Gu’ yang digunakan di sini adalah karakter Cina yang berbeda dari serangga Gu mistis .</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

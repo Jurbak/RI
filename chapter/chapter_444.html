@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 444 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 444";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_443.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 444">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_445.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 444</h1>
+        <div class="text-left">
+<p>	Bab 444 – Undangan Suku Manusia</p>
+<p>	Bab 444:</p>
+<p>Penerjemah Undangan Suku Manusia : ChibiEditor Umum: ChibiGeneral</p>
+<p>	Di dataran utara di mana hanya para ahli yang dihormati, di mana hanya kekuatan yang penting, Man Duo mampu mendapatkan bantuan ayahnya, dan mampu memobilisasi para tetua suku untuk menantang suku Ge. Itu menunjukkan kemampuan dan keberaniannya, dia jelas bukan tuan muda yang tidak berguna.</p>
+<p>	Mata Fang Yuan menunjukkan geli: “Saya, Chang Shan Yin, ditakdirkan untuk menjadi tamu suku Ge, saya tahu aturan dataran utara dan memang benar bahwa saya tidak boleh ikut campur dalam urusan orang lain. Tapi saya baru saja mendengar adik laki-laki ini mengeluarkan seratus ribu batu purba. Saya kekurangan batu purba baru-baru ini, mengapa saya menolak uang yang ditawarkan kepada saya?</p>
+<p>	Shi Wu mendengar ini dan berharap dia bisa menampar mulutnya sendiri.</p>
+<p>	“Mulutku benar-benar gatal, untuk berpikir aku menarik ahli peringkat empat.” Hatinya masam dan pahit.</p>
+<p>	Man Duo tertawa kering: “Ini masalah yang mudah, jika senior tidak memiliki batu purba, junior ini bersedia menawarkan lima ratus ribu batu purba kepada Anda!”</p>
+<p>	Yang dia maksud adalah, dia ingin Fang Yuan menghindari ini.</p>
+<p>	Seketika, anggota suku Ge menatap Fang Yuan dengan gugup.</p>
+<p>	Meskipun Fang Yuan adalah pahlawan legendaris, itu hanya reputasinya, mereka yang benar-benar bertindak seperti pahlawan jarang terjadi.</p>
+<p>	Selain itu, ada ungkapan: orang bijak tunduk pada keadaan. Suku Ge berada dalam keterpurukan sekarang, sementara suku Man sangat besar dan kuat. Chang Shan Yin hanyalah orang luar, dia tidak punya alasan untuk membantu dan membawa masalah bagi dirinya sendiri.</p>
+<p>	Dengan demikian, Fang Yuan menjadi pusat perhatian, sikapnya memutuskan bagaimana situasi ini akan berkembang.</p>
+<p>	Saat semua orang menyaksikan dengan gugup, Fang Yuan tertawa dengan bangga: “Seorang pria hanya mengambil kekayaan yang pantas dia dapatkan. Saya tidak merasa bahwa saya pantas mendapatkan hadiah lima ratus ribu batu purba. Tapi seratus ribu batu purba yang saya peroleh dari pertempuran sangat berharga. Ayo, menurut aturan dataran utara, aku menerima pertempuran ini.”</p>
+<p>	Fang Yuan berjalan ke atas panggung.</p>
+<p>	“Paman Chang Shan Yin!” Ge Guang merasa sangat tersentuh, air mata meluap saat dia kehilangan kata-kata, berteriak di belakang Fang Yuan saat dia bersorak.</p>
+<p>	Para tetua suku Ge semuanya sangat tersentuh.</p>
+<p>	“Seperti yang diharapkan dari Chang Shan Yin, seorang pahlawan yang benar benar!”</p>
+<p>	“Tidak tergerak oleh manfaat dan uang, dia benar-benar orang yang adil.”</p>
+<p>	“Ada banyak orang yang menawarkan lapisan gula pada kue, tetapi hanya sedikit orang yang membantu pada saat dibutuhkan. Chang Shan Yin akan menjadi tamu terhormat di suku kita selamanya!”</p>
+<p>	Ekspresi Man Duo muram, sangat jelek. Dia tahu bahwa tidak perlu mengatakan lebih banyak, dia menutup mulutnya dan menatap Shi Wu.</p>
+<p>	Shi Wu merasakan tatapan Man Duo dan merasa pahit di hatinya.</p>
+<p>	Dia baru saja tunduk pada suku Man belum lama ini, dan menjadi tetua eksternal dari suku Man, dia sangat ingin memberikan kontribusi kepada suku tersebut. Meskipun kultivasi Man Duo rendah, dia adalah putra ketiga tetua suku, setelah mendengar bahwa pemimpin suku Ge tua sakit, dia datang bersama Man Duo untuk menantang mereka. Tapi dia tidak menyangka akan bertemu Chang Shan Yin!</p>
+<p>	Meskipun pihak lain hanya peringkat empat tahap awal, dia sudah peringkat tiga tahap puncak, dua tahap mungkin terlihat dekat, tetapi Wu Shi tahu dengan jelas bahwa perbedaan di ranah besar ini sangat besar.</p>
+<p>	Tetapi dalam situasi ini, dia tidak punya jalan keluar lain, jika dia menghindari pertempuran, dia akan sangat dihina dan dikritik. Di dataran utara yang menganjurkan keberanian dan semangat juang, dia tidak akan lagi memiliki masa depan.</p>
+<p>	Shi Wu menggertakkan giginya diam-diam saat dia memasuki panggung dengan paksa.</p>
+<p>	“Tolong.” Dia membungkuk pada Fang Yuan, nyaris tidak memaksakan senyum.</p>
+<p>	Fang Yuan mengangguk ringan, berdiri di tempat saat bulu serigala biru muda tumbuh di tubuhnya dengan cepat.</p>
+<p>	Bulu serigala menutupi seluruh tubuhnya, telinganya, wajahnya, dan bahkan anggota tubuhnya.</p>
+<p>	“Ini Gu kulit serigala biru.” Hati Wu Shi tenggelam, meskipun kulit serigala biru Gu adalah Gu peringkat empat yang sangat umum dan biasa, pertahanannya bukanlah sesuatu yang dapat dengan mudah ditembus oleh Gu peringkat tiga.</p>
+<p>	Anggota suku Ge di belakang Fang Yuan semua berkonsentrasi dan menyaksikan mata mereka bersinar, menunggu tampilan besar kehebatan Fang Yuan.</p>
+<p>	Beberapa bahkan berteriak keras: “Bunuh orang ini, dia membunuh tetua ketiga suku kita!”</p>
+<p>	Shi Wu mendengar ini dan hatinya menyusut, dia menghela nafas dengan pahit, merasakan masalah besar di depannya: “Oh tidak! Setelah pertempuran sebelumnya, saya memiliki kurang dari tiga puluh persen dari esensi purba saya yang tersisa, saya bukan lawannya pada kondisi puncak saya, belum lagi sekarang.</p>
+<p>	Melihat Shi Wu yang memiliki tatapan terganggu dan gerakan kaku, Fang Yuan mencibir di dalam hatinya. Orang ini telah kehilangan semangat juangnya, bahkan jika dia memiliki kekuatan penuh, dia tidak bisa menunjukkan setengahnya. Setelah beberapa pertandingan, esensi purbanya jelas kurang.</p>
+<p>	Lawan seperti itu, di mata Fang Yuan, adalah ikan di atas talenan.</p>
+<p>	Tapi Fang Yuan tidak ingin membunuhnya.</p>
+<p>	Untuk apa?</p>
+<p>	Dia adalah tetua luar suku Man, jika dia membunuhnya, itu akan menjadi tamparan di wajah suku Man. Meskipun Fang Yuan tidak takut akan masalah, dia tidak ingin membuat masalah yang tidak perlu untuk dirinya sendiri.</p>
+<p>	Meskipun Shi Wu membunuh seorang tetua suku Ge, itu adalah urusan mereka sendiri!</p>
+<p>	“Datang!” Fang Yuan melangkah, dan mengaktifkan Gu sprint serigala, meledak ke depan seperti panah, saat bayangan muncul di belakangnya.</p>
+<p>	Hati Shi Wu sudah putus asa, melihat serangan sengit Fang Yuan, dia mundur ketakutan.</p>
+<p>	Pada saat yang sama, dia memanggil tiga perisai tulang terbang.</p>
+<p>	Piak piak piak!</p>
+<p>	Fang Yuan bergerak seperti bayangan, semakin dekat untuk pertarungan fisik, dia menyerang tiga kali dan menghancurkan ketiga perisai tulang.</p>
+<p>	Shi Wu jatuh dan berguling, memanggil tiga perisai tulang lainnya.</p>
+<p>	Piak piak piak!</p>
+<p>	Saat Fang Yuan menyerang dengan kecepatan kilat, tiga pelindung tulang pecah lagi.</p>
+<p>	Dia memiliki kekuatan dua puluh jun sekarang, meskipun dia tidak bisa menampilkan semuanya, tidak masalah memecahkan perisai ini.</p>
+<p>	“Apa gerakan lain yang kamu miliki, gunakan semuanya.” Fang Yuan tidak menyerang lagi, dia memberi Shi Wu kesempatan untuk mengatur napas.</p>
+<p>	Shi Wu berkeringat deras, dia mengertakkan gigi dan menggosok tangannya, memanggil dua kapak lebar tulang besi.</p>
+<p>	“Waaaaaah!” Dia berteriak keras, mengangkat kedua kapak saat dia menyerang dengan ganas.</p>
+<p>	“Hehehe.” Fang Yuan tertawa ringan, tidak menyerang tetapi meletakkan kedua tangannya di belakang punggungnya, menggunakan Gu perjalanan serigala untuk bergerak.</p>
+<p>	Gerakannya tidak terduga, seperti kelopak bunga yang melayang di udara, bahunya yang lebar dan pinggangnya yang tipis memberikan perasaan tak terkendali yang cemerlang.</p>
+<p>	Shi Wu menggeram keras, tidak peduli bagaimana dia menggerakkan kedua kapaknya, dia bahkan tidak bisa menyentuh pakaian Fang Yuan, dia sepenuhnya berada di bawah belas kasihan Fang Yuan.</p>
+<p>	“Berbaring.” Fang Yuan menghela nafas, mengulurkan satu jari, itu terlihat lambat, tetapi dengan cepat menyentuh kapak.</p>
+<p>	Shi Wu sudah pusing karena gerakan Fang Yuan, setelah merasakan kekuatan ini, dia kehilangan keseimbangan dan jatuh tertelungkup di tanah.</p>
+<p>	Suku Ge melihat keadaannya yang menyedihkan dan bersorak keras, saat suara gemuruh berubah menjadi satu kalimat: “Bunuh dia, bunuh dia!”</p>
+<p>	Ekspresi Shi Wu pucat, semangat juangnya hilang. Fang Yuan memiliki kendali atas seluruh situasi, dia seperti singa yang bermain-main dengan domba. Dia merasa bahwa dia bukan tandingan Fang Yuan, tetapi semakin dia berpikir seperti ini, semakin sedikit kekuatan pertempuran yang bisa dia kumpulkan, dan semakin buruk situasi pertempurannya.</p>
+<p>	Hati Man Duo juga tenggelam ke dasar.</p>
+<p>	“Sialan, Shi Wu ini tidak menunjukkan kemampuannya yang sebenarnya, dia ditakuti oleh pihak lain! Namun meski begitu, peringkat empat Gu Master itu terlalu kuat. Dia mengalahkan tetua Shi Wu tanpa berkeringat. Sigh, Jika Shi Wu meninggal, saya akan kehilangan seorang tetua suku, saya harus menghadapi tuduhan dan kemarahan saudara-saudara saya ketika saya kembali!</p>
+<p>	Tapi tiba-tiba, Fang Yuan tidak menyerang lagi.</p>
+<p>	“Kamu hanyalah peringkat tiga, jika aku menggunakan kultivasi peringkat empat untuk membunuhmu, orang lain mungkin berpikir bahwa aku, Chang Shan Yin yang agung, menindas yang lemah. Meninggalkan.” Fang Yuan melambaikan tangannya.</p>
+<p>	“Paman Chang Shan Yin! Anda tidak bisa membiarkan bajingan ini. ” Di belakangnya, Ge Guang berteriak.</p>
+<p>	Tapi Fang Yuan mengabaikannya.</p>
+<p>	Shi Wu bereaksi dengan cepat, bangkit dan menunjukkan ekspresi kegembiraan saat dia lolos dari kematian: “Terima kasih tuan karena telah menyelamatkan hidup saya, terima kasih tuan karena telah menyelamatkan hidup saya.”</p>
+<p>	Fang Yuan mengerutkan kening: “Enyahlah.”</p>
+<p>	“Ya ya ya.” Shi Wu berbalik dan pergi.</p>
+<p>	“Senior, aku akan pergi.” Man Duo memberi hormat dan mengendarai kuda perangnya. Suku Ge mengejek dan memarahi mereka saat mereka pergi dengan penghinaan besar.</p>
+<p>	…</p>
+<p>	“Ayah, aku telah mengecewakanmu, aku di sini untuk meminta hukuman.” Man Duo berlutut di tanah, menundukkan kepalanya karena malu dan takut.</p>
+<p>	Pemimpin suku pria memiliki tubuh berotot, memiliki peringkat empat tahap budidaya puncak. Dia duduk di kursi kulit harimau dengan anggun saat dia melihat Man Duo di bawah kakinya: “Kali ini, pemimpin suku tua Ge terbaring di tempat tidur, dan kamu membawa beberapa ahli peringkat tiga, bagaimana kamu gagal? Anda pasti melakukannya dengan buruk, tetapi saya mendengar berita bahwa suku Ge mengeluarkan ahli peringkat empat lainnya? ”</p>
+<p>	“Itu memang begitu. Shi Wu dikalahkan olehnya. Orang ini hanya menunjukkan sedikit kekuatannya yang sebenarnya, dan dia berhasil mempermainkan tetua terkuat kami Shi Wu, kemampuannya yang sebenarnya tidak dapat diduga. Namun, saya bertanggung jawab atas masalah ini, itu adalah kesalahan saya karena tidak mendapatkan informasi yang cukup, yang mengakibatkan kegagalan ini. Anak ini sangat malu, saya mohon ayah untuk menghukum saya!” Mata Man Duo merah saat dia berkata dengan terisak.</p>
+<p>	Pemimpin suku pria mendengar ini dan nadanya santai: “Bangun, meskipun kamu gagal, kamu masih anakku. Ceritakan padaku tentang kejadian itu.”</p>
+<p>	Man Duo dengan cepat berbicara, menggambarkan skenario yang terjadi hari itu.</p>
+<p>	Tetapi ketika dia baru saja mulai, pemimpin suku Man melompat dari kursinya, menatap tajam ke arah Man Duo: “Dia bilang dia Chang Shan Yin? Chang Shan Yin yang mana? Apakah kamu yakin namanya Chang Shan Yin?”</p>
+<p>	“Saya tidak akan berani berbohong kepada ayah bahkan dengan sepuluh ribu nyali.” Man Duo dengan cepat menjelaskan.</p>
+<p>	Pemimpin suku manusia linglung.</p>
+<p>	“Ayah, ayah.” Man Duo memanggilnya dengan lembut: “Apakah Chang Shan Yin ini seorang ahli dengan latar belakang yang hebat?”</p>
+<p>	Pemimpin suku pria pulih dari linglung, ekspresinya serius: “Aku belum tahu, dia bisa menjadi penipu. Tetapi jika itu benar, maka dataran utara memiliki karakter tangguh lain yang muncul … Anda dapat pergi sekarang, saya akan menangani masalah ini.</p>
+<p>	Man Duo melompat dari keterkejutan, ayahnya adalah orang yang sangat sibuk, tetapi sekarang dia menangani ini sendiri, itu menunjukkan betapa pentingnya Chang Shan Yin ini.</p>
+<p>	“Chang Shan Yin, Chang Shan Yin, siapa kamu sebenarnya?”</p>
+<p>	…</p>
+<p>	Beberapa hari kemudian, di suku Ge.</p>
+<p>	“Beberapa hari yang lalu, itu semua berkat bantuan saudara Shan Yin. Ini adalah lima ratus ribu batu purba, ini adalah tanda terima kasih kami, terimalah.” Pemimpin suku Ge Tua memiliki ekspresi pucat, dia sepertinya berusia sepuluh tahun setelah kehilangan putrinya.</p>
+<p>	Fang Yuan menolaknya beberapa kali sebelum menerimanya: “Akhir-akhir ini, saya telah tinggal di suku Anda, itu benar bahwa saya membantu. Tapi saya benar-benar kekurangan batu purba sekarang, saya akan meminjam ini dari Anda untuk saat ini. ”</p>
+<p>	“Saudara Shan Yin memiliki moral yang hebat, Anda benar-benar pahlawan dataran utara.” Pemimpin suku Ge Tua sedang berbicara, ketika bawahannya membawa undangan, serta hadiah.</p>
+<p>	Ekspresi pemimpin suku tua itu muram, dia menyerahkan undangan dan hadiah ini kepada Fang Yuan: “Saudara Shan Yin, pemimpin suku Man tahu kamu ada di sini, dia mengundangmu ke sukunya sebagai tamu.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

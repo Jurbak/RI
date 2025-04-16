@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 47 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 47";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_46.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 47">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_48.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 47</h1>
+        <div class="text-left">
+<p>	Bab 47</p>
+<p>	Bab 47: Jia Jin Sheng, aku sebenarnya tidak ingin membunuhmu</p>
+<p>	Penerjemah: Sigma Editor: Sigma</p>
+<p>	Hujan turun dengan deras.</p>
+<p>	Awan abu-abu menutupi langit, dan pegunungan terus menerus di kejauhan bercampur menjadi kumpulan tinta hitam.</p>
+<p>	Tirai hujan menjalin langit dan bumi bersama-sama.</p>
+<p>	Retakan!</p>
+<p>	Langit tiba-tiba bersinar terang, dan sambaran petir melintasi langit seperti ular perak, lalu dalam sekejap menghilang.</p>
+<p>	Musim panas sudah dekat, dan hujan lebat di penghujung musim semi tampaknya membawa jejak kehangatan musim panas.</p>
+<p>	Di Gunung Qing Mao, bentangan besar bambu tombak hijau giok berdiri tegak dan lurus, menahan angin dan hujan, badan bambu lurus seperti tombak seperti biasa, ujung bambu mengarah ke kubah langit biru.</p>
+<p>	Di desa Gu Yue, deretan rumah-rumah berpilar tinggi yang tak terhitung banyaknya bertahan melawan siraman hujan deras. Di luar desa, karavan sudah memulai perjalanan mereka sekali lagi.</p>
+<p>	“Hujannya deras, perhatikan trotoar.”</p>
+<p>	“Jangan ketinggalan, Tuan Gu lebih baik tarik Gumu dengan benar, terutama kumbang gemuk, jangan menghalangi jalan gunung lagi!”</p>
+<p>	“Kalian sekelompok pejuang bela diri fana, lebih baik buka matamu lebar-lebar dan perhatikan baik-baik. Kehilangan satu hal dan Anda akan membayar untuk itu!”</p>
+<p>	Ada aliran teriakan tak berujung naik dan turun berturut-turut dari karavan pedagang.</p>
+<p>	Setelah singgah di desa Gu Yue selama tiga hari, tiba saatnya karavan pedagang ini meninggalkan tempat itu dan mengikuti jalur pegunungan melalui Gunung Qing Mao dan menuju tujuan mereka berikutnya.</p>
+<p>	Hujan deras membersihkan langit dan bumi, dan jalan-jalan di sekitar desa diaspal dengan batu bulat, ini masih baik-baik saja. Namun setelah sekitar lima ratus meter jalan akan berubah menjadi jalur pegunungan yang berlumpur dan sempit.</p>
+<p>	Kepala ayam burung unta yang sombong itu terkulai, bulu-bulu pelangi warna-warninya basah kuyup di bawah hujan, menempel di rumpun, menjadi contoh ayam yang basah kuyup dan basah kuyup.</p>
+<p>	Cacing kumbang gemuk menggerakkan tubuhnya yang besar dan gemuk, berjalan sangat lambat ke depan. Air hujan menghantam armor hitamnya, membentuk aliran aliran air, meluncur ke bawah kedua sisi tubuhnya ke bumi.</p>
+<p>	Laba-laba gunung yang berbulu juga basah kuyup, dan bulunya yang berwarna hijau-hitam saling menempel.</p>
+<p>	Sebaliknya, katak Gu dengan senang hati memanggil, membawa beban dan Tuan Gu, melompat ke depan di gunung. Dan ular bersayap itu sudah mengepakkan sayapnya, tubuh ular tebal itu dengan riang berjalan di atas air berlumpur.</p>
+<p>	Untuk melindungi barang dan mencegahnya basah kuyup oleh air hujan, para Master Gu menunjukkan kemampuan magis mereka saat ini.</p>
+<p>	Pada beberapa kumbang gemuk besar berdiri Gu Masters di tengah. Kedua tangan mereka terangkat tinggi, masing-masing memiliki Cacing Cahaya Emas One-stretch mengambang di udara satu inci dari telapak tangan mereka.</p>
+<p>	Esensi purba tembaga hijau seperti aliran yang menguap saat terkonsentrasi ke tubuh Cacing Cahaya Emas Satu Peregangan. Seluruh Gu berkelebat seperti kacang emas, bertindak sebagai jantung, mendukung kubah gelembung berwarna emas samar yang luar biasa.</p>
+<p>	Kubah gelembung berbentuk belahan bumi memiliki ruang lingkup yang agak besar. Itu dapat sepenuhnya menutupi satu cacing kumbang gemuk dan masih memiliki beberapa ruang yang tersisa.</p>
+<p>	Saat hujan menghantam kubah gelembung, itu akan memantul, seperti menabrak payung. Namun Cacing Cahaya Emas Satu Peregangan ini terus menerus mengkonsumsi esensi purba, dan dalam jangka panjang Master Gu peringkat satu tidak akan bisa menerimanya lagi.</p>
+<p>	Seperti yang diharapkan, setelah beberapa saat, seorang Guru Gu berteriak: “Tidak ada lagi, esensi purba saya hampir habis, siapa yang bisa mengambil alih?”</p>
+<p>	“Saya bisa!” Hampir bersamaan, seorang Master Gu bergegas maju dan mengganti posisinya.</p>
+<p>	Beberapa Master Gu menarik kereta atau mengendarai laba-laba gunung mengaktifkan Gu Sutra Hijau di tubuh mereka.</p>
+<p>	Di bawah pengaruhnya, rambut mereka mulai tumbuh dengan cepat.</p>
+<p>	Rambut orang normal setidaknya memiliki seratus ribu helai. Seratus ribu helai rambut, masing-masing sepanjang lima sampai enam meter, terjalin dan menutupi tubuh Guru Gu bersama dengan kudanya, membentuk jas hujan rambut yang tidak bisa ditembus.</p>
+<p>	Green Silk Gu adalah cacing peringkat satu Gu, sering digunakan untuk pertahanan. Ini menggunakan 30% esensi purba tembaga hijau untuk mengaktifkan, dan bukan jenis pengeluaran terus menerus seperti Cacing Cahaya Emas Satu Peregangan.</p>
+<p>	Gu Sutra Hijau ini dapat digabungkan dengan Gu Babi Hitam Peringkat satu untuk menjadi Gu Surai Hitam Peringkat dua.</p>
+<p>	The Black Mane Gu ketika diaktifkan tidak hanya akan melibatkan rambut di kepala, tetapi juga rambut di semua pori-pori. Dalam beberapa detik, tubuh Gu Master akan mendapatkan pelindung surai hitam.</p>
+<p>	Jalur kemajuan Black Mane Gu adalah Gu peringkat tiga yang terkenal, Steel Mane Gu.</p>
+<p>	Selain One-stretch Golden Light Worm dan Green Silk Gu, banyak Master Gu karavan juga memilih Water Spider Gu. Dapat dilihat bahwa ada lapisan tipis jas hujan biru di tubuh mereka.</p>
+<p>	Di permukaan jas hujan, air bersirkulasi secara acak. Saat tetesan hujan mengenai jas hujan, itu akan segera menjadi bagian dari jas hujan.</p>
+<p>	Karena Master Gu terus-menerus berendam di bawah hujan, jas hujan di tubuh mereka akan bertambah tebal. Sesekali Master Gu harus mendesak Gu Laba-laba Air dan membuang kelebihan air. Pada saat ini jas hujan yang tebal akan berkurang menjadi lapisan tipis aslinya.</p>
+<p>	Adapun para pejuang fana itu, mereka terus bergerak, mengawasi barang-barang di jalan berlumpur. Kebanyakan dari mereka memakai jas hujan yang terbuat dari jerami, tetapi karena terburu-buru dan kebingungan, jas hujan jerami memiliki efek yang terbatas untuk menghindari hujan, sehingga mereka sudah basah kuyup oleh air hujan.</p>
+<p>	“Cuaca terkutuk ini!” Para prajurit mengutuk dalam hati mereka.</p>
+<p>	Dalam cuaca hujan, jalur gunung menjadi lebih sulit untuk dilalui.</p>
+<p>	Di bawah cuaca seperti ini, seniman bela diri mungkin kuat secara fisik tetapi mereka masih manusia. Begitu tubuh mereka basah kuyup oleh hujan dan ditambah dengan kerja intensif, mereka akan mudah masuk angin. Mendapatkan penyakit serius adalah konsekuensi yang paling ringan, mungkin mereka akan terkena akibatnya, dan jika mereka terkena penyakit berat tertentu, itu mungkin menyebabkan mereka sakit parah dan ditinggalkan dalam perjalanan itu sendiri.</p>
+<p>	Jika mereka menghadapi jalan licin di jalur gunung, atau menghadapi binatang buas dan serangan cacing Gu, mereka mungkin kehilangan nyawa.</p>
+<p>	Karavan mungkin besar, dan memiliki banyak Master Gu. Tetapi setiap kali mereka melakukan perjalanan, akan selalu ada penurunan jumlah yang besar. Seniman bela diri fana paling banyak meninggal, sementara Gu Masters juga mengalami cedera dan korban.</p>
+<p>	Jika karavan itu cukup sial untuk menghadapi binatang buas yang bermigrasi skala besar, mereka bahkan mungkin akan musnah sepenuhnya.</p>
+<p>	Selain bencana alam, ada juga masalah yang disebabkan oleh manusia. Di antara desa-desa, mungkin ada yang tidak menyambut karavan. Beberapa desa suka merampok orang luar.</p>
+<p>	“Kami pergi, sampai jumpa tahun depan!” Beberapa Master Gu duduk di atas cacing Gu dan membalikkan tubuh mereka untuk mengucapkan selamat tinggal.</p>
+<p>	Di pintu masuk desa, banyak orang berkumpul saat mereka mengirim karavan dengan tatapan mereka.</p>
+<p>	“Kamu harus datang lagi tahun depan!” Karena enggan melihat mereka pergi, anak-anak berteriak keras.</p>
+<p>	Orang dewasa memiliki ekspresi yang lebih rumit.</p>
+<p>	“Jalan di depan tidak terduga. Di masa-masa sulit ini, bagi mereka yang bisa datang ke desa tahun depan, berapa banyak wajah yang masih familiar?”</p>
+<p>	“Baik itu di karavan pedagang atau di desa, tidak mudah untuk mencari nafkah.”</p>
+<p>	Saat karavan pergi semakin jauh, saat kerumunan bubar.</p>
+<p>	Suasana pasar yang ceria dan ringan juga kemudian menghilang. Tempat asli yang telah mendirikan tenda dan toko sekarang ditinggalkan dengan kekacauan besar. Rerumputan terus diinjak-injak oleh orang banyak, akar rumput dan tanah lumpur diinjak-injak. Air hujan menerpa permukaannya, segera membentuk lumpur dan banyak lubang-lubang kecil yang menampung air berlumpur. Selain itu, masih banyak sampah yang tertinggal.</p>
+<p>	Fang Yuan berdiri di lereng bukit yang terpencil, mengawasi karavan pedagang dari jauh sendirian. Karavan pedagang itu seperti ular piton yang gemuk dan berwarna-warni, meliuk-liuk melalui jalan pegunungan yang sempit di bawah hujan deras yang kelabu, perlahan memasuki hutan pegunungan yang lebat.</p>
+<p>	“Ah, surga mengirimkan berkah mereka …” Fang Yuan menghela nafas ringan.</p>
+<p>	Dia memegang payung kertas kuning mentega, diam-diam berdiri di tengah hujan.</p>
+<p>	Fang Yuan mengenakan pakaian kain rami yang paling polos, tubuhnya ramping, kulitnya menghasilkan kulit putih pucat seperti remaja berusia lima belas tahun, segumpal rambut hitam bersih dan pendek yang menetap di atas kepalanya. Ujung-ujung rambutnya sedikit bergetar tertiup angin di bawah payungnya.</p>
+<p>	Sementara yang lain mengutuk cuaca, dia meratapi kemunculan hujan yang tepat waktu.</p>
+<p>	Dia membunuh Jia Jin Sheng tadi malam dan membersihkan tempat kejadian, tetapi karena itu terjadi begitu tiba-tiba, pasti ada area yang diabaikan. Apalagi dengan bau darah, karena gua tidak berventilasi, baunya tidak mudah hilang.</p>
+<p>	Dengan hujan ini, ia membersihkan udara dan lingkungan, sangat mengurangi kemungkinan terkena metode pelacakan bau. Retakan itu pasti memiliki aliran kecil air yang mengalir ke bawah, dan begitu uap air tawar mengencerkan udara, dia tidak akan terpapar untuk sementara waktu.</p>
+<p>	Tentu saja, begitu waktu berlalu, peluang untuk terekspos meningkat.</p>
+<p>	Di dunia ini ada segala macam cacing Gu, dan metode investigasi berlimpah, bahkan Fang Yuan hanya tahu sebagian dari mereka.</p>
+<p>	Hujan menghasilkan suara derai pitter saat mengenai payung kuning. Kemudian mengikuti bentuk payung, aliran air mengalir ke bawah ke batugamping di bawah kaki Fang Yuan, mengenai dan menciptakan percikan.</p>
+<p>	Melihat kurva karavan ke sudut, benar-benar menghilang ke dalam hutan, Fang Yuan tidak menunjukkan tanda-tanda lega, tetapi malah tampak muram.</p>
+<p>	“Meskipun kultivasi Jia Jin Sheng lemah dan memiliki sedikit bakat, dia memiliki status khusus. Orang-orang karavan semua sibuk dengan bisnis, sehingga tidak ada yang tahu bahwa dia hilang. Tapi begitu beberapa waktu berlalu, itu pasti akan ketahuan. Pada saat itu, Jia Fu akan kembali untuk menyelidiki, dan tantangan sebenarnya adalah saat itu.”</p>
+<p>	“Kepala keluarga Jia sengaja mengatur Jia Jin Sheng dan Jia Fu untuk berada di karavan yang sama, dia memiliki niat yang dalam. Dalam hal kultivasi, mereka adalah dunia yang terpisah. Dalam hal kelicikan, mereka juga tak tertandingi. Pengaturan seperti itu adalah untuk memberikan pukulan pada Jia Jin Sheng dan membuatnya bersih dari kenyataan, dan menjalani hidup dengan damai. Pada saat yang sama dia menguji sifat Jia Fu, karena jika dia terlalu sombong pada Jia Jin Sheng, bagaimana dia bisa menyerahkan posisi kepala klan kepadanya?”</p>
+<p>	“Jia Jin Sheng tidak pernah benar-benar mengerti niat ayahnya. Meskipun dia memiliki sedikit kecerdasan, dia hanya berhasil menggores permukaan akal seorang pedagang, sayang sekali. Sayang sekali bidak yang begitu bagus.”</p>
+<p>	Fang Yuan merasa menyesal di dalam hatinya. Dengan pengalaman lima ratus tahun, dia dapat dengan mudah melihat melewati permukaan dan memahami sifat sebenarnya dari situasi tersebut.</p>
+<p>	Ketika dia melihat perselisihan antara keduanya malam itu, dia bisa mengetahui hubungan rumit antara Jia Jin Sheng dan Jia Fu, dan dengan demikian dia memiliki rencana samar yang terbentuk di hatinya sejak saat itu.</p>
+<p>	Dalam rencananya, Jia Jin Sheng adalah pion yang sangat cocok. Kultivasinya lemah tetapi dia memegang posisi tinggi di karavan, dan meskipun dia memiliki beberapa kecerdasan, dia memiliki sedikit pengalaman, sehingga Fang Yuan dapat dengan mudah memanipulasinya.</p>
+<p>	Setelah dikendalikan, pion ini akan sangat berguna.</p>
+<p>	Pertama, dia bisa membangun jaringan penyelundupan yang kuat melalui hubungannya, bersiap untuk merebut harta dari pembunuhan di masa depan.</p>
+<p>	Kedua, Fang Yuan bisa bersembunyi di latar belakang dan menggunakan dinding gambar untuk menimbulkan konflik di antara tiga keluarga gunung Qing Mao, menyebabkan perang saudara dan memungkinkan dia untuk dapat menuai hasilnya.</p>
+<p>	Ketiga, Fang Yuan bisa mengandalkannya untuk masuk ke interior keluarga Jia. Perselisihan keluarga Jia di masa depan menyebabkan kompetisi pertempuran Gu skala besar, itu akan menjadi urusan besar dengan banyak manfaat untuk diperoleh. Fang Yuan dapat memanfaatkan ini untuk mendapatkan hadiah terbesar untuk dirinya sendiri.</p>
+<p>	“Kultivasi saya masih terlalu rendah, sangat membatasi saya dalam melakukan sesuatu. Jika ada pion untuk saya gunakan, saya dapat melakukan beberapa hal yang tidak dapat saya coba sendiri, tidak hanya nyaman tetapi juga menurunkan risiko melakukannya. Jika saya terkena, saya bisa membuang pion dan tetap aman sendiri. ”</p>
+<p>	“Orang-orang di sekitar mengetahui situasi dengan baik dan setia pada keluarga, sehingga mereka tidak pandai memanipulasi. Hanya orang luar seperti Jia Jin Sheng yang bisa digunakan lebih efisien untuk menjalankan rencanaku. Sayangnya, saya tidak berharap Biksu Anggur Bunga meninggalkan warisan kekuatannya. ”</p>
+<p>	Biksu Anggur Bunga adalah Master Gu peringkat lima, warisannya pasti lebih berharga daripada pion ini.</p>
+<p>	Tentu saja, akan lebih baik jika dia bisa mendapatkan yang terbaik dari kedua dunia, tetapi dalam menghadapi harta seperti itu, Jia Jin Sheng tidak bisa lagi dikendalikan, sehingga dia harus dibuang.</p>
+<p>	“Tidak ada yang akan berjalan mulus selamanya di dunia ini.” Fang Yuan menghela nafas dan menggelengkan kepalanya.</p>
+<p>	Warisan Biksu Anggur Bunga muncul dan mengganggu rencana awal Fang Yuan. Selain itu, setelah perubahan pada dinding gambar, semua video dan gambar hilang, hanya menunjukkan garis yang ditulis dengan darah, memberi tahu Fang Yuan untuk menghancurkan dinding gambar dan mengungkapkan pintu masuk gua. Mengikuti jejaknya, dia akan bisa mendapatkan warisan.</p>
+<p>	Tulisan darah hanya muncul beberapa saat sebelum menghilang, dan dinding gambar juga berubah kembali menjadi dinding gunung yang paling biasa.</p>
+<p>	Fang Yuan menghabiskan sepanjang malam membersihkan tempat pembunuhan, dan tidak punya waktu untuk mendobrak tembok.</p>
+<p>	“Membunuh Jia Jin Sheng dengan tergesa-gesa, ini akan meninggalkan banyak masalah bagiku di masa depan, dan aku hanya aman untuk sementara. Meskipun saya berhasil menyingkirkan bukti, pasti akan ada masalah yang datang untuk saya di masa depan. Dalam hal ini, saya harus mengubah cara saya mengekspos cacing Liquor. Saya juga tidak bisa pergi ke gua rahasia di balik retakan dinding. Saya harus tinggal di desa pegunungan selama beberapa waktu untuk mengantisipasi penyelidikan dalam waktu dekat. ”</p>
+<p>	Fang Yuan berbalik dan memegang payungnya, berjalan di tengah hujan menuju desa.</p>
+<p>	“Tapi ini juga baik-baik saja. Saya dapat menghabiskan sejumlah besar batu purba selama periode ini untuk menyempurnakan esensi purba tahap menengah. Dengan menggunakannya, saya dapat memelihara aperture saya dan menerobos ke tahap tengah. Begitu saya mencapai tahap tengah, kekuatan saya akan berlipat ganda, memungkinkan saya untuk mendapatkan warisan dengan lebih mudah dan dengan kepercayaan diri yang lebih besar. ”</p>
+<p>	Warisan seorang kultivator iblis tidak selembut dan selembut milik seorang kultivator yang saleh, karena sering kali ada ujian dan tugas yang berbahaya, dan jika seseorang tidak dapat melewatinya, mereka harus membayar harga dengan nyawa mereka.</p>
+<p>	“Dunia sulit diprediksi, tetapi justru inilah yang membuatnya menarik.” Fang Yuan tersenyum dingin.</p>
+<p>	Gunung hijau di bawah hujan deras memanjang terus menerus dan tak berujung, hijau bercampur abu-abu, tampak menyesakkan dan berat.</p>
+<p>	Embusan angin bertiup, dan tetesan air hujan sedikit miring, mengenai bahu Fang Yuan dan menyerangnya dengan semburan rasa dingin.</p>
+<p>	Dia memikirkan Jia Jin Sheng lagi.</p>
+<p>	Menghela nafas dalam hatinya, dia berpikir, “Jia Jin Sheng, sebenarnya aku… tidak ingin membunuhmu.”</p>
+<p>	Sungguh sia-sia pion yang bagus.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

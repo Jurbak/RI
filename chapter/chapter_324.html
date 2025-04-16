@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 324 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 324";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_323.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 324">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_325.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 324</h1>
+        <div class="text-left">
+<p>	Bab 324</p>
+<p>	Bab 324: Menghasilkan banyak uang</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Shang Xin Ci menggunakan semua dananya untuk membeli tiga cacing Gu ini?” Di ruang belajar, Shang Yi Fan memegang selembar kertas.</p>
+<p>	Dokumen ini dikirim oleh ibunya.</p>
+<p>	Ibu Shang Yi Fan adalah sepupu Shang Yan Fei, dia memiliki pengaruh besar dan banyak informan.</p>
+<p>	“Peringkat satu perbudakan anjing Gu, peringkat dua kertas bangau Gu, dan peringkat satu Gu telur yang meledak, apa gunanya mereka?” Shang Yi Fan mengerutkan kening dalam-dalam, berpikir keras tetapi tidak bisa sampai pada penjelasan.</p>
+<p>	“Saya mendengar Shang Xin Ci memberikan seluruh seratus ribu kepada Fang Zheng. Meskipun Fang Zheng kuat dalam pertempuran, saya belum pernah mendengar tentang bakatnya dalam bisnis. Membeli secara acak seperti ini hanya akan merugikan dirinya sendiri. Apakah saya melebih-lebihkan mereka? ”</p>
+<p>	Shang Yi Fan merenung.</p>
+<p>	Meskipun dia tidak memiliki kultivasi yang tinggi, dia telah melatih kemampuannya sendiri dalam berbisnis, dia memiliki pemahaman yang besar tentang pasar.</p>
+<p>	Secara umum, membeli cacing Gu dalam jumlah besar seperti ini, pedagang berpengalaman mana pun tidak akan memilih metode seperti itu.</p>
+<p>	Karena investasi ini tidak memiliki prospek!</p>
+<p>	Tetapi ketika Shang Yi Fan terus berpikir, kegelisahan di hatinya tidak hilang. Dia merasa telah melewatkan sesuatu, seolah-olah ada skema mendalam di balik pembelian massal yang tidak masuk akal ini.</p>
+<p>	Pada saat ini, pelayan tua melaporkan di luar pintu: “Tuan muda, sesuatu yang besar telah terjadi, saya perlu melapor kepada Anda.”</p>
+<p>	“Oh, silakan datang, Zhang Tua.” Shang Yi Fan dengan cepat memintanya untuk masuk.</p>
+<p>	Zhang Tua ini adalah bawahan cakap ibunya. Dia memiliki kultivasi tahap puncak peringkat tiga, mampu menahannya sendiri dan memiliki pengalaman hebat. Shang Yi Fan tidak bisa memperlakukannya seperti bawahan biasa.</p>
+<p>	Ibu Shang Yi Fan juga telah menginstruksikannya, untuk bersikap sopan kepada Zhang Tua dan meminta nasihat darinya untuk belajar lebih banyak tentang perdagangan.</p>
+<p>	Zhang Tua masuk, ekspresinya serius: “Tuan muda Yi Fan, semuanya tidak terlihat baik, ada berita dari gunung San Cha, bahwa seseorang telah menemukan metode yang benar untuk memasuki warisan.”</p>
+<p>	Meskipun warisan tiga raja dibuka sebelumnya, dipisahkan menjadi tiga pilar lampu kuning, biru dan merah, ada kriteria khusus yang ditetapkan oleh warisan dan tidak ada yang bisa masuk.</p>
+<p>	Selama beberapa hari ini, setelah banyak orang bereksperimen dan menguji, mereka akhirnya menemukan cara untuk memasuki tanah warisan tiga raja.</p>
+<p>	Mendengar kata-kata Zhang Tua, Shang Yi Fan menunjukkan rasa ingin tahu yang kuat: “Oh, apa yang harus dilakukan seseorang untuk memasuki warisan tiga raja? Tunggu, jangan bilang…”</p>
+<p>	Tiba-tiba ekspresinya berubah, saat dia menatap dokumen di atas meja dengan saksama.</p>
+<p>	Dia memikirkan kemungkinan, saat dia perlahan berdiri.</p>
+<p>	Zhang Tua tertawa getir: “Tuan muda Yi Fan menebaknya, itu benar, untuk memasuki warisan, diperlukan tiga Gu yang berbeda. Untuk memasuki pilar kuning, warisan Raja Quan, seorang Guru Gu perlu memperbaiki perbudakan anjing peringkat satu Gu. Untuk memasuki pilar biru, warisan Raja Xin, master Gu harus memiliki Gu bangau kertas. Jika mereka ingin memasuki pilar merah, warisan Raja Bao, mereka akan membutuhkan setidaknya satu telur yang meledak Gu. ”</p>
+<p>	“Bagaimana ini bisa?” Shang Yi Fan memekik.</p>
+<p>	Dia jatuh di kursinya, sedih.</p>
+<p>	Dia akhirnya mengerti, mengapa Fang dan Bai membeli ketiga Gu ini dalam jumlah besar, jadi inilah alasannya.</p>
+<p>	Saat ini, berita tentang warisan tiga raja telah menyebar ke seluruh perbatasan selatan. Warisan tiga peringkat lima Master Gu bersama, siapa yang tahu berapa banyak orang yang akan tertarik dan ingin pergi dan mendapatkan bagian kue mereka.</p>
+<p>	Tetapi untuk memasukinya, seseorang membutuhkan setidaknya satu dari tiga Gu itu.</p>
+<p>	Tapi sekarang, di kota klan Shang, ketiga Gu ini milik Shang Xin Ci. Selama seseorang tidak bodoh, mereka bisa membayangkan berapa banyak keuntungan yang bisa dia peroleh dengan menjual cacing Gu itu!</p>
+<p>	Shang Yi Fan tidak bodoh, bahkan dia pintar, setidaknya lebih dari Shang Ya Zi.</p>
+<p>	“Dari mana mereka mendapatkan informasi seperti itu? Dan sangat tepat!”</p>
+<p>	“Tidak, sekarang bukan waktunya untuk itu, itu tidak penting lagi. Lebih penting lagi, bagaimana saya akan menghentikan mereka!”</p>
+<p>	Cahaya menakutkan terus menyala di mata Shang Yi Fan, saat dia berkonsentrasi dan berpikir.</p>
+<p>	Tapi sesaat kemudian, dia menunjukkan keputusasaan dan ketidakberdayaan.</p>
+<p>	Tidak mungkin!</p>
+<p>	Shang Xin Ci melakukan pekerjaan yang sangat baik di sini. Itu adalah investasi yang sangat normal, tetapi karena warisan tiga raja, itu menjadi cerita yang sama sekali berbeda.</p>
+<p>	Ketika mereka membeli Gu, Shang Xin Ci menggunakan lebih dari seratus ribu batu purba, tetapi itu tidak melanggar aturan, paling-paling itu adalah bola melengkung.</p>
+<p>	Selama mereka bisa mendapatkan batu purba, dan menghitung keuntungannya berdasarkan modal awalnya, tidak ada masalah…</p>
+<p>	Jika Shang Yi Fan ingin menemukan masalah di sini, dia tidak punya alasan untuk itu. Itu karena dia juga meminjam kekuatan dari ibunya, seperti Zhang Tua. Sejujurnya, bola lengkungnya jauh lebih buruk daripada milik Shang Xin Ci.</p>
+<p>	“Tuan muda Yi Fan, pihak lain memiliki informasi paling akurat kali ini. Setelah mereka deal, modal mereka setidaknya bisa tiga kali lipat. Kami tidak dapat menemukan masalah dengan mereka, kami juga tidak dapat menggunakan cara curang. Kami harus menggunakan sisa waktu kami dan melakukan bisnis kami sendiri. Dengan pengaruh nyonya di kota, dalam tiga bulan, Anda akan memiliki setidaknya enam ratus ribu. Tuan muda, kita masih bisa menang.” Zhang Tua menjelaskan.</p>
+<p>	“Ya, kami hanya bisa berharap begitu …” Shang Yi Fan menarik napas dalam-dalam, tetapi kekhawatiran di hatinya tidak hilang.</p>
+<p>	Mengenai kompetisi tuan muda, ini baru permulaan tetapi dia sudah menerima ‘kejutan’ seperti itu. Siapa yang tahu apa yang mungkin terjadi di kemudian hari.</p>
+<p>	Shang Yi Fan yang percaya diri mulai menjadi ragu.</p>
+<p>	…</p>
+<p>	Tiga raja, mereka menyebut Raja Quan, Raja Xin, dan Raja Bao.</p>
+<p>	Asal-usul mereka ditelusuri kembali ke tiga ratus tahun yang lalu.</p>
+<p>	Ketiga raja itu berasal dari klan Wang. Klan Wang dimusnahkan oleh musuh bebuyutan mereka klan Wu 1 , tetapi mereka kehilangan tiga anak dari klan Wang.</p>
+<p>	Ketiga anak ini, dua laki-laki dan satu perempuan. Yang tertua berusia delapan tahun, dia akan menjadi Raja Quan di masa depan. Yang termuda berusia lima tahun, dia adalah Raja Bao. Adapun perempuan, calon Raja Xin, dia baru berusia enam tahun saat itu.</p>
+<p>	Klan Wu sibuk menyerap kekuatan sisa mereka, untuk sepenuhnya mencerna keuntungan mereka dari klan Wang.</p>
+<p>	Apa yang bisa dilakukan tiga anak?</p>
+<p>	Mereka bahkan bukan Master Gu, jadi mereka tidak peduli dengan anak-anak, hanya mengirimkan surat perintah penangkapan dan melupakan mereka.</p>
+<p>	Orang yang dikirim untuk membunuh mereka juga seorang pemalas, dia memilih tiga anak untuk dibunuh, berpura-pura bahwa dia telah menyelesaikan misinya dan kembali. Dengan demikian, ketiga anak itu tidak sengaja diselamatkan.</p>
+<p>	Mereka mengalami kesulitan, penderitaan, dan nyaris tidak bisa bertahan hidup. Saat mereka saling mendukung, mereka mengembangkan hubungan yang mendalam.</p>
+<p>	Seiring bertambahnya usia, kebencian mereka terhadap klan Wu semakin dalam.</p>
+<p>	Tetapi setelah klan Wu menyerap klan Wang, mereka menjadi lebih kuat, dan merupakan klan besar yang memiliki tiga gunung. Setelah bertahun-tahun beroperasi, kekuatan mereka bahkan lebih mengakar. Ketiga raja itu sendirian, bahkan tidak diberi kesempatan untuk membangunkan aperture mereka. Itu adalah mimpi yang mustahil bagi mereka untuk membalas dendam pada klan Wu.</p>
+<p>	Tetapi hidup tidak pasti, dan nasib bekerja dengan cara yang misterius. Anda tidak akan pernah tahu bagaimana nasib Anda di masa depan.</p>
+<p>	Pada suatu waktu ketika mereka mempertaruhkan hidup mereka, mengumpulkan tumbuhan di gunung untuk mempertahankan mata pencaharian mereka, ketiganya dibuang ke tanah warisan kuno.</p>
+<p>	Ini bukan warisan biasa, itu ditinggalkan oleh peringkat enam misterius Gu Immortal.</p>
+<p>	Ketiga raja demikian, mengalami perubahan nasib. Mereka masing-masing mewarisi sebagian dari warisan peringkat enam Gu Immortal, dan bekerja keras untuk berkultivasi selama hampir seratus tahun.</p>
+<p>	Ketiganya saling menyemangati dan bekerja keras bersama. Ketika mereka semua mendapat peringkat lima, mereka merasa bahwa waktunya sudah matang, dan dengan demikian, meninggalkan tanah warisan untuk membalas dendam pada klan Wu.</p>
+<p>	Pada saat itu, klan Wu berada di puncak perkembangan mereka.</p>
+<p>	Ketiga raja tidak menggunakan skema atau plot apa pun, tetapi langsung menuju ke depan pintu mereka. Pemimpin klan Wu adalah Master Gu peringkat lima, bagaimana dia bisa menahan serangan tiga master Gu peringkat lima?</p>
+<p>	Terutama ketika tiga Master Gu peringkat lima ini mewarisi warisan kuno.</p>
+<p>	Raja Quan memanggil pasukan anjingnya, saat dia melambaikan tangannya, itu adalah pasukan yang kuat. Kelompok-kelompok anjing itu seperti laut, melanda desa klan Wu.</p>
+<p>	Raja Xin cepat dan gesit, bergerak seperti hantu, dia membunuh semua petinggi klan Wu, menyebabkan mereka tidak memiliki pemimpin dan jatuh ke dalam kekacauan.</p>
+<p>	Raja Bao kejam dan langsung, begitu dia menyerang, itu mengejutkan langit, saat dia memicu ledakan batu gunung.</p>
+<p>	Klan Wu yang kuat dan tak terkalahkan, dibasmi oleh tiga raja dalam tiga hari.</p>
+<p>	Mata air roh tiga gunung dihancurkan, saat mayat berjajar di jalur gunung, darah mengalir ke tanah, itu adalah pemandangan yang mengerikan.</p>
+<p>	Klan Wu benar-benar musnah, tetapi ketiga raja membayar harga yang mahal.</p>
+<p>	Namun, mereka rela melakukannya demi balas dendam.</p>
+<p>	Setelah membalas dendam, ketiga raja merasa bahwa hidup telah kehilangan maknanya, mereka tidak ingin membangun kembali klan Wang, karena klan, tidak peduli seberapa kuat mereka, tidak dapat bertahan melawan ahli sejati.</p>
+<p>	Mereka mulai hidup dalam pengasingan, tidak lagi keluar. Mereka menghilang seperti tiga bintang jatuh, setelah menyebabkan peristiwa besar di perbatasan selatan, mereka menghilang dengan cepat, tidak pernah terdengar lagi.</p>
+<p>	Tidak ada yang tahu apa yang terjadi pada ketiga raja setelah itu, sampai baru-baru ini, ketika warisan mereka muncul.</p>
+<p>	“Raja Quan memiliki setidaknya tiga peringkat lima perbudakan anjing Gu. Dengan mereka, seseorang dapat memperbudak banyak sekali raja binatang buas, dan memimpin pasukan, menaklukkan dunia!”</p>
+<p>	“Raja Xin paling ahli dalam memurnikan Gu, dia mengembangkan satu set cacing Gu yang unik dari Gu derek kertas peringkat dua yang umum, memungkinkan dia untuk dengan mudah mendapatkan informasi. Karena dialah Raja Quan dan Raja Bao menemukan celah keamanan di desa klan Wu. Dia adalah faktor besar dalam menghilangkan klan Wu. ”</p>
+<p>	“Dan ada Raja Bao, amarahnya seperti api, setiap kali dia menyerang, itu akan menyebabkan ledakan besar yang mengguncang daratan. Kekuatannya liar dan sombong, siapa pun yang menerima warisannya akan dapat menginjak dunia! ”</p>
+<p>	“Tiga peringkat lima warisan, mendapatkan satu akan memungkinkan seseorang untuk naik ke tampuk kekuasaan, dua akan memungkinkan mereka untuk meninggalkan nama mereka dalam sejarah, dan tiga akan melahirkan tuan utama!”</p>
+<p>	“Ini adalah kesempatan besar, saya tidak akan puas kecuali saya mencoba yang terbaik.”</p>
+<p>	“Saya harus bergegas ke sana, jika saya terlambat, dan orang lain mendapatkannya, saya akan menyesalinya seumur hidup!”</p>
+<p>	Ketika berita tentang metode masuk warisan tiga raja keluar, banyak orang menjadi liar di kota klan Shang.</p>
+<p>	“Aku ingin membeli telur yang meledak Gu.”</p>
+<p>	“Aku ingin bangau kertas Gu!”</p>
+<p>	“Aku ingin Gu perbudakan anjing, Gu bangau kertas, dan Gu telur yang meledak !!”</p>
+<p>	“Apa, mengapa Gu ini begitu mahal? Harganya tiga kali lipat dari sebelumnya!!”</p>
+<p>	“Ck, tersesat kalau miskin, ada banyak orang yang menunggu untuk membeli.”</p>
+<p>	“Sialan… aku akan membelinya!”</p>
+<p>	“Saya ingin membeli, saya harus membelinya!”</p>
+<p>	Banyak orang mengertakkan gigi, memarahi pedagang yang tidak bermoral itu dengan pelan, tetapi masih mengeluarkan uang hasil jerih payah mereka dengan susah payah.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

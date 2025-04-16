@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 13";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_12.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 13">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_14.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 13</h1>
+        <div class="text-left">
+<p>	Bab 13</p>
+<p>	Bab 13 – Hutan bambu di bawah bulan, butiran salju</p>
+<p>	Sekitar 300 tahun yang lalu, seorang jenius yang luar biasa muncul di Klan Gu Yue. Dia sangat berbakat dan telah berkultivasi hingga menjadi Master Gu peringkat lima di usia muda, dan bahkan memiliki kemungkinan untuk melangkah lebih jauh. Dia terkenal di seluruh Gunung Qing Mao, memiliki masa depan yang cerah dan merupakan puncak harapan dan tanggung jawab di mata klan.</p>
+<p>	Dalam sejarah klan Gu Yue, semua orang paling banyak membicarakannya – kepala klan keempat.</p>
+<p>	Sayangnya dia mengorbankan dirinya untuk melindungi rakyatnya dan melawan Guru Gu peringkat lima yang sama kuatnya , Biksu Bunga Anggur iblis. Meskipun dia mengalahkan Biksu Anggur Bunga setelah pertempuran sengit, dia membiarkan iblis berlutut dan memohon belas kasihan.</p>
+<p>	Pada akhirnya dia ceroboh dan tertangkap oleh serangan diam-diam Flower Wine Monk. Kepala keempat dengan marah mengeksekusi Biksu Anggur Bunga, tetapi karena lukanya sendiri yang parah, dia meninggal sebelum waktunya.</p>
+<p>	Kejadian tragis ini sudah lama beredar hingga saat ini, menjadi cerita populer di kalangan klan Gu Yue. Namun Fang Yuan tahu bahwa cerita ini tidak bisa dipercaya, karena memiliki celah yang sangat besar.</p>
+<p>	Dalam kehidupan sebelumnya, sebulan kemudian dari sekarang, seorang Gu Master mabuk yang telah ditolak oleh kekasihnya berbaring di luar desa, sangat mabuk dia seperti ikan. Pada akhirnya karena bau anggur yang meluap, itu akhirnya menarik cacing Liquor.</p>
+<p>	The Gu Guru mengejar cacing Liquor dan menemukan sisa-sisa Bunga Wine Monk dalam gua bawah tanah rahasia, juga menemukan warisan Bunga Wine Monk. Master Gu ini dengan cepat bergegas kembali ke klan dan memberi tahu mereka tentang masalah ini, menyebabkan kegemparan besar.</p>
+<p>	Saat badai berangsur-angsur mereda, dia juga mendapat manfaat darinya – Dia memperoleh cacing Liquor, kultivasinya meningkat, teman perempuan yang pernah meninggalkannya kembali ke sisinya dan dia menjadi pembicaraan di desa untuk sementara waktu.</p>
+<p>	Ketika cerita diturunkan dari generasi ke generasi, itu normal untuk berubah di sepanjang jalan. Tetapi dalam ingatan Fang Yuan, kisah Guru Gu yang menemukan harta karun itu tampak cukup otentik, namun dia merasa bahwa cerita itu menyembunyikan kebenaran lain.</p>
+<p>	“Saya tidak menyadarinya pada awalnya, tetapi dalam beberapa hari ini ketika saya mencari dan menganalisis di samping, saya merasa ada sesuatu yang tidak pada tempatnya.” Malam semakin gelap, dan saat Fang Yuan berjalan di hutan bambu yang tumbuh di sekitar desa, dia meninjau kembali petunjuk yang dia miliki sejauh ini di kepalanya.</p>
+<p>	“Jika saya menempatkan diri saya pada posisinya dan memikirkannya, ketika saya menemukan harta Biksu Anggur Bunga mengapa saya tidak mengambil semuanya untuk diri saya sendiri, tetapi pergi dan beri tahu klan sebagai gantinya? Bahkan tidak menyebutkan rasa kehormatan klan, setiap orang memiliki keserakahan di hati mereka. Apa yang membuat Guru Gu mengkhianati keserakahan di dalam hatinya, bahkan sampai rela meninggalkan semua kepentingan dan keuntungan, dan melaporkan temuan ini kepada petinggi klan?”</p>
+<p>	Kebenaran selalu tersembunyi di dalam kabut sejarah. Fang Yuan memeras otaknya tetapi dia tidak bisa mendapatkan hasilnya. Setelah semua petunjuk yang dia miliki terlalu sedikit. Hanya dua petunjuk yang dia miliki bisa dengan mudah benar atau salah, jadi itu tidak bisa sepenuhnya diandalkan.</p>
+<p>	Fang Yuan tidak bisa tidak memikirkan dirinya sendiri. “Tidak peduli apa, setelah membeli toples anggur bambu hijau ini, aku hanya memiliki 2 batu purba yang tersisa. Jika saya tidak dapat menemukan harta karun itu maka saya akan berada dalam masalah besar. Hari ini akan dianggap sebagai pertaruhan terakhir, itu semua atau tidak sama sekali!”</p>
+<p>	Namun dia tidak memiliki cukup batu purba untuk memurnikan cacing Gu . Jadi mengapa tidak menginvestasikannya dalam anggur ini dan meningkatkan peluang keberhasilan?</p>
+<p>	Jika dalam kasus orang lain, kebanyakan dari mereka mungkin akan bermain aman dan menyimpan batu purba. Tetapi dalam kasus Fang Yuan, efisiensi melakukannya terlalu rendah. Dia lebih suka mengambil risiko dan bertaruh.</p>
+<p>	Soalnya, orang-orang dari Fraksi Iblis suka mengambil risiko.</p>
+<p>	Saat ini, malam semakin tebal, bulan musim semi berbentuk seperti busur. Awan menutupi cahaya bulan, seolah-olah melapisi bulan sabit dengan lapisan tipis gossamer.</p>
+<p>	Karena baru saja selesai hujan terus menerus selama tiga hari tiga malam, energi keruh di antara pegunungan telah tersapu bersih, meninggalkan kesegaran yang paling murni. Udara segar ini murni seperti selembar kertas putih, dan lebih efektif menyebarkan aroma anggur di sekitarnya. Itulah alasan pertama mengapa Fang Yuan penuh percaya diri malam ini.</p>
+<p>	Pencarian tujuh hari sebelumnya bukannya tanpa hasil. Setidaknya itu membuktikan bahwa Biksu Bunga Anggur tidak mati di tempat itu. Ini adalah alasan kedua untuk kepercayaan Fang Yuan.</p>
+<p>	Di hutan bambu rerumputan rimbun, bunga putih tak berujung dan bambu tombak hijau lurus seperti pensil, hutan menyerupai rumpun batang batu giok.</p>
+<p>	Fang Yuan membuka segel toples, melepaskan aroma anggur yang kental secara instan. Anggur bambu hijau bisa dikatakan sebagai anggur nomor satu Desa Gu Yue. Ini adalah alasan ketiga untuk kepercayaan Fang Yuan malam ini.</p>
+<p>	“Dengan tiga alasan besar ini berkumpul bersama, jika saya ingin berhasil harus malam ini!” Fang Yuan bersorak di dalam hatinya saat dia perlahan memiringkan toples anggur, menuangkan sedikit anggur, meneteskannya ke batu. Jika sekelompok pemburu itu melihat pemandangan ini, mereka mungkin akan menjadi sangat tertekan. Anggur ini bernilai 2 batu purba utuh …</p>
+<p>	Tapi Fang Yuan acuh tak acuh.</p>
+<p>	Aroma harum dengan cepat menyebar ke malam hari. Angin sepoi-sepoi, aroma samar mengambang dan mencemari hutan bambu. Fang Yuan berdiri di tempatnya, mencium aromanya. Dia menunggu beberapa saat, namun dia tidak melihat gerakan apa pun.</p>
+<p>	Yang dia dengar hanyalah burung bulbul yang menangis di kejauhan, suaranya seperti untaian lonceng. Tatapannya terdiam. Dia tidak merasa terkejut, dan dia pindah, berjalan ke suatu tempat beberapa ratus meter jauhnya.</p>
+<p>	Di tempat ini dia melakukan hal yang sama, menuangkan beberapa tetes anggur dan menunggu di tempat.</p>
+<p>	Dia melakukan hal yang sama berulang-ulang, pindah ke beberapa lokasi lain yang berbeda, meneteskan anggur beberapa kali. Toh arak bambu hijau di toples hanya tersisa sedikit.</p>
+<p>	Ini yang terakhir kalinya, Fang Yuan menghela nafas. Dia membalikkan toples anggur, bagian bawahnya menghadap ke langit. Semua sisa anggur yang tersisa di toples mengalir keluar. Anggur ditaburkan di atas rumput, membiarkan rumput hijau bergoyang. Bunga-bunga liar diwarnai dengan anggur, sedikit menundukkan kepala.</p>
+<p>	Fang Yuan berdiri dengan secercah harapan terakhir di dadanya, dan menatap sekeliling.</p>
+<p>	Saat ini malam sudah sangat dalam. Awan tebal menutupi cahaya bulan. Bayangan gelap itu seperti tirai, menutupi rumpun bambu. Keheningan mematikan di sekelilingnya, setiap helai bambu tombak hijau berdiri sendiri, meninggalkan jejak garis lurus ke atas dan ke bawah di pupil Fang Yuan.</p>
+<p>	Dia diam-diam berdiri di tempat, mendengarkan napasnya sendiri yang jelas. Kemudian dia merasakan harapan kecil yang dia bawa di dadanya, perlahan menghilang, menjadi bukan apa-apa.</p>
+<p>	“Lagipula itu gagal.” Hatinya bergumam, “Hari ini saya memiliki tiga keuntungan besar yang dikumpulkan bersama, namun saya masih gagal, bahkan tidak melihat bayangan cacing Liquor. Ini berarti bahwa di masa depan tingkat keberhasilan akan lebih rendah. Saat ini saya hanya memiliki dua batu purba yang tersisa, dan saya masih perlu memperbaiki Moonlight Gu . Saya tidak bisa mengambil risiko lagi.”</p>
+<p>	Hasil akhir dari mengambil risiko seringkali tidak memuaskan. Tetapi ketika hasilnya ideal, keuntungannya akan mengesankan. Fang Yuan suka mengambil risiko, tetapi dia bukan pecandu judi, dan dia bukan seseorang yang bertekad untuk mempertaruhkan kembali apa yang hilang darinya. Dia memiliki batasnya sendiri, dia jelas tentang kemampuannya sendiri.</p>
+<p>	Saat ini, lima ratus tahun pengalaman hidup memberitahunya, sudah waktunya untuk berhenti.</p>
+<p>	Terkadang hidup itu seperti ini. Seringkali ada satu tujuan yang tampak begitu sempurna, penuh dengan godaan. Rasanya begitu dekat namun dengan begitu banyak liku-liku, tujuan itu terus-menerus tidak terpenuhi. Itu membuat orang gelisah, memikirkannya siang dan malam.</p>
+<p>	“Ini adalah ketidakberdayaan hidup, tetapi juga pesona hidup,” Fang Yuan tertawa pahit, berbalik untuk pergi.</p>
+<p>	Saat itu.</p>
+<p>	Embusan angin bertiup, seperti lengan yang lembut, dengan ringan menyapu awan di langit malam. Awan melayang pergi untuk mengungkapkan bulan yang tersembunyi. Bulan berbentuk bulan sabit yang menggantung di langit seperti lampu giok putih, menuangkan cahaya bulan yang jernih seperti air turun ke bumi. Cahaya bulan tumpah di atas hutan bambu, tumpah ke batu gunung, mandi ke sungai dan sungai di gunung, menumpahkan ke tubuh Fang Yuan.</p>
+<p>	Fang Yuan mengenakan pakaian biasa; di bawah sentuhan lembut sinar bulan, wajah mudanya menjadi lebih cerah. Kegelapan tampak memudar dalam sekejap, dan menggantikannya adalah ladang bunga es yang bersalju. Seolah-olah terinfeksi oleh sinar bulan, burung bulbul mulai bernyanyi sekali lagi, tetapi kali ini bukan hanya satu, tetapi banyak. Tersebar di antara rumpun bambu, mereka semua men-tweet sebagai tanggapan.</p>
+<p>	Pada saat yang sama, sejenis serangga yang menghuni pegunungan besar, jangkrik Dragonpill yang aktif di bawah sinar bulan mulai menyanyikan lagu kehidupan yang gemerisik. Mereka adalah makhluk yang hanya keluar di malam hari. Tubuh mereka memancarkan cahaya merah redup; pada saat ini mereka melompat keluar berbondong-bondong, masing-masing tubuh mereka berkilauan dengan kecemerlangan batu akik merah.</p>
+<p>	Pada pandangan pertama, Fang Yuan berpikir bahwa jangkrik Dragonpill ini seperti pancaran air merah yang memantul, mendarat di rumput hijau dan bunga liar, berjingkrak di bawah sinar bulan di hutan bambu.</p>
+<p>	Hutan bambu itu seperti kolam yang sadar, di bawah sinar bulan warna giok hijau dari bambu tombak bersinar dalam kecemerlangan batu giok yang ringan dan halus. Pemandangan mempesona dari pepohonan lebat dan bunga-bunga cerah di musim semi, Ibu Pertiwi menunjukkan kecantikannya yang luar biasa pada Fang Yuan saat ini.</p>
+<p>	Fang Yuan tanpa sadar menghentikan langkahnya, merasa seolah-olah dia berada di tanah surgawi. Dia sudah akan pergi, tetapi pada saat ini dia tanpa sadar melihat sekeliling.</p>
+<p>	Gumpalan bunga liar dan rerumputan yang telah dia tuangkan anggur terakhirnya bergetar lembut ditiup angin, tetap kosong. Fang Yuan menertawakan dirinya sendiri dan menarik kembali pandangannya.</p>
+<p>	Namun.</p>
+<p>	Tanpa diduga dalam proses berbalik, dia melihat titik salju putih.</p>
+<p>	Butir-butir salju ini direkatkan pada sebatang bambu runcing tidak jauh dari situ. Di bawah sinar bulan, itu seperti mutiara bundar yang tergantung.</p>
+<p>	Kedua murid Fang Yuan melebar dengan ganas, tubuhnya sedikit gemetar. Jantungnya jatuh dan mulai memompa lebih cepat setiap detik.</p>
+<p>	Itu adalah cacing Liquor!</p>
+<p>	T/N Note: Saya berjanji 2 bab pada hari Jumat tetapi akhirnya saya harus pergi bekerja di kedua akhir pekan, jadi maaf atas keterlambatannya. Saya memompa yang ini sesegera mungkin!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

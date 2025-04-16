@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 128 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 128";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_127.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 128">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_129.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 128</h1>
+        <div class="text-left">
+<p>	Bab 128</p>
+<p>	Bab 128: Jika bukan karena kerasnya musim dingin, bagaimana kita bisa menantikan musim semi!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Cahaya merah samar menyelimuti hutan batu, pertumbuhan membatu tumbuh keluar dari langit-langit menuju tanah seperti pohon terbalik. Itu adalah pemandangan untuk dilihat.</p>
+<p>	“Sudah lebih dari sebulan sejak terakhir kali aku datang ke sini.” Fang Yuan berpikir tanpa daya.</p>
+<p>	Setelah tiga klan bersatu, mereka memulai perang salib untuk terus melenyapkan kawanan serigala di sekitarnya. Karena lalu lintas yang konstan untuk upaya perang, Master Gu membuat aliran yang hampir selalu ada bergerak di dekat gua retakan batu. Dalam situasi seperti itu, bahkan jika Fang Yuan memiliki Stealth Scales Gu, ada bahaya mengekspos dirinya sendiri.</p>
+<p>	Terlepas dari risikonya, Fang Yuan sangat berhati-hati dalam melakukan sesuatu. Pengalaman hidup selama lima ratus tahun telah memupuk kesabaran yang cukup dalam dirinya; dia terus menguasai keinginannya dan memastikan untuk tidak membuat gerakan di sekitar gua batu selama periode ini.</p>
+<p>	Ketika musim semi tiba, serigala-serigala yang lumpuh telah berhasil dibasmi dan hanya ada beberapa Guru Gu yang berkeliaran. Baru pada saat itulah dia bersedia dan Fang Yuan berputar-putar di sekitar desa sebelum menggunakan Stealth Scales Gu untuk kembali.</p>
+<p>	Sebulan telah berlalu, memungkinkan beberapa kelompok monyet batu untuk terisi kembali dan mereka telah pindah ke pilar batu yang telah dia bersihkan sebelumnya.</p>
+<p>	Untungnya, jumlahnya cukup sedikit.</p>
+<p>	Fang Yuan menghabiskan beberapa waktu membunuh kelompok monyet dan maju menuju area tengah hutan batu.</p>
+<p>	Di bawah bayangan pilar batu besar, pintu masuk gua buatan yang jelas muncul di depan matanya.</p>
+<p>	Beberapa tangga batu kasar memanjang ke bawah dari mulut gua ke dalam kegelapan.</p>
+<p>	Fang Yuan menggunakan White Jade Gu untuk menutupi seluruh tubuhnya dengan lapisan cahaya giok yang redup dan dengan hati-hati menuruni tangga.</p>
+<p>	Tangan kirinya memegang obor api, sedangkan cahaya bulan terang menyinari telapak tangan kanannya — Moonglow Gu sudah diaktifkan.</p>
+<p>	Itu benar-benar gelap di bawah tanah dan bahkan obor api hanya bisa menerangi lima langkah di depan.</p>
+<p>Gu tipe iluminasi akan sangat membantu dalam situasi seperti itu. Sayangnya Fang Yuan tidak begitu kaya.</p>
+<p>	Langkah demi langkah, dia berjalan cukup lama sebelum mencapai ujung tangga.</p>
+<p>	Sebuah pintu batu buatan mentah ada di depannya.</p>
+<p>	“Gua Kelabang Emas genting, Komunikasi Bumi adalah cara untuk menghindari bencana.” Fang Yuan mengangkat obor apinya yang menerangi beberapa karakter yang diukir di pintu batu.</p>
+<p>	Komunikasi bumi……</p>
+<p>Kelabang Emas…..</p>
+<p>	Mata Fang Yuan berbinar, memahami artinya.</p>
+<p>	“Jika ini yang kupikirkan…” Dia berjongkok dan menyentuh tanah; tanah itu basah.</p>
+<p>“Ada sesuatu.” Dia bahagia. Dia mulai menggali tanah dan memang, dia menemukan Bunga Perbendaharaan Bumi.</p>
+<p>	Dia dengan hati-hati membuka kelopak dan mengeluarkan cacing Gu dari jantung bunga.</p>
+<p>	Ini adalah Gu khusus.</p>
+<p>	Itu menyerupai telinga manusia, tetapi jauh lebih kecil. Warnanya coklat kekuningan, dan tampak keriput dan kusam.</p>
+<p>Dia merasakannya di telapak tangannya; itu layu seperti lobak yang diasinkan dan membawa kehangatan. Puluhan akar seperti akar ginseng tumbuh dari sisinya.</p>
+<p>	Ini adalah rumput peringkat dua Gu — Rumput Telinga Komunikasi Bumi.</p>
+<p>	Melihat Rumput Telinga Komunikasi Bumi, tatapan Fang Yuan melintas.</p>
+<p>	Penggunaan Earth Communication Ear Grass ini adalah untuk mengintai. Itu muncul di waktu yang tepat dan sempurna untuk Fang Yuan.</p>
+<p>	Rumput Telinga Komunikasi Bumi memiliki keuntungan besar; itu bisa mengintai hingga tiga ratus langkah. Rentang ini adalah yang terbaik dari cacing Gu investigasi peringkat dua.</p>
+<p>	Itu juga mudah untuk diberi makan. Makanannya adalah akar ginseng.</p>
+<p>	Ada banyak gunung berhutan di Perbatasan Selatan. Ada jauh lebih banyak ginseng di sini daripada di Bumi. Keluarga pemburu kadang-kadang akan memilih beberapa ketika mereka pergi berburu di pegunungan.</p>
+<p>	Terutama jika ginseng mudah disimpan; selama benar-benar kering dan disegel dengan benar, itu bisa disimpan untuk waktu yang lama di bawah suhu kamar.</p>
+<p>	Kelopak bunga anggrek bulan layu dalam beberapa hari, tetapi ginseng bisa disimpan dalam waktu lama.</p>
+<p>	“Cacing Gu perlu dipelihara, digunakan, dan disempurnakan. Ketiga aspek ini luas dan memiliki banyak misteri di dalamnya. Rumput Telinga Komunikasi Bumi mudah dipelihara, tetapi menggunakannya agak merepotkan, ”renung Fang Yuan. Dia memegang Rumput Telinga Komunikasi Bumi dan menuangkan esensi purba, langsung menyempurnakannya.</p>
+<p>	Rumput Telinga Komunikasi Bumi sangat luar biasa dan dapat dibandingkan dengan banyak cacing Gu investigasi peringkat tiga. Namun, surga itu adil, dan menggunakan Rumput Telinga Komunikasi Bumi tidak berakhir hanya dengan pemurnian, itu masih membutuhkan harga tertentu.</p>
+<p>	Sama seperti Gu Zombie dan Gu Pesona Kayu yang perlu digunakan dengan cacing Gu lainnya, ada konsekuensinya. Jika digunakan untuk waktu yang lama, tubuh Gu Master akan perlahan terkorosi dan berubah menjadi zombie atau manusia pohon sejati.</p>
+<p>	“Banyak cacing Gu tidak dapat digunakan hanya dengan memperbaikinya, mereka masih memerlukan beberapa prasyarat khusus. Gu Telinga Daging Komunikasi Bumi ini juga sama. Dengan menggunakannya untuk memastikan situasinya, saya benar-benar dapat bergerak bebas dalam gelombang serigala dan bahkan mencapai beberapa tujuan saya selama gelombang serigala ini…..”</p>
+<p>	Fang Yuan merenung sejenak dan memutuskan untuk menggunakan Earth Communication Flesh Ear Gu ini.</p>
+<p>	Karena keuntungannya akan lebih besar daripada kerugiannya, bahkan jika dia harus membayar harganya, itu bukan apa-apa demi masa depannya.</p>
+<p>	“Tidak peduli dunia mana, bagaimana seseorang bisa mendapatkan sesuatu tanpa membayar harganya?” Fang Yuan dengan dingin tersenyum dan meletakkan Earth Communication Ear Grass di lubangnya.</p>
+<p>	Dia menatap pintu batu dalam-dalam lalu berbalik dan pergi.</p>
+<p>	Jika dia tidak salah menebak, akan ada bahaya besar di sisi lain pintu batu. Hanya dengan menggunakan Earth Communication Ear Grass, dia bisa menghindarinya.</p>
+<p>	Fang Yuan keluar dari gua rahasia dan dengan santai mengitari desa; setelah melakukan beberapa putaran, berburu beberapa serigala dan mengambil bola mata mereka, dia kembali.</p>
+<p>	Dia masih yang terakhir di papan prestasi pertempuran. Saat dia berjalan melewati jalan, Master Gu yang mengenalinya menertawakannya atau melemparkan pandangan menghina.</p>
+<p>	Fang Yuan tidak peduli dan masih menempuh jalannya sendiri.</p>
+<p>	Setelah beberapa hari, dia menggunakan manfaat pertempuran kecil untuk ditukar dengan akar ginseng, memberi makan Rumput Telinga Komunikasi Bumi dengan benar dan memulihkan vitalitasnya.</p>
+<p>	Sebagian besar perhatian klan tertuju pada gelombang serigala, tidak ada yang memperhatikan Fang Yuan. Jika sebelumnya, Paman dan Bibi mungkin telah memberinya beberapa masalah, tetapi mereka tidak membuat gerakan lagi sejak Fang Yuan menjual aset keluarga kepada mereka.</p>
+<p>	Sulit dilakukan secara terbuka, mudah dilakukan secara sembunyi-sembunyi.</p>
+<p>	Segera, Fang Yuan dengan lancar menyelesaikan beberapa persiapan dalam gelap.</p>
+<p>	Malam ini, bulan bersinar terang dan bintang hanya sedikit.</p>
+<p>	Bulan menggantung tinggi di atas seperti lempengan batu giok dan kegelapan malam yang lembut seperti benang, menutupi gunung Qing Mao.</p>
+<p>	Dari waktu ke waktu, lolongan serigala terdengar samar-samar dari jauh.</p>
+<p>	Fang Yuan dengan aman menutup pintu dan jendela. Dia berdiri di dalam kamar sewaannya, seluruh tubuhnya telanjang. Ada meja di depannya dan baskom berisi air hangat diletakkan di atasnya. Di samping wastafel ada handuk putih dan belati tajam di atasnya.</p>
+<p>	Bahkan lantai tempat dia berdiri ditutupi dengan lapisan kain tebal.</p>
+<p>	Helaian cahaya bulan melewati celah-celah di jendela dan menyinari meja.</p>
+<p>	Ekspresi Fang Yuan acuh tak acuh saat dia meraih belati. Belati itu tajam dan memiliki kilau dingin. Bahkan bisa digunakan sebagai cermin.</p>
+<p>	Di bawah cahaya redup, wajah acuh tak acuh pemuda itu tercermin pada belati.</p>
+<p>	Saat ini, Fang Yuan tidak bisa tidak memikirkan buku keterampilan seni bela diri dari Bumi yang disebut .</p>
+<p>	Kalimat pertama di halaman pertama  adalah ‘Kebiri dirimu untuk melatih skill ini.</p>
+<p>	Seseorang perlu menyerah atau membayar sesuatu jika mereka ingin menerima kekuatan cepat!</p>
+<p>	Jadi bagaimana jika Anda perlu mengebiri diri sendiri?</p>
+<p>	Jika Anda tidak memiliki ketegasan yang kejam dan tidak mau melepaskannya, bagaimana Anda bisa mencapai ambisi Anda dan menjadi penguasa yang menguasai segalanya?</p>
+<p>	Ingin menerima tanpa membayar apa-apa hanyalah dongeng untuk menipu anak-anak.</p>
+<p>	Kembali ke keadaan Fang Yuan saat ini, untuk menggunakan Rumput Telinga Komunikasi Bumi ini, harga yang harus dia bayar tidak bisa berarti apa-apa.</p>
+<p>	Memikirkan hal ini, Fang Yuan dengan dingin tersenyum.</p>
+<p>	Dia menggunakan jari-jarinya untuk dengan lembut membelai pedang dingin itu dan dengan lembut bersenandung—</p>
+<p>	Bulan seperti malam yang dipenuhi embun beku, belati bersinar dengan cahaya dingin.</p>
+<p>	Jika bukan karena kerasnya musim dingin, bagaimana mungkin kita menantikan musim semi!</p>
+<p>	Dia dengan cepat menggerakkan tangannya.</p>
+<p>	Tangannya terangkat dan belatinya jatuh; darah meledak.</p>
+<p>	Sepotong daging jatuh di atas meja—</p>
+<p>	Fang Yuan telah memotong seluruh telinga kanannya dan darah menyembur keluar darinya.</p>
+<p>	Dia pertama kali merasa sedikit dingin sebelum ledakan rasa sakit yang hebat tiba-tiba menyerangnya.</p>
+<p>	Dia mengertakkan gigi dan menarik napas melalui giginya. Dia menahan rasa sakit dan memanggil Earth Communication Ear Grass dari aperture-nya.</p>
+<p>	Dia telah memelihara Rumput Telinga Komunikasi Bumi ini kembali ke vitalitas penuhnya. Sekarang benar-benar berbeda dari tampilannya ketika dia baru saja mendapatkannya.</p>
+<p>	Kembali ketika dia mengeluarkannya dari Bunga Perbendaharaan Bumi, itu layu dan kusam. Sekarang, itu montok dan hangat; gemuk dan besar dan telah tumbuh hingga seukuran telapak tangan orang dewasa.</p>
+<p>	Itu sangat elastis dan menyerupai telinga Buddha yang terkulai di Bumi.</p>
+<p>	Fang Yuan menekan Earth Communication Flesh Ear Gu pada lukanya di sisi kanan kepalanya dan segera menuangkan esensi purba baja merah ke arahnya.</p>
+<p>	Akar Earth Communication Flesh Ear Gu segera hidup kembali dan dengan cepat mulai tumbuh, mengakar di luka Fang Yuan.</p>
+<p>	Semburan rasa sakit lain datang!</p>
+<p>	Fang Yuan merasa seperti lusinan cacing tanah mengebor ke otaknya dari lukanya.</p>
+<p>	Perasaan ini menyakitkan dan juga memuakkan.</p>
+<p>	Secara umum, Master Gu akan menggunakan beberapa cacing Gu untuk mematikan saraf mereka pada tahap ini. Tapi Fang Yuan tidak dalam situasi itu dan hanya bisa mengandalkan tekad besinya untuk menahannya dengan paksa.</p>
+<p>	Pada akhirnya, tubuhnya seperti seorang pemuda, dan Fang Yuan yang menahan rasa sakit ini tidak bisa tidak merasakan tubuhnya mulai bergoyang.</p>
+<p>	Semakin banyak akar yang menjulur, memasuki lukanya. Perlahan, Earth Communication Ear Grass menyatu dengan luka berdarah, menjadi telinga kanan baru Fang Yuan.</p>
+<p>	Akhirnya, tidak ada lagi darah yang mengalir dari luka itu, bahkan tidak ada bekas luka.</p>
+<p>	Namun, wajah Fang Yuan pucat; rasa sakitnya hanya sedikit berkurang, itu masih menyiksanya.</p>
+<p>	Pembuluh darah menonjol keluar dari kepalanya dan jantungnya berdebar kencang.</p>
+<p>	Pada tahap ini, Fang Yuan sudah selesai sebagian besar, tetapi beberapa waktu masih diperlukan bagi tubuhnya untuk beradaptasi dengan Rumput Telinga Komunikasi Bumi.</p>
+<p>	Dia mengambil cermin dan melihatnya di bawah sinar bulan yang redup.</p>
+<p>	Dia melihat wajahnya yang pucat dan alisnya yang berkerut di cermin. Telinga kanannya lebih besar dari kirinya lebih dari dua kali dan tampak seperti kelainan bentuk.</p>
+<p>	Fang Yuan tidak keberatan; setelah melihat cermin sejenak dan tidak melihat masalah, dia merasa puas.</p>
+<p>	Dia meletakkan cermin dan mengambil handuk. Dia mencelupkan handuk ke dalam air hangat di baskom dan menyeka noda darah di tubuhnya.</p>
+<p>	Dia tidak mengenakan pakaian, jadi sangat mudah untuk membersihkan noda darah. Beberapa darah telah mengalir di kakinya tetapi diserap oleh kain katun yang tersebar di lantai.</p>
+<p>	Fang Yuan membersihkan noda darah, lalu mengangkat telinga kanannya dari meja.</p>
+<p>	Dia mendengus dingin, lalu menggunakan Moonglow Gu, mengiris telinga kanannya sendiri menjadi pasta daging dan menghancurkannya sepenuhnya.</p>
+<p>	Fang Yuan memegang baskom berisi darah berair dan meletakkannya di bawah tempat tidur sebelum melemparkan sepotong batu bara ke dalamnya.</p>
+<p>	Hanya setelah melakukan semua ini, Fang Yuan berbaring di tempat tidur.</p>
+<p>	Rasa sakitnya sebagian besar telah melemah tetapi masih menyiksanya.</p>
+<p>	Fang Yuan merasakan sakit di kepalanya bersamaan dengan detak jantungnya.</p>
+<p>	Dia tidak tahu berapa lama waktu telah berlalu, tetapi dia akhirnya tertidur lelap.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

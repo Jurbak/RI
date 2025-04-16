@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 415 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 415";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_414.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 415">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_416.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 415</h1>
+        <div class="text-left">
+<p>	Bab 415 – Untuk besok!</p>
+<p>	Bab 415: Untuk besok!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Gemuruh gemuruh…</p>
+<p>	Ledakan meledak satu demi satu, saat debu dan asap membubung ke udara.</p>
+<p>	Ini adalah lokasi proyek penggalian sungai.</p>
+<p>	Para rockmen memakan tanah sebagai makanan, banyak cacing Gu di tubuh rockmen dapat digunakan.</p>
+<p>	“Pemimpin suku tuan, kita tidak bisa terus seperti ini! Kemarin, tiga anggota suku meninggal karena kelelahan, mereka mengalami kematian yang menyedihkan, bahkan tidak meninggalkan satu keturunan pun. ”</p>
+<p>	Seorang rockmen tua berlutut di depan Yan Yong saat dia menangis.</p>
+<p>	Begitu seorang rockman meninggal karena kelelahan, jiwa mereka akan menghilang, mereka akan benar-benar mati, tidak akan ada rockman muda yang terbentuk dari jiwa mereka yang tersisa.</p>
+<p>	Yan Yong membanting dadanya, melolong: “Mengapa saya tidak tahu? Mengapa saya tidak tahu? Pahlawan telah berkorban untuk suku kita lagi! Untuk masa depan yang cerah dari suku kita, untuk hari esok yang indah, mereka menyumbangkan hidup mereka!”</p>
+<p>	“Tapi justru begitu, kita tidak bisa memperlambat. Sejak awal penggalian, kami telah menghadapi banyak serangan dari tentara rubah. Ukuran kelompok rubah semakin besar, terbukti bahwa lelaki abadi yang terkutuk mendapatkan kembali esensi abadinya! Kita harus terus dan bekerja keras, menggali sungai sehingga dia kehilangan sumber kekuatannya!”</p>
+<p>	Rockman tua tercengang: “Tapi pemimpin suku …”</p>
+<p>	“Kamu adalah rockman yang baik, kamu berpikir untuk suku kita, aku mengerti itu. Pahlawan ini tidak akan mati sia-sia. Lihat di sana, saya sudah membuat batu nisan heroik untuk mereka. Anak-anak dan keturunan mereka akan mengingat mereka, dan merasa bersyukur atas pengorbanan yang telah dilakukan.” Yan Yong menunjuk ke batu nisan yang didirikan, jumlahnya banyak.</p>
+<p>	Rockman tua melihat batu nisan, mendesah.</p>
+<p>	Begitu kematian para rockmen muncul, pemimpin suku baru Yan Yong segera memerintahkan orang untuk membangun batu nisan tersebut.</p>
+<p>	Semangat rendah segera dinaikkan, meskipun setiap hari, rockmen yang tak terhitung jumlahnya mati karena kelelahan, mereka masih bersemangat tinggi.</p>
+<p>	“Mereka sudah mati, apa gunanya batu nisan ini?” Rockman tua itu adalah salah satu dari sedikit yang tersisa yang memahami situasinya, dia merasa sangat khawatir.</p>
+<p>	“Wahai pemimpin.” Dia dengan getir mendesak: “Kami rockmen harus mereproduksi juga. Rockmen yang mati karena kelelahan ini bahkan tidak akan memiliki jiwa yang tersisa, mereka tidak dapat meninggalkan keturunan.”</p>
+<p>	Ekspresi Yan Yong tetap tidak berubah, tidak mengatakan sepatah kata pun.</p>
+<p>	Seorang rockman muda di sampingnya mulai menggerutu: “Kamu orang tua, apakah kamu takut mati!”</p>
+<p>	Rockman tua segera membalas: “Anak muda, bagaimana Anda bisa mengatakan itu? Ya, saya sudah tua, tetapi saya seorang rockman, bagaimana seorang rockman bisa takut mati?</p>
+<p>	“Karena kamu tidak takut mati, mengapa kamu banyak bicara?”</p>
+<p>	“Betul sekali. Kami membuat kontribusi untuk suku!”</p>
+<p>	“Apa masalahnya? Kami membuat pengorbanan kecil untuk kebaikan yang lebih besar.”</p>
+<p>	Di samping Yan Yong, sekelompok rockmen muda mulai berdebat.</p>
+<p>	“Senior tua, jika kamu merasa lelah, istirahatlah dulu. Tidak masalah, waktu saya terbatas, saya harus pergi ke daerah lain untuk melihat perkembangannya.” Yan Yong menepuk bahu rockman tua ini saat dia berjalan pergi, melanjutkan pemeriksaannya.</p>
+<p>	Sekelompok rockman muda mengikuti di belakang Yan Yong, berbicara di antara mereka sendiri, mengungkapkan penghinaan mereka terhadap rockman tua itu.</p>
+<p>	Dihina oleh para junior ini, rockman tua itu merasa sangat tertekan, asap keluar dari telinganya.</p>
+<p>	Dia ingin menegur mereka dengan keras, tetapi dia melihat semua batu nisan di dekat area konstruksi, dengan segala macam kata terukir di atasnya.</p>
+<p>	“Kita harus melakukan ini dengan cara apa pun!”</p>
+<p>	“Selama kita bersatu, dalam tiga hari, kita akan menyelesaikan sungai!”</p>
+<p>	“Semakin besar keberanian kita, semakin banyak yang bisa kita capai.”</p>
+<p>	“Untuk membangun masa depan yang indah bagi suku rockmen kita!”</p>
+<p>	“Panjang umur pemimpin suku Yan Yong!”</p>
+<p>	“Demi masa depan yang cerah dari para rockmen, kita menyumbangkan hidup kita, kita menyumbangkan pemuda kita!”</p>
+<p>	Suasana gila melanda hati para rockmen. Bahkan para rockman yang meninggal karena kelelahan menunjukkan senyuman sebelum mereka mati.</p>
+<p>	Rockman tua ingin berbicara, tetapi mulutnya terbuka berkali-kali dan tidak berhasil mengucapkan sepatah kata pun.</p>
+<p>	Dia berlutut di tempat dengan linglung untuk waktu yang lama, sampai tiba-tiba, dia mengangkat tinjunya dan membanting tanah dengan keras.</p>
+<p>	Bam, itu adalah suara yang berat.</p>
+<p>	Rockman tua itu berdiri perlahan, diam-diam menggerakkan tubuhnya yang sudah tua menuju tanah konstruksi.</p>
+<p>	Yan Yong bergegas ke situs berikutnya.</p>
+<p>	Saluran sungai sudah mulai terbentuk, sejumlah besar rockman dewasa sedang menggali di saluran tersebut. Di samping mereka, para rockman muda yang secara fisik lebih lemah membentuk kelompok-kelompok patroli. Ada yang memeriksa penggalian sungai, ada yang mengukir slogan, ada yang membuat nisan heroik.</p>
+<p>	Rockmen muda ini disebut penjaga batu, dibentuk oleh Yan Yong secara pribadi.</p>
+<p>	“Melapor ke pemimpin suku!” Fix untuk enam rockman muda pergi ke Yan Yong dan melaporkan hasil kerja beberapa hari ini.</p>
+<p>	“Melaporkan kepada pemimpin hebat, kami telah menggali 25 km lagi di segmen ini!”</p>
+<p>	“Melaporkan kepada pemimpin besar, sayangnya kami telah mengorbankan seratus dua puluh anggota suku, mereka semua adalah pahlawan suku kami!”</p>
+<p>	“Melaporkan kepada pemimpin hebat, kami benar-benar menemukan tiga anggota suku tidur di tempat kerja. Ini adalah aib bagi suku kami, kami harus mengkritik mereka!”</p>
+<p>	“Sangat bagus, sangat bagus, Anda semua telah melakukannya dengan baik! Ingat, Anda harus mendirikan batu nisan untuk pahlawan kita yang telah meninggal. Pada saat yang sama, ikat para rockman yang memalukan itu dan kritik mereka di depan umum, biarkan mereka belajar keberanian dari penghinaan.” Yan Yong berbicara dengan hati-hati.</p>
+<p>	“Dipahami!”</p>
+<p>	“Kalian semua adalah masa depan suku kami, melihat kalian semua seperti melihat masa depan cerah suku kami. Anda harus terus bekerja keras.” Yan Yong memuji.</p>
+<p>	Rockmen muda sangat bersemangat, tubuh mereka gemetar.</p>
+<p>	“Semuanya untuk suku rockmen!”</p>
+<p>	“Pemimpin kami yang terhormat dan terkasih, Anda adalah simbol kebanggaan kami!”</p>
+<p>	“Kami bersatu di sisimu, berjalan menuju masa depan yang cerah dan bermakna!!”</p>
+<p>	Mereka menggeram satu demi satu, menunjukkan tatapan fanatik.</p>
+<p>	Tapi Yan Yong menghindari kontak mata dengan mereka, antusiasme rockmen muda ini membuatnya takut.</p>
+<p>	Dia melihat ke tempat yang jauh.</p>
+<p>	Di sana, semua segmen sungai yang berbeda sedang digali, Yan Yong bisa melihat banyak rockmen menatap tanah kuning sambil menurunkan punggung mereka yang tebal.</p>
+<p>	Alur sungai lebarnya puluhan meter, segmen demi segmen, garis panjang muncul dalam penglihatannya.</p>
+<p>	Ini adalah proyek yang megah!</p>
+<p>	Setiap kali Yan Yong melihat sene ini, jantungnya berdebar – selama mereka bersatu, kekuatan suku rockmen luar biasa, itu bisa mengubah dunia!</p>
+<p>	Tetapi ketika Yan Yong memikirkan Fang Yuan, iblis yang menakutkan itu, hatinya merasakan hawa dingin yang kuat yang mengubah antusiasmenya menjadi sungai yang membeku.</p>
+<p>	Baik itu kelompok rubah di luar, slogan di papan batu, atau penjaga batu yang dia ciptakan, semuanya adalah bagian dari rencana iblis.</p>
+<p>	Dengan begitu banyak metode, dia dengan paksa mengurangi resistensi suku rockmen seminimal mungkin.</p>
+<p>	Yan Yong adalah orang yang menciptakan skenario ini secara pribadi, melihat pembentukan sungai, ketakutannya terhadap Fang Yuan menjadi semakin besar.</p>
+<p>	Pria abadi itu tidak hanya memiliki kekuatan yang menakutkan, yang benar-benar menyebabkan keputusasaan adalah pikirannya yang licik dan licik, membuatnya tampak seperti jurang yang tak terduga.</p>
+<p>	Yan Yong merasa dirinya tenggelam ke dalam api penyucian.</p>
+<p>	Dia lemah lembut seperti semut, sementara di belakangnya, sosok raksasa Fang Yuan menatapnya.</p>
+<p>	Dia seperti mayat, boneka, tali yang mengendalikannya ada di tangan Fang Yuan.</p>
+<p>	Setiap hari, dia melihat anggota sukunya mati, hatinya sakit seperti ditusuk keris.</p>
+<p>	Melihat antusiasme anggota sukunya, sekarat untuk menggali sungai, dia merasakan kesedihan yang menyedihkan.</p>
+<p>	“Jika memungkinkan, saya lebih suka tidak tahu yang sebenarnya. Mungkin, terus hidup dalam kebohongan ini adalah kebahagiaan sejati?”</p>
+<p>	Yan Yong menarik kembali pandangannya, melambaikan tangannya dan membawa rockmen muda menuju segmen sungai berikutnya.</p>
+<p>	…</p>
+<p>	“Ini adalah estrus terakhir Gu, pergi.”</p>
+<p>	Esensi purba telah disuntikkan, saat Fang Yuan menjentikkan jarinya dan menembakkan kacang hijau itu sambil menatap Gu ke udara.</p>
+<p>	Estrus Gu meledak, berubah menjadi bubuk merah muda saat menghujani kelompok rubah di bawah.</p>
+<p>	Seluruh kelompok rubah menghirup bubuk ini, dan segera mengaduk.</p>
+<p>	Segera, banyak rubah jantan tergeletak di punggung rubah betina, bergerak dengan penuh semangat saat mereka menyuntikkan esensi kehidupan mereka ke dalam tubuh rubah betina.</p>
+<p>	Kehamilan rubah bervariasi. Misalnya, rubah emas membutuhkan waktu dua bulan untuk melahirkan sekali. Setiap kali, ada tiga hingga empat rubah. Adapun binatang buas seperti rubah berekor tiga, bahkan seratus tahun tidak cukup untuk mengasuh janin mereka.</p>
+<p>	Biasanya, semakin kuat binatang itu, semakin lama waktu yang dibutuhkan untuk satu kehamilan.</p>
+<p>	Tapi sekarang di tanah yang diberkati Hu Immortal, kelompok rubah itu biasa, mereka memiliki masa kehamilan yang singkat.</p>
+<p>	Sejak para rockmen mulai menggali sungai hingga prosesnya lancar, Fang Yuan telah menggunakan Gu estrus setiap hari, menciptakan rubah baru dan memperkuat pasukan rubah.</p>
+<p>	Hu Immortal tidak memiliki Gu Abadi, selama bencana duniawi kelima, dia dibunuh oleh bayangan petir pesona biru, sehingga jalur perbudakannya cacing Gu tidak terhindar.</p>
+<p>	Tapi di dalam gunung Dang Hun, dia meninggalkan sejumlah cacing Gu.</p>
+<p>	Misalnya, tipe bantuan Gu seperti kodok jiwa penguburan, atau tipe pengeluaran Gu seperti estrus Gu, serta beberapa cacing cadangan Gu untuk jalur perbudakan, sebagian besar adalah Gu perbudakan rubah.</p>
+<p>	Untuk meningkatkan kekuatannya dengan cepat, Fang Yuan sudah menggunakan sebagian besar cacing Gu ini.</p>
+<p>	Kelompok rubah telah meningkat jumlahnya beberapa kali setelah kerja kerasnya.</p>
+<p>	Meskipun rubah adalah omnivora, tanah yang diberkati tidak dapat mempertahankan jumlah yang begitu besar. Dalam waktu kurang dari dua tahun, banyak rubah tidak dapat menemukan makanan dan mati kelaparan.</p>
+<p>	Tapi Fang Yuan tidak peduli, seluruh pikirannya sedang menanggung bencana duniawi keenam sekarang.</p>
+<p>	Beberapa bulan berlalu dengan cepat.</p>
+<p>	Sebuah sungai menghubungkan utara dan timur.</p>
+<p>	Danau yang meluap mengalir di sepanjang alur sungai, bergerak cepat dengan riak-riak yang memercik.</p>
+<p>	Desir desir…</p>
+<p>	Banjir besar mengalir ke lubang api, saat kedua kekuatan bentrok, air sungai menguap dan berubah menjadi uap, naik ke udara.</p>
+<p>	Setelah air sungai tenang, hampir setengah dari api hitam itu padam. Hanya tiga area terbakar yang tersisa di tepinya.</p>
+<p>	Dengan cara ini, api dan air saling memusnahkan, banjir wilayah utara berkurang, dan tanah muncul kembali.</p>
+<p>	Sejumlah besar air mengalir di sepanjang sungai dan mengisi puluhan lubang, membentuk banyak danau.</p>
+<p>	Meskipun wilayah utara masih penuh lumpur, dan wilayah timur adalah tanah yang terbakar tanpa tanaman hidup, perpaduan api dan air telah menciptakan sesuatu seperti keropeng pada luka berdarah.</p>
+<p>	Selama waktu berlalu, wilayah timur dan utara pada akhirnya akan mendapatkan kembali vitalitas mereka.</p>
+<p>	Di bawah instruksi Fang Yuan, Yan Yong membawa ratusan atau lebih rockman yang terluka dan lelah kembali ke rumah mereka di daerah selatan.</p>
+<p>	“Tuan, apa yang kita lakukan dengan awan-awan ini?” Little Hu Immortal memandang ke langit, awan tebal membuatnya merasa tak berdaya.</p>
+<p>	Meski sudah hujan berkali-kali, uap air masih banyak di udara, membentuk awan.</p>
+<p>	Awan ini menghalangi cahaya alami, menyebabkan wilayah timur diselimuti kegelapan, membuat orang merasa kesal.</p>
+<p>	Tanah yang diberkati tidak memiliki sinar matahari atau angin. Awan ini akan sangat mempengaruhi kehidupan penduduk wilayah timur.</p>
+<p>	“Abaikan mereka.” Fang Yuan menatap lautan awan dan menarik kembali pandangannya.</p>
+<p>	Munculnya awan diharapkan, itu adalah detail kecil. Apa yang benar-benar penting, adalah bencana duniawi keenam!</p>
+<p>	Jika tanah yang diberkati selamat dari ini, dia perlahan akan menyelesaikan masalah tentang awan. Jika gagal membuatnya, maka tidak ada gunanya memikirkannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 212 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 212";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_211.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 212">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_213.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 212</h1>
+        <div class="text-left">
+<p>	Bab 212</p>
+<p>	Bab 212: Kelezatan Otak Monyet</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Desir desir desir~</p>
+<p>	Di bukaan, gelombang esensi purba surut dan mengalir, bergegas menuju dinding bukaan di sekitarnya.</p>
+<p>	Lautnya berwarna hijau giok, menerjang terus menerus, itu adalah esensi purba tahap awal peringkat 1.</p>
+<p>	Peringkat 1 Gu master memiliki esensi purba tembaga hijau, tahap awal adalah batu giok, tahap tengah berwarna hijau pucat, tahap atas berwarna hijau tua dan tahap puncak berwarna hijau hitam.</p>
+<p>	Dinding aperture di sekitarnya bersinar terang; di bawah serangan ombak hijau giok, fondasinya perlahan dibangun.</p>
+<p>	Setelah itu, cahaya putih meledak, dan meredup. Cahaya putih mengembun satu sama lain, membentuk riak cahaya seperti air.</p>
+<p>	Pada titik ini, dinding cahaya aperture berubah menjadi dinding air.</p>
+<p>	“Akhirnya, dari peringkat 1 tahap awal ke tahap tengah.” Kegembiraan ringan muncul di hati Fang Yuan.</p>
+<p>	Dinding aperture tahap awal adalah dinding ringan, tahap tengah adalah dinding air.</p>
+<p>	Setelah tembok air dibuat, itu berarti Fang Yuan kembali ke peringkat 1 tahap tengah.</p>
+<p>	“Sudah lebih dari 20 hari sejak kami membunuh tuan Gu wanita iblis itu. Selama periode ini, saya telah berkultivasi tanpa henti, tidak menyia-nyiakan satu menit pun. Tidak heran saya maju ke tahap tengah. ” Fang Yuan perlahan membuka matanya.</p>
+<p>	“Sayang sekali saya tidak memiliki cacing minuman keras pada saya, kalau tidak kultivasi saya akan lebih cepat.”</p>
+<p>	Cacing minuman keras dapat menyebabkan esensi purba master Gu disempurnakan menjadi satu alam kecil yang lebih tinggi. Menggunakannya untuk membantu dalam kultivasi, dapat mencapai hasil yang lebih besar dengan sedikit usaha.</p>
+<p>	Sejak kelahiran kembali Fang Yuan, selain Jangkrik Musim Gugur Musim Semi, cacing Gu pertama yang dia dapatkan adalah cacing minuman keras.</p>
+<p>	Setelah itu, dia membeli yang kedua dan memurnikan keduanya menjadi cacing minuman keras empat rasa.</p>
+<p>	Sayang sekali, adalah bahwa cacing minuman keras empat rasa hanya bekerja pada master Gu peringkat 2, tidak berguna untuk Fang Yuan saat ini.</p>
+<p>	Sebenarnya, Fang Yuan telah mendapatkan tiga cacing minuman keras di gunung Qing Mao. Yang ketiga dari tubuh Gu Yue Yao Le.</p>
+<p>	Cacing minuman keras ini disimpan di tangan Fang Yuan, tetapi setelah ayah dan anak Tie datang, untuk mencegah dirinya terekspos, dan khawatir tentang metode investigasi Tie Xie Leng, dia menghancurkan cacing minuman keras bersama dengan jarahannya yang lain.</p>
+<p>	Setelah itu terjadi, apakah itu langkah yang benar atau tidak, karena Fang Yuan melakukannya, dia tidak menyesal.</p>
+<p>	Meskipun sekarang, jika dia menyimpan cacing minuman keras, itu akan berguna baginya, tetapi setidaknya, selama waktu itu, itu tidak memungkinkan ayah dan anak Tie untuk menyelidiki masalah pada Gu Yue Yao Le.</p>
+<p>	“Jika saya membalikkan pemurnian cacing minuman empat rasa, saya bisa mendapatkan cacing minuman keras peringkat 1, tetapi ada banyak persyaratan untuk pemurnian terbalik, saya tidak dapat memenuhi persyaratan.</p>
+<p>	Master Gu memelihara Gu, menggunakan Gu, memperbaiki Gu. Untuk pemurnian Gu, itu dibagi menjadi fusi dan pemurnian terbalik.</p>
+<p>	Fusion, adalah untuk mengubah cacing Gu peringkat rendah menjadi peringkat yang lebih tinggi. Terbalik adalah kebalikannya.</p>
+<p>	Untuk membalikkan pemurnian cacing minuman keras empat rasa, ada banyak cara. Menggunakan anak yang hilang Gu, akan mendapatkan dua cacing minuman keras peringkat 1. Menggunakan Gu kembali, hanya 1 cacing minuman keras yang diperoleh. Transformasi kupu-kupu Gu akan mendapatkan kupu-kupu qi yang menakutkan. Menggunakan Gu yang tidak dapat diprediksi, apa yang diperoleh Gu tidak akan diketahui, mungkin sesuatu yang baru bersama-sama.</p>
+<p>	Bagi Fang Yuan, kasus terbaik adalah anak yang hilang, Gu.</p>
+<p>	Tapi Gu yang hilang lebih jarang daripada cacing minuman keras, dan sulit didapat. Skenario kasus terbaik adalah mengembalikan Gu.</p>
+<p>	Menggunakan revert Gu, meskipun dia akan kehilangan cacing minuman keras, Fang Yuan tidak akan ragu untuk melakukannya.</p>
+<p>	Mempertahankan cacing minuman keras empat rasa, dan menunggu budidaya peringkat 2, yang berada di bawah lingkungan yang aman. Sekarang Fang Yuan dalam bahaya sepanjang waktu, semua yang dia lakukan harus untuk bertahan hidup.</p>
+<p>	Semakin tinggi kultivasinya meningkat, semakin tinggi peluang untuk hidup.</p>
+<p>	Ciak Ciak Ciak~</p>
+<p>	Di luar gua, jeritan monyet dan langkah kaki bisa terdengar.</p>
+<p>	Telinga Fang Yuan berkedut, dia akrab dengan pemilik langkah kaki itu.</p>
+<p>	Seperti yang diharapkan, tidak lama kemudian, Bai Ning Bing muncul.</p>
+<p>	Seluruh tubuhnya ditutupi lapisan pakaian duri. Pakaian khusus ini, benar-benar terbuat dari tanaman merambat hijau dan duri tajam hitam, memberikan pertahanan Bai Ning Bing dan juga digunakan untuk tujuan menyerang.</p>
+<p>	Bagi mereka yang bertarung dengan tangan kosong, duri yang sekuat baja ini akan meninggalkan kesan abadi pada mereka.</p>
+<p>	Kemeja thistle ini, dibentuk oleh Gu thistle duri besi.</p>
+<p>	Setelah membunuh master Gu wanita iblis, Bai Ning Bing menginginkan Gu rumput peringkat 3 ini, memintanya dan memperbaikinya sebagai Gu yang terikat hidupnya.</p>
+<p>	“Sangat merepotkan. Setiap kali saya pergi dan kembali, saya harus sangat berhati-hati dengan kentang guntur yang hangus itu. Tidak bisakah kamu mengubur lebih sedikit dari mereka? ” Dia berkata sambil menyesali, menatap tanah di bawahnya, melompat-lompat saat dia menghindari beberapa jebakan.</p>
+<p>	“Lebih baik aman daripada menyesal.” Fang Yuan menjawab dengan ringan, mengalihkan pandangannya ke pinggang Bai Ning Bing.</p>
+<p>	Di pinggangnya ada seutas monyet.</p>
+<p>	Monyet-monyet ini kecil, yang terbesar hanya sepanjang lengan. Mereka memiliki kepala bulat, dan rambut monyet hitam tebal, halus dan berkilau. Yang paling menonjol adalah daun pohon yang tumbuh di pinggangnya.</p>
+<p>	Daun hijau ini membentuk lingkaran, dihubungkan bersama di sekitar tulang pinggul dan pantat monyet, seperti rok rumput.</p>
+<p>	Ini adalah monyet rok rumput.</p>
+<p>	Monyet rok rumput sangat lezat, menjadi sumber makanan bagi Fang Yuan dan Bai Ning Bing akhir-akhir ini.</p>
+<p>	Monyet rok rumput yang ditangkap ini menyadari hasil mereka, berjuang keras tetapi tidak berhasil.</p>
+<p>	Seluruh gua bergema dengan tangisan mereka, dan jeritan ngeri.</p>
+<p>	Saat itu waktu makan siang.</p>
+<p>	“Panggang mereka, aku sedikit lapar.” Bai Ning Bing mengusap perutnya, melempar rok rok rumput monyet yang diikat ke tanah.</p>
+<p>	“Biarkan aku menyiapkannya dulu, kamu bisa memanggangnya nanti. Daging panggangmu rasanya jauh lebih enak daripada milikku.” Dia berjongkok, hendak membunuh mereka.</p>
+<p>	Fang Yuan menghentikannya: “Biarkan aku mengajarimu metode makan baru.”</p>
+<p>	Setelah itu, dia menggerakkan jarinya, dan seorang Gu terbang keluar dari lubang Bai Ning Bing dengan cahaya berdarah.</p>
+<p>	Cahaya darah mendarat di telapak tangan Fang Yuan, berubah menjadi lambang bulan darah.</p>
+<p>	Itu adalah bulan darah Gu.</p>
+<p>	Telapak tangan Fang Yuan mulai bersinar dengan cahaya merah.</p>
+<p>	Meskipun bulan darah Gu berada di peringkat 3, Fang Yuan tidak menggunakannya untuk menyerang, jadi dia masih hampir tidak bisa mengendalikannya.</p>
+<p>	Bai Ning Bing tidak tahu niatnya, mata birunya menatap tajam.</p>
+<p>	Hanya untuk melihat Fang Yuan mengulurkan tangannya, mengangkat monyet rok rumput. Dia meraih lehernya, menyebabkan kepalanya tidak bisa bergerak.</p>
+<p>	Segera setelah itu, telapak tangan yang bersinar dengan lampu merah mendarat di kepala monyet, dan berputar satu putaran.</p>
+<p>	Saat itu, dia menggunakan Gu cahaya bulan untuk membuka batu judi, sekarang dia menggunakan Gu bulan darah untuk memotong kepala monyet.</p>
+<p>	Setelah satu putaran, esensi purba Fang Yuan mencapai titik terendah.</p>
+<p>	Saat lampu merah menghilang dari telapak tangannya, Fang Yuan tersenyum sambil meraih kepala monyet, menariknya, dan membuka tengkoraknya.</p>
+<p>	Otak monyet putih terungkap dari dalam.</p>
+<p>	Monyet rok rumput berjuang keras, berteriak kesakitan, jeritan melengkingnya bergema di gua.</p>
+<p>	Tapi Fang Yuan memiliki kekuatan dua babi hutan, lengannya seperti baja, tidak bergerak sama sekali. Tungkai monyet rok rumput itu lembut dan tidak memiliki cakar, tidak dapat melukai Fang Yuan sama sekali bahkan jika dia mencoba.</p>
+<p>	“Rasakan otak monyet yang segar ini.” Mengatakan demikian, Fang Yuan menyerahkan sendok kepada Bai Ning Bing.</p>
+<p>	“Seperti ini, mentah?” Bai Ning Bing melihat otak putih dengan beberapa jejak darah, ragu-ragu.</p>
+<p>	Fang Yuan tersenyum, menunjukkan.</p>
+<p>	Dia menempatkan sendok ke otak monyet, menyendok dan memasukkannya ke dalam mulutnya, saat dia menelan, otak mengalir ke tenggorokannya.</p>
+<p>	Pada saat itu, jeritan monyet rok rumput semakin kuat, tubuhnya kejang-kejang seperti tersengat listrik.</p>
+<p>	Bai Ning Bing juga mencobanya, menyendoki otak monyet itu dan memasukkannya ke dalam mulutnya.</p>
+<p>	Seketika, bau rumput yang harum menyebar dari lidahnya, tanpa setitik darah pun. Seperti tekstur kembang tahu, dengan sedikit kekuatan, seluruh otak monyet meleleh di mulut Anda, dengan sedikit rasa manis, memberikan rasa yang menyegarkan, di seluruh mulut.</p>
+<p>	Tenggorokannya tercekat, menelan otak monyet ini. Mata birunya bersinar dengan cahaya terang, sebening kristal, saat wajah peri seperti menunjukkan ekspresi menikmati.</p>
+<p>	“Sangat lezat!” Gadis muda itu berseru.</p>
+<p>	“Hanya monyet rok rumput ini yang bisa memiliki selera seperti itu. Otak mereka adalah kelezatan alami.” Fang Yuan berkata sambil menyendok satu lagi ke dalam mulutnya.</p>
+<p>	Dia maju ke tahap tengah, dan itu membutuhkan perayaan mini, otak monyet ini adalah hadiah yang bagus.</p>
+<p>	Bai Ning Bing tertawa terbahak-bahak, bergerak lebih cepat dari sebelumnya, menelan seteguk kedua.</p>
+<p>	Monyet rok rumput yang tengkoraknya dipotong terbuka, setelah kegilaan sementara, berada di ambang kematian. Permatanya yang cerah seperti matanya sudah menjadi redup.</p>
+<p>	Monyet rok rumput lainnya melihat keadaan teman mereka, berjuang seperti orang gila mencoba melarikan diri.</p>
+<p>	Di bawah kendali tali, perjuangan mereka sia-sia, hanya membiarkan mereka berguling-guling di tanah.</p>
+<p>	Makan otak monyet ini rasanya seperti makan es krim di bumi, keduanya bekerja sama dan sangat cepat menghabiskan otak monyet ini.</p>
+<p>	“Satu lagi, satu lagi.” Bai Ning Bing tidak punya cukup, menjilat bibirnya dan melambaikan sendok, menuntut.</p>
+<p>	Esensi purba Fang Yuan telah pulih hingga 90%, dia melakukan hal yang sama dan memotong tengkorak lain.</p>
+<p>	Sekaligus, keduanya melanjutkan makan mereka, puas. Di dalam gua, gema jeritan monyet rok rumput terdengar nyaring dan menyakitkan.</p>
+<p>	Setelah memakan otak monyet, mereka memanggang daging monyet.</p>
+<p>	Daging monyet dari monyet rok rumput segar dan lezat, terutama daging dada mereka. Seluruh rasa itu seperti ikan yang dipanggang di atas daun bambu.</p>
+<p>	Rumput karung beras.</p>
+<p>	Fang Yuan berkehendak, dan lampu hijau melesat keluar dari aperture-nya.</p>
+<p>	Cahaya mendarat di tanah, menumbuhkan tunas hijau.</p>
+<p>	Dalam beberapa saat, kuncup tumbuh menjadi daun, dan daun melebar, berubah menjadi tanaman merambat. Tanaman merambat memanjang, dan setelah menutupi sepuluh meter, beberapa cabang tumbuh daun besar.</p>
+<p>	Daun-daun ini tampak seperti ember. Pertama, hanya satu jari yang bisa muat. Tapi akhirnya, itu menjadi ukuran kepalan tangan, ukuran mangkuk, dan akhirnya matang.</p>
+<p>	Bai Ning Bing dengan cermat memetik sehelai daun.</p>
+<p>	Membuka daun di bagian atas, nasi bisa dilihat di dalam. Kernel montok besar, putih sempurna.</p>
+<p>	Bai Ning Bing mengangkat kepalanya dan membuka mulutnya, menuangkan seteguk nasi ke mulutnya, setelah mengunyah, dia makan daging monyet untuk menambah rasa.</p>
+<p>	“Makan sampai kenyang adalah kepuasan.” Dia berseru.</p>
+<p>	“Bagaimana kabar monyet rok rumput itu.” Fangyuan bertanya.</p>
+<p>	Pikiran Bai Ning Bing kembali: “Tidak masalah jika kita tidak memasuki hutan itu dalam-dalam. Tapi begitu kami melakukannya, tiga raja monyet muncul. Anggur yang ingin Anda dapatkan ada di area paling tengah hutan, tidak akan mudah didapat. ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

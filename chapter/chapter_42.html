@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 42 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 42";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_41.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 42">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_43.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 42</h1>
+        <div class="text-left">
+<p>	Bab 42</p>
+<p>	Bab 42: Ini benar-benar Gu ?!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Eh?”</p>
+<p>	“Jangan bilang itu batu lain di batu.”</p>
+<p>	“Dari kelihatannya, mungkin. Tapi agak aneh, bola lumpur ini tertutup oleh permukaan batu berwarna emas ungu. Permukaan bola lumpur harus dikompresi dengan lancar, jadi mengapa permukaannya masih tidak rata? ” Master Gu di sekitarnya bingung.</p>
+<p>	Melihat bola lumpur di tangannya, ekspresi Fang Yuan tidak berubah, tetapi di dalam hatinya dia sedikit tergerak.</p>
+<p>	Dia terus menggiling. Di bawah cahaya biru berair, pasir halus jatuh. Di antara bubuk itu, ada beberapa remah tanah yang tercampur di dalamnya, jatuh ke tumpukan bubuk batu di samping kakinya.</p>
+<p>	“Jangan bilang benar-benar ada sesuatu ?!” Setelah melihat ini, beberapa Master Gu menatap dengan mata terbuka lebar.</p>
+<p>	“Sulit untuk mengatakannya,” seseorang berbicara dengan nada tidak pasti.</p>
+<p>	“Aku merasa seperti ada, benar-benar ada sesuatu.” Yang lain berbicara dengan lembut.</p>
+<p>	Bola lumpur kuning berangsur-angsur berkurang ukurannya karena gesekan, dan ketika seukuran telapak tangan, seseorang menerobos masuk ke dalam tenda. “Anak muda, tahan. Aku, Jia Jin Sheng, akan membelinya!”</p>
+<p>	Gerakan Fang Yuan terhenti, sekaligus, para Master Gu di tenda semua memusatkan perhatian mereka pada orang ini.</p>
+<p>	Dia tampak muda di luar, penampilannya sekitar dua puluh hingga dua puluh lima tahun. Dia mengenakan jubah berwarna emas dengan ikat pinggang renda di pinggangnya, dan di ikat pinggang itu ada potongan batu giok berbentuk persegi. Ada sebuah kata di seberang potongan batu giok, menunjukkan huruf “Satu”.</p>
+<p>	Jelas, ini adalah Master Gu Peringkat satu.</p>
+<p>	Untuk tetap menjadi Master Gu peringkat satu pada usia dua puluh tahun, tampaknya bakatnya tidak bagus.</p>
+<p>	Tetapi status orang ini agak unik. Melihatnya, Master Gu di tenda semua membungkuk dan menyapanya, berkata bersama, “Bawahanmu menyapamu, tuan muda kedua.”</p>
+<p>	“Tuan muda kedua?”</p>
+<p>	“Dia menyebut dirinya Jia Jin Sheng sebelumnya, apakah dia saudara tiri dari Merchant Caravan Leader, Jia Fu……”</p>
+<p>	“Artinya, sarang judi batu ini dibuka olehnya. Tapi sekarang dia muncul untuk ikut campur, sepertinya dia melanggar aturan sarang perjudian, “Gu Masters berbicara dengan lembut.</p>
+<p>	“Itu benar, saya penjaga toko ini. Adik laki-laki (1), keluar untuk berjudi di usia yang begitu muda, tidakkah kamu takut akan omelan keluargamu? Saya akan menawarkan empat puluh batu purba sekarang untuk membeli bola lumpur itu di tangan Anda. Bagaimana menurutmu? Empat puluh batu purba sudah banyak dan mungkin tidak ada Gu di dalamnya, tetapi hari ini saya dalam suasana hati yang baik. Jadi melihat bahwa ini adalah pertama kalinya Anda berjudi, saya tidak ingin Anda kehilangan segalanya, jadi saya akan mengembalikan sebagian dari modal Anda.” Jia Jin Sheng dengan cepat berjalan di depan Fang Yuan dan berkata.</p>
+<p>	“Empat puluh batu purba?” Fang Yuan mengangkat alisnya sedikit dan menatap Jia Jin Sheng dengan sudut matanya, tertawa dingin, “Sepertinya kamu ingin dengan paksa membeli fosil bola lumpur milikku? Pembelian paksa merusak aturan perjudian. Selanjutnya Anda sekarang di Gunung Qing Mao, Anda ingin menggertak seorang klan Gu Yue seperti saya di depan semua orang? “</p>
+<p>	“Oh?” Mendengar kalimat terakhir Fang Yuan, semua Master Gu lainnya tidak bisa menerimanya dan permusuhan tumbuh tak terkendali di dalam diri mereka saat mereka melihat ke arah Fang Yuan. Ekspresi mereka terhadap Jia Jin Sheng juga menjadi tidak ramah.</p>
+<p>	Jia Jin Sheng mengira anak berusia lima belas tahun seperti Fang Yuan akan mudah dihadapi, mudah dibujuk dengan beberapa patah kata. Tetapi untuk berpikir bahwa Fang Yuan ini memiliki kemampuan seperti itu, dan dengan satu kalimat, dia menyebabkan Jia Jin Sheng berada dalam kesulitan seperti itu.</p>
+<p>	Melihat para Master Gu bersiap-siap untuk ikut campur, ekspresi Jia Jin Sheng langsung berubah saat dia mengubah nada suaranya, dengan cepat melambaikan tangannya, “Adik laki-laki, kamu salah! Saya penjaga toko sarang judi ini, bagaimana saya bisa merusak reputasi saya sendiri dengan melanggar aturan saya sendiri? Bagaimana saya bisa menjalankan bisnis di masa depan? Hehehe. Saya baru saja menemukan mudball Anda sedikit menarik, jadi saya ingin membelinya. Jika Anda tidak ingin menjualnya, tidak apa-apa. Tetapi jika tidak ada apa-apa di dalam nanti, jangan salahkan saya karena tidak mengingatkan Anda. ”</p>
+<p>	Fang Yuan tidak memperhatikannya lagi. Dia berbalik dan terus fokus menggiling bola lumpur di tangannya.</p>
+<p>	Gerakannya sangat lambat dan sangat teliti. Seringkali, hanya ada sedikit bubuk tanah kering yang jatuh setelah beberapa saat. Mengikuti gerakannya, cacing Gu yang berhibernasi</p>
+<p>	secara bertahap muncul di depan mata semua orang.</p>
+<p>	“Ya Tuhan, benar-benar ada cacing Gu!”</p>
+<p>	“Dia benar-benar membuka Gu!”</p>
+<p>	“Apa-apaan, metode perjudian semacam ini juga bisa berhasil?”</p>
+<p>	“Keberuntungan pemuda ini di luar grafik, dia benar-benar berhasil dengan paksa beruntung mendapatkan Gu.”</p>
+<p>	Segera, kekesalan para Master Gu memenuhi tenda.</p>
+<p>	Master Gu perempuan tanpa sadar menutup mulutnya, tidak bisa mempercayai pemandangan di depannya.</p>
+<p>	Sebagai pegawai toko, di sepanjang jalan dia pergi ke banyak desa pegunungan, melihat berbagai macam orang dan semua jenis pelanggan, tetapi dia belum pernah melihat adegan komedi seperti itu.</p>
+<p>	“Benar-benar ada Gu!” Cahaya dingin melintas di mata Jia Jin Sheng saat dia membenci dan menyesali di dalam hatinya. Hal yang paling dia benci, adalah dimanfaatkan.</p>
+<p>	Sarang judi yang dia buka ini, dia telah menempatkan banyak metode pengawasan. Begitu seorang pelanggan akan membuka Gu, dia akan menerima berita itu dan biasanya akan membelinya dengan paksa.</p>
+<p>	Tapi sekarang Fang Yuan berada di dalam sarang perjudiannya, mendapatkan seorang Gu di bawah matanya. Jia Jin Sheng bisa merasakan jantungnya berdarah.</p>
+<p>	Apa yang dia dapatkan, adalah katak Gu.</p>
+<p>	Seluruh tubuhnya berwarna kuning dari kepala hingga kaki. Perutnya berwarna kuning muda, dan punggungnya berwarna kuning kecoklatan, ditumbuhi banyak bisul jerawat, penuh bintil dan kutil yang merupakan ciri khas spesies katak. Sekilas, itu tampak sedikit mengerikan.</p>
+<p>	Itu tidak besar, hanya seukuran telapak tangan. Memegangnya di telapak tangan sama dengan memegang dua hingga tiga telur.</p>
+<p>	Ekspresi Fang Yuan tenang di bawah segala macam kekaguman, kecemburuan, dan kejengkelan, dengan hati-hati menyebarkan esensi purba dan menyuntikkannya ke tubuh katak.</p>
+<p>	Pada saat ini, Gu sedang disempurnakan oleh Fang Yuan.</p>
+<p>	Cacing Gu yang diperoleh dari dalam fosil biasanya sangat lemah. Tidak hanya mereka memiliki sedikit atau tidak ada kekuatan yang tersisa, kesadaran mereka juga malas, membuat mereka tidak berdaya dan tidak mampu melawan. Dengan demikian, mereka dapat dengan mudah disempurnakan oleh para master Gu.</p>
+<p>	Setelah dibangunkan oleh Fang Yuan, katak Gu membuka matanya perlahan, dan perutnya sedikit bergetar, memanggil dengan lembut.</p>
+<p>	Menggaok.</p>
+<p>	Suaranya lembut tapi itu membuat ekspresi semua orang sangat menarik.</p>
+<p>	Perbedaan nilai antara Gu yang hidup dengan yang sudah mati sangat besar.</p>
+<p>	“Ini Gu hidup, dia benar-benar membuka Gu hidup!!” Seseorang menggosok matanya, tidak percaya ini.</p>
+<p>	“Ini Kodok Kulit Lumpur, sialan, ini benar-benar Kodok Kulit Lumpur!” Seseorang mengenali identitas katak Gu dan berteriak dengan gelisah.</p>
+<p>	“Pemuda ini benar-benar beruntung, mengapa saya tidak memiliki keberuntungan seperti itu di pihak saya!” Seseorang menghela nafas, dipenuhi dengan emosi yang rumit seperti iri, iri dan benci.</p>
+<p>	“Tuan muda, selamat! Ini, ini, ini sampai saat ini, pertama kalinya aku melihat cacing Gu yang begitu berharga!” Master Gu perempuan terkejut tanpa kata-kata, matanya berkilauan dengan kehidupan.</p>
+<p>	“Itu sebenarnya Kodok Kulit Lumpur! Ini adalah cacing Gu peringkat dua yang langka, nilainya bernilai lima ratus batu purba. Sialan, sial. Seseorang benar-benar berhasil membuka cacing Gu seperti itu di toko saya. Saya telah kehilangan banyak waktu, waktu besar!” Wajah Jia Jin Sheng pucat saat dia menatap belati pada katak, hatinya memiliki keinginan yang kuat untuk merebut Gu itu.</p>
+<p>	Tapi dia tahu dia tidak bisa, karena jika dia benar-benar melakukan itu, itu akan menimbulkan masalah.</p>
+<p>	Ini bukan desa keluarganya, tapi wilayah klan Gu Yue.</p>
+<p>	“Mungkin saya seharusnya membayar sedikit lebih banyak batu purba, mungkin dia memberikannya kepada saya. Itu benar, dia hanya seorang siswa. Jika saya menawarkan seratus batu purba, tidak mungkin dia tidak tergerak. Kenapa aku tidak melakukannya?” Jia Jin Sheng penuh penyesalan.</p>
+<p>	“Tidak, mungkin anak muda ini tidak tahu barang-barangnya. Meskipun dia membuka Kodok Kulit Lumpur, aku seharusnya bisa menekan harganya dan membelinya!” Hati Jia Jin Sheng telah memperbarui harapan.</p>
+<p>	Tetapi pada saat berikutnya, petunjuk harapan ini tanpa ampun dihancurkan oleh kata-kata Fang Yuan.</p>
+<p>	Fang Yuan dengan jelas menatap Kodok Kulit Lumpur di tangannya, mengabaikan pujian dan keterkejutan orang-orang di sekitarnya.</p>
+<p>	Dia menggunakan nada yang sangat tenang dan berkata kepada Jia Jin Sheng, “Katak Kulit Lumpur, cacing peringkat dua Gu, membutuhkan lima ratus gram tanah kuning setiap kali makan, semakin subur tanah semakin baik. Spesiesnya sedikit jumlahnya dan merupakan Gu utama yang diperlukan dalam menyempurnakan Kodok Kuningan Harta Karun. Harga pasar adalah lima ratus batu purba. Jia Jin Sheng, apakah kamu ingin membeli ini?”</p>
+<p>	“Kamu, sebenarnya tahu dengan sangat jelas……” gumam Jia Jin Sheng. Setelah shock seperti itu, dia tidak bisa mengatakan sepatah kata pun.</p>
+<p>	Fang Yuan tertawa ringan dan melanjutkan, “Jika kamu tidak mau, tidak apa-apa. Saya akan menjualnya kepada orang lain, saya yakin seseorang akan tertarik.”</p>
+<p>	“Tunggu, tunggu, aku akan membelinya, aku akan membelinya. Tapi tidak bisakah harga ini lebih murah?” Senyum Jia Jin Sheng berubah pahit.</p>
+<p>	Fang Yuan berbalik dan berjalan pergi.</p>
+<p>	Jia Jin Sheng buru-buru mengejarnya. “Jangan! Jangan pergi! Saya akan membeli, saya akan membelinya!”</p>
+<p>	Fang Yuan tidak punya rencana untuk memelihara Kodok Kulit Lumpur ini.</p>
+<p>	Itu adalah Gu Peringkat dua, tetapi Fang Yuan masih merupakan tahap awal Peringkat satu. Meskipun memakan tanah kuning, Gunung Qing Mao penuh dengan tanah hijau, karenanya mencari makanan untuk itu akan merepotkan.</p>
+<p>	Terlebih lagi, jika dia tidak menjual cacing Gu ini, Fang Yuan harus memberi makan tiga cacing Gu sendiri. Mengesampingkan pengeluaran batu purba yang meningkat, bahkan jumlah batu purba yang dimilikinya saat ini tidak akan cukup untuk memberi mereka makan.</p>
+<p>	Jadi, rencana Fang Yuan adalah untuk segera menjual Kodok Kulit Lumpur, mendapatkan lima ratus batu purba dan mendapatkan banyak uang.</p>
+<p>	Untuk peringkat satu tahap awal seperti Fang Yuan, lima ratus batu purba sudah dianggap jumlah yang besar.</p>
+<p>	Transaksi selesai dengan cepat dan Fang Yuan memindahkan Kodok Kulit Lumpur ke Jia Jin Sheng di depan orang banyak, pada saat yang sama menerima lima kantong uang berat. Setiap tas memiliki seratus batu purba.</p>
+<p>	Fang Yuan awalnya memiliki sembilan puluh delapan batu purba, dan setelah menghabiskan enam puluh untuk batu judi, dia memiliki tiga puluh delapan yang tersisa. Sekarang, kekayaannya berlipat ganda, dan dia memiliki lima ratus tiga puluh delapan batu purba.</p>
+<p>	Setelah melihat ini, banyak master Gu menjadi iri.</p>
+<p>	Fang Yuan meletakkan lima tas di dadanya sebelum mengambil potongan terakhir dari fosil emas ungu dan berjalan keluar dari tenda.</p>
+<p>	“Tuan muda, Anda tidak membuka fosil itu?” Master Gu perempuan itu berkedip cepat dan menatap punggung Fang Yuan, dengan keras mengingatkannya.</p>
+<p>	Fang Yuan tidak mengindahkan dan meninggalkan sarang perjudian tanpa berbalik.</p>
+<p>	Dia meninggalkan sekelompok Master Gu yang tertegun, saling menatap dalam diam.</p>
+<p>	Jin Jia Sheng memanggil adik kecil Fang Yuan adalah cara untuk menyapa; mereka tidak berhubungan dengan cara apapun.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 244 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 244";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_243.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 244">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_245.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 244</h1>
+        <div class="text-left">
+<p>	Bab 244</p>
+<p>	Bab 244: Hampir pemerasan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fajar menyingsing di timur, memperlihatkan sinar cahaya pertama.</p>
+<p>	Udara dingin malam telah mengembun menjadi titik-titik embun di rerumputan dan dedaunan. Pasar sementara di klan Jin saat ini sedang dibongkar; tenda-tenda dikemas, karpet-karpet di jalanan kios-kios digulung dan barang-barang dikemas dalam tas.</p>
+<p>	Setelah tinggal di desa Jin selama beberapa hari, karavan bersiap untuk berangkat.</p>
+<p>	Adapun para pedagang, tidak peduli berapa banyak barang yang mereka jual atau beli, pada akhirnya mereka akan mendapat untung. Jadi, meskipun mereka kelelahan, mereka menunjukkan senyum ceria di wajah mereka.</p>
+<p>	Namun, ekspresi Xiao Die sangat mengerikan.</p>
+<p>	“Nona, saya baru saja memeriksa, bahwa Hei Tu telah menukar hampir semua barang. Dan di dalam barang yang dia tukar, aku melihat tiga gerobak penuh dengan rumput Jinzan!”</p>
+<p>	“Rumput Jinzan?” Alis panjang Shang Xin Ci sedikit berkerut.</p>
+<p>	Xiao Die sangat marah, saat dia menarik Shang Xin Ci dengan tangannya: “Bahkan orang awam seperti saya tahu betapa tidak berharganya rumput Jinzan, tetapi dia telah menukarnya dengan begitu banyak. Nona, Hei Tu ini hanya membuat masalah!”</p>
+<p>	“Xiao Die, tenang dulu.” Shang Xin Ci menepuk tangan Xiao Die, “Dia seharusnya menukar rumput Jinzan ini kemarin malam, aku tidak tahu kenapa dia melakukan itu tapi dia pasti punya alasan untuk menukar barang lain. Pikirkan saja, sudah cukup bagus dia bisa mencapai ini sebagai manusia. ”</p>
+<p>	“Nona, mengapa kamu membelanya? Aku hanya memikirkanmu. Barang-barang ini awalnya milik kita, mengapa Anda membiarkan orang lain menyia-nyiakannya dengan sia-sia? Yang terpenting, dia tidak bisa memberi kita kompensasi sama sekali! Tuan Zhang Zhu, tolong bujuk Nona…” Xiao Die cemberut.</p>
+<p>	Zhang Zhu yang melihat dari samping, menghela nafas: “Nona, Xiao Die benar. Kami meminjamkan barang kepadanya untuk mengujinya, tetapi sekarang kami sudah dapat melihat hasilnya, mengapa kami masih membiarkannya menyia-nyiakannya? Kami percaya pada kemampuan Anda Nona, tetapi jika kami dapat mengurangi kerugian kami, mengapa kami tidak melakukannya? Itu juga akan mengurangi perjuangan kita ketika kita mencapai Kota Klan Shang. ”</p>
+<p>	“Ini …” gumam Shang Xin Ci. Dia masih muda, matanya mulai menunjukkan tanda-tanda keraguan.</p>
+<p>	Sebelumnya, dia merasa barang yang ditukar oleh Fang Yuan baik-baik saja. Namun, rumput Jinzan ini… rugi besar menukar begitu banyak rumput Jinzan.</p>
+<p>	Rumput Jinzan mudah diawetkan, tetapi tidak bisa dijual karena permintaannya hampir tidak ada. Stok besar seperti itu cepat atau lambat akan membusuk, dan akhirnya, mereka tidak punya pilihan selain menurunkan harga dan menjual stok – itu ditakdirkan untuk merugi.</p>
+<p>	“Permisi, apakah Anda Nyonya Zhang Xin Ci?” Saat itu, seorang master gu setengah baya yang berkeringat deras, dengan cemas berlari ke arah Shang Xin Ci.</p>
+<p>	Pelat besi di ikat pinggangnya diukir dengan angka ‘dua’ yang menunjukkan pangkat master gu ini.</p>
+<p>	Shang Xin Ci tersenyum tipis: “Ya, bolehkah saya bertanya siapa Anda?”</p>
+<p>	Pria paruh baya itu menangkupkan tinjunya: “Saya adalah penjaga pribadi pemimpin klan tuan, di sini atas perintahnya untuk meminta bantuan.”</p>
+<p>	“Oh? Tolong bicara.”</p>
+<p>	“Nona Zhang seharusnya membeli sejumlah besar rumput Jinzan kemarin malam. Keseluruhan ceritanya seperti ini, pemimpin klan kami sangat bersemangat untuk rumput Jinzan dan dia secara pribadi mengangkat beberapa untuk kesenangan. Tapi tuan muda diam-diam menggali mereka dan menjualnya di belakang pemimpin klan. Sekarang, pemimpin klan telah menempatkan tuan muda dalam kurungan, dan juga ingin membeli kembali rumput Jinzan. Saya dengan tulus meminta Anda untuk menjualnya kembali kepada kami. ”</p>
+<p>	Tuan gu ini sopan, tetapi kesopanan itu membawa sikap tegas.</p>
+<p>	“Nona …” Ekspresi Zhang Zhu berubah serius saat ia mengingatkan Shang Xin Ci.</p>
+<p>	Penjaga pribadi ini mewakili pemimpin klan klan Jin, masalah ini bisa besar atau kecil, dan bisa menjadi serius jika ditangani dengan tidak benar.</p>
+<p>	Shang Xin Ci melirik Zhang Zhu dan menganggukkan kepalanya untuk menunjukkan bahwa dia mengerti: “Sebenarnya, saya juga seseorang yang menyukai bunga dan saya dapat memahami hasrat pemimpin klan yang terhormat. Kami akan menyerahkan rumput Jinzan kepada klan terhormat Anda tanpa satu pun batang yang hilang.”</p>
+<p>	“Itu membuat orang senang melihat Lady yang masuk akal.” Ekspresi penjaga pribadi gu master santai dan mengungkapkan sedikit senyum.</p>
+<p>	Shang Xin Ci melanjutkan: “Seorang bawahan saya bertanggung jawab atas transaksi ini. Aku akan memanggilnya.”</p>
+<p>	Fang Yuan sudah memperhatikan aktivitas di sini.</p>
+<p>	“Hei Tu, kamu dalam masalah. Missy telah memanggilmu.” Xiao Die datang untuk memanggilnya.</p>
+<p>	Fang Yuan segera muncul di depan penjaga pribadi, dan menangkupkan tinjunya: “Akulah yang bertanggung jawab atas transaksi rumput Jinzan. Saya mendengar pemimpin klan yang terhormat ingin membelinya kembali? ”</p>
+<p>	Penjaga pribadi terkejut melihat pendatang baru itu sebenarnya seorang manusia, wajahnya segera menunjukkan sedikit penghinaan dan kesombongan.</p>
+<p>	Dia mendengus: “Itu benar. Mati, Anda bisa santai. Pemimpin klan Lord baik hati dan bersedia menggunakan tiga ribu batu purba untuk membeli kembali tiga gerobak rumput Jinzan untukmu. ”</p>
+<p>	“Sekali?” Xiao Die terdiam dan tatapannya mengungkapkan kegembiraannya.</p>
+<p>	Zhang Zhu mengerutkan kening sebelum secara bertahap santai. Tiga ribu batu purba seharusnya menjadi harga pasar maksimum untuk rumput Jinzan, dan ini menunjukkan ketulusan pemimpin klan Jin.</p>
+<p>	Namun, Fang Yuan menggelengkan kepalanya: “Rumput Jinzan sangat berharga, hanya tiga ribu batu purba untuk membelinya kembali, ini sepertinya tidak tulus, kan?”</p>
+<p>	Penjaga pribadi segera mengerutkan kening: “Apa? Harga yang saya berikan jauh lebih tinggi dari harga pasar maksimum rumput Jinzan. Mortal, berapa harga kamu membelinya? ”</p>
+<p>	Fang Yuan menggosok hidungnya: “Jangan membahas harga beli, kita semua pengusaha, tentu saja kita akan membeli rendah dan menjual tinggi. Tiga ribu batu purba terlalu sedikit, saya tidak menjual! ”</p>
+<p>	“Anda!” Penjaga pribadi itu mengatupkan giginya, sebelum akhirnya menunjukkan lima jari, “Baiklah, kalau begitu aku akan menaikkannya dua ribu, lima ribu batu purba!”</p>
+<p>	Mata Xiao Die membelalak kaget, wajahnya mulai memerah karena kegembiraan saat dia melihat lima jari penjaga pribadi yang terentang.</p>
+<p>	“Lima ribu batu purba? Ini yang kamu katakan, kamu tidak bisa mengulanginya!” Dia hampir melompat kegirangan, dia tidak mengira situasinya akan berkembang seperti ini; Fang Yuan mendapat untung besar!</p>
+<p>	Namun, Fang Yuan masih menggelengkan kepalanya.</p>
+<p>	Ekspresi penjaga pribadi itu berubah dingin ketika dia mengancam: “Fantas, tidakkah kamu pikir kamu serakah? Rumput Jinzan ini awalnya adalah barang klan kami. Anda secara pribadi menukar mereka yang sudah tidak diizinkan. Anda bahkan tidak memiliki bukti transaksi, saya bahkan dapat mengatakan bahwa Anda mencurinya secara diam-diam!!”</p>
+<p>	Zhang Zhu terkejut oleh kemarahan penjaga pribadi, dia memandang Fang Yuan: “Jual saja.”</p>
+<p>	Fang Yuan tertawa: “Kamu menjualnya, aku membeli, ini adalah kesepakatan bersama. Terlebih lagi, tuan mudamu yang menjualnya kepadaku. Saya tidak bisa berbuat apa-apa jika Anda bertekad untuk mengatakan saya mencurinya. Klan Jin sangat kaya dan kuat sehingga bisa menggertak yang lemah dan merampok barang-barang kita. Hmph, barangnya ada di sana, kenapa tidak kamu ambil saja. Hanya saja sejauh yang saya tahu, bukan hanya saya yang membeli rumput Jinzan. Banyak orang lain memiliki bagiannya, apakah klan Jin akan merebut semuanya juga? ”</p>
+<p>	Fang Yuan sudah memperkirakan situasi ini, jadi dia hanya membeli sebagian besar kemarin malam. Rumput Jinjan yang tersisa dijual kepada orang lain oleh master gu itu.</p>
+<p>	“Anda!” Penjaga pribadi itu sangat marah, tetapi dia hanya bisa mengatupkan giginya pada pemerasan terang-terangan Fang Yuan.</p>
+<p>	Dia menunjuk Fang Yuan: “Klanmu paling banyak membeli, bocah nakal, kamu ingin mempersulitku?”</p>
+<p>	“Tentu saja tidak, saya hanya mencoba melakukan transaksi.” Fang Yuan menangkupkan tangannya.</p>
+<p>	“Hm, lupakan! Aku akan menaruh dua ribu lagi, tujuh ribu batu purba! Mortal, bawakan semua rumput Jinzan yang kamu beli.” Penjaga pribadi berteriak.</p>
+<p>	“Hei Tu, jual saja. Kita perlu memperhatikan keramahan saat berbisnis.” Shang Xin Ci tidak tahan dengan tekanan ini.</p>
+<p>	“Karena Nona telah berbicara …” Fang Yuan mengangguk sebelum segera mengubah topik pembicaraan, “Kalau begitu aku akan mundur selangkah. Delapan ribu batu purba dan semua rumput Jinzan yang kumiliki adalah milikmu.”</p>
+<p>	Saat kata-kata ini keluar, Shang Xin Ci dan yang lainnya menjadi bingung.</p>
+<p>	Penjaga pribadi kembali ke akal sehatnya, tidak dapat menahan amarahnya: “Apa? Anda bajingan!!”</p>
+<p>	Fang Yuan, bagaimanapun, memiliki senyum di wajahnya: “Bisnis adalah bisnis, tolong jangan marah tuan gu master. Sebenarnya, saya berpikir untuk menjualnya seharga sepuluh ribu batu purba, jika tuan gu master tidak dapat memutuskannya, bagaimana kalau membiarkan saya berdiskusi dengan pemimpin klan klan terhormat Anda?</p>
+<p>	“Tidak dibutuhkan!” Penjaga pribadi mengayunkan lengannya saat dia melihat Fang Yuan dengan sangat jijik, “Kamu, seorang manusia, kualifikasi apa yang kamu miliki untuk bertemu dengan pemimpin klan tuan? Cepat bawa barangnya, manfaatkan orang lain saat down, aku akan mengingatmu. Hmph!”</p>
+<p>	Kata-katanya, tidak diragukan lagi, berarti dia menyetujui kenaikan harga Fang Yuan.</p>
+<p>	Keduanya menyelesaikan transaksi dalam beberapa saat.</p>
+<p>	Fang Yuan bahkan tidak menggunakan lima ratus batu purba untuk membelinya, tetapi hanya dalam satu malam, rumput Jinzan berpindah tangan untuk delapan ribu batu purba!</p>
+<p>	“Nona, ada dua batang yang diisi sampai penuh dengan batu purba!” Xiao Die berseri-seri dengan gembira. Dia telah menyaksikan seluruh proses transaksi dalam ketakutan, tetapi sekarang dia melihat batu-batu purba ini, dia merasa bahwa itu semua sepadan. Bahkan tatapannya ke arah Fang Yuan berubah.</p>
+<p>	“Apakah kamu sudah tahu? Tidak mungkin, ini seharusnya kasus kucing buta yang menemukan tikus mati !” Dia memandang Fang Yuan dari atas ke bawah dan berkomentar.</p>
+<p>	“Menyinggung klan Jin hanya dengan delapan ribu batu purba tidak sepadan.” Zhang Zhu telah mengerutkan kening sejak awal, dia memandang Fang Yuan dengan sedikit ketidakpuasan dan memperingatkan, “Jangan pernah mengambil risiko seperti itu lagi.”</p>
+<p>	Fang Yuan hanya tersenyum dan berbalik ke arah Shang Xin Ci: “Menurut kontrak kami sebelumnya, Nona akan mendapatkan setengah dari delapan ribu batu purba ini, dan saya meminta Nona untuk melindungi setengah bagian saya juga.”</p>
+<p>…</p>
+<p>	“Apakah sudah diselesaikan?” Pemimpin klan Jin berdiri di atas bukit, mengawasi karavan yang pergi.</p>
+<p>	Seorang tetua berdiri di sisinya dan melaporkan: “Ya, pemimpin klan. Kami telah membeli kembali semua rumput Jinzan. Hanya saja Zhang Clan benar-benar membenci karena mengambil keuntungan dari situasi untuk memeras kita. ”</p>
+<p>	Alis pemimpin klan Jin Clan berkerut: “Oh? Berbicara.”</p>
+<p>	Penatua menguraikan detailnya.</p>
+<p>	Pemimpin klan klan Jin tersenyum: “Itu hanya delapan ribu batu purba, tidak perlu peduli. Nyonya klan Zhang itu, bagaimanapun, cerdas, dia mendorong seorang pelayan fana untuk menyuarakan situasi dan mendapatkan uang ini untuk dirinya sendiri. ”</p>
+<p>	“Pemimpin klan tuan, bagaimana jika klan Zhang ini sudah mengetahui rahasia klan kita dan dengan demikian mengambil keuntungan untuk memeras kita?”</p>
+<p>	“Hahaha, jangan terlalu curiga. Jika mereka tahu pentingnya rumput Jinzan bagi klan saya, mengapa mereka hanya memeras delapan ribu batu purba? Mereka akan membeli semuanya atau bahkan tidak setuju untuk menjualnya. Tapi untuk jaga-jaga, kirim beberapa master gu untuk mengawasi mereka sampai mereka benar-benar meninggalkan wilayah pegunungan Huang Jin. Pastikan untuk menonton jika ada orang yang mencoba diam-diam pergi ke klan Huang. Jika ada, bunuh mereka di tempat!”</p>
+<p>	Niat membunuh pemimpin klan meluap di sekelilingnya saat dia mengatakan ini.</p>
+<p>	Pikiran sesepuh bergetar: “Seperti yang Anda perintahkan, tuan pemimpin klan!”</p>
+<p>	Fang Yuan melirik kembali ke gunung Huang Jin, bibirnya melengkung membentuk senyuman.</p>
+<p>	Tidak jauh dari kereta, Shang Xin Ci membuka tirai dan menatap punggung Fang Yuan. Matanya yang indah bersinar dengan cahaya, setelah jatuh ke dalam pemikiran yang mendalam.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

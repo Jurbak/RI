@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 413 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 413";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_412.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 413">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_414.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 413</h1>
+        <div class="text-left">
+<p>	Bab 413 – Sebuah pertunjukan</p>
+<p>	Bab 413: Pertunjukan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Tiga hari kemudian, Yan Yong yang terluka parah kembali ke sukunya dan membangunkan semua rockman yang sedang berhibernasi.</p>
+<p>	“Pria abadi ada di sini, dia adalah iblis, dia ingin memperbudak kita semua!”</p>
+<p>	“Tidak hanya itu, dia juga ingin mengambil pria-pria cantik dari suku rockmen kita, untuk menjadi mainannya.”</p>
+<p>	“Kami rockmen dilahirkan dari alam, bebas dan tidak terkekang, bagaimana kami bisa tunduk pada otoritas bejat seperti itu?”</p>
+<p>	“Kami melawan di tempat. Yang abadi terlalu kuat, tapi kami rockmen tidak takut mengorbankan dan melawan dia tanpa takut mati; akhirnya, kami melukainya dan memukulinya hingga mundur.”</p>
+<p>	“Semua anggota suku lainnya dikorbankan dan hanya aku yang bisa kembali. Saya sekarat tetapi makhluk abadi itu masih hidup. Sebelum dia kabur, dia bilang dia akan memimpin pasukan rubahnya dan memusnahkan semua suku rockmen kita!”</p>
+<p>	Yan Yong dengan lemah meratap, mengumumkan informasi yang menakutkan kepada anggota sukunya.</p>
+<p>	Rockmen terkejut dan takut, berduka dan juga marah; ada yang menyatakan perang, ada yang ingin balas dendam, ada yang menyebut migrasi dan ada yang ingin berdiskusi.</p>
+<p>	Mereka menjadi kehilangan arah tanpa pemimpin; apakah itu pewaris atau pemimpin suku tua, mereka semua mati di tangan Fang Yuan. Semuanya ada delapan suku rockmen dan mereka telah jatuh ke dalam kekacauan sekarang.</p>
+<p>	Beberapa rockmen ingin mendapatkan detail konkret dari Yan Yong, tetapi luka Yan Yong terlalu parah, dan setelah memberi tahu mereka tentang berita menyedihkan ini, dia kehilangan kesadaran.</p>
+<p>	Sementara mereka masih berdiskusi, seperti yang dikatakan Yan Yong, gelombang demi gelombang kelompok rubah mulai menyerang suku rockmen.</p>
+<p>	Para rockmen melawan dengan seluruh kekuatan mereka, tetapi ada terlalu banyak kelompok rubah; situasinya berangsur-angsur berubah menjadi buruk, delapan suku tidak punya pilihan selain bersekutu dan mundur ke bawah tanah untuk membela diri.</p>
+<p>	Namun, kelompok rubah tidak membiarkan mereka pergi dan berulang kali menyerang bawah tanah. Kelompok rubah membayar harga bencana setiap kali mereka menyerang, tetapi mereka masih datang tanpa henti.</p>
+<p>	Rockmen mengutuk Fang Yuan, kebencian mereka terhadapnya seperti neraka yang tidak bisa dipadamkan. Situasi menjadi lebih buruk dari hari ke hari dan keputusasaan menyebar di hati para rockmen.</p>
+<p>	Namun, tepat pada saat ini, Yan Yong bangun.</p>
+<p>	Rockmen bisa memulihkan diri dari cedera mereka melalui tidur; sebagian besar lukanya telah sembuh. Dia segera memimpin rockmen dan melakukan serangan balik yang indah.</p>
+<p>	“Kami rockmen adalah kelompok pemberani yang tidak takut mati!”</p>
+<p>	“Bahkan yang abadi tidak bisa mempermalukan kita!”</p>
+<p>	Yan Yong mengumumkan kepada semua orang dan meningkatkan moral mereka.</p>
+<p>	“Jangan berpikir yang abadi itu kuat, dia hanya harimau kertas dan hanya bisa mengirim kelompok rubah ini ke kematian mereka, dia sudah terluka.”</p>
+<p>	Pada saat yang sama, dia menyatakan luka-luka yang abadi dan memberi harapan kepada para rockmen.</p>
+<p>	Rockmen putus asa dengan erat meraih harapan ini seperti sedotan yang bisa menyelamatkan mereka saat mereka tenggelam.</p>
+<p>	Yan Yong mengubah topik pembicaraan dan berbicara tentang para pemimpin suku tua.</p>
+<p>	“Dia terluka oleh upaya gabungan dari para pemimpin suku tua, pengorbanan para pemimpin suku tua adalah kesedihan terbesar kami.”</p>
+<p>	“Terutama pemimpin suku batu putih tua, hidupnya berakhir saat dia berada di pelukanku, sebelum dia meninggal dia mempercayakan seluruh suku kepadaku. Saya melihat jiwanya bubar, dan merasa malu, kenapa bukan saya yang mati, tapi dia!” Dia memukul dadanya saat mengatakan ini, tampak sangat sedih.</p>
+<p>	Segera, beberapa rockmen membujuk: “Lord Yan Yong, jangan bersedih. Sudah sangat luar biasa Anda bisa bertahan dan memberi kami peringatan, bahkan membawa kami menuju kemenangan. ”</p>
+<p>	“Itu benar, kami rockman besi semua mengagumimu.”</p>
+<p>	“Karena pemimpin suku tua mempercayakan suku itu kepadamu, maka tolong pimpin kami rockmen putih.”</p>
+<p>	Yang disukai rockmen adalah tidur nyenyak dan tidak terlalu terobsesi dengan otoritas. Khususnya, pada saat hidup dan mati di mana mereka hidup dalam kecemasan, para rockmen mengharapkan rockman yang kuat dan berani untuk memimpin mereka.</p>
+<p>	Setelah itu, Yan Yong pertama-tama mewarisi posisi pemimpin sukunya dan kemudian suku batu putih.</p>
+<p>	Lebih dari sebulan kemudian, dia menguasai suku yang tersisa satu demi satu, menjadi pemimpin bersama dari delapan suku rockmen.</p>
+<p>	Setengah bulan lagi berlalu, dia memimpin rockmen dan mengusir kelompok rubah, melindungi sukunya.</p>
+<p>	“Ini tidak cukup. Selama yang abadi tidak mati, kita tidak memiliki masa depan. Kelompok rubah akan berkumpul kembali dan menyerang rumah kita lagi.”</p>
+<p>	“Kita hanya bisa menyerang, menyerang gunung abadi itu dan membunuh yang abadi sepenuhnya untuk kehidupan yang indah dan damai.”</p>
+<p>	Yan Yong segera menyebutkan menyerang gunung Dang Hun.</p>
+<p>	Beberapa rockmen, bagaimanapun, tampaknya ragu-ragu.</p>
+<p>	“Kami baru saja mengalami pertempuran yang begitu pahit, kami hanya ingin tidur sekarang.”</p>
+<p>	“Populasi rockmen kami telah sangat berkurang, kami tidak memiliki kekuatan untuk menyerang benteng iblis itu.”</p>
+<p>	“Kami memiliki banyak keturunan yang lahir dari pertempuran sengit ini, kami perlu membesarkan mereka dengan benar sampai mereka menjadi dewasa.”</p>
+<p>	Yan Yong hanya bisa mengalihkan topik pembicaraan ke pemimpin suku batu putih tua.</p>
+<p>	“Sukuku, akankah aku membawamu ke kematianmu?”</p>
+<p>	“Menyerang gunung abadi bukanlah ideku. Itu adalah rahasia yang dikatakan pemimpin suku batu putih tua kepadaku sebelum kematiannya.”</p>
+<p>	“Dia mengatakan gunung abadi ini adalah gunung Dang Hun yang legendaris. Gunung Dang Hun memiliki gutstones, jika rockmen kita dapat memperoleh gutstones ini, itu dapat meningkatkan kekuatan kita dan membuat suku kita lebih kuat!”</p>
+<p>	Pemimpin suku rock putih tua adalah rockman tertua dan paling berpengalaman. Dia dikenal luas oleh para rockmen sebagai orang bijak.</p>
+<p>	Dengan ‘kata-kata terakhirnya’ bersama dengan kekuatan Yan Yong yang jelas, para rockmen gelisah dan membentuk ekspedisi untuk menyerang gunung Dang Hun.</p>
+<p>	Fang Yuan sengaja mengatur beberapa kelompok rubah di sekitar gunung Dang Hun, membentuk garis pertahanan yang lemah.</p>
+<p>	Yan Yong terus-menerus meningkatkan moral para rockmen: “Lihat, tidak banyak yang tersisa dari pasukan rubah abadi iblis. Kami sudah dekat dengan kemenangan.”</p>
+<p>	Para rockmen menyanyikan kemenangan dan kemenangan di sepanjang jalan, menuju gunung Dang Hun dengan semangat yang terangkat.</p>
+<p>	Di gunung Dang Hun, Fang Yuan muncul dengan sekelompok rubah dan melakukan ‘pertempuran hebat’ dengan para rockmen.</p>
+<p>	Fang Yuan menunjukkan kekuatan yang menakutkan dan membunuh banyak rockmen, menyebabkan semua rockmen ketakutan.</p>
+<p>	Tetapi pada saat ini, Yan Yong berdiri dan menunjuk ke luka Fang Yuan dan ‘esensi abadi’ harimau kertasnya , dan bertempur dalam ‘pertempuran yang menentukan’ dengannya.</p>
+<p>	Kelompok rubah tersingkir, karena Fang Yuan ‘kalah’, terpaksa melarikan diri dari serangan Yan Yong.</p>
+<p>	“Tunggu sampai aku kembali setelah mengumpulkan esensi abadi dari air dan api! Saat itu akan menjadi akhirmu!” Sebelum mundur, Fang Yuan berteriak keras dengan ekspresi jahat.</p>
+<p>	Rockmen memiliki fisik yang kasar dan gerakan mereka lambat, dan karena tidak terbiasa dengan medan gunung Dang Hun, mereka hanya bisa membiarkan Fang Yuan ‘melarikan diri’.</p>
+<p>	Para rockmen memuja Yan Yong karena mengalahkan yang abadi dan bersorak penuh kemenangan.</p>
+<p>	“Sukuku, sekarang bukan waktunya untuk bersorak.” Yan Yong berdiri, “Kita tidak bisa tinggal lama di gunung Dang Hun, ini adalah tanah iblis. Pemimpin suku batu putih tua itu memberitahuku, setiap tahun hanya selama beberapa hari ini, kami para rockman bisa memasuki tempat ini dengan aman. Kita harus cepat dan mengumpulkan batu nyali di sini. Tiga hari kemudian, kita harus meninggalkan tempat ini!”</p>
+<p>	Tubuh mereka terbuat dari batu padat. Ada beban di jiwa mereka untuk menopang tubuh yang begitu kuat dan kokoh. Jika rockmen bergerak terlalu berlebihan, itu bisa membahayakan jiwa mereka.</p>
+<p>	Dengan demikian, rockmen akan menghabiskan delapan puluh persen dari seluruh hidup mereka untuk tidur dan memelihara jiwa mereka.</p>
+<p>	Ketika fondasi jiwa mereka cukup tebal, itu akan bocor. Bagian jiwa yang meluap ini akan jatuh di atas batu dan membentuk kehidupan baru. Suku Rockmen berkembang biak seperti ini.</p>
+<p>	Setelah rockmen memperoleh gutstones, nyali Gu dapat memperkuat dan memperluas jiwa mereka, menyebabkan jiwa meluap dan membentuk rockmen kecil.</p>
+<p>	Tiga hari kemudian, di dalam gunung, di istana Dang Hun.</p>
+<p>	Yan Yong berlutut di tanah dan melaporkan dengan hormat dan ketakutan saat dia menundukkan kepalanya dan membungkuk: “Melaporkan kepada yang abadi, dengan penguatan jiwa selama tiga hari ini, suku rockmen kami telah meningkat enam ribu rockmen kecil. Termasuk kami anggota suku tua, seluruh populasi telah meningkat menjadi tiga kali lipat populasi sebelum pertempuran!”</p>
+<p>	Fang Yuan sedang duduk megah di tempat tidur empuk dan menatap Yan Yong.</p>
+<p>	“Bagus, dengan ini, rockmenmu memiliki tenaga yang cukup untuk memulai pembangunan sungai. Selanjutnya, Anda ingat apa yang harus dilakukan, bukan? Atau apakah Anda perlu saya memberi tahu Anda lagi? ”</p>
+<p>	Yan Yong segera menjawab: “Agung abadi, saya tidak berani melupakan kata-kata Anda dan telah mengukirnya di pikiran saya.”</p>
+<p>	“Bagus.” Fang Yuan mengangguk acuh tak acuh, “Aku akan memberimu waktu tiga bulan untuk menggali sungai besar yang melintasi wilayah timur dan utara.”</p>
+<p>	“Ah, tiga bulan?” Yan Yong tercengang, “Perkasa abadi, kami rockmen membutuhkan tidur untuk memelihara jiwa kami. Jika kita bergerak berlebihan, kita akan lelah sampai mati. Sungai besar itu begitu panjang, dan hanya dengan waktu tiga bulan, kita tidak akan bisa beristirahat. Jika kita bekerja seperti ini, suku rockmen kita mungkin akan mati.”</p>
+<p>	“Hehehe, kamu tidak akan mati sepenuhnya. Saya sudah menghitung, akan ada lebih dari dua ratus rockmen yang tersisa. ” Fangyuan tertawa.</p>
+<p>	Yan Yong merasakan hawa dingin di tubuhnya. Ada sepuluh ribu rockmen sekarang, tetapi hanya akan ada lebih dari dua ratus setelah proyek selesai. Seberapa mengerikan pengorbanan ini?</p>
+<p>	“Tiga bulan kemudian, saya ingin melihat sungai yang besar! Jika saya tidak melihatnya, saya akan mengatakan yang sebenarnya kepada anggota suku Anda sebelum saya membunuh Anda. Sekarang berguling.” Nada bicara Fang Yuan dingin dan tidak berperasaan.</p>
+<p>	Tubuh Yan Yong gemetar mendengar ancaman iblis ini.</p>
+<p>	Dia memiliki ketakutan yang sangat mendalam terhadap Fang Yuan dan tidak berani membalas, tubuhnya meringkuk menjadi bola dan mengejutkan, dia benar-benar berguling.</p>
+<p>	“Tuan, kami membayar harga yang mahal saat itu untuk membawa orang-orang rock ini.” Roh tanah kecil Hu Immortal dengan bijaksana dibujuk, dia tidak tahan melihat begitu banyak rockmen mati seperti ini.</p>
+<p>	“Jangan khawatir, para rockmen masih sangat berguna bagiku. Dan bukankah mudah untuk meningkatkan populasi mereka?” Fang Yuan bersandar di kursi dengan mata menyipit saat dia mengeluarkan katak jiwa penguburan dari lubangnya.</p>
+<p>	Katak jiwa penguburan adalah peringkat empat yang digunakan Gu untuk menyimpan barang-barang. Itu adalah salah satu cacing Gu yang ditinggalkan oleh Hu Immortal.</p>
+<p>	Itu seukuran telapak tangan besar dan berwarna abu-abu. Ada kutil kecil di seluruh punggungnya dan matanya yang besar memancarkan cahaya hijau yang aneh dan suram.</p>
+<p>	Itu hanya bisa menyimpan jiwa dan perutnya akan mengembang saat menghisap jiwa.</p>
+<p>	Fang Yuan menggunakan ini untuk mengumpulkan jiwa para rockman yang tewas dalam pertempuran dengan kelompok rubah.</p>
+<p>	Sekarang, perut kodok penguburan jiwa ini kempes. Jiwa-jiwa yang ada di dalamnya sebelumnya ditempatkan di gunung Dang Hun oleh Fang Yuan untuk membiakkan gutstones baru.</p>
+<p>	Fang Yuan menggunakan bagian dari nyali untuk membuat jiwanya enam kali lebih kuat dari orang normal.</p>
+<p>	Dan batu galian yang tersisa diberikan kepada suku rockmen.</p>
+<p>	Para rockmen tidak tahu, penguatan jiwa mereka semua karena kematian teman-teman mereka.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

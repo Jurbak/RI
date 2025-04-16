@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 481 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 481";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_480.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 481">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_482.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 481</h1>
+        <div class="text-left">
+<p>	Bab 481 – Bei Cao Chuan</p>
+<p>	Bab 481: Bei Cao Chuan</p>
+<p>Penerjemah: ChibiEditor Umum: ChibiGeneral</p>
+<p>	Di sudut gelap yang jauh, hampir sepuluh orang menatap medan perang; mereka adalah petinggi suku Bei yang telah melarikan diri.</p>
+<p>	“Suku Zheng sudah selesai.” Pemimpin suku Bei, Bei Cao Chuan menghela nafas.</p>
+<p>	“Siapa yang mengira Chang Shan Yin memiliki raja serigala ketiga yang tak terhitung jumlahnya!” Seorang tetua berseru kaget, mengungkapkan pikiran batin semua orang.</p>
+<p>	Mereka tidak pernah berharap Fang Yuan menyembunyikan kekuatannya. Dalam serangan terhadap klan Bei, raja serigala yang tak terhitung jumlahnya ini telah disembunyikan selama ini dan tidak pernah muncul.</p>
+<p>	“Dengan tiga raja serigala segudang, itu normal bagi suku Zheng, suku skala menengah, untuk dikalahkan bahkan jika mereka memiliki korps tombak petir.”</p>
+<p>	“Namun, Chang Shan Yin benar-benar jahat, dia sebenarnya bisa menunggu dengan sabar sampai tingkat ini. Temperamen seperti itu menakutkan! ”</p>
+<p>	“Hehe, jadi apa? Pemimpin suku Zheng membunuh serigala malam segudang raja binatang sebelum kematiannya. Sekarang, Chang Shan Yin hanya memiliki dua raja serigala yang tersisa.”</p>
+<p>	Beberapa tetua suku Bei yang tersisa menghela nafas dengan sedih sementara beberapa mencibir.</p>
+<p>	Menangkap segudang raja binatang bukanlah hal yang mudah. Kehilangan Fang Yuan tampaknya sangat berbahaya bagi mereka.</p>
+<p>	Tetapi pada kenyataannya, mengisi kembali raja serigala yang tak terhitung jumlahnya hanya dipikirkan oleh Fang Yuan yang dapat terhubung ke surga kuning harta karun.</p>
+<p>	“Chang Shan Yin ini gila dan kejam, dia bisa saja membuat serigala malam segudang raja binatang mundur sementara, tapi dia terus mendorongnya dengan kuat, menyebabkan kematiannya.” Seorang tetua berkata dengan dingin di hatinya.</p>
+<p>	Pemimpin suku Bei menyipitkan matanya, mengingat medan perang yang jelas di benaknya: “Jika dia tidak mendorong ini dengan kuat, mereka mungkin tidak dapat menyelesaikan pertempuran dengan begitu cepat. Suku Ge tidak dapat mempertahankan pertempuran gesekan saat menyerang kelompok besar dengan kelompok kecil mereka. Langkah Chang Shan Yin sangat bijaksana.”</p>
+<p>	“Sayang sekali pemimpin suku Zheng juga meninggal. Dia adalah ahli tingkat atas peringkat empat, jika dia bisa hidup … “Tetua suku Bei menghela nafas.</p>
+<p>	Alasan untuk ini juga karena pemimpin suku Zheng terlalu menyukai pertempuran, menggunakan seluruh kekuatannya untuk bertarung dengan musuh. Setelah pertempuran yang panjang, esensi purba sangat dikonsumsi, tetapi ketika dia ingin melarikan diri, jalannya terputus oleh serigala malam raja binatang buas dan pada akhirnya, tidak berhasil melarikan diri.</p>
+<p>	Dan korps tombak kilat suku Zheng hampir sepenuhnya dimusnahkan dengan hanya dua hingga tiga ekor ikan kecil yang tersisa.</p>
+<p>	Kedua hal ini merupakan serangan fatal bagi moral suku Zheng.</p>
+<p>	Pemimpin suku mereka mengorbankan dirinya dan korps dimusnahkan; Suku Zheng kehilangan perlawanan dan benar-benar hancur.</p>
+<p>	Anggota suku Ge menyerbu ke kamp dan melakukan pembantaian yang tidak terkendali. Suku Zheng tidak menunjukkan niat untuk berperang dan melakukan yang terbaik untuk melarikan diri; teriakan kesakitan dan permohonan bisa terdengar tanpa henti.</p>
+<p>	Bahkan muncul adegan di mana peringkat satu Gu Master mengejar dua hingga tiga peringkat dua Gu Masters.</p>
+<p>	Bukannya peringkat dua Gu Masters ini tidak ingin bertarung, tetapi esensi purba mereka telah sangat dikonsumsi dalam pertempuran dengan kelompok serigala.</p>
+<p>	Tanpa esensi purba, kekuatan pertempuran Guru Gu akan jatuh ke jurang.</p>
+<p>	Anggota suku Bei yang tersisa terdiam saat mereka melihat keadaan suku Zheng yang menyedihkan.</p>
+<p>	Mau tak mau mereka memikirkan kembali adegan di mana kamp mereka sendiri diserang; setiap orang dari mereka menggertakkan gigi dan mengepalkan tangan, hati mereka dipenuhi amarah dan juga perasaan suram.</p>
+<p>	Kekacauan turun!</p>
+<p>	Setiap sepuluh tahun di Northern Plains, badai salju yang membawa bencana akan muncul, menyebabkan kerusuhan besar di mana para pahlawan bangkit dan bersaing untuk mendapatkan supremasi.</p>
+<p>	Pada saat itu, kerusuhan akan menyebar ke seluruh Dataran Utara; situasi ini tidak lebih dari pendahuluan.</p>
+<p>	Nyawa manusia akan semurah rumput ketika suku-suku berkeliaran tanpa rumah. Suku skala kecil atau menengah akan seperti duckweed, yang tanpa sadar tersapu oleh pusaran pertempuran; mereka bisa hancur jika mereka sedikit ceroboh.</p>
+<p>	Bahkan suku skala besar harus sangat berhati-hati dan berhati-hati. Hanya suku-suku super yang memiliki Gu Immortals dan memiliki tanah yang diberkati yang memiliki fondasi untuk tetap berdiri selama berabad-abad.</p>
+<p>	“Pemimpin suku tuan, esensi purba kita sudah pulih. Awalnya, kami ingin menyelamatkan suku Zheng, tetapi mereka sudah dikalahkan sekarang. Mengapa kita tidak kembali dan mengalahkan suku Ge di kamp kita dan menyelamatkan anggota suku kita!” Pada saat ini, seorang penatua menyarankan.</p>
+<p>	“Benar, nafsu makan Chang Shan Yin terlalu besar. Dia menerobos kamp kami, lalu menghancurkan suku Zheng. Menurut momentum gilanya, dia bahkan mungkin pergi ke suku Pei. Kita perlu mengambil kesempatan untuk kembali dan membunuh mereka.”</p>
+<p>	“Orang-orang yang ditinggalkan suku Ge mungkin jumlahnya lebih banyak, tetapi mereka semua peringkat satu dan peringkat dua Master Gu, dengan hanya satu peringkat tiga tetua.”</p>
+<p>	Para tetua tidak bisa menahan diri untuk tidak gelisah ketika mereka melihat pemimpin suku mereka.</p>
+<p>	Meskipun mereka memiliki jumlah yang lebih sedikit, semuanya memiliki kultivasi peringkat tiga sementara pemimpin suku mereka berada di ranah peringkat empat. Dengan kekuatan seperti itu mereka memiliki peluang besar untuk kembali dan menyelamatkan suku mereka.</p>
+<p>	Namun, pemimpin muda suku Bei menggelengkan kepalanya dan dengan tegas menolak: “Kami tidak bisa! Meskipun suku Ge meninggalkan sangat sedikit orang dan kami dapat merebut kembali kamp kami, tetapi apa yang terjadi setelah itu? Kami terlalu sedikit jumlahnya, informasi tentang pengembalian kami pasti akan bocor. Setelah Chang Shan Yin mendapatkan berita dan jika dia kembali, apakah kita bisa bertahan? Bisakah kita melarikan diri dengan aman bersama anggota suku kita?”</p>
+<p>	Kelompok tetua menjadi bisu.</p>
+<p>	Bei Cao Chuan benar.</p>
+<p>	Ketika mereka bertahan sebelumnya, mereka memiliki kekuatan penuh, namun mereka masih dipatahkan oleh gelombang serigala, apalagi sekarang.</p>
+<p>	“Biarkan mereka menjadi tawanan. Tenang, Anda melihat bahwa setelah pertempuran berakhir, suku Ge mengikat anggota suku dan tidak membunuh mereka. Mereka ingin memperluas kekuatan mereka, hmph, nafsu makan mereka terlalu besar!”</p>
+<p>	Bei Cao Chuan mendengus dan melanjutkan: “Kami akan meninggalkan anggota suku kami bersama mereka untuk saat ini. Dalam waktu singkat, ini akan menyebabkan jatah mereka dikonsumsi dan mereka harus menggunakan lebih banyak tenaga kerja dan membagi lebih banyak energi. ”</p>
+<p>	Mata seorang tetua tiba-tiba menjadi cerah: “Lalu mengapa kita tidak langsung menyerang sarang mereka? Suku Ge hanyalah suku berukuran sedang sekarang dan mereka telah mengeluarkan hampir semua kekuatan mereka; kamp mereka pasti memiliki pertahanan yang buruk sekarang. Kami akan membunuh dan menjarah, mengosongkan jatah mereka dan menambah beban mereka, dan membiarkan mereka merasakan diserang!”</p>
+<p>	“Ide bagus!”</p>
+<p>	“Benar, ini cara yang bagus!”</p>
+<p>	“Aku pasti akan membiarkan suku Ge merasakan sakitnya menjadi tunawisma!!”</p>
+<p>	Para tetua berdiskusi dengan penuh semangat.</p>
+<p>	“Bodoh!” Pemimpin suku Bei membanting saran itu dan menatap semua orang dengan tatapan dingin dan tajam, “Apakah kalian semua memiliki otak babi? Jika kita menghancurkan jatah mereka, orang-orang yang akan menderita adalah anggota suku kita. Anda pikir mereka tidak akan membunuh tawanan untuk mengurangi konsumsi? Jika seseorang mengenali kami, apa yang akan kami lakukan jika mereka membunuh para tawanan untuk melampiaskan kemarahan mereka?”</p>
+<p>	Bei Cao Chuan menghirup udara keruh, matanya bersinar dengan kebijaksanaan saat dia berkata dengan suara berat: “Balas dendam yang sebenarnya bukanlah kesenangan yang cepat. Menyerang kamp suku Ge adalah hal kecil, kita tidak bisa melukai fondasi mereka dengan itu. Hanya dengan membunuh Chang Shan Yin, menyingkirkan sumber kekuatan utama suku Ge, kita dapat membalikkan situasi! Kita perlu berjuang.”</p>
+<p>	Kata-kata ini mencerahkan semua tetua.</p>
+<p>	“Pemimpin suku tuan itu bijaksana!”</p>
+<p>	“Dengan pemimpin suku tuan bersama kami, suku kami memiliki harapan.”</p>
+<p>	“Kami akan mendengarkan pengaturan pemimpin suku!”</p>
+<p>	Para tetua memandang pemimpin suku Bei dengan hormat dan kagum.</p>
+<p>	Pemimpin suku Bei, Bei Cao Chuan juga orang yang luar biasa!</p>
+<p>	Dia telah disingkirkan oleh saudara-saudaranya ketika dia masih muda; kandidat yang paling tidak mungkin untuk posisi master muda.</p>
+<p>	Dia mengambil tindakan yang lebih sedikit, menyamarkan kekuatannya dan menunjukkan kultivasi yang rendah, sehingga dia akan diejek dan diejek oleh saudara-saudaranya dalam jamuan makan dan pertemuan.</p>
+<p>	Bei Cao Chuan adalah seorang ahli dalam bertahan dalam diam, dia menahan diri untuk tidak bergerak. Saudara-saudaranya memiliki konflik internal sementara dia diam-diam mengumpulkan kekuatannya.</p>
+<p>	Ketika pemimpin suku Bei tua itu sakit kritis, dia akhirnya mendapat kesempatan.</p>
+<p>	Pemimpin suku Bei yang lama terluka karena serangan balik dari cacing Gu dan membutuhkan Gu tertentu untuk sembuh. Namun, suku tersebut menemukan bahwa Gu ini bersemayam dalam roh badak raja binatang yang tak terhitung jumlahnya.</p>
+<p>	Kelompok binatang badak roh memiliki sekitar delapan puluh ribu jumlahnya, suku itu tidak bisa berbuat apa-apa dan melepaskan semua harapan; tapi Bei Cao Chuan menyusup ke tempat tinggal kelompok binatang itu sendiri.</p>
+<p>	Setelah beberapa hari pengamatan, ia menemukan roh badak ini, raja binatang yang tak terhitung jumlahnya ini kadang-kadang akan meninggalkan kelompoknya untuk berguling dan bermain di rawa lumpur. Setelah dimainkan sampai kenyang, ia akan tidur nyenyak.</p>
+<p>	Lumpur itu baunya seperti kotoran dan banyak belatung hidup di dalamnya; Bei Cao Chuan mengubur dirinya di dalam lumpur selama tujuh hari tujuh malam tanpa bergerak.</p>
+<p>	Kerja keras terbayar; roh badak segudang raja binatang akhirnya datang lagi untuk bermain. Namun, roh badak raja binatang segudang itu sangat besar dan ketika berguling-guling, ia menginjak kaki Bei Cao Chuan, dan segera menghancurkannya.</p>
+<p>	Bei Cao Chuan diam-diam menahan rasa sakit dan bahkan tidak mengerang!</p>
+<p>	Ketika raja binatang yang tak terhitung jumlahnya bermain untuk mengisinya dan tidur nyenyak, dia diam-diam mencuri cacing Gu liar itu dari tubuh raja binatang yang tak terhitung jumlahnya itu.</p>
+<p>	Bei Cao Chuan memperoleh cacing Gu liar; dan dia nyaris lolos dari tempat berbahaya ini, bergerak tanpa henti, melompat kembali ke suku dengan satu kakinya dan menyelamatkan pemimpin suku yang lama.</p>
+<p>	Seluruh suku gempar!</p>
+<p>	Tindakan Bei Cao Chuan mengandung kesalehan anak yang mengejutkan, keberanian yang luar biasa dan perencanaan yang cermat; menyebabkan seluruh suku memandangnya dengan cara baru.</p>
+<p>	Saudara-saudaranya juga sangat terkejut ketika dia mengungkapkan kultivasi tahap puncak peringkat tiga.</p>
+<p>	Setelah pemimpin suku tua itu selamat, dia secara emosional meneteskan air mata: “Berapa kali saya menangis dalam hidup saya dapat dihitung dengan jari saya. Hari ini, saya menangis bukan karena saya berhasil melarikan diri dari pintu kematian, tetapi karena saya memiliki anak seperti ini; sebagai seorang ayah, saya tergerak oleh kesalehannya, dan sebagai pemimpin suku, saya bahagia untuk masa depan suku saya!”</p>
+<p>	Di tempat, Bei Cao Chuan diangkat sebagai pemimpin suku muda.</p>
+<p>	Bei Cao Chuan tidak menyembunyikan dirinya lagi, dia mulai berurusan dengan semua urusan suku dan berjuang untuk persetujuan semua orang. Di sisi lain, dia menekan saudara-saudaranya dan memperkuat posisinya, tidak memberikan kesempatan kepada pesaingnya.</p>
+<p>	Pada akhirnya, ia menjadi pemimpin suku dan melakukan upaya keras untuk secara bertahap memperluas suku Bei. Setelah berulang kali mengatasi beberapa kesulitan, dia akhirnya berjalan hingga hari ini.</p>
+<p>	Meskipun Bei Cao Chuan baru berusia sekitar tiga puluh tahun, dia telah membangun prestise yang dalam di dalam suku dan dipercaya oleh semua tetua!</p>
+<p>	…….</p>
+<p>	“Tuan tetua tertinggi, pemimpin suku tuan dan tetua, kami telah selesai mengendalikan kamp suku Zheng dan telah mendapatkan banyak sumber daya!” Penatua yang bertugas membersihkan medan perang melaporkan dengan penuh semangat.</p>
+<p>	“Dari perkiraan awal kami, kami telah memperoleh setidaknya delapan juta batu purba. Kami telah memperoleh ribuan cacing Gu dengan seratus peringkat tiga Gu di antaranya. Ada juga ruang rahasia rumah Gu yang sedang kami buka sekarang.”</p>
+<p>	Mendengarkan rampasan perang seperti itu, anggota suku Ge memiliki kegembiraan yang luar biasa di wajah mereka.</p>
+<p>	Keuntungan dari suku Zheng jauh lebih banyak daripada dari suku Bei.</p>
+<p>	Suku Zheng adalah suku berukuran sedang, tetapi merupakan suku dengan fondasi yang dalam. Meskipun ada banyak kerugian dalam pertempuran, sumber daya yang dilestarikan masih sangat besar.</p>
+<p>	“Tuan tetua tertinggi, pemimpin suku tuan, apa yang harus menjadi tindakan kita selanjutnya?” Penatua ini bertanya setelah dia selesai melapor.</p>
+<p>	Semua anggota suku Ge memandang Fang Yuan.</p>
+<p>	Fang Yuan berkata tanpa ekspresi: “Lanjutkan menyerang, target kita selanjutnya: suku Pei!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

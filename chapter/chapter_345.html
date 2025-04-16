@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 345 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 345";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_344.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 345">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_346.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 345</h1>
+        <div class="text-left">
+<p>	Bab 345</p>
+<p>	Bab 345: Mengisi Crash Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Pada saat itu, ketika Fang Yuan memilih serangan horizontal dan vertikal Gu sebagai gerakannya Gu, dia sudah mempertimbangkan situasi ketika dia naik ke peringkat empat.</p>
+<p>	Gu pengisian horizontal dan Gu tabrakan vertikal adalah dua bahan utama untuk menyempurnakan Gu tabrakan pengisian daya.</p>
+<p>	Dengan dua peringkat tiga Gu ini sebagai yang utama, bersama dengan esensi purba Master Gu dan beberapa bahan tambahan dan sebagainya, untuk memperbaiki pengisian crash Gu.</p>
+<p>	Proses penyempurnaan pengisian crash Gu tidak sulit.</p>
+<p>	Fang Yuan telah membuat persiapan yang cukup dan tingkat keberhasilan resep ini dengan sendirinya agak tinggi.</p>
+<p>	Dua hari kemudian, Fang Yuan berhasil memperbaiki dan mendapatkan Gu yang sama sekali baru – pengisian crash Gu.</p>
+<p>	Gu pengisian horizontal dan Gu benturan vertikal hanya dapat mengisi daya hingga jarak seratus langkah bersama-sama.</p>
+<p>	Tapi tabrakan pengisian daya Gu yang menyatu dari kedua Gu ini meningkatkan jarak pengisian ini menjadi dua ratus langkah. Pada saat yang sama, penundaan antara penggunaan berulang juga berkurang setengahnya.</p>
+<p>	Namun, konsumsi esensi purba meningkat sedikit. Tapi cacat kecil ini bukan apa-apa bagi Fang Yuan yang memiliki cacing sembilan mata dan teratai harta karun esensi surgawi.</p>
+<p>	“Saya sudah memiliki enam peringkat empat Gu sekarang; kekuatan pahit Gu, pengisian crash Gu, Gu yang dari rotasi yin-yang Gu, cacing minuman keras sembilan mata, mengeluarkan kekuatan Gu dan tengkorak darah Gu.</p>
+<p>	“Usaha habis-habisan Gu, kekuatan qi Gu, perisai emas Gu dan yang lainnya semuanya peringkat tiga. Mereka perlahan-lahan gagal memenuhi persyaratan saya. ”</p>
+<p>	Sebagian besar Gu di Fang Yuan berada di peringkat tiga. Namun, dia berada di peringkat empat tahap awal sekarang dan memiliki esensi purba emas cerah tahap menengah, sehingga cacing Gu ini secara bertahap menjadi tidak cocok untuknya.</p>
+<p>	Tentu, itu tidak berarti bahwa semakin tinggi Gu, semakin baik mereka.</p>
+<p>	Misalnya kesatuan daging tulang Gu. Itu hanya Gu peringkat tiga, tetapi itu bisa memungkinkan banyak Master Gu untuk menggunakannya bahkan pada peringkat ini. Ini membuat nilainya menonjol.</p>
+<p>	Namun, secara keseluruhan, cacing Gu dan Master Gu harus memiliki peringkat yang saling bekerja sama, dan yang terbaik adalah jika itu sama agar lebih nyaman dalam menggunakannya.</p>
+<p>	Fang Yuan membuat pertimbangan kecil; dia punya banyak cacing Gu untuk ditingkatkan.</p>
+<p>	Pertama-tama adalah upaya habis-habisan Gu.</p>
+<p>	Upaya habis-habisan Gu padanya hanya di peringkat tiga; itu hanya bisa mengaktifkan hantu binatang peringkat tiga. Untuk meningkatkan peringkatnya, dia perlu mendapatkan seratus pertempuran tak terkalahkan Gu dari warisan tiga raja, jadi rencana ini hanya bisa dikesampingkan untuk saat ini.</p>
+<p>	Kekuatan qi Gu juga berada di peringkat tiga, tetapi Fang Yuan tidak memiliki resep yang sesuai, jadi dia tidak dapat memajukannya.</p>
+<p>	Fang Yuan berencana untuk menaikkan peringkat tiga perisai emas Gu ke peringkat empat perisai lonceng emas Gu.</p>
+<p>	Jenis penyimpanan bunga tusita peringkat tiga dapat ditingkatkan ke peringkat empat tusita lentera Gu.</p>
+<p>	Kemandirian Gu juga merupakan Gu peringkat tiga, tetapi sudah pada tahap puncaknya dan tidak memiliki resep yang relevan untuk kemajuannya. Tetapi meskipun itu adalah Gu peringkat tiga, selama Fang Yuan menunjukkan kekuatan yang luar biasa, efek penyembuhannya bisa menandingi Gu peringkat empat penyembuhan.</p>
+<p>	Mirip dengan kemandirian Gu adalah kesatuan daging tulang Gu.</p>
+<p>	Penyembunyian napas Gu yang digunakan untuk menyembunyikan kultivasi juga berada di peringkat tiga. Meskipun bisa ditingkatkan, Fang Yuan memutuskan untuk mengesampingkannya. Saat ini, dia tidak perlu menyembunyikan auranya.</p>
+<p>	Dan lotus harta esensi surga juga berada di peringkat tiga.</p>
+<p>	Fang Yuan sudah memiliki resep fusi untuk lotus raja harta karun esensi surga peringkat empat. Tapi dia perlu mendapatkan sejumlah mata air roh untuk memperbaikinya. Ini adalah proyek besar dan hanya bisa dikesampingkan untuk saat ini.</p>
+<p>	Menghitung seperti ini, Fang Yuan perlu meningkatkan upaya habis-habisan Gu, perisai emas Gu, bunga tusita, dan lotus harta karun esensi surgawi; empat Gu ini.</p>
+<p>	Namun, itu tidak hanya seperti itu.</p>
+<p>	Fang Yuan telah menggunakan Gu tulang besi, Gu tendon baja, dan Gu kulit tembaga untuk mengubah tubuhnya. Gu ini semua peringkat tiga Gu. Pertahanan yang mereka berikan selama pertarungan antara peringkat empat Master Gu sedikit.</p>
+<p>	Ada juga delapan hantu di tubuh Fang Yuan, tidak satupun dari mereka berasal dari peringkat empat kekuatan Gu. Dengan demikian, Fang Yuan juga perlu mengganti hantu-hantu ini.</p>
+<p>	“Delapan hantu yang saya miliki berasal dari binatang buas biasa. Hanya dengan menggantinya dengan phantom kekuatan Biao, phantom kekuatan mastiff, dan sebagainya, saya dapat menampilkan kekuatan bertarung terkuat di ranah peringkat empat. ”</p>
+<p>	Fang Yuan tertarik pada kekuatan Biao Gu dari Xue San Si.</p>
+<p>	Namun, dia telah mengubah Xue San Si menjadi daging cincang dan cacing Gu di tubuhnya juga dihancurkan.</p>
+<p>	Metode Fang Yuan terlalu brutal. Dia sering menghancurkan musuh-musuhnya menjadi pasta daging.</p>
+<p>	Meskipun ini juga merupakan karakteristik konstan dari jalur kekuatan Gu Masters, metode ini terlalu kejam dan jarang ada cacing Gu yang bertahan setelah pertempuran berakhir.</p>
+<p>	Fang Yuan telah menang melawan tiga peringkat empat Master Gu iblis berturut-turut, tetapi hanya memperoleh kekuatan pengeluaran Gu.</p>
+<p>	Dan kekuatan pengeluaran ini Gu juga diserahkan dan disumbangkan oleh Fei Li atas kemauannya sendiri.</p>
+<p>	Cara Master Gu memperoleh cacing Gu pada dasarnya dari perdagangan, membesarkan, menangkap, menggabungkan atau pemurnian terbalik.</p>
+<p>	Master Gu jarang mendapatkan cacing Gu sebagai rampasan kemenangan mereka.</p>
+<p>	Di satu sisi itu karena Gu Masters menggunakan metode rahasia dan berbahaya. Jika pertempuran dimulai, kedua belah pihak akan menggunakan semua kekuatan mereka untuk menyerang dan tidak akan menyisihkan apa pun untuk keselamatan mereka. Seperti ini, cacing Gu juga akan dihancurkan dan dihancurkan.</p>
+<p>	Di sisi lain, sangat mudah bagi Master Gu untuk menghancurkan cacing Gu mereka sendiri. Itu hanya membutuhkan pemikiran dari mereka dan cacing Gu mereka akan hancur sendiri.</p>
+<p>	“Banyak yang harus saya lakukan untuk memajukan mereka semua …” Fang Yuan menghela nafas dan berjalan keluar dari gua.</p>
+<p>	Bai Ning Bing sudah menunggunya di pintu masuk gua, dan menatap puncak.</p>
+<p>	Fang Yuan mengikuti pandangannya dan juga melihat ke atas.</p>
+<p>	Dia hanya melihat pilar cahaya yang sangat besar muncul dari tiga puncak tertinggi gunung San Cha, menembus awan dan menjulang ke langit. Auranya yang sangat besar terasa seperti menopang langit dan bumi.</p>
+<p>	Warisan tiga raja telah dibuka.</p>
+<p>	“Dengan warisan ini, jalur kekuatanku Gu akan dibawa ke kesempurnaan!” Tatapan Fang Yuan menyala tetapi dia menahannya.</p>
+<p>	Meskipun dia memiliki kecakapan pertempuran yang luar biasa, itu masih bukan gilirannya untuk naik ke atas panggung.</p>
+<p>	Whoosh Whoosh Whoosh Whoosh!</p>
+<p>	Empat angka secara terpisah dibebankan dari timur, selatan, utara dan barat; mereka berhenti di udara dan saling berhadapan.</p>
+<p>	Aura tahap puncak peringkat empat dikeluarkan tanpa penyembunyian!</p>
+<p>	Dari arah timur adalah jalur racun Gu Master Long Qing Tian.</p>
+<p>	Dia memiliki rambut hitam panjang, kulit hijau pucat dan pupil hijaunya samar-samar berkelebat seperti ada api yang terlalu dingin menyala di dalamnya.</p>
+<p>	Dari arah barat adalah jalan lurus tetua klan Wu Wu Shen Tong.</p>
+<p>	Ketenarannya kuat dan mendominasi, tetapi tubuhnya kurus seperti sarjana yang sakit-sakitan. Dia memiliki kulit pucat dan batuk dari waktu ke waktu seolah-olah dia tidak tahan dengan angin gunung ini.</p>
+<p>	Dari arah selatan adalah ahli jalur iblis Kong Ri Tian.</p>
+<p>	Dia mengenakan gaun bermotif bunga. Dia tersenyum sambil berdiri di udara, kupu-kupu merah muda beterbangan di sekelilingnya.</p>
+<p>	Dari arah utara adalah tetua klan Yi, Yi Chong.</p>
+<p>	Seluruh tubuhnya ditutupi dengan sisik ikan biru yang membentuk baju besi tipis. Hidungnya panjang dan menonjol keluar, matanya lebih besar dari dua kali orang normal dan dia memiliki kepala yang penuh dengan rambut yang tidak terurus.</p>
+<p>	Otot-otot di seluruh tubuhnya kusut membentuk lapisan-lapisan gumpalan. Perawakannya pendek tapi fisiknya sangat mengesankan. Sirip segitiga besar tumbuh dari punggungnya seperti sirip hitam di punggung hiu.</p>
+<p>	Keempatnya saat ini adalah Master Gu terkuat di gunung San Cha.</p>
+<p>	Kultivasi tahap puncak peringkat empat hanya selangkah lagi dari peringkat lima. Jika mereka naik ke peringkat lima, mereka akan menjadi raja dunia fana dan menggunakan kekuasaan atas suatu wilayah, kekuatan dan aura mereka akan menyebar ke mana-mana.</p>
+<p>	Keempatnya sudah saling berhadapan selama berbulan-bulan di gunung San Cha. Mereka juga telah bertarung berkali-kali satu sama lain selama periode waktu ini, tetapi tidak ada yang bisa melakukan apa pun terhadap yang lain, membentuk situasi yang kacau.</p>
+<p>	Jalan lurus Wu Shen Tong dan Yi Chong tampak seperti sekutu tetapi di dalam hati, mereka tidak satu pikiran. Sementara Kong Ri Tian dan Long Qing Tian juga sesekali berkolaborasi jika situasinya memburuk.</p>
+<p>	Keempatnya menempati gua teratas dan paling dekat dengan pintu masuk warisan di gunung San Cha.</p>
+<p>	Munculnya keempat orang ini menarik perhatian semua Guru Gu di gunung.</p>
+<p>	Warisan itu tepat di depan mata mereka. Tidak peduli siapa itu, mereka semua menahan keinginan untuk bergerak.</p>
+<p>	Setelah kebuntuan singkat, Kong Ri Tian memilih warisan Raja Bao; Long Qing Tian memilih warisan Raja Xin dan Wu Shen Tong memilih warisan Raja Quan.</p>
+<p>	Tiga warisan tidak sesuai satu sama lain, tetapi ada empat peringkat empat tingkat puncak Gu Masters.</p>
+<p>	Master Gu yang tersisa, Yi Chong, ragu-ragu sejenak sebelum akhirnya memilih warisan Raja Bao.</p>
+<p>	“Dengan ini, warisan Raja Bao memiliki Kong Ri Tian dan Yi Chong, dua ahli.”</p>
+<p>	“Long Qing Tian memilih warisan Raja Xin kali ini, kita jatuh dalam perangkapnya terakhir kali, kita harus menghindarinya!”</p>
+<p>	“Wu Shen Tong adalah jalur perbudakan Gu Master, kabarnya dia telah maju ke tahap tengah warisan Raja Quan. Dalam warisan ini, dia seperti ikan di air dan dapat menampilkan kekuatan yang luar biasa. Jika kita memilih warisan Raja Quan, kita mungkin hanya mendapatkan sisa makanannya.”</p>
+<p>	Sementara kerumunan sedang berdiskusi, sekelompok Master Gu naik ke puncak.</p>
+<p>	Mereka adalah peringkat empat Master Gu tingkat atas. Beberapa memiliki penampilan yang aneh, beberapa jahat, beberapa memiliki penampilan yang bermartabat dan beberapa suram seperti hutan.</p>
+<p>	Di antara mereka, salah satunya adalah seorang anak laki-laki yang mengenakan pakaian hitam. Sebelum dia memasuki warisan, dia melihat ke bawah dan menatap Fang Yuan dalam-dalam.</p>
+<p>	“Hmph, Century Boy …” Fang Yuan menyipitkan matanya dan mengeluarkan aura berbahaya.</p>
+<p>	Century Boy juga merupakan jalur kekuatan Gu Master dan merupakan ayah baptis Xue San Si, pelindungnya.</p>
+<p>	Fang Yuan membunuh Xue San Si dan menyinggung Century Boy.</p>
+<p>	Namun, dengan warisan tiga raja yang terlihat, Century Boy tidak memiliki pikiran dan hati untuk menyelesaikan akun dengan Fang Yuan sekarang. Tapi begitu warisan ditutup, dia pasti akan bergerak melawan Fang Yuan.</p>
+<p>	Fang Yuan tidak takut sedikit pun terhadap ini dan malah diam-diam menantikannya.</p>
+<p>	Dengan kekuatannya saat ini, dia hampir tak tertandingi di antara peringkat empat Master Gu tahap awal dan juga bisa menang atas Master Gu tingkat menengah biasa. Namun, dia akan dicocokkan secara merata dengan peringkat empat tahap atas.</p>
+<p>	Di atas itu, peringkat empat tahap puncak akan menjadi lawan yang sulit. Namun, jika Master Gu peringkat empat seperti Kong Ri Tian dan yang lainnya ingin membunuh Fang Yuan, mereka juga akan membayar harga yang membawa malapetaka.</p>
+<p>	Saat kultivasi Master Gu mencapai tahap selanjutnya, perbedaan di setiap ranah kecil menjadi besar dan akan semakin sulit untuk melewati peringkat ini untuk bertarung, apalagi melintasi ranah untuk bertarung.</p>
+<p>	Fang Yuan memiliki pengalaman pertempuran yang berlimpah dan juga memiliki serangkaian jalur kekuatan yang sangat baik dari cacing Gu, tetapi dia juga hanya mampu melintasi satu ranah dan membunuh Master Gu tingkat menengah.</p>
+<p>	“Tentu saja, jika saya mengganti cacing Gu saya ke peringkat empat maka saya akan memiliki kekuatan untuk menang melawan Master Gu tingkat atas! Dan bahkan dicocokkan secara merata dengan peringkat empat tahap puncak! Warisan tiga raja, aku datang!”</p>
+<p>	Sekaligus, Fang Yuan mengaktifkan pengisian crash Gu dan menyerbu menuju puncak.</p>
+<p>	Peringkat empat Master Gu tingkat atas semuanya telah memasuki warisan.</p>
+<p>	Pilar cahaya dari tiga warisan sudah jauh lebih redup.</p>
+<p>	Sekelompok Master Gu tingkat menengah peringkat empat baru saja mendaki gunung San Cha, ketika mereka tiba-tiba melihat Fang Yuan dan Bai Ning Bing menyerang mereka. Semua kulit mereka berubah dan dengan persetujuan diam-diam, mereka menyingkir.</p>
+<p>	Fang Yuan dan Bai Ning Bing memasuki warisan Raja Quan bersama-sama.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

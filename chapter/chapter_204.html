@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 204 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 204";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_203.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 204">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_205.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 204</h1>
+        <div class="text-left">
+<p>	Bab 204</p>
+<p>	Bab 204: Gu Carapace dan Kekuatan Buaya Gu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Peringkat tiga Gu Master Biasa, untuk menghadapi kelompok binatang buas, mereka harus menggunakan taktik kiting. Menggunakan batu purba untuk memulihkan esensi purba mereka, metode Bai Ning Bing menghadapi mereka secara langsung dan bertahan sampai sekarang, sudah luar biasa.</p>
+<p>	Jika esensi purba Master Gu mengering, kekuatan pertempuran mereka akan turun ke titik terendah.</p>
+<p>	Bai Ning Bing mulai melihat kembali ke tebing di belakangnya, bertanya-tanya apakah ada cara untuk melarikan diri.</p>
+<p>	Ketika dia melihat ekspresi santai Fang Yuan saat dia bersandar di tebing, dia menjadi marah, memarahi, “Fang Yuan, aku bertarung di garis depan, namun kamu menonton pertunjukan di belakangku ?!”</p>
+<p>	Fang Yuan mendengus, “Mantan fisik Jiwa Es Gelap Utara, Bai Ning Bing yang agung, bahkan tidak bisa berurusan dengan seratus kelompok binatang?”</p>
+<p>	Bai Ning Bing jengkel, “Jika kamu punya nyali, maka kamu pergi dan bertarung!”</p>
+<p>	Fang Yuan tertawa dingin, “Jika saya memiliki kultivasi peringkat tiga, itu sudah cukup untuk menghilangkan semua buaya berkaki enam ini, mengapa saya membutuhkan Anda?”</p>
+<p>	Bai Ning Bing bernapas dengan keras, asap keluar dari pori-porinya.</p>
+<p>	Fang Yuan berkata dengan serius, “Bai Ning Bing, aku tahu kamu terbiasa bertarung tanpa menahan diri. Anda adalah mantan fisik Jiwa Es Gelap Utara, tetapi sekarang Anda memiliki nilai A dengan 90%, jika Anda masih terus berjuang seperti itu, esensi purba Anda pasti tidak akan cukup. Seorang Guru Gu yang luar biasa akan menggunakan esensi purba mereka dengan cara yang paling efisien, tidak pernah menyia-nyiakan setetes pun. Mulai sekarang, bertarunglah sesuai instruksiku. Metode bertarungmu terlalu kasar, kamu harus lebih teliti sekarang. ”</p>
+<p>	“Hah?” Bibir Bai Ning Bing berkedut, “Metode pertarunganku kurang teliti? Apakah Anda tahu berapa kali pemimpin klan dan tetua memuji saya, karena menjadi petarung terampil nomor satu di klan Bai ?! ”</p>
+<p>	“Apa yang bisa dibandingkan dengan sekumpulan scrub? Dengarkan baik-baik…”</p>
+<p>	Bai Ning Bing tertawa dingin tiga kali, tetapi Fang Yuan terus berbicara.</p>
+<p>	Suaranya memasuki telinga Bai Ning Bing; pada awalnya dia acuh tak acuh, tetapi akhirnya, ekspresinya berubah.</p>
+<p>	Itu berubah dari penghinaan menjadi keseriusan, dan akhirnya, berubah menjadi serius.</p>
+<p>	Kata-kata Fang Yuan tepat di kepala. Ada makna mendalam dalam setiap kata, menggambarkan ketidakmampuannya dengan sempurna!</p>
+<p>	Ini adalah kumpulan dari 500 tahun hidupnya, esensi yang ditinggalkan melalui akumulasi waktu. Bagaimana mungkin tidak membiarkan anak muda ini, naif dan polos, menjadi sangat terkejut?</p>
+<p>	Fang Yuan hidup selama 500 tahun, jadi dia licik seperti rubah. Pengalamannya adalah sesuatu yang bahkan tidak bisa ditandingi oleh gen Pertama Gu Yue atau Sky Crane Lord.</p>
+<p>	Kedua kakek tua ini hidup selama hampir seribu tahun, tetapi sebagian besar hidup mereka dihabiskan dalam tidur nyenyak, mempertahankan napas terakhir mereka. Fase “hidup” mereka yang sebenarnya, paling lama hanya dua hingga tiga ratus tahun.</p>
+<p>	Jika itu waktu lain, Bai Ning Bing setelah mendengar saran Fang Yuan, hanya akan menganggapnya sebagai lelucon. Dia adalah seorang jenius arogan yang bangga, bahkan jika dia terkejut, dia tidak akan mengikutinya. Tapi sekarang, menghadapi tekanan buaya, tubuhnya tidak bisa tidak melakukan apa yang dia katakan, dan itu menunjukkan efek langsung.</p>
+<p>	Buaya berkaki enam terus mati, tetapi situasinya membaik dengan pesat.</p>
+<p>	Esensi purba dan staminanya habis, tetapi begitu dia mulai menggunakannya dengan hati-hati dan mengurangi serangannya yang tidak berarti sambil meningkatkan efektivitas serangannya, itu menyebabkan esensi dan stamina purbanya perlahan pulih di tengah pertempuran.</p>
+<p>	Lima belas menit kemudian, setelah setidaknya setengah gerombolan buaya berkaki enam terluka dan lebih dari dua ratus mayat tergeletak di tanah, mereka akhirnya berhenti menyerang dan mulai mundur.</p>
+<p>	Segera setelah itu, tubuh besar muncul dari bawah air.</p>
+<p>	Itu memiliki dua baris gigi tajam seperti pisau. Pupil vertikal kuningnya memantulkan tubuh Bai Ning Bing saat memancarkan niat membunuh yang dingin.</p>
+<p>	Ini adalah raja buaya berkaki enam.</p>
+<p>	Tingkat seratus raja binatang, raja Buaya Besar!</p>
+<p>	Berbeda dari buaya berkaki enam lainnya, raja buaya ini lebih besar seperti yak, dan tidak berdiri dengan enam kaki, tetapi hanya bergerak dengan dua kaki belakangnya.</p>
+<p>	Itu berjalan seperti manusia, dengan punggung setebal beruang, dan ekor bersisik menyeret garis di pantai. Empat kaki lainnya yang bebas, berbentuk cakar. Menyerupai empat lengan, mereka tebal dan otot-ototnya keras seperti batu.</p>
+<p>	Bai Ning Bing tidak bisa menahan tawa pahit.</p>
+<p>	Jika dia melawan seratus raja binatang buas ini sendirian, dia bisa menang. Tapi sekarang dia telah mengalami pertempuran yang intens dan hanya ada sedikit esensi purba dan stamina yang tersisa dalam dirinya, dia tidak bisa menghadapi seratus raja binatang buas yang dalam kondisi sempurna ini.</p>
+<p>	Tetapi pada saat ini, suara Fang Yuan datang dari belakangnya, “Tangkap.”</p>
+<p>	Cahaya biru dan putih memasuki lubangnya, berubah menjadi teratai dan berakar jauh ke dalam laut lubangnya.</p>
+<p>	Segera, permukaan laut purbanya mulai naik!</p>
+<p>	Bai Ning Bing terkejut dan gembira: “Gu apa ini?”</p>
+<p>	“Teratai Harta Karun Esensi Surgawi.” kata Fangyuan.</p>
+<p>	“Jadi ini adalah Lotus Harta Karun Esensi Surgawi! Tidak heran gen pertama Gu Yue menginginkannya.” Bai Ning Bing menghela nafas lagi, lalu memarahi, “Kamu memiliki Gu seperti itu, mengapa kamu tidak meminjamkannya padaku lebih awal?”</p>
+<p>	Fang Yuan terkekeh, berbicara sambil memikirkan urusannya sendiri, “Syukurlah ini hanya seratus raja binatang. Ingat, kelemahannya adalah kulit putih di dekat dada.”</p>
+<p>	Mengatakan demikian, tubuhnya memudar seperti riak di permukaan air, dan dia perlahan menghilang.</p>
+<p>	Dia mengaktifkan skala siluman Gu.</p>
+<p>	“Ciptakan dan licik!” Bai Ning Bing memarahi, sebelum memusatkan pandangannya pada raja Buaya Besar.</p>
+<p>	Hanya untuk melihat bahwa di dadanya, memang ada kulit putih, tetapi hanya seukuran wajah, dan dilindungi oleh keempat anggota tubuhnya. Bagaimana dia bisa menyerang area itu dengan mudah?</p>
+<p>	Melolong!</p>
+<p>	Raja Buaya Besar menggeram, sebelum bergegas ke Bai Ning Bing.</p>
+<p>	Bai Ning Bing hanya bisa mengandalkan dirinya sendiri dan berguling putus asa, menghindari pukulan dan menjentikkan pergelangan tangannya pada saat yang sama.</p>
+<p>	Chainsaw Golden Lipan menghantam punggung raja Buaya Besar.</p>
+<p>	Percikan terbang saat Chainsaw Golden Lipan dipantulkan, hampir menyebabkan Bai Ning Bing tersandung dari benturan.</p>
+<p>	Ada goresan putih di baju besi punggung raja Buaya Besar, tapi selain itu tidak terpengaruh.</p>
+<p>	Melolong!</p>
+<p>	Itu mengayunkan ekornya, dan angin bertiup.</p>
+<p>	Bai Ning Bing hanya melihat cambuk hitam mendekat, tebal, besar dan panjang. Dia tidak bisa menghindarinya, jadi dia hanya bisa mengaktifkan Sky Canopy Gu.</p>
+<p>	Dengan keras, dia dikirim terbang, mendarat puluhan meter jauhnya. Setelah itu, dia menabrak dinding tebing yang kokoh dan kokoh.</p>
+<p>	Bai Ning Bing sangat kesakitan sampai dia menarik napas dalam-dalam. Sky Canopy Gu adalah Gu Peringkat tiga, memiliki pertahanan yang hebat tetapi tidak dapat mengurangi kekuatan dari benturan.</p>
+<p>	Bambam…</p>
+<p>	Kaki kuat dan tebal dari Grand Crocodile king meninggalkan jejak yang kuat di pantai saat ia menyerang Bai Ning Bing.</p>
+<p>	Mata Bai Ning Bing bersinar; melihat serangan raja Buaya Besar, dia tidak bergerak.</p>
+<p>	Raja Buaya Besar datang menerjang dengan aura yang mengesankan, memamerkan cakarnya. Jika itu adalah orang lain, mereka akan ketakutan setengah mati atau lari ketakutan, tapi Bai Ning Bing bagaimanapun juga Bai Ning Bing, memiliki kemauan besi.</p>
+<p>	“Dua puluh langkah, lima belas langkah, sepuluh langkah, lima langkah!” Melihat raja Buaya Besar sudah dekat, pada saat terakhir, Bai Ning Bing melompat.</p>
+<p>	Bam!</p>
+<p>	Dia nyaris menghindari raja Buaya Besar, dan yang terakhir menabrak dinding tebing, karena sejumlah besar puing jatuh dan menguburnya. “Binatang buas bagaimanapun juga binatang!” Bai Ning Bing tertawa keras, hendak mengejarnya, tapi tiba-tiba memikirkan sesuatu dan berhenti.</p>
+<p>	Saat berikutnya, ekor raja Buaya Besar menyapu dan mengirim puing-puing terbang ke mana-mana.</p>
+<p>	Bai Ning Bing mengamati dalam diam, dan sesaat kemudian raja buaya akhirnya bebas.</p>
+<p>	Itu dalam keadaan putus asa. Setengah giginya patah dan darah mengalir keluar dari lubang hidungnya; pupil emasnya juga berubah menjadi merah.</p>
+<p>	Itu menggeram marah ke langit dan menurunkan tubuhnya, bergegas menuju Bai Ning Bing dengan kecepatan yang lebih cepat.</p>
+<p>	Bai Ning Bing mundur, tersenyum sambil menghindar.</p>
+<p>	Bam!</p>
+<p>Dengan ledakan besar, dinding tebing runtuh, dan asap terbang ke mana-mana ……</p>
+<p>	Satu jam kemudian, raja Buaya Besar yang terluka menutupi kulit putihnya dengan sia-sia, saat darah terus mengalir keluar dari lukanya.</p>
+<p>	Segera setelah itu, ia jatuh ke tanah, di pantai yang benar-benar hancur karena pertempuran.</p>
+<p>	“Bulan Darah Gu ini cukup berguna ya. Dengan efek pendarahan itu, aku bisa membunuh raja Buaya Besar itu dengan mudah.” Bai Ning Bing melihat lencana bulan merah, berpikir dalam benaknya.</p>
+<p>	Setelah raja buaya meninggal, sisa seratus enam buaya berkaki kehilangan semangat dan semangat mereka, melarikan diri ke sungai satu per satu.</p>
+<p>	“Akhirnya selesai.” Bai Ning Bing mengibaskan Chainsaw Golden Lipan di tangannya, duduk di pantai dengan kelelahan.</p>
+<p>	Sosok Fang Yuan keluar dari tempat teduh, berjongkok di mayat raja buaya dan mencari.</p>
+<p>	“Menemukannya!” Ketika dia mengambil kembali tangannya, ada satu Gu di masing-masing telapak tangannya.</p>
+<p>	Bai Ning Bing melihat ini, terengah-engah karena marah. Dia bertarung begitu sengit dengan raja buaya, akhirnya membunuhnya dan mengusir kelompok buaya itu. Tapi Fang Yuan yang tidak terluka keluar untuk mengumpulkan hadiah pertempuran sebagai gantinya.</p>
+<p>	Fang Yuan melihat dari dekat.</p>
+<p>	Kedua Gu ini, satu hampir sekarat, tetapi masih berjuang. Ia memiliki cangkang kura-kura, seukuran telapak tangan, tetapi permukaannya yang menonjol ditutupi oleh sisik buaya.</p>
+<p>	Gu Karapas.</p>
+<p>	Yang lain tidak terluka, tetapi tidak bergerak sama sekali, membiarkan Fang Yuan meremasnya dengan jari-jarinya.</p>
+<p>	Kekuatan Buaya Gu.</p>
+<p>	Itu sangat kecil, lebih kecil dari jari. Itu seperti buaya mini, dengan kepala, tubuh, dan ekor, tetapi tidak memiliki kaki.</p>
+<p>	Baik Gu Carapace dan Gu Kekuatan Crcocodile adalah cacing Gu peringkat dua.</p>
+<p>	Biasanya, seratus raja binatang memiliki peringkat dua Gu yang tinggal di dalamnya. Di seribu raja binatang, ada peringkat tiga, dan di raja binatang yang tak terhitung jumlahnya ada peringkat empat.</p>
+<p>	“Seperti yang kuharapkan.” Fang Yuan melihat kedua Gu, tidak merasa aneh. Dia berpengalaman dan setelah mengamati pertempuran, dia telah melihat melalui kemampuan raja buaya.</p>
+<p>	Segera, dia membocorkan sedikit aura Musim Semi Musim Gugur Jangkrik, dan menyempurnakan kedua Gu ini dengan esensi purbanya secara instan.</p>
+<p>	Carapace Gu terbang ke punggung Fang Yuan, membentuk lencana skala besar, seperti tato. Itu memanjang dari bahu Fang Yuan ke pinggangnya, menutupi seluruh punggungnya.</p>
+<p>Seperti namanya, itu adalah Gu yang bisa meningkatkan pertahanan punggung Master Gu.</p>
+<p>	Crcocodile Strength Gu berubah menjadi cahaya kuning redup, memasuki aperture Fang Yuan.</p>
+<p>	Itu mirip dengan Gu babi hutan hitam dan putih, mampu meningkatkan kekuatan Guru Gu secara permanen, dengan kekuatan buaya! Itu memiliki nilai pasar yang tinggi, biasanya cacing Gu yang berharga tanpa tersedia di pasar.</p>
+<p>	“Ini lagi, langsung menyempurnakan cacing Gu!” Melihat ini, Bai Ning Bing tidak bisa melanjutkan tetapi menjadi marah, karena pupil matanya melebar hingga seukuran pin.</p>
+<p>	Ketika dia melawan Fang Yuan sebelumnya, dia menemukan rahasia ini.</p>
+<p>	Kembali ke klan, dia mencari catatan dan memeriksa beberapa Gu tipe bantuan yang dapat mencapai efek ini.</p>
+<p>	Tetapi pada saat ini, ketika dia menyaksikan adegan itu lagi, dia merasa bahwa kebenarannya mungkin berbeda.</p>
+<p>	“Orang ini memiliki begitu banyak kartu truf. Sky Canopy Gu, Blood Moon Gu dan Chainsaw Golden Centipede, tetapi bahkan Heavenly Essence Treasure Lotus! Taktik pertempurannya juga benar-benar lebih unggul dari ajaran klan. Juga, Gu apa yang dia gunakan sebelumnya? ”</p>
+<p>	Memikirkan hal ini, hawa dingin menjalari tulang punggung Bai Ning Bing.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

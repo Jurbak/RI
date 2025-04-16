@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_1.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_3.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2</h1>
+        <div class="text-left">
+<p>	Bab 02</p>
+<p>	Bab 2 – Kembali ke masa lalu dengan 500 tahun pengetahuan</p>
+<p>	Dikatakan dalam legenda bahwa sungai waktu ada di dunia ini. Ini mendukung aliran dan sirkulasi waktu dunia. Dan dengan menggunakan kekuatan Spring Autumn Cicada, seseorang dapat melakukan perjalanan kembali ke hulu dan kembali ke masa lalu.</p>
+<p>	Ada banyak pendapat yang saling bertentangan tentang kisah mitos ini. Banyak yang tidak percaya, dan ada juga yang skeptis terhadap kebenaran.</p>
+<p>	Hanya sedikit orang yang benar-benar berani mempercayainya.</p>
+<p>	Karena setiap kali seseorang menggunakan Jangkrik Musim Gugur Musim Semi, seseorang harus membayar dengan nyawanya, membiarkan seluruh tubuh dan kultivasinya menjadi kekuatan pendorong untuk menggunakan kekuatannya.</p>
+<p>	Harga seperti itu terlalu mahal, dan hal yang tidak dapat diterima orang adalah kenyataan bahwa setelah membayar dengan nyawa Anda, Anda bahkan tidak tahu apa hasilnya.</p>
+<p>	Jadi bahkan jika seseorang memiliki Jangkrik Musim Gugur Musim Semi, mereka tidak akan berani menggunakannya begitu saja. Bagaimana jika rumor itu palsu, dan itu hanya penipuan?</p>
+<p>	Jika Fang Yuan tidak terpojok dalam keadaan seperti itu, dia juga tidak akan menggunakannya dengan tergesa-gesa. Tapi sekarang, Fang Yuan benar-benar yakin. Karena realitas kebenaran telah terbentang di depan matanya dan tidak dapat disangkal. Dia benar-benar telah dilahirkan kembali!</p>
+<p>	“Sayang sekali… Sejak awal aku telah menyia-nyiakan usaha yang tidak masuk akal, membunuh ratusan ribu orang, bahkan membuat langit marah dan menghasut pembalasan orang, melalui penderitaan dan berbagai kesulitan untuk akhirnya mencapai dan menyempurnakan Gu yang baik ini … Fang Yuan berpikir sambil menghela nafas. Meskipun dia telah dilahirkan kembali, Jangkrik Musim Semi Musim Gugur tidak datang bersamanya.</p>
+<p>	Manusia adalah yang terbesar di antara ribuan makhluk, Gu adalah inti dari langit dan bumi.</p>
+<p>	Gu hadir dalam ribuan bentuk dan ukuran dengan variasi yang aneh dan misterius – terlalu banyak untuk dihitung. Beberapa Gu setelah digunakan sekali atau bahkan dua kali atau tiga kali akan benar-benar hilang. Dan beberapa Gu dapat digunakan kembali lagi dan lagi selama tidak digunakan melebihi batasnya.</p>
+<p>	Konon, kemungkinan Spring Autumn Cicada adalah salah satu jenis yang hanya bisa digunakan sekali sebelum menghilang untuk selamanya.</p>
+<p>	“Tapi bahkan jika itu hilang, aku masih bisa memperbaiki yang lain. Saya telah melakukannya di kehidupan saya sebelumnya, mengapa saya tidak bisa melakukannya di kehidupan ini?” Setelah pikiran kasihan dikesampingkan, hati Fang Yuan meledak perasaan ambisius dan bertekad.</p>
+<p>	Untuk dapat dilahirkan kembali, fakta ini membuat hilangnya Jangkrik Musim Semi Musim Gugur sepenuhnya dapat diterima.</p>
+<p>	Belum lagi dia memiliki sesuatu yang berharga dengannya, jadi itu tidak seperti dia kehilangan segalanya.</p>
+<p>	Harta berharga ini adalah kenangan dan pengalamannya selama 500 tahun.</p>
+<p>	Dalam ingatannya ada banyak sekali jenis harta dan barang berharga yang belum pernah dibuka siapa pun saat ini. Semua peristiwa dan insiden besar dapat dengan mudah ditangkap oleh urat nadi sejarah. Ada banyak sekali angka: beberapa adalah pendahulu dari level tersembunyi; beberapa jenius, beberapa orang bahkan belum lahir. Juga dalam 500 tahun kehidupan ini adalah kenangan kultivasi yang melelahkan dan pengalaman tempur yang kaya.</p>
+<p>	Dengan semua kenangan dan pengalaman ini, tidak dapat disangkal bahwa dia telah memahami situasi keseluruhan dan peluang yang akan datang. Dengan perencanaan dan pelaksanaan yang baik, dia dapat memberdayakan situasi dengan keganasan dan keanggunan yang luar biasa. Itu bukan masalah sekarang karena dia bisa mengambil langkah di depan orang lain, melanggar batas yang lebih tinggi!</p>
+<p>	“Jadi bagaimana caraku melakukan ini hmmm …” Fang Yuan sangat masuk akal. Dia menenangkan diri dan menghadapi hujan malam di luar jendela, merenung. Dengan pemikiran ini, segalanya mulai terasa rumit. Setelah berpikir sejenak, alisnya berkerut lebih dalam.</p>
+<p>	Waktu 500 tahun adalah waktu yang agak lama. Jangan menyebutkan kenangan lama yang kacau yang tidak dapat diingat kembali, bahkan mengingat lokasi harta karun atau pertemuan khusus orang banyak, tetapi masalah utamanya adalah lokasinya terpisah jarak jauh dan harus diakses atau dikunjungi. pada periode waktu tertentu.</p>
+<p>	“Yang paling penting adalah kultivasi. Saya sekarang bahkan belum membuka Laut Purba saya, belum melangkah di jalan untuk menjadi Master Gu. Aku hanya manusia biasa! Saya harus bergegas dan berkultivasi, mengejar sejarah dan merebut peluang dengan keuntungan terbaik. ”</p>
+<p>	Tidak lupa, banyak dari lokasi harta karun yang tersembunyi ini tidak berguna tanpa fondasi yang tepat. Sebaliknya itu hanya akan berjalan ke sarang serigala, mencari kematian.</p>
+<p>	Masalah di depan Fang Yuan saat ini adalah kultivasi.</p>
+<p>	Dia harus meningkatkan level fondasinya secepat mungkin. Jika dia lambat seperti kehidupan sebelumnya, dia akan terlambat.</p>
+<p>	“Untuk berkultivasi secepat mungkin, saya harus meminjam sumber daya dari klan. Dengan keadaan saya sekarang, saya tidak memiliki kekuatan atau kemampuan untuk melakukan perjalanan bolak-balik melintasi pegunungan yang berbahaya. Bahkan babi gunung biasa bisa mengambil nyawaku. Jika saya dapat mencapai kultivasi Master Gu tingkat Ketiga, saya akan memiliki sarana untuk melindungi diri saya sendiri dan meninggalkan gunung. ”</p>
+<p>	Melalui mata orang berusia 500 tahun yang telah berkultivasi di Jalan Iblis, Gunung Qing Mao terlalu kecil, Desa Gu Yue bahkan terasa seperti sangkar.</p>
+<p>	Tetapi sementara sangkar membatasi kebebasan, jeruji kandang yang kokoh juga membawa semacam keamanan tertentu.</p>
+<p>	“Hmm, dalam waktu singkat ini aku hanya akan tinggal di kandang ini. Selama saya bisa mencapai Guru Gu tingkat Ketiga, saya bisa meninggalkan gunung yang malang ini. Untungnya besok adalah Upacara Kebangkitan, saya akan dapat memulai pelatihan sebagai Master Gu segera setelah itu. ”</p>
+<p>	Ketika dia memikirkan tentang Upacara Kebangkitan, ingatan lama yang telah lama terkubur di dalam hatinya muncul kembali dengan sendirinya.</p>
+<p>	“Bakat ya …” Dia mencibir, tatapannya terfokus ke luar jendela.</p>
+<p>	Pada saat ini, pintu kamarnya sedikit didorong terbuka dan seorang remaja muda masuk.</p>
+<p>	“Kakak, mengapa kamu berdiri di tengah hujan di sisi jendela?”</p>
+<p>	Pemuda itu kurus, sedikit lebih pendek dari Fang Yuan. Wajahnya sangat mirip dengan wajah Fang Yuan. Saat Fang Yuan menoleh untuk melihat pemuda ini, ekspresi rumit melintas di wajahnya.</p>
+<p>	“Itu kamu ya, saudara kembarku.” Dia mengangkat alisnya, ekspresinya kembali ke ketidakpedulian yang dingin. Fang Zheng menundukkan kepalanya dan melihat jari kakinya sendiri; ini adalah sikap tanda tangannya.</p>
+<p>	“Saya melihat jendela kakak laki-laki itu tidak tertutup rapat, jadi saya pikir saya akan masuk ke sini dan menutupnya. Besok adalah Upacara Kebangkitan, ini sudah sangat larut dan kamu belum tidur kakak. Jika Paman dan Bibi tahu, mereka mungkin akan khawatir.”</p>
+<p>	Fang Zheng tidak terkejut dengan sikap dingin Fang Yuan. Sejak dia masih kecil, kakak laki-lakinya selalu seperti itu. Terkadang dia bertanya-tanya, mungkinkah seorang jenius memang seperti ini, menjadi agak berbeda dari orang biasa. Meskipun dia memiliki tampilan yang sama dengan kakak laki-lakinya, dia merasa bahwa dia biasa seperti semut.</p>
+<p>	Mereka dilahirkan dari rahim yang sama pada saat yang sama, namun mengapa surga begitu tidak adil? Kakak laki-lakinya telah diberkahi dengan bakat yang berkilauan, sementara dia sendiri biasa saja seperti batu.</p>
+<p>	Semua orang di sekitarnya akan berkata, “Ini adalah adik laki-laki Fang Yuan-” ketika mereka menyebut-nyebutnya. Bibi dan pamannya akan terus-menerus menyuruhnya untuk belajar dari kakak laki-lakinya. Bahkan ketika dia melihat ke cermin kadang-kadang, dia akan merasa jijik ketika dia melihat wajahnya sendiri!</p>
+<p>	Pikiran-pikiran ini telah berlangsung selama bertahun-tahun, terakumulasi siang dan malam jauh ke dalam hatinya. Seperti batu raksasa yang menekan hatinya, beberapa tahun ini kepala Fang Zheng semakin menunduk, dan dia juga menjadi lebih tenang.</p>
+<p>	“Khawatir …” Memikirkan bibi dan pamannya, Fang Yuan tertawa tanpa suara. Dia masih bisa mengingat dengan jelas bagaimana kedua orang tua di dunia ini kehilangan nyawa mereka di salah satu misi klan. Ketika dia baru berusia 3 tahun, dia dan adiknya menjadi yatim piatu.</p>
+<p>	Atas nama pendidikan, bibi dan pamannya merebut warisan yang ditinggalkan oleh orang tuanya sambil memberikan perlakuan kasar terhadap adik laki-lakinya dan dirinya sendiri.</p>
+<p>	Dia awalnya berencana untuk hanya menjadi orang normal, bahkan berencana untuk menyembunyikan kemampuannya dan menunggu waktunya. Namun hidupnya sulit, membuat Fang Yuan tidak punya pilihan selain memilih untuk mengekspos beberapa bakatnya.</p>
+<p>	Yang disebut bakat hanyalah jiwa yang matang dan intelek yang membawa beberapa puisi kuno populer di Bumi.</p>
+<p>	Dengan ini ia berhasil mengejutkan orang dan menarik perhatian. Karena tekanan dari dunia luar, Fang Yuan muda membuat keputusan untuk menjaga ekspresi acuh tak acuh untuk melindungi dirinya sendiri, mengurangi kemungkinan mengungkapkan rahasia apa pun. Lama kelamaan rasa dingin itu akan menjadi kebiasaan yang biasa ia ekspresikan.</p>
+<p>	Dengan demikian bibi dan pamannya tidak lagi kasar padanya dan adiknya. Seiring berlalunya waktu dan bertambahnya usia, masa depan menjadi lebih optimis dan perawatan yang lebih baik meningkat. Ini bukan kekasih, tetapi jenis investasi.</p>
+<p>	Sungguh lucu bagaimana adik laki-lakinya tidak pernah melihat kebenaran ini; tidak hanya dia ditipu oleh bibi dan paman mereka, dia juga mulai mengubur kebencian di dalam. Meskipun dia tampak seperti anak laki-laki yang baik hati dan jujur ​​sekarang, dalam ingatan Fang Yuan ketika saudaranya diketahui memiliki bakat kelas A, klan menghabiskan banyak usaha untuk membesarkannya dengan semua yang mereka miliki. Setelah itu semua dendam terkubur dan cemburu dan kebencian di dalam dilepaskan, dan sering kali Fang Zheng akan menargetkan, menekan dan mempersulit hidup kakaknya sendiri.</p>
+<p>	Adapun nilainya sendiri, itu hanya bakat kelas C.</p>
+<p>	Nasib suka bermain lelucon.</p>
+<p>	Sepasang kembar – Yang lebih tua hanya memiliki bakat kelas C, tetapi telah dikenal sebagai jenius selama belasan tahun. Yang lebih muda yang selalu diabaikan adalah yang memiliki bakat kelas A.</p>
+<p>	Hasil Upacara Kebangkitan telah membuat klan terkejut. Perlakuan kedua bersaudara itu tiba-tiba berbalik setelah itu.</p>
+<p>	Adik laki-laki itu seperti seekor naga yang naik ke langit; kakak itu seperti burung phoenix yang jatuh ke bumi.</p>
+<p>	Setelah itu datang banyak kesulitan dan masalah dari adiknya sendiri, mata dingin bibi dan pamannya, penghinaan dari orang-orang klan.</p>
+<p>	Apakah dia membencinya?</p>
+<p>	Fang Yuan di kehidupan sebelumnya membencinya. Dia membenci kurangnya bakatnya sendiri, dia membenci betapa kejamnya klan itu, membenci bagaimana nasib begitu tidak adil. Tapi sekarang, dengan 500 tahun pengalaman hidupnya, menggunakan ini untuk memikirkan kembali kursus ini hatinya sebenarnya tenang, tidak sedikit pun kebencian.</p>
+<p>	Apa yang bisa diperoleh dari kebencian?</p>
+<p>	Memikirkan jika dari sudut pandang lain, dia bisa memahami adik laki-lakinya, bibi dan pamannya, bahkan musuh-musuh 500 tahun kemudian yang menyerangnya.</p>
+<p>	Yang kuat memakan yang lemah, bertahan hidup dari yang terkuat; ini selalu menjadi aturan dunia ini. Setiap orang memiliki ambisi diri, selalu berjuang untuk menangkap peluang. Di antara semua perang dan pembunuhan, apa yang tidak bisa dipahami?</p>
+<p>	500 tahun pengalaman hidup telah lama memungkinkan dia untuk memahami semua ini, dengan hati yang ingin mendapatkan keabadian.</p>
+<p>	Jika seseorang mencoba untuk mencegah pengejarannya, tidak peduli siapa dia, dia akan membunuh dan menjalaninya. Aspirasi di hatinya terlalu besar, melangkah ke jalan ini adalah menjadikan dunia sebagai musuhmu, dan itu ditakdirkan untuk sendirian, ditakdirkan untuk membunuh.</p>
+<p>	Ini adalah kesimpulan dari 500 tahun kehidupan.</p>
+<p>	“Balas dendam bukanlah niatku, jalan Iblis tidak berkompromi.” Dengan itu dia tidak bisa menahan tawa dan melirik adiknya dengan samar. “Kamu boleh pergi.”</p>
+<p>	Hati Fang Zheng bergetar ketika dia merasa seperti mata saudaranya yang tajam seperti bilah es, tampaknya menembus bagian terdalam dari hatinya.</p>
+<p>	Di bawah tatapan seperti itu, dia merasa seperti telanjang di salju, tidak mampu menyimpan rahasia apa pun.</p>
+<p>	“Kalau begitu sampai jumpa besok, kakak.” Tidak berani mengatakannya lagi, Fang Zheng perlahan menutup pintu dan pergi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

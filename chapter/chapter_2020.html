@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2020 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2020";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2019.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2020">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2021.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2020</h1>
+        <div class="text-left">
+<p>	Bab 2020 – Peringkat Sembilan Petir Gu</p>
+<p>	Bab 2020 Peringkat Sembilan Petir Gu</p>
+<p>	Gua-surga Petir Hutan.</p>
+<p>	“Tuan Gua Petir Hutan, Anda mengkhianati aliansi dua surga dan benar-benar berkolusi dengan Leluhur Laut Qi, ini adalah dosa yang tak termaafkan dan Anda akan dieksekusi karenanya.” Xiao He Jian melihat ke bawah dari atas.</p>
+<p>	Di belakangnya ada sejumlah besar Dewa Gu dari aliansi dua surga. Mereka semua berdiri diam dan tanpa ekspresi, menunjukkan keunggulan jumlah.</p>
+<p>	Sebaliknya, Hutan Petir Gua Lord menghadapi musuh sendirian, kekuatannya memucat dibandingkan.</p>
+<p>	Forest Lightning Grotto Lord tersenyum pahit: “Sejak kamu tahu, aku tidak punya apa-apa untuk dikatakan. Tapi apakah Anda pikir saya bersedia berkolusi dengan musuh? Aliansi ingin bereksperimen pada buah panen qi di surga gua Petir Hutan saya. Tak satu pun dari upaya aliansi sebelumnya yang berhasil dan semua gua-surga yang mereka uji telah meledak. Saya memihak aliansi dua surga untuk perlindungan diri. Tapi sekarang, Anda ingin mengorbankan rumah saya? Karena itu masalahnya, lebih baik menyerah pada musuh, aku bahkan mungkin punya harapan baru.”</p>
+<p>	Xiao He Jian mengerutkan kening, mendengus dingin: “Kamu tidak percaya pada aliansi dua surga kita dan Pemimpin Aliansi Lord Wu Shuai. Mungkin kali ini akan berhasil.”</p>
+<p>	Forest Lightning Grotto Lord terkekeh: “Jika pemimpin aliansi Wu Shuai memiliki watak yang adil, saya tidak akan mengatakan apa-apa. Tapi dia jelas melindungi manusia varian sambil mengorbankan manusia. Gua-surga tempat aliansi telah bereksperimen semuanya adalah gua-surga manusia. Bagaimanapun, Wu Shuai adalah manusia naga, saya telah melihat melalui lelucon aliansi ini! Manusia Gu Dewa hadir di sini, perhatikan baik-baik, ini akan menjadi hasil Anda di masa depan. Setelah saya, giliran Anda.”</p>
+<p>	Mendengar ini, Dewa Gu manusia jelas memiliki sedikit perubahan ekspresi. Forest Lightning Grotto Lord tidak diragukan lagi berbicara tentang apa yang mereka khawatirkan.</p>
+<p>	Wu Shuai dan Leluhur Laut Qi adalah orang yang sama, mereka secara alami memiliki kesepakatan diam-diam. Mereka tampak saling berhadapan di permukaan, tetapi diam-diam membagi kekuatan dua langit. Saat ini, tidak ada surga gua netral di dua surga. Gua-surga di dua surga dihancurkan atau telah bergabung dengan Wu Shuai atau Leluhur Laut Qi.</p>
+<p>	Setelah kedua belah pihak membagi dua langit, mereka berhenti berkelahi dan mulai mencari cara untuk memecahkan masalah buah panen qi.</p>
+<p>	Dibandingkan dengan Leluhur Laut Qi yang meneliti dalam budidaya tertutup, pencapaian jalur qi Wu Shuai jelas jauh lebih lemah. Jadi, aliansi dua surga Wu Shuai tidak punya pilihan selain bereksperimen dan sangat kasar dengan tindakan mereka untuk mengejar efisiensi. Eksperimen untuk menghilangkan buah panen qi telah gagal berkali-kali dan sebagai hasilnya menghancurkan banyak gua-surga.</p>
+<p>	Ketika giliran gua surga Petir Hutan, Lord Gua Petir Hutan tidak mau mempertaruhkan rumahnya, jadi untuk perlindungan diri dan kelangsungan hidup, dia diam-diam menghubungi Leluhur Laut Qi.</p>
+<p>	Dia benar-benar pria yang malang, Leluhur Laut Qi dan Wu Shuai pada dasarnya adalah orang yang sama.</p>
+<p>	Leluhur Laut Qi adalah tubuh utama Fang Yuan dan dia memberi tahu Wu Shuai secara langsung.</p>
+<p>	Wu Shuai dengan demikian mengirim perintah ke Xiao He Jian untuk mengumpulkan beberapa Dewa Gu untuk menghukum pengkhianat itu.</p>
+<p>	Melihat Lord Gua Petir Hutan, Xiao He Jian mencibir diam-diam dan berkata dengan tidak sabar: “Siapa yang akan menangkap penjahat ini?”</p>
+<p>	Lady Cold Ash melangkah maju seolah dia ingin menjadi garda depan: “Biarkan aku.”</p>
+<p>	Xiao He Jian mengangguk: “Bagus.”</p>
+<p>	Lady Cold Ash langsung menyerbu ke arah Forest Lightning Grotto Lord, Xiao He Jian dalam hati senang dan berpikir: “Cold Ash perseptif dan memiliki banyak kemampuan. Upaya saya untuk memenangkannya tidak sia-sia. ”</p>
+<p>	Lady Cold Ash bertarung dengan Forest Lightning Grotto Lord, keduanya berada di peringkat delapan dan saling menyerang, tidak menghasilkan satu langkah pun.</p>
+<p>	Dewa Gu lainnya dari aliansi dua surga sedang menonton pertempuran dari atas awan. Dalam pertarungan antara Dewa Abadi, agar serangan kelompok berhasil, mereka akan memperhatikan kerja sama. Jalan yang berbeda akan menyebabkan konflik antara tanda dao, jika tidak ada kerja sama yang terampil, itu mungkin akan menyia-nyiakan usaha mereka.</p>
+<p>	Secara alami, ini tidak menghalangi para Dewa Gu yang mengamati untuk mengumpulkan energi mereka dan menyerang ketika ada kesempatan.</p>
+<p>	Tapi Gu Immortals dari aliansi dua surga tidak menemukan kesempatan untuk menyerang secara diam-diam.</p>
+<p>	Lady Cold Ash secara bertahap menguasai dan mengendalikan pertempuran. Forest Lightning Grotto Lord melihat situasinya buruk dan segera melarikan diri ke bawah tanah.</p>
+<p>	Lady Cold Ash adalah penyamaran Spectral Soul, bagaimana mungkin Forest Lightning Grotto Lord menjadi lawannya? Kebuntuan sebelumnya hanya tipuan, itu tidak lebih dari tindakan Spectral Soul.</p>
+<p>	Xiao He Jian melihat Lord Gua Petir Hutan melarikan diri dan tertawa terbahak-bahak: “Kejar!”</p>
+<p>	Para abadi mengejar.</p>
+<p>	Mereka tidak peduli dengan surga gua Petir Hutan yang besar dan hanya menargetkan Tuan Gua Petir Hutan. Selama mereka menyingkirkan satu-satunya peringkat delapan ini, perlawanan lain tidak akan menjadi masalah.</p>
+<p>	Mereka bahkan mengambil inisiatif untuk menjaga keamanan surga gua Petir Hutan, lagipula, surga gua ini perlu diuji dan mereka akan memiliki andil dalam distribusi sumber daya di dalamnya.</p>
+<p>	Forest Lightning Grotto Lord terus bergerak jauh di bawah tanah.</p>
+<p>	Lady Cold Ash tidak mengejar dan tetap berada di samping Xiao He Jian.</p>
+<p>	Segera, kelompok pertama Dewa Abadi yang telah memasuki jauh di bawah tanah kembali dengan jelaga menutupi mereka.</p>
+<p>	Ketika dia mendapatkan laporan mereka, Xiao He Jian sedikit terkejut: “Ada hal seperti itu? Ada hutan petir jauh di bawah tanah?”</p>
+<p>	Dewa Gu yang kembali secara alami membawa bukti.</p>
+<p>	Melalui metode yang mirip dengan bayangan bayangan Gu, keabadian aliansi dua surga melihat hutan petir yang luas.</p>
+<p>	Di bawah tanah yang gelap gulita, kilat menyambar dan guntur bergemuruh setiap saat.</p>
+<p>	Kilatan petir membentuk pohon perak yang tinggi. Pohon tinggi itu hanya bertahan sesaat, tetapi memiliki daun guntur yang besar, banyak cabang petir perak dan sebagainya, mereka terwujud dan menggoda semua yang abadi.</p>
+<p>	“Surga, ini semua adalah jalur kilat yang tak ternilai, peringkat delapan bahan abadi!”</p>
+<p>	“Ini hanya kekayaan dangkal dari hutan petir. Menurut catatan di u003cu003cThe Legends of Ren Zuu003eu003e, sumber petir hutan adalah petir Gu. Ukuran hutan petir ini cukup untuk membuktikan ada Gu petir peringkat delapan di sini! ”</p>
+<p>	“Tuan Gua Petir Hutan ingin melawan dengan mengandalkan petir Gu?”</p>
+<p>	“Hmph, angan-angan. Bagaimana mungkin hanya peringkat delapan Immortal Gu menentang aliansi dua surga kita? ”</p>
+<p>	Para dewa berdiskusi tetapi tidak ada yang mau memasuki hutan.</p>
+<p>	Lagi pula, hutan petir adalah area yang berbahaya dan Lord Gua Petir Hutan memiliki keuntungan medan yang sangat besar di sini. Jika mereka menyerbu dengan gegabah, kemungkinan besar itu akan menjadi usaha yang tidak menguntungkan.</p>
+<p>	Xiao He Jian mengerutkan kening: “Siapa yang akan menangkap Tuan Gua Petir Hutan?”</p>
+<p>	Lady Cold Ash berdiri sekali lagi tanpa ragu-ragu.</p>
+<p>	Xiao He Jian menunjukkan senyum senang: “Abu Dingin, jika kamu menang, kontribusimu akan menjadi yang teratas untuk pertempuran ini.”</p>
+<p>	“Terima kasih.” Lady Cold Ash hendak bergerak.</p>
+<p>	“Tunggu.” Night Heavenly Wolf Lord juga berjalan keluar: “Hutan Petir adalah wilayah yang berbahaya, biarkan aku menemani Cold Ash. Jika ada kecelakaan tak terduga, saya bisa membantu. ”</p>
+<p>	“Kalau begitu mari kita lakukan seperti itu.” Xiao He Jian menyetujui permintaan Night Heavenly Wolf Lord.</p>
+<p>	Setelah itu, dua makhluk abadi menyerbu ke kedalaman bawah tanah. Dewa Gu lainnya bersama dengan Xiao He Jian melayang di udara, menyaksikan pertempuran serta menunggu dengan sabar.</p>
+<p>	Lady Cold Ash menyerbu ke bawah dan tiba di depan hutan petir. Dia langsung membuka aperture abadi dan mengeluarkan binatang jiwa yang tak terhitung jumlahnya.</p>
+<p>	Binatang-binatang jiwa menyerbu ke arah hutan petir seperti gelombang yang ganas.</p>
+<p>	Gemuruh…</p>
+<p>	Petir menyambar terus menerus dan ledakan bergema tanpa henti. Ada kerugian besar pada binatang jiwa, mereka menggunakan hidup mereka untuk secara paksa membuka jalan.</p>
+<p>	Lady Cold Ash dan Night Heavenly Wolf Lord dengan mulus memasuki kedalaman hutan petir.</p>
+<p>	“Saya tidak berpikir Lady Cold Ash akan benar-benar berurusan dengan hutan petir seperti ini.”</p>
+<p>	“Dia benar-benar bertekad untuk menyedot Xiao He Jian terlepas dari biayanya.”</p>
+<p>	“Ada banyak rumor baru-baru ini tentang pemimpin aliansi yang ingin menjadikan Xiao He Jian sebagai wakil pemimpin aliansi?”</p>
+<p>	“Aliansi hanya memiliki satu wakil pemimpin aliansi, Ice Crystal Immortal Monarch, saat ini. Tidak aneh bagi Tuan Wu Shuai untuk membuat pengaturan ini untuk menjaga keseimbangan antara bawahannya. ”</p>
+<p>	“Lady Cold Ash mungkin adalah Gu Immortal manusia, tetapi dia tidak ingin memiliki hasil yang sama dengan Forest Lightning Grotto Lord. Jadi dia dengan sepenuh hati ingin naik peringkat di aliansi, dia melakukan yang terbaik untuk melindungi surga guanya.”</p>
+<p>	Gu Immortals mengamati pertempuran sambil berbicara secara diam-diam.</p>
+<p>	Setelah beberapa saat berusaha, Lady Cold Ash dan Night Heavenly Wolf Lord berjuang menuju pusat hutan petir dan melihat Forest Lightning Grotto Lord sekali lagi.</p>
+<p>	Forest Lightning Grotto Lord sedang menyempurnakan Gu petir peringkat delapan dan dengan cepat menghentikan penyempurnaan ketika dia melihat dua abadi. Dia berteriak dengan marah: “Berhenti! Jika Anda berhenti satu kali lagi, saya akan menghancurkan Gu petir ini! ”</p>
+<p>	Para abadi terkejut.</p>
+<p>	“Jadi Gu petir ini masih Gu Abadi liar dan Lord Gua Petir Hutan belum benar-benar menyempurnakannya?”</p>
+<p>	“Apa yang sedang terjadi?”</p>
+<p>	“Haha, aku mengerti! Ambisi Forest Lightning Grotto Lord tidaklah kecil.”</p>
+<p>	“Oh, tolong jelaskan.”</p>
+<p>	“Jika saya tidak salah, hutan petir ini seharusnya hanya titik sumber jalur petir biasa pada awalnya. Tetapi pada titik tertentu, itu melahirkan Gu petir liar. Karena Gu petir ini, titik sumber daya jalur petir secara bertahap berubah menjadi hutan petir kecil. Forest Lightning Grotto Lord tidak memurnikan Gu petir liar ini, sebaliknya dia menambahkan sumber daya untuk menumbuhkan hutan petir ini. Semakin besar skala hutan petir, Gu petir, yang merupakan sumbernya, juga akan terus maju lebih jauh. Forest Lightning Grotto Lord terus menginvestasikan sumber daya dan akhirnya meningkatkan Gu petir liar ini ke peringkat delapan! ”</p>
+<p>	Gu Immortals dari aliansi dua surga melihat melalui ambisi dari Forest Lightning Grotto Lord.</p>
+<p>	Forest Lightning Grotto Lord adalah jalur kilat Gu Immortal dan tidak mahir dalam jalur penyempurnaan. Tapi hutan petir ini diciptakan secara alami, itu hanyalah alam yang menyempurnakan Gu itu sendiri!</p>
+<p>	Forest Lightning Grotto Lord dengan cerdik meminjam kekuatan alam dan menambahkan momentum ke fondasi aslinya, tujuannya adalah untuk memajukan Lightning Gu ke peringkat sembilan!</p>
+<p>	Dan selama proses ini, jika dia memurnikan Gu Abadi liar ini, proses pemurnian alam Gu akan terganggu dan tidak dapat dipulihkan.</p>
+<p>	Dengan demikian, Dewa Petir Hutan Petir telah meninggalkan Gu petir liar ini dalam keadaannya dan tidak memperbaikinya.</p>
+<p>	Sangat sulit untuk menangkap cacing Gu orang lain. Tapi Gu Abadi liar berbeda.</p>
+<p>	Gu Immortal liar peringkat delapan, yang terpenting adalah ia bahkan memiliki kemungkinan untuk naik ke peringkat sembilan! Penemuan ini sangat besar, Xiao He Jian dan yang lainnya membuka mata lebar-lebar, mengungkapkan keserakahan dan kewaspadaan.</p>
+<p>	“Ini sangat penting, kita tidak bisa gegabah.” Xiao He Jian dengan cepat mentransmisikan suaranya ke Lady Cold Ash dan Night Heavenly Wolf Lord.</p>
+<p>	Baca di meionovel.id</p>
+<p>	Lady Cold Ash dan Night Heavenly Wolf Lord menghentikan serangan mereka.</p>
+<p>	Forest Lightning Grotto Lord berbicara dengan syarat: “Selama Anda mengampuni saya dan surga gua Petir Hutan saya, saya akan menawarkan Gu petir ini kepada Anda.”</p>
+<p>	Xiao He Jian dengan cepat menghubungi Wu Shuai dan melaporkan masalah ini.</p>
+<p>	Masalahnya menyangkut Gu petir peringkat sembilan di masa depan, Xiao He Jian tidak berani memutuskan sendiri.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

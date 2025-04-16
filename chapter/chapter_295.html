@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 295 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 295";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_294.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 295">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_296.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 295</h1>
+        <div class="text-left">
+<p>	Bab 295</p>
+<p>	Bab 295: Sebenarnya, saya juga korban</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ekspresi Bai Feng suram dan tatapannya terus berkedip. Dia berpikir untuk menyangkal ini tetapi Fang Yuan melihat rencananya.</p>
+<p>	“Jangan coba-coba menutupinya, tidak ada gunanya. Saat mata air roh terus mengering, batu purba yang dihasilkan juga akan berkurang tajam. Klan Bai telah menyembunyikannya dengan baik, Anda telah menggunakan sisa stok Anda di penyimpanan atau berdagang untuk mengisi celah ini. Tapi ini pasti akan meninggalkan jejak, selama seseorang dengan hati-hati menyelidikinya, mereka akan mengetahuinya.” Fang Yuan tenang dan nyaman.</p>
+<p>	Bai Feng dengan erat mengepalkan tinjunya, memelototi Fang Yuan seolah dia ingin menelannya hidup-hidup.</p>
+<p>	Melihat penampilan sesepuh ini, bahkan orang bodoh pun akan menyadari kebenarannya.</p>
+<p>	“Mata air roh klan kita mengering?” Bai Lian bingung, bersandar di kursinya dengan lesu.</p>
+<p>	Bai Zhan Lie menggigit bibirnya, terdiam.</p>
+<p>	Yang lain juga tidak berbicara, mereka heran dan ketakutan. Suasana di ruang rahasia menjadi sangat menindas.</p>
+<p>	“Hehehe.” Fang Yuan terkekeh, “Klan Bai-mu benar-benar dalam bahaya. Bahkan klan yang lebih kuat akan runtuh jika mata air semangat mereka mengering dan mereka tidak menemukan mata air semangat baru. Sekarang, Anda telah memperoleh warisan Bai Gu, kekuatan di sekitar Anda semua menginginkannya; katakan padaku, apa yang akan terjadi jika aku menyebarkan informasi rahasia ini?”</p>
+<p>	“Tidak!” Bai Lian kehilangan warna di wajahnya dan segera menyela.</p>
+<p>	Yang lain juga memikirkan keseriusan masalah ini dan ekspresi mereka berubah menjadi serius.</p>
+<p>	Sekarang, klan Bai telah memperoleh warisan Bai Gu, kekuatan mereka meningkat karena manfaat yang diperoleh dari penemuan Fang Yuan. Beberapa klan besar tetangga menatap mereka dengan iri, tetapi juga menjaga mereka.</p>
+<p>	Jika berita tentang musim semi roh mengering terungkap, klan Bai akan kehilangan pencegahan dan menjadi macan kertas; pasukan di sekitarnya pasti akan bergerak!</p>
+<p>	Pasukan itu tidak akan pernah ingin melihat klan Bai selamat dari cobaan ini dan karena warisan Bai Gu, bangkitlah dan tekan mereka.</p>
+<p>	Oleh karena itu, informasi ini harus dijaga!</p>
+<p>	Geng klan Bai dikejutkan oleh Fang Yuan, mendapatkan pemahaman tentang situasinya. Bai Zhan Lie dan yang lainnya mengarahkan pandangan mereka pada Fang Yuan, mata mereka bersinar lebih ganas dan memancarkan niat membunuh.</p>
+<p>	“Mau membunuhku?” Fang Yuan mencibir dan menggelengkan jarinya, “Karena aku bertemu denganmu sendirian, aku secara alami membuat persiapan yang matang. Sebenarnya, jika kamu tidak datang untuk menemukanku, aku akan pergi mencarimu.”</p>
+<p>	Ini bukan kata-kata yang tidak masuk akal. Klan Bai tidak punya pilihan selain menahan niat membunuh mereka dan menarik kembali kilatan tak menyenangkan di mata mereka.</p>
+<p>	“Baiklah, mari kita mulai bisnis sekarang.” Sudut bibir Fang Yuan sedikit melengkung saat dia menyesuaikan postur duduknya.</p>
+<p>	Dia mengarahkan tangannya ke bawah dan berkata: “Duduklah dan mari kita diskusikan.”</p>
+<p>	“Diskusikan apa, apa yang ingin dibicarakan denganmu? Hmph!” Ekspresi Bai Feng muram, tapi meski berkata begitu, dia tetap duduk.</p>
+<p>	Klan yang tersisa ragu-ragu untuk beberapa saat sebelum duduk.</p>
+<p>	Situasi tegang segera mereda sedikit.</p>
+<p>	“Tentu saja kami akan membahas biaya untuk membuat saya diam. Apakah mudah bagi saya untuk membawa Anda ke sini? Buang-buang waktu dan energi saya, Anda harus memberi saya kompensasi! Batu purba, saya ingin batu purba. Beri saya tiga juta batu purba dan saya dapat berjanji kepada Anda bahwa saya tidak akan mengungkapkan informasi ini. ”</p>
+<p>	Klan Bai segera berdiri lagi ketika mereka mendengar Fang Yuan.</p>
+<p>	“Kamu berani mengancam kami!”</p>
+<p>	“Kamu membunuh dua pemimpin klan muda kami, dan berani menuntut batu purba ?!”</p>
+<p>	“Fang Zheng, jangan pergi terlalu jauh. Paling buruk, aku akan mempertaruhkan hidupku yang lama dan membawamu bersamaku !! ”</p>
+<p>	Kelompok itu meraung dan menggeram marah.</p>
+<p>	“Ha ha ha.” Fang Yuan melemparkan kepalanya ke belakang dan tertawa. Dia kemudian berdiri dan cahaya dingin muncul di matanya yang gelap saat dia melihat kelompok itu.</p>
+<p>	“Itu benar, aku mengancammu! Anda tidak setuju? Maka saya hanya akan membocorkan informasi ini. Apa yang kamu katakan, kamu ingin mati bersama denganku? Hmph, bahkan jika aku mati, informasi ini akan bocor ke dunia. Pada saat itu, Anda akan menjadi pendosa klan; karena kamu tidak menyetujui permintaanku, klanmu akan dikepung oleh pasukan sekitar!”</p>
+<p>	“Kamu, kamu, kamu …” Penatua Bai Feng marah sampai batasnya saat dia tanpa berkata-kata menunjuk ke arah Fang Yuan.</p>
+<p>	Klan lain juga memelototi Fang Yuan dengan mata marah sambil mengertakkan gigi, tetapi tidak ada yang bergerak.</p>
+<p>	“Kamu apa?” Fang Yuan mencibir Bai Feng, nadanya penuh dengan penghinaan, “Apa yang bisa kamu lakukan padaku? Bunuh aku? Saya punya token duri ungu, apakah Anda berani mencobanya? Aku tahu kalian semua pemberani, tidak takut mati. Tapi klan Anda adalah yang paling penting. Jika keluarga dan temanmu mati, itu semua karenamu!”</p>
+<p>	Klan Bai mengepalkan tangan mereka, berdiri tertegun di tempat.</p>
+<p>	“Ah—!” Bai Zhan Lie tiba-tiba mengangkat kepalanya dan berteriak, dia kemudian mengangkat tinjunya dan menghancurkannya.</p>
+<p>	Karena pukulannya yang ganas, seluruh meja perjamuan hancur dan piring-piring jatuh ke tanah.</p>
+<p>	Dia merasakan kebencian yang mendalam!</p>
+<p>	Kakeknya Bai Zhan Wen telah meninggal karena Fang dan Bai. Kebencian ini tidak dapat didamaikan!</p>
+<p>	Karena itu, dia bergabung dengan kelompok pengejar, terus berlarian, sekarang dia akhirnya menemukan si pembunuh…</p>
+<p>	Musuh jelas ada di depannya, tetapi dia tidak bisa berbuat apa-apa! Fang Yuan jelas berada dalam jangkauannya, tetapi dia tidak bisa membalas dendam!</p>
+<p>	Tidak hanya dia tidak bisa membalas dendam, dia masih harus menanggung ancaman Fang Yuan.</p>
+<p>	Dadanya terbakar amarah, amarah yang mengancam akan membakar langit dan sudah membakar hatinya. Tapi dia tidak bisa bergerak, dia tidak berani membayangkan akibatnya jika dia pindah. Hidupnya adalah hal kecil, tapi seluruh klan mungkin menghadapi bencana karena dia!!</p>
+<p>	“Tidak perlu marah. Sebenarnya, dalam seluruh peristiwa ini, saya juga menjadi korban.” Nada bicara Fang Yuan santai dan berkata sambil menghela nafas.</p>
+<p>	“Pikirkan saja, warisan Bai Gu awalnya milikku, tapi klan Bai-mu mencurinya dariku. Klan Bai Anda mengejar saya dan Bai Ning Bing, kami terpaksa membunuh Bai Hua dan Bai Sheng agar lebih mudah melarikan diri. Kemudian, saya menderita luka serius dan mendarat di gunung Zi You, mengalami kematian yang dekat di sepanjang jalan. Apa menurutmu itu mudah bagiku?”</p>
+<p>	“Kekuatan klan Bai Anda sangat besar dan saya tidak bisa menyinggungnya. Saya hanya bisa meringkuk di kota klan Shang, tetapi Anda masih tidak akan membiarkan saya pergi. Katakan padaku, apa yang harus aku lakukan? Saya bukan seseorang yang tidak masuk akal, tiga juta batu purba, itu adalah yang terendah yang akan saya tuju. Saya sangat tulus, saya telah menceritakan rahasia ini hanya kepada beberapa orang dan belum menyebarkannya ke luar. Saya juga sengaja mengirim klan Tie ke luar dengan pertimbangan untuk klan Bai Anda. ”</p>
+<p>	Ekspresi Fang Yuan sangat tulus.</p>
+<p>	“Tiga juta batu purba, kamu menuntut harga selangit!”</p>
+<p>	“Fang Zheng, mari kita bersikap adil, bagaimana klan Bai kami memperlakukanmu! Kami memperlakukan Anda dengan baik dengan makanan dan akomodasi, tetapi apa yang keluar dari itu? Anda membalas kebaikan kami dengan permusuhan! ”</p>
+<p>	“Dua pemimpin klan muda kami mati di tanganmu, tetua Bai Zhan Wen juga mati karenamu. Banyak klan ahli kami juga meninggal atau menjadi cacat serius saat melindungi Anda dalam perjalanan Anda di sekitar gunung Bai Gu! ”</p>
+<p>	Kelompok klan Bai semuanya memiliki ekspresi yang berbeda; beberapa sangat marah, beberapa mencibir dan beberapa menangis, tetapi mereka semua memiliki kesamaan — kebencian mereka yang mendalam terhadap Fang Yuan!</p>
+<p>	Ekspresi Fang Yuan berubah, dia tersenyum dingin: “Sepertinya kamu masih tidak menyadari situasinya, aku mencoba memberimu wajah, tetapi kamu tidak menginginkannya? Sangat baik.”</p>
+<p>	Fang Yuan berdiri dan berbalik untuk pergi.</p>
+<p>	Klan Bai langsung panik.</p>
+<p>	“Tunggu, tunggu sebentar.” Bai Feng putus asa saat dia menghindari dan memblokir Fang Yuan.</p>
+<p>	“Aku akan memberitahumu dengan jujur, aku akan pergi menjual informasi ini sekarang. Saya percaya Feng Yu Manor klan Shang akan memberikan harga yang bagus untuk itu. Bisakah Anda menebak berapa banyak mereka akan membayar saya? ” Fang Yuan tersenyum sinis.</p>
+<p>	“Fang Zheng, jangan pergi terlalu jauh!” Bai Zhan Lie meraung dan dengan cepat berjalan menuju Fang Yuan dan menatapnya mati-matian.</p>
+<p>	Fang Yuan dengan acuh tak acuh berkata: “Kamu ingin menyerangku? Anda ingin menempatkan klan Anda dalam bahaya?</p>
+<p>	Api batin Bai Zhan Lie terhenti, saat dia berdiri terpana.</p>
+<p>	Tamparan!</p>
+<p>	Fang Yuan mengambil kesempatan ini dan menampar. Dia sangat kuat dan hanya dengan sedikit kekuatan, dia mengirim Bai Zhan Lie yang energik mundur lima sampai enam langkah.</p>
+<p>	“Apa yang kamu pikir kamu lakukan ?!” Klan Bai segera berkobar dan mengepung Fang Yuan.</p>
+<p>	“Apakah kalian semua ingin menjadi pendosa klan kalian?” Fang Yuan mendengus, kata-katanya seperti es, menyiram kemarahan klan Bai yang melonjak.</p>
+<p>	“Kamu sampah yang tidak menghargai.” Fang Yuan menunjuk Bai Zhan Lie, “Jika saya tidak memberi Anda pelajaran, apakah Anda benar-benar berpikir Anda adalah Kaisar Surgawi?”</p>
+<p>	Fang Yuan tidak menahan diri untuk mencaci maki Bai Zhan Lie di depan klan Bai.</p>
+<p>	Dia selanjutnya memandang semua orang: “Kalian semua idiot! Jika saya ingin klan Bai menghadapi bencana, itu hanya membutuhkan satu kalimat dari saya! Orang bijak menyerah pada keadaan , Anda masih tidak dapat melihat situasi dengan jelas? Lakukan gerakan jika Anda mau. Ayo, bahkan jika saya mati, memiliki klan Bai Anda menemani saya dalam kematian tidak akan terlalu buruk.</p>
+<p>	Fang Yuan benar-benar terkepung, tetapi sikapnya masih tidak terkendali.</p>
+<p>	Sebaliknya itu adalah klan Bai, yang jumlahnya lebih besar, yang harus menyerah sambil mengertakkan gigi dan mengepalkan tangan.</p>
+<p>	Bai Zhan Lie memegangi wajahnya yang bengkak, matanya memerah. Penghinaan ini hampir menyebabkan kemarahan di hatinya meledak ke sembilan langit. Pembuluh darah di dahinya menonjol keluar saat dia mencoba yang terbaik untuk mempertahankan bagian terakhir dari alasan yang tersisa di benaknya.</p>
+<p>	Klan adalah titik lemah mereka; Fang Yuan menargetkan ini dan juga menunjukkan sikap yang tidak takut mati, menyebabkan klan Bai jatuh ke dalam situasi tanpa harapan di mana mereka hanya bisa mentolerir Fang Yuan.</p>
+<p>	“Aku akan memberimu tiga puluh napas waktu untuk dipertimbangkan.” Fang Yuan melanjutkan.</p>
+<p>	Kelompok klan Bai segera jatuh ke dalam perjuangan.</p>
+<p>	Mereka tidak ingin menundukkan kepala kepada Fang Yuan, pembunuh ini. Namun, jika mereka tidak menundukkan kepala, klan mereka akan berada dalam bahaya.</p>
+<p>	Mereka bingung dan mereka semua melihat ke arah penatua Bai Feng.</p>
+<p>	Tinju Bai Feng yang terkepal perlahan mengendur sebelum dia kembali mengepalkannya dan melepaskannya setelah beberapa saat.</p>
+<p>	Ini berlanjut lagi dan lagi, menunjukkan pergumulan di dalam hatinya.</p>
+<p>	Tiga puluh napas waktu berlalu, tetapi Fang Yuan sepertinya telah melupakannya.</p>
+<p>	Bai Feng tidak sabar, tapi dia hanya membuka mulutnya setelah lima menit, memecah kesunyian.</p>
+<p>	“Tiga juta… terlalu banyak. Kami tidak bisa menyetujui ini. Selain itu, kami tidak memiliki banyak uang untuk kami! ” Suaranya serak seperti orang yang akan mati kehausan di padang pasir.</p>
+<p>	Dia dengan lesu mengendurkan tangannya, tidak memiliki kekuatan lagi untuk mengepalkannya lagi.</p>
+<p>	Untuk klan, dia tidak punya pilihan selain memprioritaskan situasi secara keseluruhan. Meskipun berharap dia bisa memotong Fang Yuan menjadi beberapa bagian, dia memilih untuk menundukkan kepalanya untuk saat ini.</p>
+<p>	Klan Bai lainnya juga merasa hati mereka lega setelah mendengar kata-katanya. Niat membunuh mereka terhadap Fang Yuan tenggelam ke dalam bayang-bayang, menjadi lebih tebal dan lebih dalam.</p>
+<p>	Fang Yuan tertawa: “Tiga juta tidak perlu dibayar penuh, ambil saja perlahan, untuk saat ini serahkan lima ratus ribu.”</p>
+<p>	“Lima ratus ribu? Mengapa kita membawa begitu banyak batu purba bersama kita ?! ” Bai Feng membantah.</p>
+<p>	Alis Fang Yuan terangkat: “Kamu bisa meminjam dari rentenir, menggadaikan barang-barangmu atau bahkan menjual cacing Gu… apapun yang kamu lakukan, aku membutuhkan lima ratus ribu batu purba dalam sehari. Selain itu, saya tidak ingin melihat orang-orang dari klan Bai tinggal di kota klan Shang!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

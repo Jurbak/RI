@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 135 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 135";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_134.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 135">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_136.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 135</h1>
+        <div class="text-left">
+<p>	Bab 135</p>
+<p>	Babak 135: Jiwa Es Gelap Utara, Sepuluh Bakat Ekstrim</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Apa?!” Xiong Lin tercengang.</p>
+<p>	“Menjarah Gu? Hanya ada satu orang yang memiliki cacing Gu ini di gunung Qing Mao dan itu adalah sepupuku Xiong Zhan!!” Wajah Xiong Jiang berubah suram.</p>
+<p>	Xiong Li memejamkan matanya, cahaya terang berkelap-kelip di dalamnya. Orang lain mungkin takut pada Bai Ning Bing dan bahkan dia takut, tetapi ketakutan ini tidak mewakili kelemahan dan kepengecutannya. Di dalam hatinya, sudah lama ada pikiran untuk mengorbankan dirinya demi klan; dia memiliki resolusi untuk bertarung sampai mati dengan Bai Ning Bing!</p>
+<p>	“Bai Ning Bing, apakah Gu Perampasan ada di tanganmu?” Dia melangkah maju dan menghadap Bai Ning Bing, membiarkan Fang Yuan melewatinya.</p>
+<p>	Bai Ning Bing tertawa dingin, “Jadi bagaimana jika?”</p>
+<p>	Wajah Xiong Jiang muram seperti air dan bertanya, “Katakan padaku bagaimana sepupuku meninggal? Mengapa cacing Gu-nya ada di tanganmu?”</p>
+<p>	Xiong Lin juga bertanya, “Bai Ning Bing, saya menghormati Anda sebagai senior saya, tetapi Anda diam-diam merebut cacing Gu klan Xiong kami dan tidak menyerahkannya. Ini adalah pelanggaran terbuka terhadap perjanjian aliansi!”</p>
+<p>	Setelah dia berbicara, dia mengangkat Signal Gu di tangannya.</p>
+<p>Dengan ledakan, kembang api yang cerah meledak di langit.</p>
+<p>	Cahaya warna-warni dari kembang api menyinari wajah Bai Ning Bing. Dia tertawa, “Saya tidak pernah peduli dengan perjanjian aliansi kotoran anjing. Saya hanya melihat seseorang menggunakan Plunder Gu dan berpikir itu menarik, jadi saya mengumpulkannya.”</p>
+<p>	Xiong Jiang tidak bisa menahan amarahnya saat mendengar ini. Dia berteriak marah dan menyerang Bai Ning Bing, “Bai Ning Bing, kamu melihat saat sepupuku bertarung sampai mati dan tidak membantu. Anda bajingan!”</p>
+<p>	Kelompok lima orang itu merupakan satu kesatuan yang utuh. Untuk alasan pribadi atau pribadi, kelompok Xiong Li tidak dapat didamaikan dengan Bai Ning Bing.</p>
+<p>	Pertarungan itu sulit dihindari; adegan segera berubah kacau.</p>
+<p>	Di satu sisi adalah Bai Ning Bing menghadapi serangan kelompok Xiong Li; di sisi lain, mereka dikelilingi oleh kawanan serigala dan masih harus menghadapi serangan mereka.</p>
+<p>	Fang Yuan meninggalkan medan perang dan dengan tenang melihat dari jauh.</p>
+<p>	Kelompok serigala itu bergerak bersama seperti batu kilangan besar, dan enam Master Gu bertarung dengan nyawa mereka; kecerobohan sekecil apa pun bisa membuat mereka masuk ke mulut serigala.</p>
+<p>	Xiong Jiang menggunakan Roaming Zombie Gu, kedua iris matanya berubah menjadi hijau suram; Kedua mata Xiong Li berwarna merah sedangkan sepasang pupil Bai Ning Bing berwarna biru seperti kristal. Pertarungan antara ketiganya adalah yang paling intens di medan perang.</p>
+<p>	Di bawah kemampuan Roaming Zombie Gu, Xiong Jiang berubah menjadi zombie; pertahanannya diperkuat terhadap air dan es, menahan serangan Bai Ning Bing. Xiong Li menggunakan Grand Bear Gu; dengan kekuatan dua beruang, tinjunya yang seukuran mangkuk tanpa saingan dan bahkan penghalang air Bai Ning Bing hancur di bawah serangan mereka.</p>
+<p>	Tidak mudah bagi tiga anggota kelompok yang tersisa untuk ikut campur dalam pertarungan ini, mereka hanya bisa melakukan yang terbaik untuk melawan serigala petir. Serigala petir yang berani yang dipikat oleh Fang Yuan bisa dengan mudah ditangani, tetapi itu telah berubah menjadi ancaman besar sekarang.</p>
+<p>	“Bai Ning Bing, kamu akan membayar untuk apa yang telah kamu lakukan!” Xiong Jiang berteriak dan menyerang Bai Ning Bing.</p>
+<p>	“Hmph, hanya denganmu?” Bai Ning Bing dengan dingin tersenyum. Dia dengan gesit melompat ke belakang, menarik diri agak jauh dan mengayunkan tangan kirinya, mengeluarkan es seukuran lima jari.</p>
+<p>	Es itu mengenai tubuh Xiong Jiang tetapi Xiong Jiang tidak merasakan sakit apapun. Ketika dia berubah menjadi zombie, bahkan jika tangan dan kakinya patah, dia tidak akan merasakan sakit.</p>
+<p>	Aura dingin di es bisa membekukan dan memperlambat gerakan orang biasa, tetapi itu hanya terasa sejuk dan menyegarkan bagi Xiong Jiang. Fisik zombie milik fisik yin; itu memiliki ketahanan yang rendah terhadap api, kilat dan sinar matahari, tetapi sangat kuat terhadap jenis aura dingin ini.</p>
+<p>	“Bai Ning Bing, kamu masih bermain dalam situasi ini? Lepaskan kekuatanmu yang sebenarnya!” Xiong Li berteriak dengan marah.</p>
+<p>	Bai Ning Bing telah menekan basis kultivasinya ke Peringkat dua sejak awal dan juga sebagian besar menggunakan Gu Peringkat dua.</p>
+<p>	Xiong Li merasa seperti sedang dihina, dia merasa dipermalukan yang menyebabkan amarahnya semakin membara.</p>
+<p>	“Hahaha, bagaimana kamu bisa memiliki karakter kecil yang memiliki kualifikasi untuk membuatku menggunakan kekuatan penuhku?” Bai Ning Bing dengan dingin tertawa; serangannya menjadi lebih kuat tetapi dia masih menekan kekuatannya dan tidak menggunakan cacing Gu peringkat tiga.</p>
+<p>	Fang Yuan yang melihat dari jauh dengan tangan bersilang, jelas mengerti alasannya.</p>
+<p>	“Bukannya dia tidak ingin melepaskan kekuatannya yang sebenarnya, tapi dia tidak bisa menggunakannya. Bai Ning Bing, heh, dia memiliki fisik Jiwa Es Gelap Utara….”</p>
+<p>	Dalam legenda tertua di dunia ini, semua manusia adalah keturunan Ren Zu.</p>
+<p>	Tapi seperti kata pepatah, naga memiliki sembilan putra yang unik. Tidak ada dua orang yang benar-benar sama, dan bahkan saudara kembar pun memiliki perbedaan.</p>
+<p>	Di dunia ini, perbedaan yang menjadi perhatian terbesar adalah bakat.</p>
+<p>	Mereka yang memiliki bakat untuk berkultivasi bisa menjadi Master Gu, melampaui yang biasa. Mereka yang tidak memiliki bakat kultivasi hanyalah manusia, level terendah dalam masyarakat, yang dapat diinjak-injak dan dimainkan.</p>
+<p>	Bakat budidaya dibagi menjadi empat tingkatan; Kelas A, Kelas B, Kelas C, dan Kelas D. Semua orang tahu ini.</p>
+<p>	Tapi sebenarnya, masih ada bakat yang lebih menonjol di atas nilai A.</p>
+<p>	Ini adalah rahasia. Klan tidak akan pernah sembarangan menyebarkan ini, dan hanya setelah mencapai status tertentu dalam masyarakat, seseorang dapat mengetahui rahasia ini.</p>
+<p>	Xiong Li dan yang lainnya secara alami tidak tahu, bahkan para tetua dan pemimpin klan mungkin tidak tahu. Tapi Fang Yuan, yang telah mencapai Peringkat enam di kehidupan sebelumnya, melepaskan tubuh fananya dan menjadi Gu abadi, secara alami menyadari hal ini.</p>
+<p>	Ada sepuluh jenis bakat di atas nilai A dan mereka secara kolektif disebut Sepuluh Fisik Ekstrim.</p>
+<p>	“Sebelum Ren Zu meninggal, dia melahirkan sepuluh anak. Putra tertua Verdant Great Sun, putri kedua Desolate Ancient Moon….. Di antara sepuluh, ada satu bernama Northern Dark Ice Soul. Legenda Ren Zu baik nyata atau palsu, menyinggung banyak rahasia dalam kultivasi Guru Gu. Sepuluh anak Ren Zu secara individual mewakili sepuluh jenis bakat tertinggi. ” Fang Yuan ingat.</p>
+<p>	“Salah satu dari sepuluh fisik ekstrem lebih unggul dari bakat kelas A. Bakat kelas A yang paling baik hanya dapat menyimpan sembilan puluh sembilan persen esensi purba di aperture mereka. Tapi salah satu dari sepuluh fisik ekstrem itu memegang seratus persen esensi purba penuh di lubangnya!”</p>
+<p>	“Namun, semuanya ada dalam keseimbangan; sepuluh fisik ekstrim yang memegang seratus persen esensi purba terlalu sempurna dan surga tidak akan dengan mudah membiarkan keberadaan mereka. Misalnya, dalam cerita Ren Zu, sepuluh anaknya tidak berumur panjang. Pada kenyataannya, sulit bagi Master Gu yang memiliki sepuluh fisik ekstrem untuk tumbuh dan dewasa, hampir semuanya mati sebelum waktunya. Tentu saja, jika mereka benar-benar dapat tumbuh menjadi peringkat enam, mereka akan mampu menyapu lawan yang sama dan bahkan melakukan keajaiban seperti bertarung dengan peringkat yang lebih tinggi!”</p>
+<p>	“Bai Ning Bing yang memiliki Jiwa Es Gelap Utara adalah sama. Dengan esensi purba seratus persen, aperture-nya terlalu tertekan dan berisiko runtuh setiap saat. Untuk mengurangi risiko ini, Bai Ning Bing harus mengolah dan menggunakan esensi purba untuk memelihara dinding aperture-nya dan meningkatkan kekuatannya untuk dapat mendukung esensi purba seratus persen. Dengan demikian, kecepatan kultivasinya luar biasa dan mengejutkan. ”</p>
+<p>	“Namun, kultivasi tinggi berarti esensi purba berkualitas lebih tinggi yang selanjutnya meningkatkan tekanan pada aperture, alih-alih meningkatkan risiko. Bai Ning Bing seperti korban dalam satu perahu di laut; dia tidak memiliki air tawar dan hanya bisa meminum air laut untuk menghilangkan rasa hausnya, tetapi air laut itu asin dan malah akan menyerap kadar air asli dari tubuh, membuatnya semakin haus.”</p>
+<p>	“Semakin tinggi kultivasinya, semakin dekat dia dengan kehancuran. Namun dia tidak bisa memilih untuk tidak berkultivasi, karena berasal dari desa Bai dan orang yang menjadi harapan klan, dia juga akan menghadapi pembunuhan dari desa Xiong dan Gu Yue. Ini memaksanya untuk terus tumbuh lebih kuat. Menjadi pemilik Jiwa Es Gelap Utara, dia jelas memahami situasinya. Mengetahui dia tidak punya banyak waktu lagi dan kematiannya pasti, dia telah membentuk temperamen ini. ”</p>
+<p>	Fang Yuan menghela nafas ketika dia memikirkan ini.</p>
+<p>	Ini jelas sebuah ironi.</p>
+<p>	Kecakapan yang sangat luar biasa tidak membuat seorang Guru Gu mengalami peningkatan pesat, tetapi akan menjadi penyebab utama di balik kematian mereka.</p>
+<p>	Terlalu banyak sama buruknya dengan terlalu sedikit; orang perlu minum air dan makan, tetapi jika mereka makan dan minum berlebihan, mereka bisa mati.</p>
+<p>	Dari sudut lain, tidak peduli dunia mana, tidak ada kesempurnaan sejati. Tidak ada cinta yang sempurna, tidak ada pekerjaan yang sempurna.</p>
+<p>	Terlalu sempurna hanya akan membawa kehancuran.</p>
+<p>	Dalam kehidupan Fang Yuan sebelumnya, tiga tahun setelah gelombang serigala, kultivasi Bai Ning Bing pasti mencapai peringkat empat alam. Aperturnya tidak dapat menahan beban dari esensi purba dan akhirnya meledak.</p>
+<p>	Sepuluh fisik ekstrem tidak ditoleransi oleh langit dan bumi, dan ledakan diri dari hal yang menantang surga seperti lagu yang paling sempurna, kekuatannya luar biasa; secara langsung memusnahkan semua orang di tiga desa dan mengubah seluruh Gunung Qing Mao menjadi wilayah es kematian mutlak.</p>
+<p>	Untungnya pada saat itu, karena Fang Zheng yang telah mempersulit Fang Yuan yang hanya memiliki kultivasi rata-rata, Fang Yuan hanya bisa bergabung dengan karavan untuk pergi, sehingga untungnya menghindari bencana ini.</p>
+<p>	Untuk menunda kematiannya, Bai Ning Bing menggunakan cacing Gu untuk mencairkan esensi purba perak peringkat tiga menjadi esensi purba baja merah peringkat dua, atas kemauannya sendiri. Dia juga jarang menggunakan cacing peringkat tiga Gu secara bersamaan.</p>
+<p>	Ini hanya karena cacing peringkat tiga Gu mengkonsumsi sejumlah besar esensi purba baja merah setiap saat, mengakibatkan kekuatannya berkurang jika terus berlanjut. Sebaliknya, lebih baik untuk terus menggunakan cacing peringkat dua Gu yang akan jauh lebih membantu Bai Ning Bing dalam pertempuran.</p>
+<p>Inilah alasan sebenarnya Bai Ning Bing menekan kultivasinya.</p>
+<p>Jika tidak, memiliki kekuatan tetapi memilih untuk mengikat tangan dan kaki sendiri, mendarat dalam keadaan berbahaya, adalah sesuatu yang hanya dilakukan oleh orang bodoh yang tidak memiliki otak.</p>
+<p>	Bai Ning Bing cerdas dan cerdas, dia telah menerima pelatihan dan pendidikan yang hebat, jadi bagaimana dia bisa melakukan hal bodoh seperti itu?</p>
+<p>	Kecuali, temperamen seperti itu di usianya yang masih muda memang tidak biasa. Tetapi sebagai seseorang yang akan mati, mengapa dia memiliki keraguan dalam perilakunya?</p>
+<p>	Pengabaian dan keberanian seperti itu mencegahnya berasimilasi ke dalam sistem, dan memelihara hati jalan iblis dalam dirinya.</p>
+<p>	Jika tidak, dengan lingkungan hidupnya – harapan yang tak terhitung, pelatihan yang hebat, kehormatan, melawan musuh, masa depan yang cerah – dia telah berasimilasi ke dalam sistem organisasi dan memelihara temperamen seorang pemimpin.</p>
+<p>	Bai Ning Bing sebenarnya adalah anak yang menyedihkan, dan Fang Yuan tidak ingin berurusan dengannya sebelumnya. Tetapi karena dia ingin membunuh Fang Yuan, Fang Yuan juga tidak keberatan memanfaatkannya terlebih dahulu sebelum menghilangkan kemalangan ini lebih awal.</p>
+<p>	Pertempuran masih berlanjut.</p>
+<p>	Saat ini, situasinya sudah berubah.</p>
+<p>	Serigala petir yang berani dibunuh oleh Bai Ning Bing dan kawanan serigala itu melarikan diri dengan kekalahan. Gu Master penyembuhan kelompok Xiong Li jatuh di bawah pedang Bai Ning Bing tetapi dia telah membayar harga yang mahal untuk ini; lengan kanannya ditinju dengan kejam oleh Xiong Li dan tampaknya patah karena tergantung lemas sepanjang pertempuran.</p>
+<p>	Namun, semua ini tidak bisa menghalangi dia untuk menempati posisi teratas.</p>
+<p>	Xiong Li adalah elit teratas di antara Master Gu peringkat dua, kekuatannya setara dengan Qing Shu dan Chi Shan. Xiong Jiang adalah ahli pertahanan yang baru naik daun. Xiong Lin adalah pemula yang jenius dan sekarang memiliki kekuatan pertempuran peringkat dua. Ada juga Guru Gu lain, tetapi bahkan setelah menggabungkan kekuatan mereka, keempatnya masih ditekan oleh Bai Ning Bing.</p>
+<p>	Orang harus tahu Bai Ning Bing telah bertempur sebelumnya yang telah menghabiskan banyak esensi purba baja merahnya. Dia juga membunuh serigala petir yang berani dan Gu Master yang menyembuhkan, mengakibatkan lengan kanannya kehilangan kemampuannya untuk bergerak; dia hanya bisa meninggalkan menggunakan pisau esnya dengan tangan kanannya yang biasa dan beralih ke kirinya. Dengan melakukan ini, dia harus meninggalkan penggunaan esnya untuk sementara; kekuatan ofensifnya hampir berkurang setengahnya.</p>
+<p>	Dia masih berada di atas angin dalam situasi seperti itu dan dominasinya bahkan menjadi lebih solid.</p>
+<p>	“Bagaimanapun, itu adalah fisik Jiwa Es Gelap Utara. Meskipun ia menggunakan cacing Gu untuk mencairkan esensi purba dan menyegel keuntungan sebenarnya dari fisik Jiwa Es Gelap Utara, kecepatan pemulihan esensi purba masih dipertahankan. Keuntungannya akan terus meningkat semakin lama pertempuran berlangsung. ” Fang Yuan melihat situasinya dan menghela nafas dalam hati.</p>
+<p>	“Kekuatan pertempuran saya saat ini tidak cukup untuk mengalahkannya,” Fang Yuan dengan tenang mengakui hal ini.</p>
+<p>	Fang Yuan hanya memiliki bakat kelas C dengan 44% esensi purba. Bahkan kekuatan gabungan dari Xiong Li, Xiong Lin dan Xiong Jiang dari bakat kelas B ditekan oleh Bai Ning Bing. Jelas bahwa jika Fang Yuan menghadapi Bai Ning Bing sendirian, situasinya hanya akan menjadi lebih sulit daripada Xiong Li dan yang lainnya.</p>
+<p>	“Namun, tidak bisa mengalahkanmu bukan berarti aku tidak bisa membunuhmu.” Fang Yuan dengan dingin tersenyum.</p>
+<p>	Ini adalah akumulasi kebijaksanaan dari lima ratus tahun pengalaman.</p>
+<p>	Meskipun mereka memiliki refleksi yang sama, dibandingkan dengan iblis berusia berabad-abad ini, Bai Ning Bing hanyalah iblis kecil yang dipaksa oleh nasibnya yang kejam.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

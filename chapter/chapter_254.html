@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 254 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 254";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_253.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 254">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_255.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 254</h1>
+        <div class="text-left">
+<p>	Bab 254</p>
+<p>	Bab 254: Serangan tentara zombie</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ding Hao menatap karavan dari dasar gunung saat dia bersembunyi di balik semak-semak, menjilati bibirnya dengan penuh semangat.</p>
+<p>	“Menurut informasi di gua, selama aku membunuh seribu orang dan mengumpulkan pasukan zombie, aku bisa meninggalkan tempat ini dan pergi ke gunung Zhao Ze untuk menjadi murid resmi master!”</p>
+<p>	Ding Hao awalnya seorang penduduk desa tetapi direkrut menjadi buruh oleh karavan yang lewat.</p>
+<p>	Namun, karavan diserang oleh sejumlah besar zombie ketika mereka melewati gunung Mu Bei. Dia ditinggalkan bersama dengan lusinan pelayan lainnya, sebagai umpan meriam.</p>
+<p>	Sementara semua pelayan lainnya mati satu demi satu, dia berlari jauh ke dalam gunung dengan panik. Tepat ketika dia didorong ke sudut, dia menemukan sebuah gua; tidak ada zombie yang berani mendekati gua ini.</p>
+<p>	Dia memasuki gua ini dan menemukan warisan iblis.</p>
+<p>	Ternyata, ini adalah warisan tersembunyi dari Guru Gu iblis yang membunuh seluruh klan dan mendirikan batu nisan di reruntuhan.</p>
+<p>	Warisan ini sangat tersembunyi dan hanya manusia yang diizinkan untuk mewarisinya.</p>
+<p>	Ding Hao membangunkan lubangnya di gua ini dan mulai berkultivasi, melewati setiap ujian satu per satu.</p>
+<p>	Dia hanya memiliki bakat kelas C pada awalnya, tetapi dengan penggunaan Gu langka di dalam gua, bakatnya ditingkatkan ke kelas B.</p>
+<p>	Dia berkonsentrasi penuh pada kultivasi, dan setelah menghabiskan lebih dari delapan tahun, dia mencapai peringkat tiga ranah yang merupakan kriteria untuk memasuki ruang rahasia terakhir.</p>
+<p>	Ruang rahasia terakhir berisi lempengan batu yang memiliki prasasti yang ditinggalkan oleh Guru Gu iblis itu: Saya mengaku sebagai Raja Zombie Kedua. Jika seseorang yang ditakdirkan benar-benar tiba di sini, jika Anda menginginkannya, Anda dapat pergi ke gunung Zhao Ze untuk menjadi murid resmi saya dan mengikuti saya untuk menjelajahi Perbatasan Selatan.</p>
+<p>	Sebagai ujian terakhir, Raja Zombie Kedua mengharuskan pewaris untuk membunuh ribuan orang dan juga mengumpulkan pasukan zombie yang besar. Ada standar terperinci untuk pengujian, seperti berapa banyak zombie rambut putih, zombie rambut hitam, dan zombie rambut hijau yang harus ada di pasukan zombie. Namun, jika ada zombie berambut biru, cukup satu saja untuk memenuhi kondisinya.</p>
+<p>	Ding Hao adalah orang yang jujur ​​dan orang jujur ​​biasanya memiliki kelebihan; mereka teguh.</p>
+<p>	Dia berkultivasi di gunung Mu Bei sendirian selama lebih dari delapan tahun. Dia harus menanggung keheningan dan kesepian, hanya memiliki zombie sebagai teman-temannya saat dia berkultivasi sedikit demi sedikit ke peringkat tiga.</p>
+<p>	Dia adalah seorang pelayan yang hanya bisa menjadi penonton dunia Gu Masters, sehingga dia tidak mengerti banyak hal.</p>
+<p>	Selama masa kebingungannya, tulisan di lempengan batu ini tidak diragukan lagi memberinya arah dan tujuan yang sama sekali baru untuk diperjuangkan.</p>
+<p>	Fakta bahwa Raja Zombie Kedua juga pernah menjadi pelayan dan latar belakang mereka serupa, semakin menggema di hati Ding Hao.</p>
+<p>	Setelah membaca prasasti, Ding Hao mulai membunuh orang dan mengumpulkan pasukan zombienya.</p>
+<p>	Ding Hao segera menyadari bahwa kedua misi ini sebenarnya saling melengkapi; dia bisa menggunakan mayat orang yang dia bunuh untuk mendapatkan zombie baru dan zombie baru itu bisa meningkatkan kekuatannya untuk membunuh lebih banyak orang.</p>
+<p>	Gunung Mu Bei terletak di salah satu dari tiga rute perdagangan terpenting di Perbatasan Selatan dengan karavan yang melewatinya setiap bulan.</p>
+<p>	Ding Hao menghabiskan tiga tahun lagi untuk mencapai titik di mana dia hampir menyelesaikan misi.</p>
+<p>	Karavan di kaki gunung ini akan menjadi batu loncatan terakhirnya menuju kesuksesan! Dan itu adalah mangsa yang sempurna!</p>
+<p>	Ada karavan dengan berbagai ukuran, ada yang besar dan ada yang kecil; Ding Hao tidak bisa melakukan apa-apa selain bersembunyi jauh setiap kali karavan skala besar lewat. Dia tidak berani menyerang karavan skala menengah juga. Hanya melawan karavan skala kecil ini, Ding Hao dapat bergerak dan diam-diam memerintahkan zombie untuk menyerang.</p>
+<p>	Ketika keberuntungannya bagus, karavan-karavan ini akan meninggalkan beberapa ternak atau pelayan untuk melarikan diri; ketika peruntungannya buruk dan mengalami beberapa kacang yang sulit, zombie akan dibantai dan menimbulkan kerugian besar baginya. Pada saat itu, dia hanya bisa perlahan mengumpulkan lebih banyak zombie lagi.</p>
+<p>	Namun, karavan ini lebih kecil dari karavan skala kecil dan tampaknya telah mengalami kerusakan besar. Itu seperti orang tua yang berjuang di ambang kematian yang bisa jatuh dengan dorongan ringan.</p>
+<p>	Ding Hao yakin dia bisa menangani karavan ini.</p>
+<p>	Dia bahkan merasa ini adalah hadiah yang dikirim oleh surga.</p>
+<p>	Saat itu malam hari, awan gelap melintas di langit, menyembunyikan bulan.</p>
+<p>	Cahaya redup di sekitar perkemahan.</p>
+<p>	“Membunuh.” Mata Ding Hao tiba-tiba menjadi cerah sesuai keinginannya. Tentara zombie yang sudah diatur dengan baik bergerak diam-diam menuju kamp dari segala arah.</p>
+<p>	“Suara apa ini?” Seorang Gu Master investigasi yang sangat waspada yang ditempatkan di luar kamp tampaknya telah mendengar sesuatu.</p>
+<p>	“Apa itu?!” Beberapa Master Gu di sampingnya tegang.</p>
+<p>	Lima Master Gu tanpa bergerak menatap kegelapan di depan mereka.</p>
+<p>	Meskipun bulan tertutup oleh awan gelap, ada api unggun besar yang menyala di kamp.</p>
+<p>	Api unggun menghasilkan suara berderak saat angin melewatinya.</p>
+<p>	Di tengah nyala api yang berkelap-kelip, seekor zombie yang ditutupi dengan rambut putih melompat ke dalam penglihatan Gu Master investigasi.</p>
+<p>	Beberapa Master Gu saling memandang sebelum tertawa terbahak-bahak.</p>
+<p>	“Haha, zombie rambut putih.”</p>
+<p>	“Tsk, tidak khawatir tentang apa pun, membuatku takut sekali.”</p>
+<p>	“Xiao San, pergi dan urus zombie sial ini …” Pemimpin kelompok Gu Masters ini berkata dengan acuh tak acuh.</p>
+<p>	Zombie rambut putih sangat lemah, bahkan lebih lemah dari binatang buas biasa.</p>
+<p>	“Iya Bos.” Seorang Guru Gu muda tertawa dan berjalan menuju zombie.</p>
+<p>	“Hati-hati dengan racun mayatnya, itu akan merepotkan jika kamu terinfeksi karena aku tidak memiliki penangkal tipe Gu.” Master penyembuhan dalam kelompok itu mengingatkan.</p>
+<p>	“Mengerti, mengerti. Apakah Anda menganggap saya sebagai anak berusia tiga tahun? Tuan Gu muda dengan tidak sabar melambaikan tangannya.</p>
+<p>	Jika dia benar-benar terinfeksi racun mayat, dia bisa meminta Master Gu lain untuk menyembuhkannya, tetapi biayanya minimal setengah batu purba.</p>
+<p>	Namun, zombie rambut putih menyerang dalam pola yang ditetapkan dan mudah dihindari. Tuan Gu muda telah membunuh banyak dari mereka sejak memasuki gunung Mu Bei.</p>
+<p>	“Tidak perlu khawatir tentang hal ini selama aku memperhatikan menghindar… ugh!” Tuan Gu muda bergumam pada dirinya sendiri ketika dia tiba-tiba berhenti di tempat, suaranya tertahan di tenggorokannya.</p>
+<p>	Pupil matanya mengecil dengan cepat dan mulutnya terbuka lebar; wajahnya mengungkapkan ekspresi yang sangat ketakutan.</p>
+<p>	“Apa itu?” Empat Master Gu di belakang merasakan sesuatu yang salah dan segera bertanya.</p>
+<p>	Tuan Gu muda itu sadar, seluruh tubuhnya bergetar seolah-olah tersengat listrik sebelum dia segera berbalik dan mulai berlari.</p>
+<p>	“Cepat, bunyikan alarm. Ada zombie!” Dia berteriak, wajahnya dipenuhi ketakutan yang luar biasa.</p>
+<p>	“Itu hanya zombie rambut putih, kenapa kamu panik … ap, apa-apaan-!”</p>
+<p>	Keempat Master Gu semuanya berteriak.</p>
+<p>	Ada beberapa ratus zombie rambut putih melompat ke arah kamp. Ada juga zombie rambut hitam yang lebih kuat bercampur di dalam gerombolan itu.</p>
+<p>	Di bawah penerangan api unggun, orang bisa melihat sosok yang tumpang tindih dalam kegelapan tetapi tidak ada yang tahu berapa banyak zombie yang maju.</p>
+<p>	Dentang Dentang Dentang…</p>
+<p>	Di kamp yang sepi, suara lonceng tiba-tiba berbunyi.</p>
+<p>	“Ada kelompok zombie bergerak menuju kamp!”</p>
+<p>	“Mereka telah mengepung seluruh perkemahan!”</p>
+<p>	“Cepat, cepat, semua orang bersiap untuk bertahan …”</p>
+<p>	Jia Long dan beberapa wakil pemimpin memanjat dinding kayu dan mengamati situasinya, ekspresi mereka sangat muram.</p>
+<p>	“Sialan, dewa mana yang membuat karavan ini tersinggung, nasib yang sangat buruk!”</p>
+<p>	“Saya telah ke gunung Mu Bei belasan kali tetapi belum pernah melihat kelompok zombie skala besar seperti itu …”</p>
+<p>	“Tidak ada gunanya mengeluh. Karena kita tidak dapat mengubah situasi ini, kita harus berjuang dengan nyawa kita jika kita ingin hidup!”</p>
+<p>	“Kita harus menggabungkan kekuatan kita dan mengalahkan kelompok zombie ini!”</p>
+<p>	Semua orang di kamp merasakan semangat mereka meningkat saat mereka menggeram marah. Sebaliknya, pasukan zombie benar-benar diam, selain suara lompatan dan pendaratan yang konstan.</p>
+<p>	Susunan pasukan di kedua sisi membentuk kontras yang aneh dan jelas.</p>
+<p>	Pertempuran berlangsung sepenuhnya.</p>
+<p>	Master Gu mengandalkan pertahanan dinding kayu dan meluncurkan semua jenis serangan jarak jauh. Semua jenis warna berkelebat di sekitar perkemahan; es, bola api, tanaman merambat, batu-batu besar yang menggelinding dan sebagainya bertabrakan tepat ke barisan depan zombie.</p>
+<p>	Sejumlah besar zombie rambut putih jatuh; dipotong-potong, dibakar menjadi abu, dibekukan menjadi es batu atau digulung menjadi pasta daging.</p>
+<p>	“Bunuh, bantai mereka semua. Hahaha…” Ding Hao mengamati semua ini dari atas gunung dengan senyum dingin di wajahnya.</p>
+<p>	Dia bukan lagi pria yang tidak berpengalaman seperti dulu. Zombi rambut putih ini adalah umpan meriam yang dimaksudkan untuk menyia-nyiakan esensi purba Master Gu.</p>
+<p>	Benar saja, setelah beberapa waktu, serangan Master Gu menjadi lebih jarang dan lemah.</p>
+<p>	“Saya kehabisan tenaga, saya tidak punya banyak esensi purba yang tersisa.”</p>
+<p>	“Saya juga perlu memulihkan esensi purba saya!”</p>
+<p>	“Adakah yang bisa menggantikan posisiku? Sial, kenapa zombie rambut putih ini tidak berkurang?”</p>
+<p>	Ada terlalu sedikit Master Gu di karavan sementara zombie berambut putih tampaknya tidak ada habisnya; akhirnya, mereka mampu menahan tekanan dan mencapai dinding kayu.</p>
+<p>	Di bawah serangan kelompok zombie, dinding kayu mentah yang dibangun sementara ini segera mengeluarkan suara berderit yang berbahaya.</p>
+<p>	“Sialan, blokir mereka, blokir mereka!”</p>
+<p>	“Panggil pasukan cadangan.”</p>
+<p>	Kedua belah pihak memasuki jalan buntu di sekitar dinding kayu. Satu sisi menyerang ke depan sementara sisi lain menjaga penghalang ini. Kerugian besar pada zombie rambut putih menyebabkan hati Ding Hao sakit.</p>
+<p>	“Sekarang giliranmu, sayangku.” Dengan pikiran di benaknya, sekelompok zombie berambut hitam menyerbu ke depan dari belakang dan memasuki medan perang.</p>
+<p>	Zombi berambut putih itu lambat dan bisa terkena sinar matahari, jadi mereka tidak bisa bergerak di siang hari. Jika mereka memakan darah selama bertahun-tahun, mereka bisa berevolusi menjadi zombie rambut hitam. Zombie rambut hitam ditutupi dengan rambut hitam, kekuatan dan kemampuan bertahan mereka lebih kuat daripada zombie rambut putih, dan kecepatan melompat mereka jauh lebih cepat. Meskipun mereka masih menerima kerusakan dari sinar matahari, mereka tidak takut seperti zombie rambut putih.</p>
+<p>	Zombi rambut hitam memiliki kekuatan seratus raja binatang!</p>
+<p>	Ding Hao mengirim lebih dari lima puluh zombie rambut hitam dalam kelompok ini; mereka semua maju ke depan dalam kelompok. Mereka mencari celah di tembok pertahanan kamp dan segera menghancurkan sebagian seperti ranting kering.</p>
+<p>	Meskipun kamp mengirim lebih banyak tenaga untuk memperkuat celah ini, beberapa zombie rambut hitam masih dapat menyerbu ke kamp dalam.</p>
+<p>	Zombie rambut hitam menyapu lengannya dan mengirim peringkat satu Gu Master terbang.</p>
+<p>	Master Gu jatuh ke tanah dan tidak bisa segera berdiri. Zombie berambut hitam menerkamnya.</p>
+<p>	“Aku sudah selesai!” Master Gu menutup matanya dengan putus asa tetapi tiba-tiba dia mendengar suara keras.</p>
+<p>	Dia membuka matanya; sosok kuat menghalangi di depannya, sementara zombie berambut hitam itu runtuh jauh.</p>
+<p>	“Itu adalah Tuan Hei Tu dari Klan Zhang!” Hati Tuan Gu bergetar.</p>
+<p>	Grr!</p>
+<p>	Dada zombie berambut hitam itu telah runtuh dari pukulan Fang Yuan tetapi tidak mati, melainkan melompat dan menyerbu ke arah Fang Yuan.</p>
+<p>	Fang Yuan ditutupi dengan lapisan baju besi cahaya putih. Dia sedikit mengerutkan kening dan menunggunya mendekat, lalu dia meraih kedua lengannya dan menariknya dengan keras.</p>
+<p>	Zombie berambut hitam itu segera terbelah menjadi dua bagian.</p>
+<p>	Darah busuk yang membawa racun mayat berceceran tetapi sepenuhnya ditolak oleh armor cahaya putih.</p>
+<p>	Fang Yuan dengan santai melemparkan kedua bagian mayat itu. Bahkan zombie rambut biru tingkat raja binatang buas akan mati karena luka seperti itu.</p>
+<p>	“Terima kasih Tuan Hei Tu karena telah menyelamatkan hidupku!” Guru Gu yang diselamatkan benar-benar terserap dalam momentum Fang Yuan dan berkata dengan suara yang penuh dengan kegembiraan dan rasa hormat.</p>
+<p>	Fang Yuan mengabaikannya tetapi mengarahkan pandangannya ke medan perang yang kacau.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

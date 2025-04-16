@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 256 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 256";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_255.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 256">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_257.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 256</h1>
+        <div class="text-left">
+<p>	Bab 256</p>
+<p>	Bab 256: Jadi Anda adalah kakak laki-laki tertua</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ding Hao mulai pusing seolah-olah flashbang meledak di kepalanya.</p>
+<p>	Siapa lelaki ini? Dia menemukan saya dan bahkan tahu nama saya! Mustahil, saya telah sangat berhati-hati selama ini, tidak pernah memberikan diri saya sendiri. Bagaimana dia bisa menemukanku?</p>
+<p>	Gelombang naik di hati Ding Hao dan pikirannya menjadi pusaran air; dua zombie rambut hijau bersama dengan zombie rambut hitam dan zombie rambut putih di sekitar kamp menjadi diam.</p>
+<p>	Semua orang di kamp tercengang oleh pemandangan tak terduga ini.</p>
+<p>	Namun, Ding Hao segera sadar dan bereaksi. Pertempuran di kamp dilanjutkan.</p>
+<p>	Fang Yuan tahu dia sudah setengah berhasil setelah melihat dua zombie rambut hijau ini tetap diam. Dia berteriak: “Ding Hao, kamu akan menyesal jika kamu tidak keluar ….”</p>
+<p>	Ding Hao bersembunyi di dalam semak-semak, dia mengertakkan gigi dan bertanya sambil mengendalikan zombie berambut hijau untuk mengelilingi Fang Yuan: “Siapa kamu? Bagaimana kau tahu namaku?”</p>
+<p>	Fang Yuan mendengus: “Tentu saja tuanku Raja Zombie Kedua yang memberitahuku.”</p>
+<p>	“Ah?” Ding Hao tidak bisa berhenti tetapi berteriak kaget; ‘tuan’ dan ‘Raja Zombie Kedua’, kata-kata ini seperti batu besar yang turun dan menciptakan gelombang besar di hatinya.</p>
+<p>	Dia berdiri dan berjalan keluar dari semak-semak, kedua matanya menatap tajam ke arah Fang Yuan dengan kaget dan ragu.</p>
+<p>	“Siapa kamu?” Ding Hao dengan cemas bertanya.</p>
+<p>	Fang Yuan mendengus dan berkata dengan nada sombong: “Apakah kamu tuli? Apakah Anda tidak mendengar saya? Saya adalah murid tertua Raja Zombie Kedua, Hei Tu. Ding Hao, saya akan menghitung sampai tiga, jika Anda tidak memanggil kembali kedua zombie berambut hijau ini, hehe …. ”</p>
+<p>	“Kamu adalah kakak laki-laki tertua? Tunggu sebentar, bagaimana tuan dermawan tahu namaku? ” Ding Hao curiga terhadap seluruh masalah ini, tetapi terlepas dari itu, dia masih memanggil kembali dua zombie berambut hijau ke sisinya.</p>
+<p>	Ekspresi Fang Yuan berubah kaku saat dia memarahi: “Siapa kakak laki-laki tertuamu? Guru belum menerimamu sebagai muridnya, beraninya kamu berpura-pura menjadi muridnya?”</p>
+<p>	Ding Hao tidak punya cara untuk membalas.</p>
+<p>	Nada Fang Yuan melunak: “Apakah kamu tidak berbicara dengan lempengan batu sepanjang hari, bagaimana mungkin tuan tidak tahu namamu?”</p>
+<p>	“Ah!” Ding Hao berteriak kaget.</p>
+<p>	Selama bertahun-tahun, dia hidup sendirian dengan hanya zombie sebagai teman-temannya. Ketika dia merasa tertekan dan sakit, dia akan pergi ke gua terakhir dan mencurahkan isi hatinya ke lempengan batu.</p>
+<p>	Dia tidak pernah mengira Fang Yuan akan mengungkapkan rahasianya dengan satu komentar.</p>
+<p>	“Aku… kupikir… itu adalah lempengan batu biasa…” Ding Hao tergagap.</p>
+<p>	“Hmph, level berapa kamu, tentu saja kamu tidak dapat memahami kedalaman lempengan batu. Guru memiliki kekuatan yang sangat besar, bagaimana Anda bisa melihatnya?” Fang Yuan dengan jijik mencibir.</p>
+<p>	Pada kenyataannya, bahkan jika peringkat sembilan Gu Master melihat lempengan batu, mereka tidak akan bisa melihat ‘kedalamannya’. Itu hanya lempengan batu biasa. Namun, dalam kehidupan Fang Yuan sebelumnya, Ding Hao sendiri secara pribadi menceritakannya dalam ingatannya tentang perjuangannya dalam hidup setelah dia membuat nama untuk dirinya sendiri.</p>
+<p>	Ding Hao menjilat bibirnya yang kering, dia hampir sepenuhnya yakin tetapi dia masih ragu.</p>
+<p>	Dia membungkuk dalam-dalam ke arah Fang Yuan dan menangkupkan tangannya: “Tuan Hei Tu, karena Anda adalah murid tuan, maka tolong tunjukkan saya karakteristik unik kami, hati zombie Gu.”</p>
+<p>	Zombie jantung Gu adalah Gu khusus untuk garis keturunan raja zombie. Itu menyerupai hati, memiliki tujuh lubang dan kaku seperti batu. Itu adalah Gu peringkat tiga, dingin saat disentuh dan sepertinya terbuat dari perunggu.</p>
+<p>	Zombie jantung Gu bisa menghasilkan peringkat dua mayat berjalan Gu. Itu mirip dengan ibu kentang guntur gosong Gu yang bisa menghasilkan Gu kentang guntur gosong.</p>
+<p>	Peringkat dua gu mayat yang berjalan juga merupakan Gu yang dapat dikonsumsi dan digunakan pada mayat untuk membentuk zombie.</p>
+<p>	Namun, itu memiliki keunggulan dibandingkan Gu kentang guntur gosong; zombie yang diciptakannya bisa tumbuh dan naik panggung. Misalnya, zombie rambut putih bisa menjadi zombie rambut hitam, zombie rambut hitam bisa menjadi zombie rambut hijau dan seterusnya.</p>
+<p>	Fang Yuan memiliki ibu kentang guntur yang hangus, Gu, tetapi dia tidak memiliki hati zombie Gu.</p>
+<p>	Namun, dia sama sekali tidak gugup terhadap permintaan Ding Hao; dia membuka mulutnya dan dengan berani memarahi: “Hentikan omong kosongmu, aku sedang dalam misi rahasia yang ditugaskan oleh tuan, aku harus menyamarkan identitasku untuk bergabung dengan karavan, bagaimana aku bisa membawa hati zombie Gu bersamaku? Zombie heart Gu memakan zombie, bagaimana saya bisa membuat zombie terlihat oleh semua orang? ”</p>
+<p>	“Ah, ini-ini …” Ding Hao bingung.</p>
+<p>	“Apa ini, menurutmu aku tidak bisa membunuhmu?” Fang Yuan tepat waktu mengungkapkan esensi purba salju peraknya.</p>
+<p>	Peringkat tiga budidaya tahap puncak jelas ‘terungkap’; Murid Ding Hao menyusut, dia hanya berada di peringkat tiga tahap tengah.</p>
+<p>	Fang Yuan segera mengikuti: “Meskipun garis keturunan kita dapat mengendalikan zombie dan membentuk pasukan mereka, mengendalikan zombie membutuhkan konsentrasi kita. Jika jiwa kita tidak kuat, pikiran kita akan lemah, maka kendali kita atas kuantitas dan kualitas zombie hanya akan biasa-biasa saja. Meskipun kamu memiliki dua zombie berambut hijau, pasti akan ada celah ketika kamu mempertahankan diri sambil mengendalikannya; akan sangat mudah bagiku untuk membunuhmu.”</p>
+<p>	Ding Hao menjilat bibirnya yang kering dan mundur selangkah dengan rasa takut.</p>
+<p>	“Namun …” Fang Yuan segera mengubah topik pembicaraan, “Sebelum saya pergi, tuan memberi tahu saya tentang Anda dan ingin saya memeriksa apakah Anda memiliki kualifikasi untuk memasuki pengawasannya. Memikirkan kamu benar-benar mendekatiku dengan niat membunuh ketika aku bahkan belum mulai mencarimu, hmph. ”</p>
+<p>	“Ahh, i-ini… kakak tertua, itu tidak disengaja.” Ding Hao mulai panik ketika dia mendengar Fang Yuan adalah seseorang yang dikirim oleh Raja Zombie Kedua untuk memeriksanya.</p>
+<p>	“Siapa kakak laki-laki tertuamu? Anda belum menerima persetujuan master. Hmph, kamu masih ragu sekarang?” Fang Yuan mengangkat alisnya.</p>
+<p>	Ding Hao dengan cepat menangkupkan tangannya dan berkata dengan nada mengejek diri sendiri: “Kakak laki-laki tertua, karena kamu jelas tentang makanan hati zombie Gu dan kelemahan kita, tidak peduli seberapa bodohnya aku, aku mengenali identitas kakak laki-laki tertua.”</p>
+<p>	Fang Yuan memasang wajah poker dan tidak berbicara, hanya melihat dua zombie berambut hijau.</p>
+<p>	Ding Hao tertegun beberapa saat sebelum segera menyadarinya. Dengan perubahan pikirannya, dia mengirim dua zombie berambut hijau itu pergi.</p>
+<p>	Kemudian dia berjalan di depan Fang Yuan, membungkuk dan berkata dengan patuh: “Tolong maafkan saya kakak laki-laki tertua, saya ingin membunuh orang-orang ini untuk mengumpulkan cukup banyak zombie. Saya benar-benar tidak menyangka kakak laki-laki tertua ada di sini. Jika saya tahu, saya akan turun gunung dan menyambut Anda. Saya sangat mendambakan dan bertekad untuk mengikuti Guru, surga dapat membuktikan kesetiaan saya.”</p>
+<p>	Fang Yuan melonggarkan nada suaranya: “Hmph, tuan tahu kesetiaanmu. Sebelum saya pergi, Guru membicarakannya dan memuji kesetiaan Anda ketika dia meminta saya untuk memeriksa Anda dalam perjalanan saya. Bahkan jika Anda belum mencapai standar, selama tidak ada kesenjangan besar, itu tidak masalah. ”</p>
+<p>	“Jadi seperti itu!” Ding Hao sangat gembira.</p>
+<p>	“Namun!” Ekspresi Fang Yuan berubah berat dan nadanya dingin, “Kamu berani menyerang karavan, menghancurkan misi rahasiaku. Apakah Anda tahu berapa banyak usaha yang saya dan kakak perempuan kedua Anda harus buang untuk menyusup ke karavan ini? ”</p>
+<p>	“Kakak laki-laki tertua, itu benar-benar tidak disengaja …” Ding Hao marah, kegembiraannya tepat sebelum tenggelam di lantai karena kata-kata Fang Yuan, “Kakak perempuan kedua juga ada di karavan? Aku, aku… aku akan memanggil kembali gerombolan zombie!”</p>
+<p>	“Apa?” Fang Yuan sangat marah saat dia mengetukkan jarinya ke kepala Ding Hao, “Apakah otakmu terbuat dari lem? Tidak bisakah kamu berpikir? Anda tolol, tidakkah mereka akan mulai meragukan saya jika zombie mundur tanpa alasan atau alasan? Bodoh!”</p>
+<p>	Ding Hao menggosok kepalanya yang sakit sebelum dengan cepat mengangguk dan meminta maaf: “Ya, ya, kakak laki-laki tertua benar. Kalau begitu kakak laki-laki tertua, aku akan melakukan apa pun yang kamu katakan! ”</p>
+<p>	Fang Yuan menunjuk Ding Hao: “Kamu telah membuat kesalahan serius, tetapi mengingat itu tidak disengaja, mau bagaimana lagi. Selanjutnya, lakukan apa yang saya katakan untuk menebus kesalahan Anda! ”</p>
+<p>	Ding Hao seperti cucu yang ditegur saat dia terus mengangguk pada Fang Yuan.</p>
+<p>	Namun, Fang Yuan tidak segera menyebutkan permintaannya dan malah bertanya: “Katakan yang sebenarnya, berapa banyak zombie rambut putih, rambut hitam, dan rambut hijau yang Anda miliki? Juga ada zombie rambut biru?”</p>
+<p>	Ding Hao menunjukkan ekspresi malu: “Saya bodoh, saya telah tinggal di gunung Mu Bei selama hampir sepuluh tahun tetapi belum pernah memelihara satu pun zombie rambut biru. Adapun zombie rambut hijau, saya hanya memiliki tiga dari mereka; Saya meninggalkan satu di dalam gua untuk berjaga-jaga dan membawa dua lainnya bersama saya. Saya memiliki lebih dari seratus dua puluh zombie rambut hitam dan hampir empat ribu zombie rambut putih.”</p>
+<p>	Fang Yuan mengira dia tidak memiliki zombie rambut biru dan bisa merasa nyaman setelah mengonfirmasinya.</p>
+<p>	Dia sengaja membuat suara terkejut dan berbicara omong kosong: “Kamu tidak terlalu jauh dari target. Memiliki tiga zombie rambut hijau cukup bagus, dan untuk zombie rambut biru, bahkan aku hanya memiliki dua dari mereka.”</p>
+<p>	Dia jelas dari persyaratan Raja Zombie Kedua untuk menerima murid.</p>
+<p>	Raja Zombie Kedua tidak hanya meninggalkan satu warisan; dia telah menerima tujuh hingga delapan murid di kehidupan Fang Yuan sebelumnya, Ding Hao hanyalah salah satunya.</p>
+<p>	Kemudian, Raja Zombie Kedua bergabung dengan gunung Yi Tian dan dikepung oleh jalan yang benar. Murid-murid Raja Zombie Kedua memerintahkan pasukan zombie yang hebat dan memamerkan bakat mereka, menyebabkan pasukan sekutu jalan yang benar mundur pada satu titik.</p>
+<p>	Saat Ding Hao mendengarkan Fang Yuan, hatinya dibersihkan dari keraguan. Dia memandang Fang Yuan dengan kekaguman: “Kakak laki-laki tertua, kamu luar biasa, kamu memiliki dua zombie rambut biru. Saudara junior ini penuh kekaguman!”</p>
+<p>	Fang Yuan menepuk bahu Ding Hao dan menunjukkan ekspresi ‘merasa bangga di dalam tetapi dengan sengaja menekannya’: “Untuk membesarkan zombie rambut biru, jika Anda mengatakan itu sulit, itu sulit; kalo di bilang gampang ya gampang . Saya akan menjelaskannya kepada Anda, Anda harus terlebih dahulu menemukan mayat Guru Gu peringkat empat kemudian sisanya terserah keberuntungan Anda. Itu tergantung pada apakah mayat ini telah menggunakan cacing Gu dalam hidupnya untuk meningkatkan kekuatannya. Jika dia melakukannya, setidaknya dia akan berambut hijau. Jika Anda menggunakan darah segar untuk memeliharanya selama satu atau dua tahun, itu akan berkembang menjadi rambut biru. ”</p>
+<p>	“Jadi begitu.” Ding Hao tahu Fang Yuan mengatakan yang sebenarnya setelah dia menggabungkannya dengan pengalamannya sendiri; dia dengan penuh syukur berkata, “Terima kasih kakak tertua atas petunjukmu!”</p>
+<p>	“Mm.” Fang Yuan sedikit menganggukkan kepalanya dan dengan hati-hati memeriksa ekspresi Ding Hao, mengetahui bahwa yang terakhir memiliki kepercayaan penuh padanya sekarang.</p>
+<p>	Ding Hao awalnya adalah seorang pelayan dan kemudian diam-diam berkultivasi selama hampir sepuluh tahun di gunung Mu Bei. Karakternya yang jujur ​​membuatnya mudah ditipu.</p>
+<p>	Faktanya, bahkan mereka yang sangat licik akan tergerak oleh kata-kata Fang Yuan dan setidaknya akan mempercayai sebagian besar darinya.</p>
+<p>	“Tidak ada gunanya menangisi susu yang tumpah. Bertindak dengan saya dan jika kinerja Anda bagus, saya akan memberi Anda umpan dari sisi saya. ” kata Fangyuan.</p>
+<p>	Mata Ding Hao cerah dan segera menjawab: “Tolong bicara kakak laki-laki, saya pasti akan melakukan yang terbaik untuk mencapainya!”</p>
+<p>	Fang Yuan memberikan instruksi terperinci sebelum menyerbu kembali ke kamp.</p>
+<p>	Dengan kerjasama rahasia Ding Hao, Fang Yuan kembali di samping Shang Xin Ci tanpa kecelakaan apapun.</p>
+<p>	Melihat seorang ahli seperti Fang Yuan kembali ke sisi mereka, semua orang di karavan terkejut, senang dan kagum.</p>
+<p>	Dalam perspektif mereka, Fang Yuan bisa saja melarikan diri tetapi dia berjuang untuk kembali ke mereka.</p>
+<p>	“Aku membebanimu, dermawan!” Shang Xin Ci merasa malu dan bersalah.</p>
+<p>	“Tidak penting. Kamu hanya salah satu alasannya, selain itu, Bai Yun juga ada di sini.” Fang Yuan menjabat tangannya dan dengan sengaja mengatakan ini, membuat Shang Xin Ci dan Xiao Die merasa lebih tersentuh.</p>
+<p>	Bai Ning Bing melirik Fang Yuan dengan ragu; Fang Yuan samar-samar mengedipkan mata padanya, dia segera menyadari bahwa dia tidak baik.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

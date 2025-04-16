@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 229 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 229";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_228.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 229">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_230.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 229</h1>
+        <div class="text-left">
+<p>	Bab 229</p>
+<p>	Bab 229: Beristirahat dan memulihkan diri di dusun</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Bai Ning Bing mau tidak mau menjadi penasaran saat melihat Fang Yuan berjalan menuju mayat macan tutul gelap itu.</p>
+<p>	Dia melihatnya berjongkok dan meraba-raba di sekitar telinga macan tutul gelap.</p>
+<p>	Setelah beberapa saat, Fang Yuan mengeluarkan dua daun ungu yang indah dari telinga kiri macan tutul jantan dan telinga kanan macan tutul betina.</p>
+<p>	Ini adalah Gu Penyembunyian Nafas.</p>
+<p>	Peringkat tiga rumput Gu; Master Gu dapat menggunakannya untuk menyembunyikan aura dan tingkat kultivasi mereka. Sampai tingkat tertentu, itu adalah kemampuan kamuflase.</p>
+<p>	Hampir semua macan tutul gelap memiliki Gu Penyembunyian Nafas di telinga. Namun, macan tutul gelap bergerak berpasangan dan setidaknya berada di tingkat raja binatang buas. Mereka ahli dalam serangan diam-diam, dan sangat gesit; menangkap mereka adalah usaha yang sangat merepotkan dan berbahaya.</p>
+<p>	Selain itu, macan tutul gelap khusus untuk gunung Zi You. Dengan demikian, pengetahuan tentang adanya Gu Penyembunyian Nafas di telinga macan tutul gelap belum diketahui secara luas.</p>
+<p>	Dalam seratus lima puluh tahun Fang Yuan di kehidupan sebelumnya, muncul sosok jalan lurus yang dijuluki ‘Raja Berburu’, Sun Gan. Dia adalah orang pertama yang secara ceroboh berburu macan tutul gelap untuk Gu Penyembunyian Nafas mereka, dan menghasilkan banyak uang dengan menjualnya ke pasar.</p>
+<p>	Setelah dia, Master Gu yang tak terhitung jumlahnya bergegas ke gunung Zi You untuk menghasilkan banyak uang. Seperti ini, hanya dalam beberapa tahun, semua macan tutul gelap dimusnahkan.</p>
+<p>	Namun sekarang, gunung Zi You masih merupakan daerah terpencil.</p>
+<p>	Di tempat ini, siang hari aman sedangkan malam hari sangat berbahaya. Tidak ada klan di sini, tetapi ada bentuk embrionik dari sebuah klan — sebuah dusun.</p>
+<p>	Fang Yuan tidak memiliki rumput telinga yang dapat didengar untuk diintai, tetapi untungnya mereka memperoleh dua Gu Penyembunyian Nafas.</p>
+<p>	Fang dan Bai mengandalkan Gu ini untuk menghindari banyak bahaya.</p>
+<p>	Mereka tidak akan mendaki gunung Zi You; kekuatan mereka saat ini cukup untuk bergerak melintasi hutan biasa, tetapi tidak cukup untuk pergi jauh ke pegunungan yang terkenal dan sungai-sungai besar. Bahkan Bai Clan harus membayar mahal untuk menjelajahi area ini, apalagi Fang dan Bai saat ini.</p>
+<p>	Mereka mengelilingi gunung Zi You dan bergerak maju, dan setelah dua hari, mereka menemukan jalur gunung.</p>
+<p>	Itu adalah jalan buatan manusia, dan jauh lebih aman daripada hutan. Tentu saja, jika keberuntungan seseorang buruk, mereka mungkin menemukan situasi berbahaya.</p>
+<p>	Fang dan Bai bergerak di sepanjang jalan gunung, sampai suatu malam, mereka melihat gumpalan asap tipis.</p>
+<p>	Keduanya saling melirik sebelum mempercepat langkah mereka. Mereka melihat sebuah dusun terbentang di lembah pegunungan.</p>
+<p>	Dusun itu dikelilingi oleh dinding batu pendek, dengan penjaga berdiri di beberapa titik. Sekarang sudah malam dan para petani kembali berkelompok, berjalan ke dusun dengan cangkul dan peralatan pertanian lainnya.</p>
+<p>	Namun, ini semua adalah manusia dan tidak ada yang perlu dikhawatirkan.</p>
+<p>	“Ayo pergi.” Fang Yuan berjalan menuju dusun.</p>
+<p>	“Seperti ini?” Bai Ning Bing agak terkejut.</p>
+<p>	Penampilan mereka dengan cepat menarik rasa ingin tahu dan pandangan curiga dari penduduk desa.</p>
+<p>	Sebagian besar desa di dunia ini tidak terlalu ramah kepada orang asing. Penduduk desa klan bahkan lebih; mereka akan membangun pertahanan yang ketat di seluruh desa, karena takut mata-mata dan perampok akan menyusup ke desa.</p>
+<p>	“Bolehkah saya bertanya kepada dua tamu terhormat apakah Anda adalah Tuan Gu yang terhormat?” Bahkan sebelum Fang dan Bai mencapai pintu masuk, dua penjaga yang mirip mendekati mereka.</p>
+<p>	Bai Ning Bing tidak berbicara, sesuai dengan kesepakatan awal mereka, Fang Yuan akan bertanggung jawab atas semua komunikasi.</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Halo saudara, kita berdua manusia.”</p>
+<p>	Kedua penjaga itu sepertinya menghela nafas lega ketika mereka mendengar ini, wajah mereka jelas melonggarkan.</p>
+<p>	Penjaga remaja yang lebih muda dengan jijik mengukur tubuh Fang Yuan, sebelum berbicara dengan sedikit jijik: “Saya akan mengatakan, bagaimana mungkin orang jelek seperti itu bisa menjadi salah satu dari Tuan Gu yang memiliki kekuatan ilahi?”</p>
+<p>	Seluruh tubuh Fang Yuan terbakar dan satu telinganya berkurang; penampilan jelek seperti itu melahirkan rasa jijik pada orang-orang.</p>
+<p>	Bai Ning Bing juga mengganti pakaian normalnya, dia memotong pendek rambut peraknya dan juga mengecatnya menjadi hitam. Tubuhnya yang seputih salju karena otot es, kini menghitam. Hanya warna matanya yang tidak bisa ditutupi, sehingga dia memakai topi jerami dan menutupi separuh wajahnya.</p>
+<p>	Saat keduanya berdiri bersama, mereka tampak seperti penduduk desa yang fana.</p>
+<p>	“Adik laki-laki, perhatikan apa yang kamu katakan.” Penjaga senior menegur penjaga junior, lalu dengan waspada menatap Fang dan Bai, “Dari mana kamu berasal dan apa yang kamu lakukan di sini?”</p>
+<p>	“Kami dari dusun di seberang gunung. Kami mengambil gerobak yang diisi dengan bumbu dan daging asin, berpikir untuk menjualnya, tetapi menghela nafas, kami menabrak harimau dalam perjalanan. Wah, itu benar-benar membuatku takut setengah mati. Kami berlari dengan gila-gilaan dan baru kemudian kami bisa menyelamatkan diri. Sigh… kami tidak berani kembali untuk saat ini, jadi kami datang ke dusun Anda dan berharap untuk bermalam di sini. Kami akan segera berangkat besok.” Fang Yuan berbicara dari atas kepalanya.</p>
+<p>	Kewaspadaan dalam tatapan penjaga berkurang.</p>
+<p>	Fang Yuan berkata: “Saudaraku, tidak perlu memarahi adik laki-lakimu. Saya mendapat luka ini dari api; hari itu, rumah kami terbakar, dan ketika mencoba menyelamatkan beras, saya terbakar sampai seperti ini.”</p>
+<p>	“Huh, semua orang menderita saat ini.” Penjaga senior menghela nafas, “Kamu bisa memasuki dusun, dan jika kamu tidak menemukan siapa pun yang mau menawarkanmu tempat berlindung, kamu harus puas dengan menghabiskan malam di sudut tembok.”</p>
+<p>	Setelah selesai mengucapkan instruksi, para penjaga membuka jalan.</p>
+<p>	Setelah Fang dan Bai memasuki dusun, penjaga senior menginstruksikan saudaranya: “Pergi beri tahu kepala desa, bahwa dua orang luar ada di sini, dia sebagai seorang tetua memiliki pengalaman yang kaya, minta dia untuk berjaga-jaga.”</p>
+<p>	“Saudaraku, kamu terlalu berhati-hati. Bagaimana keduanya bisa menjadi Master Gu? Selain itu, mengapa Master Gu mencoba menipu kita manusia? Untuk bersenang-senang?”</p>
+<p>	“Jika aku menyuruhmu pergi, maka pergi saja!”</p>
+<p>	“Membuatku menjalankan tugas lagi …” Penjaga muda itu menggerutu tetapi pada akhirnya tetap pergi.</p>
+<p>	Pemandangan di dalam dusun itu damai.</p>
+<p>	Udara dipenuhi dengan aroma makanan. Setelah seharian bekerja keras, keluarga berkumpul di sekitar meja makan dan berbicara dengan gembira.</p>
+<p>	Bai Ning Bing tanpa sadar merasa santai di lingkungan seperti itu.</p>
+<p>	Alasan penyamarannya adalah karena mereka tidak ingin meninggalkan jejak apa pun yang dapat memudahkan Klan Bai untuk melacak mereka. Alasan lain adalah karena sifat hati-hati Fang Yuan; dengan menyembunyikan diri di lingkungan yang tidak dikenal, mereka dapat bereaksi terhadap kelainan apa pun.</p>
+<p>	Sangat mudah untuk menemukan rumah untuk berlindung, cukup berikan penduduk desa pecahan batu purba dan mereka akan dengan senang hati mengosongkan rumah.</p>
+<p>	Namun, melakukan ini tidak akan sesuai dengan identitas mereka saat ini.</p>
+<p>	Fang Yuan memiliki metode yang lebih baik.</p>
+<p>	Ia berjalan mengitari dusun itu, sebelum berhenti di depan sebuah rumah yang sudah usang.</p>
+<p>	Hanya ada seorang wanita tua di rumah ini. Dia punya cucu tapi dia dibunuh oleh serigala saat keluar bermain.</p>
+<p>	Wanita tua itu mengambil air dari sumur di depan rumahnya; tindakan itu tampaknya mengambil banyak darinya.</p>
+<p>	“Bibi, biarkan aku membantumu.” Fang Yuan menyeringai konyol dan dengan bersemangat berlari ke arah wanita tua itu.</p>
+<p>	Wanita tua itu terkejut ketika dia melihat penampilan Fang Yuan.</p>
+<p>	Namun, Fang Yuan bertindak penuh semangat dengan seringai konyol di wajahnya, dan setelah dengan cepat menarik beberapa ember air, kewaspadaan wanita tua itu menghilang.</p>
+<p>	“Anak muda, kamu orang luar?” Wanita tua itu tersenyum membuka mulutnya yang memiliki beberapa gigi yang hilang.</p>
+<p>	“Ya, kami berharap untuk bermalam di rumahmu. Bibi, aku bisa melakukan pekerjaanmu, bolehkah?” Fang Yuan dengan bodohnya berkata.</p>
+<p>	“Oke.” Wanita tua itu dengan senang hati setuju. Meskipun penduduk desa akan saling membantu secara finansial di waktu normal, dia masih membutuhkan tenaga kerja seperti ini.</p>
+<p>	Bai Ning Bing menyaksikan adegan ini tanpa berkata-kata.</p>
+<p>	Fang Yuan ini benar-benar bisa bertindak!</p>
+<p>	Setelah mengambil air, itu memotong kayu bakar. Fang Yuan juga memasak makanan, wanita tua itu berulang kali memujinya karena gerakannya yang cepat dan terampil.</p>
+<p>	“Bibi, biarkan aku membantumu mengambil air lagi. Kita akan bicara setelah aku mengisi tong air.” Setelah makan malam, Fang Yuan kembali mengambil air atas kemauannya sendiri.</p>
+<p>	Wanita tua itu terus mengatakan tidak perlu, tetapi Fang Yuan bersikeras melakukannya.</p>
+<p>	Setelah tong air diisi, wanita tua itu berbicara dengan air mata di matanya: “Anak muda, kamu benar-benar … Huh, kehidupan yang pahit seperti wanita tua ini …”</p>
+<p>	Jelas, Fang Yuan telah mengarang kisah menyedihkan selama makan malam, yang meninggalkan kesan mendalam pada wanita tua sederhana itu.</p>
+<p>	Lentera adalah barang mewah bagi orang biasa, sehingga rumah itu gelap di malam hari.</p>
+<p>	Satu-satunya cahaya datang melalui jendela dari bulan..</p>
+<p>	Rumah itu memiliki dua tempat tidur sederhana dan kasar. Bai Ning Bing terbaring di lantai tetapi sangat puas. Kelelahan yang terakumulasi dari hari-hari berjalan sekarang perlahan menghilang.</p>
+<p>	Fang Yuan berbaring bersila di tempat tidur, pikirannya berada di celahnya, mengamati kesatuan daging tulang Gu.</p>
+<p>	Dia belum pernah menggunakan sepasang Gu ini sekali pun sejak dia mendapatkannya.</p>
+<p>	Bagaimanapun, dia telah menyempurnakannya setelah mengubah resepnya. Dan dengan sifat hati-hati Fang Yuan, dia secara alami perlu mempelajarinya dengan benar sebelum menggunakannya.</p>
+<p>	Tiba-tiba, Fang Yuan membuka matanya, cahaya terang melintas melewati mereka.</p>
+<p>	“Tidak ada masalah, kesatuan daging tulang Gu bisa digunakan.” Setelah mengatakan itu, dia memanggil sepasang gelang giok berbentuk Gu.</p>
+<p>	Dua gelang giok ini; satu berwarna hijau seperti rumput sedangkan yang lain berwarna merah seperti darah. Mereka berdua terikat bersama dan tidak bisa dipisahkan.</p>
+<p>	Fang Yuan sudah menyempurnakannya sebelumnya. Namun, untuk mengeluarkan efek magisnya, dia harus melepaskan salah satunya dan membiarkan Bai Ning Bing memperbaikinya.</p>
+<p>	Bai Ning Bing sedang duduk dalam posisi bersila saat dia menerima Gu, tetapi dia tidak terburu-buru untuk memperbaikinya dan malah menatap Fang Yuan: “Apa yang kamu rencanakan selanjutnya?”</p>
+<p>	Fang Yuan terkekeh: “Dan di sini saya berpikir Anda tidak akan bertanya.”</p>
+<p>	Meski gelap, Bai Ning Bing bisa merasakan Fang Yuan tersenyum saat ini.</p>
+<p>	Dia hanya mendengus dan tidak berbicara.</p>
+<p>	Fang Yuan tidak berencana untuk menyembunyikan rencananya darinya: “Tujuan kami berikutnya adalah gunung Shang Liang.”</p>
+<p>	“Gunung Shang Liang, klan Shang?” Alis Bai Ning Bing sedikit berkerut.</p>
+<p>	Klan Shang adalah salah satu kekuatan teratas Perbatasan Selatan, tidak lebih lemah dari klan Tie dan klan Fei. Hanya Klan Wu yang berada di atasnya.</p>
+<p>	Klan Shang terkenal karena bisnis mereka di Perbatasan Selatan, dan bahkan orang-orang di luar Perbatasan Selatan – selama mereka memiliki pengalaman – tahu bahwa Klan Shang dari Perbatasan Selatan adalah pusat bisnis dan perdagangan. Kota klan Shang begitu berkembang sehingga ada peluang untuk batu purba di mana-mana.</p>
+<p>	Ketika Bai Ning Bing masih memiliki fisik Jiwa Es Gelap Utara, dia berharap untuk mengunjungi kota klan Shang. Namun sekarang, dia ragu-ragu: “Dengan kejahatan yang telah kita lakukan terhadap klan Bai, kita mungkin sudah dicari oleh semua tokoh jalan lurus. Bukankah kita akan langsung menuju jebakan dengan pergi ke kota klan Shang?”</p>
+<p>	Fang Yuan tersenyum: “Jika hanya ada dua tempat di seluruh Perbatasan Selatan yang dapat menerima kita, kota klan Shang itu pasti akan menjadi salah satunya. Klan Shang mungkin salah satu pemimpin jalan lurus, tetapi kota Klan Shang adalah tempat dengan kebebasan penuh, dan juga tempat di mana sebagian besar tokoh jalur iblis membuang barang-barang mereka. Jika bukan karena itu, bagaimana mungkin klan Shang menjadi klan terkaya di Perbatasan Selatan? Bahkan klan Wu jauh lebih rendah dari mereka dalam aspek ini. ”</p>
+<p>	Bai Ning Bing merenung sejenak ketika dia mendengar ini: “Rumor mengatakan bahwa Anda dapat membeli apa pun di kota klan Shang, apakah ini benar?”</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Hal-hal dalam rumor semuanya berbicara tentang barang-barang tingkat rendah. Ada terlalu banyak hal di dunia ini yang memiliki banyak permintaan tetapi tidak ada pasokan. Misalnya — Yang Gu tertentu? Ha ha ha.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

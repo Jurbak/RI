@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 53 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 53";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_52.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 53">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_54.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 53</h1>
+        <div class="text-left">
+<p>	Bab 53</p>
+<p>	Bab 53: Fang Yuan, Anda ditunjuk sebagai ketua kelas</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Semuanya berjalan sesuai dengan perhitungan Fang Yuan.</p>
+<p>	Setelah itu, tetua akademi memerintahkan Master Gu yang menyembuhkan untuk menyelamatkan kedua penjaga.</p>
+<p>	Para penjaga diselamatkan, tetapi mereka menderita luka berat dan hampir lumpuh, akhirnya dipecat dari akademi oleh sesepuh.</p>
+<p>	Fang Yuan tidak menerima hukuman apa pun, sebaliknya dia menerima pujian secara menyeluruh.</p>
+<p>	Hasil ini menyebabkan banyak ketakutan pada anak-anak muda lainnya.</p>
+<p>	Tapi masalah ini masih jauh dari selesai. Seiring berjalannya waktu, keributan menyebar ke seluruh klan.</p>
+<p>	Fang Yuan menjadi yang pertama maju ke panggung tengah dengan bakat kelas C-nya menjadi gosip setelah makan seluruh klan.</p>
+<p>	Setelah makan dan istirahat minum teh, semua orang mendiskusikan masalah ini.</p>
+<p>	Setelah keanehan awal, semua orang mulai menebak rahasia di balik kemajuan cepat Fang Yuan.</p>
+<p>	“Sebenarnya, dengan bakat kelas C, melampaui nilai A dan kelas B untuk maju pertama ke tahap tengah bukanlah sesuatu yang aneh.”</p>
+<p>	“Benar, ada banyak metode di dunia ini yang dapat mencapai hal seperti itu.”</p>
+<p>	“Ambil Relic Gu misalnya. Setelah Gu ini digunakan, dinding apertur akan ditingkatkan dan itu akan membantu kultivasi naik ke ranah kecil, menjadi metode termudah untuk menerobos. ”</p>
+<p>	…</p>
+<p>	Seketika, diskusi orang banyak berkembang menjadi segala macam kemungkinan jawaban dan metode.</p>
+<p>	Adapun teori tentang cacing Liquor dan sumber eksternal dari esensi purba, ide-ide ini juga secara alami dibawa oleh banyak orang.</p>
+<p>	Jika Fang Yuan mengungkapkan keberadaan cacing Liquor di awal, tidak akan ada keributan seperti itu. Namun karena ia menyembunyikannya, hal ini mengakibatkan keingintahuan banyak orang terangkat.</p>
+<p>	Meskipun tampak damai, desa Gu Yue memiliki arus bawah.</p>
+<p>	Banyak mata mengawasi sesepuh akademi, semua menunggu penjelasannya.</p>
+<p>	Sebagai sesepuh akademi, jika dia tidak tahu bagaimana seorang siswa yang dia pelajari sendiri telah maju, itu akan menjadi kelalaian perannya.</p>
+<p>	Jadi, sesepuh akademi harus memberikan penjelasan.</p>
+<p>	Hari-hari berlalu.</p>
+<p>	Anak muda kedua yang menembus tahap awal dan maju ke tahap tengah muncul.</p>
+<p>	Itu adalah Gu Yue Mo Bei.</p>
+<p>	Segera setelah itu, hanya dengan selisih tiga jam, Gu Yue Fang Zheng juga maju.</p>
+<p>	Bagaimanapun, dia terseret oleh kurangnya batu purba. Tentu saja, ada juga alasan dia trauma oleh Fang Yuan.</p>
+<p>	Yang ketiga adalah Gu Yue Chi Chen.</p>
+<p>	Bahkan jika dia memiliki esensi purba yang diresapi Gu Yue Chi Lian, efektivitas metode ini tidak terlalu tinggi dan hanya dapat dilakukan setiap tiga hari sekali, menambah fakta bahwa itu sangat berisiko. Tapi dengan bakat kelas C-nya, mendapatkan posisi ketiga sudah sukses.</p>
+<p>	Pada hari kelima, tetua akademi sekali lagi membagikan subsidi.</p>
+<p>	“Gu Yue Fang Yuan.” Dia berdiri di depan, memanggil nama Fang Yuan terlebih dahulu.</p>
+<p>	Fang Yuan berdiri dan berjalan ke arahnya dengan ekspresi polos.</p>
+<p>	Perhatian anak-anak muda itu tertuju padanya saat dia bergerak, mengungkapkan segala macam kecemburuan, kecemburuan, inspeksi, dan kebencian, tidak ada yang sama.</p>
+<p>	“Hari ini, penatua tidak hanya membagikan sumber daya, dia juga menunjuk posisi ketua dan wakil ketua!”</p>
+<p>	“Seperti yang diharapkan, yang pertama dipanggil adalah Fang Yuan.”</p>
+<p>	“Dia yang pertama maju, gelar ketua adalah miliknya.”</p>
+<p>	“Sulit untuk membayangkan bahwa ini akan menjadi hasilnya. Sebelum ini, saya pikir Fang Zheng yang akan datang lebih dulu. ”</p>
+<p>	“Dia adalah orang pertama yang maju ke tahap tengah, itu sangat aneh, pasti ada rahasia besar, tetapi dia menolak untuk memberi tahu kita!”</p>
+<p>	“Hehe, jika itu aku, aku juga tidak akan memberi tahu siapa pun. Tetap tenang dan makmur.”</p>
+<p>	Saat para siswa berbicara, Fang Yuan tiba di depan sesepuh akademi.</p>
+<p>	“Gu Yue Fang Yuan, kamu adalah Master Gu pertama yang mencapai peringkat satu tingkat menengah di kelas ini, jadi ini adalah hadiahmu.” Mengatakan demikian, dia menyerahkan tas uang putih dan biru.</p>
+<p>	Fang Yuan menerima tas uang dan membukanya di depan umum, mengintip ke dalam.</p>
+<p>	“Yakinlah, ada total tiga puluh batu purba di dalamnya, akademi tidak akan menyia-nyiakanmu.” Tetua akademi tersenyum.</p>
+<p>	Terus terang, dia tidak akan pernah menyangka bahwa anak muda pertama yang maju ke tahap tengah adalah Fang Yuan.</p>
+<p>	Namun, Fang Yuan tidak mendengarkan sesepuh akademi. Dia jarang mempercayai orang lain, dan hanya percaya pada dirinya sendiri. Dia memeriksa dengan cermat dan menemukan bahwa itu memang tiga puluh batu purba, tidak kurang satu pun. Dia kemudian memasukkan kantong uang itu ke dalam saku dadanya.</p>
+<p>	Penatua akademi setelah melihat tindakan ini, berpikir bahwa keuangannya ketat, dan tidak bisa menahan senyum lebih cerah.</p>
+<p>	“Kurasa begitu, bagaimanapun juga dia adalah bakat kelas C. Bergegas ke tahap tengah, pengeluaran batu purbanya harus besar. Dia tidak memiliki dana dari siapa pun juga, jadi dia harus ketat pada batu purba. Selama dia membutuhkan batu purba, kita tidak akan takut dia meninggalkan kendali klan. Begitu dia memasuki sistem klan, dia tidak akan bisa menjaga rahasia itu, jadi bahkan jika kita tidak bisa menyelidikinya, suatu hari, dia akan memberi tahu kita.” Menuju ini, sesepuh akademi penuh percaya diri.</p>
+<p>	Sebenarnya, setelah hari itu, dia mengirim orang untuk menyelidiki Fang Yuan secara rahasia. Hampir setiap hari akan ada kemajuan dalam pencarian.</p>
+<p>	Tetapi ternyata, orang-orang itu tidak mengetahui bahwa Fang Yuan memiliki beberapa ratus batu purba, dan sebenarnya agak kaya.</p>
+<p>	Penatua akademi melanjutkan dan berkata, “Fang Yuan, kamu adalah orang pertama yang melangkah ke peringkat satu tahap tengah, dan menurut aturan akademi, kamu tidak hanya akan menerima tiga puluh batu purba sebagai hadiah, tetapi kamu juga akan mendapatkan prioritas dalam memilih milikmu. Gu kedua segera setelahnya. Sekarang, aku akan menunjukmu sebagai ketua kelas!”</p>
+<p>	“Bagaimanapun, Fang Yuan ditunjuk sebagai ketua!” Setelah mendengar ini, beberapa siswa menghela nafas.</p>
+<p>	“Brengsek.” Gu Yue Mo Bei menggertakkan giginya, merasa marah.</p>
+<p>	“Hmph!” Gu Yue Chi Chen menyilangkan anggota tubuhnya, menatap pemandangan itu dengan dingin.</p>
+<p>	Yang paling terpengaruh adalah saudara laki-laki Fang Yuan, Gu Yue Fang Zheng.</p>
+<p>	Wajahnya pucat, dan ekspresinya tampak tidak pasti, awan gelap menjulang di atas kepalanya. “Mahasiswa biasa, saat melihat ketua dan wakil ketua, harus membungkuk dan memberi hormat. Dengan hasil saya, saya pasti akan menjadi wakil ketua. Tetapi mulai sekarang ketika saya melihat kakak laki-laki, saya harus memberi hormat kepadanya. ”</p>
+<p>	“Tunggu.”</p>
+<p>	Tetapi pada saat ini, Fang Yuan berbicara.</p>
+<p>	Dia tersenyum tipis kepada sesepuh akademi dan berkata perlahan, “Penatua yang terhormat, murid Anda di sini tidak berbakat dan tidak memiliki kebijaksanaan yang tinggi, karenanya tidak dapat mengambil peran sebagai ketua dengan benar. Peran ini, harus diberikan kepada orang-orang berbakat.”</p>
+<p>	“Apa? Maksud Anda Anda tidak ingin menjadi ketua? Sebagai ketua, Anda akan mendapatkan sepuluh batu purba setiap saat. Apakah Anda yakin ingin menolaknya?” Penatua akademi mengerutkan kening dalam-dalam saat dia berbicara. Selama sepuluh tahun terakhir mengajar, dia belum pernah melihat siapa pun menolak posisi ini!</p>
+<p>	Sebenarnya dia sudah banyak memikirkan masalah ini, dan membiarkan Fang Yuan menjadi ketua kelas ada manfaatnya.</p>
+<p>	Begitu dia menjadi ketua, dia akan berada di dalam sistem klan. Fang Yuan harus menjalankan tugasnya pada saat yang sama sambil menikmati perawatannya.</p>
+<p>	Tidak peduli apa peran ketua, paling tidak yang harus dia lakukan adalah berhenti memeras teman-teman sekelasnya.</p>
+<p>	Ini jelas bukan sesuatu yang bisa dilakukan ketua kelas.</p>
+<p>	Ini seperti sebelumnya, meskipun tetua akademi dipermalukan oleh Fang Yuan, dia masih harus memujinya karena hasil kultivasinya yang luar biasa.</p>
+<p>	Sebagai seseorang yang terikat oleh sistem, dia tidak akan bisa melakukan apa yang dia inginkan saat menangani masalah, dan berkali-kali dia tidak punya pilihan.</p>
+<p>	Tentu saja, ini bukan karena sesepuh akademi tidak senang dengan Fang Yuan memeras begitu banyak batu purba setiap saat.</p>
+<p>	Dia berpikir untuk seluruh dewan siswa. Begitu Fang Yuan menjadi ketua dan berhenti memeras, ini akan memungkinkan remaja lain untuk bernafas di bawah tekanan Fang Yuan.</p>
+<p>	Selanjutnya, dengan beberapa dorongan tangan, itu akan menghasilkan kompetisi multiway di antara keluarga. Selama dia bisa memelihara benih harapan klan – Fang Zheng, Mo Bei dan Chi Chen, berapa biaya mengorbankan peran kecil seorang ketua?</p>
+<p>	Namun, meskipun dia memiliki rencana yang bagus, kebenarannya sangat berbeda dari yang dia harapkan.</p>
+<p>	Fang Yuan menolaknya!</p>
+<p>	Dia benar-benar menolaknya!!</p>
+<p>	Meskipun posisi ini kecil, ini adalah representasi kehormatan pertama di antara anak-anak muda berdarah panas ini.</p>
+<p>	Selain kehormatan, sebagai ketua, mereka mendapatkan sepuluh batu purba sebagai sumber daya setiap kali!</p>
+<p>	Godaan ini, tidak ada anak muda yang pernah menolaknya sebelumnya.</p>
+<p>	Tapi Fang Yuan sebenarnya menolak.</p>
+<p>	Fang Yuan menatap tetua yang tercengang, dan bertanya kembali, “Apakah peraturan akademi menyatakan bahwa yang pertama harus menjadi ketua? Posisi ketua, apakah itu tidak dapat disangkal?”</p>
+<p>	Penatua akademi menjawab dengan ekspresi dingin, “Tentu saja tidak ada aturan yang tidak berperasaan seperti itu.”</p>
+<p>	Fang Yuan tertawa, “Terima kasih tetua atas pengertianmu.”</p>
+<p>	Mengatakan demikian, dia menangkupkan tinjunya dan berjalan kembali ke tempat duduknya.</p>
+<p>	Para siswa yang melihat pemandangan ini dengan mata kepala sendiri semuanya menjadi ribut.</p>
+<p>	Seketika, akademi itu hidup!</p>
+<p>	“Fang Yuan benar-benar menolaknya? Apakah kamu bercanda?!”</p>
+<p>	“Apakah dia sakit di kepalanya?”</p>
+<p>	“Tidak yakin mengapa dia bertingkah gila, tapi hehe, dia akan menyesali ini nanti.”</p>
+<p>	…</p>
+<p>	“Fang Yuan menyerah menjadi ketua, ini berarti aku ketuanya ?!” Kebahagiaan datang terlalu cepat, dan tempat kedua Mo Bei tidak bisa bereaksi tepat waktu.</p>
+<p>	Chi Chen menunjukkan ekspresi tidak percaya, dia tidak dapat memahami bahwa seseorang benar-benar menyerahkan tempat sebagai ketua, dia pasti sangat bodoh!</p>
+<p>	“Kakak …” Fang Zheng menatap dengan mata besar saat dia menatap Fang Yuan dengan kecewa.</p>
+<p>	Menurut hasilnya, Fang Zheng diyakinkan menjadi wakil ketua.</p>
+<p>	Tetapi ketika Fang Yuan melepaskan posisinya, Fang Zheng merasa bahwa posisi ini tidak ada artinya lagi.</p>
+<p>	Wajah sesepuh akademi kali ini gelap, benar-benar gelap.</p>
+<p>	Terakhir kali ketika Fang Yuan bolos kelas, meskipun dia tampak marah, itu hanya tindakan untuk dilihat orang lain.</p>
+<p>	Tapi kali ini, dia dalam suasana hati yang buruk, lebih buruk dari sebelumnya.</p>
+<p>	Fang Yuan menyerahkan posisi ketua. Ini berarti dia menolak sistem klan. Penatua telah memerintah akademi selama puluhan tahun, tetapi ini adalah pertama kalinya dia melihat siswa seperti itu, menolak godaan besar ini!</p>
+<p>	Dia ingin mengundang Fang Yuan ke dalam perangkap, tetapi karena dia tidak mau masuk, sesepuh akademi tidak berdaya.</p>
+<p>	…</p>
+<p>	Pemberian subsidi berakhir.</p>
+<p>	Mo Bei mengklaim posisi ketua dengan hasil menjadi yang kedua. Fang Zheng dan Chi Chen masing-masing menjadi wakil ketua.</p>
+<p>	Ketua kelas diberi sepuluh batu purba. Wakil ketua mendapat lima.</p>
+<p>	Beberapa siswa yang bukan dari keluarga kaya begitu iri hingga hampir meneteskan air liur saat melihat batu purba ketiga siswa tersebut.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

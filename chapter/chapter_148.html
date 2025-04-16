@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 148 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 148";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_147.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 148">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_149.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 148</h1>
+        <div class="text-left">
+<p>	Bab 148</p>
+<p>	Bab 148: Keadaan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Dua spanduk raksasa berkibar tertiup angin dengan suara berdering.</p>
+<p>	Salah satunya adalah papan prestasi pertempuran; Fang Yuan sekarang berada di antara sepuluh besar dalam daftar. Spanduk lain mencantumkan semua jenis barang yang dapat ditukar dengan manfaat pertempuran.</p>
+<p>	Namun, sebagian besar Master Gu di alun-alun yang ramai memperhatikan keputusan yang baru diumumkan.</p>
+<p>	Isi dari pengumuman itu adalah: Gelombang serigala menjadi lebih ganas dan korban di antara para Master Gu klan meningkat dari hari ke hari. Untuk memperkuat metode pengobatan, aula medis memerintahkan semua Master Gu yang memiliki Rumput Vitalitas Sembilan Daun untuk sementara menyerahkannya kepada klan. Aula medis akan mengatur staf untuk menyatukan semua produksi.</p>
+<p>	Ada daftar nama di notifikasi. Mereka adalah nama-nama Master Gu yang memiliki Rumput Vitalitas Sembilan Daun di klan.</p>
+<p>	Secara alami, Fang Yuan juga terdaftar.</p>
+<p>	Saat ini, dia berdiri di sudut yang jauh melihat pemberitahuan ini; ekspresinya tidak bisa membantu tetapi berubah jelek.</p>
+<p>	Pada pandangan pertama, dia menyadari bahwa ini adalah tindakan Gu Yue Yao Ji untuk melawannya.</p>
+<p>	“Hmph, Gu Yue Yao Ji ini marah karena dia gagal membeli cacing Liquor dariku. Aku sudah mengumpulkan cukup banyak manfaat pertempuran untuk ditukar dengan gu Rumput Wangi Tiga Langkah itu, tapi dia mencegah hal ini terjadi dalam kegelapan. Sekarang, dia benar-benar mendambakan Rumput Vitalitas Sembilan Daunku….”</p>
+<p>	Tindakan Gu Yue Yao Ji bisa dimengerti.</p>
+<p>	Orang-orang dari perdagangan yang sama adalah musuh alami.</p>
+<p>	Dengan mengontrol penjualan daun vitalitas, Gu Yue Yao Ji dapat mengkonsolidasikan otoritasnya, memperdalam pengaruhnya, dan mempertahankan koneksinya. Namun, Fang Yuan menjualnya dengan harga yang lebih tinggi, jadi ini secara tidak kentara melanggar keuntungannya dan mengguncang pengaruhnya.</p>
+<p>	“Saya memiliki banyak cacing Gu sekarang; Gu Giok Putih, Gu Moonglow, Gu Penjarahan, Gu Perisai Air, Rumput Telinga Komunikasi Bumi dan banyak lagi. Rumput Vitalitas Sembilan Daun adalah sumber ekonomi saya yang paling penting; jika saya kehilangan Gu ini, itu akan seperti menerima skakmat. Gu Yue Yao Ji membuat gerakan yang sangat ganas, ”Fang Yuan mengerutkan kening.</p>
+<p>	Diskusi para Master Gu di sekitarnya memasuki telinganya.</p>
+<p>	“Aula pengobatan membuat keputusan yang benar-benar hebat! Ada sangat sedikit daun vitalitas dan mereka tidak dapat memenuhi kebutuhan kita. Setiap kali batch muncul di papan barang, mereka akan segera dibeli oleh orang lain. ”</p>
+<p>	“Penatua Yao Ji benar-benar lembut dan baik hati. Lihatlah daftar nama, itu termasuk beberapa Master Gu dari faksi Chi dan Mo. Dia tidak diragukan lagi menyinggung banyak tetua yang kuat dengan tindakan ini. ”</p>
+<p>	“Penatua Yao Ji berpikir untuk klan, dia layak dihormati!”</p>
+<p>	“Ai, hanya Tuan Yao Ji yang memiliki keberanian seperti itu. Jika itu adalah penatua lain, siapa yang berani mengambil tindakan seperti itu? ”</p>
+<p>	“Eh! Lihat, isi notifikasi telah berubah. Gu Master dari faksi Chi dan Mo telah menyerahkan Rumput Vitalitas Sembilan Daun mereka.”</p>
+<p>	Kerumunan mendidih.</p>
+<p>	Sembilan Daun Vitalitas Rumput yang dikonsolidasikan dan produksi terpadu berarti ketersediaan lebih banyak daun vitalitas. Ini adalah berita bagus untuk orang banyak.</p>
+<p>	Fang Yuan memperhatikan pemberitahuan itu dengan penuh perhatian dan cukup yakin melihat: Di samping daftar nama Master Gu ini, ada kata-kata baru ‘menyerahkan’. Dengan demikian, namanya sendiri menjadi mencolok.</p>
+<p>	Jantungnya merasakan tekanan yang meningkat.</p>
+<p>	Gu Yue Yao Ji adalah seorang veteran tua dengan skema yang mendalam; dengan langkah ini, dia meminjam momentum untuk menekan Fang Yuan. Jika Fang Yuan menolak atau tidak mematuhinya, itu akan menarik masalah yang lebih besar lagi, membuat orang-orang menguasainya; itu sama sekali bukan tindakan yang masuk akal.</p>
+<p>	Ini adalah kekuatan sistem.</p>
+<p>	Jika klan ingin Anda berkorban, itu tidak akan langsung mengatakannya. Sebaliknya itu akan menutupi jubah kebenaran yang mengilap, dan tidak memberi Anda pilihan selain tunduk.</p>
+<p>	Contohnya adalah perekrutan pensiunan Master Gu tua itu dan membuat mereka mengorbankan hidup mereka, bagaimana mereka bisa menolak?</p>
+<p>	Gerakan mengumpulkan Rumput Vitalitas Sembilan Daun saat ini meminta Fang Yuan dan Master Gu lainnya untuk mengorbankan keuntungan mereka untuk memuaskan semua orang, dan pada dasarnya untuk keuntungan Yao Ji. Siapa pun yang berani tidak patuh akan melawan klan dan mengasingkan diri mereka sendiri! Mereka adalah pengkhianat dan pemberontak!</p>
+<p>	“Untuk mengatasi ini, skema kecil seperti taktik menunda tidak akan berhasil dan malah akan menempatkan diri pada keadaan yang lebih pasif. Langkah Yao Ji membawa kebenaran dan opini publik; setiap skema kecil akan dihancurkan. Hanya dengan menggunakan momentum yang lebih besar, melawan balik dan mengalahkan momentumnya secara terbuka akan menyelesaikan ini.”</p>
+<p>	Fang Yuan sudah punya solusi.</p>
+<p>	Rencana ini sederhana namun megah; maju ke Peringkat tiga!</p>
+<p>	Peringkat tiga dan peringkat dua Gu Masters memiliki status yang sama sekali berbeda. Di klan, setiap Master Gu yang naik ke peringkat tiga akan segera menjadi penatua dan bergabung dengan lingkaran pengambil keputusan. Bahkan kepala klan tidak bisa dengan mudah melanggar keuntungan mereka.</p>
+<p>	Jangan berpikir bahwa Master Gu dari faksi Mo dan Chi dengan patuh menyerahkan Rumput Vitalitas Sembilan Daun, tampaknya mengorbankan keuntungan mereka sendiri. Di balik layar, Gu Yue Yao Ji seharusnya sudah menyelesaikan transaksi rahasia dengan Gu Yue Chi Lian, Gu Yue Mo Chen dan para tetua lainnya.</p>
+<p>	Ini adalah transaksi politik.</p>
+<p>	Namun, mayoritas tidak bisa melihat kebenaran ini dan ditipu oleh Yao Ji.</p>
+<p>	Jika Fang Yuan adalah Master Gu peringkat tiga, bahkan jika dia harus menyerahkan Rumput Vitalitas Sembilan Daun, dia pasti akan mendapatkan kompensasi yang cukup dalam aspek lain.</p>
+<p>	Mengapa Gu Yue Yao Ji begitu ingin berurusan dengan Fang Yuan?</p>
+<p>	Di satu sisi, itu karena manfaat; Tindakan Fang Yuan melanggar keuntungannya dan dia juga menginginkan beberapa cacing Gu yang ada di tubuh Fang Yuan.</p>
+<p>	Di sisi lain, Fang Yuan sudah berada di peringkat dua tahap puncak; jika dia tidak bergerak sekarang dan menunggunya menjadi tetua peringkat tiga, tidak akan ada lagi peluang.</p>
+<p>	“Maju ke Peringkat tiga adalah suatu keharusan. Klan dapat mengorbankan Peringkat dua Gu Masters, tetapi Peringkat tiga Gu Masters adalah pilarnya dan setiap kerugian akan menimbulkan kerusakan besar. Selain itu, saya telah mengumpulkan terlalu banyak masalah. Qing Shu meninggal tetapi klan tidak melakukan penyelidikan yang cermat. Saya memiliki Gu Perisai Air, Gu Penjarahan, dan cacing Gu lainnya, tetapi klan telah menutup mata terhadapnya. Kultivasi saya berkembang begitu cepat, para petinggi jelas mengetahuinya, tetapi menahannya dan belum memeriksa rahasia saya. ”</p>
+<p>	Fang Yuan sangat jelas tentang situasinya saat ini.</p>
+<p>	Di permukaan, dia terlihat kuat dan kaya, tetapi dia sebenarnya dikelilingi oleh bahaya.</p>
+<p>	Klan tidak bergerak melawannya karena perhatian mereka sepenuhnya tertuju pada gelombang serigala. Jika mereka tidak bisa menahan gelombang serigala, klan akan dihancurkan. Di depan tekanan seperti itu, situasi Fang Yuan hanyalah detail kecil bagi mereka.</p>
+<p>	Namun, setelah gelombang serigala hilang, petinggi klan akan mendapatkan kembali energi mereka; bagaimana mungkin mereka tidak mencari dia untuk menyelesaikan rekening?</p>
+<p>	Sebelum di akademi, para tetua klan tidak bergerak melawan Fang Yuan karena dia terlalu lemah. Dia mengambil langkah-langkah kecil dan tidak melanggar manfaat mereka, sehingga tidak menarik perhatian mereka.</p>
+<p>	Tapi, itu berbeda sekarang.</p>
+<p>	Kultivasi Fang Yuan sudah berada di peringkat dua tahap puncak, jika dia mengambil satu langkah lebih jauh, dia akan menjadi penatua.</p>
+<p>	Cukup kultivasi ini sudah menyentuh saraf para tetua. Setiap gerakannya diamati dan dicatat oleh para sesepuh.</p>
+<p>	Setiap penatua yang baru maju dapat mempengaruhi seluruh situasi politik klan Gu Yue. Ini mengakibatkan penindasan terus menerus terhadap Fang Yuan. Terlebih lagi, Fang Yuan belum bergabung dengan sistem dan memasuki faksi mana pun, sehingga ini membuat penindasan menjadi lebih intens.</p>
+<p>	Fraksi netral juga merupakan faksi.</p>
+<p>	Tidak ada yang bisa mentolerir Fang Yuan saat ini, seseorang yang berkeliaran di luar sistem klan.</p>
+<p>	“Jika saya naik ke Peringkat tiga, penindasan pasti akan jauh lebih rendah dari sekarang, meskipun mereka akan tetap ada di sana. Peringkat tiga adalah titik perubahan kualitatif, ambang batas. Melangkah melaluinya akan membawa seseorang ke dunia yang sama sekali baru. Demikian pula, dengan kultivasi peringkat tiga, saya dapat dengan bebas bergerak. Paling buruk, saya hanya akan meninggalkan klan. ” Fang Yuan jelas tentang ini.</p>
+<p>	Namun, naik ke Peringkat tiga bukanlah hal yang mudah. Terutama mengingat bakat kelas C Fang Yuan, itu hampir merupakan penghalang yang mustahil.</p>
+<p>	Dalam kehidupan sebelumnya, dia terhenti di peringkat dua tahap puncak selama lebih dari seratus tahun. Sampai setelah itu, dia membayar harga yang menyakitkan untuk mendapatkan Gu dan mempromosikan bakatnya. Hanya dengan begitu dia bisa melewati kesulitan ini.</p>
+<p>	Dalam budidaya Guru Gu, mudah untuk maju melalui alam kecil, mereka hanya membutuhkan cukup waktu dan kesabaran. Namun, setiap ranah besar memiliki penghalang, dan semakin tinggi Anda pergi, semakin sulit untuk dilintasi. Terutama kesulitan untuk naik dari Peringkat lima ke Peringkat enam di luar imajinasi, lebih sulit daripada naik ke surga!</p>
+<p>	Fang Yuan sudah mengalami banyak kesulitan untuk naik dari Peringkat satu ke Peringkat dua. Sekarang, untuk naik dari Peringkat dua ke Peringkat tiga, tidak ada kemungkinan untuk berhasil dengan mengikuti rute tradisional.</p>
+<p>	Untungnya, dalam pengalaman hidup dan ingatan luas Fang Yuan selama lima ratus tahun, ada dua hingga tiga metode. Mengatakannya dengan baik, itu adalah jalan alternatif tetapi mengatakannya dengan kasar, itu adalah praktik iblis.</p>
+<p>	Opsi ini sangat cocok untuk situasi Fang Yuan saat ini.</p>
+<p>	Dengan opsi ini, naik ke Peringkat tiga membutuhkan satu untuk memperbaiki Gu yang aneh dan berdarah — Gu Pemakaman Kehidupan Manusia-binatang. Seorang pemimpin sekte jalur iblis kuno telah melakukan upaya yang sungguh-sungguh dan menemukan resep ini untuk memperkuat kultivasi bawahannya.</p>
+<p>	Gu Pemakaman Kehidupan Manusia-binatang dispesialisasikan untuk Peringkat dua Master Gu untuk menerobos ke peringkat tiga alam.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan menjelajahi tempat-tempat yang tidak diketahui dan secara kebetulan menemukan resep ini. Itu telah membuat kesan yang mendalam pada dirinya dan dia dengan tegas mengingatnya.</p>
+<p>	Poin penting adalah bahwa bahan yang dibutuhkan untuk fusi tidak jarang.</p>
+<p>	Jika itu waktu normal, Fang Yuan mungkin perlu dua-tiga tahun untuk mengumpulkannya, mengingat keadaannya. Namun gelombang serigala memberinya kesempatan besar.</p>
+<p>	Dia sudah mengumpulkan cukup banyak batu purba dan cacing Gu. Satu-satunya hal yang tersisa adalah menunggu saat yang tepat.</p>
+<p>	“Semuanya, cepat lihat pemberitahuan yang baru saja dikeluarkan oleh aula obat.”</p>
+<p>	“Mereka ingin mengumpulkan Rumput Vitalitas Sembilan Daun dan menyatukan produksi daun vitalitas?”</p>
+<p>	“Ini adalah berita bagus.”</p>
+<p>	Di gedung bambu, sekelompok Master Gu berkumpul di dekat pengumuman yang ditempel di dinding. Mereka semua dipenuhi dengan kegembiraan ketika mereka membacanya.</p>
+<p>	“Hahaha, kurasa Fang Yuan hampir menangis.”</p>
+<p>	“Hmph, layani dia dengan benar karena menjual daun vitalitas dengan harga tinggi, mengeksploitasi uang hasil jerih payah kita!”</p>
+<p>	“Aku benar-benar ingin melihat ekspresi apa yang dimiliki Fang Yuan sekarang …. itu pasti akan sangat jelek.”</p>
+<p>	Banyak orang bersukacita atas kemalangan orang lain.</p>
+<p>	“Hehehe, ini benar-benar membuat kita melampiaskan dendam kita. Kami benar-benar perlu berterima kasih kepada Nona Yao Le untuk ini, jika dia tidak membujuk Tuan Yao Ji, bagaimana mungkin ada hari seperti itu?”</p>
+<p>	“Benar, kami sangat berterima kasih kepada Nona Yao Le.”</p>
+<p>	“Nona Yao Le tidak hanya cantik, dia juga baik hati, menjunjung tinggi keadilan dan keadilan bagi kita. Dia memiliki sikap Lord Yao Ji.”</p>
+<p>	Saat dia mendengar pujian terus menerus, Gu Yue Yao Le dengan malu-malu menundukkan kepalanya, dia merasa bahagia.</p>
+<p>	“Adik kecil Yao Le.” Tepat pada saat ini, Xiong Jiao Man masuk melalui pintu, “Saya datang untuk mengucapkan selamat tinggal. Saya melihat pemberitahuan aula obat, saya benar-benar berterima kasih kepada Anda karena membiarkan saya melampiaskan kemarahan saya. Orang-orang seperti Fang Yuan adalah kambing hitam dan perlu dikendalikan.”</p>
+<p>“Kakak, kamu akan pergi?” Gu Yue Yao Le melemparkan pandangan prihatin.</p>
+<p>	Xiong Jiao Man meletakkan satu tangan di pinggulnya dan mengarahkan ibu jari tangannya yang lain ke sekelompok Master Gu yang berdiri di luar pintu, berkata, “Saya sudah meminta bala bantuan, saya harus cepat kembali. Mari kita bertemu lagi lain kali.”</p>
+<p>	Hati Yao Le dipenuhi dengan kesedihan.</p>
+<p>	Xiong Jiao Man memiliki sepuluh Master Gu ketika dia meninggalkan klannya, tetapi hanya ada tujuh yang tersisa ketika dia sampai di sini. Sekarang, Master Gu ini akan melangkah ke medan perang yang kejam lagi, berapa banyak dari mereka yang bisa kembali dengan selamat?</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

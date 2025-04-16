@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 56 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 56";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_55.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 56">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_57.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 56</h1>
+        <div class="text-left">
+<p>	Bab 56</p>
+<p>	Bab 56: Menghilangkan kecurigaan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Kau membukanya?” Gu Yue Bo mengerutkan kening dalam-dalam.</p>
+<p>	“Itu benar, pada titik ini, aku tidak akan menyembunyikannya lebih jauh!” Fang Yuan bertindak seolah-olah dia mempertaruhkan segalanya, berbicara dengan mendesak, “Saya membeli enam keping batu emas ungu di sarang perjudian, tetapi karena saya tidak memiliki cukup esensi purba, saya hanya membuka lima di tempat. Yang terakhir, saya bawa kembali ke asrama dan setelah membukanya, saya menemukan cacing Liquor di dalamnya. Saya sangat senang karena saya telah mencari informasi sebelumnya, dan tahu bahwa cacing Liquor adalah cacing Gu langka yang dapat melengkapi kekurangan bakat saya, jadi saya memperbaikinya di tempat.”</p>
+<p>	“Tunggu, kamu bilang kamu membeli enam batu judi dan membuka kodok kulit lumpur serta cacing Liquor lainnya?” Para tetua klan setelah mendengar ini, mau tidak mau bertanya dengan nada yang sulit dipercaya.</p>
+<p>	“Terus?” Fang Yuan sebenarnya menjawab, lalu menunjuk ke arah Master Gu perempuan, berteriak, “Dia bisa menjadi saksiku!”</p>
+<p>	Semua orang di tempat kejadian tertegun sejenak sebelum berbalik untuk melihat Master Gu wanita.</p>
+<p>	Master Gu perempuan merasakan tekanan dari semua tatapan dan tidak berani berbohong, jadi dia dengan jujur ​​​​berkata, “Memang benar, Fang Yuan membeli enam batu dan membuka kodok kulit lumpur pada yang kelima. Dia membawa potongan keenam, tetapi saya tidak tahu apa yang dia buka di dalamnya.”</p>
+<p>	“Membeli enam batu emas ungu dan mendapatkan dua cacing Gu secara berurutan, bukankah keberuntungan ini terlalu bagus?” Para tetua klan bergumam.</p>
+<p>	“Apa yang begitu sulit untuk dipahami? Itu keberuntungan, siapa tahu, heh, kembali ke masa ketika saya berjudi batu saya juga…”</p>
+<p>	“Tunggu, cacing Gu sulit untuk disuling, mengapa kedengarannya seperti Fang Yuan dengan mudah memperbaikinya?” Beberapa tetua keluarga bertanya dengan curiga.</p>
+<p>	“Kau kacau. Tidakkah kamu tahu bahwa ketika seorang Gu diekstraksi dari sebuah fosil, mereka sangat lemah, tertatih-tatih di ambang kematian? Bahkan pemurnian kemudian dari Peringkat yang lebih rendah adalah mungkin. Apa yang aneh dari dia yang memurnikan cacing Liquor?” Seseorang segera menjawab.</p>
+<p>	Fang Yuan melanjutkan, “Saya memurnikan cacing Liquor dan pergi ke toko pada hari kedua, saya memang pergi ke toko anggur di sore hari dan membeli secangkir anggur monyet. Pada malam hari, saya pergi lagi dan menyaksikan adegan penipuan, Jia Jin Sheng menjual cacing gemuk kentut yang bau sebagai Gu Babi Hitam kepada seseorang di klan saya. Selanjutnya, Tuan Jia Fu muncul dan menyelesaikan perselisihan.”</p>
+<p>	“Saya pergi ke toko anggur lagi, tetapi saya tidak berharap melihat Jia Jin Sheng minum anggur dalam suasana hati yang buruk. Saya baru saja mendapatkan cacing Liquor dan sangat senang, jadi saya bertanya kepadanya berapa banyak batu purba yang bisa saya jual. Siapa yang tahu bahwa Jia Jin Sheng setelah mendengar cacing Liquor saya, ingin membelinya dengan paksa. Saya jelas menolaknya, saya tidak punya niat untuk menjualnya, hanya ingin tahu nilainya. Bahkan jika saya ingin menjualnya, itu harus setelah saya berada di peringkat dua, jadi saya pergi di tempat. ”</p>
+<p>	Kata-kata Fang Yuan telah memunculkan masalah konflik Jia Jin Sheng dan Jia Fu, menyebabkan para tetua klan melihat Jia Fu dengan cara yang berbeda.</p>
+<p>	Di bawah tatapan yang menekan ini, Jia Fu terbatuk dan bertanya pada Fang Yuan dengan mata bersinar, “Lalu apakah saudaraku mengejarmu?”</p>
+<p>	Fang Yuan mengangguk, setengah berbohong, “Dia tidak hanya mengejarku, tetapi juga menambahkan lima puluh batu purba tambahan. Tapi saya tidak ingin menjualnya, jadi dia sangat marah, mengklaim bahwa klan Gu Yue bukan masalah besar, meminta saya untuk berhati-hati. Setelah mengatakan itu, dia pergi. Aku tidak pernah melihatnya lagi.”</p>
+<p>	Jia Fu mengangguk secara internal. Dengan pemahamannya tentang Jia Jin Sheng, dia pasti akan mengejar Fang Yuan dan memberikan ancaman karena itu adalah gayanya.</p>
+<p>	Jika Fang Yuan mengatakan dia tidak mengejarnya, itu bohong.</p>
+<p>	Tapi karena Fang Yuan berkata begitu, ini membawa Jia Fu ke dalam kesulitan. Penyelidikannya hanya mengarah pada petunjuk ini. Apakah Jia Jin Sheng benar-benar tidak mencari Fang Yuan setelah itu? Mungkin dia menemukan Fang Yuan lagi setelah itu, dan karena keduanya tidak sepakat tentang masalah ini, dia dibunuh oleh Fang Yuan —— Ini sangat mungkin.</p>
+<p>	‘Bicaralah, apakah Jia Jin Sheng dibunuh olehmu! Memikirkan hal ini, Jia Fu menginterogasi dengan keras, berusaha menekan Fang Yuan dengan auranya.</p>
+<p>	Fang Yuan membantah sekali lagi, mengklaim bahwa dia tidak melihat Jia Jin Sheng lagi.</p>
+<p>	Jia Fu tidak memiliki bukti lain, dan sementara satu pihak bertanya dengan intens, pihak lain menyangkal. Pada titik ini, itu telah menjadi jalan buntu.</p>
+<p>	Saat Gu Yue Bo mendengarkan percakapan mereka, dia menjadi tidak senang. Bahwa Jia Jin Sheng benar-benar berani mengancam klan Gu Yue di gunung Qing Mao, ini sama sekali tidak menghormati klan Gu Yue! Sekarang Jia Fu ini berani menginterogasi seorang anggota klan Gu Yue begitu intens di depan semua petinggi klan Gu Yue. Tidak masalah jika dia memiliki bukti, tetapi sekarang dia tidak memiliki bukti atau bukti, jika masalah ini menyebar, apa yang akan terjadi dengan kehormatan klan Gu Yue?</p>
+<p>	“Kakak Jia, bukan karena aku ingin berbicara secara tiba-tiba.” Pemimpin klan menyela interogasinya dan melanjutkan, “Jia Jin Sheng telah hilang selama berhari-hari, harapan suram. Pelakunya yang menyebabkan kejahatan ini pasti meninggalkan beberapa jejak. Apakah kakak sudah menemukan sesuatu?”</p>
+<p>	Jia Fu menatap tajam ke arah Fang Yuan sebelum mengangkat kepalanya dan menghela nafas, “Aku mengerti kata-kata kakak! Jika ada jejak, saya tidak akan datang ke sini untuk menemukan pelakunya. Penjahat itu jelas berpengalaman dengan cara keji dan penanganan yang cermat. Sejujurnya, semua petunjuk berada di jalan buntu, dan pada hari kami pergi, ada hujan besar yang bisa menghapus semua jejak darah yang mungkin ada.”</p>
+<p>	Gu Yue Bo tersenyum tipis. “Saudara Jia, saya mendengar bahwa keluarga Jia Anda memiliki cacing Gu yang disebut Kupu-Kupu Jalur Dunia Bawah. Itu bisa memancarkan aroma jiwa dan ditanamkan pada cacing Gu. Aromanya tidak berwarna dan tidak berbau, dan tidak pernah pudar. Cacing Gu anggota keluarga Jia Anda semua memiliki aroma ini. Selama kamu menggunakan Kupu-Kupu Jalan Dunia Bawah, mengikuti aromanya, kamu akan dapat menemukan cacing Gu dan dengan demikian saudaramu.”</p>
+<p>	Jia Fu dengan sungguh-sungguh berkata, “Saya menggunakan Kupu-Kupu Jalur Dunia Bawah sejak lama, tetapi tidak ada efeknya. Saya yakin Anda pernah mendengar bahwa begitu cacing Gu mati, aromanya akan hilang. Rupanya si pembunuh membunuh semua cacing Gu milik kakakku.</p>
+<p>	Kata-kata Gu Yue Bo berubah, “Aneh. Pembunuhnya menyakiti saudaramu, tetapi dia tidak pergi untuk cacing Gu, atau pemerasan untuk mendapatkan batu purba. Pembunuhnya membunuh Master Gu peringkat satu kecil ini, apa motifnya? ”</p>
+<p>	Memang, apa motifnya?</p>
+<p>	Terlepas dari apakah Jia Jin Sheng sudah mati, pasti ada motifnya, kan?</p>
+<p>	Jika bukan karena cacing Gu atau batu purba, lalu apakah itu karena cinta?</p>
+<p>	Tetapi jika itu adalah kejahatan nafsu, itu harus menjadi proses jangka panjang, dan Jia Fu tidak akan datang ke klan Gu Yue. Anggota karavan dan klan akan lebih dicurigai karena mereka memiliki hubungan yang lama dengannya.</p>
+<p>	Seketika, aula menjadi sunyi.</p>
+<p>	Fang Yuan mengikuti pandangan semua orang, dan tiba-tiba berkata kepada Jia Fu, “Mungkin Jia Jin Sheng dibunuh olehmu. Saya mendengar sebelumnya bahwa keluarga Anda membagi aset, sekarang setelah satu saudara meninggal, tidakkah Anda mendapatkan lebih banyak warisan?</p>
+<p>	“Diam!”</p>
+<p>	“Tuduhan tak berdasar, jangan memfitnah Tuan Jia Fu.”</p>
+<p>	Segera para tetua keluarga meletus.</p>
+<p>	Fang Yuan segera diam, tatapannya bersinar samar, tetapi tujuannya telah tercapai.</p>
+<p>	Kata-katanya sebelumnya seperti kerikil yang dilemparkan ke lautan pemikiran para tetua, menyebabkan gelombang riak.</p>
+<p>	Para tetua klan mengikuti alur pemikiran ini, dan mulai berpikir, “Jia Fu tidak dapat membunuh Jia Jin Sheng, ini menyebabkan lebih banyak kerugian baginya daripada hadiah. Tunggu, bahkan jika dia tidak akan melakukannya, itu tidak berarti orang lain tidak akan…”</p>
+<p>	“Perselisihan internal keluarga Jia!” Seorang tetua tertentu memiliki kilasan inspirasi dan bergumam ringan.</p>
+<p>	Volumenya tidak tinggi, tetapi di aula yang sunyi itu bisa terdengar dengan jelas.</p>
+<p>	Seketika, tatapan para tetua bersinar.</p>
+<p>	“Akhirnya, mereka memikirkan ini.” Mulut Fang Yuan berkedut, kelopak matanya terkulai, menyembunyikan tatapan dinginnya.</p>
+<p>	Pemimpin klan keluarga Jia ingin membagi aset dan memberikan peran pemimpin klan, dan karena ini anak-anaknya menjalani persaingan yang ketat, terutama Jia Fu dan Jia Gui, keduanya adalah Master Gu peringkat empat dan memiliki pendukung sendiri.</p>
+<p>	Dalam beberapa tahun ini, situasi keluarga Jia agak diketahui oleh banyak desa pegunungan.</p>
+<p>	Kemalangan Jia Jin Sheng terlalu aneh. Saat ini tidak ada bukti yang menunjukkan bahwa Fang Yuan adalah pembunuhnya. Jelas bahwa motivasi pembunuhan tidak cukup hanya berdasarkan teori membunuh hanya karena cacing Liquor. Pada saat yang sama, tindakan dan metode si pembunuh tidak akan begitu teliti dan rahasia.</p>
+<p>	Tetapi jika Jia Gui yang bertindak dalam bayang-bayang, maka itu bisa dijelaskan.</p>
+<p>	Semua orang yang hadir adalah atasan, dan sebagai seseorang yang memiliki posisi berkuasa, pasti ada sesuatu yang mampu tentang mereka. Setidaknya untuk skema politik, mereka memiliki intuisi dan persepsi yang hebat.</p>
+<p>	Perselisihan keluarga Jia, ini memberi imajinasi semua orang sepasang sayap.</p>
+<p>	Pemimpin klan keluarga Jia telah mengatur Jia Jin Sheng untuk bergabung dengan karavan. Salah satu alasannya adalah untuk menguji sifat Jia Fu, untuk melihat apakah dia adalah saudara yang baik, dan hanya menekan tetapi tidak menggertak saudaranya.</p>
+<p>	Sekarang Jia Jin Sheng dalam masalah, Jia Fu akan terlibat, dan siapa pemenang sebenarnya?</p>
+<p>	Jelas pesaing terbesar Jia Fu — Jia Gui!</p>
+<p>	Perbuatan penjahat itu begitu cair, menyebabkan semua petunjuk menemui jalan buntu, ini menunjukkan betapa berpengalamannya penjahat itu. Bagaimana ini bisa dilakukan oleh anak berusia lima belas tahun seperti Fang Yuan?</p>
+<p>	Semua jawaban terungkap sekaligus!</p>
+<p>	Aula diskusi masih sunyi, tetapi para tetua saling bertukar tatapan penuh makna.</p>
+<p>	“Untuk membuat seseorang percaya pada sesuatu dengan sepenuh hati, itu bukan melalui meyakinkan, tetapi mengarahkan.” Pengamatan tajam Fang Yuan memungkinkan dia untuk melihat pandangan ini, dan dia tertawa dingin di dalam hatinya, tetapi wajahnya masih menunjukkan ekspresi kemarahan dan keras kepala.</p>
+<p>	Wajah Jia Fu begitu gelap dan suram sehingga bisa meneteskan air.</p>
+<p>	Masalah perselisihan internal keluarga Jia menyebabkan dia memikirkan Jia Gui.</p>
+<p>	Pada saat itu, jiwanya bergetar!</p>
+<p>	Siapa lagi yang memiliki motivasi lebih besar dari Jia Gui?</p>
+<p>	Tidak ada!</p>
+<p>	“Aku mengerti sekarang, aku mengerti segalanya.” Penatua akademi berdiri di belakang Fang Yuan, menatapnya. Matanya bersinar, “Fang Yuan beruntung dan tidak beruntung, bertemu Jia Jin Sheng di saat-saat terakhir. Dengan usianya yang baru mulai bersekolah, bagaimana dia bisa menghilangkan semua bukti? Jika dia memiliki kemampuan licik seperti itu, bagaimana dia bisa menunjukkan ekspresi kegigihan ini. Dia menyangkalnya sebelumnya hanya untuk menyembunyikan keberadaan cacing Liquor.”</p>
+<p>	Pada titik ini, semua orang telah menghilangkan kecurigaan mereka terhadap Fang Yuan!</p>
+<p>	“Menyingkirkan kecurigaan pada saya hanyalah langkah pertama, apa yang terjadi selanjutnya sangat penting.” Fang Yuan memahami situasinya, dan pada titik ini, semuanya berjalan sesuai rencana. Dia menghela nafas secara internal dan menatap Jia Fu.</p>
+<p>	Jia Fu menatapnya juga, ketidakramahan di matanya semakin jelas.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

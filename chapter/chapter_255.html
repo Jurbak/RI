@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 255 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 255";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_254.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 255">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_256.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 255</h1>
+        <div class="text-left">
+<p>	Bab 255</p>
+<p>	Bab 255: Ding Hao, keluar dari sini!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Saat ini, sebagian besar dinding kayu sudah runtuh, saat gerombolan zombie menyerbu ke dalam kamp dan bertarung dengan Master Gu.</p>
+<p>	Setelah melihat ini, Fang Yuan sudah yakin pasukan zombie ini dimanipulasi oleh Ding Hao.</p>
+<p>	Jika itu adalah kelompok zombie biasa, mereka semua akan berkerumun seperti lebah atau zombie rambut hitam akan menyerang setelah zombie rambut putih mati. Di mana ada taktik pertempuran seperti yang ditunjukkan di sini, seseorang dengan jelas mengendalikan mereka dari belakang!</p>
+<p>	Dan tidak diragukan lagi, yang mengendalikan zombie ini adalah Ding Hao.</p>
+<p>	Fang Yuan ingat Raja Zombie Kedua meninggalkan warisan setelah memusnahkan klan di gunung Mu Bei. Pewaris warisan ini adalah Ding Hao. Dia kemudian menjadi murid tertua Raja Zombie Kedua, dan meskipun dia dari jalur iblis, dia sangat setia. Kemudian dalam pertempuran antara Orang Benar dan Iblis di gunung Yi Tian, ​​​​dia menggantikan Raja Zombie Kedua pilihannya sendiri dan mati dalam pertempuran.</p>
+<p>	“Saya telah berpikir untuk mencari Anda tetapi untuk berpikir Anda akan menyerahkan diri kepada saya, itu menghemat banyak waktu saya.”</p>
+<p>	Rencana Fang Yuan adalah menggunakan Ding Hao ini untuk membasmi karavan dan membunuh semua orang. Meskipun dia memiliki metode untuk menarik kelompok binatang buas, tidak mudah untuk mengontrol ukurannya.</p>
+<p>	Kekuatan karavan telah menurun ke tingkat yang sangat rendah dan jika sejumlah besar kelompok binatang tertarik, itu malah akan menyebabkan hidupnya sendiri dalam bahaya. Akan lebih merepotkan untuk melindungi Shang Xin Ci di atas itu.</p>
+<p>	Dalam keadaan seperti itu, Ding Hao adalah bidak catur yang sempurna.</p>
+<p>	“Tapi di mana orang ini bersembunyi?” Api berkobar di sekitar. Fang Yuan menyipitkan matanya dan mengamati sekelilingnya.</p>
+<p>	“Dia harus berada di tempat yang tinggi jika dia ingin mengamati medan perang dan memimpin pasukan zombie. Tentu saja, dia mungkin memiliki cacing Gu lain yang bisa memberinya pandangan sekilas tentang perkemahan. Bagaimanapun juga, tempat dia bersembunyi seharusnya nyaman untuk melarikan diri…”</p>
+<p>	Fang Yuan kehilangan rumput telinga yang mendengar bumi dan tidak memiliki metode investigasi lain, jadi dia harus mengandalkan spekulasi.</p>
+<p>	Pertempuran menjadi lebih putus asa; sementara ratusan zombie tersebar di seluruh tanah, ada juga kerugian besar bagi para Master Gu. Di bawah banjir zombie yang tak ada habisnya, Master Gu mundur sedikit demi sedikit dan segera mencapai area tengah kamp.</p>
+<p>	Di sana, sebuah bunker dibuat dengan menumpuk barang dan beberapa Master Gu peringkat satu menggunakan banyak metode untuk memperkuatnya.</p>
+<p>	“Ada terlalu banyak zombie, pertahanan di sini akan jatuh cepat atau lambat.”</p>
+<p>	“Kita harus menghancurkan pengepungan!”</p>
+<p>	“Hancurkan pengepungan, bagaimana kita akan menerobos? Ada lusinan zombie rambut hitam!”</p>
+<p>	“Akan lebih baik untuk memperkuat pertahanan kita dan menunggu fajar. Zombi akan menerima penurunan besar dalam kekuatan di bawah sinar matahari. Kita bahkan tidak perlu bergerak dan mereka akan mundur sendiri.”</p>
+<p>	Argumen muncul, dan orang-orang terbagi menjadi dua sisi; satu ingin menerobos sementara yang lain ingin mempertahankan posisi mereka.</p>
+<p>	Kedua belah pihak terus berdebat sementara gerombolan zombie sudah semakin dekat.</p>
+<p>	Karavan yang dibentuk sementara ini menunjukkan kelemahan terbesarnya saat ini; tidak dapat benar-benar bersatu dan tidak memiliki sosok yang kuat untuk mengendalikan situasi.</p>
+<p>	Fang Yuan telah mengamati situasi sebagai penonton; sekarang, dia tiba-tiba berdiri: “Berhenti berteriak!”</p>
+<p>	Adegan bising menjadi tenang hampir seketika.</p>
+<p>	Di mata semua orang, dia adalah peringkat tiga puncak Gu Master, salah satu ahli terkuat di karavan. Apalagi sekarang di persimpangan hidup dan mati yang kritis ini, Fang Yuan memiliki otoritas yang lebih besar.</p>
+<p>	Fang Yuan menyapu tatapannya yang dingin dan tajam ke semua orang. Wajahnya yang jelek, di bawah penerangan api, mengancam dan kejam.</p>
+<p>	“Semua yang ingin bertahan dan bertahan adalah idiot! Mengapa kita harus tinggal di sini jika kita bisa menerobos? ” Dia dengan keras memarahi, memberikan kesan yang kuat.</p>
+<p>	Master Gu yang berteriak tentang bertahan dan bertahan menunjukkan ekspresi marah tetapi mereka tidak berani membalas; sementara para Master Gu yang bersikeras untuk menghancurkan pengepungan sangat gembira.</p>
+<p>	“Tuan Hei Tu bijaksana!”</p>
+<p>	“Tuan Hei Tu, kami akan mengikuti Anda.”</p>
+<p>	“Saat ini, hanya Lord Hei Tu yang bisa menyelamatkan kita dari krisis yang putus asa ini!”</p>
+<p>	Mereka terus memuji Fang Yuan ke langit yang tinggi, ingin membuatnya bertanggung jawab atas serangan berbahaya itu.</p>
+<p>	Namun, Fang Yuan mencibir dan mengutuk: “Diam! Kalian yang berpikir untuk menerobos adalah orang bodoh yang lebih hebat!”</p>
+<p>	“Ugh …” Master Gu yang memuji Fang Yuan menegang, ekspresi mereka berfluktuasi dengan cepat; sedangkan mereka yang bersikeras mempertahankan posisinya menunjukkan ekspresi ejekan dan ejekan.</p>
+<p>	“Lalu, Tuan Hei Tu, apa yang Anda sarankan?” Ekspresi Jia Long gelap saat dia berbicara dengan suara berat dengan tatapan tidak ramah.</p>
+<p>	“Hmph, baik itu mempertahankan posisi atau menerobos pengepungan, situasinya perlu diselidiki dengan benar terlebih dahulu. Apakah Anda tahu skala gerombolan zombie ini? Bagaimana jika ada sekelompok besar dari mereka yang bersembunyi di kegelapan, tidak akan menerobos lalu masuk ke dalam jebakan? Dan jika ini hanya mereka semua dan kalian bersikeras mempertahankan posisi Anda sementara Anda bisa melarikan diri dengan jelas, bau darah akan menarik lebih banyak zombie dan Anda hanya akan mengirim diri Anda sendiri ke kematian. Fang Yuan berbicara dengan semangat sehingga air liurnya keluar.</p>
+<p>	Tidak ada yang akan menunjukkan ekspresi yang baik setelah dimarahi dengan kasar.</p>
+<p>	Chen Shuang Jin bertanya dengan suara muram: “Lalu saran bagus apa yang kamu punya?”</p>
+<p>	Fang Yuan membuka matanya lebar-lebar karena marah dan menunjuk ke arah Chen Shuang Jin: “Kamu bodoh, otakmu penuh dengan kotoran! Saya telah berbicara begitu lama dan tidak ada yang mengerti! Tentu saja kita akan menerobos tetapi pertama-tama kita akan memeriksa lingkungan kita. Investigasi Gu Masters, Anda harus bekerja keras! ”</p>
+<p>	Ditunjuk oleh Fang Yuan dan ditegur, ekspresi Chen Shuang Jin berubah jelek dan api berkobar di hatinya. Namun, dia masih ingat dengan jelas saat Fang Yuan membunuh ayah dan anak Klan Ou, jadi dia hanya bisa menahan amarahnya.</p>
+<p>	Banyak yang menjadi tidak puas dengan agresivitas Fang Yuan; tetapi pada saat yang sama, dalam situasi ini, agresivitas semacam itu malah memberi mereka rasa aman yang tak terlukiskan.</p>
+<p>	Segera, sebuah kelompok diorganisir untuk menerobos pengepungan di bawah manipulasi Fang Yuan.</p>
+<p>	“Terobos arah itu.” Fang Yuan berkata dengan sungguh-sungguh sambil menunjuk ke arah tenggara</p>
+<p>	“Ya, Tuan Hei Tu!”</p>
+<p>	“Ingat, kepramukaan adalah prioritas, lindungi dirimu dan mundur jika tidak bisa melanjutkan.” Fang Yuan tersenyum dan menepuk bahu pemimpin kelompok.</p>
+<p>	Hati pemimpin kelompok segera rileks dan citra Fang Yuan di benaknya tidak lagi menjijikkan seperti sebelumnya.</p>
+<p>	Gerombolan zombie mencapai garis pertahanan terakhir dan pertempuran terjadi di mana-mana. Melanggar kelompok pengepungan maju tiga ratus langkah sebelum mereka dipaksa mundur.</p>
+<p>	“Terlalu menakutkan, saya menemukan setidaknya ratusan zombie dalam kegelapan di sisi itu.” Hati investigasi Gu Master masih takut saat dia membuat laporan.</p>
+<p>	Semua orang menjadi sedikit pucat mendengar kata-kata ini.</p>
+<p>	“Tidak masalah, istirahatlah. Kelompok kedua, menerobos arah itu!” Fang Yuan memerintahkan.</p>
+<p>	Kelompok ini menyerbu melalui empat hingga lima ratus langkah sebelum mereka harus mundur.</p>
+<p>	“Ada terlalu banyak zombie …” Master Gu investigasi pucat.</p>
+<p>	Fang Yuan membiarkan mereka beristirahat, dan berkata kepada kelompok ketiga yang baru terbentuk: “Pergilah ke arah itu.”</p>
+<p>	“Tapi sisi itu adalah sebuah lembah.” Pemimpin kelompok agak bingung.</p>
+<p>	Tamparan.</p>
+<p>	Fang Yuan menampar pria itu: “Jika saya mengatakan pergi, maka pergilah. Jangan beri aku omong kosong!”</p>
+<p>	Pemimpin kelompok tercengang oleh tamparan itu, tetapi dia tidak berani menghadapi tatapan marah Fang Yuan sehingga dia berbalik dan memimpin kelompoknya ke arah yang ditunjuk Fang Yuan.</p>
+<p>	Fang Yuan telah mengorganisir tiga pemecah kelompok pengepungan, mengirim mereka keluar untuk menyelidiki situasi dan akhirnya mengesampingkan area yang memungkinkan.</p>
+<p>	“Satu-satunya tempat yang tersisa adalah lereng tinggi itu sekarang. Jika saya tidak salah, Ding Hao pasti bersembunyi di sana. ” Fang Yuan mencibir ke dalam dan terus mengatur untuk menghancurkan kelompok pengepungan.</p>
+<p>	“Orang-orang ini benar-benar tidak menyerah.” Alis Ding Hao berkerut tetapi segera rileks, “Haha, kalian mungkin bisa menerobos jika itu adalah gerombolan zombie biasa, tapi terlalu buruk untukmu, gerombolan zombie ini dikendalikan olehku …”</p>
+<p>	Dia memobilisasi zombie dalam kegelapan untuk terus mengisi setiap celah. Pada saat yang sama, ia mengerahkan pasukan besar-besaran ke beberapa daerah.</p>
+<p>	Beberapa putaran kemudian, korban dalam memecahkan kelompok pengepungan meningkat menjadi jumlah bencana.</p>
+<p>	“Ini sudah cukup, menerobos tidak bisa berhasil, kita tidak bisa membuat pengorbanan lagi dengan sia-sia!”</p>
+<p>	“Huh, sepertinya kita hanya bisa mempertahankan posisi kita….”</p>
+<p>	“Semua orang bertahan, bertahan sampai matahari terbit, zombie ini akan menjadi lemah seperti kertas.”</p>
+<p>	“Hentikan omong kosongmu, kesuksesan sudah di depan mata! Saya pribadi akan memimpin kali ini. Bai Yun, kamu berjaga-jaga di sini.” Fang Yuan mengutuk dan dengan agresif bersikeras untuk menerobos.</p>
+<p>	Karena agresivitasnya, Gu Masters hanya bisa membentuk kelompok lain.</p>
+<p>	Delapan Master Gu menyerang dengan Fang Yuan sebagai pemimpin; dengan kekuatan luar biasa yang dikombinasikan dengan esensi purba salju perak dan Canopy Gu, dia dapat dengan mudah menerobos pengepungan.</p>
+<p>	“Sial, sisi itu agak tipis …” Ding Hao juga tidak bisa mencegah Fang Yuan menerobos.</p>
+<p>	Dia tidak mengira Fang Yuan akan memilih sisi ini untuk menerobos; sisi ini adalah jalan buntu dan dia terus-menerus memobilisasi zombie ke sisi lain untuk mengisi celah yang disebabkan oleh upaya terobosan sebelumnya, menyebabkan zombie di sisi ini menjadi yang paling sedikit jumlahnya.</p>
+<p>	“Mereka benar-benar berhasil!”</p>
+<p>	“Mereka menerobos!”</p>
+<p>	Orang-orang di kamp melihat pemandangan ini dengan mata terbelalak.</p>
+<p>	Meskipun dalam prosesnya, lima Master Gu meninggal, Fang Yuan dan dua Master Gu lainnya berhasil menerobos.</p>
+<p>	“Kita selamat, cepat, ayo kita tembus sisi itu!” Semua orang bergembira di kamp.</p>
+<p>	“Jangan pernah berpikir untuk berhasil!” Ding Hao mengertakkan gigi dan segera memobilisasi zombie untuk mengisi celah.</p>
+<p>	Kamp masih dalam proses pengorganisasian sementara zombie rambut putih sudah menutupi area yang ditembus Fang Yuan. Ada juga lima zombie rambut hitam menerkam kelompok Fang Yuan.</p>
+<p>	Kedua Master Gu sangat terkejut.</p>
+<p>	“Ikuti aku!” Fang Yuan berteriak dan menyerbu ke arah tempat Ding Hao bersembunyi.</p>
+<p>	Kedua Master Gu tidak bisa berpikir dengan benar karena ketakutan mereka dan tanpa sadar mengikuti Fang Yuan.</p>
+<p>	“Hmph, memilih untuk berlari ke arahku, hahaha, sepertinya bahkan surga ingin kau mati…” Bibir Ding Hao meringkuk saat dia melihat dengan bangga ke arah dua zombie di sampingnya.</p>
+<p>	Kedua zombie ini sangat besar, dengan rambut hijau menutupi tubuh mereka. Mereka adalah zombie rambut hijau yang lebih kuat dari zombie rambut hitam dan bisa menunjukkan kekuatan yang setara dengan seribu raja binatang di malam hari!</p>
+<p>	Ding Hao hanya mampu membesarkan keduanya selama bertahun-tahun di gunung.</p>
+<p>	“Pergi.” Dia berkehendak dan kedua zombie berambut hijau ini segera menyerbu keluar.</p>
+<p>	Delapan puluh langkah kemudian, mereka bertemu dengan kelompok Fang Yuan.</p>
+<p>	Fang Yuan bertemu langsung; meskipun dia memiliki kekuatan dua babi hutan dan seekor buaya, mereka berimbang dan keduanya terlempar mundur beberapa langkah dari tabrakan.</p>
+<p>	Dua Master Gu yang tersisa bertarung melawan zombie berambut hijau lainnya, tetapi mereka ditekan dan situasinya sudah terlihat berbahaya.</p>
+<p>	“Biarkan aku membantu.” Fang Yuan mengaktifkan rumput lompat dan pergi menuju pertempuran.</p>
+<p>	Kedua Master Gu sangat gembira dan hendak mengucapkan terima kasih, tetapi tanpa peringatan, dua tombak tulang spiral melesat ke arah mereka.</p>
+<p>	Psh Psh… dua suara menusuk menentukan kematian dua Master Gu.</p>
+<p>	“Eh?” Ding Hao telah mengamati pertempuran dan melihat perubahan tak terduga ini menimbulkan keraguan besar di benaknya.</p>
+<p>	Gangguan ini menyebabkan dua zombie berambut hijau melambat.</p>
+<p>	Kata-kata berikutnya yang diucapkan Fang Yuan membuat Ding Hao semakin terkejut.</p>
+<p>	Hanya untuk mendengarnya berteriak: “Ding Hao, keluar dari sini!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

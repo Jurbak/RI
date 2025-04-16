@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 294 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 294";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_293.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 294">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_295.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 294</h1>
+        <div class="text-left">
+<p>	Bab 294</p>
+<p>	Bab 294: Kejahatan harus dihukum!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan sedikit mengerutkan alisnya dan dengan ringan melirik ke arah kelompok itu.</p>
+<p>	Dia memiliki beberapa kesan Bai Zhan Lie; jenius nomor satu dari generasi muda klan Bai, mereka bahkan pernah minum bersama dalam satu waktu.</p>
+<p>	Bai Lian bahkan lebih akrab, dia telah menemaninya selama beberapa waktu, menggunakan perangkap madu padanya. Sayangnya, bagaimana kecantikan bisa mengguncang hati Fang Yuan? Hasilnya adalah Fang Yuan memainkannya di permainannya sendiri.</p>
+<p>	Lainnya seperti Bai Feng, Tie Dao Ku dan sebagainya, Fang Yuan tidak mengenali mereka.</p>
+<p>	Meski begitu, Fang Yuan tahu asal usul dan motif kelompok ini.</p>
+<p>	Ini adalah keluarga korban yang datang berkunjung.</p>
+<p>	“Keadilan memiliki lengan panjang, Gu Yue Fang Zheng, kamu membantai dua pemimpin klan muda klan Bai, kamu tidak akan lolos dari keadilan bahkan jika kamu melarikan diri ke kota klan Shang!” Bai Feng berteriak.</p>
+<p>	“Fang Zheng, jebakan yang kau kubur membunuh tuan muda dan anggota klan Tieku. Kebencian ini benar-benar tidak dapat didamaikan, aku, Tie Dao Ku, akan mengambil kepalamu!” Ekspresi Tie Dao Ku berkobar saat dia menunjuk hidung Fang Yuan dan meraung.</p>
+<p>	Gangguan di sini segera menarik perhatian orang yang lewat di dekatnya. Pergi ke tempat keramaian, itu adalah sifat manusia; lebih banyak orang mulai memperhatikan.</p>
+<p>	“Oh, kamu adalah anggota klan Tie? Aneh! Bagaimana mungkin saya tidak tahu apa yang Anda bicarakan jika saya membunuh anggota klan Anda?” Fang Yuan mencibir.</p>
+<p>	“Berhenti menyangkalnya! Anda memiliki ibu kentang guntur yang hangus, Gu, Anda menggali perangkap dengan niat yang sangat jahat. Kelompok klan Tie saya melangkah ke perangkap Anda, ledakan meledak bahkan mayat mereka. Kami telah mengejar Anda sepanjang jalan, siapa lagi selain Anda? ” Mata Tie Dao Ku sepertinya hampir mengeluarkan api, berharap dia bisa segera memotong Fang Yuan menjadi beberapa bagian.</p>
+<p>	“Hehehe.” Fang Yuan linglung sejenak sebelum dia mulai tertawa, “Jadi seperti itu, sepertinya aku melakukan hal yang benar dengan menggali perangkap itu. Terima kasih telah memberi tahu saya kabar baik ini dan membuat saya bahagia.”</p>
+<p>	“Anda!” Tie Dao Ku membuka matanya lebar-lebar, dia sangat marah, “Kamu mengakuinya! Anda benar-benar mengakuinya! Bagus, sangat bagus, Fang Zheng, kamu adalah daging mati. Anda berani membunuh tuan muda klan Tie saya, Anda telah membuat musuh dari klan Tie!”</p>
+<p>	“Terus?” Fang Yuan mengangkat bahunya dan dengan sinis berkata, “Menggelikan, aku menggali perangkap itu untuk berurusan dengan monyet rok rumput. Tapi kalian menginjak mereka, ini hanya bisa disalahkan pada klan Tie Anda karena tidak memiliki mata. Selain itu, kejahatan apa yang saya lakukan agar kalian mengikuti saya? Menghadapi kematianmu sendiri, hehehe, baguslah mereka mati, sungguh menakjubkan mereka mati…”</p>
+<p>	Orang-orang di sekitarnya tercengang.</p>
+<p>	“Dia memprovokasi klan Tie secara langsung?”</p>
+<p>	“Apakah Fang Zheng sudah gila? Klan Tie juga merupakan salah satu penguasa perbatasan selatan dan tidak lebih lemah dari klan Shang.”</p>
+<p>	“Klan Tie telah menangkap Master Gu iblis dari mana-mana dan menara penindas iblisnya yang terkenal adalah musuh dari jalur iblis. Fang Zheng benar-benar membunuh tuan muda dari klan ini!”</p>
+<p>	“Dia memiliki token duri ungu dan tahu dia aman! Selama dia tinggal di kota klan Shang, dia akan menjadi tamu terhormat klan Shang. Bahkan jika pemimpin klan Tie datang, Lord Shang Yan Fei perlu melindunginya. Jika dia tidak melindungi Fang Zheng dan berita menyebar, itu menandakan bahwa klan Shang takut pada klan Tie. Hehe…”</p>
+<p>	Diskusi orang-orang di sekitarnya menenangkan Tie Dao Ku yang terbakar amarah.</p>
+<p>	Fang Yuan memiliki token duri ungu dan kultivasinya sekarang berada di peringkat tiga; berurusan dengan dia tidak semudah sebelumnya.</p>
+<p>	“Hmph, Fang Zheng, jangan berpikir kamu aman dengan bersembunyi di sini. Anda ingin mengandalkan panggung pertempuran untuk menjadi tetua eksternal klan Shang? Dalam mimpimu! Saya akan memberitahu Anda, selama saya Bai Feng di sini, Anda tidak akan pernah bisa mendominasi panggung pertempuran! Elder Bai Feng berkata dengan nada muram.</p>
+<p>	Tie Dao Ku segera mengikuti: “Fang Zheng, aku akan berurusan denganmu di panggung pertempuran. Tidak ada jalan keluar bagimu, kejahatan besar yang telah kamu lakukan harus menerima hukuman yang berat!”</p>
+<p>	“Oh, kalian ingin menghentikanku di tahap pertempuran?” Mata Fang Yuan bersinar dengan sedikit cahaya dingin.</p>
+<p>	Dia tidak takut pada orang-orang ini, meskipun Bai Feng, Tie Dao Ku, Bai Zhan Lie dan Bai Lian semuanya peringkat tiga Gu Masters.</p>
+<p>	Jika mereka akan menghadapinya melalui tahap pertempuran, mereka tidak bisa menunjukkan keunggulan mereka dalam jumlah.</p>
+<p>	“Hanya saja situasiku saat ini ….”</p>
+<p>	Fang Yuan bergumam dalam hati lalu tiba-tiba terkekeh dan berkata kepada Bai Feng: “Klan Bai-mu memperoleh warisan Bai Gu tetapi masih belum puas dan ingin berurusan denganku? Tanpa saya, bagaimana Anda bisa mendapatkan warisan? Hmph, sepertinya kamu tidak ingin tahu keberadaan dua pemimpin klan mudamu. ”</p>
+<p>	Klan Bai segera mengungkapkan ekspresi heran.</p>
+<p>	Dari nada bicara Fang Yuan, sepertinya kedua pemimpin klan muda itu belum mati…</p>
+<p>	“Fang Zheng, apa maksudmu?” Bai Feng segera bertanya dengan bingung.</p>
+<p>	“Fang Zheng, jangan coba-coba menipu kami dengan kebohongan. Kami telah mencari hampir di mana-mana di tanah warisan Bai Gu tetapi belum menemukan jejak dua pemimpin klan muda itu. ” Bai Lian dengan dingin berteriak.</p>
+<p>	“Akulah yang menemukan warisan Bai Gu, apakah klan Bai berpikir itu lebih memahami tempat itu daripada aku? Konyol!”</p>
+<p>	Fang Yuan dengan jijik mengejek dan melanjutkan: “Mengapa saya mundur sambil membawa dua beban itu? Tidak bisakah kamu berpikir dengan otakmu? Menipu Anda? Hmph, aku bahkan tidak takut pada klan Tie, mengapa aku takut pada klan Bai kecilmu?”</p>
+<p>	“Fang Zheng, jika dua pemimpin klan muda masih hidup maka ini hanya akan menjadi kesalahpahaman, klan Bai kami … bukan klan yang tidak masuk akal.” Bai Feng memilih kata-katanya dengan hati-hati untuk membujuk Fang Yuan agar mengungkapkan keberadaan dua pemimpin klan muda itu.</p>
+<p>	“Kamu ingin tahu? Hehe, baiklah. Kebetulan saya kelaparan, bagaimana kalau Anda mentraktir saya makan? Ayo pergi ke restoran Shi Zi yang paling terkenal di kota ketiga.” Fang Yuan dengan acuh tak acuh berkata.</p>
+<p>	Klan Bai saling memandang.</p>
+<p>	Keberadaan dua pemimpin klan muda itu sangat penting karena mempengaruhi masa depan klan Bai.</p>
+<p>	Meskipun klan Bai sangat membenci Fang Yuan, tetua Bai Feng mengertakkan gigi dan mengangguk: “Baiklah, ayo pergi ke sana!”</p>
+<p>	Restoran Shi Zi bukan hanya restoran sederhana, tetapi juga rumah bordil yang mewah.</p>
+<p>	Restoran ini memperkenalkan wanita dari negeri asing seperti Dataran Utara, Laut Timur dan Gurun Barat; para wanita semuanya mempesona, dengan pantat montok dan payudara besar. Keistimewaan lain dari restoran ini adalah bakso singa mereka dan disajikan pada manusia.</p>
+<p>	Daging singa, daging harimau dan segala macam bahan berharga dibuat menjadi bakso dan dipajang di atas seorang wanita cantik di sela-sela dadanya.</p>
+<p>	Nama bakso singa memiliki makna yang dalam. Bukan hanya untuk memakan makanannya, tetapi juga untuk ‘memakan manusia’.</p>
+<p>	Alasan mengapa Fang Yuan ingin mengunjungi tempat ini bukan karena dia tertarik dengan bakso singa, tetapi karena restoran ini memiliki latar belakang yang kuat dan berisi banyak kamar pribadi rahasia. Banyak klan Shang sering memilih kamar pribadi untuk urusan pribadi mereka, menyembunyikan nama mereka dan tidak khawatir tentang bocornya berita.</p>
+<p>	Fang Yuan memilih ruang rahasia dan duduk bersama semua orang.</p>
+<p>	Sebuah pesta dihidangkan di depan mereka, aroma masakan menyerang lubang hidung mereka. Namun, mereka tidak memesan signature dish yaitu bakso singa.</p>
+<p>	“Katakan, di mana dua pemimpin klan muda kita?” Bai Feng dengan tidak sabar bertanya saat dia duduk.</p>
+<p>	“Sebelum saya memberi tahu Anda, saya ingin meminta Master Gu klan Tie ini untuk tinggal di luar sebentar.” Fang Yuan menatap Tie Dao Ku.</p>
+<p>	“Mengapa?” Tatapan Tie Dao Ku setajam pisau, saat dia dengan kejam memotong Fang Yuan. Perasaan buruk muncul di benaknya.</p>
+<p>	“Karena ini adalah urusan pribadi antara aku dan klan Bai!” Nada bicara Fang Yuan tegas, “Selain aku, semua orang harus menjadi anggota klan Bai, kalau tidak, aku jamin aku tidak akan mengatakan sepatah kata pun!”</p>
+<p>	Bai Feng ragu-ragu, masalah ini menyangkut dua pemimpin klan muda, dia harus berhati-hati tentang hal itu, sehingga dia memandang Tie Dao Ku.</p>
+<p>	Tie Dao Ku mendengus dan dengan kesal meninggalkan ruang rahasia, menutup pintu.</p>
+<p>	Suara yang dihasilkan di ruang rahasia diisolasi dari luar.</p>
+<p>	“Katakan, di mana dua pemimpin klan muda itu, jangan pernah berpikir untuk menipu kita! Ini adalah kota klan Shang, ada banyak cacing Gu yang dapat memverifikasi kata-kata Anda. ” Bai Feng dengan tegas bertanya.</p>
+<p>	Fang Yuan mengangkat cangkir anggur dan menyesapnya: “Di mana? Tentu saja, mereka berdua sudah mati, kalian benar-benar naif! Karena saya membuat musuh dari klan Bai Anda, saya secara alami akan menghilangkan semua ancaman!</p>
+<p>	“Apa!”</p>
+<p>	“Kamu berani mempermainkan kami?</p>
+<p>	“Fang Zheng, kamu mencari kematian !!”</p>
+<p>	Klan Bai berdiri dengan marah, amarah mereka yang menyala-nyala menekan ke arah Fang Yuan.</p>
+<p>	Mereka sangat marah tetapi tidak bisa mengambil tindakan apa pun.</p>
+<p>	Ini bukan wilayah klan Bai, Fang Yuan memiliki token duri ungu dan juga memiliki kekuatan yang mengesankan. Mereka pasti harus membayar harga yang sangat mahal untuk membunuh Fang Yuan. Yang paling penting, jika mereka membunuhnya seperti ini, itu membuat musuh dari klan Shang!</p>
+<p>	Klan Bai Anda membunuh tamu terhormat klan Shang saya di kota klan Shang, hehe.</p>
+<p>	Klan Bai sekarang menghadapi krisis mata air semangat mereka mengering, mereka berada dalam situasi genting. Sekarang, setelah mendapatkan warisan Bai Gu, banyak kekuatan mengincarnya dengan iri, jika mereka memprovokasi titan seperti klan Shang di atas itu, konsekuensinya akan terlalu mengerikan untuk dibayangkan!</p>
+<p>	Fang Yuan dengan tenang duduk di kursinya, dia mengangkat matanya dan menatap semua orang, lalu dengan acuh tak acuh berkata:</p>
+<p>	“Aku sebenarnya mengagumi kalian. Mata air semangat klan Bai Anda mengering dan berada dalam masalah besar, namun kalian masih memiliki mood untuk bersantai dan datang mengejar saya. Hehe, kamu benar-benar luar biasa. ”</p>
+<p>	Kata-kata ini seperti sambaran petir yang dengan ganas menghantam hati mereka, menyebabkan gelombang pasang di hati tetua Bai Feng.</p>
+<p>	Dia ngeri saat dia berkata: “Ini … bagaimana kamu tahu ini ?!”</p>
+<p>	Informasi ini disegel oleh petinggi klan Bai, bahkan Bai Zhan Lie dan Bai Lian tidak mengetahuinya. Tapi Fang Yuan mengungkapkan rahasianya dengan satu kalimat, bagaimana mungkin itu tidak menakuti Bai Feng?</p>
+<p>	“Tentu saja itu dari dua pemimpin klan muda klan bangsawanmu. Sebelum saya membunuh mereka, mereka berlutut dan memohon pengampunan, mencoba menggunakan informasi ini untuk mendapatkan kepercayaan saya dan menukar nyawa mereka.” Fang Yuan berbicara omong kosong, bagaimanapun, orang mati tidak menceritakan kisah.</p>
+<p>	“Mustahil! Informasi ini hanya terbatas pada pemimpin klan dan beberapa tetua. Kedua pemimpin klan muda itu masih muda dan bodoh, bagaimana kita bisa memberi tahu mereka tentang ini ?! ” Bai Feng segera membalas.</p>
+<p>	Fang Yuan melengkungkan bibirnya: “Mungkin mereka mendengarnya ketika mereka bermain-main? Bagaimanapun, ibu mereka adalah pemimpin klan Anda. Ini hanya detail kecil.”</p>
+<p>	“Tuan tetua klan, apakah yang dia katakan tentang mata air roh yang mengering itu benar?”</p>
+<p>	“Bagaimana ini bisa terjadi, jika mata air semangat klan mengering …”</p>
+<p>	Bai Lian, Bai Zhan Lie dan yang lainnya saling bertanya, ekspresi mereka khawatir dan ketakutan.</p>
+<p>	Mata air roh adalah dasar dari sebuah klan, tidak perlu menyebutkan pentingnya. Jika klan kehilangan mata air roh, tidak peduli seberapa kuat itu, itu hanya akan menjadi rumput liar yang tak berakar.</p>
+<p>	Bai Feng segera kembali ke akal sehatnya dengan pertanyaan mereka dan dalam hati tahu dia telah mengacaukannya.</p>
+<p>	Mungkin Fang Yuan hanya menebak, dua pemimpin klan muda itu masih muda, kredibilitas mereka tidak tinggi.</p>
+<p>	Bai Feng merasa sangat menyesal dan berharap dia bisa menampar dirinya sendiri. Dia tidak sabar dan tidak bisa menyembunyikan rahasia. Kalau tidak, ketika dia masih muda, dia tidak akan diusir dari klan oleh ayahnya untuk memaksanya membentuk karakternya.</p>
+<p>	Tahun-tahun ini, dia telah mengembangkan beberapa kelihaian tetapi pada akhirnya, macan tutul tidak dapat mengubah bintik-bintiknya.</p>
+<p>	Tapi jujur, dia tidak bisa disalahkan. Musim semi roh terlalu penting, Bai Feng membawa beban ini di dalam hatinya. Tekanan itu terakumulasi seperti gunung berapi dan meledak karena satu kalimat Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

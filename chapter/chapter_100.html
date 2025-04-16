@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 100 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 100";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_99.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 100">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_101.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 100</h1>
+        <div class="text-left">
+<p>	Bab 100</p>
+<p>	Bab 100: Gu Giok Putih</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Dalam sekejap mata, sepuluh hari lagi berlalu.</p>
+<p>	Jauh di dalam gunung, di hutan batu bawah tanah.</p>
+<p>	Squeakkkkk!</p>
+<p>	Puluhan monyet batu mata giok melompat ke udara dengan siluet kabur.</p>
+<p>	Mereka terus melompat dan menyerang Fang Yuan dengan agresif.</p>
+<p>	Jika seperti sebelumnya, Fang Yuan akan mundur tanpa ragu. Tapi sekarang, dia berdiri di tempat dengan ekspresi dingin, masih seperti batu.</p>
+<p>	Monyet batu membanting, mencakar, dan menggigit tubuh Fang Yuan, tetapi suara ‘ding ding’ yang renyah terdengar, seolah-olah mereka tidak menyerang seseorang, tetapi pilar batu giok yang kokoh.</p>
+<p>	Cahaya giok putih terang menutupi area itu saat menempel pada tubuh Fang Yuan. Cahaya ini, meskipun lebih tipis dari cahaya hijau giok Kulit Giok Gu, itu memiliki lebih dari dua kali kekuatan pertahanan.</p>
+<p>	Pertahanan Jade Skin Gu hanya dapat menangani serangan simultan hingga enam belas monyet, tetapi sekarang Fang Yuan dapat menghadapi lebih dari tiga puluh monyet sendirian.</p>
+<p>	“Di arena, aku bisa mematahkan pertahanan Gu Kulit Giok Fang Zheng dengan tinjuku, tetapi jika Fang Zheng menggunakan Gu Giok Putih ini, bahkan jika tulang pergelangan tanganku patah, aku tidak akan bisa menembus pertahanannya.”</p>
+<p>	Fang Yuan merenung sambil mengalihkan sebagian pikirannya ke laut aperture-nya.</p>
+<p>	Di laut purba baja merah, White Jade Gu tenggelam ke dasar laut, terus-menerus menyerap esensi purba. Permukaannya juga memancarkan cahaya batu giok putih samar, seperti bola lampu.</p>
+<p>	Setiap kali monyet batu menyerang Fang Yuan, permukaan White Jade Gu yang menyerupai kerikil oval akan berkedip samar.</p>
+<p>	Pada saat yang sama, Fang Yuan bisa merasakan jejak esensi purbanya dikeluarkan.</p>
+<p>	“Pertahanan Gu White Jade adalah tipe yang sama dengan Jade Skin Gu, keduanya membutuhkan sumber esensi purba yang berkelanjutan. Pada saat yang sama, semakin besar intensitas serangan, semakin banyak esensi purba yang dikeluarkan. ” Fang Yuan menyimpulkan dalam hatinya.</p>
+<p>	Pada saat yang sama, dia melakukan serangan balik.</p>
+<p>	Pukulan dan tendangan memicu badai pasir. Serangannya sederhana, namun brutal dan efektif dengan aura yang mengesankan.</p>
+<p>	Meskipun Gu Babi Putih telah pergi, kekuatan yang diberikannya kepada Fang Yuan masih ada di tubuhnya.</p>
+<p>	Monyet tak berujung dipukul oleh Fang Yuan. Beberapa ditendang, mengetuk pilar batu; beberapa terbunuh di udara, berubah menjadi batu dan hancur berkeping-keping ketika mereka mendarat di tanah.</p>
+<p>	Pada saat yang sama, dengan jentikan pergelangan tangannya, Fang Yuan mengirim pisau bulan terbang, seperti sabit penuai, memanen kehidupan monyet batu.</p>
+<p>	Dengan pasokan esensi purba baja merah, Peringkat satu Moonlight Gu dapat menyebabkan kerusakan serangan terbesar pada monyet dengan setiap pukulan.</p>
+<p>	Mencicit mencicit…</p>
+<p>	Monyet batu berteriak ketakutan, mundur.</p>
+<p>	Fang Yuan telah memusnahkan monyet batu dalam waktu singkat serangan balik, dengan hanya lima atau enam yang tersisa.</p>
+<p>	Fang Yuan membunuh yang lain, dan monyet batu yang tersisa mogok, dengan panik berlarian dan melarikan diri jauh ke dalam hutan batu.</p>
+<p>	Fang Yuan tidak mengejar pelarian ini, tetapi terus maju lebih dalam ke hutan batu.</p>
+<p>	Hari-hari ini, dia telah bekerja keras untuk menemukan petunjuk selanjutnya untuk warisan. Dengan penjelajahan terus menerus, dia telah menginjakkan kaki di sebagian besar area di sekitar hutan batu, tetapi tidak menemukan apa pun.</p>
+<p>	Dia punya firasat, samar-samar menebak ide Flower Wine Monk. Dia merasa bahwa langkah warisan selanjutnya kemungkinan terkait dengan area paling sentral dari hutan batu.</p>
+<p>	Semakin dalam dia masuk ke hutan, semakin besar pilar batu itu, dan semakin banyak kera batu yang tinggal di dalamnya.</p>
+<p>	Fang Yuan berjalan sambil mengamati — di tengah hutan batu, ada pilar batu besar. Lingkarnya lebih lebar dari puluhan pria yang mengelilinginya dan berusaha memeluknya.</p>
+<p>	Pilar batu ini adalah tujuannya.</p>
+<p>	Tapi, semakin dalam dia, semakin besar geng monyet, dan semakin tinggi kesulitannya.</p>
+<p>	Fang Yuan mengambil langkah penting dan memasuki zona waspada sekelompok monyet.</p>
+<p>	Mencicit mencicit mencicit!</p>
+<p>	Gua hitam di pilar batu telah muncul kera batu mata giok yang marah, dan hingga seratus melompat ke arah Fang Yuan.</p>
+<p>	Fang Yuan berlari untuk hidupnya.</p>
+<p>	Melawan begitu banyak monyet, bahkan dengan Gu Giok Putih, dia tidak bisa membantai mereka.</p>
+<p>	Monyet batu mengejar Fang Yuan untuk sementara waktu, kemudian beberapa mulai meninggalkan pengejaran dan berbalik, kembali ke gua mereka. Akhirnya, hanya sekitar tiga puluh monyet yang mengikuti Fang Yuan.</p>
+<p>	Fang Yuan melihat waktunya tepat, berbalik dan bertarung.</p>
+<p>	Setelah satu putaran pertempuran, beberapa monyet terakhir berlari dan melarikan diri, bahkan tidak berani kembali ke gua aslinya.</p>
+<p>	Setelah beberapa putaran, Fang Yuan membunuh lebih dari seratus monyet batu. Di jalan ada bekas pecahan batu dari mayat kera batu.</p>
+<p>	“Esensi purba tidak mencukupi.” Fang Yuan memeriksa laut purba dan menghela nafas, terpaksa berhenti di jalurnya.</p>
+<p>	Jika sebelumnya, dia akan menggunakan batu purba untuk pulih dengan cepat, tetapi sekarang, setelah menggabungkan Gu Giok Putih, dia kekurangan batu purba, atau lebih tepatnya seluruh keuangannya berada di ambang kehancuran.</p>
+<p>	Fang Yuan mengambil bola mata batu giok dan memasukkannya ke dalam tasnya.</p>
+<p>	“Itu harus berada di bagian bawah tengah pilar batu itu. Tapi untuk sampai ke sana, saya harus membuka jalan.” Perasaan ini semakin kuat, Fang Yuan memberikan pandangan terakhir sebelum membuka pintu batu dan kembali ke ruang rahasia kedua.</p>
+<p>	Di sudut ruang tersembunyi, ada beberapa barang.</p>
+<p>	Sebuah tas kecil dengan ratusan bola mata giok. Fang Yuan membuka tas dan menuangkan jarahannya mulai hari ini.</p>
+<p>	Mutiara giok bertabrakan satu sama lain, memancarkan suara yang tajam.</p>
+<p>	Ada tas lain, dan taring babi hutan ada di dalamnya. Tapi sekarang Fang Yuan tidak perlu lagi menyembelih babi hutan.</p>
+<p>	Dia menggunakan Gu Babi Putih dan Gu Kulit Giok untuk memperbaiki Gu Giok Putih. White Boar Gu telah menghilang, dan mengurangi kebutuhannya akan daging babi menjadi 0.</p>
+<p>	Gu Giok Putih yang baru lebih seperti Gu Kulit Giok, ia memakan batu giok.</p>
+<p>	Jade Skin Gu membutuhkan dua liang batu giok setiap sepuluh hari. Sementara White Jade Gu membutuhkan delapan liang batu giok setiap dua puluh hari.</p>
+<p>	Biasanya, semakin tinggi pangkatnya, semakin lama interval untuk setiap makan. Peringkat dua Gu biasanya memberi makan setiap setengah bulan, sedangkan peringkat tiga Gu memberi makan setiap bulan, atau lebih lama.</p>
+<p>	Tentu saja, Gu berperingkat lebih tinggi juga mengonsumsi lebih banyak makanan. Rata-rata, White Jade Gu mengkonsumsi lebih banyak biaya daripada gabungan Jade Skin Gu dan White Boar Gu.</p>
+<p>	Tetapi bagi Fang Yuan, dia memiliki hutan batu ini dan tidak kekurangan batu giok. Pada saat yang sama dia tidak membutuhkan babi, jadi dia tidak perlu membunuh babi hutan, jadi ini menyelamatkannya dari banyak masalah dan banyak waktu.</p>
+<p>	Mengikat tas kecil itu, Fang Yuan mengambil karung air kulit banteng.</p>
+<p>	Di dalam karung air, ada anggur madu emas di dalamnya. Beberapa hari yang lalu, Fang Yuan mengandalkan Gu Kulit Giok dan menahan serangan lebah, dan mengumpulkan cukup anggur madu.</p>
+<p>	“Saya hanya memiliki dua setengah batu purba yang tersisa, sekarang saatnya untuk pergi ke aula urusan internal dan menyerahkan misi.”</p>
+<p>	Fang Yuan menyimpan karung air dengan baik dan kembali ke terowongan, keluar dari celah batu dan kembali ke dunia luar.</p>
+<p>	Saat itu matahari terbenam.</p>
+<p>	Matahari terbenam keemasan di musim dingin sebenarnya tidak dingin, cuaca cerah dan cerah. Matahari terbenam muncul dengan sinar nyaman warna merah-oranye, sinar matahari yang indah melewati mahkota pohon pinus dan menyinari lantai gunung.</p>
+<p>	Berjalan sendirian, dia menuju ke desa.</p>
+<p>	Namun Fang Yuan tidak langsung pergi, tetapi mengambil beberapa rute ulang untuk mencegah retakan batu ditemukan.</p>
+<p>	Angin musim dingin bertiup di wajahnya, ini adalah aroma kebebasan.</p>
+<p>	Kembali di akademi, dia hanya bisa menyelinap keluar di malam hari. Sekarang dia berada di peringkat dua, dia bisa bergerak bebas di siang hari tanpa curiga.</p>
+<p>	Lebih penting lagi, kematian ular yang sakit-sakitan dan yang lainnya memungkinkan Fang Yuan bergerak sendiri dengan lebih sedikit pengekangan.</p>
+<p>	Satu-satunya adalah, Fang Yuan sekarang sendirian tanpa anggota kelompok pendukung. Misi klan berikut yang terjadi setiap bulan, dia harus menyelesaikan setidaknya satu, dan itu akan sulit.</p>
+<p>	Sekarang, setelah gerombolan binatang kecil, semua kelompok telah berkumpul kembali. Fang Yuan telah melewatkan kesempatan itu.</p>
+<p>	Karena reputasinya, Fang Yuan juga dikucilkan oleh Master Gu. Bergabung dengan kelompok kecil lainnya tidak akan mudah.</p>
+<p>	“Jadi bagaimana jika saya ditinggalkan, semakin saya melayang di tepi jurang, semakin sedikit perhatian pada saya, dan semakin menguntungkan bagi saya. Adapun misi klan, itu wajib jadi saya harus mengambilnya. Tetapi….”</p>
+<p>	Memikirkan hal ini, mata Fang Yuan bersinar dengan cahaya dingin, dia sudah punya rencana.</p>
+<p>	Klan mengamanatkan bahwa setiap Guru Gu harus menerima misi setiap bulan, tetapi tidak memaksa mereka untuk menyelesaikannya.</p>
+<p>	Tidak dapat menyelesaikan misi akan menghasilkan evaluasi yang jatuh. Ini adalah sesuatu yang tidak ingin dilihat oleh Guru Gu, jadi mereka melakukan segalanya untuk menyelesaikan misi.</p>
+<p>	Tetapi bagi Fang Yuan, evaluasi ini adalah omong kosong!</p>
+<p>	Berjalan ke desa, ada aliran tak berujung orang berjalan di sepanjang jalan batu kapur jalan.</p>
+<p>	Pada saat ini, biasanya periode puncak.</p>
+<p>	Banyak Master Gu menyelesaikan misi mereka dengan cedera dan yang lainnya, kembali ke desa. Setelah bekerja selama sehari, para petani menyeret kaki mereka yang berlumpur dan tubuh yang lelah, diam-diam berjalan.</p>
+<p>	Di dunia ini, hidup tidak mudah, penuh dengan rasa sakit dan penderitaan.</p>
+<p>	Matahari terbenam perlahan turun di bawah puncak gunung, memberikan sinar terakhir dari cahaya hangat. Cahaya ini akan diredam oleh cabang-cabang pohon layu yang bersilangan tidak merata, menjadi serpihan waktu yang bertebaran di dinding giok hijau rumah bambu.</p>
+<p>	“Oh tidak, mainanku,” teriak seorang gadis, mengejar atasannya yang berputar di antara kerumunan.</p>
+<p>	Bagian atas yang berputar berguling ke kaki Fang Yuan, dan gadis itu juga mengenai kaki Fang Yuan, jatuh ke tanah.</p>
+<p>	“Maaf maaf! Untuk menyinggung tuan Gu Master, mohon maafkan kami!” Ayah gadis kecil itu bergegas. Ketika dia melihat pakaian Fang Yuan, ekspresinya seputih kertas, membawa gadis kecil itu dan berlutut, bersujud kepada Fang Yuan.</p>
+<p>	Gadis itu berteriak kaget, butiran air mata mengalir di wajahnya yang putih dan kemerahan.</p>
+<p>	Manusia berjalan setelah melihat pemandangan ini, berbalik dan menghindari mereka seperti wabah.</p>
+<p>	Beberapa Master Gu menatap dingin, sebelum berbalik dan pergi.</p>
+<p>	“Berhentilah menangis, kau pembuat onar!” Sang ayah ketakutan, marah dan takut, menggerakkan tangannya untuk menamparnya, tetapi Fang Yuan meraih tangannya, tidak membiarkan gerakan apa pun.</p>
+<p>	“Hanya masalah kecil, jangan khawatir.” Fang Yuan tertawa ringan, menyentuh kepala gadis kecil itu, menghibur dengan lembut, “Jangan takut, tidak apa-apa.”</p>
+<p>	Gadis itu berhenti menangis, menggunakan matanya yang berkaca-kaca untuk melihat Fang Yuan, berpikir bahwa kakak laki-laki ini sangat lembut.</p>
+<p>	“Terima kasih tuan, terima kasih tuan atas kebaikanmu!” Ayah gadis itu sangat gembira, bersujud kepada Fang Yuan tanpa istirahat.</p>
+<p>	Fang Yuan terus maju.</p>
+<p>Rumah kontrakannya tidak jauh.</p>
+<p>	Dan di lantai dasar rumah bambu itu, pamannya Gu Yue Dong Tu berdiri, menatap Fang Yuan yang masih jauh, rupanya menunggunya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

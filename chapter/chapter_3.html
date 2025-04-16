@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 3";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 3">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_4.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 3</h1>
+        <div class="text-left">
+<p>	Bab 03</p>
+<p>	Bab 3: Silakan minggir dan enyahlah</p>
+<p>	Bang, Bang, Bang.</p>
+<p>	Penjaga malam yang berpatroli menggedor genta kayunya dengan irama.</p>
+<p>	Suara menyebar ke rumah pilar tinggi; Fang Yuan membuka kelopak matanya yang kering sementara hatinya diam-diam berpikir, “Ini sudah jam sebelum fajar.”</p>
+<p>	Dia telah berbaring di tempat tidur berpikir untuk waktu yang lama tadi malam. Dia memikirkan banyak rencana. Dia mungkin hanya tidur selama lebih dari dua jam. Tubuh ini belum mulai berkultivasi, energinya tidak begitu kuat sehingga tubuh dan pikirannya masih diselimuti kelelahan.</p>
+<p>	Namun dengan pengalaman 500 tahun, Fang Yuan telah lama membangun tekad seperti baja yang dalam. Kelelahan kurang tidur semacam ini bukan apa-apa baginya.</p>
+<p>	Segera dia menyingkirkan selimut sutra tipis dan bangkit dengan rapi. Dia membuka jendela dan menemukan bahwa hujan musim semi telah berhenti.</p>
+<p>	Perpaduan aroma tanah, pepohonan, dan bunga liar menyambutnya. Fang Yuan merasa kepalanya jernih, rasa kantuknya hilang dengan bersih. Saat ini matahari belum terbit, langit masih biru tua, tidak gelap namun tidak cerah.</p>
+<p>	Melihat sekeliling, rumah-rumah tinggi yang terbuat dari bambu hijau dan kayu yang kontras dengan gunung, adalah lautan berwarna hijau pucat.</p>
+<p>	Rumah-rumah tinggi setidaknya memiliki dua lantai; itu adalah struktur rumah yang unik dari penduduk pegunungan. Karena medan gunung yang tidak rata, lantai pertama adalah tiang kayu besar; lantai dua adalah tempat orang-orang tinggal. Fang Yuan dan saudaranya Fang Zhen tinggal di lantai dua.</p>
+<p>	“Tuan muda Fang Yuan, kamu sudah bangun. Aku akan naik ke atas dan menunggumu mandi.” Pada saat ini, suara seorang gadis melayang dari bawah.</p>
+<p>	Melihat ke bawah, Fang Yuan melihat pelayan pribadinya – Shen Cui.</p>
+<p>	Penampilannya hanya sedikit di atas rata-rata, tapi dia berdandan dengan baik. Shen Cui mengenakan jubah hijau dengan lengan panjang dan celana panjang, memiliki sepatu bordir di kakinya dan rambut hitamnya memiliki jepit rambut mutiara. Tubuhnya dari ujung kepala sampai ujung kaki memancarkan vitalitas muda.</p>
+<p>	Dia menatap Fang Yuan dengan gembira sambil membawa baskom berisi air, dan berjalan ke atas. Airnya berada pada suhu hangat yang tepat dan digunakan untuk mencuci muka. Setelah berkumur, dia menggunakan ranting willow dengan garam salju untuk membersihkan giginya.</p>
+<p>	Shen Cui menunggu dengan lembut, wajahnya tersenyum dan matanya cerah seperti musim semi. Setelah selesai, dia membantu Fang Yuan berpakaian, payudaranya yang montok bergesekan dengan siku atau punggungnya beberapa kali selama proses itu.</p>
+<p>	Wajah Fang Yuan tidak menunjukkan ekspresi; hatinya tenang seperti air.</p>
+<p>	Gadis pelayan ini tidak lain adalah mata-mata bibi dan pamannya dan gadis tak berperasaan yang sia-sia. Dalam kehidupan sebelumnya dia memikatnya, tetapi setelah Upacara Kebangkitan ketika statusnya merosot, dia dengan cepat memalingkan kepalanya dan memberinya tatapan menghina yang tak terhitung jumlahnya.</p>
+<p>	Ketika Fang Zheng datang, dia tepat waktu untuk melihat Shen Cui merapikan lipatan pakaian di dada Fang Yuan. Sorot matanya memancarkan kecemburuan.</p>
+<p>	Tahun-tahun ini hidup bersama dengan kakak laki-lakinya, di bawah asuhan Fang Yuan dia juga memiliki seorang pelayan yang menunggunya. Namun pelayannya bukanlah seorang gadis muda seperti Shen Cui tetapi seorang wanita tua yang gemuk dan lebar.</p>
+<p>	“Aku ingin tahu hari apa Shen Cui bisa menungguku seperti ini, bertanya-tanya seperti apa rasanya?” Fang Zheng berpikir di dalam hatinya, namun dia tidak berani.</p>
+<p>	Cinta bias bibi dan pamannya kepada Fang Yuan bukanlah rahasia bagi semua orang. Awalnya dia bahkan tidak memiliki pelayan untuk menunggunya. Fang Yuan-lah yang memutuskan untuk mengambil inisiatif dan meminta satu untuk Fang Zheng.</p>
+<p>	Meskipun ada perbedaan status tuan dan pelayan, tetapi biasanya Fang Zheng tidak berani meremehkan Shen Cui. Itu karena ibunya adalah Ibu Shen (1) yang berdiri di samping bibi dan pamannya. Ibu Shen adalah penjaga seluruh rumah tangga – memiliki kepercayaan penuh dari bibi dan pamannya, otoritasnya tidak kecil.</p>
+<p>	“Baiklah, tidak perlu dirapikan.” Fang Yuan dengan tidak sabar menepis tangan kecil lembut Shen Cui. Pakaiannya sudah lama rapi; dia hanya mencoba merayunya.</p>
+<p>	Bagi Shen Cui dan masa depannya yang cerah, kemungkinan Fang Yuan memiliki bakat kelas A sangat besar. Jika dia bisa menjadi selirnya, dia akan bisa naik dari status pelayan menjadi tuan – itu adalah langkah yang cukup besar.</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan ditipu olehnya dan memiliki perasaan terhadap Shen Cui. Setelah kelahiran kembali, dia jernih seperti api yang menyala-nyala, hatinya sedingin es.</p>
+<p>	“Kamu boleh pergi.” Fang Yuan bahkan tidak melihat ke arah Shen Cui saat dia merapikan manset lengan bajunya sendiri. Shen Cui sedikit cemberut, merasa bahwa perilaku membingungkan Fang Yuan hari ini agak aneh dan menjengkelkan. Dia ingin menjawab dengan cara yang manja tetapi takut dengan sifatnya yang dingin dan membingungkan, mulutnya membuka dan menutup beberapa kali sebelum dia akhirnya mengatakan ‘ya’ dan mundur dengan patuh.</p>
+<p>	“Apakah kamu siap?” Fang Yuan bertanya pada Fang Zheng.</p>
+<p>	Adik laki-lakinya berdiri di ambang pintu, kepalanya tertunduk untuk melihat jari-jari kakinya. Dia menggumamkan ‘ya’ ringan. Fang Zheng sebenarnya sudah bangun sejak jam keempat, terlalu gugup untuk tertidur kembali. Dia diam-diam bangun dari tempat tidur dan bersiap-siap sejak lama, matanya memiliki lingkaran hitam.</p>
+<p>	Fang Yuan mengangguk. Dalam kehidupan sebelumnya dia tidak jelas tentang pikiran adiknya, tetapi dalam kehidupan ini bagaimana mungkin dia tidak mengerti? Tapi sekarang itu tidak ada artinya baginya, dan dia dengan ringan berkata, “Kalau begitu ayo pergi.”</p>
+<p>	Jadi kedua bersaudara itu pergi dari rumah. Dalam perjalanan mereka bertemu dengan banyak pemuda seusia, semuanya dalam kelompok berdua dan bertiga, dengan jelas menuju ke tujuan yang sama.</p>
+<p>	“Lihat teman-teman, itu adalah saudara-saudara Fang.” Telinga mereka bisa menangkap pembicaraan kecil yang hati-hati. “Yang berjalan di depan adalah Fang Yuan, dia adalah Fang Yuan yang menciptakan puisi,” beberapa dari mereka menekankan.</p>
+<p>	“Jadi itu dia. Wajahnya tanpa ekspresi seolah-olah dia tidak memperhatikan orang lain, seperti yang dikatakan rumor. ” Seseorang berkata dengan nada masam yang dipenuhi dengan kecemburuan dan kecemburuan.</p>
+<p>	“Hmph, jika kamu seperti dia maka kamu juga bisa bertindak seperti itu!” Seseorang dengan dingin membalas orang itu, menyembunyikan semacam ketidakpuasan.</p>
+<p>	Fang Zheng mendengarkan tanpa ekspresi. Dia sudah lama terbiasa dengan diskusi semacam ini. Kepalanya rendah, dia mengikuti dengan tenang di belakang kakak laki-lakinya.</p>
+<p>	Saat ini, cahaya fajar telah mengintip dari cakrawala, melemparkan bayangan Fang Yuan ke wajahnya. Matahari terbit secara bertahap, tetapi Fang Yuan tiba-tiba merasa seperti sedang berjalan menuju kegelapan.</p>
+<p>	Kegelapan ini datang dari kakak laki-lakinya. Mungkin dalam kehidupan ini, dia tidak akan pernah bisa melarikan diri dari bayang-bayang besar saudaranya yang memenjarakan.</p>
+<p>	Dia merasakan ledakan tekanan di dadanya membuat dia sulit bernapas. Perasaan terkutuk ini bahkan membuatnya memikirkan kata ‘mati lemas’!</p>
+<p>	“Hmph, pembicaraan ini adalah contoh yang baik dari pepatah: ‘mereka yang memiliki bakat luar biasa dengan mudah menimbulkan kecemburuan dari orang lain’,” pikir Fang Yuan sambil mencibir ketika dia mendengarkan gosip di sekitar.</p>
+<p>	Tidak heran ketika diumumkan bahwa dia memiliki bakat kelas C, dia akan dikelilingi oleh musuh dan menderita dingin yang kejam dan menghina untuk waktu yang lama.</p>
+<p>	Di belakangnya, napas Fang Zheng menjadi suram dan mencoba berhenti mendengarkan.</p>
+<p>	Apa yang tidak berhasil disadari oleh Fang Yuan dalam kehidupan sebelumnya, dia dapat memahami dengan detail terbaik dalam kehidupan ini. Ini adalah kemampuan wawasan tajam yang dia peroleh dari pengalaman hidup selama 500 tahun.</p>
+<p>	Dia tiba-tiba teringat bibi dan pamannya dan betapa liciknya mereka. Memberinya Shen Cui untuk mengawasinya dan memberikan adik laki-lakinya seorang perawat tua, tidak termasuk hal-hal lain dalam hidup yang berbeda di antara mereka. Semua tindakan ini memiliki niat – Mereka ingin menyebabkan ketidakbahagiaan di hati adik laki-lakinya dan memicu keretakan di antara saudara-saudaranya.</p>
+<p>	Orang tidak khawatir apakah mereka menerima lebih sedikit; orang khawatir tentang apakah apa pun yang mereka terima tidak terdistribusi dengan baik.</p>
+<p>	Dalam kehidupan sebelumnya pengalamannya terlalu sedikit, sementara adiknya terlalu bodoh dan terlalu naif, sehingga bibi dan pamannya berhasil memicu keributan di antara mereka.</p>
+<p>	Setelah dilahirkan kembali dengan Upacara Kebangkitan di hadapannya, sepertinya situasinya sulit untuk diubah. Tetapi dengan cara dan kebijaksanaan jahat Fang Yuan, bukan berarti situasinya tidak dapat diubah.</p>
+<p>	Adik laki-lakinya dapat ditekan sepenuhnya, Shen Cui muda itu bisa dia ubah menjadi selir sejak dini. Tidak melupakan bibi dan pamannya dan para tetua klan – dia memiliki setidaknya beberapa ratus cara untuk mengalahkan mereka.</p>
+<p>	“Tapi, aku tidak ingin melakukan itu …” Fang Yuan menghela nafas dengan hati-hati.</p>
+<p>	Jadi bagaimana jika itu adalah adiknya sendiri? Tanpa hubungan darah, adik laki-lakinya hanyalah orang luar, dia bisa dengan mudah menyerahkannya kapan saja.</p>
+<p>	Jadi bagaimana jika Shen Cui tumbuh lebih cantik? Tanpa cinta dan kesetiaan, dia hanyalah seonggok daging. Pertahankan dia sebagai selir? Dia tidak layak.</p>
+<p>	Jadi bagaimana jika itu bibi dan pamannya, atau tetua klan? Mereka hanya orang yang lewat dalam hidup, mengapa membuang-buang tenaga dan tenaga untuk mengalahkan orang-orang ini?</p>
+<p>	Hehe.</p>
+<p>	Selama kamu tidak menghalangi jalanku, maka kamu bisa pergi ke samping dan enyahlah, aku tidak perlu peduli padamu.</p>
+<p>	(1) Ibu Shen seperti gelar atau cara untuk memanggil seorang wanita dari posisinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 192 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 192";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_191.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 192">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_193.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 192</h1>
+        <div class="text-left">
+<p>	Bab 192</p>
+<p>	Bab 192: Mengangkat Alis &amp; Buang napas</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Bagaimana aku menemukanmu? Ha ha ha!” Orang tua alis putih itu tertawa keras, suaranya terdengar sangat bahagia, sementara tatapannya kejam. Dia membuka telapak tangannya, memperlihatkan Gu.</p>
+<p>	Itu adalah Cacing Darah Kekerabatan.</p>
+<p>	Kekerabatan Bloodworm sangat jernih, seperti batu akik merah. Itu seperti jangkrik, kadang-kadang memancarkan cahaya, menunjuk ke arah generasi pertama Gu Yue.</p>
+<p>	“Meskipun kakak senior mencuri kesempatanku dan menikamku dari belakang, mengambil Guku, aku masih berhasil mempelajari seni rahasia. Jadi saya memurnikan Cacing Darah Kekerabatan ini. Anda tahu bagaimana saya menyempurnakannya? Hehehe, menggunakan darah jantung dari dua putramu yang berhubungan darah. Mereka baru berusia lima hingga enam tahun dan terlalu muda, jadi tanpa darah jantung yang cukup, saya hanya bisa mengubah mereka berdua menjadi sumber kehidupan, mengambil darah mereka setiap bulan. Setelah menghabiskan puluhan tahun, saya akhirnya mengumpulkan cukup darah jantung dan memurnikan Gu ini. ” Orang tua alis putih itu berkata dengan cepat, nadanya sangat angkuh.</p>
+<p>	“Oh, benar, kedua putramu segera meninggal. HAHAHA, setelah memurnikan Cacing Darah Kekerabatan, saya menggunakannya untuk menemukan Anda selama bertahun-tahun. Tapi dunia ini terlalu besar, dan Anda tidak bisa ditemukan di mana pun. Meskipun Cacing Darah Kekerabatan berada di peringkat lima, jangkauannya masih terbatas. Akhirnya, ketika saya hampir sekarat, saya hanya bisa menggunakan Gu Pemakaman Giok yang mempertahankan hidup, hidup melalui kematian dan menyegel diri saya sendiri. Tidak lama sebelum ini, saya harus keluar dari penyegelan dan saya mencoba untuk terakhir kalinya. Untuk berpikir aku menemukanmu secara kebetulan! Kakak senior, apakah kamu tahu betapa bahagia dan bersemangatnya aku saat itu ?! ”</p>
+<p>	“Adapun Tie Xue Leng itu, hehehe, aku memang mengiriminya surat untuk menariknya ke sini. Melihatnya, saya memikirkan hubungan kami sebelumnya. Betapa nostalgia. Saat itu kami berasal dari sekte yang sama, mengejar pembudidaya iblis. Kami disebut Bangau Kembar yang Benar, memiliki kemuliaan dan kebanggaan yang tak terbatas, ”Seorang tua alis putih mengatakan demikian, menunjukkan ekspresi nostalgia.</p>
+<p>	Ekspresinya tenang dan nadanya lembut, tetapi semakin dia memikirkannya, semakin kuat niat membunuh di kedua matanya yang dingin.</p>
+<p>	Orang tua beralis putih ini, berasal dari Benua Tengah; dia dikenal sebagai Lord Sky Crane.</p>
+<p>	Saat itu, dia menggunakan Gu Perbudakan Bangau Peringkat lima dan memerintah atas raja bangau tingkat raja binatang yang tak terhitung jumlahnya dan menjadi terkenal. Karena dia bisa memperbudak segudang raja binatang, itu berarti dia mengendalikan sepuluh ribu tentara binatang.</p>
+<p>	Kekuatan ini memungkinkan dia untuk menggunakan kekuatannya sendiri dan melenyapkan satu desa.</p>
+<p>	Lord Sky Crane dan Gen Pertama Gu Yue keduanya berasal dari Sekte Immortal Crane Benua Tengah. Ratusan tahun yang lalu, mereka adalah saudara senior dan junior, lebih dekat dari saudara sejati, membunuh banyak Master Gu iblis dan bekerja bersama, memiliki sinergi yang sempurna satu sama lain.</p>
+<p>	Dalam salah satu upaya mereka dalam mengejar pembudidaya iblis, mereka menemukan tanah warisan.</p>
+<p>	Warisan ini adalah salah satu dari banyak yang didirikan oleh Leluhur Laut Darah. Tetapi jika itu adalah warisan biasa, biarlah, mereka tidak akan saling berpaling.</p>
+<p>	Namun, harta warisan tanah ini sangat berharga; itu bisa memungkinkan seseorang untuk naik ke surga dan menjadi abadi dari manusia! Dengan demikian, kedua bersaudara itu tergerak.</p>
+<p>	Legenda mengatakan, Leluhur Laut Darah meninggalkan lebih dari seratus ribu warisan, tersebar di seluruh dunia. Tapi motif sebenarnya adalah beberapa harta karun sejati yang tersembunyi di beberapa tempat ini. Mereka menyembunyikan cacing Gu pribadinya, metodenya yang sebenarnya.</p>
+<p>	Saudara-saudara sekte menemukan warisan harta karun Leluhur Laut Darah yang sebenarnya.</p>
+<p>	Lord Sky Crane lebih cepat dan mendapatkan warisan. Dirusak oleh keserakahan, gen pertama Gu Yue bersekongkol melawannya dan mencuri cacing Gu. Kemudian dia mencoba membunuh Lord Sky Crane, tetapi tidak berhasil karena yang terakhir berhasil melarikan diri.</p>
+<p>	Melihat masalah itu terungkap, gen pertama Gu Yue hanya bisa menyembunyikan namanya dan melarikan diri ke mana-mana, mencegah dirinya ditemukan oleh mantan sektenya. Setelah puluhan tahun, dia tidak dapat menemukan Gu Seumur Hidup, sehingga di hari-hari terakhirnya dia berdiri di Gunung Qing Mao di Perbatasan Selatan, mengubah penampilannya dan menyebut dirinya Gu Yue, mendirikan desa Gu Yue.</p>
+<p>	Lord Sky Crane tidak dapat menemukannya, dipenuhi dengan kebencian. Sementara itu Sekte Bangau Abadi sangat tertarik dengan warisan lautan darah, jadi dengan bantuan mereka, Dewa Langit Bangau menggunakan Gu Pemakaman Giok yang menyelamatkan jiwa, tertidur lelap dan mempertahankan bagian terakhir hidupnya.</p>
+<p>	Metode Pemakaman Giok yang menyelamatkan jiwa ini juga merupakan metode khusus. Mirip dengan transformasi gen pertama Gu Yue menjadi zombie, itu adalah metode yang tidak ortodoks dan hanya tindakan putus asa.</p>
+<p>	Berubah menjadi zombie, menggantikan hidup dengan kematian. Pemakaman kehidupan yang melestarikan kehidupan dapat memungkinkan seseorang untuk bertahan hidup, tetapi tidak meningkatkan umur mereka.</p>
+<p>	Hanya ada satu cara untuk meningkatkan umur seseorang di dunia ini. Seperti yang dilakukan Fang Yuan di kehidupan sebelumnya, mereka perlu menggunakan Lifespan Gu, meningkatkan umur sendiri dari akarnya; ini adalah cara yang tepat. Metode lain memiliki kelemahan dan tidak diakui oleh Langit dan Bumi, milik resor yang tidak berdaya.</p>
+<p>	“Kakak senior! Anda murid yang tak tahu malu, sampah tercela! Saat itu ketika Anda menikam saya dari belakang, apakah Anda mengharapkan pembalasan hari ini? Haha, surga tidak mengecewakanku, karena akhirnya aku menemukanmu. Hari ini, saya tidak hanya akan memusnahkan garis keturunan Anda dan menghancurkan plot seribu tahun Anda, tetapi saya juga akan mengambil kembali kesempatan saya! Hari ini, aku sudah menunggu terlalu lama!!”</p>
+<p>	Mengakhiri ingatannya, Lord Sky Crane menghela nafas dengan keras, mengumpulkan niat membunuhnya.</p>
+<p>	Tapi sebelum dia menyerang, gen pertama Gu Yue bertindak lebih cepat!</p>
+<p>	Air darah di tanah mengalir seperti air mancur, mengeluarkan aura yang menakutkan.</p>
+<p>	Bau darah yang tajam menyebar seperti di dalam air darah pekat yang kental, puluhan ribu guillotine darah terbang keluar, dikemas dengan rapat.</p>
+<p>	wussss.</p>
+<p>	Suara kepakan sayap terdengar saat kelelawar darah pedang yang tak terhitung jumlahnya, Gu terbang ke udara, menelan langit dan membunuh ke arah kawanan bangau.</p>
+<p>	Kawanan burung bangau jatuh ke dalam kekacauan.</p>
+<p>	Guillotine darah dan kelelawar darah bladewing jauh lebih kecil daripada Derek Terbang Paruh Besi, mendapatkan keuntungan gerakan dalam pertempuran.</p>
+<p>	Lord Sky Crane sangat marah, berteriak keras dan memerintahkan raja bangau terbang yang dia tunggangi, bergegas menuju gen Pertama Gu Yue.</p>
+<p>	“Mundur!” Seorang Guru Gu berteriak.</p>
+<p>	Angin melolong saat serangan raja binatang yang tak terhitung jumlahnya itu terlalu mengesankan, seperti meteor yang menghantam tanah, menyebabkan orang merasa terkejut dan takut.</p>
+<p>	Tapi tiba-tiba, gelombang darah terbang ke langit, dan python sungai darah yang bersembunyi menyerang di bawah penutup air darah. Itu membuka mulutnya, menggigit leher panjang raja bangau terbang. Pada saat yang sama tubuhnya melingkar, mencoba menyeret raja bangau terbang ke dalam kolam darah di tanah.</p>
+<p>	Lord Sky Crane mendengus; dia tahu tentang python sungai darah. Air darah seperti obat pemulihan tertinggi untuk python, jadi dia perlu memutuskan kontak di antara mereka.</p>
+<p>	Dengan ini dia berkehendak dalam pikirannya, dan raja bangau terbang mengulurkan cakar bajanya, meraih ular sanca sungai darah. Pada saat yang sama ia mengepakkan sayapnya, terbang menuju langit. Setelah bertarung dengan Tie Xue Leng, python sungai darah masih memiliki banyak luka di tubuhnya, dan kekuatannya juga sangat berkurang. Jadi itu dibawa oleh raja bangau terbang ke udara, melambat meninggalkan desa.</p>
+<p>	“Serahkan hidupmu!” Lord Sky Crane melolong, berubah menjadi kilatan putih dan menerkam gen pertama Gu Yue yang berada di peti mati merah.</p>
+<p>	Gen pertama Gu Yue melangkah keluar dari peti mati, dan dengan peregangan, sayap tumbuh dari punggungnya. Sepasang sayap ini besar dan kuat, seperti sayap kelelawar berwarna hitam legam.</p>
+<p>	Zombie Gu adalah seri klasik dari cacing Gu, tersebar luas di dunia. Peringkat dua Roaming Zombie Gu, Peringkat tiga Fur Zombie Gu, Peringkat empat Jumping Zombie Gu, Peringkat lima Flying Zombie Gu. Blood Wight Gu adalah salah satu zombie terbang, tentu saja bisa terbang!</p>
+<p>	Mata generasi pertama Gu Yue terbakar dengan api yang mengamuk saat dia membuka tangannya dan menunjukkan cakar iblisnya yang licik. Dia membentangkan kedua sayapnya, bergegas menuju langit. Dengan ledakan, dia bertabrakan dengan Lord Sky Crane yang berada di udara.</p>
+<p>	Keduanya memiliki kekuatan yang hampir sama, dan setelah mundur agak jauh, mereka menstabilkan diri dan menyerang sekali lagi.</p>
+<p>	Boom boom boom….</p>
+<p>	Keduanya terlibat dalam pertempuran udara, tubuh mereka bertabrakan terus-menerus. Kekuatan Peringkat lima sepenuhnya ditampilkan, sebagai akibat dari konflik mereka mengakibatkan banyak bangunan bambu runtuh.</p>
+<p>	Setelah beberapa saat, gen pertama Gu Yue berteriak keras, tubuhnya tertutup bayangan darah, saat serangannya menjadi beberapa kali lebih kejam.</p>
+<p>	Mata Lord Sky Crane bersinar dengan cahaya, menyerang seperti menebas pedang terbang, atau menusuk pedang abadi, menghancurkan bayangan satu per satu.</p>
+<p>	Gen pertama Gu Yue menghembuskan kabut berdarah lagi, mendorong Lord Sky Crane untuk mengaktifkan cacing Gu-nya yang membentuk penghalang cahaya, menghalangi kabut darah untuk menyerang.</p>
+<p>	Setelah beberapa saat, Lord Sky Crane adalah orang tua yang sekarat, tubuh tuanya lemah, dan dengan demikian kekuatannya jatuh, perlahan-lahan dikuasai oleh gen Pertama Gu Yue, jatuh ke dalam kerugian.</p>
+<p>	“Setelah ratusan tahun, kamu tidak meningkat sedikit pun!” Gen pertama Gu Yue tertawa keras dan mengejek.</p>
+<p>	“Bajingan sialan!” Lord Sky Crane memarahi dengan marah; dia tidak menyangka gen Pertama Gu Yue menjadi begitu kuat, baik itu guillotine darah atau Gu kelelawar darah bladewing — mereka seharusnya menjadi miliknya.</p>
+<p>	Berpikir begitu, dia menjadi lebih marah.</p>
+<p>	“Hmph, saatnya menggunakan kartu trufku!” Lord Sky Crane mendengus diam-diam, alis putihnya terangkat ringan, berubah.</p>
+<p>	Alisnya tumbuh dengan panik, menjadi dua semak tebal lebih dari puluhan meter, satu kiri dan satu kanan seperti ular keluar dari sarangnya, bergerak cepat dan melingkar di sekitar Generasi Pertama Gu Yue.</p>
+<p>	Gen pertama Gu Yue berjuang tanpa hasil, cakarnya tak henti-hentinya menyerang. Alis ini terlihat rapuh tetapi lebih kuat dari baja, dan juga mudah dibentuk. Setelah terkendali, itu seperti akar pohon tua.</p>
+<p>	“Ini sebenarnya adalah Raise Alis &amp; Exhale Gu!” Nada suara gen pertama Gu Yue berubah untuk pertama kalinya, terkejut dan marah.</p>
+<p>	Raise Eyebrows &amp; Exhale Gu ini tidak menggunakan qi biasa, tetapi energi purba. Menggunakan esensi purba di lubang Guru Gu, dan mengirimkannya sebagai energi purba, Gu ini tidak biasa karena memiliki jenis penggunaan yang kalah-kalah.</p>
+<p>	Dengan menggunakan Gu ini sekarang, tidak hanya esensi purba generasi pertama Gu Yue yang dikeluarkan dengan cepat, tetapi juga milik Lord Sky Crane.</p>
+<p>	Raise Eyebrows &amp; Exhale Gu seperti jembatan, menghubungkan bukaan keduanya, menyebabkan esensi purba dikeluarkan. Itu sering digunakan oleh Master Gu peringkat tinggi untuk menggertak yang lemah. Setelah digunakan pada seseorang yang lebih kuat, itu mirip dengan mencari kematian.</p>
+<p>	Tapi situasi ini berbeda.</p>
+<p>	Lord Sky Crane dan Gen Pertama Gu Yue keduanya peringkat lima tahap puncak, tetapi gen Pertama Gu Yue berubah menjadi zombie dan aperture-nya mati, sehingga ia tidak dapat memulihkan esensi purba alami. Meskipun Lord Sky Crane sekarat karena usia tua dan hampir tidak memiliki umur, aperture-nya penuh dengan kehidupan, dan esensi purbanya masih bisa pulih. Ini menyerang kelemahan terbesar generasi pertama Gu Yue.</p>
+<p>	Esensi purba Lord Sky Crane masih dalam proses pemulihan, tetapi dalam aperture generasi pertama Gu Yue, esensi purbanya hanya akan turun dan tidak naik.</p>
+<p>	Gen pertama Gu Yue dengan putus asa mundur, tetapi alis putihnya memanjang bersamanya seolah-olah tidak ada habisnya, dan pada saat yang sama Lord Sky Crane juga bergerak mendekat.</p>
+<p>	Gen pertama Gu Yue melolong, rela dalam pikirannya dan memanggil guillotine darah dan kelelawar darah bladewing Gu dalam upaya untuk memotong alis putih, tetapi itu tidak berpengaruh. Alis putih sangat kuat, dan bahkan jika beberapa dipotong, mereka akan menyambung kembali sendiri.</p>
+<p>	Esensi purbanya terus berkurang, dan jika ini terus berlanjut, generasi pertama Gu Yue pasti akan kalah. Bagaimanapun, dia adalah pria yang ambisius, yang dipaksa untuk kehabisan akal. Dia menggertakkan giginya dan mengubah taktik, mengirim Guillotine darah dan kelelawar darah bladewing Gu ke arah Lord Sky Crane.</p>
+<p>	Lord Sky Crane harus terus-menerus mempertahankan Raise Eyebrows &amp; Exhale Gu, dan dengan diserang seperti ini, dia hanya bisa menggunakan light barrier dan mempertahankan dirinya secara pasif.</p>
+<p>	Penghalang putih goyah dan hati Lord Sky Crane tenggelam, situasinya tidak terlihat baik untuknya.</p>
+<p>	Kemungkinan besar, sebelum dia selesai mengeluarkan esensi purba generasi Pertama Gu Yue, penghalang cahayanya akan ditembus dan dia akan dibunuh oleh Generasi Pertama Gu Yue!</p>
+<p>	Catatan: Saya sangat menyesal jika nama “Angkat Alis &amp; Buang napas Gu” bodoh tapi tidak ada cara lain untuk menerjemahkannya … Lol.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

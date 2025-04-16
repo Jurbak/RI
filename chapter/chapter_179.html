@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 179 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 179";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_178.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 179">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_180.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 179</h1>
+        <div class="text-left">
+<p>	Bab 179</p>
+<p>	Bab 179: Sejarah ditulis oleh pria</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Biksu Anggur Bunga memohon belas kasihan di atas lututnya. Kepala klan keempat berbelas kasih dan baik hati, berniat menyelamatkan nyawanya. Namun Biksu Bunga Wink tiba-tiba meluncurkan serangan diam-diam, dan kepala klan menjadi marah, membunuh Biksu Bunga Anggur di tempat. Namun, karena luka berat dari serangan menyelinap, dia meninggal tidak lama kemudian. Sayangnya, anggota jalur iblis memang berbahaya dan tidak layak untuk kebaikan …. ”</p>
+<p>	Namun, saat Tie Ruo Nan membaca konten ini, matanya perlahan meredup.</p>
+<p>	“Sayang sekali, Biksu Bunga Anggur ini mati di tempat dan tidak bisa meninggalkan warisan. Jika dia bisa meninggalkan warisan, itu akan sempurna untuk menjelaskan semuanya, ”Gadis muda itu menghela nafas dalam hati.</p>
+<p>	Namun dia tidak menyerah dan terus membolak-balik catatan klan Gu Yue, sampai waktunya habis dan Gu Yue Yao Ji bergegas keluar.</p>
+<p>	Fang Zheng menyambut ayah dan anak Tie di luar paviliun klan, “Apakah ada penemuan?”</p>
+<p>	Tie Xue Leng terdiam sedangkan Tie Ruo Nan tersenyum pahit dan menggelengkan kepalanya.</p>
+<p>	Fang Zheng melanjutkan, “Aku baru saja memikirkan sesuatu yang mungkin bisa membantu. Kakak laki-laki dan faksi Chi bekerja cukup erat, dan tetua faksi Chi Gu Yue Chi Lian pernah membelanya di depan semua orang. Nona Tie, apakah menurutmu cacing Liquor ini bisa diam-diam diserahkan oleh tetua Chi Lian kepada kakak laki-lakiku?”</p>
+<p>	“Faksi Chi?” Tie Ruo Nan mengerutkan kening.</p>
+<p>	“Ya. Fraksi Chi dan Mo adalah faksi paling berpengaruh dari klan Gu Yue kami sebelum gelombang serigala, ”jelas Fang Zheng.</p>
+<p>	Bagaimana Fang Yuan terlibat dengan faksi Chi? Tie Ruo Nan merenungkan hal ini.</p>
+<p>Dia mulai merasakan sakit kepala; ini adalah kasus pertamanya dan dia sangat percaya diri pada awalnya tetapi ketika dia benar-benar mulai melakukannya, dia merasa bahwa itu dipenuhi dengan kesulitan.</p>
+<p>	Ketika dia melihat ayahnya memecahkan kasus, seolah-olah kesuksesan dijamin; semua misteri dipecahkan dengan pengaturan yang metodis dan teratur. Namun, dia menyadari betapa sulitnya menyelesaikan sebuah kasus ketika tiba gilirannya.</p>
+<p>	Tampaknya tidak ada jejak kadang-kadang sedangkan segala macam petunjuk aneh tampaknya muncul, menyebabkan Tie Ruo Nan kehabisan akal.</p>
+<p>	Sepertinya dia tertutup kabut tebal dan dia tidak tahu seberapa dekat atau jauh dia dari kebenaran.</p>
+<p>	Apakah petunjuk tentang faksi Chi ini akan berguna?</p>
+<p>	Tie Ruo Nan tidak bisa membantu tetapi merasa bingung, dan dia tanpa sadar menatap ayahnya.</p>
+<p>	“Ayah seharusnya sudah menemukan beberapa petunjuk, kan?” Pada saat ini, kekaguman gadis muda terhadap ayahnya semakin dalam.</p>
+<p>	“Jika itu ayahku, kasus ini seharusnya sudah selesai. Saya masih jauh dari level ayah. Tetapi bahkan jika saya gagal, selama ayah ada di sini, kebenaran akan terungkap dan pembunuhnya akan dihukum. ” Tie Ruo Nan merasa malu tetapi juga merasa bangga.</p>
+<p>	Dengan Tie Xue Leng di sini, dia tidak khawatir bahwa penjahat itu bisa lolos.</p>
+<p>	Tapi gadis muda itu dengan cepat menggelengkan kepalanya, menjadi marah. Kemarahan itu ditujukan pada dirinya sendiri.</p>
+<p>	“Ruo Nan, kamu tidak berharga. Tidakkah kamu berpikir untuk melampaui ayah? Bagaimana kamu bisa melampaui dia jika kamu memiliki mentalitas untuk selalu mengandalkannya!?”</p>
+<p>	“Ruo Nan, semangat, kamu pasti bisa!” Gadis muda itu mengerucutkan bibirnya, dalam hati menyemangati dirinya sendiri.</p>
+<p>	Semangatnya kembali membara.</p>
+<p>	Dia memutuskan untuk menggulingkan dugaan sebelumnya dan memulai dari awal.</p>
+<p>	“Jika Fang Yuan tidak mendapatkan cacing Liquor dari warisan dan mendapatkannya dari orang lain, maka faksi Chi ini akan menjadi tersangka terbesar. Namun, mengapa faksi Chi memperhatikan siswa biasa dengan bakat kelas C dan diam-diam memberinya cacing Liquor? ”</p>
+<p>	“Apa yang dimiliki Fang Yuan sehingga faksi Chi merasa layak untuk berinvestasi padanya? Karena dia adalah saudara laki-laki Fang Zheng? Tidak, itu hampir dapat diabaikan. Tunggu sebentar, mungkin bukan faksi Chi yang mengambil inisiatif untuk berinvestasi padanya. Ada kemungkinan lain, dan itu karena Fang Yuan memeras mereka!”</p>
+<p>	“Jika memang demikian, apa yang dimiliki Fang Yuan pada mereka untuk membuat mereka menutup hidung dan dengan patuh berkompromi dengan seorang siswa yang belum menjadi Guru Gu?”</p>
+<p>	Tie Ruo Nan memeras otaknya dan sebuah jawaban tampaknya secara bertahap muncul di benaknya.</p>
+<p>	Tapi jawaban ini kabur seperti cahaya di balik jendela kertas. Tie Ruo Nan bisa merasakan keberadaannya tetapi dia tidak bisa memahami dan memahaminya.</p>
+<p>	“Ayah.” Gadis muda itu tiba-tiba mengangkat kepalanya dan menatap Tie Xue Leng, “Saya ingin meminjam Cactus Pointer.”</p>
+<p>	Tie Xue Leng menjawab dengan suara santai, “Saran yang diberikan oleh penunjuk Cactus didasarkan pada informasi yang dimiliki pengguna. Itu hanya berspekulasi atas nama Anda dan mungkin tidak akurat. Apakah Anda yakin ingin menggunakannya?”</p>
+<p>	Gadis muda itu mengangguk.</p>
+<p>	Cactus pointer adalah benih.</p>
+<p>	Tie Ruo Nan menguburnya di tanah lalu menggunakan telapak tangannya untuk menekan tanah, mentransfer esensi purba perak putihnya ke sana.</p>
+<p>	Setelah beberapa napas, dia menarik tangannya. Tak lama kemudian, mereka bisa melihat tanahnya mengendur, dan tunas muda tumbuh darinya.</p>
+<p>	Tunas yang baru lahir berwarna hijau bening, dan terlihat sangat rapuh. Itu cepat tumbuh, menjadi lebih besar dan lebih besar, dan warnanya berubah dari kuning kehijauan rapuh menjadi hijau menghijau, lalu akhirnya menjadi hijau tua.</p>
+<p>	Penampilannya mirip dengan kaktus. Itu memiliki daging yang tebal, permukaannya ditutupi dengan duri hitam tajam dan hijau subur di mana-mana.</p>
+<p>	Dalam beberapa saat, kuncup bunga muncul di bagian atasnya.</p>
+<p>	Kuncup bunga putih berangsur-angsur tumbuh, menjadi menawan dan halus. Tubuh utama kaktus, bagaimanapun, menyusut seolah-olah kelembabannya diperas.</p>
+<p>	Tie Ruo Nan merentangkan jarinya dan dengan lembut memetik kuncup bunga ini. Saat kuncup bunga dikeluarkan, kaktus mulai berubah menjadi abu-abu dan benar-benar mati setelah beberapa detik.</p>
+<p>	Penunjuk kaktus adalah Gu peringkat tiga yang dapat dikonsumsi.</p>
+<p>	Tie Ruo Nan dengan hati-hati membuka kuncup bunga.</p>
+<p>	Kuncup bunga, bagaimanapun, tidak dibungkus dengan lapisan kelopak, malah tampak mirip dengan bola kertas.</p>
+<p>	Ketika Tie Ruo Nan benar-benar membukanya, itu membentuk kertas putih yang rapi dan persegi.</p>
+<p>	Hanya ada satu kata yang tertulis di kertas putih —’Aptitude’.</p>
+<p>	Kata ini tidak akan berarti apa-apa bagi orang lain dan bahkan mungkin terdengar konyol. Tapi bagi Tie Ruo Nan, itu adalah tip yang sangat penting.</p>
+<p>	Penunjuk kaktus digunakan seperti ini; itu memberi wawasan kepada Master Gu yang telah memeras otak mereka tetapi tidak bisa maju ke depan. Itu menembus jendela kertas dan membiarkan Master Gu melihat cahaya.</p>
+<p>	“Benar, itu adalah bakat!” Tie Ruo Nan berteriak.</p>
+<p>	Dia segera mengeluarkan surat yang mencatat semua intel yang dikumpulkan oleh Jia Fu.</p>
+<p>	Ada sesuatu yang tertulis di intel ini yang menjelaskan detail kapan dan berapa harga Gu Yue Chi Lian membeli Gu Air Pembersih.</p>
+<p>	“Ini! Saya hanya menjelaskan ini sebelumnya dan mengabaikannya, tidak mempertimbangkan makna yang mendasarinya. Tetapi penunjuk kaktus berspekulasi atas nama saya dan memberi saya jawabannya. Gu Air Pembersih ini hanya memiliki satu kegunaan dan itu adalah untuk membersihkan aura esensi purba asing dari lubang.”</p>
+<p>	“Mengapa Gu Yue Chi Lian membutuhkannya? Hehe, situasi ini terlalu umum dan banyak terjadi di banyak klan. Dia seharusnya membeli ini untuk pewaris fraksi Chi. Pewaris fraksi Chi harus memiliki bakat yang buruk, jadi Gu Yue Chi Lian menuangkan esensi purba untuk meningkatkan budidaya mantan. Cleansing Water Gu diperlukan untuk menghilangkan efek samping dari tindakan ini. Secara kebetulan, Fang Yuan menemukan rahasia ini dan menggunakannya untuk memeras faksi Chi, sehingga memaksa mereka untuk berkompromi dan memberinya worm Liquor.”</p>
+<p>	Tie Ruo Nan terus menggumamkan dugaannya.</p>
+<p>	“Nona Tie, kamu luar biasa. Anda bisa menyimpulkan begitu banyak hal hanya dengan kata ini! Tapi Gu Yue Chi Cheng jelas memiliki bakat kelas B, ”kata Fang Zheng.</p>
+<p>	“Bakat kelas B? Hehe, apakah itu berarti tidak bisa palsu? Sangat sederhana untuk membuktikan ini. Kita hanya perlu memeriksa celah Chi Cheng dan kebenarannya akan terungkap.” Tatapan Tie Ruo Nan terbakar saat mulutnya sedikit melengkung ke atas.</p>
+<p>	“Itu tidak pantas.” Tie Xue Leng, bagaimanapun, menggelengkan kepalanya dengan tidak setuju.</p>
+<p>	Jika kebenaran ini ditemukan, itu akan menjadi pukulan besar bagi faksi Chi, menyebabkan kekacauan di antara petinggi desa Gu Yue dan menyebabkan konflik politik.</p>
+<p>	Tie Xue Leng berkata, “Kami datang ke sini untuk menyelesaikan sebuah kasus dan bukan untuk membuat kekacauan. Pada akhirnya, kami adalah orang luar dan kecuali benar-benar diperlukan, kami tidak dapat mencampuri politik klan lain.”</p>
+<p>	Tie Ruo Nan mengangguk, “Ayah benar. Selain itu, ada juga cara lain untuk membuktikannya. Saya ingat bahwa klan menggunakan Gu Foto-audio untuk merekam setiap ritual pengorbanan yang penting. Ini adalah praktik tradisional dan saya percaya klan Gu Yue tidak terkecuali. Saya ingin merujuk pada gambar Upacara Kebangkitan!”</p>
+<p>	…</p>
+<p>	“Penyelidik surgawi Tie, kamu terus-menerus bergerak selama berhari-hari dan telah melalui banyak masalah untuk menyelesaikan kasus ini, silakan minum teh. Adapun gambar yang ingin Anda lihat, itu disimpan di ruang rahasia di dalam gua bawah tanah yang merupakan salah satu area terlarang klan. Akan merepotkan untuk membiarkan kalian berdua masuk, tetapi saya sudah mengirim seseorang untuk mendapatkannya. Itu akan segera tiba,” Gu Yue Bo berbicara sambil tersenyum.</p>
+<p>	“Saya telah mengganggu pemimpin klan,” kata Tie Xue Leng dengan sopan.</p>
+<p>	Tie Ruo Nan dan Gu Yue Fang Zheng berdiri di samping.</p>
+<p>	“Penyelidik surgawi Tie, jika saya berani meminta bantuan ….” Gu Yue Bo tiba-tiba berkata.</p>
+<p>	Ikat Xue Leng. “Oh? Tolong bicara, pemimpin klan. ”</p>
+<p>	“Ini adalah urusan internal Gunung Qing Mao kami. Klan saya, klan Bai dan klan Xiong selalu menemui jalan buntu tetapi itu berubah karena gelombang serigala. Desa Xiong menghindari gelombang serigala dengan niat jahat dan mencoba memanfaatkan gelombang serigala untuk melemahkan dua klan lainnya. Negosiasi sebelumnya untuk kompensasi dengan mereka berakhir sia-sia. Oleh karena itu, tiga klan kami memutuskan untuk mengadakan turnamen tiga klan. Hanya Gu Masters pada usia tiga puluh tahun ke bawah yang dapat berpartisipasi di dalamnya, dan itu akan menentukan kekuatan masa depan setiap klan. ”</p>
+<p>	Setelah mengatakan ini, Gu Yue Bo menghela nafas, “Sebenarnya aku sudah merasa ada yang aneh dengan Fang Yuan sejak lama, tapi tidak bisa melihatnya dengan benar karena gelombang serigala. Jika dia benar-benar pembunuhnya, klan saya sama sekali tidak akan melindunginya. Tapi saya harap Divine Investigator Tie dapat menunda ini selama beberapa hari, karena kompetisi tiga klan diselenggarakan pada lusa. ”</p>
+<p>	Fang Yuan membunuh seluruh keluarga tua Wang, tetapi mereka hanya manusia biasa dan tidak perlu diselidiki. Bagaimana jika dia membunuh mereka? Itu bukan masalah besar.</p>
+<p>	Namun, jika dia benar-benar membunuh Jia Jin Sheng, maka itu akan mengubah segalanya.</p>
+<p>	Jika klan Gu Yue masih melindungi Fang Yuan, itu berarti menjadi musuh dengan keluarga Jia dan kehilangan kesempatan untuk berdagang dengan karavan keluarga Jia lagi; itu bahkan akan mengakibatkan pembalasan keluarga Jia.</p>
+<p>	Organisasi melindungi anggota dalam mereka, tetapi jika manfaatnya terancam, organisasi dapat dengan mudah melepaskan satu atau dua anggota untuk kebaikan yang lebih besar.</p>
+<p>	Bentuk organisasi paling awal berasal dari zaman kuno. Klan manusia berkumpul bersama untuk kelangsungan hidup mereka, saling meminjam kekuatan untuk mengumpulkan lebih banyak makanan dan membagi pekerjaan mereka untuk berburu lebih sukses.</p>
+<p>	Esensi organisasi mana pun adalah memperoleh manfaat maksimal.</p>
+<p>	Jika satu atau dua anggota menghalangi jalan organisasi menuju keuntungan, maka mengorbankan mereka adalah hal yang wajar.</p>
+<p>	Jadi, bahkan jika ada sangat sedikit tetua di klan Gu Yue saat ini, jika ada saatnya mereka harus meninggalkan Fang Yuan, pemimpin klan tidak akan ragu.</p>
+<p>	Namun, lusa adalah kompetisi tiga klan. Hasil kompetisi ini akan menentukan masa depan mereka untuk beberapa tahun ke depan serta alokasi manfaat dari gunung Qing Mao. Sebagai Master Gu peringkat tiga, Fang Yuan adalah kekuatan tempur yang vital bagi klan Gu Yue.</p>
+<p>Sama seperti pemimpin klan Bai, Gu Yue Bo juga ingin memeras nilai maksimal Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

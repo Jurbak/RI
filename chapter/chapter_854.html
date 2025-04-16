@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 854 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 854";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_853.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 854">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_855.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 854</h1>
+        <div class="text-left">
+<p>	Bab 854 – Duel Feng Jin Huang (2/4)</p>
+<p>	Bab 854: Duel Feng Jin Huang (2/4)</p>
+<p>	Baca di meionovel.id</p>
+<p>	“Menggunakan dua gerakan pembunuh abadi secara berurutan …”</p>
+<p>	Di bawah topeng, tatapan Fang Yuan setajam pisau.</p>
+<p>	Tapi dia segera mengalihkan pandangannya ke arah api di tangannya.</p>
+<p>	“Fiuh, itu sudah dekat!” Di luar panggung, seorang murid perempuan dari Spirit Affinity House menghela napas lega.</p>
+<p>	“Kakak perempuan Qin Juan, apa yang dekat? Saya dengan jelas melihat kakak perempuan pertama Jin Huang menggunakan dua gerakan pembunuh jalur penyempurnaan berturut-turut, segera menyusul. ” Murid perempuan lain dari Rumah Afinitas Roh sedang duduk di samping Qin Juan, dia memiliki wajah yang gemuk, namanya Sun Yao dan dia menanyakan ini dengan rasa ingin tahu.</p>
+<p>	“Adik perempuan Sun Yao, kamu perlu memahami bahwa duel ini berbeda dari apa yang telah kita lihat sebelumnya, ini adalah duel bela diri! Dalam duel bela diri, penyuling dapat menyerang untuk mengganggu penyempurnaan pihak lain. ” Qin Juan menjelaskan dengan sabar.</p>
+<p>	“Ah, mereka bisa melakukannya? Sudah sangat sulit bagiku untuk memperbaiki Gu secara normal, tetapi jika aku diganggu di atas itu. Surga …” Sun Yao mengerutkan bibirnya, mengungkapkan ekspresi yang menunjukkan bahwa dia bahkan tidak berani membayangkan hal seperti itu: “Format duel bela diri ini jelas dimaksudkan untuk membuat seseorang menderita, siapa pun yang memikirkan ini sangat ketat.”</p>
+<p>	“Tidak.” Qin Juan, bagaimanapun, memiliki ekspresi persetujuan, “Mampu menahan gangguan adalah salah satu aspek terpenting dari jalur penyempurnaan. Dalam perjalanan kultivasi kita, mungkin suatu hari kita akan mengalami serangan diam-diam ketika kita memurnikan Gu. Faktanya, sering kali ketika kita meninggalkan sekte untuk menyelesaikan misi sekte di luar, karena segala macam kerusakan yang mungkin terjadi pada cacing Gu, kita sering harus memperbaiki Gu baru di alam liar.”</p>
+<p>	“Menggunakan logika yang sama, ketika kita menghadapi musuh yang kuat dan menemukan musuh memurnikan Gu, kita juga akan memilih untuk menyelinap menyerang dan mengejutkan musuh, mengubah situasi dalam pertempuran menguntungkan kita. Ini adalah makna praktis dari format duel bela diri. Saudari junior Sun Yao, Anda juga tahu Master Gu harus menggunakan semua konsentrasi mereka selama proses penyempurnaan, karena sedikit kecerobohan dapat mengakibatkan kegagalan dan serangan balik. Tapi, saat kamu memurnikan Gu di luar, kamu juga perlu memperhatikan lingkungan sekitarmu.”</p>
+<p>	“Kakak perempuan senior pertama Jin Huang menggunakan dua gerakan pembunuh jalur penyempurnaan berturut-turut sebelumnya, itu adalah langkah yang berisiko. Karena saat dia mengaktifkan gerakan pembunuh, seluruh perhatiannya secara alami terfokus pada cacing Gu yang membentuk gerakan pembunuh. Jika itu adalah Gu Master biasa, mereka mungkin sudah kehilangan kendali atas api dan gagal dalam penyempurnaan Gu jika mereka harus mengalihkan perhatian mereka dalam mengaktifkan gerakan pembunuh. Jika pada saat ini, Fang Yuan, iblis itu, telah menyerang kakak perempuan pertama Jin Huang, itu mungkin telah menyebabkan masalah yang signifikan baginya. ”</p>
+<p>	Mendengar penjelasan Qin Juan, Sun Yao menyadari: “Jadi seperti itu, maka itu benar-benar berbahaya. Untungnya, iblis Fang Yuan itu tidak menyerang. ”</p>
+<p>	Karena Fang Yuan telah, berkali-kali, menggunakan teknik pemurnian jalur darah pada saat-saat genting, murid-murid Rumah Afinitas Roh yang tidak menyukainya secara pribadi memanggilnya iblis.</p>
+<p>	Namun, sebenarnya ada banyak iblis di sepuluh sekte kuno besar di Benua Tengah.</p>
+<p>	Misalnya, tetua tertinggi ketiga dari Immortal Crane Sect, Lord Tiger Demon, adalah jalur iblis Gu Immortal di tahun-tahun awalnya sebelum dia direkrut oleh Immortal Crane Sect.</p>
+<p>	Sekte yang paling banyak memamerkan ini sebenarnya adalah Spirit Affinity House itu sendiri.</p>
+<p>	Almarhum Sword Immortal Bo Qing adalah orang dari jalur iblis dengan sifat yang sangat membunuh, tetapi direformasi melalui cinta dengan Peri Mo Yao dari Spirit Affinity House, pada akhirnya, Bo Qing direkrut ke dalam Spirit Affinity House.</p>
+<p>	Saat ini, kisah Peri Bai Qing dan Feng Jiu Ge tersebar luas, dan Feng Jiu Ge sebelumnya juga berasal dari jalur iblis.</p>
+<p>	Benua Tengah begitu besar dan terkenal karena menghasilkan juara yang luar biasa. Sesekali, akan ada beberapa pembudidaya setan yang menakjubkan dan pembudidaya tunggal yang akan mengguncang dunia.</p>
+<p>	Untuk mempertahankan kendali atas situasi keseluruhan dan untuk melindungi kepentingan mereka, sepuluh sekte kuno besar di Benua Tengah akan merekrut orang-orang ini, itu adalah metode terbaik untuk secara efektif mempertahankan otoritas mereka.</p>
+<p>	‘Dia tidak menyerang? Sayang sekali …’ Feng Jin Huang dalam hati menghela nafas, dari dua gumpalan api yang menyala di depannya, satu tiba-tiba padam.</p>
+<p>	“Apa yang sedang terjadi?” Orang-orang di antara penonton tanpa sadar berseru.</p>
+<p>	“Jangan bilang iblis itu, Fang Yuan, telah menyerang dan mengganggu kakak perempuan pertama, menyebabkan setengah dari penyempurnaan Gu gagal? Setan ini terlalu licik, serangan apa yang dia gunakan, kami bahkan tidak melihatnya. ” Sun Yao berteriak dengan cemas, nada suaranya dipenuhi dengan kebencian terhadap Fang Yuan.</p>
+<p>	“Tidak, itu tidak benar. Penatua yang menjadi tuan rumah duel ini tidak mengatakan apa-apa, ini berarti iblis, Fang Yuan, tidak menyerang. Jadi seperti itu!” Mata Qin Juan menjadi cerah saat dia tiba-tiba menyadari, “Awalnya, kakak perempuan pertama telah memasang fasad menggunakan dua gerakan pembunuh, itu adalah jebakan yang dimaksudkan untuk membujuk Fang Yuan untuk menyerangnya. Jika Fang Yuan menyerang, pikirannya akan terfokus pada serangannya pada saat itu juga, yang akan mengekspos titik lemahnya. Kakak perempuan senior pertama akan memiliki peluang lebih tinggi untuk berhasil melakukan serangan balik. ”</p>
+<p>	“Ya ampun, apakah itu benar-benar terjadi?” Mulut Sun Yao yang kecil dan tembem terbuka lebar karena terkejut dengan pertarungan akal di balik kontes ini.</p>
+<p>	Qin Juan memiliki ekspresi serius: “Saya juga baru saja tertipu. Faktanya adalah kakak perempuan senior pertama membuat jebakan, tetapi iblis Fang Yuan melihatnya dan tidak tertipu … saudari junior Sun Yao, perhatikan baik-baik, kontes ini akan sangat luar biasa. Kontes antara keduanya benar-benar yang terbaik dari generasi ini.”</p>
+<p>	“Oke!” Sun Yao mengangguk, matanya menatap panggung tanpa berkedip.</p>
+<p>	Sepuluh sekte kuno besar di Benua Tengah selalu bersaing ketat, tidak hanya Dewa Gu mereka bersaing, para murid juga memiliki jenis kompetisi yang serupa.</p>
+<p>	Tidak ada keraguan bahwa Feng Jin Huang adalah yang terbaik dari generasi ini dalam sepuluh sekte kuno besar di Benua Tengah.</p>
+<p>	Namun, dalam kontes untuk tanah yang diberkati Hu Immortal, Fang Yuan tiba-tiba muncul dan menendang Feng Jin Huang ke bawah gunung. Adapun peristiwa di balik layar, mereka tidak dijelaskan kepada murid-murid seperti Sun Yao dan Qin Juan, dan bahkan murid Immortal Crane Sekte sendiri dan sebagian besar tetua mereka mengira Fang Yuan adalah murid jenius, diam-diam diasuh oleh sekte tersebut.</p>
+<p>	Di Bab sebelumnya, Feng Jin Huang dikalahkan, dan duel ini, di mana Feng Jin Huang ingin merebut kembali prestisenya, melibatkan kontes antara murid terbaik dari sepuluh sekte besar kuno. Itu adalah bentrokan tersembunyi antara Spirit Affinity House dan Immortal Crane Sect.</p>
+<p>	Jadi, hampir semua hadirin mengajukan pertanyaan — siapa Guru Gu terbaik di antara generasi muda?</p>
+<p>	Apa yang tidak mereka ketahui adalah: Fang Yuan telah menjadi Gu Immortal, meskipun dia hanya zombie abadi, dia sudah menjadi seseorang yang tidak bisa lagi mereka pahami. Sementara itu, Feng Jin Huang memiliki sayap mimpi Immortal Gu, dan telah mengaktifkannya, mendapatkan manfaat yang sangat besar.</p>
+<p>	Para pengamat hanya bisa melihat detail permukaan seperti itu, tetapi kedua pesaing tidak melihat banyak kepentingan dalam aspek reputasi. Feng Jin Huang sudah sangat matang dan menyadari apa artinya manfaatnya, sementara Fang Yuan jauh melampaui kedewasaannya.</p>
+<p>	Kompetisi berlanjut.</p>
+<p>	Fang Yuan telah melihat melalui jebakan Feng Jin Huang, tetapi di antara dua gerakan pembunuh Feng Jin Huang, angan-angan kecil itu nyata. Itu tidak seperti ‘aksi ganda’, yang hanya menjadi fasad.</p>
+<p>	Dengan bantuan dua tangan kecil yang terbuat dari wasiat, kecepatan penyempurnaan Feng Jin Huang sedikit di atas Fang Yuan. Dan seiring berjalannya waktu, kesenjangan antara keduanya secara bertahap meningkat.</p>
+<p>	Namun, kesenjangan ini tidak jelas.</p>
+<p>	Fang Yuan mempertahankan ritmenya, dan hanya menggunakan teknik penyempurnaan Gu tanpa gerakan mematikan, dia mempertahankan api dan sekarang hampir selesai memproses materi.</p>
+<p>	Dia menggunakan teknik penyempurnaan Gu dan bukan gerakan pembunuh jalur penyempurnaan. Teknik adalah penjumlahan dari keterampilan dan pengalaman murni. Mereka adalah dasar dari penyempurnaan Gu.</p>
+<p>	“Sangat terampil! Meskipun dia adalah musuh, saya tidak bisa tidak mengakui iblis ini, Fang Yuan, memiliki dasar yang sangat kuat dalam penyempurnaan Gu. Bahkan beberapa tetua dari sekte kami tidak memiliki fondasi yang kuat seperti dia. ” Qin Juan tiba-tiba menghela nafas, setelah menonton lekat-lekat untuk waktu yang lama.</p>
+<p>	“Dia memiliki pemahaman tentang begitu banyak teknik penyempurnaan Gu, dia telah menggunakan setidaknya tiga puluh jenis sekarang. Tapi saya merasa kakak perempuan senior pertama kami masih yang lebih luar biasa. Dia jatuh kembali sedikit di awal, tetapi dengan cepat menyusul kemudian. Sekarang, tidak peduli bagaimana iblis itu mengejar Fang Yuan, dia tidak akan bisa mengejar. Gerakan pembunuh tangan kecil yang penuh harapan ini benar-benar nyaman!” Sun Yao berkata, kagum.</p>
+<p>	“Tidak.” Qin Juan menggelengkan kepalanya: “Pemimpin kakak perempuan pertama mungkin belum tentu merupakan hal yang baik. Mempertahankan gerakan pembunuh membutuhkan esensi purba dan juga membebani pikiran. Sebaliknya, iblis Fang Yuan itu hanya menggunakan teknik penyempurnaan dasar Gu, yang tidak terlalu membebani pikiran. Karena ini berlanjut dari waktu ke waktu, pikirannya akan lebih ringan daripada kakak perempuan pertama, yang akan sangat membantu dalam tahap penyempurnaan Gu selanjutnya. ”</p>
+<p>	“Ah, seperti ini! Lalu, bukankah kakak perempuan pertama dalam bahaya? Kakak perempuan senior Qin Juan, Anda mengatakan bahwa kakak perempuan pertama memperoleh petunjuk dari menggunakan langkah pembunuh jalur penyempurnaan, tetapi malah dalam kerugian? Meskipun kata-katamu terdengar masuk akal, bagaimana bisa seperti itu?” Sun Yao merasa sakit kepala.</p>
+<p>	“Hehe, saudari junior Sun Yao, ini adalah kecemerlangan Konvensi Jalur Perbaikan. Anda baru saja memulai perjalanan kultivasi Anda dan belum melakukan kontak dengan banyak hal, Anda perlahan akan memahaminya di masa depan. ” Qin Juan tersenyum, tetapi dia merasa berat secara internal.</p>
+<p>	‘Iblis ini, Fang Yuan, terlalu terampil. Dia mengimbangi kakak perempuan senior pertama hanya dengan berulang kali menggunakan teknik penyempurnaan Gu. Meskipun kakak perempuan senior pertama menggunakan langkah pembunuh jalur penyempurnaan, dia tidak mampu membuat keunggulan besar! Ini tidak bisa terus seperti ini…’</p>
+<p>	Feng Jin Huang merasakan kelelahan mental.</p>
+<p>	Belum lama kompetisi dimulai, dan kedua belah pihak masih pada tahap pemurnian peringkat satu arang lubang tunggal Gu.</p>
+<p>	Menurut logika, Feng Jin Huang seharusnya masih memiliki energi mental yang berlimpah, dan tidak dalam kondisi kelelahan.</p>
+<p>	Namun, perkiraan adalah satu hal, persaingan yang sebenarnya bisa sangat berbeda.</p>
+<p>	Feng Jin Huang bisa mengabaikan tatapan dari luar panggung, bakatnya luar biasa dan dengan Gu Immortals sebagai orang tua, dia telah menjadi pusat perhatian sejak dia masih muda, dia sudah terbiasa.</p>
+<p>	Tekanan pada Feng Jin Huang terutama berasal dari Fang Yuan.</p>
+<p>	Fang Yuan menunjukkan fondasi yang sangat kokoh, dan hanya mengandalkan teknik penyempurnaan Gu untuk mempertahankan kecepatan dengan Feng Jin Huang, sementara meskipun dia telah menggunakan langkah pembunuh jalur penyempurnaan, dia tidak dapat melampaui dia dalam kemajuan.</p>
+<p>	Performa Fang Yuan yang luar biasa dan pencapaian yang tangguh membuat dunia melebih-lebihkan tingkat pencapaiannya, Feng Jin Huang sudah merasakan tekanan sebelum duel.</p>
+<p>	Setelah duel dimulai, Fang Yuan mengejar dengan kecepatan stabil, yang semakin meningkatkan tekanan pada Feng Jin Huang.</p>
+<p>	Tekanan ini sangat membebani pikiran Feng Jin Huang. Dia perlahan mulai merasa lelah dan gelisah secara internal.</p>
+<p>	“Sepertinya pencapaian kuasi-grandmaster jalur penyempurnaan saya tidak dapat menandingi pencapaian jalur penyempurnaan Fang Yuan. Apa yang harus saya lakukan?” Feng Jin Huang mulai berpikir dan merencanakan dengan cepat, sambil menyempurnakan Gu.</p>
+<p>	“Saya telah menggunakan gerakan pembunuh jalur penyempurnaan, pikiran saya juga cepat lelah. Duel baru saja dimulai, dan seiring berjalannya waktu, keunggulan Fang Yuan akan semakin jelas. Tetapi jika saya berhenti menggunakan gerakan pembunuh dan bersaing hanya dengan teknik penyempurnaan Gu, saya masih tidak dapat menandingi Fang Yuan. Keuntungan terbesar saya adalah sejumlah besar gerakan pembunuh jalur penyempurnaan yang saya persiapkan dengan hati-hati! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

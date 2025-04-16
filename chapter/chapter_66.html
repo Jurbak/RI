@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 66 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 66";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_65.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 66">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_67.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 66</h1>
+        <div class="text-left">
+<p>	Bab 66</p>
+<p>	Babak 66: Kematian seseorang mirip dengan kematian babi</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Enyah?” Mendengar kata-kata Wang Er, Fang Yuan segera menyeringai dingin dan dia mengacungkan telapak tangannya di depannya.</p>
+<p>	Swoosh.</p>
+<p>	Dengan suara ringan, sebuah moonblade berwarna biru melesat ke depan.</p>
+<p>	Pada saat yang sama, dia mengerahkan kekuatan ke kakinya dan bergegas menuju empat pemburu.</p>
+<p>	“Tuan Gu ?!” Para pemburu tercengang dan berteriak saat melihat moonblade.</p>
+<p>	Moonblade sudah menembak, dan mereka bergegas untuk menghindar.</p>
+<p>	Plonk.</p>
+<p>	Seseorang tidak menghindar dengan cukup cepat, dan lengan kanannya terkena moonblade. Segera tulang dan dagingnya terbelah, seluruh pergelangan tangan dan lengannya terpotong dan jatuh ke tanah.</p>
+<p>	“AHHHH!”</p>
+<p>	Dia berbaring di tanah, berteriak ketakutan dan kesakitan. Lengan kirinya seperti cakar elang yang mencengkeram lengan kanannya. Tungkai kanannya memuntahkan darah merah terang tanpa henti, dengan cepat mewarnai lantai menjadi merah.</p>
+<p>	“Lepaskan aku!”</p>
+<p>	“Kami tidak menyinggung Anda dengan sengaja!”</p>
+<p>	Dua manusia lainnya saat melihat keadaan rekan mereka, menjadi pucat tanpa jejak darah di wajah mereka. Mereka buru-buru merangkak dan berlutut, bersujud kepada Fang Yuan tanpa henti.</p>
+<p>	“Hmph, sekelompok homo, apa yang kamu takutkan? Itu hanya seorang murid Gu!” Hanya Wang Er yang masih berdiri. Fang Yuan menyerang tanpa peringatan, dan ini membuatnya ketakutan dan marah. Lengannya berada di belakang punggungnya, dan dengan tindakan cepat, dia meraih busur dan anak panah di tangannya.</p>
+<p>	“Berhenti, maju lebih jauh dan aku akan menembakmu!” Wang Er mundur saat dia menyiapkan panah sambil berteriak.</p>
+<p>	“Oh?” Fang Yuan menyipitkan matanya. Wang Er ini agak keras kepala. Biasanya ketika manusia melihat Gu Masters, mereka akan meringkuk ketakutan. Namun pria ini mampu tetap tenang, dia harus agak berani.</p>
+<p>	Bangku gereja.</p>
+<p>	Moonblade lain melesat ke arah Wang Er.</p>
+<p>	“Bajingan yang tidak menghargai.” Wang Er mendengus dan niat membunuh muncul dari hatinya.</p>
+<p>	Dia mengambil langkah samping dan menghindari moonblade sambil menembakkan panah. Panah itu cepat, dan dengan swoosh, itu mencapai Fang Yuan.</p>
+<p>	Fang Yuan merunduk, kepalanya sedikit menunduk dan menghindari panah saat dia terus bergegas ke depan, dengan cepat mencapai Wang Er.</p>
+<p>	Wang Er dengan berani membuang busur di tangannya dan mengepalkan tinjunya yang seukuran mangkuk, bergegas menuju Fang Yuan.</p>
+<p>	Dia memiliki tubuh yang besar, punggungnya kuat seperti serigala dan pinggangnya seperti lebah, dan dia setidaknya lima puluh sentimeter lebih tinggi dari Fang Yuan. Sinar matahari bersinar dari belakangnya, dan saat Fang Yuan bergegas ke arahnya, dia bisa melihat bayangan gelap menggantung di wajahnya, matanya memancarkan niat membunuh seperti serigala!</p>
+<p>	“Tidak!!”</p>
+<p>	“Berhenti dengan cepat!”</p>
+<p>	Kedua pemburu melihat bahwa keduanya akan saling bertabrakan, berteriak dengan ketakutan.</p>
+<p>	“Mati!” Mata Wang Er sangat tajam saat otot-otot di wajahnya berkedut, menunjukkan ekspresinya yang menyeramkan dan gila, seperti serigala jahat yang haus darah.</p>
+<p>	Kedua tinjunya terbang ke arah Fang Yuan.</p>
+<p>	Ledakan.</p>
+<p>	Tinjunya cepat dan berat, bahkan memotong angin!</p>
+<p>	Fang Yuan bisa melihat tinju itu semakin besar di matanya, tetapi ekspresinya tidak berubah saat dia mengambil langkah ke samping.</p>
+<p>	Swoosh.</p>
+<p>	Pada saat genting, dia menghindari tinju dan dengan paksa memutar tubuhnya, menjatuhkan tangan kiri Wang Er.</p>
+<p>	Wang Er tertawa sinis saat dia melambaikan tinjunya secara horizontal, tinjunya menyerang lebih dulu, hendak mencapai punggung Fang Yuan.</p>
+<p>	Tetapi pada saat ini, kilatan sinar matahari yang terang memasuki iris matanya.</p>
+<p>	Punggungnya awalnya menghadap matahari, dan sekarang setelah dia berbalik, sinar matahari yang menusuk mata untuk sementara membuat matanya sakit, dan penglihatannya menjadi kosong.</p>
+<p>	Fang Yuan menyeringai saat dia berbalik di udara, menghindari tinju Wang Er, pada saat yang sama melambaikan tangan kanannya.</p>
+<p>	Bangku gereja!</p>
+<p>	Moonblade ketiga terbang di sepanjang lintasan sinar matahari.</p>
+<p>	Indra Wang Er tergelitik saat dia merasakan bahaya yang belum pernah terjadi sebelumnya. Dia memutar kepalanya dan saat berikutnya, moonblade biru yang menakutkan terbang melewatinya.</p>
+<p>	“Hati-hati saudara Wang Er!”</p>
+<p>	“Apakah dia menghindarinya?”</p>
+<p>	Keduanya berlutut di tanah lupa memohon pengampunan pada saat ini, menatap lebar.</p>
+<p>	Sinar matahari yang menusuk menyinari wajah mereka.</p>
+<p>	Pada saat ini, waktu terasa melambat.</p>
+<p>	Suara di sekitarnya menghilang, dan dunia menjadi sunyi.</p>
+<p>	Terik matahari sore membuka latar belakang putih, dan pada latar belakang ini, tubuh Wang Er menjadi bayangan hitam. Tubuhnya melayang di udara, tubuh berototnya membentang dalam bentuk bulan sabit seperti busur terbuka, penuh daya tarik maskulin.</p>
+<p>	Kepalanya menunduk saat dia mencoba menghindari moonblade.</p>
+<p>	Moonblade terbang seperti siput di udara, cahaya birunya yang menakutkan hampir tidak terlihat di bawah sinar matahari.</p>
+<p>	Latar belakang putih, bayangan hitam, dan moonblade biru — ketiganya membentuk panggung cemerlang untuk sesaat yang penuh dengan kehidupan dan kematian.</p>
+<p>	Pedang bulan terbang.</p>
+<p>	Bayangan yang mewakili Wang Er mendarat dengan mulus saat mengalir dengan lintasan.</p>
+<p>	Dia aman dan sehat.</p>
+<p>	“Fiuh!” Melihat ini, seorang pemburu muda menghela nafas lega.</p>
+<p>	“Dia menghindarinya!” Pemburu lain bersorak secara internal.</p>
+<p>	Tapi saat ini!</p>
+<p>	Sepotong kecil kepala bayangan itu terbang keluar bersama dengan cairan merah, terpisah dari bayangan dan memuntahkan ke mana-mana.</p>
+<p>	Moonblade biru secara bertahap menghilang di udara.</p>
+<p>	Bayangan hitam itu seperti busur yang patah, karena energi yang terkumpul di dalamnya menghilang sekaligus. Itu berubah menjadi daun jatuh yang indah tapi sedih, diam-diam mendarat di tanah.</p>
+<p>	Iris kedua pemburu itu menyusut menjadi ukuran pin.</p>
+<p>	Mulut mereka ternganga, membentang hingga batas tubuh mereka.</p>
+<p>	percikan.</p>
+<p>	Cairan merah cerah mendarat di wajah mereka.</p>
+<p>	Keduanya menyentuh wajah mereka—</p>
+<p>	Darah!</p>
+<p>	Mereka tersentak bangun!</p>
+<p>	Dalam persepsi mereka, waktu telah kembali normal, dan kebisingan kembali.</p>
+<p>	Terdengar kicauan burung, air mengalir dan kawannya berteriak sambil memegangi lengannya yang patah.</p>
+<p>	“Kakak kedua Wang …?” Seorang pemburu memanggil, suaranya penuh kengerian. Selama ini, Wang Er adalah pemimpin mereka.</p>
+<p>	“Dia meninggal!” Pemburu lain berteriak, wajahnya muram sampai batas.</p>
+<p>	“Saudara Wang Er adalah pemburu terkuat kami. Beberapa saat yang lalu dia masih berbicara dengan kami, tetapi untuk berpikir saat berikutnya dia sudah mati! ”</p>
+<p>	“Dia seharusnya tidak membuat marah Guru Gu, kita manusia bukan tandingan Guru Gu!”</p>
+<p>	Kedua pemburu itu ketakutan dan kaget, seketika mereka seperti patung yang berlutut di tanah.</p>
+<p>	Fang Yuan bangkit dari tanah.</p>
+<p>	Sebelumnya, untuk menghindari tinju Wang Er, dia memutar tubuhnya di udara dan kehilangan keseimbangan. Setelah menembakkan moonblade, dia jatuh ke tanah. Tapi musim gugur ini tidak sia-sia, karena tinju Wang Er akan menyebabkan dia muntah darah di tempat. Bagaimanapun, Fang Yuan tidak memiliki Gu defensif, dan tubuhnya baru berusia lima belas tahun.</p>
+<p>	Sekarang, dia berdiri, selain bahunya sakit, dia praktis tidak mengalami cedera.</p>
+<p>	“Wang Er ini sangat kuat, jauh lebih kuat dari pelayan keluarga Mo, Gao Wan! Jika ada siswa lain yang bertemu dengannya, mereka pasti akan kalah. Bahkan Gu Master tingkat satu tingkat atas akan kalah darinya karena kecerobohan. ” Fang Yuan menatap mayat Wang Er dalam-dalam.</p>
+<p>	Gu Masters masih diancam oleh seniman bela diri fana jenius ketika mereka berada di peringkat satu tahap.</p>
+<p>	Wang Er ini benar-benar terampil.</p>
+<p>	Keterampilan memanahnya cepat dan stabil, hanya mengandalkan ini bisa menandingi moonblade. Bahkan, moonblade bahkan mungkin lebih rendah, karena panah memiliki jangkauan yang lebih besar. Keterampilan bertarungnya telah mencapai puncak manusia — tubuh yang kuat dengan tulang yang keras, dan dia juga kejam. Dengan tubuh kecil Fang Yuan, dia tidak bisa berhadapan langsung dengannya.</p>
+<p>	Dengan demikian, siswa lain pasti akan kalah. Sayangnya untuk Wang Er, dia bertemu Fang Yuan.</p>
+<p>	Begitu dia muncul, Fang Yuan memperhatikan busurnya dan menyimpulkan bahwa dia tidak bisa bertarung jarak jauh dengannya.</p>
+<p>	Moonblade hanya memiliki jangkauan sepuluh meter. Busur memiliki jangkauan yang jauh lebih besar daripada moonblade.</p>
+<p>	Dengan demikian, Fang Yuan membuang pertempuran panjang. Dia dengan cepat mendekat dan menutup celah di antara mereka, menunjukkan sikap bertarung fisik.</p>
+<p>	Wang Er tidak punya pilihan selain membuang busurnya dan bertarung secara fisik dengan Fang Yuan.</p>
+<p>	Tapi Fang Yuan tidak benar-benar berpikir untuk bertarung jarak dekat dengan Wang Er. Dia menggunakan sudut sinar matahari dan menyebabkan kelemahan pada Wang Er, sebelum menembakkan pedang bulan ketiganya.</p>
+<p>	Dia sudah berada di tahap tengah sekarang, dan dengan penyempurnaan cacing Liquor, moonblade memiliki kekuatan serangan dari Gu Master tingkat atas. Pada jarak sedekat itu, dengan penglihatan Wang Er yang melemah, kekalahannya dijamin.</p>
+<p>	“Tapi Wang Er ini memang terampil. Saya ingin memenggalnya, tetapi pada saat yang genting, dia mengandalkan indra dan refleksnya dan menghindari setengah dari serangan saya, menyebabkan pedang bulan saya hanya memotong setengah dari kepalanya. ”</p>
+<p>	“Hidup dan mati adalah hukum alam. Semua makhluk hidup adalah sama, dan setiap orang memiliki hak untuk bertahan hidup dan dibunuh. Mungkin ada bangsawan dan makhluk yang lebih rendah, tetapi dalam menghadapi kematian, kematian seseorang tidak berbeda dengan babi, apa bedanya? Mereka berdua sudah mati.”</p>
+<p>	Fang Yuan melihat terakhir mayat Wang Er dan menghela nafas dalam hatinya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

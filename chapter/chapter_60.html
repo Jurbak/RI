@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 60 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 60";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_59.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 60">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_61.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 60</h1>
+        <div class="text-left">
+<p>	Bab 60</p>
+<p>	Bab 60: Bagian di balik tembok yang rusak, bagaimana warisan itu bisa diperoleh dengan mudah?</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Langit malam di awal musim panas sangat indah.</p>
+<p>	Tidak ada satu pun awan yang mengambang di langit, dan bintang-bintang berkelap-kelip seperti kristal, bersinar dengan pancaran yang menggerakkan secara emosional.</p>
+<p>	Jangkrik cendana muncul di panggung untuk menggantikan jangkrik dragonpill, dan mereka menyanyikan lagu-lagu emosional mereka di semak-semak berumput, anak sungai dan cabang-cabang pohon.</p>
+<p>	Desa Gu Yue bersinar terang, seolah-olah memantulkan langit berbintang yang cerah.</p>
+<p>	Satu per satu rumah bambu hijau tua berdiri di bawah angin malam, dan di bawah kubah bintang itu memiliki suasana yang tenang dan damai.</p>
+<p>	Fang Yuan tidak berada di desa sekarang, tetapi dia telah menyelinap ke dalam gua rahasia di antara celah-celah batu.</p>
+<p>	Dia setengah berlutut di tanah, tangannya membelai dinding gambar, telapak tangannya memancarkan gumpalan cahaya bulan berwarna biru.</p>
+<p>	Di dinding gambar, pemandangan aslinya sudah hilang, dan sekarang tidak berbeda dengan dinding batu di sekitarnya. Jika Fang Yuan tidak mengingat posisi ini, siapa lagi yang akan tahu bahwa tersembunyi di bawah dinding gambar ini adalah warisan kekuatan Biksu Anggur Bunga?</p>
+<p>	Pada suatu malam lebih dari sebulan yang lalu, dinding gambar berubah dan tempat persembunyian rahasia Biksu Anggur Bunga muncul. Dinding gambar pertama kali menunjukkan video Biksu Anggur Bunga bermandikan darah, tetapi menyatakan dia meninggalkan warisannya. Berikutnya adalah baris kata-kata berdarah, mengisyaratkan penemu untuk memecahkan dinding gambar dan lubang gua akan muncul. Kemudian kata-kata itu menghilang, dan kekuatan Foto-audio Gu dari dinding gambar itu habis, dan tembok gambar itu kembali menjadi tembok biasa.</p>
+<p>	Meskipun dia tahu tentang warisan Biksu Anggur Bunga, Fang Yuan tidak punya waktu untuk menjelajahinya.</p>
+<p>	Karena itu adalah kejadian yang tidak terduga, dia harus membunuh Jia Jin Sheng di tempat dan malam itu sibuk menyingkirkan barang bukti. Menjelang interogasi yang akan datang, dia harus merencanakan dengan hati-hati dan membatasi aktivitasnya di dalam desa.</p>
+<p>	Sampai ketika Jia Fu pergi dan setelah tetua akademi menghentikan penyelidikannya, sekitar sepuluh hari kemudian, perhatian telah mengarungi dan Fang Yuan akhirnya bisa menyelinap kembali ke dalam gua.</p>
+<p>	Di aperture, laut tembaga hijau berkurang saat Fang Yuan mengerahkan esensi purba ke Moonlight Gu di telapak tangan kanannya.</p>
+<p>	Moonlight Gu memancarkan cahaya bulan yang lembut dan berkedip terus menerus. Di bawah pengaruhnya, dinding batu dicukur perlahan, dan sejumlah besar bubuk batu jatuh ke tanah.</p>
+<p>	Ini adalah kontrol ekstensif Fang Yuan terhadap Moonlight Gu, metode yang sama yang dia gunakan untuk membuka batu judi.</p>
+<p>	Dibandingkan dengan membuka batu, metode ini lebih kasar, tetapi dalam memecahkan dinding batu yang tebal ini, metode ini tampak agak terlalu lembut.</p>
+<p>	Ini adalah hari keenam Fang Yuan menggunakan Moonlight Gu untuk mencukur dinding batu.</p>
+<p>	Di lantai ada tumpukan tebal bubuk batu berwarna merah tua.</p>
+<p>	Berbicara secara logis, tanah Gunung Qing Mao berwarna hijau. Tapi di sini, tanahnya anehnya berwarna merah cerah dan memancarkan cahaya gelap.</p>
+<p>	Tapi untungnya, karena sumber cahaya ini, Fang Yuan tidak perlu menyiapkan obor.</p>
+<p>	Untuk menghindari kecurigaan, Fang Yuan tidak menggunakan alat apa pun. Palu baja dan beliung tidak diragukan lagi lebih baik untuk menghancurkan dinding batu, tetapi jika dia melakukannya, suara dinding yang pecah akan bergema di seluruh area.</p>
+<p>	Terlepas dari apakah dunia luar akan mendengar suara samar atau keras, Fang Yuan ingin menghilangkan semua kemungkinan titik mencurigakan tersebut.</p>
+<p>	Detail halus sering kali diputuskan dalam kemenangan atau kekalahan seseorang.</p>
+<p>	Bagi Fang Yuan, berhati-hati bukan hanya poin baiknya, itu lebih seperti kebiasaan baginya.</p>
+<p>	Dalam kehidupan masa lalunya, dia ceroboh dan tidak peduli, tetapi dia dengan cepat membayar harga yang mahal. Ada pepatah yang mengatakan, ‘orang menjadi lebih pengecut ketika mereka bertambah tua’. Namun sebenarnya ini bukan kepengecutan, melainkan kehati-hatian yang sabar. Pengalaman 500 tahun mendarah daging kata hati-hati ke dalam jiwanya.</p>
+<p>	“Puff …” Mengambil napas dalam-dalam, Fang Yuan perlahan menghentikan transmisi esensi purba.</p>
+<p>	Dia menjatuhkan diri ke tanah, sangat kelelahan.</p>
+<p>	Dia telah menggali sekitar tiga inci ketebalan dari seluruh lempengan dinding gambar yang tingginya setengah manusia.</p>
+<p>	Fang Yuan menyeka keringat di dahinya sambil melatih bahu dan meregangkan kakinya. Karena berjam-jam jongkok, rasa mati rasa terasa dari kakinya.</p>
+<p>	‘Tok, tok, tok’.</p>
+<p>	Fang Yuan menekuk jarinya dan mengetuk dinding batu.</p>
+<p>	Mendengar suara itu, dia sedikit senang di hatinya, karena dia tahu dindingnya semakin tipis.</p>
+<p>	Menutup matanya untuk bermeditasi, dia memeriksa situasi di dalam lubangnya sekali lagi.</p>
+<p>	Esensi purba tembaga hijau memiliki kurang dari 20% yang tersisa.</p>
+<p>	“Teruslah bekerja keras!” Fang Yuan menggertakkan giginya dan mengulurkan tangan kanannya lagi di dinding batu.</p>
+<p>	Cahaya bulan berwarna biru air terus bersinar selama sekitar lima belas menit, lalu Fang Yuan tiba-tiba menghentikan tindakannya. Dia mengeluarkan lengan kanannya dan menemukan bahwa dinding batu memiliki lubang kecil di dalamnya.</p>
+<p>	Dia segera berdiri dan menendang.</p>
+<p>	Dengan suara gemuruh, lubang itu melebar dan menjadi sebesar keranjang bambu.</p>
+<p>	Fang Yuan dengan hati-hati mundur beberapa langkah. Dia merasakan rasa basi yang memancar dari lubang dan meresap ke dalam gua rahasia ini.</p>
+<p>	Ventilasi gua rahasia tidak bagus. Fang Yuan memikirkannya sejenak dan memutuskan untuk meninggalkan celah batu, kembali ke dunia luar.</p>
+<p>	Hanya setelah beberapa saat dia kembali.</p>
+<p>	Perasaan pengap di gua itu sedikit lebih baik dari sebelumnya, dan Fang Yuan terus memperluas ukuran lubang, terkadang menggunakan Moonlight Gu, dan di lain waktu menggunakan tangannya untuk menggali, atau kakinya untuk menendang. Setelah beberapa saat, dia akhirnya memperluas lubang menjadi ukuran yang bisa dia masuki.</p>
+<p>	Melihat dari lubang, ada jalan diagonal ke bawah.</p>
+<p>	Jalannya awalnya sempit, tetapi semakin dalam, semakin lebar. Seseorang harus menundukkan kepala saat pertama kali masuk, tetapi menuju paruh kedua jalan, mereka dapat mengambil langkah besar dengan punggung tegak.</p>
+<p>	Dinding gua adalah warna tanah merah yang aneh, memancarkan cahaya merah samar. Ini menyebabkan bagian dalam lorong terlihat.</p>
+<p>	Tapi jalannya sangat panjang dan melampaui apa yang bisa dilihat mata. Karena sudutnya, Fang Yuan tidak bisa melihat apa yang ada di ujung jalan.</p>
+<p>	Dia berdiri di pintu masuk gua dan tidak segera masuk, malah menyipitkan mata dan berdiri di tempat.</p>
+<p>	Warisan kekuatan tidak seperti warisan warisan.</p>
+<p>	Warisan adalah ketika seorang Guru Gu meninggal dan meninggalkan barang-barangnya. Mereka yang menemukan warisan ini dapat menemukan barang-barang di mayat.</p>
+<p>	Warisan kekuatan adalah ketika seorang Guru Gu yang berada di ambang kematian dan enggan membiarkan warisannya punah, atau untuk memberi manfaat bagi generasi mendatang, atau ingin meninggalkan jejak terakhir keberadaannya di dunia, dengan sengaja membuat rintangan untuk diuji. orang-orang yang datang.</p>
+<p>	Mengambil Flower Wine Monk misalnya, ia mengatur warisan ini dengan tujuan yang jelas – itu adalah untuk memelihara seorang pembalas, untuk membalas dendam pada klan Gu Yue!</p>
+<p>	Jika orang yang datang mampu melewati cobaan ini, dia akan memperoleh segala macam manfaat. Orang yang melewati ujian akhir akan mendapatkan seluruh warisan kekuatan.</p>
+<p>	Menurut dua faksi, warisan kekuatan dibagi menjadi warisan benar dan warisan iblis.</p>
+<p>	Warisan yang benar sering kali memiliki rancangan yang indah, untuk menguji sifat dan karakter orang tersebut. Mereka yang gagal di tengah jalan, tidak akan berada dalam bahaya maut.</p>
+<p>	Warisan iblis lebih kompleks.</p>
+<p>	Para pembudidaya iblis itu sering kali gila dan gigih, berdarah dingin, atau pembunuh massal, tidak dapat dinilai dengan standar normal.</p>
+<p>	Beberapa warisan iblis memiliki cobaan yang menguji pikiran. Dengan banyak keputusan yang membingungkan untuk dibuat, banyak orang akan jatuh ke dalam pemikiran yang dalam dan menyakitkan tanpa mendapatkan satu hasil pun.</p>
+<p>	Beberapa warisan iblis sangat sederhana, menjadi ruang rahasia dengan cacing Gu dan batu purba di dalamnya.</p>
+<p>	Beberapa warisan iblis sangat kejam, dan kegagalan di tengah jalan sering menyebabkan kematian.</p>
+<p>	Beberapa lebih ekstrim – warisan beberapa pembudidaya setan adalah kebohongan besar, menjadi jebakan raksasa itu sendiri. Mereka mengikuti aturan ‘membawa seseorang turun bersama mereka’, dan bahkan sebelum mati, mereka akan mengatur percobaan ini dan menipu orang lain.</p>
+<p>	“Warisan Flower Wine Monk milik jenis apa?” Fang Yuan berpikir dalam-dalam.</p>
+<p>	Dengan ingatan kehidupan sebelumnya, dia bersih dari warisan iblis terkenal di masa depan. Tapi yang ini khususnya, tidak ada yang menemukannya dalam hidupnya, dan Fang Yuan tidak mengetahui detailnya.</p>
+<p>	“Benar, kemungkinan jebakan tidak tinggi. Kalau tidak, Biksu Anggur Bunga tidak akan mendesain dinding gambar ini. Tapi apakah ada mekanisme tersembunyi?”</p>
+<p>	Fang Yuan mengambil batu dan melemparkannya ke dalam gua.</p>
+<p>	Batu itu berguling di jalan dan dengan cepat meluncur keluar dari pandangan Fang Yuan; dia bisa mendengar serangkaian suara bertabrakan bergema di dalam gua.</p>
+<p>	Fang Yuan berpikir keras. Hasil pengujian batu menunjukkan bahwa itu aman.</p>
+<p>	Tapi dia belum memasuki jalan setapak, dan malah mengeluarkan bubuk batu dan menyebarkannya di sekitar pintu masuk gua rahasia. Pada saat yang sama, dia menyebarkan lapisan di pintu masuk retakan batu.</p>
+<p>	Selanjutnya, dia keluar dari celah batu sempit dan meninggalkan tempat itu.</p>
+<p>	Sekitar beberapa ratus meter dari sungai di semak-semak yang tersembunyi, dia menemukan anggur bambu hijau yang dia bawa kali ini. Membuka segelnya, dia meminum seteguk besar dan dengan sengaja menumpahkan beberapa minuman keras, memasukkannya ke pakaiannya dan membuatnya berbau alkohol.</p>
+<p>	Sambil membawa anggur, dia kembali ke desa, dan sesampainya di asrama sekolah, saat itu tepat tengah malam.</p>
+<p>	Jika dia tidak sering kembali pada malam hari, orang akan curiga. Ini lebih baik, keluar lebih awal di malam hari dan kembali larut malam.</p>
+<p>	Ketika menemukan cacing Liquor, Fang Yuan sudah melakukan ini, dan dengan latar belakang itu, perilaku seperti itu tidak aneh.</p>
+<p>	Bintang-bintang memudar dan matahari muncul, malam yang sunyi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 360 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 360";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_359.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 360">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_361.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 360</h1>
+        <div class="text-left">
+<p>	Bab 360 – Satu vs Tujuh (1/4)</p>
+<p>	Bab 360: Satu vs Tujuh (1/4)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan telah menggunakan penyembunyian nafas Gu dan menahan auranya sebanyak mungkin. Tapi sekarang dia bergerak, aura aslinya meledak.</p>
+<p>	Selain itu, kelompok Tie Ruo Nan memiliki keyakinan yang terbentuk sebelumnya bahwa Fang Yuan memiliki kultivasi tahap awal peringkat empat. Jadi, untuk sesaat, kelompok tujuh orang ini sangat terkejut.</p>
+<p>	“Peringkat empat tahap tengah, raja binatang kecil ini sangat muda tetapi telah melampaui tuan muda Ruo Nan!”</p>
+<p>	“Peringkat empat panggung menengah, tidak heran dia bisa begitu sombong.”</p>
+<p>	“Jadi bagaimana jika dia berada di peringkat empat tahap tengah? Dia benar-benar berani mendekati kita sendirian, dia hanya mencari azabnya sendiri! ”</p>
+<p>…</p>
+<p>	Segala macam pikiran melintas di benak kelompok klan Tie.</p>
+<p>	Gedebuk!</p>
+<p>	Sebuah suara membosankan bergema; Tie Ba Xiu kembali ke akal sehatnya paling cepat dan dengan kaku memukul tinju Fang Yuan di udara.</p>
+<p>	Tie Ba Xiu jatuh dengan stabil ke tanah sementara Fang Yuan dikirim terbang.</p>
+<p>	“Fang Zheng, kamu ingin mencari masalah dengan kami sendirian? Saya tahu Anda ingin menyelamatkan pasangan Anda Bai Ning Bing, tapi pikirkanlah. Anda tidak dapat bertindak gegabah dalam hal menyelamatkan seseorang, masih belum terlambat bagi Anda untuk mundur. Jika Anda terus bertarung, Anda benar-benar akan melawan klan Tie kami! Jika itu terjadi, nyawa pasangan Anda juga akan dipertaruhkan.” Tie Ba Xiu mengungkapkan dirinya dalam beberapa kata, tampaknya sungguh-sungguh, tetapi sebenarnya berusaha untuk mematahkan semangat juang Fang Yuan; benar-benar membuktikan jahe tua lebih panas dari yang baru.</p>
+<p>	“Hehehe.” Fang Yuan terkekeh dan menatap Tie Ba Xiu dan yang lainnya, tatapannya benar-benar mengungkapkan niat membunuhnya, “Jadi bagaimana jika kamu adalah klan Tie? Jadi bagaimana jika saya menentang Anda? Jika saya benar-benar tidak bisa menyelamatkan Bai Ning Bing, maka saya hanya bisa menyalahkan nasib buruknya. Bagaimanapun, saya sudah melakukan yang terbaik. ”</p>
+<p>	Kekejaman dan ketidakpedulian seperti itu menyebabkan tujuh orang klan Tie merasa dingin di hati mereka.</p>
+<p>	Fang Yuan menoleh ke arah Tie Ao Kai: “Kamu di sana, kamu tidak perlu mengintai lagi, hanya aku sendiri. Terus terang, jalan yang kalian pilih ini sangat bagus, sangat tersembunyi dan sangat cocok bagiku untuk membunuh kalian semua.”</p>
+<p>	Mendengar kata-kata ini, ekspresi Tie Ba Xiu benar-benar menjadi gelap.</p>
+<p>	“Fang Zheng, kamu mencari kematianmu sendiri!”</p>
+<p>	“Kematian?” Fang Yuan mulai tertawa keras tanpa menahan diri.</p>
+<p>	“Apakah orang ini gila?”</p>
+<p>	“Apakah raja binatang kecil menjadi gila karena kultivasi dan kehilangan akal sehatnya?”</p>
+<p>	“Orang-orang jalur iblis semuanya gila seperti ini!”</p>
+<p>	Semua kelompok merasa situasinya akan bermasalah dari tawa Fang Yuan yang tak terkendali.</p>
+<p>	Orang yang galak takut pada orang yang tidak masuk akal dan orang yang tidak masuk akal takut pada orang yang tidak peduli dengan kematian. Meskipun ada tujuh orang di pihak klan Tie dan Fang Yuan sendirian, kelompok klan Tie merasa takut.</p>
+<p>	Tipe orang gila yang ingin bunuh diri dan tidak peduli dengan hidupnya sendiri, apa yang tidak bisa dia lakukan?</p>
+<p>	Fang Yuan tiba-tiba berhenti tertawa dan melangkah maju menghasilkan suara keras. Seperti harimau yang meninggalkan gunung, dia melanjutkan serangannya lagi.</p>
+<p>	“Bertarung!” Tie Ruo Nan berteriak dengan ekspresi berat, mengetahui pertarungan ini tidak bisa dihindari.</p>
+<p>	Tie Ba Xiu mundur dan berdiri di samping Tie Ruo Nan; Tie Dao Ku dan Tie Xian Hua bergerak ke depan bersama-sama; dan Tie Ao Kai mulai berlari di samping.</p>
+<p>	Seluruh formasi langsung dilonggarkan seperti karung dibuka, menunjukkan koordinasi taktik pertempuran mereka yang terampil.</p>
+<p>	Pengisian macet Gu!</p>
+<p>	Fang Yuan bergegas maju seperti banteng, batu-batu di bawahnya hancur saat dia bergerak dengan momentum yang kuat dan menembus ‘karung’ klan Tie tanpa rasa takut.</p>
+<p>	“Raja binatang kecil, kamu terlalu sombong!” Tie Xian Hua berteriak dengan suaranya yang lembut dan mengulurkan lima jari tangan kanannya.</p>
+<p>	Ada suara lembut dan bunga teratai emas hitam besar mekar seketika dari telapak tangannya.</p>
+<p>	Teratai mekar, kelopaknya yang besar membungkuk, membentuk busur seperti payung. Tangkai teratai hijau tua terus tumbuh dan dalam sekejap mata melebihi ukuran lengan, menjadi pegangan payung.</p>
+<p>	Tie Xian Hua memetik teratai ini dengan tangan kirinya dan kemudian menyerang Fang Yuan sambil memegang tangkai teratai hijau tua.</p>
+<p>	Payung lotus Gu!</p>
+<p>	Tie Xian Hua bertubuh mungil sementara teratai payung besar dan menutupinya sepenuhnya, menjadi perisai dan melindunginya dengan kuat.</p>
+<p>	Fang Yuan mencibir, hantu gajah putih muncul di atasnya.</p>
+<p>	Hantu binatang, kekuatan seekor gajah!</p>
+<p>	Bam!</p>
+<p>	Tanpa kejutan, Fang Yuan mengirim Tie Xian Hua, yang menghalangi jalannya, terbang.</p>
+<p>	Tie Xian Hua terbang sejauh sepuluh kaki seperti daun mati yang tertiup angin.</p>
+<p>	“Kekuatan yang luar biasa!” Dia menggertakkan giginya, menahan rasa sakit yang hebat dari tabrakan itu. Dia memutar tubuhnya di udara dan dengan cepat menemukan keseimbangan, mendarat di tanah tanpa jatuh.</p>
+<p>	Tapi serangan yang diharapkan tidak mengikuti, Fang Yuan mengabaikan keberadaannya dan langsung menyerang Tie Ruo Nan.</p>
+<p>	“Sialan, dia mengejar tuan muda!”</p>
+<p>	“Kita harus memblokirnya, lindungi tuan muda!”</p>
+<p>	Kehendak pertempuran dan niat membunuh kelompok itu tersulut ketika mereka melihat Fang Yuan menargetkan Tie Ruo Nan.</p>
+<p>	Tie Ruo Nan setengah berlutut, kedua tangannya ditekan ke tanah; dari saat pertempuran dimulai, dia membuat boneka.</p>
+<p>	Tanaman tumbuh liar di dekatnya.</p>
+<p>	Rerumputan rapuh di samping kakinya tumbuh setinggi pria dewasa. Lusinan rumput besar terjalin; dalam cahaya hijau zamrud, boneka rumput dibuat.</p>
+<p>	Boneka rumput Gu!</p>
+<p>	Fang Yuan telah melihat Gu boneka rumput peringkat satu di gunung Qing Mao. Itu digunakan sebagai target untuk berlatih pedang bulan.</p>
+<p>	Peringkat satu boneka rumput Gu tidak mengancam tetapi begitu mencapai peringkat dua, ia dapat dengan mudah membunuh seorang pemburu biasa. Yang digunakan Tie Ruo Nan saat ini adalah Gu boneka rumput peringkat tiga.</p>
+<p>	Boneka rumput yang dia buat pendek dan tipis, daunnya dianyam rapat, satu tangannya memegang bilah bambu dan tangan lainnya mengangkat perisai cangkang rotan.</p>
+<p>	Ini adalah prajurit rumput kulit rotan! Itu memiliki kekuatan untuk membunuh Master Gu peringkat satu!</p>
+<p>	Hanya satu prajurit rumput tempurung rotan bukanlah ancaman bagi Fang Yuan. Tapi begitu jumlah mereka meningkat, mereka menjadi merepotkan.</p>
+<p>	Prajurit rumput cangkang rotan sering digunakan sebagai umpan meriam untuk mengkonsumsi esensi purba Gu Master lawan. Yang paling penting, dengan menggunakan kekuatan Gu Master peringkat empat, selusin prajurit tempurung rotan bisa bergabung menjadi prajurit elit pedang rumput peringkat empat.</p>
+<p>	Dalam waktu singkat ini, Tie Ruo Nan sudah memiliki delapan belas prajurit rumput tempurung rotan di sampingnya.</p>
+<p>	“Tie Ruo Nan …” Fang Yuan dipenuhi dengan niat membunuh, tatapannya yang dingin dan tajam terkunci pada Tie Ruo Nan.</p>
+<p>	Wanita ini memiliki bakat luar biasa yang mirip dengan Bai Ning Bing, dan dia juga telah menyelidiki urusan di gunung Qing Mao, dia tidak bisa dibiarkan hidup. Fang Yuan sudah ingin membunuhnya kembali di kota klan Shang, tetapi waktunya tidak tepat saat itu.</p>
+<p>	Tie Ruo Nan tidak bergeming. Dia memilih untuk percaya pada pasangannya dan masih menciptakan tentara rumput tempurung rotan.</p>
+<p>	“Blokir dia!”</p>
+<p>	Tie Ao Kai mengayunkan lengan bajunya dan segerombolan besar nyamuk jarum emas terbang keluar.</p>
+<p>	“Jangan pernah berpikir untuk melangkah lebih jauh!”</p>
+<p>	Tie Dao Ku bergegas menuju Fang Yuan sambil mengaktifkan bilah tangan Gu dan bayangan cepat Gu.</p>
+<p>	Fang Yuan tertawa dan langsung bentrok tanpa menghindarinya.</p>
+<p>	Nyamuk jarum emas menusuk lubang darah kecil di sekujur tubuhnya. Lengan Tie Dao Ku memukul dadanya dan memotong luka panjang.</p>
+<p>	Fang Yuan tertawa terbahak-bahak, dan melangkah maju dengan kepala tegak, darah mengalir keluar dari luka di sekujur tubuhnya.</p>
+<p>	“Dia terluka!” Kelompok klan Tie sungguh-sungguh.</p>
+<p>	Jika musuh lain yang terluka, kelompok klan Tie akan merasa senang dan santai, tetapi Fang Yuan memiliki kekuatan pahit Gu; semakin berat luka yang dideritanya, semakin kuat kekuatan bertarungnya.</p>
+<p>	Banteng hijau, kuda, kura-kura batu!</p>
+<p>	Benar saja, tiga hantu binatang lagi muncul di atas Fang Yuan.</p>
+<p>	Dia membuka jalan dengan kekuatan besarnya yang tidak bisa diblokir!</p>
+<p>	Tie Xian Hua bergegas dan dengan santai dikirim terbang oleh Fang Yuan. Tie Dao Ku mundur tanpa daya sementara Tie Ao Kai hanya bisa berkeliaran di pinggir lapangan.</p>
+<p>	“Bagus, kekuatan tiran Gu!” Fang Yuan hendak mencapai Tie Ruo Nan, ketika Tie Ba Xiu berteriak dan melangkah maju.</p>
+<p>	Bam!</p>
+<p>	Ada suara ledakan besar dari tabrakan keduanya. Keduanya dikirim mundur tujuh hingga delapan langkah.</p>
+<p>	Itu hasil imbang!</p>
+<p>	Fang Yuan memiliki empat hantu binatang, tapi Tie Ba Xiu tidak terkenal karena apa-apa; kekuatan tiran peringkat empatnya, Gu, diwarisi dari jalur kekuatan kuno dan memiliki kekuatan seorang tuan.</p>
+<p>	“Menarik, lagi!” Mata Fang Yuan bersinar terang dan dia menyerang ke depan lagi.</p>
+<p>	Tie Ba Xiu menyambutnya langsung, dengan tegas menghalangi jalannya.</p>
+<p>	Tie Dao Ku dan yang lainnya menghirup udara keruh, merasa lega saat melihat pemandangan ini.</p>
+<p>	“Raja binatang kecil akhirnya dihentikan.”</p>
+<p>	“Ini senior Tie Ba Xiu!”</p>
+<p>	“Fang Zheng terjebak dalam pengepungan ketat kita, dia pasti akan mati!”</p>
+<p>	Semangat juang kelompok klan Tie melonjak saat Fang Yuan kehilangan momentumnya. Di mata mereka, dia seperti banteng yang jatuh ke dalam perangkap, ancamannya sangat berkurang.</p>
+<p>	Mereka semua bergabung untuk menyerang.</p>
+<p>	Semua jenis serangan seperti segerombolan nyamuk jarum emas, hujan bunga, dan bilah tangan dilemparkan ke Fang Yuan dari segala arah.</p>
+<p>	Kulit Fang Yuan terkoyak, luka di tubuhnya menjadi lebih serius dan dia tidak punya pilihan selain menggunakan perisai emas Gu untuk bertahan. Pada saat yang sama, dia juga menggunakan kemandirian Gu untuk menyembuhkan tubuhnya.</p>
+<p>	Semakin dia bertarung, semakin kuat dia, tapi Tie Ba Xiu secara tak terduga juga sama!</p>
+<p>	Dia memiliki peringkat lima penguasa bumi Gu yang memungkinkan dia untuk menyerap kekuatan yang tak ada habisnya dari bumi, membuat kekuatan tirannya Gu semakin kuat.</p>
+<p>	Tie Ba Xiu terus-menerus mengaktifkan penguasa bumi Gu, memperoleh kekuatan tak berbentuk dari bumi yang memperkuat kekuatan tirannya Gu dan terus meningkatkan kekuatannya.</p>
+<p>	Pertempuran itu dalam jalan buntu.</p>
+<p>	Fang Yuan dan Tie Ba Xiu bertarung sengit, saling memukul dengan pukulan dan tendangan; mereka menjadi pusat pertarungan. Seperti binatang berbentuk manusia, setiap gerakan mereka membawa beban berat, dan ke mana pun pertarungan berlangsung, batu pecah dan debu beterbangan.</p>
+<p>	Melolong!</p>
+<p>	Tiba-tiba, ada lolongan binatang dan hantu binatang muncul di atas Fang Yuan.</p>
+<p>	Petir meringkuk di sekitarnya, gadingnya terbuka di luar dan mengeluarkan aura yang sangat ganas – hantu babi hutan!</p>
+<p>	Tie Xian Hua yang menghalangi jalan Fang Yuan tiba-tiba terlempar.</p>
+<p>	Payung lotus Gu pecah dan kelopaknya berserakan di udara.</p>
+<p>	“Xian Hua, bertahanlah!” Tie Mu bergegas dan memegang Tie Xian Hua yang memuntahkan banyak darah, dan segera mulai menyembuhkannya.</p>
+<p>	Pada saat yang sama, sekelompok tentara rumput tempurung rotan datang dan memblokir setiap celah di sekitarnya, membela keduanya.</p>
+<p>	Saat ini, sudah ada hampir seribu tentara rumput tempurung rotan di sekitar Tie Ruo Nan dan sudah memberikan dukungan dalam pertempuran. Pada saat yang sama, dia terus menciptakan boneka rumput baru.</p>
+<p>	Tie Ruo Nan berjalan di jalur perbudakan dan orang tidak bisa membiarkan jalur perbudakan Gu Master seperti dia punya cukup waktu untuk bersiap.</p>
+<p>	Jalur perbudakan Gu Masters adalah yang terbaik dalam memerangi perang gesekan, semakin lama waktu berlalu, semakin tidak menguntungkan situasi Fang Yuan. Jawaban terbaik adalah langsung membunuh pemimpinnya.</p>
+<p>	Tapi taktik ini tidak akan berhasil.</p>
+<p>	Fang Yuan terjerat erat dengan Tie Ba Xiu sekarang.</p>
+<p>	“Seorang junior yang ganas!” Tie Ba Xiu tidak bisa menahan perasaan kagum terhadap Fang Yuan di dalam hatinya.</p>
+<p>	Meskipun dia sudah memperkirakannya, kekuatan yang ditunjukkan Fang Yuan masih mengejutkannya.</p>
+<p>	Dia mengira kekuatan Fang Yuan adalah karena serangkaian jalur kekuatan Gu bersamanya. Mewarisi cacing Gu yang berharga dari jalur kekuatan kuno dan terlebih lagi, koordinasi mereka juga sangat indah.</p>
+<p>	Namun, saat pertempuran berlanjut hingga tahap ini, Tie Ba Xiu hampir tidak berani mempercayai kelihaian, kekejaman, ketenangan, dan kemantapan yang ditunjukkan Fang Yuan.</p>
+<p>	“Bakat pertempuran anak ini… jika aku tidak melawannya secara pribadi, aku tidak akan pernah percaya bahwa akan ada monster seperti itu! Dia harus dibunuh, aku harus membunuhnya. Dia bahkan lebih berbahaya daripada apa yang dikatakan intel, jika kita memberinya waktu untuk tumbuh, itu akan menjadi malapetaka bagi jalan yang benar!” Tie Ba Xiu terkejut dan niat membunuhnya semakin meningkat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

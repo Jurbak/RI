@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 310 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 310";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_309.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 310">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_311.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 310</h1>
+        <div class="text-left">
+<p>	Bab 310</p>
+<p>	Bab 310: Dasar bajingan tak tahu malu!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Dalam sekejap mata, tiga hingga empat hari berlalu.</p>
+<p>	“Kekuatan pahit Gu …” Di ruang belajar, Shang Ya Zi memegang Gu di tangannya, alisnya terlipat menjadi lipatan, karena dia memiliki keinginan yang luar biasa – untuk menghancurkan cacing Gu ini sampai mati!</p>
+<p>	Tapi dia harus mengendalikan dirinya sendiri.</p>
+<p>	Kekuatan pahit Gu ini menghabiskan delapan ratus sepuluh ribu batu purba, jika dia menghancurkannya, hatinya akan sakit.</p>
+<p>	Setiap kali dia melihat Gu ini, Shang Ya Zi merasa sangat muram.</p>
+<p>	Dia memiliki ilusi bahwa kekuatan pahit Gu mengejeknya tanpa suara, mengingatkannya akan kebodohannya setiap detik!</p>
+<p>	Pada pelelangan beberapa hari yang lalu, dia ditipu oleh Fang Yuan di depan semua orang.</p>
+<p>	Saat ini, dia adalah bahan tertawaan. Bahkan klan sekitarnya menolak untuk bertemu dengannya.</p>
+<p>	Tidak masalah jika dia idiot, tapi dia adalah tuan muda klan Shang, perbuatan seperti itu membuat malu seluruh klan Shang!</p>
+<p>	Sebagai tuan muda klan Shang, setiap tindakan Shang Ya Zi mewakili klan Shang dan membawa citranya. Penampilannya di pelelangan tidak hanya mempermalukan dirinya sendiri, tetapi juga menyeret kebanggaan dan kemuliaan klan Shang-nya melalui lumpur.</p>
+<p>	Adapun Shang Yan Fei, dia tidak mengatakan sepatah kata pun tentang masalah ini.</p>
+<p>	Tapi ini membuat Shang Ya Zi merasa semakin tidak nyaman.</p>
+<p>	“Tidak, aku harus menyelamatkan reputasiku. Saya harus memastikan ayah melihat saya dengan cara yang berbeda, saya harus mengubah kesan klan saya tentang saya! Shang Ya Zi menggertakkan giginya, memutuskan dalam hatinya.</p>
+<p>	“Fang Zheng, kamu berani menentangku, dan mempermainkanku seperti orang bodoh. Saya akan memastikan Anda membayar harga yang mengerikan! ” Matanya bersinar dengan cahaya gelap yang menyeramkan, berkedip-kedip saat dia memikirkan cara untuk berurusan dengan Fang Yuan.</p>
+<p>	Setelah masalah ini, kebenciannya terhadap Fang Yuan telah mencapai titik kritis, kebencian yang meresap ke dalam jiwanya.</p>
+<p>	“Tuan muda, tuan muda, ada masalah!”</p>
+<p>	Pada saat ini, seorang pelayan yang setia datang, berteriak di depan ruang belajar.</p>
+<p>	“Kenapa kamu begitu panik, apakah ini kesopanan yang tepat? Masuk ke sini!” Shang Ya Zi memarahi dengan sedih.</p>
+<p>	Pintu kamar didorong terbuka, ketika pelayan itu berlutut di lantai, wajahnya memerah karena ketakutan: “Tuan muda, ada masalah. Ada desas-desus yang beredar, itu telah menyebar ke seluruh kota klan Shang. Dikatakan bahwa Anda dan Fang Zheng pernah bersaing untuk Lady An Yu tetapi Anda kalah darinya. Itu menghasilkan dendam di antara kalian berdua, jadi kamu pergi mencari masalah dengan Fang Zheng. ”</p>
+<p>	“Nyonya An Yu? Pelacur rumah bordil Qin Yan itu? Sampah apa itu.” Shang Ya Zi melengkungkan bibirnya, tertawa meremehkan.</p>
+<p>	Tetapi pelayan itu melanjutkan: “Mereka juga mengatakan, Anda memiliki kesepakatan rahasia dengan Fang Zheng untuk lulus penilaian tahunan, dan … dan memalsukan akun.”</p>
+<p>	“Apa?!” Shang Ya Zi mendengar ini dan melolong, ekspresinya berubah. Dia melompat dari kursinya, menyebabkan kuas dan tinta di mejanya bergetar dan jatuh.</p>
+<p>	Pelayan itu melanjutkan dengan hati-hati tetapi dengan cemas: “Tuan muda, desas-desusnya sangat rumit, mereka bahkan memiliki waktu transaksi, dan jumlah pasti dari akun tersebut diedarkan. Sepertinya aula urusan internal klan telah disiagakan, dan mereka mengirim Master Gu ke sini untuk menyelidiki masalah ini. ”</p>
+<p>	“Hah?!”</p>
+<p>	Shang Ya Zi tercengang, seolah-olah petir menyambar otaknya.</p>
+<p>	Pada saat itu, wajahnya menjadi pucat, seperti darah mengalir keluar dari tubuhnya.</p>
+<p>	Jantungnya berdebar, tubuhnya melunak saat dia hampir jatuh ke tanah. Berpegangan pada meja belajar dengan lemah, dia menopang dirinya sendiri.</p>
+<p>	Dampak ini terlalu cepat, terlalu berat, terlalu tiba-tiba!</p>
+<p>	“Aku sudah selesai, benar-benar selesai. Setelah masalah akuntansi palsu terungkap, saya akan kehilangan posisi tuan muda. Ini melanggar aturan klan, bahkan ibu tidak bisa melindungiku. Tidak ada gunanya memohon pada ayah juga! Begitu saya kehilangan posisi ini, ada banyak orang yang menunggu untuk melahap saya. ”</p>
+<p>	Saat krisis melanda, Shang Ya Zi sangat ketakutan, jatuh ke dalam keadaan panik.</p>
+<p>	“Bagaimana berita seperti itu bisa beredar? Saya benar-benar berhati-hati selama kesepakatan, selain Fang Zheng, tidak ada orang lain yang tahu. Tidak mungkin, tidak mungkin…”</p>
+<p>	Shang Ya Zi bergumam pada dirinya sendiri saat ekspresinya linglung.</p>
+<p>	Dia masih terlalu muda, tanpa bahaya yang mengancam jiwa untuk melatihnya, meskipun dia mengelola toko selama dua tahun, dan memiliki keterampilan manajemen yang baik, dia hanya menggaruk permukaan. Begitu masalah terjadi, dia menjadi kaget dan tidak berdaya.</p>
+<p>	…</p>
+<p>	Taman Nan Qiu, paviliun di tengah danau.</p>
+<p>	Angin sepoi-sepoi bertiup, menyebabkan gelombang kecil terbentuk di permukaan danau.</p>
+<p>	Danau itu tidak besar, tepinya terbuat dari bebatuan yang ditumpuk.</p>
+<p>	Di permukaan danau, ada daun teratai besar, terhubung bersama seperti rantai, kuncup bunga merah muda-putih belum terbuka. Ikan mas emas dan oranye berenang di air, kadang-kadang muncul ke permukaan.</p>
+<p>	Paviliun itu terbuat dari batu bata dan memiliki atap berwarna-warni dan pilar merah, itu jelas dirancang dengan cermat.</p>
+<p>	Di paviliun ada papan catur, dan dua anak muda sedang bermain.</p>
+<p>	Seorang pemuda mengenakan pakaian hitam, matanya gelap seperti jurang. Yang lainnya adalah seorang wanita mengenakan pakaian putih, memiliki rambut perak dan mata biru, menunjukkan ekspresi dingin.</p>
+<p>	Itu adalah Fang Yuan dan Bai Ning Bing.</p>
+<p>	Bai Ning Bing bermain sebentar, sebelum melihat ke luar ke danau: “Shang Ya Zi ini benar-benar bodoh, kecepatan reaksinya sangat lambat. Aku sudah menyebarkan desas-desus sejak lama, mengapa dia belum juga datang ke sini?”</p>
+<p>	“Jangan khawatir, saya telah menginstruksikan para penjaga untuk membiarkan dia masuk, dia akan datang.” Fang Yuan tersenyum, menunjukkan kepercayaan dirinya untuk mengendalikan situasi.</p>
+<p>	Setelah panik, Shang Ya Zi pasti akan mencurigai Fang Yuan. Dengan demikian, dia akan datang dan menyelidiki situasinya, bahkan jika dia tidak curiga, dia akan datang untuk meyakinkan Fang Yuan untuk menutupinya, untuk selamat dari penyelidikan oleh klan Shang ini.</p>
+<p>	Bai Ning Bing menyipitkan matanya, menghela nafas: “Fang Yuan, aku benar-benar terkesan, kamu benar-benar berhasil memanfaatkan ‘celah’ ini dalam sumpah racun Gu. Anda merencanakan ini dari dua tahun lalu, bukan? Hanya menunggu dan bertahan, sampai waktunya tiba untuk mengaktifkan jebakan ini.”</p>
+<p>	Fang Yuan tersenyum, memainkan bidak caturnya saat dia menjawab: “Shang Ya Zi adalah pria picik, dia pasti akan membalas dendam. Mengapa saya meninggalkan ancaman seperti itu? Saya tidak menggunakan ini sebelumnya karena Shang Xin Ci baru saja tiba di klan Shang dan tidak memiliki yayasan. Pergi dengan Shang Ya Zi, dan datanglah Shang Xin Ci, yang bermanfaat bagi kita berdua.”</p>
+<p>	Bai Ning Bing tidak berbicara lagi, tapi matanya bersinar dengan cahaya biru.</p>
+<p>	Di dalam hatinya, dia merasakan hawa dingin.</p>
+<p>	Skema Fang Yuan datang satu demi satu, terhubung erat, begitu seseorang melangkah ke dalamnya, rasanya seperti berada di pasir hisap, terperangkap dan tak berdaya. Bagian yang paling mengejutkan adalah, dia merencanakan ini dua tahun lalu setelah memprediksi situasi ini. Pandangan ke depan seperti itu, membuat orang merinding, Shang Ya Zi sedang mencari kematian dengan menjadi musuh bersamanya!</p>
+<p>	“Fang Zheng, di mana kamu? Keluar dari sini sekarang!” Jeritan marah Shang Ya Zi akhirnya datang.</p>
+<p>	Paviliun di danau tidak disembunyikan sama sekali, setelah Shang Ya Zi diberitahu oleh penjaga pintu, dia dengan cepat menemukan Fang dan Bai.</p>
+<p>	“Fang Zheng, kamu masih punya mood untuk bermain catur? Apakah Anda tahu seberapa jauh rumor telah menyebar? Katakan padaku, apakah ini semua dilakukan olehmu!” Shang Ya Zi datang ke paviliun, menunjuk Fang Yuan saat dia berteriak dengan marah.</p>
+<p>	Fang Yuan membalikkan tubuhnya, berbicara dengan jelas: “Jika ini dilakukan olehku, apakah aku akan hidup? Shang Ya Zi, aku tidak percaya kamu semakin bodoh. Apakah Anda lupa bahwa kami menggunakan sumpah racun Gu bersama? ”</p>
+<p>	Shang Ya Zi mendengus, amarahnya sedikit mereda. Fang Yuan benar, jika dia pelakunya, dia pasti sudah mati. Sekarang dia duduk di sana dengan aman dan sehat, itu berarti rumor itu bukan karena dia.</p>
+<p>	Tapi kalimat Fang Yuan berikutnya membuatnya sangat marah.</p>
+<p>	“Meskipun saya tidak membuat rumor, rekan saya Bai Ning Bing melakukannya.”</p>
+<p>	Shang Ya Zi tercengang, wajahnya yang santai berubah menjadi merah padam, seperti meteor memasuki atmosfer.</p>
+<p>	Kemarahan yang intens tumbuh di hatinya.</p>
+<p>	“Itu kamu, itu dilakukan olehmu! Dasar jalang, aku akan membunuhmu!” Dia berteriak, matanya merah karena marah, saat dia menatap Bai Ning Bing seolah dia akan melahapnya. Auranya gila, seperti macan tutul atau serigala yang mencoba menyerang mangsanya.</p>
+<p>	“Oh? Anda ingin menyerang di sini? Serang aku?” Bai Ning Bing perlahan berdiri, wajahnya yang benar-benar menakjubkan sedingin es, karena nada dinginnya mengandung penghinaan yang kuat: “Saya peringkat tiga tahap puncak, saya tidak pernah kalah dalam satu pertempuran di tahap pertempuran, dan saya memiliki duri ungu. token, apakah kamu benar-benar ingin bertarung sampai mati bersamaku?”</p>
+<p>	Otot-otot wajah Shang Ya Zi berkedut, saat dia menggertakkan giginya, matanya terbakar api saat dia menatap tajam ke arah Bai Ning Bing.</p>
+<p>	Dia tidak menyerang pada akhirnya.</p>
+<p>	Dia peringkat tiga tingkat atas, dan tinggal di menara gading sepanjang hidupnya, dia bukan tandingan Bai Ning Bing. Pada saat yang sama, Bai Ning Bing memiliki token duri ungu, sesuatu yang diberikan secara pribadi oleh Shang Yan Fei padanya.</p>
+<p>	“Fang Zheng, kamu kembali pada kata-katamu, kamu akan mati dengan kematian yang menyakitkan! Bagaimana dia tahu kesepakatan kita? Tidak, tunggu, Anda kembali pada kata-kata Anda, mengapa Anda masih hidup ?! Apakah Anda menemukan cara untuk menonaktifkan sumpah racun Gu? ” Shang Ya Zi menoleh untuk melihat Fang Yuan, merasa tidak yakin.</p>
+<p>	“Tidak tidak.” Fang Yuan menggelengkan kepalanya: “Sumpah racun adalah — Anda dan saya akan merahasiakannya, dan kami ‘tidak dapat membocorkan informasi tersebut kepada pihak ketiga yang tidak mengetahuinya’. Tapi sebelum sumpah racun Gu digunakan, saya sudah memberi tahu Bai Ning Bing masalah ini. Dengan demikian, dia adalah ‘pihak ketiga yang mengetahui’. Desas-desus itu juga tidak saya keluarkan. Itu semua usaha Bai Ning Bing. Jadi, saya tidak melanggar sumpah racun sama sekali. ”</p>
+<p>	Shang Ya Zi membuka mulutnya lebar-lebar, menunjukkan ekspresi kaget.</p>
+<p>	Sekarang Fang Yuan menyebutkannya, sumpahnya memang seperti ini.</p>
+<p>	Lalu mengapa dia tidak menemukan celah ini saat itu?</p>
+<p>	Satu, karena pola pikirnya, dia tidak berpikir Fang Yuan akan memberi tahu Bai Ning Bing bahkan sebelum mereka membahas masalah ini. ‘Tidak dapat membocorkan informasi kepada pihak ketiga yang tidak tahu’, hanya dengan melihat kalimat ini, tidak ada masalah.</p>
+<p>	Kedua adalah karena dialah yang memprakarsai penggunaan sumpah racun Gu, Fang Yuan tampak tidak siap dan lengah, tetapi dia sebenarnya telah memperkirakannya sejak lama dan hanya mencoba mematikan indra Shang Ya Zi.</p>
+<p>	Ketiga, Shang Ya Zi ingin tetap menjadi tuan muda, dan tidak punya cara lain. Dia cemas dan karena pengucapan sumpah itu sangat menyakitkan, dia tidak bisa berpikir dengan benar.</p>
+<p>	Tapi sekarang dia tahu, sudah terlambat …</p>
+<p>	“Fang Zheng, kamu bajingan yang tak tahu malu! Anda berani menipu saya dan menipu saya seperti ini! Kamu adalah sampah tercela, sangat tercela dan tak tahu malu! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

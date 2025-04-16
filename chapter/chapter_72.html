@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 72 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 72";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_71.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 72">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_73.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 72</h1>
+        <div class="text-left">
+<p>	Bab 72</p>
+<p>	Bab 72: Setiap organisasi juga membutuhkan kesetiaan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari musim panas yang panas terik, angin gunung meniup angin hangat di sekitar, Gunung Qing Mao mengepul di bawah udara panas.</p>
+<p>	Dalam sekejap mata, itu sudah mendekati akhir Juni.</p>
+<p>	“Gu Yue Fang Zheng!” Di akademi, tetua keluarga memanggil.</p>
+<p>	Gu Yue Fang Zheng bangkit dari tempat duduknya dan datang ke hadapan Penatua Akademi.</p>
+<p>	Di bawah tatapan kagum teman-teman sekelasnya, Fang Zheng menerima sekantong berat batu purba.</p>
+<p>	“Fang Zheng, kamu yang pertama naik ke atas, ini hadiahmu. Kerja bagus, terus bekerja keras.” Tetua akademi tersenyum ramah, menepuk bahu Fang Zheng.</p>
+<p>	Fang Zheng mengakui dengan mendengus, wajahnya penuh kegembiraan.</p>
+<p>	Dia mengambil tas uang itu dengan emosi dan kembali ke tempat duduknya.</p>
+<p>	“Saya akhirnya melakukannya. Yang pertama naik ke panggung atas, apakah Anda melihat kakak laki-laki itu, saya akhirnya mengalahkan Anda sekali saja! ”</p>
+<p>	Matanya bersinar dengan cahaya terang saat dia menyapu pandangannya ke arah Fang Yuan.</p>
+<p>	Fang Yuan tergeletak di atas meja, tertidur lelap. Tadi malam dia telah membunuh babi hutan lainnya, dan setelah kembali ke asrama, dia menggunakan White Boar Gu untuk memperbaiki tubuhnya dan juga menggunakan esensi alami di dalam batu purba untuk memperbaiki esensi purba menggunakan cacing Liquor. Akhirnya, dia menggunakan esensi purba tingkat atas untuk memelihara aperture-nya, sampai pagi.</p>
+<p>	Dia buru-buru sarapan sebelum bergegas ke kelas, tertidur begitu dia duduk. Dia terlalu lelah, dan kultivasi Guru Gu tidak bisa menggantikan tidur.</p>
+<p>	“Hmph, bahkan jika kamu tidak mengakuinya, ini adalah kebenarannya. Kakak, aku akhirnya melampauimu! Ini yang pertama, dan akan ada yang kedua kalinya, yang ketiga kalinya!”</p>
+<p>	Fang Zheng mengepalkan tinjunya. Keberhasilan ini sangat berarti baginya. Dia telah menembus awan gelap di hatinya, menciptakan dan membuka untuk memungkinkan cahaya masuk.</p>
+<p>	Meskipun cahaya ini tipis, itu memberi Fang Zheng harapan dan dorongan!</p>
+<p>	“Hmph, aku benar-benar kalah dari Fang Zheng itu.” Gu Yue Mo Bei duduk di kursinya, lengan disilangkan, merasa marah.</p>
+<p>	“Ini adalah keuntungan dari nilai A, sialan …” kata Gu Yue Chi Cheng dengan ekspresi gelap. Saat dia berkultivasi, dia sangat merasakan keuntungan dari bakat yang baik. Bahkan dengan dukungan kakeknya Gu Yue Chi Lian, ditambah kerja kerasnya yang luar biasa, dia masih ditinggalkan oleh Fang Zheng.</p>
+<p>	“Kalau saja aku punya cacing Liquor, ditambah bantuan kakek, aku mungkin tidak akan kalah dari Fang Zheng! Saudara-saudara keluarga Fang yang terkutuk itu! Adik laki-laki kelas A, menekan kami, tetapi saudara laki-laki kelas C memiliki cacing Minuman Keras. Mengapa semua hal baik di dunia ini diberikan kepada saudara-saudara ini?” Gu Yue Chi Cheng merasa sangat marah.</p>
+<p>	“Kali ini Fang Zheng menerobos ke tahap atas terlebih dahulu.”</p>
+<p>	“Tentu saja, dia adalah bakat kelas A”.</p>
+<p>	“Ya, bahkan Mo Bei, Chi Cheng, dan Fang Yuan kalah dari Fang Zheng. Fang Zheng telah mendapatkan semua perhatian kali ini. ”</p>
+<p>	“Fang Yuan yang memiliki cacing Liquor tidak berusaha. Membuang-buang waktunya setiap hari, bahkan tidur di kelas, dia mungkin juga memberikan cacing Liquor-nya kepadaku.”</p>
+<p>	Para siswa di sekitarnya berdiskusi, merasa marah di hati mereka, ketidakberdayaan dan kecemburuan.</p>
+<p>	Tetua akademi memanggil mereka satu per satu, dan para siswa terus naik untuk mengumpulkan uang saku batu purba mereka, dan kembali ke tempat duduk mereka.</p>
+<p>	“Semua orang tenang.” Setelah uang saku diberikan, tetua akademi menggunakan tangannya untuk memukul meja. Tiba-tiba, akademi menjadi sunyi.</p>
+<p>	“Sekarang, kalian semua telah menguasai cacing Gu kedua kalian dan bahkan berhasil menembus tahap atas. Dalam setengah tahun terakhir, Anda semua telah bekerja keras, dan sekarang Anda memiliki beberapa dasar, saatnya bagi Anda untuk berlatih di alam liar. Pertempuran sejati, bukanlah orang-orangan sawah atau boneka, boneka kayu yang berdiri di sana dan menunggu serangan Anda.</p>
+<p>	“Ujian tengah tahun berikutnya, akan diadakan tiga hari kemudian, semua siswa harus hadir! Isi ujiannya adalah berburu babi hutan. Dengan mengumpulkan gigi babi hutan sebagai hasil untuk dicatat, mereka yang mengumpulkan gigi babi hutan paling banyak akan mendapatkan skor yang lebih baik. Di akhir pemeriksaan, setiap gigi babi hutan dapat ditukar dengan sepuluh batu purba. Selanjutnya, Anda diizinkan untuk berburu dalam kelompok. ”</p>
+<p>	Kata-kata tetua akademi menyebabkan keributan di antara para siswa.</p>
+<p>	“Ujian tengah tahun akhirnya tiba!”</p>
+<p>	“Setiap tahun siswa belajar di akademi selama setahun, dan selalu ada ujian tengah tahun dan ujian akhir tahun. Melihat waktu, ini benar-benar waktu untuk ujian tengah tahun.”</p>
+<p>	“Isi ujian setiap tahun berbeda, mengingat tahun ini, ujian kami adalah berburu dan mendapatkan gigi babi hutan.”</p>
+<p>	“Apa yang harus kita lakukan? Bakat saya hanya kelas D, Gu vital saya bukan tipe serangan seperti Moonlight Gu, bagaimana saya bisa berburu babi hutan?”</p>
+<p>	“Tidakkah kamu dengar, kata tetua keluarga, kami diizinkan berburu dalam kelompok. Bagi mereka yang memiliki bakat yang tidak dapat melakukannya, atau mereka yang memiliki cacing Gu yang tidak cocok, kita dapat saling membantu dan bekerja sama! Ketika kita mendapatkan gigi babi, kita hanya perlu berbagi satu sama lain, dan itu akan berhasil.”</p>
+<p>	“Setiap gigi babi hutan dapat ditukar dengan sepuluh batu purba, ini adalah akademi yang mendorong kita untuk berburu lebih banyak babi hutan, dan hadiahnya ditetapkan untuk itu. Untuk nilai pasar sebenarnya, satu batu purba dapat membeli dua puluh gigi babi hutan.”</p>
+<p>	Para siswa memiliki ekspresi yang bervariasi, ada yang senang sementara yang lain resah, ada yang ingin pergi, sementara yang lain memanggil teman, bahkan Fang Yuan sedikit tergerak.</p>
+<p>	“Itu berubah! Saya ingat bahwa ujian tahun lalu adalah untuk mengumpulkan madu satwa liar. Untuk berpikir bahwa itu berubah menjadi gigi babi hutan. Apakah ini efek kupu-kupu?”</p>
+<p>	Seekor kupu-kupu mengepakkan sayapnya dapat menyebabkan badai raksasa di pantai samudra lain. Perubahan kecil pada kondisi awal menyebabkan perubahan drastis pada hasil.</p>
+<p>	Sejak kelahirannya kembali, Fang Yuan telah membuat banyak perubahan, kondisi dirinya saat ini sangat berbeda dari kehidupan sebelumnya. Saat itu dia sudah ditinggalkan oleh Fang Zheng dan yang lainnya, tapi sekarang dia dengan tegas berada di puncak dewan siswa.</p>
+<p>	Di kehidupan masa lalunya dia tidak membunuh Jia Jin Sheng, bahkan mereka tidak pernah bertemu. Tapi hidup ini, dia tidak hanya membunuh Jia Jin Sheng, dia bahkan menggali harta yang lebih dalam dari warisan Biksu Anggur Bunga.</p>
+<p>	Perubahan tersebut seperti kupu-kupu yang mengepakkan sayapnya, secara tidak langsung menyebabkan perubahan lingkungan. Perubahan pemeriksaan tengah tahun hanya yang pertama dari gejala tersebut.</p>
+<p>	“Jika saya terus mengubah banyak hal, apakah itu akan menyebabkan sejarah menjadi benar-benar tidak dapat dikenali juga? Dalam hal ini, keuntungan dari kelahiran kembali saya akan berkurang secara signifikan.</p>
+<p>	Fang Yuan tampak tenang, tetapi menghela nafas secara internal.</p>
+<p>	Perasaan tidak mampu dan urgensi yang mendesak berkeliaran di hatinya, tetapi dia dengan cepat menyesuaikan suasana hatinya.</p>
+<p>	“Tidak peduli apa, karena itu sudah terjadi, aku tidak bisa menghentikannya. Yang perlu saya lakukan sekarang adalah secara aktif mengubah diri saya sendiri. Bahkan jika kejadiannya benar-benar berbeda pada akhirnya, aku tidak akan memperlambat pertumbuhanku hanya karena kekhawatiran seperti itu!”</p>
+<p>	“Dalam kehidupan masa lalu saya, saya tidak tahu apa-apa tentang masa depan, apakah itu berarti bahwa dalam kehidupan saya saat ini, saya tidak memiliki keberanian? Hehe, bahkan jika dunia ini penuh dengan duri, aku akan memotong semua duri di jalanku dan membuka jalan yang dipenuhi darah sendiri!”</p>
+<p>	“Setiap gigi untuk sepuluh batu purba, harga ini sangat tinggi. Haruskah saya menjual semua taring babi hutan yang saya simpan di gua? Tetapi jika saya melakukannya, saya mungkin menarik kecurigaan? Tidak, menurut situasi politik klan Gu Yue, jika saya menjual gigi babi hutan ini di depan umum, saya mungkin akan kacau.”</p>
+<p>	Fang Yuan menggelengkan kepalanya, risikonya terlalu besar. Jika dia benar-benar menjual gigi ini, apa yang bisa dia dapatkan sebagai balasannya?</p>
+<p>	Sedikit lebih dari seratus batu purba?</p>
+<p>	“Tunggu, batu purba tidak penting. Mungkin saya bisa menggunakan perubahan ini untuk membangun citra saya lagi.” Memikirkan hal ini, mata Fang Yuan bersinar terang.</p>
+<p>	Dia perlu menjadi kaya secara diam-diam sekarang, bersikap serendah mungkin. Jika warisan Flower Wine Monk terungkap, dia bahkan mungkin kehilangan nyawanya.</p>
+<p>	Tapi posisinya saat ini canggung.</p>
+<p>	Dia berdiri melawan semua teman sekelasnya, berada di luar sistem, dan di antara para petinggi, dia adalah remaja berbakat kelas C yang tidak bisa dijinakkan, tidak bahagia dan marah, cerdas dan dingin.</p>
+<p>	Gambar ini tidak baik, itu benar-benar menggambarkan dia sebagai tidak setia. Tetapi klan membutuhkan kesetiaan, pada kenyataannya, organisasi apa pun membutuhkan kesetiaan.</p>
+<p>	Tidak peduli dunia mana, kesetiaan adalah nilai yang paling dicari di klan. Kesetiaan kepada klan, kesetiaan kepada negara, kesetiaan kepada pemimpinnya, kesetiaan kepada orang yang dicintainya, kesetiaan kepada teman-temannya, dll.</p>
+<p>	Ketika tingkat kultivasi Fang Yuan semakin tinggi, para petinggi hanya akan semakin khawatir, dan jika diperlukan, keluarga bahkan dapat menggunakan metode keras padanya. Pada saat itu, Fang Yuan akan benar-benar menjadi pasif.</p>
+<p>	Fang Yuan tidak suka kepasifan, dia suka mengendalikan semua hal dengan erat di genggamannya.</p>
+<p>	Karena serangkaian peristiwa sebelumnya, Fang Yuan hanya bisa beroperasi saat bepergian, mengandalkan kekuatan luar, dan citra yang dia bangun ini hanya untuk melindungi dirinya sendiri pada saat dibutuhkan.</p>
+<p>	Tapi sekarang dia bisa melindungi dirinya sendiri, Fang Yuan harus lebih kuat!</p>
+<p>	Karena itu, dia perlu mengubah citra ini, membiarkan para petinggi berpikir bahwa dia telah menyerah dan bergabung dengan sistem klan. Tapi percakapan ini tidak boleh terlalu mendadak, atau akan mencurigakan.</p>
+<p>	Lebih penting lagi, bergabung dengan sistem ini hanyalah fasad, Fang Yuan tidak akan benar-benar bergabung dengan mereka, dan dimanipulasi dan dibatasi. Dia memiliki terlalu banyak rahasia.</p>
+<p>	Dia membutuhkan kebebasan dalam jumlah besar, dan pada kenyataannya dia masih seorang penyendiri dalam operasi.</p>
+<p>	Tapi sekarang ujian tengah tahun adalah kesempatan.</p>
+<p>	“Sepertinya aku harus membuat rencana, aku akan mulai dari pemerasan kalau begitu.” Tatapan Fang Yuan menjadi pasti karena semuanya jatuh ke dalam rencananya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 23 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 23";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 23">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_24.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 23</h1>
+        <div class="text-left">
+<p>	Bab 23</p>
+<p>	Bab 23 – Membesarkan Gu seperti membesarkan seorang gundik</p>
+<p>	Matahari sudah terbenam.</p>
+<p>	Cahaya matahari terbenam masih menyala di langit. Gunung-gunung yang jauh di kejauhan tertutup lapisan abu abu tebal, berangsur-angsur berubah menjadi hitam.</p>
+<p>	Di akademi, kelas sehari telah usai. Para siswa berjalan keluar dari akademi dalam kelompok berdua dan bertiga.</p>
+<p>	“Saya sangat senang hari ini, saya belajar beberapa hal. Terutama bagaimana saya belajar cara menggunakan Moonlight Gu . ”</p>
+<p>	“Cara moonblade terbang di udara terlihat sangat keren. Sayang sekali bakat saya tidak cukup, jadi di masa depan saya hanya bisa menjadi Master Gu logistik , saya tidak akan bisa pergi ke medan perang. ” Para remaja muda dengan gembira mengobrol.</p>
+<p>	Beberapa dari mereka memanggil teman-teman mereka.</p>
+<p>	“Ayo pergi dan makan, kita bisa minum anggur beras saat kita melakukannya, bagaimana menurutmu?”</p>
+<p>“Tentu, itu bukan saran yang buruk.”</p>
+<p>“Kalian pergi dulu, aku harus pergi ke toko di samping ruang Gu akademi dan membeli boneka rumput. Akan mudah untuk berlatih di rumah dengan itu. ”</p>
+<p>	Fang Yuan pergi ke kamar Gu sendirian.</p>
+<p>	Ruang Gu akademi menyimpan beberapa cacing Gu peringkat satu . Ada banyak jenis dan variasi, dan Moonlight Gu milik Fang Yuan diambil secara bebas dari dalam.</p>
+<p>	Sesekali para siswa akan memiliki kesempatan bebas untuk memilih cacing Gu . Jika seseorang ingin mendapatkan Gu tambahan , mereka harus membayar.</p>
+<p>	Dalam waktu singkat ini Fang Yuan tidak ingin memperbaiki Gu lainnya . Dia berjalan ke gedung di samping ruang Gu – itu adalah toko kecil.</p>
+<p>	Di toko itu ada tujuh siswa, masing-masing bernegosiasi di konter dengan pemilik toko untuk membeli boneka rumput.</p>
+<p>	“Ini kamu, junior.” Master Gu peringkat satu yang bertanggung jawab atas toko itu berusia dua puluhan. Ketika dia melihat Fang Yuan, dia secara otomatis menyapanya sambil menawar dengan pelanggannya.</p>
+<p>	Fang Yuan terkejut, mengetahui bahwa Guru Gu ini adalah Jiang Ya. Itu adalah Tuan Gu muda yang telah memberi pelajaran kepada para pemburu di penginapan.</p>
+<p>	“Ah, ini kamu senior.” Fang Yuan mengangguk, wajahnya tanpa ekspresi.</p>
+<p>	Jiang Ya mengeluarkan boneka rumput dari konter di belakangnya, memberikannya kepada siswa yang membelinya. Pada saat yang sama dia melemparkan senyum ramah kepada Fang Yuan dan bertanya, “Apakah saudara junior datang ke sini untuk membeli boneka rumput juga? Jika Anda ingin saya meninggalkan satu untuk Anda, Anda hanya perlu tiga potong batu purba. Barang-barang ini laku keras seperti kacang goreng, saat ini hanya tersisa tujuh, jika Anda menunggu lebih lama tidak akan ada stok yang tersisa. ”</p>
+<p>	Sikap Jiang Ya terhadap manusia adalah arogan, tetapi terhadap orang-orang seperti Fang Yuan, dia sangat baik dan tulus.</p>
+<p>	Fang Yuan menggelengkan kepalanya, tertawa diam-diam ketika dia berpikir, Jiang Ya ini benar-benar tahu bagaimana melakukan bisnis. Boneka rumput dibuat dengan Scarecrow Gu . Bahkan setelah memasukkan esensi purba yang dimasukkan, biaya akhir tidak boleh lebih dari satu setengah batu purba.</p>
+<p>	“Senior, ini tidak adil. Itu harus menjadi yang pertama datang lebih dulu, mengapa meninggalkannya untuknya? ”</p>
+<p>“Ya, kami semua datang lebih awal. Jika Anda ingin berbisnis, Anda harus tahu aturannya.”</p>
+<p>“Tiga potong akan menjadi tiga potong, ini batu purba, beri aku boneka rumput.”</p>
+<p>	Anak-anak muda di toko itu semua khawatir ketika mereka mendengar bahwa toko itu hanya memiliki tujuh boneka yang tersisa. Mereka berhenti mencoba untuk bernegosiasi, dan mengeluarkan batu mereka untuk membelinya.</p>
+<p>	Dengan sangat cepat, tujuh remaja yang puas keluar.</p>
+<p>	“Apakah juniorku ingin membeli boneka rumput?” Jiang Ya tertawa ketika dia bertanya, “Sepertinya sudah terjual habis, tapi sebenarnya masih ada boneka kedelapan yang disimpan di bawah peti. Jika junior tidak membelinya sekarang, Anda akan kehilangan kesempatan.”</p>
+<p>	Fang Yuan tidak tertarik pada boneka rumput. Dia menggelengkan kepalanya dan mengeluarkan sepotong batu purba, meletakkannya di atas meja. “Saya ingin membeli sepuluh kelopak anggrek bulan.”</p>
+<p>	Jiang Ya tercengang. Dia menatap mata Fang Yuan dalam-dalam, mengambil batu purba dan membuka laci meja. Kemudian dia mengeluarkan kantong kertas, berkata, “Sepuluh lembar kelopak bunga anggrek bulan, tidak kurang satu pun. Tolong yakinkan.”</p>
+<p>	Fang Yuan memeriksa barang di tempat dan tidak menemukan kesalahan dengan itu. Akhirnya dia meninggalkan toko kecil itu.</p>
+<p>	Gu harus diberi makan.</p>
+<p>	Seorang Guru Gu memurnikan Gu , menggunakan Gu , dan pada saat yang sama perlu meningkatkan Gu .</p>
+<p>	Memperbaiki Gu itu sulit; ada risiko serangan balik. Menggunakan Gu tidak mudah; seseorang membutuhkan banyak latihan. Pengetahuan membesarkan Gu bahkan lebih luas dan mendalam, karena ada semua jenis cacing Gu dan makanannya sangat aneh. Beberapa perlu menelan tanah, beberapa membutuhkan cahaya bintang, beberapa membutuhkan air mata dan beberapa memakan awan dan udara dari sembilan langit.</p>
+<p>	Hanya dengan mengambil tiga Gu Fang Yuan saat ini misalnya, Moonlight Gu membutuhkan kelopak anggrek bulan, dua kali sehari. Pagi dan malam satu kali makan, setiap makan dua potong kelopak bunga. Sedangkan untuk cacing Liquor, perlu minum anggur. Sebotol anggur bambu hijau bisa mendukungnya selama empat hari. Adapun Jangkrik Musim Semi Musim Gugur, bahkan lebih aneh karena meminum langsung dari Sungai Waktu, mempertahankan vitalitasnya.</p>
+<p>	Sungai Waktu mendukung aliran dunia ini. Itu tidak jauh di langit tetapi sangat dekat, mengalir di sisi setiap orang. Setiap gerakan yang dilakukan oleh setiap makhluk hidup membutuhkan dorongan waktu.</p>
+<p>	Waktu seperti air yang mengalir, bergegas meluncur ke depan. Sungai Waktu tidak terlihat dan tidak berwarna, sedangkan pada kenyataannya semua makhluk hidup sebenarnya masih hidup dan hidup di perairan Sungai Waktu.</p>
+<p>	Setelah membeli sekantong kelopak anggrek bulan, Fang Yuan pergi ke penginapan untuk membeli anggur bambu hijau. Cacing minuman keras juga bisa minum anggur keruh atau anggur beras untuk hidup. Namun dengan jenis anggur kelas dua ini jumlah yang dibutuhkan untuk minum akan meningkat, dan itu akan membutuhkan banyak toples setiap hari. Setelah menghitung, Fang Yuan memutuskan akan lebih baik membeli anggur bambu hijau langsung. Tidak hanya lebih berharga daripada membeli anggur kelas dua, itu juga tidak akan menimbulkan kecurigaan.</p>
+<p>	“Tuan muda, Anda sudah datang.” Para pekerja di penginapan sudah mengenal Fang Yuan. Fang Yuan memberinya tiga potong batu purba secara langsung, berkata dengan mudah, “Beri aku sebotol anggur bambu hijau dan buatkan aku beberapa hidangan enak. Anda tidak perlu memberi saya kembalian, taruh saja di sini dulu. Pada akhir bulan ketika jumlahnya mencapai satu batu, Anda dapat mengurangi tagihan saya dengan itu. ”</p>
+<p>	Meskipun Fang Yuan tidak lagi tinggal di penginapan sekarang sejak dia pindah ke asrama akademi, dia akan selalu makan di sini ketika dia membeli anggur.</p>
+<p>	“Baik. Tuan muda silakan duduk, piring akan segera dikirim. ” Pekerja itu bergema, memimpin Fang Yuan ke tempat duduknya. Dia mengambil kain di atas bahunya dan dengan lembut menyeka meja sebelum pergi. Memang seperti yang dikatakan pekerja, hidangan disajikan dengan sangat cepat.</p>
+<p>	Fang Yuan makan dan menghitung pada saat yang sama dalam pikirannya, “Sepotong batu purba dapat membelikanku sepuluh keping kelopak bunga. Moonlight Gu mengkonsumsi empat potong setiap hari. Sebotol anggur bambu hijau berharga dua potong batu, dan itu dapat mendukung cacing Minuman Keras selama empat hari. Dengan kata lain hanya untuk membesarkan dan memberi makan kedua Gu ini , saya perlu menghabiskan hampir satu batu setiap hari.</p>
+<p>	Kelihatannya tidak banyak, tetapi pada kenyataannya ini sangat mahal. Biaya hidup bulanan untuk keluarga fana yang terdiri dari tiga orang hanya menghabiskan satu potong batu purba. Dari awal menyempurnakan Gu hingga hari ini, enam belas hari telah berlalu. Hanya untuk membesarkan Gu saja, Fang Yuan telah menghabiskan empat belas setengah batu purba.</p>
+<p>	“Saya telah memperoleh harta Bunga Anggur, mengambil tas batu purba Fang Zheng dan juga mendapat hadiah tempat pertama. Aset batu purba saya pernah mencapai hingga empat puluh empat keping. Namun pada hari-hari awal pemurnian Gu, saya menyia-nyiakan enam setengah keping, lalu saya menggunakan empat belas keping untuk memberi makan Gu ini . Biaya hidup saya setengah potong, dan hari ini saya mungkin tersisa dua puluh potong. ”</p>
+<p>	Fang Yuan mengeluarkan kantong uangnya. Dia membukanya dan melihat ke dalam. Tas itu berisi potongan-potongan batu purba di dalamnya. Masing-masing batu ini berwarna putih keabu-abuan, bentuknya elips dan volumenya sama, seukuran telur bebek.</p>
+<p>	Setelah menghitung, dia menemukan bahwa dia benar-benar hanya memiliki dua puluh keping yang tersisa. Dengan kata lain jika ini terus berlanjut maka Fang Yuan hanya akan bisa bertahan selama setengah bulan dengan sisa batu yang dia tinggalkan. Dia tidak seperti teman-temannya – mereka memiliki kerabat dan teman untuk membantu mereka, terutama dengan kasus siswa seperti Gu Yue Mo Bei dan Gu Yue Chi Cheng yang sarat dengan batu purba.</p>
+<p>	Fang Yuan hanya bisa memikirkan caranya sendiri.</p>
+<p>	“Paman dan Bibi sudah memotong biaya hidup saya, tetapi setiap akhir pekan akademi klan akan memberikan tiga potong batu purba sebagai subsidi kepada setiap siswa. Sepertinya saya perlu pamer dalam penilaian moonblade dalam tiga hari dan mengambil sepuluh hadiah batu purba itu. ” Fang Yuan mengunyah makanan di mulutnya sambil merenung.</p>
+<p>	Usianya saat ini hanya pada usia di mana tubuh tumbuh. Tanpa disadari semua nasi dan lauk sudah masuk ke perutnya.</p>
+<p>	Mengambil toples anggur bambu hijau yang disegel, Fang Yuan mengangkat kakinya dan mulai berjalan, meninggalkan penginapan.</p>
+<p>	“Tuan Muda, Tuan Muda.” Pekerja penginapan mengejarnya dari belakang dan berkata, “Hanya untuk memberi tahu tuan muda sesuatu, tetapi dalam waktu kurang dari sebulan perusahaan dagang akan tiba di desa. Dengan konvensi mereka akan selalu membeli anggur bambu hijau di toko kami. Tuan muda menyukai anggur bambu hijau kami dan selalu membeli beberapa toples setiap minggu, jadi pemilik penginapan memerintahkan saya untuk memberi tahu tuan muda tentang masalah ini. Anggur bambu hijau di toko kami memiliki persediaan terbatas, jadi setelah kami menjualnya ke perusahaan perdagangan, saya khawatir kami hanya akan memiliki sedikit saja.”</p>
+<p>	“Apakah itu masalahnya?” Ketika Fang Yuan mendengar berita itu, dia sedikit mengernyit. Untuk mengenal seseorang dan membedakan percakapan, Fang Yuan memiliki pengalaman lima ratus tahun. Pekerja toko dan Tuan Muda Gu Jiang Ya berbicara dengan arti yang sama, namun Fang Yuan secara alami dapat membedakan dengan kata-kata licik Jiang Ya dan kata-kata jujur ​​pekerja toko.</p>
+<p>	Masalah ini sedikit merepotkan. Fang Yuan perlu memberi makan cacing Liquor dan dia membutuhkan anggur bambu hijau dalam jumlah besar dalam jangka panjang. Jika penginapan ini kehabisan stok maka dia harus menggunakan sejumlah besar anggur kelas dua untuk memberi makan cacing Liquor.</p>
+<p>	Tidak mungkin baginya untuk minum beberapa toples sehari. Setelah beberapa saat orang akan curiga. Setelah memikirkannya, Fang Yuan mengeluarkan sepuluh keping batu purba dan berkata, “Kalau begitu aku akan membeli lima toples lagi. Saya akan membutuhkan Anda untuk membawanya untuk saya dan mengikuti saya untuk menempatkan mereka di asrama akademi.</p>
+<p>	“Baiklah, Tuan Muda.” Pekerja itu segera menerima batu purba.</p>
+<p>	Kelopak bunga anggrek bulan hanya bisa bertahan selama lima hari tanpa sarana penyimpanan khusus, jadi Fang Yuan hanya akan membeli tas setiap saat. Namun anggur bambu hijau dapat disimpan untuk waktu yang sangat lama, jadi tidak ada masalah dengan ini.</p>
+<p>	Beberapa pekerja mengikuti Fang Yuan ke asrama akademi dan meletakkan toples anggur di bawah tempat tidurnya, dan kemudian mereka pergi. Saat dia melihat kantong uang yang tiba-tiba rata di tangannya, Fang Yuan menghela nafas.</p>
+<p>	Memperbaiki Gu itu sulit, tetapi membesarkan Gu juga tidak mudah.</p>
+<p>	Ini juga mempertimbangkan fakta bahwa dia memiliki lima ratus tahun pengalaman hidup sebelumnya, jadi dia tidak perlu berlatih menggunakan Gu- nya , yang berarti bahwa tingkat konsumsi esensi purba akan berkurang dan dengan demikian menghemat sejumlah besar biaya.</p>
+<p>	Bagi mereka yang seumuran dengannya, mereka perlu berlatih menggunakan Moonlight Gu dan perlu membuang esensi purba. Untuk meningkatkan kemahiran, seseorang perlu berlatih berkali-kali. Ketika terlalu banyak esensi purba dikonsumsi, batu purba harus digunakan sebagai suplemen karena tingkat pemulihannya terlalu lambat. Untuk membeli boneka rumput harganya juga tiga batu purba. Semua ini adalah uang.</p>
+<p>	“Untungnya Jangkrik Musim Semi Musim Gugur saya makan tepat waktu dan bukan yang lain. Kalau tidak, saya akan lama bangkrut, saya tidak akan pernah bisa mendukungnya.” Fang Yuan tiba-tiba merasa sangat beruntung.</p>
+<p>	Semakin tinggi Gu , semakin besar konsumsi makanan yang dibutuhkan atau semakin berharga dan langka makanan yang dibutuhkan, sehingga semakin sulit untuk disimpan. Cacing Gu tingkat dua tingkat normal akan menelan biaya sekitar satu hingga dua potong batu purba sehari.</p>
+<p>	Cukup baik jika makanan dapat dibeli. Ada beberapa Gu yang membutuhkan makanan yang relatif sulit ditemukan, bahkan ada yang tidak beredar di pasaran.</p>
+<p>	Sama seperti makanan Jangkrik Musim Gugur Musim Semi yang menjadi waktu itu sendiri, ini sebenarnya lebih berharga. Lagi pula ada pepatah, satu inci emas tidak bisa membeli satu inci pun waktu.</p>
+<p>	Tidak peduli berapa banyak uang yang Anda miliki, dapatkah Anda membeli waktu?</p>
+<p>	Anda tidak bisa !</p>
+<p>	Secara teori, seorang Guru Gu dapat memperbaiki jumlah Gu yang tidak terbatas . Selama Anda bisa memperbaikinya, apakah sepuluh, seratus atau seribu cacing itu mungkin. Anda dapat memperbaiki Gu sebanyak yang Anda inginkan.</p>
+<p>	Tetapi pada kenyataannya seorang Guru Gu biasanya hanya memiliki 4-5 Gu .</p>
+<p>	Mengapa?</p>
+<p>	Alasan terbesar adalah karena sulit untuk membelinya.</p>
+<p>	Semakin tinggi tingkat cacing, semakin mahal biaya untuk memberi makan dan membesarkan. Ini sering memberi Guru Gu terlalu banyak kesulitan untuk diatasi, membuat mereka terus-menerus sakit kepala karenanya.</p>
+<p>	Alasan lain adalah – tidak dapat digunakan.</p>
+<p>	Untuk menggunakan Moonlight Gu untuk mengeluarkan satu serangan moonblade, seseorang perlu menggunakan 10% dari esensi purba. Bakat kelas AC, Gu Master, bisa kehabisan esensi purba di lubang mereka setelah meluncurkan tiga hingga empat serangan.</p>
+<p>	Untuk meningkatkan begitu banyak Gu , bukankah akan sia-sia jika seseorang tidak bisa menggunakannya?</p>
+<p>	Jadi dalam kultivasi Guru Gu ada pepatah yang beredar: Membesarkan seorang Gu seperti membesarkan seorang gundik.</p>
+<p>	Untuk memelihara nyonya, Anda perlu membeli makanan, pakaian, rumah, dll. Ini sangat mahal dan semakin banyak Anda memiliki semakin mahal; seorang pria normal tidak mampu membelinya.</p>
+<p>	Bahkan jika Anda menyimpan begitu banyak, energi seorang pria terbatas; dia tidak bisa menggunakan semuanya. Apakah Anda akan membesarkan mereka hanya untuk melihat mereka?</p>
+<p>	Ketika pangkat Master Gu meningkat, begitu juga standar makanan cacing Gu . Jadi tolong jangan melihat bagaimana seorang Guru Gu tidak memiliki batasan jumlah Gu pemurnian ; pada umumnya seorang Gu Master hanya mempertahankan sekitar 4-5 Gu dari levelnya.</p>
+<p>	Jika jumlah Gu dinaikkan lebih tinggi, Guru Gu akan bangkrut!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

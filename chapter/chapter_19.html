@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 19 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 19";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_18.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 19">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_20.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 19</h1>
+        <div class="text-left">
+<p>	Bab 19</p>
+<p>	Bab 19 – Peringkat enam Gu vital , Jangkrik Musim Semi Musim Gugur!</p>
+<p>	Selama proses pemurnian, Gu melakukan serangan balik!</p>
+<p>	Pada saat ini, cacing Liquor yang telah mewarisi keinginan yang sangat kuat dari Flower Wine Monk menginvasi aperture-nya, dengan berani melakukan serangan balik ke Fang Yuan.</p>
+<p>	Tekad yang kuat ini turun dari atas, melonjak ke bawah menuju bagian bawah lubang di mana laut purba tembaga hijau berada. Ombak di laut berjatuhan, memicu semburan air pasang. Di bawah kehendak Fang Yuan, sejumlah besar esensi purba naik ke atas ke langit dan berkumpul bersama, membentuk gelombang monster yang menjulang tinggi, dengan berani menerima kehendak cacing Liquor yang masuk.</p>
+<p>	Saat kedua sisi akan bertabrakan dengan kejam di tengah lubang, gambar samar cacing Gu muncul di area kosong di antara dua energi.</p>
+<p>	Ini adalah jangkrik. Tubuh jangkrik tidak besar; jika Moonlight Gu digambarkan sebagai kristal biru berbentuk seperti bulan melengkung, maka jangkrik ini akan menjadi kerajinan halus yang terbuat dari kayu palem dan daun pohon oleh pengrajin ahli.</p>
+<p>	Gu memiliki kepala dan perut kuning kecoklatan. Permukaannya memiliki tekstur cincin pertumbuhan pohon, seolah-olah telah menyaksikan bertahun-tahun yang tak terhitung jumlahnya. Di punggungnya ada dua sayap yang sangat lebar dan tembus pandang, seperti dua daun pohon yang tumpang tindih. Sayap memiliki struktur yang serupa; struktur ini seperti daun jaring-urat yang khas. Bagian tengahnya memiliki batang kasar, dan dari batang ini tumbuh urat jaringan garis daun di kedua sisinya.</p>
+<p>	Jangkrik Musim Semi Musim Gugur!</p>
+<p>	Ia telah terkejut. Itu seperti binatang raksasa, biasanya bersembunyi di guanya dalam tidur nyenyak. Namun tiba-tiba terbangun, apalagi mengetahui bahwa wilayahnya telah dilanggar.</p>
+<p>	Siapa yang berani datang ke wilayah saya dan bertindak liar!</p>
+<p>	Seolah-olah martabatnya tersinggung, Jangkrik Musim Gugur Musim Semi marah dan mengeluarkan bau aura; auranya lemah namun kuat. Itu seperti Bima Sakti yang bergelombang, bergulung-gulung dengan ombak yang besar dan dahsyat; itu akan menyapu pegunungan sejauh sepuluh ribu mil, atau menenggelamkan gurun yang luas!</p>
+<p>	Dibandingkan dengan aura ini, keinginan cacing Liquor itu seperti kasus semut bertemu gajah!</p>
+<p>	Aura menyapu dan meluas, seperti tsunami yang tak terlihat. Keinginan menyerang cacing Liquor bahkan tidak memiliki kemampuan untuk menahannya; itu segera ditelan seluruhnya oleh aura ini.</p>
+<p>	Fang Yuan merasa tertekan. Esensi purba tembaga hijau yang dia dorong ke depan dengan kekuatannya bertabrakan dengan aura ini seperti ombak yang menabrak gunung besar. Dalam sekejap esensi purba yang kental hancur dan menyebar menjadi hujan, berhamburan ke laut purba.</p>
+<p>	Gelombang di laut purba naik satu demi satu; itu seperti badai hujan yang baru saja melanda, meningkatkan turbulensinya.</p>
+<p>	Tapi setelah beberapa detik, aura Spring Autumn Cicada menyebar, menekan ke laut purba.</p>
+<p>	Ledakan!</p>
+<p>	Fang Yuan merasa seperti mendengar dengungan. Dalam sekejap, gulungan ombak di laut menjadi tenang. Aura Musim Semi Musim Gugur Jangkrik dengan kuat menekan seluruh lautan purba, seperti gunung tak terlihat yang menekan. Permukaan laut tenang seperti cermin, tidak ada satu gelombang pun yang bergulir. Itu seperti selembar kertas yang awalnya kusut; sebuah tangan raksasa tak terbatas menutupinya tiba-tiba, meratakannya.</p>
+<p>	Ini dengan mudah merupakan kekuatan yang tak tertandingi!</p>
+<p>	Fang Yuan merasakan tekanan yang beratnya seperti gunung besar yang tak terlihat menekan hatinya. Dia membandingkannya dengan Sun Wukong yang ditekan oleh Gunung Lima Elemen; Fang Yuan bahkan tidak bisa memobilisasi satu liter pun esensi purba.</p>
+<p>	Namun meskipun dia terkejut, dia tidak takut. Bahkan hatinya merasakan kegembiraan yang luar biasa.</p>
+<p>	“Aku tidak menyangka Jangkrik Musim Semi Musim Gugur benar-benar akan mengikutiku dan terlahir kembali bersama! Jadi sebenarnya ini bukan worm Gu yang sekali pakai , tapi yang bisa digunakan berulang kali.”</p>
+<p>	Jangkrik Musim Semi Musim Gugur adalah peringkat enam, dan itu adalah Gu Peringkat enam pertama dalam kehidupan Fang Yuan sebelumnya, serta yang terakhir. Hanya untuk membuatnya, Fang Yuan telah menggunakan segala cara dan sumber daya, membuang-buang kekuatan yang luar biasa, menggunakan tiga puluh tahun fermentasi untuk akhirnya berhasil.</p>
+<p>	Tetapi tidak lama setelah dia berhasil, ketika Jangkrik Musim Gugur Musim Semi masih segar dari oven, para pejuang dari faksi Benar merasakan ancaman Fang Yuan dan berkumpul untuk menyerang dan membunuhnya.</p>
+<p>	Setelah dilahirkan kembali, Fang Yuan tidak menemukan Jangkrik Musim Gugur Musim Semi, jadi dia mengira jangkrik itu telah mati. Namun pada kenyataannya ia tertidur lelap, beristirahat di dalam tubuh Fang Yuan.</p>
+<p>	Untuk melakukan perjalanan kembali lima ratus tahun dalam sekejap merupakan pukulan besar bagi vitalitasnya. Itu terlalu lemah, sangat lemah sehingga bahkan Fang Yuan sebagai tuannya tidak bisa merasakannya. Saat ini meskipun Jangkrik Musim Gugur Musim Semi telah muncul, situasinya masih buruk.</p>
+<p>	Setelah dilahirkan kembali, ia selalu beristirahat dalam tidur nyenyak. Muncul sekarang adalah karena merasakan bahaya yang dihadapi aperture; bisa dikatakan bahwa keinginan cacing Liquor telah membangunkannya.</p>
+<p>	Itu lemah, sangat lemah, sangat lemah.</p>
+<p>	Dalam ingatan Fang Yuan, Jangkrik Musim Semi Musim Gugur yang asli penuh dengan vitalitas. Tubuhnya seperti papan lantai yang berharga, memberikan pernis yang hangat dan mengkilap. Kedua sayapnya berwarna hijau menghijau, seperti dua daun pohon lembut yang baru saja bertunas.</p>
+<p>	Tapi sekarang, ada hawa dingin yang kuat dan mematikan yang memancar dari tubuh jangkrik. Tidak ada kilau atau kilau dari tubuhnya, membuatnya terasa kasar dan redup seperti kayu mati. Sayapnya tidak sewarna daun lembut dan hijau; mereka sepenuhnya kuning, seperti daun layu musim gugur. Ujung sayapnya sedikit menggulung, sedikit tidak lengkap, persis seperti sudut daun yang gugur.</p>
+<p>	Melihat ini, Fang Yuan merasa tertekan dan beruntung. Dia tertekan karena Jangkrik Musim Gugur Musim Semi mengalami pukulan berat; itu hanya selangkah dari kematian, hanya satu kaki dari tepi tebing.</p>
+<p>	Hal yang beruntung adalah, syukurlah Jangkrik Musim Gugur Musim Semi lemah sampai saat ini, atau dia akan berada dalam masalah besar!</p>
+<p>	Orang harus tahu, antara seorang Gu Master dan Gu , keduanya harus saling melengkapi, yang terbaik adalah keduanya memiliki peringkat yang sama.</p>
+<p>	Seorang Master Gu peringkat satu harus menggunakan Gu peringkat satu – ini adalah yang paling tepat. Jika nilai Gu lebih rendah dari Guru Gu , ketika Guru Gu menggunakannya, itu akan setara dengan orang kuat yang membawa tongkat kecil, output kekuatannya akan kecil. Jika nilai Gu lebih tinggi dari Guru Gu , ketika Guru Gu menggunakannya, itu akan menjadi contoh seorang anak kecil yang membawa kapak berat, tidak dapat menggunakannya dengan benar.</p>
+<p>	Jangkrik Musim Gugur Musim Semi adalah Gu Peringkat enam , dan Fang Yuan hanyalah Gu Master tahap awal Peringkat satu . Untuk menggunakan gambar sebagai contoh, Jangkrik Musim Gugur Musim Semi akan menjadi gunung, dan Fang Yuan akan menjadi tupai. Jika tupai ingin menggunakan gunung untuk mengalahkan musuhnya, tupai hanya akan tergencet oleh gunung pada detik pertama.</p>
+<p>	Jika Jangkrik Musim Gugur Musim Semi berada pada kondisi puncaknya, aperture lemah Peringkat satu Fang Yuan bahkan tidak bisa mentolerirnya; aura megah jangkrik hanya akan membuat lubang itu meledak sampai mati.</p>
+<p>	Untungnya itu pada kondisi terlemahnya, jadi bukaan Fang Yuan bisa menampungnya sekarang.</p>
+<p>	“Saya menyerahkan Moonlight Gu, berusaha keras untuk menemukan cacing Liquor hanya untuk memperbaikinya menjadi Gu vital saya . Tapi kenyataannya aku sudah memiliki Gu vital sejak awal, Spring Autumn Cicada adalah Gu vitalku !” Hati Fang Yuan dipenuhi dengan emosi saat dia merasakan hubungan erat antara dia dan Jangkrik Musim Semi Musim Gugur.</p>
+<p>	Vital Gu adalah pertama Gu bahwa Gu memurnikan Guru. Ini sangat penting, dan akan sangat mempengaruhi perkembangan Master Gu di masa depan .</p>
+<p>	Jika Gu vital dipilih dengan baik, perkembangan Gu Master akan menjadi lebih lancar. Ketika Gu yang vital memiliki nilai yang buruk, bagi seorang Guru Gu itu hanya akan menyeret kultivasinya dan membiarkan rekan-rekannya melampaui dia. Yang lebih penting adalah itu akan mempengaruhi masalah hidup dan mati dalam pertempuran.</p>
+<p>	Fang Yuan jelas dalam hal ini, jadi dia tidak puas setelah memilih Moonlight Gu tanda tangan desa Gu Yue . Dia hanya harus pergi jauh-jauh untuk menemukan cacing Liquor.</p>
+<p>	Dalam ingatannya kepada Master Gu Peringkat satu , cacing Liquor sudah dianggap sebagai pilihan berkualitas tinggi. Moonlight Gu hanyalah pilihan yang sedikit di atas rata-rata.</p>
+<p>	Tetapi hidup itu menarik, karena tidak ada yang akan pernah tahu apa yang menunggunya di saat berikutnya.</p>
+<p>	Fang Yuan telah menyempurnakan Jangkrik Musim Gugur Musim Semi di kehidupan sebelumnya. Setelah kelahirannya kembali, Jangkrik Musim Gugur Musim Semi tertidur lelap, tetapi hubungan di antara mereka masih ada. Faktanya, Fang Yuan menemukan bahwa, seolah-olah melalui penyempurnaan Sungai Waktu, hubungannya dengan Jangkrik Musim Gugur Musim Semi telah tumbuh lebih dekat dan misterius daripada kehidupan sebelumnya. Itu hanya karena Jangkrik Musim Gugur Musim Semi terlalu lemah, jadi Fang Yuan tidak menyadarinya.</p>
+<p>	Oleh karena itu dalam arti sebenarnya, Jangkrik Musim Gugur Musim Semi adalah Gu pertama yang dia sempurnakan. Satu-satunya hal adalah bahwa Jangkrik Musim Gugur Musim Semi tidak disempurnakan dalam kehidupannya saat ini, tetapi hasil kerja keras dalam kehidupan sebelumnya selama 500 tahun.</p>
+<p>	Jangkrik Musim Gugur Musim Semi adalah Gu vital Fang Yuan .</p>
+<p>	Master Gu peringkat satu , memiliki Gu vital peringkat enam !</p>
+<p>	Jika hal semacam ini dikatakan dengan lantang, diharapkan tidak ada yang akan percaya hal seperti itu! Ini telah melanggar batas kognisi manusia!</p>
+<p>	Namun, itulah yang terjadi. Kebenarannya tidak diragukan lagi.</p>
+<p>	“Cacing Minuman Keras sebagai Gu vital sudah menjadi salah satu pilihan terbaik, tetapi ketika Anda membandingkannya dengan Jangkrik Musim Gugur Musim Semi, itu seperti sampah di tanah! Gu vital saya dalam hidup ini sebenarnya adalah Jangkrik Musim Semi Musim Gugur, ha ha ha ….”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2024 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2024";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2023.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2024">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2025.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2024</h1>
+        <div class="text-left">
+<p>	Bab 2024 – Strategi Tiga Pihak</p>
+<p>	Bab 2024 Strategi Tiga Pihak</p>
+<p>	Di dalam Istana Naga, suasananya berat.</p>
+<p>	“Situasinya menjadi seperti ini, bagaimana menurut kalian semua?” Wu Shuai adalah satu-satunya orang yang duduk, dia telah mengumpulkan keabadian aliansi dan menjelaskan kepada mereka tindakan yang dilakukan Leluhur Laut Qi di dalam surga gua Sastra yang Mendalam.</p>
+<p>	Pengadilan Surgawi mencoba segala cara untuk menyembunyikan informasi tetapi pada saat yang sama, Wu Shuai memberi tahu semua Dewa Gu dalam aliansi dua surga.</p>
+<p>	Setelah mendengar berita mimpi buruk ini, tanggapannya sangat besar karena semua ekspresi abadi berubah.</p>
+<p>	“Apakah ini nyata?” Ice Crystal Immortal Monarch bertanya segera sebelum bereaksi terhadap apa yang dia katakan, wajahnya menjadi pucat: “Saya tidak mempertanyakan Pemimpin Aliansi Lord, tapi ini benar-benar terlalu tiba-tiba dan mengejutkan.”</p>
+<p>	Wu Shuai mendengus dingin: “Apakah saya perlu berbohong kepada Anda?”</p>
+<p>	“Ini tidak bagus!” Ekspresi Xiao He Jian serius: “Leluhur Laut Qi adalah ahli jalur qi yang hebat, karena Iblis Abadi Qi Jue dapat menggunakan buah panen qi untuk dihidupkan kembali, maka ada juga kemungkinan besar bahwa Leluhur Laut Qi dapat menyingkirkannya. mengancam buah panen qi. Jika musuh memiliki metode untuk menyingkirkan buah panen qi, mereka akan sepenuhnya berada di atas angin dalam situasi ini.”</p>
+<p>	“Memang, memang.”</p>
+<p>	“Apa yang kita lakukan sekarang?”</p>
+<p>	“Buah panen qi gua-surga suku saya telah tumbuh menjadi ukuran besar, jika kita tidak menyingkirkannya, itu akan segera meledak.”</p>
+<p>	“Tapi eksperimen kami belum berhasil sekali, kami sudah menghancurkan banyak gua-surga.”</p>
+<p>	“Tidak mungkin bagi kita untuk mencapai gencatan senjata damai dengan Leluhur Laut Qi, kita harus waspada terhadap mereka menggunakan kesempatan ini untuk menyerang kita!”</p>
+<p>	Para dewa berdiskusi saat nada mereka mengandung ketakutan dan kepanikan.</p>
+<p>	Spectral Soul yang berperan sebagai Lady Cold Ash berdiri di antara mereka, bersorak diam-diam. Dia ingin perang dimulai sesegera mungkin, jika terjadi kekacauan, dia akan mendapatkan peluang besar untuk mengambil tindakan.</p>
+<p>	Night Heavenly Wolf Lord menunjukkan sikap yang sama seperti yang lain tetapi dia bahagia di dalam. Dia sudah bergabung dengan Pengadilan Surgawi, situasi ini sangat menguntungkan baginya.</p>
+<p>	“Panik sampai tingkat ini, sungguh memalukan!” Pemimpin suku Gu tiba-tiba berteriak.</p>
+<p>	Semua orang melihat ke arahnya.</p>
+<p>	Meskipun pemimpin suku Gu bergabung dengan aliansi dua surga, dia selalu diam. Tetapi semua orang tahu bahwa dia adalah orang yang paling dekat dengan Wu Shuai. Dalam hal kepercayaan Wu Shuai, dia melampaui Ice Crystal Immortal Monarch dan Xiao He Jian, yang keduanya merupakan wakil pemimpin aliansi!</p>
+<p>	Pemimpin suku Gu tiba-tiba berbicara, Xiao He Jian bergetar secara internal saat dia menyadari sesuatu. Sebelum dia berbicara, Ice Crystal Immortal Monarch telah mengambil inisiatif: “Dengan Lord Alliance Leader di sini, kami tidak perlu takut. Pada titik penting hidup dan mati ini, saya bersedia mengikuti Pemimpin Aliansi Lord dan mendengarkan perintah Anda. ”</p>
+<p>	Xiao He Jian mengutuk secara internal tetapi dia dengan cepat mengikuti: “Saya akan mendengarkan keputusan Pemimpin Aliansi Lord!”</p>
+<p>	Wu Shuai sedikit mengangguk, mendengus: “Situasi saat ini sangat kritis, jika kita duduk dan menunggu di sini, kita pasti akan binasa, tidak terkecuali. Kami harus berjuang dengan seluruh kekuatan kami sekarang untuk harapan bertahan hidup. Mereka mampu menghilangkan buah panen qi karena metode Leluhur Laut Qi. Selama kita melakukan yang terbaik dan membunuh Leluhur Laut Qi, kita akan mendapatkan kemenangan penuh. Bahkan jika kita tidak bisa membunuhnya, selama kita melukainya dengan parah, situasinya juga akan berkurang.”</p>
+<p>	Setelah Wu Shuai mengatakan itu, pemimpin suku Gu segera berteriak: “Pemimpin Aliansi itu bijaksana!”</p>
+<p>	Wu Shuai memandang Raja Abadi Kristal Es dan Xiao He Jian, kedua wakil pemimpin aliansi ini segera berteriak: “Pemimpin Aliansi itu bijaksana, rencana ini luar biasa!”</p>
+<p>	“Ide apa yang kalian semua punya? Jika ada yang memiliki saran yang lebih baik, Anda dapat memberi tahu kami sekarang. ” Wu Shuai dengan sengaja bertanya pada Dewa Gu lainnya.</p>
+<p>	Tapi ide apa yang bisa dimiliki orang-orang ini?</p>
+<p>	Faktanya, Wu Shuai mengatakan dia akan menyerang musuh karena dia tidak punya pilihan lain sekarang, ini adalah satu-satunya harapan mereka. Selain ini, bisakah mereka menyerah kepada Leluhur Laut Qi?</p>
+<p>	Bukannya mereka tidak tahu ini, tetapi tidak ada yang berani mengatakannya. Gua surga Petir Hutan adalah contoh terbaik, semua orang melihat akhir yang menyedihkan itu, siapa yang masih berani mengikuti jejaknya?</p>
+<p>	“Karena semua orang setuju, kami akan membahas tentang cara kami mengirim pasukan kami, kami akan menggunakan waktu kami secara efisien dan membuat musuh lengah.” Wu Shuai berkata sambil memutuskan dengan kecepatan kilat.</p>
+<p>	Pemimpin suku Gu menambahkan: “Pemimpin Aliansi Tuan benar, setiap detik yang kita sia-siakan sekarang akan berarti musuh mendapat keuntungan satu detik tambahan.”</p>
+<p>	Segera, para dewa mulai mendiskusikan strategi ofensif mereka.</p>
+<p>	Diskusi ini berlangsung hampir satu jam sebelum mereka membuat rencana yang disempurnakan.</p>
+<p>	Wu Shuai membuka pintu Istana Naga, memerintahkan para abadi untuk membuat persiapan, mereka akan pindah dalam tujuh hari.</p>
+<p>	Night Heavenly Wolf Lord kembali ke surga gua Night Wolf, dia mengerahkan pasukannya dan mengumpulkan lebih banyak pasukan sambil dengan cepat memberi tahu Pengadilan Surgawi tentang perkembangan baru ini.</p>
+<p>	Setelah Qin Ding Ling menerima informasi itu, dia memanggil para dewa Pengadilan Surgawi untuk sebuah pertemuan.</p>
+<p>	“Situasinya telah berubah, tampaknya Wu Shuai memiliki beberapa mata-mata di sekitar Leluhur Laut Qi.”</p>
+<p>	“Seperti yang saya katakan sebelumnya, kita tidak bisa meremehkan Wu Shuai.”</p>
+<p>	“Karena Wu Shuai akan mengambil inisiatif untuk menyerang, mari gunakan kesempatan ini untuk menjatuhkannya!”</p>
+<p>	“Itu akan sulit, mereka memiliki Istana Naga dan Di Zang Sheng untuk membela mereka. Kecuali kita bisa membangunkan beberapa makhluk abadi dari kuburan, kita tidak akan memiliki kekuatan yang cukup untuk menghadapi musuh.”</p>
+<p>	“Waktu terlalu mendesak, kita punya tujuh hari dan situasinya akan terjadi jauh di Laut Timur.”</p>
+<p>	“Kami hanya bisa memberi tahu Leluhur Laut Qi sekarang dan memintanya untuk membuat persiapan sambil berpura-pura tidak tahu. Ketika Wu Shuai menyerang, dia pasti akan mengalami kemunduran.”</p>
+<p>	“Apakah kamu lupa bahwa Wu Shuai memiliki mata-mata di sekitar Leluhur Laut Qi? Jika Leluhur Laut Qi mempelajari informasi ini dari kami, kemungkinan juga akan memperingatkan Wu Shuai. ”</p>
+<p>	Pangeran Feng Xian tiba-tiba berbicara pada saat ini: “Mengapa kita harus memberi tahu Leluhur Laut Qi?”</p>
+<p>	Diskusi tiba-tiba berhenti.</p>
+<p>	“Leluhur Laut Qi adalah sekutu kita, jika kita tidak memberitahunya tentang ini, itu tidak akan menguntungkan aliansi kita.”</p>
+<p>	Pangeran Feng Xian menggelengkan kepalanya perlahan sambil tersenyum: “Selama kita tetap diam, mengapa Leluhur Laut Qi mengetahui bahwa kita mengetahui hal ini? Mata-mata kita di aliansi dua surga selalu dirahasiakan, jika kita memberitahunya sekarang, mata-mata itu mungkin akan terungkap. ”</p>
+<p>	“Kami bersekutu dengan Leluhur Laut Qi karena kami membutuhkan kekuatannya untuk menyelesaikan masalah Pengadilan Surgawi tentang buah panen qi, kami juga ingin menggunakannya sebagai pion kami untuk mengumpulkan kekuatan eksternal yang dapat menahan varian kekuatan manusia agar tidak menjadi lebih kuat.”</p>
+<p>	Pangeran Feng Xian terus berbicara: “Dan ketiga, jika memungkinkan, kami ingin merekrut Leluhur Laut Qi untuk menjadi anggota Pengadilan Surgawi.”</p>
+<p>	Qin Ding Ling memandang Pangeran Feng Xian: “Kalau begitu menurutmu, apa yang harus kita lakukan?”</p>
+<p>	Pangeran Feng Xian menarik napas dalam-dalam: “Menurut pendapat saya yang sederhana, kita harus berpura-pura tidak mengetahui hal ini dan bertindak sesuai dengan rencana awal kita. Sekarang Leluhur Laut Qi telah diam-diam pindah, dia akan tiba di Pengadilan Surgawi dalam tiga hari. Pada saat itu, kita bisa membuatnya menyelesaikan masalah kita tentang buah panen qi. ”</p>
+<p>	“Pengadilan Surga sangat besar dan memiliki fondasi yang sangat besar, buah panen qi di sini adalah yang terbesar di dunia. Leluhur Laut Qi menyarankan kita untuk membuat formasi abadi jalur qi, dibutuhkan setidaknya enam hari untuk menyingkirkan buah panen qi. Kita dapat dengan sengaja menunda waktu pembuatan formasi, jika invasi Wu Shuai berhasil, pasukan Leluhur Laut Qi akan menderita kerugian besar.”</p>
+<p>	“Leluhur Laut Qi akan menjadi cemas dan ingin kembali untuk membantu mereka tetapi sebagai orang yang mengendalikan formasi, bagaimana dia bisa pergi? Kekuatan Leluhur Laut Qi akan tanpa pemimpin, mereka tidak akan bisa mengalahkan Wu Shuai. Faktanya, bahkan jika mereka dimusnahkan, lalu bagaimana?”</p>
+<p>	“Kekuatan kita tidak akan jatuh sementara Leluhur Laut Qi akan menjadi penyendiri. Dengan datang ke Pengadilan Surgawi secara diam-diam dan gagal melindungi pasukannya, menyebabkan kehancurannya, reputasinya akan jatuh ke titik terendah. Dunia Abadi Gu Laut Timur juga akan memandang rendah dirinya. Siapa yang akan menghormati seseorang yang hilang dalam pertempuran sambil membantu pasukan dari daerah lain?</p>
+<p>	“Pada saat itu, Leluhur Laut Qi akan memahami bahwa statusnya di Laut Timur tidak akan pernah pulih. Pada saat itu, kami tidak akan khawatir lagi, kami dapat mengirim orang untuk membalas dendam untuknya. Selama prosesnya, kita bisa menggerakkannya dengan logika dan emosi, dengan menggodanya dengan keuntungan di masa depan, saya yakin ada kemungkinan besar kita bisa membuatnya bergabung dengan Pengadilan Surgawi. ”</p>
+<p>	Para abadi terdiam, mereka saling memandang sebelum melihat ke arah Pangeran Feng Xian.</p>
+<p>	Pada saat ini, semua tatapan abadi menjadi berbeda dari sebelumnya.</p>
+<p>	Setelah mendengar strategi Pangeran Feng Xian, kesan mereka terhadapnya berubah total!</p>
+<p>	Lengan Pangeran Feng Xian berada di belakang punggungnya, dia berhenti berbicara sambil tersenyum.</p>
+<p>	Skema ini kejam, tidak ada Dewa Gu di sini yang memikirkannya kecuali dia, alasannya adalah karena pengalaman hidupnya sendiri.</p>
+<p>	Pangeran Feng Xian berasal dari Spirit Affinity House, dia digunakan sebagai mata-mata pada awalnya untuk berkembang di Northern Plains. Setelah bertahun-tahun, dia menjadi peringkat delapan dan juga menikah dengan suku Gong, dia adalah mata-mata terkuat di Dataran Utara yang berasal dari Benua Tengah.</p>
+<p>	Dewa Gu Pengadilan Surgawi sudah terlalu terbiasa menjadi tuan, pola pikir mereka juga terlalu kaku. Tetapi semua yang abadi di sini adalah elit peringkat delapan, mereka segera mengerti bahwa rencana Pangeran Feng Xian adalah yang paling menguntungkan bagi Pengadilan Surgawi.</p>
+<p>	Baca di meionovel.id</p>
+<p>	Bahkan jika Wu Shuai mengklaim kemenangan, lalu bagaimana?</p>
+<p>	Hanya gua-surga di dua surga yang akan menderita. Bahkan jika Laut Timur terlibat dalam pertarungan, fondasinya tidak akan terpengaruh.</p>
+<p>	Bahkan jika jalan lurus Laut Timur ditumbangkan, itu hanya akan menjadi satu wilayah. Kemanusiaan akan tetap menjadi penguasa dunia!</p>
+<p>	“Baik.” Qin Ding Ling melihat ekspresi semua orang saat dia berkata, membuat keputusan: “Kami akan bertindak sesuai dengan proposal Pangeran Feng Xian.”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

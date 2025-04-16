@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 5";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_4.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 5">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_6.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 5</h1>
+        <div class="text-left">
+<p>	Bab 05</p>
+<p>	Bab 5 – Manusia Pertama dan Gu 3 , Berharap Kebangkitan</p>
+<p>	Pada saat itu, sekelilingnya menjadi sunyi. Tak terhitung jumlah mata yang tertuju padanya.</p>
+<p>	Semakin seru, pikir Fang Yuan dalam hati sambil tertawa. Di bawah tatapan massa, dia berjalan menyeberangi sungai dan mencapai tepi seberang.</p>
+<p>	Dia bisa merasakan lapisan tekanan pada dirinya. Tekanan ini datang dari mata air roh jauh di dalam laut bunga. Mata air roh menghasilkan qi purba – karena qi terlalu kaya di sini, itu menyebabkan tekanan.</p>
+<p>	Tetapi dengan sangat cepat dari bunga-bunga di bawah kaki Fang Yuan, cahaya-cahaya kecil muncul. Titik-titik cahaya ini menyelimuti seluruh tubuhnya sebelum akhirnya memasuki dirinya.</p>
+<p>	Ini adalah Gu Harapan , renung Fang Yuan. Orang yang bertanggung jawab tidak memberi tahu mereka, tetapi dia mengetahuinya dengan sangat jelas. Setiap titik cahaya adalah Gu , yang dikenal sebagai Gu Harapan .</p>
+<p>	Salah satu legenda tertua berbicara tentang Hope Gu . Dalam legenda, ketika dunia baru saja terbentuk, itu adalah tanah belantara yang liar. Di antara binatang buas yang berjalan di bumi, manusia pertama muncul. Dia dikenal sebagai Ren Zu (1), makan daging mentah dan minum darah, menjalani kehidupan yang sulit.</p>
+<p>	Secara khusus adalah sekelompok binatang buas yang disebut Predicament. Binatang buas ini menyukai rasa Ren Zu dan ingin memakannya.</p>
+<p>	Ren Zu tidak memiliki tubuh sekuat batu gunung, juga tidak memiliki gigi tajam dan cakar binatang buas. Bagaimana dia bisa bertarung dengan Predicaments? Sumber makanannya tidak stabil dan dia harus bersembunyi sepanjang hari. Dia berada di dasar rantai makanan alam, dan hampir tidak bisa bertahan hidup.</p>
+<p>	Pada saat ini, ada 3 Gu yang datang kepadanya dan berkata, “Selama Anda menggunakan hidup Anda untuk memberi kami, kami akan membantu Anda melewati kesulitan ini.” Ren Zu tidak punya tempat untuk pergi, jadi dia hanya bisa menyetujui 3 Gu ini .</p>
+<p>	Dia pertama kali memberikan masa mudanya kepada Gu terbesar di antara ketiganya. Itu Gu kemudian diberikan kekuatan dia.</p>
+<p>	Dengan kekuatan, kehidupan Ren Zu mulai berubah. Dia mulai memiliki sumber makanan yang stabil dan mampu melindungi dirinya sendiri. Dia bertarung dengan berani dan kejam, mengalahkan banyak Predicaments. Namun tak lama kemudian ia menderita dan akhirnya menyadari bahwa kekuatan bukanlah segalanya. Itu perlu disembuhkan dan dikultivasikan, tidak dihabiskan dengan bebas sesuai keinginannya. Belum lagi ketika menghadapi seluruh kelompok Kesulitan, kekuatannya sendiri terlalu kecil.</p>
+<p>	Ren Zu merenungkan pelajaran ini dengan getir dan memutuskan untuk memberikan tahun-tahun tengahnya yang terbaik kepada Gu yang paling cantik di antara ketiganya. Dan dengan demikian, Gu kedua memberinya kebijaksanaan.</p>
+<p>	Dengan kebijaksanaan, Ren Zu bisa belajar cara berpikir dan merenung. Dia mulai mengumpulkan pengalaman dan menemukan bahwa berkali-kali ketika dia menggunakan kebijaksanaan, itu lebih efektif daripada menggunakan kekuatan. Dengan mengandalkan kebijaksanaan dan kekuatan dia mampu menaklukkan semua tujuan yang sebelumnya tidak bisa dia lakukan, dan membunuh banyak Predicaments. Dia memakan daging Kesulitan dan meminum darah Kesulitan, bertahan dengan kegigihan.</p>
+<p>	Tapi hal-hal baik tidak bertahan lama dan Ren Zu sudah tua, dan hanya akan bertambah tua dan tua. Ini karena dia memberikan masa muda dan pertengahan tahun untuk menjaga kekuatan dan kebijaksanaan Gu . Ketika seorang pria tua, otot-ototnya memburuk dan otaknya melambat.</p>
+<p>	“Manusia, apa lagi yang bisa kamu berikan kepada kami? Anda tidak punya apa-apa lagi untuk diberikan kepada kami, ”kata kekuatan dan kebijaksanaan Gu saat mereka menyadari hal ini. Mereka meninggalkannya.</p>
+<p>	Tanpa kebijaksanaan dan kekuatan, Ren Zu pernah dikelilingi oleh Kesulitan. Dia sudah tua dan tidak bisa berlari, giginya tanggal dan bahkan tidak bisa mengunyah buah dan tanaman liar.</p>
+<p>	Saat dia jatuh dengan lemah ke tanah yang dikelilingi oleh Kesulitan, hatinya dipenuhi dengan keputusasaan. Pada saat inilah Gu ketiga berkata kepadanya, “Manusia, angkat aku. Saya akan membantu Anda melarikan diri dari Kesulitan. ”</p>
+<p>	Ren Zu sambil menangis menjawab, “ Gu, aku tidak punya apa-apa lagi. Lihat, kekuatan dan kebijaksanaan Gu telah meninggalkanku. Saya hanya memiliki usia tua saya yang tersisa! Meskipun tidak sebanding dengan masa muda dan paruh baya saya, tetapi jika saya memberi Anda usia tua saya, hidup saya akan segera berakhir. Meskipun saya dikelilingi oleh Kesulitan sekarang, tetapi saya tidak akan langsung mati. Saya ingin hidup sedikit lebih lama, meskipun hanya sedetik lagi. Jadi Anda harus pergi, saya tidak punya apa-apa lagi untuk diberikan kepada Anda. ”</p>
+<p>	Tetapi Gu berkata, “Di antara ketiganya, saya memiliki kebutuhan yang paling kecil. Manusia, jika kamu memberiku hatimu, itu sudah cukup. ”</p>
+<p>	“Kalau begitu aku akan memberikan hatiku padamu,” kata Ren Zu. “Tapi Gu , apa yang bisa kamu berikan padaku sebagai balasannya? Dalam situasi ini, bahkan jika kekuatan dan kebijaksanaan Gu kembali ke sisiku, itu tidak akan mengubah apa pun.”</p>
+<p>	Bila dibandingkan dengan kekuatan Gu , ini Gu tampak lemah dan hanya bola kecil cahaya. Jika dibandingkan dengan Gu kebijaksanaan , yang satu ini hanya mampu memberikan cahaya putih redup, tidak indah dalam hal apapun.</p>
+<p>	Tetapi ketika Ren Zu memberikan hatinya, Gu ini tiba-tiba mengeluarkan cahaya tanpa akhir. Dalam hal ini, Kesulitan berteriak ngeri: “Ini Gu Harapan , mundur! Kami Kesulitan paling takut dengan harapan! ”</p>
+<p>	Kesulitan mundur tiba-tiba. Ren Zu tidak bisa berkata-kata, dan sejak hari itu dan seterusnya setiap kali dia menghadapi kesulitan, dia akan memberikan hatinya untuk berharap.</p>
+<p>	Pada saat ini, Hope Gu menyatu menjadi aliran cahaya dan sudah memasuki tubuh Fang Yuan. Karena tekanan dari luar, mereka dengan cepat berkumpul di perutnya dan berkumpul menjadi satu kelompok secara spontan, 3 inci di bawah pusarnya.</p>
+<p>	Fang Yuan tiba-tiba merasakan tekanannya berkurang. Dia mulai berjalan ke depan. Dengan setiap langkah yang dia ambil, satu demi satu Gu Harapan akan terbang keluar dari lautan bunga dan memasuki tubuhnya, bergabung dengan bola cahaya. Bola cahaya semakin terang dan semakin terang, tetapi orang yang bertanggung jawab di seberang tepi sungai mengerutkan kening.</p>
+<p>	“Jumlah Hope Gu ini lebih rendah dari yang diharapkan.” Banyak tetua yang menonton Fang Yuan dalam kegelapan memikirkan ini saat mereka melihat pemandangan itu. Kepala klan juga mengerutkan kening. Ini jelas bukan tanda bakat kelas A!</p>
+<p>	Fang Yuan menahan tekanan, terus berjalan ke depan. “Di bawah 10 langkah itu berarti tidak ada bakat kultivasi. 10-20 langkah berarti bakat kelas D. 20-30 langkah akan menjadi bakat kelas C, 30-40 langkah adalah bakat kelas B. Dan 40-50 langkah berarti bakat kelas A. Sampai sekarang, saya telah berjalan 23 langkah.”</p>
+<p>	24, 25, 26… 27.</p>
+<p>	Fang Yuan menghitung dalam hatinya; ketika dia berjalan pada langkah ke 27 dia bisa mendengar suara ledakan dan di antara kedua ginjalnya bola cahaya mencapai batasnya dan tiba-tiba meledak.</p>
+<p>	Semburan energi ini hanya terjadi di dalam tubuhnya; orang luar tidak bisa melihatnya. Hanya Fang Yuan saja yang bisa merasakan pada saat itu, reaksi yang menggetarkan. Seketika bulu-bulu halus di tubuhnya berdiri, pori-porinya tertutup rapat, pikirannya membentang hingga batas tegang.</p>
+<p>	Segera setelah itu, pikirannya menjadi kosong, seluruh tubuhnya menjadi lembut seolah-olah dia jatuh ke awan. Hatinya rileks, rambut halusnya rata dan pori-porinya terbuka kembali.</p>
+<p>	Dalam waktu singkat seluruh tubuhnya berkeringat.</p>
+<p>	Seluruh proses ini terasa lama, tetapi sebenarnya terjadi dalam waktu singkat. Perasaan itu pergi secepat datangnya.</p>
+<p>	Fang Yuan terdiam sesaat sebelum dia kembali sadar. Dia diam-diam memusatkan perhatiannya ke tubuhnya dan menemukan bahwa di bawah pusarnya dan di antara kedua ginjalnya, sebuah lubang terbentuk dari udara tipis.</p>
+<p>	Upacara Kebangkitan berhasil!</p>
+<p>	Ini adalah harapan untuk keabadian!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

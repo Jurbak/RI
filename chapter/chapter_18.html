@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 18 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 18";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_17.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 18">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_19.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 18</h1>
+        <div class="text-left">
+<p>	Bab 18</p>
+<p>	Bab 18 – Biarkan masa lalu menghilang seperti asap</p>
+<p>	Dihadapkan dengan pertanyaan saudaranya, Fang Yuan tidak berbicara; dia melanjutkan sarapannya. Dia tahu karakter adiknya – Fang Zheng bukanlah seseorang yang bisa menjaga ketenangannya.</p>
+<p>	Benar saja, Fang Zheng melihat bahwa kakak laki-lakinya bahkan tidak memandangnya, seolah-olah Fang Yuan berpura-pura dia udara. Pada saat berikutnya dia memanggil dengan nada penuh ketidakbahagiaan, “Kakak, apa yang kamu lakukan pada Shen Cui? Sejak dia keluar dari kamarmu kemarin, dia menangis di mana-mana. Ketika saya menghiburnya, dia semakin menangis .”</p>
+<p>	Fang Yuan menatap adiknya, wajahnya tanpa ekspresi. Fang Zheng mengerutkan kening, menatap tajam pada kakak laki-lakinya, menunggu jawabannya.</p>
+<p>	Suasana semakin tegang.</p>
+<p>	Tapi Fang Yuan hanya menatapnya sebentar sebelum dia menundukkan kepalanya dan melanjutkan makan.</p>
+<p>	Adik laki-laki Fang Zheng langsung bingung. Sikap Fang Yuan jelas merupakan penghinaan yang tidak terselubung terhadapnya. Di bawah rasa malu dan frustrasi, dia menggebrak meja, meraung keras, “Gu Yue Fang Yuan, bagaimana kamu bisa bertindak seperti ini! Shen Cui sebagai gadis pelayan telah melayani Anda selama bertahun-tahun; Saya telah melihat kelembutan dan perhatiannya terhadap Anda. Ya, saya tahu Anda merasa tersesat, dan saya bisa memahami perasaan sedih Anda. Ya, kamu memang hanya bakat kelas C, tapi bukan berarti kamu bisa melampiaskan amarahmu pada orang lain hanya karena kemalanganmu sendiri. Ini tidak adil untuknya!”</p>
+<p>	Dia baru saja selesai ketika Fang Yuan berdiri, mengangkat tangannya dalam sekejap.</p>
+<p>	Tamparan!</p>
+<p>	Dengan suara keras, dia memberikan pukulan keras pada Fang Zheng.</p>
+<p>	Fang Zheng menutupi pipi kanannya, tersandung dua langkah ke belakang, wajahnya penuh kejutan.</p>
+<p>	“Bajingan tidak berguna, nada seperti apa yang kamu gunakan untuk berbicara dengan kakak laki-lakimu sendiri?! Shen Cui itu hanyalah seorang gadis pelayan! Hanya karena gadis rendahan seperti dia, kamu akan lupa bahwa aku adalah kakak laki-lakimu?” Fang Yuan menegur dengan suara rendah.</p>
+<p>	Fang Zheng akhirnya bereaksi, rasa sakit yang menyengat di wajahnya melonjak melalui sistem sarafnya dalam gelombang. Dia menatap dengan mata terbelalak, napasnya kasar saat dia berkata dengan tidak percaya, “Kakak, kamu memukulku? Dari saat saya masih muda sampai saya dewasa, Anda belum pernah memukul saya sebelumnya! Ya, saya ditemukan menjadi bakat kelas A, Anda hanya kelas C. Tapi Anda juga tidak bisa menyalahkan saya untuk itu, ini semua pengaturan surga … ”</p>
+<p>	Tamparan!</p>
+<p>	Fang Zheng belum selesai berbicara, namun Fang Yuan menggunakan punggung tangannya dan memukulnya lagi.</p>
+<p>	Fang Zheng menutupi kedua pipinya dengan kedua tangannya. Dia tercengang.</p>
+<p>	“Naif bodoh, apakah kamu masih ingat! Dari muda sampai sekarang, bagaimana saya merawat Anda? Ketika orang tua kita meninggal, hidup kita sulit. Selama Tahun Baru, bibi dan paman hanya memberi kami satu jubah baru, apakah saya memakainya? Siapa yang saya berikan untuk dipakai? Ketika Anda masih kecil Anda suka makan bubur manis, saya akan memberitahu dapur untuk membuat mangkuk lain untuk Anda setiap hari. Ketika Anda diganggu oleh orang lain, siapa yang membawa Anda kembali? Belum lagi banyak hal lain, saya merasa tidak layak untuk dibicarakan. Nah, sekarang karena seorang pelayan, Anda akan berbicara kepada saya seperti ini, datang untuk menanyai saya?</p>
+<p>	Wajah Fang Zheng merah. Bibirnya bergetar, malu dan kesal, sekaligus terkejut dan marah. Namun dia tidak bisa mengatakan sepatah kata pun bantahan.</p>
+<p>	Karena semua yang dikatakan Fang Yuan adalah kebenaran!</p>
+<p>	“Apa pun.” Fang Yuan mencibir, “Karena Anda bahkan menyerah orang tua Anda sendiri biologis dan mengakui orang lain, apa yang saya saya layak untuk Anda, hanya sebagai kakak Anda?”</p>
+<p>	“Kakak, bagaimana kamu bisa mengatakan itu. Anda juga tahu bahwa saya selalu merindukan kehangatan keluarga sejak saya masih muda, saya … “Fang Zheng segera menjelaskan.</p>
+<p>	Fang Yuan melambaikan tangannya, menghentikan saudaranya untuk melanjutkan. “Mulai hari ini dan seterusnya, kamu bukan adik laki-lakiku, dan aku bukan lagi kakak laki-lakimu.”</p>
+<p>	“Kakak laki-laki!” Fang Zheng terkejut, membuka mulutnya untuk mengatakan lebih banyak.</p>
+<p>	Pada saat ini Fang Yuan berbicara, “Apakah kamu tidak menyukai Shen Cui? Jangan khawatir; Aku tidak melakukan apapun padanya. Dia masih perawan, tidak tersentuh dan murni. Berikan saya enam batu purba dan saya akan memberikannya kepada Anda, mulai hari ini dan seterusnya dia bisa menjadi pelayan pribadi Anda.</p>
+<p>	“Kakak, kenapa kamu …” Pikiran batinnya terungkap begitu tiba-tiba, Fang Zheng merasakan gelombang kepanikan, merasa agak tidak siap.</p>
+<p>	Tetapi pada saat yang sama hatinya yakin. Satu hal yang paling dia khawatirkan tidak menjadi kenyataan.</p>
+<p>	Belum lama ini di malam hari, Shen Cui secara pribadi melayani dan memandikannya.</p>
+<p>	Meskipun tidak ada hal penting yang terjadi, Fang Zheng tidak pernah bisa melupakan kelembutan malam itu. Setiap kali dia memikirkan Shen Cui, dia akan mengingat tangannya yang terampil dan bibir merahnya yang lembut, dan jantungnya akan berdenyut.</p>
+<p>	Perasaan awet muda yang tulus telah lama tertanam di dada pemuda itu, mulai tumbuh.</p>
+<p>	Jadi ketika dia mengetahui tentang keadaan Shen Cui yang tidak biasa tadi malam, kemarahan segera meledak dari hatinya. Dia langsung menyerah memperbaiki Moonlight Gu-nya dan membalikkan desa ke luar mencoba menemukan Fang Yuan, ingin membuat pernyataan.</p>
+<p>	Melihat Fang Zheng tidak menjawab, Fang Yuan mengerutkan kening dan berkata, “Cinta itu sangat normal, lebih jujur. Tidak ada gunanya bersembunyi. Tentu saja, jika Anda tidak ingin bertukar, maka tidak apa-apa. ”</p>
+<p>	Fang Zheng cemas di tempat. “Aku akan menukar! Mengapa saya tidak bertukar. Tapi batu purba pada saya tidak cukup untuk enam lagi. ”</p>
+<p>	Saat dia mengatakan ini, dia mengeluarkan kantong uangnya, wajahnya memerah.</p>
+<p>	Fang Yuan mengambil kantong itu dan menemukan enam buah di dalamnya, tetapi salah satu batu di antara mereka lebih kecil dari batu purba biasa dengan ukuran setengahnya. Dia segera tahu bahwa Fang Zheng telah menyerap esensi purba dari batu ini untuk mempercepat proses pemurnian Moonlight Gu-nya . Lagi pula, semakin banyak esensi alami yang diserap dari batu purba, semakin kecil batu itu, dan beratnya juga akan menjadi lebih ringan.</p>
+<p>	Meskipun itu hanya lima keping setengah, Fang Yuan tahu: Ini semua adalah batu purba yang dimiliki Fang Zheng saat ini. Fang Zheng tidak memiliki tabungan sendiri, dan enam batu purba ini adalah yang diberikan Bibi dan Paman kepadanya belum lama ini.</p>
+<p>	“Aku akan menyimpan ini, kamu bisa pergi sekarang.” Ekspresi Fang Yuan dingin saat dia menyimpan tasnya.</p>
+<p>	“Kakak …” Fang Zheng ingin mengatakan lebih banyak.</p>
+<p>	Fang Yuan mengangkat alisnya sedikit, berbicara dengan lambat dan santai, “Sebelum aku berubah pikiran, sebaiknya kau menghilang dari mataku.”</p>
+<p>	Fang Zheng merasa jantungnya menegang. Dia mengertakkan gigi, dan akhirnya berbalik dan pergi. Ketika dia melangkah melewati pintu penginapan, dia tanpa sadar menutupi dadanya dengan tangannya, merasakan gelombang kegelisahan. Ada perasaan yang mengatakan kepadanya bahwa dia baru saja kehilangan sesuatu yang sangat penting.</p>
+<p>	Tapi dengan sangat cepat dia merasa panas saat memikirkan Shen Cui, dan malam yang indah itu. “Akhirnya aku bisa memilikimu sebagai milikku, Cui Cui (1).” Dia tidak melihat ke belakang, dan berjalan keluar dari pandangan Fang Yuan.</p>
+<p>	Fang Yuan berdiri tanpa ekspresi; dia berdiri lama sekali, lalu dia akhirnya perlahan duduk.</p>
+<p>	Sinar matahari yang cerah melewati jendela, menyinari wajahnya yang acuh tak acuh, membuat mereka yang melihat ini merasa agak dingin di dalam. Bisnis di kafetaria agak buruk, dan jalanan semakin ramai dengan orang-orang. Kebisingan dan kegembiraan dari kerumunan yang ramai menyebar, membuat tempat itu terasa lebih tenang. Piring menjadi dingin. Seorang pekerja datang dengan penuh perhatian, menanyakan apakah Fang Yuan ingin memanaskan kembali sarapannya.</p>
+<p>	Fang Yuan tidak mendengarnya. Tatapannya terus bergeser seperti awan, seolah-olah dia sedang mengenang beberapa kenangan lama. Pekerja itu menunggu sebentar. Tetapi ketika dia melihat Fang Yuan kesurupan, tidak pernah mengucapkan sepatah kata pun, dia hanya bisa menggosok hidungnya dan berjalan pergi dengan pahit.</p>
+<p>	Setelah waktu yang lama, mata Fang Yuan menjadi fokus lagi. Kenangan masa lalu di hatinya seperti asap; mereka sudah bubar.</p>
+<p>	Dia kembali ke kenyataan sekali lagi. Sinar matahari yang mengalir masuk menyinari separuh meja. Udara panas yang berhembus dari piring sudah menghilang, dan suara hiruk pikuk keramaian di jalanan masuk ke telinganya.</p>
+<p>	Dia merogoh jubahnya dan menepuk-nepuk lima setengah batu purba di dadanya, mulutnya melengkung menjadi senyum pahit dan mengejek. Tapi senyum itu segera dibuang.</p>
+<p>	“Pelayan, pergi dan panaskan kembali hidangan ini untukku.” Fang Yuan melihat piringnya dan samar-samar membuka mulutnya, berteriak. Pada saat ini matanya terlihat sangat dingin.</p>
+<p>	“Apa! Kakakmu benar-benar mengatakan itu?” Di aula, Paman mengerutkan kening, suaranya dingin. Bibi duduk di samping, menatap tanpa berkata-kata pada sidik jari merah segar di pipi Fang Zheng.</p>
+<p>	“Ya, ketika saya bertemu dengan kakak laki-laki, dia sedang sarapan di penginapan. Semuanya berjalan seperti ini, ”jawab Fang Zheng dengan sopan.</p>
+<p>	Kerutan di dahi Paman semakin dalam, semuanya diringkas menjadi 3 garis hitam (2).</p>
+<p>	Setelah beberapa napas dia menghela nafas dan berkata dengan nada serius, “Fang Zheng anakku, kamu harus ingat ini. Pelayan Shen Cui bukanlah milik pribadi Fang Yuan; kami menugaskannya padanya. Bagaimana dia bisa menggunakannya sebagai barang dagangan? Jika Anda menginginkannya, Anda seharusnya memberi tahu kami sebelumnya. Kami hanya akan menugaskannya kepada Anda. ”</p>
+<p>	“Ah?” Fang Zheng tercengang saat mendengarkan ini.</p>
+<p>	Paman melambaikan tangannya. “Kau bisa mengambil cutimu. Anda memberikan semua batu purba Anda kepada Fang Yuan, jadi saya hanya akan memberi Anda enam lagi. Ingat, gunakan dengan benar untuk menyempurnakan Gu Anda dan rebut nomor satu. Kami akan sangat bangga dengan Anda ketika Anda melakukannya.”</p>
+<p>	“Ayah, anakmu malu …” Fang Zheng tiba-tiba meneteskan air mata. Paman menghela nafas dan menjawab, “Pergilah, cepat kembali ke kamarmu dan sempurnakan Gumu . Waktumu tidak banyak lagi.”</p>
+<p>	Ketika Fang Zheng pergi, wajah Paman menunjukkan ekspresi ganas dan marah.</p>
+<p>	Bang!</p>
+<p>	Dia memukul meja dengan telapak tangannya menggunakan kekuatan besar, mendesis, “ Hmph , bajingan sialan ini. Dia benar-benar membawa pekerja kita untuk melakukan pertukaran, dia benar-benar licik!”</p>
+<p>	Bibi menasihati, “Suami, tenangkan amarahmu. Itu hanya enam batu purba.”</p>
+<p>	“Apa yang kamu mengerti, wanita! Fang Yuan ini hanya bakat kelas C, jika dia ingin memperbaiki Moonlight Gu dia akan membutuhkan batu purba. Dengan pengalamannya yang lemah tentang pengatur waktu pertama, enam batu purba tidak akan cukup untuk memperbaikinya. Tetapi sekarang dia memiliki dua belas keping, itu akan lebih dari cukup. ” Paman sangat marah sehingga dia menggertakkan giginya.</p>
+<p>	Dia menambahkan, “ Kultivasi Guru Gu akan sangat cepat selama ada sumber daya yang cukup dan tidak ada hambatan. Dalam dua atau tiga tahun, klan akan dapat menghasilkan Master Gu peringkat dua . Semakin rendah peringkat kultivasi Fang Yuan, semakin kecil harapannya untuk mencoba merebut warisan keluarga satu tahun kemudian. Saat ini dia masih muda, baru mulai berkultivasi. Kami akan menghalanginya dan membiarkan proses permulaannya tertinggal dari orang-orang seusianya. Sumber daya akademi selalu diberikan kepada siswa berprestasi. Dengan bakat terpendamnya, begitu dia mundur, dia tidak akan bisa mendapatkan sumber daya apa pun. Tanpa bantuan sumber daya budidayanya akan jatuh lebih jauh. Dengan lingkaran setan ini, saya ingin melihat apakah dia memiliki kemampuan untuk mewarisi warisan keluarga setahun kemudian!</p>
+<p>	Bibi tidak mengerti. “Bahkan jika kita tidak menghentikannya, dia paling-paling akan berada di peringkat satu tahap tengah setahun kemudian. Suami, kultivasi Anda berada di peringkat dua, mengapa Anda masih takut padanya?</p>
+<p>	Paman sangat marah sehingga dia menginjak dan berkata, “Wanita, kamu benar-benar ‘ rambut panjang tapi wawasannya pendek’ ! Hanya dengan identitas saya sebagai senior, haruskah saya benar-benar mengalahkan generasi muda? Jika dia ingin mendapatkan kembali warisan, itu wajar dan tidak dapat dihentikan secara langsung; Saya hanya bisa melawan menggunakan aturan klan. Dinyatakan dalam aturan klan: Untuk menjadi kepala rumah pada usia enam belas tahun, orang tersebut harus memiliki setidaknya kultivasi tingkat satu tingkat menengah. Kalau tidak, itu berarti Fang Yuan tidak berhak menyia-nyiakan sumber daya klan. Setelah saya mengatakan ini, apakah Anda mengerti sekarang?</p>
+<p>	Bibi tercerahkan.</p>
+<p>	Paman menyipitkan matanya, kilatan di tatapannya. Dia menggelengkan kepalanya sedikit, menghela nafas ketika dia berkata, “Fang Yuan terlalu pintar, terlalu licik. Dia bahkan bisa melihat melalui permainan kekuatan. Kecerdasan macam apa ini? Merencanakan dan menghitung di usia yang begitu muda, sungguh meneror! Awalnya saya akan terus berkomplot melawannya, namun dia langsung pindah. Saya ingin lebih mengandalkan Shen Cui untuk memantau dan menyusahkannya, tetapi pada akhirnya dia pergi dan bahkan mendapatkan enam batu purba.”</p>
+<p>	“Sayangnya, jika dia bisa sebodoh Fang Zheng, itu akan sangat bagus. Oh benar, mulai hari ini dan seterusnya kamu harus memperlakukan Fang Zheng dengan lebih baik. Bagaimanapun, dia adalah bakat kelas A. Belum lagi saya dapat melihat bahwa dia memiliki perasaan tidak puas dan tidak bahagia terhadap Fang Yuan. Emosi ini adalah hal yang baik; mereka harus dibimbing dengan benar. Saya memiliki semacam perasaan bahwa dia akan menjadi alat terbaik untuk berurusan dengan Fang Yuan di masa depan!</p>
+<p>	Dalam sekejap mata, dua hari telah berlalu.</p>
+<p>	Di kamar di penginapan, tidak ada lampu. Cahaya bulan masuk, memberikan warna es. Di tempat tidur Fang Yuan duduk bersila, matanya terpejam. Dia memindahkan esensi purba tembaga hijaunya, memusatkan pikirannya pada pemurnian cacing Liquor. Di tubuhnya, sayatan kecil telah diwarnai dengan warna hijau tembaga hijau, tetapi keinginan cacing Liquor masih ulet seperti biasanya. Itu terus-menerus berjuang di tengah-tengah esensi purba yang halus.</p>
+<p>	Proses pemurnian Fang Yuan tidak berjalan mulus. Itu sangat sulit.</p>
+<p>	“Saya menghabiskan dua hari dua malam, hanya beristirahat dua jam setiap hari, dan saya menghabiskan dua belas keping batu purba tetapi hanya berhasil memperbaiki sekitar 1/15 kemajuan. Menghitung menurut waktu, saya kira seseorang akan berhasil menyempurnakan Gu mereka dalam beberapa hari ini. ”</p>
+<p>	Fang Yuan bisa melihat situasinya dengan jelas. Namun bakatnya adalah nilai yang buruk, tambahkan cacing Liquor yang dia coba perbaiki memiliki keinginan yang sangat ulet untuk hidup; itu bahkan lebih kuat dari Moonlight Gu normal . Situasi yang dihasilkan dari tertinggal adalah normal.</p>
+<p>	“Saat tertinggal bukanlah apa-apa, selama aku memiliki cacing Liquor …” Hati Fang Yuan jernih seperti cermin, tidak ada sedikit pun kecemasan dan keputusasaan dalam dirinya. Tiba-tiba, cacing Liquor meringkuk menjadi bola.</p>
+<p>	“Oh tidak, cacing Liquor menyerang balik!” Fang Yuan langsung membuka matanya, sedikit keheranan dalam tatapannya. Di depannya, cacing Liquor telah meringkuk menjadi pangsit kecil bundar, dengan ganas mengeluarkan cahaya putih yang menyilaukan.</p>
+<p>	Itu mempertaruhkan segalanya dalam satu stand terakhir ini!</p>
+<p>	Seketika Fang Yuan merasakan keinginan kuat keluar dari tubuh cacing Liquor, mengalir langsung melalui esensi purba dan turun ke laut purba di celahnya.</p>
+<p>	Situasi di mana serangan balik Gu sangat jarang terjadi. Hanya Gu dengan kemauan yang sangat kuat yang akan memberikan segalanya, entah itu sukses atau mati. Dalam menghadapi skenario seperti itu, remaja biasa akan panik sekarang.</p>
+<p>	Meskipun dia terkejut, Fang Yuan tidak panik; sebenarnya dia agak senang. “Mempertaruhkan segalanya dalam satu upaya terakhir, ini juga merupakan hal yang baik. Selama aku bisa menangani serangan balik ini, kemauan cacing Liquor akan sangat melemah. Namun saya harus memusatkan perhatian penuh untuk melawan keinginan ini, saya tidak dapat menerima gangguan dari luar sedikit pun. Kalau tidak, itu akan buruk, hiks … Tapi saya harap tidak ada yang akan datang dan mengganggu saya selama periode ini. ”</p>
+<p>	Pikirannya selesai, dia siap untuk mengumpulkan esensi purba di lubangnya, siap menerima kehendak cacing Liquor. Dia akan terjerat dengan itu dan melawannya 300 putaran.</p>
+<p>	Tetapi pada saat ini, peristiwa ajaib terjadi!</p>
+<p>	Di tengah celahnya, tepat di atas laut yang tinggi di udara, seorang Gu muncul.</p>
+<p>	Ledakan!</p>
+<p>	 Napas kuat yang kuat meletus dari Gu ini .</p>
+<p>	Napas ini seperti Bima Sakti yang tercurah, dan air bah mengalir deras dari pegunungan. Namun, itu juga seperti binatang mengerikan yang martabatnya tersinggung yang membuka mata merahnya dan melihat sekeliling untuk melihat siapa yang berani melanggar wilayahnya!</p>
+<p>	“Ini adalah Jangkrik Musim Semi Musim Gugur ?!” Melihat Gu ini , Fang Yuan benar-benar terkejut!!</p>
+<p>	(1) Cui Cui hanyalah cara penuh kasih sayang untuk memanggil Shen Cui.</p>
+<p>	(2) Novel tersebut mengatakan [都凝成了一个川字], yang berarti diringkas menjadi kata (Kadang-kadang kata-kata Cina digunakan untuk menggambarkan sesuatu)</p>
+<p>	Catatan Penulis: (Dia berterima kasih kepada banyak orang)</p>
+<p>	Saya akan terus maju, 3 tahun, 6 tahun, 9 tahun … dalam periode waktu ini, beberapa dari Anda mungkin pergi sementara dan beberapa akan selalu tinggal. Dalam proses kehidupan manusia yang sibuk, kita terus-menerus menandai keberadaan kita yang konstan, dan kita semua saling membuktikan bahwa kita pernah hidup sebelumnya.</p>
+<p>	Saya telah membayangkan skenario semacam ini: Ketika kita tua, Anda semua akan melihat ‘Gu Zhen Ren’ ID ini, dan akan tertawa dalam hati Anda: “Oh, itu dia, ketika saya masih muda saya telah membaca bukunya sebelumnya. Saya bahkan memberinya suara rekomendasi. ” Mungkin saya akan membuka tata letak saya sebelumnya dan melihat semua ID yang sudah dikenal ini, yang telah memberi penghargaan, memilih, dan berkomentar sebelumnya. Saya akan mengenang saat-saat ketika saya menulis sendirian, nama-nama ini menemani perjalanan panjang dan sulit saya, memberi saya cahaya kecil yang hangat.</p>
+<p>	Di sini, di buku ini ada sedikit twist. Fang Yuan akan mulai benar-benar menunjukkan gaya uniknya. Mereka yang bisa membaca sampai di sini sudah ditakdirkan. Saya jamin Anda di sini, buku ini akan menjadi lebih dan lebih menarik.</p>
+<p>	T/N: Terima kasih semuanya telah membaca sampai di sini, dan maaf sudah menunggu lama! Ini adalah bab yang sangat panjang untuk diterjemahkan, tetapi ini juga merupakan salah satu bab favorit saya sepanjang masa. Kesedihan dan makna dari bab ini selalu tinggal bersama saya. Seperti yang dikatakan penulis, ini adalah ‘titik balik’ dan awal dari kisah nyata… Saya harap Anda akan memberikan banyak dukungan kepada penulis dan saya berharap untuk menerjemahkan lebih banyak lagi~</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

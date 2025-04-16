@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 339 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 339";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_338.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 339">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_340.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 339</h1>
+        <div class="text-left">
+<p>	Bab 339</p>
+<p>	Bab 339: Masalah</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Oh, ini Tuan Wei… tidak perlu khawatir, berkat pahlawan muda Fang Zheng, Bi Xia aman dan sehat.” Peri Bi Xia menghindari tatapan Wei Wu Shang dan menyapa.</p>
+<p>	“Pahlawan muda Fang?” Wei Wu Shang menyipitkan mata, menatap Fang Zheng yang berdiri di samping Peri Bi Xia.</p>
+<p>	“Halo, saya Fang Zheng Immortal Crane Sect.” Fang Zheng tersenyum ringan, menangkupkan tinjunya dan menyapa, mengalir dengan keramahan.</p>
+<p>	“Pahlawan muda Fang Zheng, seorang murid elit dari Immortal Crane Sect, nomor satu dalam ujian tengah terbaru. Dia bisa mengendalikan sepuluh ribu bangau, berkat bangau ini, kami bisa mencapai gunung Tian Ti dengan sangat cepat.”</p>
+<p>	Peri Bi Xia berkata sambil menatap Fang Zheng, wajahnya memerah malu-malu, saat nadanya membawa sedikit rasa manis.</p>
+<p>	Sepanjang jalan, dia telah berbicara dengan Fang Zheng, dan merasa bahwa mereka cocok.</p>
+<p>	“Derek Abadi? Ini hanya rane terbang paruh besi, meskipun jumlahnya agak besar. ” Mata Wei Wu Shang bersinar dingin, merasa sangat marah terhadap Fang Zheng.</p>
+<p>	Dia mengertakkan gigi, menyapa Fang Zheng kembali: “Fang Zheng, kamu adalah murid elit Sekte Bangau Abadi? Itu hebat. Saya sudah lama mendengar tentang keterampilan manipulasi derek Immortal Crane Sect, saya selalu ingin menghadapinya. Saya akan sangat menghargai jika Anda mau berdebat dengan saya. ”</p>
+<p>	Mengatakan demikian, Wei Wu Shang mengambil langkah besar ke depan, matanya bersinar dengan sombong saat dia menatap Fang Zheng.</p>
+<p>	Fang Zheng tercengang, saat dia merasakan permusuhan, merasakan absurditas dari masalah ini.</p>
+<p>	“Ha ha ha.” Dalam benaknya, Lord Sky Crane tertawa terbahak-bahak: “Syukur kecantikan adalah masalah terbesar, muridku, tindakan menyelamatkan gadis kecil Bi Xia telah membawa banyak musuh bagimu. Gadis muda ini Bi Xia sangat cantik, sekarang dia menyukaimu, kamu memiliki masalah di depan. Wei Wu Shang ini adalah penantang pertamamu.”</p>
+<p>	“Hah? menyukaiku?” Fang Zheng berteriak dalam pikirannya.</p>
+<p>	Berbicara tentang cinta, dia merasakan kesedihan yang mendalam di hatinya.</p>
+<p>	Tahun-tahun ini, dia memiliki citra seorang gadis jauh di dalam hatinya.</p>
+<p>	Dia adalah seorang manusia, dia sangat normal, sangat biasa, dan jauh lebih rendah dari Peri Bi Xia. Tapi di hati Fang Zheng, dia memiliki kelucuan yang luar biasa.</p>
+<p>	Saat-saat yang dia habiskan bersamanya, adalah kenangan terbaik di hati Fang Zheng.</p>
+<p>	Sayangnya, dia sudah mati, tidak lagi di dunia ini.</p>
+<p>	Dia adalah Shen Cui, mantan pelayan Fang Zheng.</p>
+<p>	Memikirkan Shen Cui, hati Fang Yuan tenggelam: “Gadis yang kusukai sudah mati. Guru, Anda tahu betapa kerasnya saya telah bekerja tahun ini, tujuan terbesar saya adalah untuk mengalahkan saudara saya dan membalas dendam untuk nenek moyang saya, paman dan bibi saya, Shen Cui, pemimpin klan tuan, tuan Qing Shu, dan memenuhi keinginan mereka. Meskipun desa Gu Yue dihancurkan, garis keturunan Gu Yue masih ada!”</p>
+<p>	“Hahaha, murid bodohku, bahkan jika itu yang kamu inginkan, Wei Wu Sheng ini tidak akan melepaskanmu. Karena kamu memutuskan untuk menyelamatkan Peri Bi Xia, mengapa kamu tidak menyadarinya?” Lord Sky Crane tertawa.</p>
+<p>	“Tapi… aku tidak ingin berdebat dengannya. Saya pernah mendengar tentang Wei Wu Shang ini di Sekte Bangau Abadi. Dia adalah Guru Gu yang menyembuhkan, bintang yang sedang naik daun di Sekte Kecemburuan Surga, seorang jenius bakat kelas A yang kuat. Dia paling terampil dalam menyembuhkan dirinya sendiri, sering pergi tanpa cedera setelah pertempuran. Jika saya melawannya, bahkan jika saya menang, kondisi saya tidak akan mencapai puncaknya. Itu akan berdampak negatif pada kinerja saya ketika bersaing untuk Warisan Abadi Gu. ”</p>
+<p>	Lord Sky Crane tertawa terbahak-bahak: “Jangan khawatir, maju dan bertarung. Warisan Abadi Hu di gunung Tian Ti sangat istimewa. Itu tidak akan membuat Anda bersaing dalam hal kekuatan pertempuran, itu adalah kontes tekad dan tekad. Dengan jiwaku yang membantumu secara diam-diam, kamu memiliki keuntungan besar!”</p>
+<p>	Setelah berhenti sejenak, Lord Sky Crane melanjutkan: “Kamu masih terlalu muda, kamu tidak tahu kegunaan reputasi. Terkadang, reputasi lebih berguna daripada kekuatan, ini adalah kesempatan langka, kalahkan penantang ini dan tingkatkan reputasi Anda. Gunakan bangau terbang dan jangan khawatir tentang kematian mereka. Kami memiliki banyak bangau di Sekte Bangau Abadi, bahkan jika Anda menggunakan semuanya, kami dapat kembali ke sekte tersebut dan mengisi kembali pasukan Anda.”</p>
+<p>	Mendengar tuannya berkata begitu, Fang Zheng menghela nafas, berkata kepada Wei Wu Shang: “Karena kamu ingin bertarung, jadilah itu.”</p>
+<p>	“Bagus sekali! Tolong.” Wei Wu Shang mencibir, menginjak dan menembak ke udara seperti kilat.</p>
+<p>	Fang Zheng tidak menunjukkan kelemahan apa pun, melambaikan tangannya dan menginjak bangau terbang, saat sepuluh ribu bangau berteriak bersama, seolah menyapa raja mereka.</p>
+<p>	Setelah pertempuran dimulai, semua orang menjadi bersemangat.</p>
+<p>	“Boss Fang Zheng, yang terbaik, kalahkan banci ini dari Sekte Kecemburuan Surga!” Murid elit Immortal Crane Sekte berteriak.</p>
+<p>	“Adik laki-laki Wei, beri pelajaran pada anak ini.” Wei Wu Sheng memiliki pendukungnya.</p>
+<p>	Wei Wu Shang mengangguk, niat bertarung yang intens membara di matanya.</p>
+<p>	Dia adalah pemimpin murid elit yang dikirim oleh Sekte Kecemburuan Surga kali ini, sepuluh ribu kelompok bangau Fang Zheng dapat menakuti murid elit biasa, tetapi bukan dia.</p>
+<p>	Dia punya kartu trufnya sendiri!</p>
+<p>	“Pertarungan!” Wei Wu Shang mengaktifkan cacing Gu di tubuhnya, saat tubuhnya melayang di udara dan menghilang.</p>
+<p>	Saat berikutnya, ruang itu terkoyak saat dia melakukan perjalanan melalui beberapa ratus langkah, langsung muncul di depan Fang Zheng.</p>
+<p>	“Gu penusuk luar angkasa ?!” Bahkan Lord Sky Crane terkejut.</p>
+<p>	Pertempuran sengit terjadi.</p>
+<p>	Pada saat yang sama, di gunung San Cha.</p>
+<p>	Di gua tertentu, Sepuluh Tiran berkumpul.</p>
+<p>	“Itu artinya, kalian semua digunakan oleh Hu Mei Er untuk menguji Iblis Hitam Putih?!” Pemimpin Sepuluh Tiran, “Tiran Heng Mei”, bergumam.</p>
+<p>	“Itu benar, bos, iblis wanita itu menipu kita semua, dan bahkan melukai saudara ketujuh dan kesepuluh. Bos, Anda harus membalaskan dendam kami! ” Saudara kedua dari Sepuluh Tiran berteriak.</p>
+<p>	Memukul!</p>
+<p>	Tiran Heng Mei menampar.</p>
+<p>	Saudara kedua dari Sepuluh Tyrant ditampar dengan keras di pipinya, tubuhnya berputar di tempat.</p>
+<p>	“Bo … bos!” Dia memegangi wajahnya, menatap Tyrant Heng Mei dengan kaget.</p>
+<p>	“Cedera parah? Itu sempurna, selama mereka tidak mati. Anda berkumpul dengan sperma untuk otak, kendalikan tubuh bagian bawah Anda. Saya menginstruksikan Anda sebelumnya untuk memikirkan tindakan dan kata-kata Anda, apakah Anda benar-benar berpikir ini masih gunung Nan ?! ”</p>
+<p>	Tiran Heng Mei memarahi: “Salah! Ini gunung San Cha!”</p>
+<p>	“Baik itu Kong Ri Tian, ​​​​Long Qing Tian, ​​​​atau Wu Shen Tong, Yi Chong, semuanya dapat membunuhmu seperti semut dengan mudah. Meskipun Anda memiliki kultivasi peringkat tiga, apa alasan terpenting Anda dapat tinggal di sini? Bukankah itu semua karena aku!”</p>
+<p>	“Hmph, masalah ini adalah peringatan untuk kalian semua. Saya harus memberitahu Anda, jangan menemukan masalah dengan Hu Mei Er. Iblis wanita ini menggoda pria sampai mati, dia memiliki jaringan yang luas. Dia terlibat dengan Lin San Chi, memiliki rumor dengan Li Xian, dan bahkan Mo Wu Tian.”</p>
+<p>	Kata-kata Tyrant Heng Mei mengejutkan sembilan bersaudara.</p>
+<p>	Lin San Chi adalah Master Gu iblis peringkat empat, dia tidak hanya ahli di jalur logam, tetapi juga merupakan Master Gu jalur bumi. Spesialisasi logam dan tanahnya terkenal di seluruh negeri.</p>
+<p>	Li Xiao juga sama kuatnya, dia bukan penduduk asli perbatasan selatan, tetapi berasal dari laut timur. Dia adalah seorang pedagang tidak bermoral yang terkenal di antara anggota jalur iblis, paling terampil dalam menemukan peluang untuk membeli rendah dan menjual tinggi. Jaringan dan hubungan manusianya luas, banyak harta rampasan Guru Gu iblis dijual olehnya.</p>
+<p>	Adapun Mo Wu Tian, ​​​​dia bahkan lebih menakutkan.</p>
+<p>	Dia mewarisi warisan misterius dari Gu Immortal kuno, dan merupakan bintang naik nomor satu dari jalur iblis, seorang jenius muda yang mutlak.</p>
+<p>	Baik itu Lin San Chi, Li Xian, atau Mo Wu Tian, ​​​​mereka semua adalah Master Gu peringkat empat.</p>
+<p>	“Orang-orang terkenal ini semuanya terkait dengan iblis wanita itu?” Anggota Sepuluh Tiran mendengar ini dan menjadi pucat, jantung mereka berdebar ketakutan.</p>
+<p>	“Aku akan memberitahumu untuk terakhir kalinya, ini bukan gunung Nan! Sigh, saya meminta Anda semua untuk sering menggunakan otak Anda dan belajar dari kesalahan, tetapi Anda menolak untuk mendengarkan. Huh, warisan tiga raja ini bukan masalah kecil. Siapa yang tahu berapa banyak karakter tangguh yang akan muncul.” Tyrant Heng Mei menghela nafas saat dia berkata.</p>
+<p>	Saudara-saudara yang lain saling berpandangan, tak bisa berkata-kata.</p>
+<p>	Tyrant Heng Mei melihat bahwa waktunya tepat, dan mengubah topik pembicaraan: “Tapi tidak perlu khawatir, di gunung San Cha sekarang, peringkat empat dan lima Gu Masters saling menahan, tidak ada yang berani bertindak gegabah. Kami Sepuluh Tiran gunung Nan tidak bisa dianggap enteng. Kita tidak bisa membiarkan ini berbaring, ayo pergi, temani saya untuk menemukan iblis hitam dan putih. ”</p>
+<p>	“Bos, kamu secara pribadi akan menemukan iblis hitam dan putih?” Seseorang mengungkapkan keterkejutannya.</p>
+<p>	“Bos, kamu peringkat empat tahap menengah, senior dari jalur iblis, ketika kamu berkeliaran di dunia, mereka masih bayi.”</p>
+<p>	“Itu benar, bos, kami akan pergi dan meminta mereka untuk datang. Anda memberi mereka audiensi adalah kehormatan mereka. ”</p>
+<p>	“Hmph, apa yang kamu tahu!” Tyrant Heng Mei mencaci: “Iblis hitam dan putih masih sangat muda. Fakta bahwa mereka tidak menyerangmu kali ini berarti mereka tahu namaku, dan tahu bagaimana menahan diri. Tapi mereka masih muda, mereka mencintai ‘wajah’ mereka. Jika saya meletakkan ego saya dan pergi menemui mereka secara pribadi, itu memberi mereka rasa hormat penuh. Selanjutnya, jika saya menyebutkan bekerja sama dan membuat rencana untuk berurusan dengan Hu Mei Er, mereka pasti akan setuju. Hehehe…”</p>
+<p>	“Bos, saya mengerti. Kamu menggunakan mereka sebagai garda depan!”</p>
+<p>	“Bos, kamu jenius. ‘Setan Hitam Putih’ ini baru berusia sekitar dua puluh tahun, mereka terlalu muda. Sekarang, mereka dan Hu Mei Er berselisih, jika mereka mendengar saranmu, mereka akan sangat senang.”</p>
+<p>	“Begitu bos berencana, itu benar-benar fenomenal!”</p>
+<p>	Sepuluh anggota Tyrant mulai mem-boot-lick bos mereka.</p>
+<p>	“Ha ha ha.” Tyrant Heng Mei tertawa keras, melambaikan tangannya: “Saudaraku, ikut aku untuk mengunjungi iblis hitam dan putih!”</p>
+<p>	Fang Yuan dan Bai Ning Bing menatap puncak gunung San Cha.</p>
+<p>	Gunung San Cha ini memiliki desain yang khas, dari kaki gunung, naik ke tiga bukit, tampak dari jauh, menyerupai garpu dengan tiga ujung, menunjuk ke langit.</p>
+<p>	Di atas tiga puncak adalah pintu masuk ke warisan tiga raja.</p>
+<p>	Sesekali, puncak gunung akan menembakkan tiga sinar cahaya, dan memungkinkan orang untuk masuk.</p>
+<p>	Setelah jumlah orang mencapai jumlah, pilar cahaya menghilang, dan pintu masuk akan menghilang.</p>
+<p>	Setelah itu, Master Gu yang gagal melewati tes akan dikeluarkan dari waktu ke waktu. Tentu saja, ada juga banyak kematian di dalam warisan setiap saat.</p>
+<p>	“Ada sekitar delapan hari sampai pembukaan warisan berikutnya. Mari kita cari tempat untuk menetap untuk saat ini. ” Fang Yuan menatap sekeliling saat dia melihat sebuah gua di tengah pinggang gunung.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

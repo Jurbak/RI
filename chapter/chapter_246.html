@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 246 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 246";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_245.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 246">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_247.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 246</h1>
+        <div class="text-left">
+<p>	Bab 246</p>
+<p>	Bab 246: Terkena</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Malam berdarah berlalu dan matahari pagi menyinari perkemahan yang hancur.</p>
+<p>	Suasananya khusyuk saat semua orang membersihkan medan perang dan mengemasi barang-barang mereka, berangkat dengan berat hati.</p>
+<p>	Namun, serangan serigala kali ini hanyalah permulaan.</p>
+<p>	Beberapa hari kemudian, mereka diserang lagi oleh kawanan serigala abu-abu.</p>
+<p>	Skala serangan kali ini bahkan lebih besar dari waktu sebelumnya. Tetapi karavan telah mengambil tindakan pencegahan yang cukup dan mampu membatasi kerugian mereka menjadi kurang dari waktu sebelumnya.</p>
+<p>	Mereka mengusir kawanan serigala abu-abu ini. Namun, mereka belum mendapatkan kembali napas mereka, ketika tiga hari kemudian mereka diserang oleh kawanan serigala yang menyala. Paket itu berisi tiga serigala petir yang gila-gilaan dan sembilan serigala petir yang berani. Lima belas master gu terbunuh saat melawan mereka. Pertempuran berakhir dengan mayat serigala di sekitar tanah, dan serigala petir gila yang terluka melarikan diri dengan serigala terluka yang tersisa.</p>
+<p>	Ada banyak gu master yang mengejar mereka untuk membalas dendam, tetapi tidak bisa mengejar mereka dan mereka tidak berani masuk jauh ke dalam gunung Xiao Yue. Mereka hanya bisa menatap lekat-lekat kawanan serigala yang mundur.</p>
+<p>	Serangan kali ini membuat pemimpin karavan dan wakil pemimpin menyadari bahaya yang mereka hadapi. Pada malam itu juga, mereka memutuskan untuk mempercepat dan meninggalkan gunung Xiao Yue secepat mungkin.</p>
+<p>	Meski begitu, selama lima belas hari berikutnya, mereka sering bertemu dengan serangan gerombolan serigala.</p>
+<p>	Serigala abu-abu, serigala petir, serigala salju, serigala berkepala dua dan bahkan serigala taring darah…</p>
+<p>	Semua orang di karavan menghela nafas lega setelah mereka keluar dari gunung Xiao Yue.</p>
+<p>	Beberapa hari berikutnya karavan berlalu dengan damai dan lancar, sampai mereka memasuki gunung Bai Hu dan diserang oleh kelompok binatang buas lagi.</p>
+<p>	Kali ini, kera karapas penyu tua. Kera putih ini sangat besar dengan pelindung karapas di punggung mereka – pelindung karapas ditutupi dengan pola cangkang kura-kura. Tidak banyak korban dari serangan kelompok kera ini, tetapi kerusakan besar pada barang menyebabkan banyak orang merasa sakit hati.</p>
+<p>	Barang-barang Fang Yuan juga menemui kesulitan, selusin gerobak barang yang dimilikinya berkurang menjadi kurang dari setengahnya.</p>
+<p>	Moral dalam karavan turun drastis, orang-orang ini adalah pedagang yang mencoba yang terbaik untuk mendapatkan uang. Namun, kerugian ini membuat perjalanan ini tidak berharga bagi mereka.</p>
+<p>	“Kami telah melakukan perjalanan yang sia-sia.”</p>
+<p>	“Saya memeriksa akun saya kemarin, penghasilan saya kurang dari dua ribu batu purba!”</p>
+<p>	“Situasi saya bahkan lebih buruk, saya sudah kehilangan tiga puluh persen barang.”</p>
+<p>	“Bahkan jika itu lebih buruk, dapatkah itu lebih buruk dari Klan Zhang? Mereka sudah kehilangan sebagian besar barang mereka!”</p>
+<p>	“Huh, jika aku tahu lebih awal, aku akan meringkuk di klan; mengapa saya repot-repot mengambil risiko dan hanya menghasilkan sebanyak ini! ”</p>
+<p>…</p>
+<p>	Karavan bergerak dalam suasana seperti itu. Lima hari kemudian, mereka diserang oleh sekelompok harimau putih.</p>
+<p>	Terjadi kerugian lagi.</p>
+<p>	Tujuh hari kemudian, sekelompok harimau api menyergap mereka; api menyebar ke seluruh kamp dan sejumlah besar barang terbakar habis.</p>
+<p>	Semangat telah mencapai titik terendah sepanjang masa, banyak pedagang telah kehilangan semua investasi mereka.</p>
+<p>	Sepuluh hari kemudian, ketika mereka hendak bersorak ketika mereka meninggalkan perbatasan wilayah pegunungan Bai Hu, sebuah Biao 1 muncul.</p>
+<p>	Lima harimau dan satu Biao . Biao adalah seekor harimau yang telah menumbuhkan sayap, dan setidaknya seribu raja binatang buas. Dan karena ia memiliki kemampuan untuk terbang, itu bahkan lebih merepotkan.</p>
+<p>	Beberapa wakil pemimpin karavan kehilangan nyawa saat melawan Biao ini.</p>
+<p>	Biao membuntuti karavan sejauh hampir seratus mil, terus-menerus mengganggu mereka. Akhirnya petinggi karavan memutuskan untuk membuat pengorbanan kecil, dengan cepat memutuskan untuk menyerahkan hampir seratus pelayan.</p>
+<p>	Sebagian besar pelayan ini terluka atau lumpuh, mereka menghujani kutukan dan menangis untuk hidup mereka, tetapi tidak bisa berbuat apa-apa untuk mengubah nasib mereka.</p>
+<p>	Akhirnya, Biao merasa puas dan pergi, puas.</p>
+<p>	Karavan hanya bisa beristirahat dengan baik setelah meninggalkan gunung Bai Hu jauh di belakang. Para pemimpin masing-masing klan tidak memberikan hadiah, secara bertahap meningkatkan moral.</p>
+<p>	Skala karavan sekarang sudah menipis setengah dari ukuran aslinya.</p>
+<p>	Namun setelah melalui eliminasi dan penajaman yang kejam ini, karavan tersebut kini menunjukkan tanda-tanda kelompok elit.</p>
+<p>	“Saya telah menjadi pedagang keliling selama bertahun-tahun dan ini adalah yang paling menantang dari semuanya.”</p>
+<p>	“Siapa yang tahu apa yang merasuki binatang buas ini, sering menyerang!”</p>
+<p>	“Setelah perjalanan ini berakhir, saya akan pensiun dan menikmati hidup saya.”</p>
+<p>	“Tidak peduli apa, risiko rute perdagangan ini perlu dievaluasi kembali …”</p>
+<p>	“Alasan utamanya masih karena gunung-gunung besar ini tidak memiliki tempat tinggal manusia. Tanpa klan dan garnisun untuk membersihkan binatang buas ini, mereka telah tumbuh tanpa kendali.”</p>
+<p>	Beberapa menghela nafas, beberapa putus asa, sedangkan beberapa masih menyimpan beberapa harapan.</p>
+<p>	Namun, karavan itu tampaknya membawa sial; di jalan depan, mereka tidak hanya diserang oleh semua jenis kelompok binatang, tetapi juga oleh banyak gerombolan serangga dan cacing gu liar.</p>
+<p>	Ukuran karavan terus berkurang, para pedagang tidak lagi peduli dengan untung dan rugi; mereka mulai merasakan hidup mereka dipertaruhkan.</p>
+<p>	Mereka bahkan meninggalkan banyak barang dengan rela untuk mempercepat kecepatan perjalanan mereka.</p>
+<p>	Matahari terbenam mewarnai awan dengan warna merah darah.</p>
+<p>	Kafilah itu melintasi hutan pegunungan dalam keheningan. Semua orang kelelahan dan mati rasa, moral mereka sangat rendah.</p>
+<p>	Banyak yang memiliki perban di tubuh mereka, menutupi luka ringan dan berat. Mereka bergerak selangkah demi selangkah di lorong gunung yang bergelombang.</p>
+<p>	Kemarin hujan, menyebabkan jalur gunung menjadi berlumpur dan licin.</p>
+<p>	Sebuah gerobak berisi barang-barang tersangkut di lumpur. Burung unta yang menyeret kereta mengangkat lehernya dan mengeluarkan suara berderak nyaring sebelum menggunakan seluruh kekuatannya untuk menarik kereta, tetapi tidak berhasil.</p>
+<p>	Tepat pada saat ini, dua tangan datang dari belakang gerobak dan mengangkatnya, menarik roda yang macet keluar dari lubang lumpur.</p>
+<p>	Itu adalah Fangyuan.</p>
+<p>	Dia dengan santai bertepuk tangan. Barang senilai ribuan kilo sepertinya tidak terlalu berat di tangannya.</p>
+<p>	Namun, meskipun gerobak itu terlepas dari lubang lumpur, rodanya entah bagaimana macet dan tidak bergerak.</p>
+<p>	Bai Ning Bing yang berada di samping, membungkuk untuk melihat kemudi.</p>
+<p>	Setelah berada di karavan begitu lama, dia telah belajar banyak hal dengan identitasnya yang tersamar, dan sudah benar-benar menyatu.</p>
+<p>	“Apa ini?” Dia menggosok poros roda, matanya dipenuhi keraguan.</p>
+<p>	Ada semacam benda tersembunyi di poros roda, dan benda itu terus-menerus digiling menjadi bubuk abu-abu halus saat roda bergerak.</p>
+<p>	Bubuk halus itu tidak terlihat ketika mereka jatuh ke tanah.</p>
+<p>	Bai Ning Bing mengambil beberapa bedak ini dan menggosoknya dengan jarinya; bubuk berubah menjadi minyak.</p>
+<p>	“Ah, saya menaruh bubuk minyak ini di roda untuk melumasinya dan membuat gerobak bergerak lebih lancar.” Fang Yuan berjalan mendekat sambil mengeluarkan sapu tangan katun dari sakunya; dia meraih tangan Bai Ning Bing dan membersihkan minyaknya.</p>
+<p>	Setelah itu, dia berjongkok dan meraba-raba roda – roda mendapatkan kembali mobilitasnya.</p>
+<p>	“Ayo pergi.” Dia menyeka bubuk minyak dari tangannya dan menepuk bahu Bai Ning Bing.</p>
+<p>	Keduanya terus berjalan.</p>
+<p>	Langkah Bai Ning Bing terus menjadi lebih lambat saat keraguan di hatinya meningkat dan terbentuk menjadi kabut tebal yang tidak bisa dihilangkan.</p>
+<p>	Dia merasakan ada sesuatu yang salah.</p>
+<p>	“Kapan Fang Yuan mendapatkan bubuk minyak ini? Kenapa aku tidak tahu … apakah itu sejak awal, atau di gunung Huang Jin atau di gunung Xiao Yue? Aneh… dia sepertinya tidak peduli dengan karavan; dia bahkan tidak mengerutkan kening melihat kerugian besar seperti itu pada karavan. Tapi mengapa dia peduli tentang meminyaki kereta tangan? Aneh, aneh!”</p>
+<p>	“Tunggu sebentar!”</p>
+<p>	Tiba-tiba, cahaya cepat tampak melintas di benak Bai Ning Bing.</p>
+<p>	Saat itu, seluruh tubuhnya menggigil dan pupil matanya tiba-tiba menyusut menjadi seukuran pin.</p>
+<p>	Sebuah kemungkinan bergema keluar dari dalam pikirannya.</p>
+<p>	Dia berhenti di tempat, pikirannya dipenuhi kejutan!</p>
+<p>	Setelah beberapa lama, burung unta yang berjalan di sampingnya tiba-tiba memekik dan membangunkannya.</p>
+<p>	Sosok Fang Yuan sudah jauh sekarang, secara bertahap bergabung dengan kerumunan di depan.</p>
+<p>	“Orang ini….” Bai Ning Bing menundukkan kepalanya, menutupi cahaya dingin yang melintas melewati mata birunya di bawah penutup topi jerami.</p>
+<p>	Matahari perlahan-lahan terbenam di barat dan banyak bintang mulai muncul di langit.</p>
+<p>	Karavan berhenti di dekat pantai, mereka memutuskan untuk berkemah di sini untuk bermalam.</p>
+<p>	Namun, tepat ketika mereka setengah selesai mendirikan kemah, sekelompok burung hantu giok dingin muncul di sekitarnya.</p>
+<p>	“Kelompok binatang, itu adalah kucing burung hantu!”</p>
+<p>	“Hentikan pekerjaanmu, buat formasi pertahanan!”</p>
+<p>	“Binatang-binatang sialan ini, aku baru saja makan malam …”</p>
+<p>	Orang-orang mengutuk dan lari, tetapi dengan penderitaan dan amarah yang pahit sebelumnya, mereka segera membentuk tiga garis pertahanan yang ketat.</p>
+<p>	Tubuh Cold Jade Owlcat seperti macan tutul dan sangat cepat. Wajahnya, meskipun, mirip dengan burung hantu, matanya yang besar menutupi hampir setengah dari wajahnya dan bersinar dengan cahaya hijau menakutkan dalam gelap.</p>
+<p>	Raja owlcat berteriak keras; kelompok-kelompok owlcat menyerbu ke arah kamp seperti air pasang.</p>
+<p>	“Membunuh!” Para master gu yang berada di garis depan berteriak.</p>
+<p>	Untuk sesaat, semua jenis warna menyala, api berkobar, batu dan tanah beterbangan, petir bergemuruh …</p>
+<p>	Burung hantu yang tak terhitung jumlahnya runtuh, tetapi lebih banyak gelombang burung hantu bergegas keluar.</p>
+<p>	“Surga, ini adalah kelompok burung hantu giok dingin skala besar.” Seseorang berteriak.</p>
+<p>	“Ahh, simpan….” Bagian dari garis pertahanan tidak bisa menahan serangan lagi, dan seorang master gu diterkam oleh tiga burung hantu, jeritan tragisnya berhenti di tengah jalan, daging dan darah berceceran di udara.</p>
+<p>	“Cepat, tutupi celah itu.” Dua master gu dikirim sebagai bala bantuan.</p>
+<p>	Namun, itu tidak ada gunanya, kesenjangan terus meningkat, perlahan-lahan menghancurkan seluruh garis pertahanan.</p>
+<p>	“Mundur, mundur!” Pada akhirnya, mereka tidak punya pilihan selain mundur ke garis pertahanan kedua.</p>
+<p>	“Hubungkan gerobak dan gerbong, dan tumpuk barang-barang itu ke tembok tinggi!”</p>
+<p>	Setelah garis pertahanan kedua, garis pertahanan ketiga buru-buru mendirikan barikade.</p>
+<p>	Banyak pelayan sibuk memindahkan barang, tubuh mereka basah oleh keringat. Tidak ada yang bisa melakukan kesalahan saat ini.</p>
+<p>	Fang Yuan sedang memindahkan sebuah bagasi besar, ketika Bai Ning Bing tiba-tiba berjalan mendekat dan mengangkat satu sisi bagasi.</p>
+<p>	Di permukaan, dia tampaknya membantu Fang Yuan, tetapi sebenarnya dia bergerak lebih dekat ke Fang Yuan dan berbisik ke telinganya sambil menggertakkan giginya: “Kamu bajingan, kamu menarik burung hantu giok dingin ini, kan?”</p>
+<p>	Fang Yuan tampak terkejut: “Mengapa kamu mengatakan hal seperti itu?”</p>
+<p>	“Berhenti berpura-pura. Pasti ada yang salah dengan bedak itu, aku tidak percaya orang sepertimu akan dengan baik hati mempertimbangkan detail kecil ini!” Bai Ning Bing berbisik.</p>
+<p>	“Hahaha, kamu akhirnya menemukannya.” Fang Yuan tidak menyangkal.</p>
+<p>	Bai Ning Bing mau tidak mau menggertakkan giginya, semua serangan yang sering dialami karavan di jalan itu semua karena ‘kontribusi’ Fang Yuan!</p>
+<p>	Keduanya mengangkat batang kayu dan bergerak perlahan, orang-orang di sekitar mereka semua sibuk berteriak dan bergerak, konsentrasi mereka semua di medan perang. Siapa yang bisa punya waktu untuk mendengarkan bisikan Fang dan Bai?</p>
+<p>	“Mengapa kau melakukan ini?” Setelah hening sejenak, Bai Ning Bing bertanya.</p>
+<p>	“Ha ha.” Fang Yuan tertawa, “Tebak.”</p>
+<p>	Segera, Bai Ning Bing merasakan dorongan kekerasan untuk memukuli Fang Yuan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

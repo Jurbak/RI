@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 456 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 456";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_455.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 456">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_457.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 456</h1>
+        <div class="text-left">
+<p>	Bab 456 – Panggilan Pahlawan</p>
+<p>	Bab 456:</p>
+<p>Penerjemah Panggilan Pahlawan : ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Pemimpin suku Ge ragu-ragu, dia bukan pengecut yang takut mati, karena pada usia ini, kultivasinya mandek dan dia sudah berhenti peduli tentang hidup dan mati.</p>
+<p>	Keraguannya adalah, apakah akan menggunakan metode ini atau tidak.</p>
+<p>	Era suku Ge sudah berakhir, tapi bukan berarti hancur total.</p>
+<p>	Jika manusia mati, mereka hanya dapat diisi ulang melalui penjambretan, di mata Guru Gu, manusia hanyalah angka. Selama para master Gu masih utuh, dan para tetua masih utuh, struktur suku akan tetap ada.</p>
+<p>	Jika mereka mundur sekarang, dan menyerah pada sisanya, hanya petinggi suku Ge yang tersisa, mereka harus mencari perlindungan dengan suku Man.</p>
+<p>	Tapi suku Man memiliki niat untuk melahap suku Ge, serangan kelompok serigala malam ini kemungkinan besar adalah bagian dari rencana mereka!</p>
+<p>	Tetapi jika mereka menggunakan metode Fang Yuan, risikonya terlalu besar. Jika mereka gagal, petinggi suku Ge tamat, dan manusia hanya akan menjadi domba yang menunggu untuk dimakan.</p>
+<p>	“Ayah, dan semua paman di sini, saya pikir paman Chang benar, ini satu-satunya cara untuk menyelamatkan suku!” Ge Guang berbicara, melihat kelompok yang ragu-ragu, dia merasakan hawa dingin di hatinya.</p>
+<p>	Dia masih muda, dia berdarah panas. Pada saat genting, dia melihat warna asli semua orang, dia belum pernah melihat sisi rapuh suku Ge ini.</p>
+<p>	Fang Yuan mencibir di dalam hatinya.</p>
+<p>	Ketika dia pertama kali mendengar bahwa serigala menyerang, dia terkejut, tetapi segera dia merasa sangat gembira.</p>
+<p>	Jika dia mampu menaklukkan banyak sekali raja binatang buas ini di sini, maka kekuatannya akan meningkat sekali lagi, itu berpotensi berlipat ganda!</p>
+<p>	Ini adalah kesempatan sekali saja, dia ingin memanfaatkannya. Tetapi dalam keadaan seperti itu, untuk memperbudak raja serigala yang tak terhitung jumlahnya, dia akan membutuhkan bantuan suku Ge.</p>
+<p>	Ada bahaya dalam menyerang di garis depan, tetapi bagi Fang Yuan, itu tidak terlalu menjadi masalah.</p>
+<p>	Dia adalah peringkat empat Gu Master dengan peringkat tiga sayap elang Gu, jika situasinya berubah ke selatan, dia bisa terbang untuk melarikan diri dengan mudah.</p>
+<p>	Sangat disayangkan membiarkan suku Ge menurun seperti ini, karena dia ingin memanfaatkannya, dia harus memaksimalkan nilainya.</p>
+<p>	“Setiap orang!” Fang Yuan berteriak, menarik tatapan semua orang.</p>
+<p>	Kata-katanya bergema seperti guntur, saat dia berteriak: “Apa yang kamu tunggu? Mengapa Anda ragu-ragu? Apakah semua anggota suku Ge pengecut dan takut mati ?! ”</p>
+<p>	“Dengar, itu adalah tangisan anggota suku Ge kita, serigala malam keji ini membantai orang tua kita, teman-teman kita, istri dan anak-anak kita! Jika suku Ge musnah malam ini, kalian semua akan kehilangan tempat tinggal!”</p>
+<p>	“Bisakah kamu tahan melihat keluarga kami mati tepat di depan mata kami? Saya tidak bisa! Meskipun saya, Chang Shan Yin, hanyalah orang luar, selama hari-hari tinggal di sini, saya merasakan kehangatan, saya merasakan cinta yang kuat yang dimiliki suku Ge terhadap satu sama lain. Untuk teman-temanmu, demi keadilan dunia ini, aku akan maju ke depan, dan berjuang untuk kesempatan bertahan hidup bagi semua orang.”</p>
+<p>	“Laki-laki suku Ge, apakah pedangmu masih ada? Nenek moyang Anda mengawasi Anda. Apakah kepengecutan dan kelemahan mengalir dalam darahmu?”</p>
+<p>	Fang Yuan berteriak dengan nada yang benar, auranya luar biasa.</p>
+<p>	Suaranya begitu panjang, bahkan Master Gu di luar tenda raja pun tertarik. Para tetua suku menatapnya dalam-dalam dengan tatapan terkejut.</p>
+<p>	Apa itu pahlawan?</p>
+<p>	Kemampuan untuk membalikkan keadaan dan mengatasi kesulitan, itu hanya kekuatan sang pahlawan.</p>
+<p>	Tetapi pada saat yang genting, pada saat kematian, dia akan melangkah maju dan menghadapi kesulitan secara langsung, dia membawa kepercayaan diri dan keberanian kepada orang lain. Itu adalah sikap sejati seorang pahlawan!</p>
+<p>	Ge Guang mendengar kata-kata Fang Yuan dan tubuhnya bergetar.</p>
+<p>	Pada saat ini, gambar Fang Yuan begitu agung, itu sangat terukir di hatinya.</p>
+<p>	Matanya bersinar, pupilnya memerah, jantungnya berdebar kencang, dia merasakan perasaan hangat melonjak di dalam dirinya.</p>
+<p>	Swoosh, Ge Guang mengaktifkan pedang Gu, memegangnya di tangan kanannya saat dia mengangkatnya tinggi-tinggi.</p>
+<p>	Selanjutnya, pemimpin suku muda Ge ini berteriak: “Tidak! Prajurit suku Ge masih ada. Pedang suku Ge masih ada! Nenek moyang kita semua mengawasi kita sebagai keturunan! Oh Raja Serigala, yang lain mungkin takut mati, tapi aku, Ge Guang, bersedia mengikutimu ke kedalaman neraka!!”</p>
+<p>	Mengatakan demikian, beberapa tetua yang pemarah sangat terpicu sehingga mereka berteriak malu.</p>
+<p>	“Jadi apa, hasil terburuknya adalah kematian, tidak ada yang perlu ditakuti!”</p>
+<p>	“Serigala malam sialan itu, aku akan membunuh kalian semua!”</p>
+<p>	“Raja Serigala, pemimpin suku muda, anggap aku, Ge De, anggota pasukan pelopor!”</p>
+<p>	Orang-orang ini tidak hanya menanggapi, mereka bahkan memberikan tatapan menghina dan menghina ke sekeliling mereka.</p>
+<p>	Bahkan lebih banyak orang terpicu oleh ini, lagipula, orang dataran utara biasanya sangat berani.</p>
+<p>	“Membunuh! Gunakan darah kami untuk membuktikan keberanian kami, anggota suku Ge!”</p>
+<p>	“Pertempuran sampai mati, pertempuran sampai mati!”</p>
+<p>	“Hitung aku, aku juga akan bertarung!!”</p>
+<p>	Suasana luar biasa meledak di tenda.</p>
+<p>	Bahkan para tetua yang tidak ingin bergabung dengan pertarungan ini meneriakkan kesediaan mereka untuk berpartisipasi. Mereka tidak ingin disebut pengecut seumur hidup. Di dataran utara, selama seseorang mendapatkan reputasi buruk seperti itu, mereka akan dihina oleh semua orang.</p>
+<p>	Perkembangan situasi ini jauh di luar kendali pemimpin suku Ge yang ragu-ragu.</p>
+<p>	Dia sudah tua, dia tidak mau mengambil risiko.</p>
+<p>	Dia sudah memiliki niat untuk mundur sejak lama, selama Master Gu yang lebih tinggi ada di sekitar, suku Ge memiliki fondasi mereka dan dapat memulai dari awal lagi.</p>
+<p>	Jika mereka menyerang ke depan, risikonya terlalu besar, ada serigala malam dalam jumlah yang tidak diketahui di kegelapan malam, selain itu, suku Manusia bahkan mungkin sedang merencanakan sesuatu, dan Chang Shan Yin mungkin tidak akan berhasil menaklukkan banyak sekali serigala. raja. Bahkan jika semua orang menyerang, jika raja serigala yang tak terhitung jumlahnya menolak untuk melawan mereka secara langsung dan memilih untuk melarikan diri, lalu bagaimana?</p>
+<p>	Rencana Fang Yuan memiliki terlalu banyak kekurangan, itu tidak dapat diandalkan.</p>
+<p>	“Oh tidak.” Pemimpin suku Ge Tua melihat mata merah para tetua di sekitarnya dan menyadari bahwa keraguannya sudah tidak berguna, mereka tidak punya pilihan selain bertarung sekarang.</p>
+<p>	“Pertempuran sampai mati! Pertempuran sampai mati! ”</p>
+<p>	“Untuk suku Ge, untuk besok!”</p>
+<p>	“Pertempuran hidup dan mati, ini akan menunjukkan keberanian dan keberanian kita yang luar biasa!”</p>
+<p>	Di luar tenda utama, sorak-sorai dan slogan bergema saat moral pasukan melonjak, mereka bersatu sekarang.</p>
+<p>	Kata-kata Fang Yuan dengan mudah mengubah situasi ke arah yang diinginkannya.</p>
+<p>	Hati semua orang bersatu, pemimpin suku Ge tua tidak punya pilihan selain mengikuti mereka, dia membungkuk dalam-dalam ke arah Fang Yuan: “Raja Serigala, kamu adalah pahlawan sejati! Masa depan suku Ge ada di tanganmu, kami akan menemani kelompok serigalamu maju dan mengalahkan banyak sekali raja serigala.”</p>
+<p>	Semua orang menerima perintah itu.</p>
+<p>	Tatapan Fang Yuan bersinar, niat pemimpin suku Ge adalah untuk mengorbankan kelompok serigala untuk melindungi Master Gu suku Ge.</p>
+<p>	Tapi sedikit pengorbanan bukanlah masalah besar. Selama dia mendapatkan banyak sekali raja serigala, itu akan menjadi keuntungan besar!</p>
+<p>	“Semuanya, tanggung denganku!” Fang Yuan berteriak, membawa semua Master Gu dan meninggalkan tenda utama.</p>
+<p>	Beberapa ratus raja serigala dan ribuan raja serigala juga berkumpul.</p>
+<p>	“Saudara Chang, mengapa hanya ada serigala-serigala ini? Di mana raja serigala Anda yang lain? Di mana pasukan serigalamu?” Pemimpin suku Ge Tua bertanya, hatinya tenggelam.</p>
+<p>	Fang Yuan mendengus dalam hatinya, mengapa dia harus mengorbankan raja serigalanya untuk melindungi suku Ge ini?</p>
+<p>	Semua makhluk hidup di dunia ini sama, tidak ada yang lebih berharga atau lebih mulia dari yang lain.</p>
+<p>	Serigala dan manusia sama-sama makhluk hidup, mengabaikan sudut pandang mereka, mereka adalah makhluk hidup yang setara.</p>
+<p>	Mengapa serigala harus mengorbankan hidup mereka untuk manusia? Apakah manusia lebih mulia dari serigala?</p>
+<p>	Tidak.</p>
+<p>	Apakah seseorang bangsawan atau rendahan, itu hanya sistem kelas. Dan sistem itu didasarkan pada kekuatan.</p>
+<p>	Baik itu Bumi atau dunia ini, hukum terbesar adalah penghapusan yang lemah, ikan besar memakan ikan kecil, ikan kecil memakan udang.</p>
+<p>	Yang disebut bangsawan dibangun di atas fondasi kekuatan yang lebih besar. Tanpa ini, bahkan wanita paling murni dan paling elegan tidak lebih dari seorang pelacur yang bebas!</p>
+<p>	Fang Yuan membutuhkan pendampingan suku Ge sebelumnya karena dia memiliki sedikit serigala, berbahaya baginya untuk bepergian sendirian, dan ada kesulitan yang lebih besar dalam melakukannya.</p>
+<p>	Tapi sekarang, dia memiliki banyak sekali kelompok serigala, nilai suku Ge sangat berkurang.</p>
+<p>	Serigala mematuhinya, dia bisa mengendalikan hidup dan mati mereka sesuka hati. Tapi bisakah suku Ge mengizinkan ini?</p>
+<p>	“Untuk orang luar, kamu ingin aku mengorbankan orang terdekat dan paling setia? Apakah Anda benar-benar berpikir saya bodoh seperti semua anggota suku berdarah panas Anda? Meskipun Fang Yuan merasa sangat jijik di dalam hatinya, dia menunjukkan senyum percaya diri dan hangat, berkata kepada pemimpin suku Ge tua: “Jangan khawatir saudara Ge, situasinya kacau sekarang, peternakan hancur dan serigala berserakan. Saya telah memerintahkan raja serigala untuk berkumpul, segera, kita akan memiliki pasukan serigala penguat datang.</p>
+<p>	Pemimpin suku Ge Tua memandang Fang Yuan dalam-dalam, dan hendak berbicara.</p>
+<p>	Tapi Fang Yuan tidak memberinya kesempatan, dia berteriak: “Semua orang, kelangsungan hidup suku Ge tergantung pada saat ini, menyerangku!”</p>
+<p>	Mengatakan demikian, dia meremas dengan kakinya dan memerintahkan serigala punuk di bawahnya untuk maju.</p>
+<p>	“Membunuh!”</p>
+<p>	“Bunuh serigala-serigala sialan ini!”</p>
+<p>	“Untuk suku Ge, untuk besok!”</p>
+<p>	Semua orang berteriak dalam hiruk-pikuk, saat pemimpin muda suku Ge mengikuti di belakang Fang Yuan dengan cermat.</p>
+<p>	Pemimpin suku Ge tua sangat marah sehingga dia menarik putranya kembali, berteriak di telinganya: “Ingat, kamu adalah pemimpin suku muda dari suku Ge!”</p>
+<p>	Setelah itu, ayah dan anak itu mulai menyerbu ke arah serigala malam sambil dilindungi jauh di dalam formasi.</p>
+<p>	Dua peringkat empat, tujuh belas peringkat tiga, dan sejumlah besar peringkat dua elit, itu adalah kekuatan besar, seperti pedang yang menusuk ke medan perang.</p>
+<p>	Mereka memiliki aura yang luar biasa, tidak ada serigala yang bisa menghentikan mereka, segera, mereka keluar dari kamp dan langsung menuju raja serigala yang tak terhitung jumlahnya.</p>
+<p>	Begitu keluar dari kamp, ​​tekanan semua orang meningkat. Terutama para Master Gu di tepi luar, yang bisa mereka lihat hanyalah serigala malam.</p>
+<p>	Bilah angin, naga air, tinju batu, kerucut emas … segala macam serangan dilepaskan seperti kembang api murahan. Serigala-serigala itu dipukul tanpa penjagaan, dan banyak yang mati dalam prosesnya.</p>
+<p>	Semua orang bertempur dan membunuh, menciptakan jalan bagi diri mereka sendiri.</p>
+<p>	Melolong!</p>
+<p>	Segudang raja serigala melolong, dan dua belas ribu raja serigala dan puluhan ratus raja serigala berkumpul, menyerang Fang Yuan dan geng dari segala arah.</p>
+<p>	Raja serigala segudang memahami niat Fang Yuan, untuk bersaing dengannya, itu mengirim para elit untuk melawan para elit.</p>
+<p>	Fang Yuan diam-diam pergi ke lingkaran paling dalam dari grup, dia berteriak dengan hiruk-pikuk: “Chaaaaaarge! Lebih cepat, jika Anda tidak mengisi lebih cepat, kita semua adalah daging mati! Jika kita memperbudak banyak sekali raja serigala, kita akan membalikkan situasi!”</p>
+<p>	Dalam sekejap, seratus raja serigala dan seribu raja serigala memasuki pertempuran.</p>
+<p>	Kemajuan pasukan menjadi lebih lambat, karena banyak peringkat dua elit dikorbankan.</p>
+<p>	“Oh tidak, esensi purba saya hampir habis, saya hanya bisa mengaktifkan Gu yang meledak sendiri … Untuk suku!” Seorang tetua suku berteriak keras, keluar dari formasi dan menyerbu ke dalam serigala.</p>
+<p>	Raja serigala membuka mulutnya saat menggigitnya.</p>
+<p>	Tetua suku ini mencibir saat dia meledak, membunuh seribu raja serigala ini di tempat!</p>
+<p>	Ini adalah tetua suku pertama yang tewas dalam pertempuran ini.</p>
+<p>	Pemimpin suku tua melihat ini dan dia merasa hatinya berdarah.</p>
+<p>	Para tetua ini adalah fondasi suku Ge, mereka adalah pilar pendukung utama. Melihat kematian mereka, pemimpin suku tua hampir bisa melihat runtuhnya tenda utama.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

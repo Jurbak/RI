@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 449 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 449";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_448.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 449">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_450.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 449</h1>
+        <div class="text-left">
+<p>	Bab 449 – Kekuatan adalah yang paling penting</p>
+<p>	Bab 449: Kekuatan adalah yang paling penting</p>
+<p>Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Hah, suku Man ingin melahap suku Ge kita?” Ge Guang berteriak.</p>
+<p>	Pemimpin suku Ge Tua menghela nafas: “Huh, kakakmu sudah mati, mereka tidak mau mendengarkan penjelasanku, menurutmu mengapa begitu? Karena alasan ini sangat cocok bagi mereka untuk mengirim pasukan mereka! Tetapi ayah menemukan Chang Shan Yin untuk membantu kami, dia adalah pahlawan dataran utara, dia memiliki reputasi besar, dan memiliki suku Chang di belakangnya. Man Tu tidak berani menuduh kami membabi buta, jadi dia tidak menyerang kami malam ini.”</p>
+<p>	Ge Guang berseru: “Ada twist di baliknya? Tapi ayah, aku tidak mengerti, karena kamu sudah mengerti niat suku Man, mengapa kamu menyetujui pernikahan ini, dan menjodohkan saudara perempuan dengan monyet Man Duo itu? ”</p>
+<p>	Pemimpin suku Ge mengangkat jarinya, mengetuk kepala Ge Guang: “Apakah kamu tidak punya otak? Mengapa saya setuju dengan pernikahan itu? Apakah Anda pikir saya ingin menyiksa putri saya sendiri?! Itu karena badai salju besar akan datang, jika kita bisa menjadi kerabat melalui pernikahan, kita bisa tinggal di dalam lembah Hong Yan, dan melindungi semua anggota suku kita! Mengorbankan kebahagiaan kakakmu untuk melindungi suku Ge. Pernikahan ini adalah transaksi, desah, tapi kakakmu kabur dari pernikahannya, dan mati di padang rumput beracun!”</p>
+<p>	Ge Guang mengerutkan kening, berkedip: “Ayah, aku mengerti sekarang.”</p>
+<p>	“Tidak, kamu tidak tahu apa-apa.” Pemimpin suku Ge memahami putranya dengan baik, dia menjelaskan dengan nada kecewa: “Malam ini, pemimpin suku Man mengundang Chang Shan Yin, dan kami mengikutinya. Tapi sebenarnya, target mereka adalah kita, dan aku menyeret Chang Shan Yin sebagai perisai kita.”</p>
+<p>	“Pria Duo itu menggunakan pengejaran asap Gu, dia benar-benar jahat! Ketika kalian semua mencurigai Chang Shan Yin, saya berkata kepadanya bahwa saya mempercayainya sepenuhnya. Apakah Anda pikir saya tidak curiga? Aku belum begitu kacau!”</p>
+<p>	Pemimpin suku Ge menginjak kakinya, nadanya muram: “Tapi ayah tidak berani mencurigainya. Alasan kami bisa bersaing dengan suku Man adalah karena Chang Shan Yin. Jika kita mencurigainya, hasutan mereka akan berhasil, dan merusak hubungan kita dengan Chang Shan Yin. Jika Chang Shan Yin tidak memihak kita, kita mungkin tidak akan kembali hidup-hidup dari perjamuan malam ini.”</p>
+<p>	Kejutan tertulis di seluruh wajah Ge Guang: “Ah, apakah mereka begitu berani, akankah mereka mencoba membunuh kita berdua?”</p>
+<p>	“Hmph, mengapa kamu berpikir bahwa kamu bertemu begitu banyak serigala angin selama pencarian? Di dataran utara, ada banyak contoh di mana kelompok binatang buas digunakan untuk melakukan pembunuhan. Tapi malam ini, suku Man mungkin tidak membunuh kita, tapi mereka akan memenjarakan kita. Pada saat itu, mereka akan menggunakan masalah Ge Yao sebagai alasan untuk melahap suku Ge kami, tanpa kami, suku Ge tidak akan memiliki pemimpin, hasilnya akan menjadi bencana.”</p>
+<p>	Mendengar penjelasan ayahnya, Ge Guang akhirnya mengerti bahaya yang mereka hadapi, menunjukkan ketakutan di wajahnya.</p>
+<p>	“Demi suku, untuk gambaran besar, bahkan jika Chang Shan Yin adalah pembunuhnya, kita tidak bisa mencurigainya! Apakah Anda benar-benar berpikir saya lupa petunjuk dan petunjuk Gu? Bagaimana itu bisa terjadi! Tapi Anda harus menyebutkannya, jika pembunuhnya benar-benar Chang Shan Yin, apa yang akan kita lakukan?” Pemimpin suku Ge Tua berbicara dengan penuh arti.</p>
+<p>	Ge Guang terdiam, setelah beberapa lama, dia berkata: “Jadi itu sebabnya ayah memberikan petunjuk dan petunjuk berharga Gu kepada Chang Shan Yin. Ini untuk memperbaiki hubungan kita dengannya, sehingga dia akan memihak kita?”</p>
+<p>	Pemimpin suku Ge Tua mengangguk: “Kamu akhirnya belajar. Nak, meskipun kamu memiliki bakat yang luar biasa, dan kultivasi yang tinggi, kamu masih jauh dari menjadi pemimpin suku Ge yang baru. ”</p>
+<p>	“Ayah, senang memilikimu. Saya harus belajar lebih banyak dari Anda, suku Ge bisa kehilangan siapa pun kecuali ayah Anda. ” Ge Guang berkata dengan kagum.</p>
+<p>	Pemimpin suku Ge menggelengkan kepalanya: “Waktu tidak menunggu siapa pun, saya sudah tua, suku Ge mengandalkan Anda. Sigh… setelah ini, saya mengerti Man Tu. Dia adalah serigala yang rakus, tidak peduli berapa banyak kekayaannya, dia tidak akan pernah puas.”</p>
+<p>	“Sekarang setelah kakakmu pergi, kami tidak punya alasan lagi untuk menggunakan lembah Hong Yan. Tapi kita tidak bisa bubar dan bergabung dengan suku Man kan? Suku Ge tidak bisa punah seperti ini, kalau tidak aku akan menjadi pendosa terbesar suku kita! Setelah malam ini, saya telah belajar bahwa kita tidak bisa tinggal di sini lebih lama lagi, kalau tidak kita pasti akan dimakan oleh suku Man. Beberapa hari kemudian, kami akan berangkat ke majelis pahlawan. ”</p>
+<p>	“Ayah, jika kita pergi seperti ini, akankah mereka membiarkan kita pergi dengan mudah?” Ge Guang khawatir saat dia bertanya.</p>
+<p>	“Tentu saja mereka tidak mau melepaskan kita, tapi kita bepergian dengan Chang Shan Yin. Man Tu waspada terhadap Chang Shan Yin, dia tidak akan menyerang.” Pemimpin suku Ge mencibir.</p>
+<p>	“Tapi, kita memanfaatkan senior Chang Shan Yin seperti ini, kan…” Ge Guang khawatir.</p>
+<p>	“Kamu bodoh! Mengapa kita tidak memanfaatkan dia? Apa yang salah dengan itu? Pemburu yang baik memanfaatkan sepenuhnya lingkungannya. Ketika kita memiliki kekuatan yang tidak mencukupi, kita menggunakan pengetahuan untuk melengkapinya. Ini semua untuk kelangsungan hidup klan! ”</p>
+<p>	Setelah pemimpin suku Ge memarahi, dia berhenti dan menunjukkan ekspresi kompleks: “Tapi Chang Shan Yin ini benar-benar karakter heroik legendaris… dia mungkin sudah mengerti situasinya, namun dia masih memilih untuk berpihak pada kita. Orang yang benar dan lurus seperti itu, memilih untuk membantu yang lemah, dia benar-benar panutan dari jalan yang benar, cahaya rakyat. Nak, bersukacitalah, kami suku Ge benar-benar bertemu orang seperti itu!”</p>
+<p>	…</p>
+<p>	Waktu berlalu dengan cepat, beberapa hari berlalu.</p>
+<p>	Di dalam ruangan, Fang Yuan memegang Gu bambu tulangnya saat api hantu membakarnya sepenuhnya, terengah-engah: “Ini adalah Gu bambu tulang terakhir.”</p>
+<p>	Hari-hari ini, dia bekerja keras dan menghabiskan ratusan tulang bambu Gu di kotak hadiah.</p>
+<p>	Setelah perawatannya, delapan luka paling parah dari Battle Bone Wheel sembuh. Sekarang, meskipun roda masih tertutup luka dan retak, itu telah meninggalkan tahap darurat.</p>
+<p>	Mengirim roda tulang pertempuran kembali ke aperture, Fang Yuan mulai memeriksa aperture-nya.</p>
+<p>	Dia memiliki peringkat empat kultivasi tahap puncak.</p>
+<p>	Dengan demikian, dinding aperture-nya berbentuk kristal transparan. Laut purbanya sembilan puluh persen penuh, semuanya adalah esensi purba emas sejati.</p>
+<p>	Tapi Fang Yuan baru saja tiba di dataran utara, sebelum dia beradaptasi dengan lingkungan, esensi purba emas sejatinya hanya pada tahap awal esensi purba emas muda.</p>
+<p>	Dengan demikian, kultivasi Fang Yuan tidak berkembang. Menggunakan esensi purba emas muda, saya tidak bisa menembus dinding aperture dan menjadi peringkat lima Gu Master.</p>
+<p>	“Untuk mempercepat adaptasi saya, ada cara untuk melakukannya, paling umum adalah menggunakan jam tangan ketiga Gu, untuk mempercepat waktu saya sendiri. Tapi dengan begitu, umur Gu Master juga akan dipersingkat secara proporsional.</p>
+<p>	Tindakan seperti itu yang mengejar kesuksesan cepat tidak dapat diterima oleh Fang Yuan.</p>
+<p>	Itu bukan karena dia menghargai umurnya, tetapi karena Jangkrik Musim Semi Musim Gugur.</p>
+<p>	Jika Fang Yuan menggunakan Gu arloji ketiga pada dirinya sendiri, sungai waktu padanya akan mengalir tiga kali lebih cepat. Dengan begitu, pemulihan Spring Autumn Cicada juga akan tiga kali lebih cepat.</p>
+<p>	Selain Gu vitalnya dan Gu perjalanan abadi yang tetap di padang rumput beracun, Fang Yuan masih memiliki banyak cacing Gu.</p>
+<p>	Di antara mereka ada dua peringkat lima Gu dari dataran utara.</p>
+<p>	Salah satunya adalah battle bone wheel, sedang pulih dan tidak dapat digunakan untuk sementara.</p>
+<p>	Yang lainnya adalah petunjuk dan petunjuk Gu, itu bisa digunakan untuk mengintai atau melacak orang.</p>
+<p>	“Suku Ge masih memiliki beberapa fondasi, mereka sebenarnya memiliki peringkat lima petunjuk dan petunjuk Gu. Gu ini dapat digunakan untuk melacak cacing Gu, digunakan untuk menangkap cacing Gu liar untuk mencegah mereka melarikan diri. Sayangnya, meskipun pemimpin suku Ge memiliki cacing Gu ini, dia tidak berani mencari putrinya sendiri.”</p>
+<p>	Menjelang konflik antara suku Ge dan suku Man, Fang Yuan jelas sekali.</p>
+<p>	Putra ketiga Man Tu, Man Duo, memiliki ambisi yang besar, ia menginginkan posisi pemimpin suku, tetapi karena kultivasinya yang rendah, ia ingin memiliki suku Ge. Setelah menikahi Ge Yao, dan membuat suku Ge berhubungan dengannya melalui istrinya, mereka akan mampu memperjuangkan posisi pemimpin suku.</p>
+<p>	Man Tu tidak serta merta mengabaikan niat putranya, tetapi dia sangat tertarik untuk melahap suku Ge.</p>
+<p>	Sementara itu, suku Ge ingin menggunakan pernikahan untuk mengorbankan Ge Yao sebagai ganti lembah Hong Yan, untuk bertahan hidup dari badai salju besar yang terjadi sekali dalam sepuluh tahun, dan melewati kesulitan ini.</p>
+<p>	Suku Ge secara alami tidak ingin bubar, tetapi suku Man ingin mendapatkan manfaat dari menyerapnya tanpa menghadapi konsekuensi apa pun.</p>
+<p>	Setelah Ge Yao melarikan diri, suku Man menggunakan alasan ini untuk menyerang mereka, bahkan mereka mungkin menyebabkan insiden Ge Guang.</p>
+<p>	Selama mereka membunuh ayah dan anak suku Ge, suku Ge tidak akan memiliki pemimpin, dan mereka akan jatuh ke dalam kekacauan, dengan mudah diambil alih oleh suku Man.</p>
+<p>	Ge Guang bodoh dan naif, tetapi pemimpin suku tua Ge berpengalaman dan bijaksana, dia tahu keadaan mereka, dan menemukan bahwa dia tidak dapat memuaskan keserakahan Man Tu, tetapi pada titik ini, mereka tidak punya jalan keluar, jadi dia mengendalikan dirinya dan tetap berada di dalam suku, tidak memberikan kesempatan bagi suku Man untuk menyerang.</p>
+<p>	Kedatangan Chang Shan Yin memberi suku Ge harapan untuk keluar dari masalah ini.</p>
+<p>	Ketika pemimpin suku Ge tua mengetahui identitas Fang Yuan sebagai Chang Shan Yin, dia berpikir untuk menggunakannya. Karena itu, dia merawat Fang Yuan dengan hangat dan bahkan memberikan sejuta batu purba sebagai hadiah.</p>
+<p>	Selanjutnya, dia melakukannya dengan baik, menggunakan kekuatan Chang Shan Yin untuk bertarung dengan suku Man.</p>
+<p>	Pada perjamuan cahaya bulan itu, mungkin terlihat seperti pertemuan yang nyaman, tetapi ketiga belah pihak bersaing, bahaya mengintai di setiap sudut, dan semua orang menyembunyikan senjata mematikan mereka.</p>
+<p>	Hasilnya adalah-</p>
+<p>	Suku manusia mengalami kemunduran, mereka tidak hanya gagal berurusan dengan suku Ge, mereka bahkan kehilangan alasan yang mereka miliki, Ge Yao. Tapi mereka tidak kalah, mereka masih yang terkuat di antara ketiganya.</p>
+<p>	Suku Ge menggunakan Chang Shan Yin, memanfaatkan reputasinya untuk melindungi suku mereka, bertahan dari krisis ini. Meskipun mereka berhasil, mereka masih berada di posisi yang lebih lemah.</p>
+<p>	Adapun Fang Yuan, dia berpura-pura bodoh, menggunakan kedua belah pihak dan konflik mereka untuk mencapai tujuannya menyebarkan namanya, sambil mengambil keuntungan dari persaingan mereka dan memperkuat dirinya sendiri.</p>
+<p>	Manusia adalah roh dari semua makhluk, ketika manusia berkompetisi, itu tidak hanya melalui perkelahian dan pembunuhan. Bahkan di dataran utara yang primitif dan terbuka ini, pengetahuan dan skema masih digunakan untuk bersaing..</p>
+<p>	Adapun Ge Yao …</p>
+<p>	Gadis muda lugu ini hanyalah pengorbanan untuk perjuangan politik kedua suku.</p>
+<p>	Faktanya, menurut tebakan pribadi Fang Yuan, pelarian Ge Yao tidak wajar, dia bisa keluar dari kamp suku Ge yang diamankan dengan ketat, kemungkinan besar pemimpin suku Ge tua telah mengaturnya dalam upaya untuk menyelidiki suku Man. Tetapi kecelakaan selalu terjadi dalam kenyataan, rencana tidak dapat mengikuti perubahan, putra tertua atau putra kedua suku Man mungkin telah menyerang, takut Man Duo mendapatkan kekuatan, berharap Ge Yao akan mati. Bagaimanapun, setelah Ge Yao melarikan diri ke padang rumput beracun dan bertemu dengan Fang Yuan, rangkaian peristiwa terbuka.</p>
+<p>	Sambil menggelengkan kepalanya, Fang Yuan menghilangkan tebakan ini dari benaknya: “Dasar dari skema apa pun adalah kekuatan. Mengapa suku Man tidak menyerang suku Ge secara langsung, itu karena mereka bukan suku super tetapi suku besar saja, mereka memiliki kekuatan yang terbatas. Mengapa suku Ge bisa tetap aman sampai sekarang, bukan hanya karena aku, tetapi juga karena yayasan mereka sebagai mantan suku besar. Jika pemimpin suku Ge tua memiliki kultivasi peringkat lima, dia mungkin sudah menggunakan petunjuk dan petunjuk Gu sejak lama. ”</p>
+<p>	“Tidak peduli dunia mana, kekuatan adalah fondasi untuk segalanya. Tapi sekarang, pemimpin suku Ge yang cerdik mungkin berencana untuk memigrasi sukunya lagi. Untuk menghadapi badai salju sepuluh tahun, dia mungkin perlu meminjam kekuatan istana kekaisaran!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

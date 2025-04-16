@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 299 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 299";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_298.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 299">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_300.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 299</h1>
+        <div class="text-left">
+<p>	Bab 299</p>
+<p>	Bab 299: Diam, dasar babi gemuk!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Pertandingan ini sudah berakhir. Saya telah mengkonsumsi tujuh puluh persen dari esensi purba saya, hanya dua puluh persen yang tersisa … “Setelah mendapatkan kemenangan, Bai Ning Bing meninggalkan panggung pertempuran.</p>
+<p>	Dia merangkum pembelajaran pertempurannya sambil berjalan.</p>
+<p>	Dia akan merangkum setiap pertandingan yang dia lawan. Pertempuran dengan Tie Dao Ku hari ini, meskipun dia merasa kasihan bahwa dia tidak dapat membunuhnya, keuntungannya cukup besar.</p>
+<p>	“Pertempuran tadi sangat intens tetapi hanya berlangsung sebentar. Namun, itu menghabiskan banyak esensi purba saya, kalau dipikir-pikir saya memiliki kecepatan pemulihan esensi purba bakat kelas A. Selama pertempuran yang intens, kumpulan cacing Gu saya jelas memiliki masalah konsumsi esensi purba yang tinggi. ”</p>
+<p>	Banyak Master Gu menghadapi kesulitan dalam aspek ini ketika mereka mengatur cacing Gu mereka.</p>
+<p>	Siapa yang tidak suka cacing Gu yang kuat? Tetapi seringkali, cacing Gu dengan kemanjuran yang lebih tinggi memiliki tingkat konsumsi esensi purba yang lebih tinggi.</p>
+<p>	Tentu saja ada cacing Gu yang kuat dan mengkonsumsi lebih sedikit esensi purba. Tapi mereka semua adalah cacing Gu yang langka dan harganya sangat mahal.</p>
+<p>	Bai Ning Bing punya uang ekstra, tapi itu tidak banyak. Dia cerdas dan setelah dengan cepat menyadari situasinya, dia mulai menabung.</p>
+<p>	Sebelumnya, dia akan menghabiskan uang seperti air dan tidak memiliki konsep yang jelas tentang nilai batu purba. Itu karena klan menghabiskan semua upaya mereka dalam mengolahnya.</p>
+<p>	Sekarang, dia bertanggung jawab atas uangnya sendiri selama periode waktu ini, kesadarannya mengalami transformasi yang signifikan.</p>
+<p>	Sementara Fang Yuan berkembang, Bai Ning Bing juga meningkat pesat dalam semua aspek.</p>
+<p>	“Akan lebih baik jika saya memiliki lotus harta karun esensi surgawi Fang Yuan. Setidaknya di peringkat tiga tahap, tidak perlu khawatir tentang pengeluaran esensi purba. ” Bai Ning Bing memikirkan hal ini, pasti memiliki perasaan cemburu.</p>
+<p>	Fang Yuan berjalan di jalur kekuatan. Jalur kekuatan Gu mengkonsumsi esensi purba paling sedikit dan dengan bakat kelas sembilan puluh persen A, dia memiliki sumber esensi purba yang melimpah. Harta teratai esensi surgawi tidak bisa menunjukkan nilai sebenarnya di tangannya, itu hanya melemparkan mutiara di depan babi!</p>
+<p>	“Bagaimana jika saya membeli lotus harta karun esensi surgawi dari Fang Yuan?”</p>
+<p>	Bai Ning Bing menggelengkan kepalanya, dengan cepat membuang pikiran tidak praktis ini dari benaknya.</p>
+<p>	Dia sangat mengerti orang macam apa Fang Yuan itu.</p>
+<p>	Dia belum pernah melihatnya menderita kerugian, jika suatu hari dia bisa mengambil lotus harta karun esensi surgawi dari tangannya, maka itu pasti setelah dia membayar harga yang mahal.</p>
+<p>	“Tanpa bantuan lotus harta karun esensi surgawi, saya hanya bisa mengurangi cacing Gu pada saya.”</p>
+<p>	Setelah memikirkannya dengan cermat, Bai Ning Bing memutuskan untuk menyerah pada bola salju Gu.</p>
+<p>	Snowball Gu adalah Gu tingkat tinggi di peringkat tiga dan dia telah merencanakan untuk menggunakannya sebagai metode serangan jarak jauh.</p>
+<p>	Namun, Gu ini menghabiskan cukup banyak esensi purba.</p>
+<p>	Itu masih baik-baik saja jika dia hanya menggunakannya satu kali. Tapi bagaimana mungkin dia hanya mengirimkan satu bola salju di tengah pertempuran yang intens?</p>
+<p>	Lima hingga enam bola salju setelahnya, konsumsi esensi purbanya akan berjumlah banyak.</p>
+<p>	“Aku akan melepaskan Gu bola salju dan menyimpan Gu es. Icicle Gu mungkin hanya peringkat dua, tetapi juga dapat membatasi lawan. Itu akan menjadi ancaman jika saya menggunakannya dengan ledakan es Gu. ”</p>
+<p>	Ledakan es Gu adalah Gu peringkat tiga yang bisa meledakkan es dan membentuk kekuatan penghancur seketika.</p>
+<p>	Semakin besar, tua, dan dingin es, semakin besar kekuatan ledakannya.</p>
+<p>	Dia mampu membangun dominasinya dalam pertempuran melawan Tie Dao Ku karena ledakan es Gu ini.</p>
+<p>	Tentu saja, jika ledakan es menyebar ke arah Bai Ning Bing, dia juga akan menerima cedera. Tetapi jika dia mengubah tubuhnya menjadi kristal es, tingkat keparahan cedera akan turun ke tingkat yang rendah.</p>
+<p>	Memikirkan pertempuran hebat sebelumnya, Bai Ning Bing menjilat bibirnya dengan gembira.</p>
+<p>	Jalur es normal Gu Master mengejar kemampuan bertahan atau menjebak. Hanya mereka yang menyukai jalur api Gu Masters atau jalur guntur Gu Masters yang fokus pada kekuatan ledakan.</p>
+<p>	Namun, Bai Ning Bing melakukan yang sebaliknya. Inspirasinya adalah ledakan es Gu dan dia tidak menyangka hasilnya akan begitu bagus, di luar perkiraan awalnya.</p>
+<p>	“Ledakan es Gu brilian dan sangat efektif dalam pertempuran, aku akan terus memanfaatkannya nanti.” Bai Ning Bing direncanakan dalam hati.</p>
+<p>	Dia dulu menganjurkan gaya bertarung langsung dan lugas; ganas dan cepat, menebas segalanya dengan angin esnya. Namun, dia terpengaruh setelah berhubungan dengan Fang Yuan sepanjang waktu, dan sekarang tertarik untuk melakukan gerakan berbahaya.</p>
+<p>	Dia tertarik pada segala sesuatu yang indah di dunia ini.</p>
+<p>	“Gu kristal es, Gu tepi es, Gu Icicle, Gu ledakan es … dapatkah set ini mengalahkan Fang Yuan?”</p>
+<p>	Bai Ning Bing mempertimbangkan ini, menganggap Fang Yuan sebagai musuh imajiner nomor satu.</p>
+<p>	“Fang Yuan berjalan di jalur kekuatan, dia memiliki upaya habis-habisan Gu dan jauh lebih mendominasi dalam pertempuran jarak dekat daripada pria itu sebelumnya. Dengan metodeku saat ini, tidak akan mudah untuk menang melawannya. Kecuali aku bisa mendapatkan kembali gerakan pembunuhku.”</p>
+<p>	Gerakan pembunuh Bai Ning Bing adalah badai pedang es yang dia ciptakan sendiri. Dia telah menciptakan ini menggunakan Gu berputar yang dipasangkan dengan Gu angin puyuh dan Gu bilah es, membentuk tornado es.</p>
+<p>	Tapi sekarang visi Bai Ning Bing telah melebar, langkah ini sudah kuno. Badai bilah es bisa menggertak peringkat dua, tetapi akan di bawah standar di ranah peringkat tiga.</p>
+<p>	Hari-hari ini, dia telah memikirkan cara untuk meningkatkan dan memoles gerakan pembunuhnya, tetapi tidak bisa mendapatkan ide.</p>
+<p>	Dia tiba-tiba memikirkan sesuatu dan langkahnya dipercepat: “Oh benar, hari ini adalah pertempuran pertama Fang Yuan setelah maju ke kota terdalam keempat. Seharusnya tidak terlambat jika aku pergi melihat sekarang!”</p>
+<p>…</p>
+<p>	“Bunuh, bunuh dia!”</p>
+<p>	“Zhu Ba, selesaikan anak ini dengan cepat!”</p>
+<p>	“Dari cara saya melihatnya, Zhu Ba bahkan tidak perlu bergerak dan anak Fang Zheng ini tidak akan tahan.”</p>
+<p>	“Hehe, anak ini dalam masalah. Dia bertemu Zhu Ba yang kebetulan menaklukkan jalur kekuatannya pada pertandingan pertamanya!”</p>
+<p>	Panggung pertempuran itu hidup dan penuh dengan orang.</p>
+<p>	“Pertandingan Fang Yuan telah menarik banyak penonton. Nah, zona pertempuran tidak memiliki batasan mengenai kultivasi penonton. Selama Tuan Gu punya uang, dia bisa datang menonton. ” Bai Ning Bing tiba di panggung pertempuran dan melihat sekelilingnya sebelum berkonsentrasi menuju panggung.</p>
+<p>	Ini adalah panggung pertempuran skala menengah dan medannya adalah lantai ubin batu biasa.</p>
+<p>	Fang Yuan dan Gu Master yang kekar bertarung dengan sengit. Menurut komentar penonton, lawan Fang Yuan adalah Zhu Ba.</p>
+<p>	Zhu Ba sangat besar, tingginya hampir tiga meter. Seluruh tubuhnya penuh dengan lemak, membuat kepala dan anggota tubuhnya terlihat lebih kecil. Dia seperti versi pegulat sumo bumi yang diperbesar.</p>
+<p>	Di dunia ini, apakah itu seorang Guru Gu atau manusia fana, tinggi badan mereka biasanya tidak melebihi dua meter. Tinggi badan Zhu Ba jelas merupakan hasil dari penggunaan beberapa cacing Gu.</p>
+<p>	Ini sebenarnya cukup normal.</p>
+<p>	Banyak Master Gu tipe terbang akan membuat tulang mereka berlubang untuk mengurangi beratnya. Beberapa Master Gu yang menggali tanah akan menggunakan Gu yang mengecilkan tulang untuk berubah menjadi kurcaci; seperti ini, konsumsi energi mereka akan jauh lebih rendah saat mengebor terowongan.</p>
+<p>	Bai Ning Bing tidak memiliki banyak pengetahuan tentang Zhu Ba, tetapi dari komentar terus menerus dari para penonton di sekitarnya, dia mengerti metode Zhu Ba.</p>
+<p>	Zhu Ba adalah Guru Gu yang defensif.</p>
+<p>	Lemak di tubuhnya memberinya pertahanan yang kuat.</p>
+<p>	Fang Yuan bergerak di sekitar Zhu Ba, meninju dan menendangnya. Ketika Zhu Ba menerima serangan, lemak di tubuhnya bergetar seperti riak air dan menyebarkan kekuatan serangan ke seluruh bagian tubuhnya. Kemudian dengan menggunakan Gu, kekuatan ini dikumpulkan bersama dan melalui metode counter-shock, itu dikembalikan kembali ke Fang Yuan.</p>
+<p>	Menurut sumber, Zhu Ba menerima Gu dari warisan iblis. Itu tidak pasti karena dia tidak pernah mengungkapkan jumlah Gu yang dia miliki dan nama mereka.</p>
+<p>	Namun, metode bertarungnya membuat orang tidak berdaya, terutama efektif melawan jalur kekuatan Gu Masters.</p>
+<p>	“Fang Zheng, istirahatlah, tidak ada gunanya. Saya dapat mengirim delapan puluh persen dari kekuatan serangan Anda kembali kepada Anda melalui serangan balasan. Pukulan dan tendangan tidak berpengaruh apa-apa padaku, sebaliknya kamu akan terluka. Apakah kamu masih belum menyadarinya?” Zhu Ba berbicara dengan suara rendah yang teredam.</p>
+<p>	Dia langsung duduk di panggung pertempuran, membiarkan Fang Yuan menyerangnya, memberikan kehadiran yang tak tergoyahkan.</p>
+<p>	Hantu babi hutan, hantu beruang coklat, dan hantu buaya terus-menerus melintas di atas Fang Yuan. Itu adalah kemunculan kembali adegan ketika dia dengan kejam memukuli katak gunung, tetapi Zhu Ba acuh tak acuh.</p>
+<p>	Tidak peduli berapa banyak kekuatan yang Anda gunakan, yang lain bahkan tidak melirik Anda, siapa yang tidak akan berkecil hati dengan situasi seperti itu?</p>
+<p>	Namun, Fang Yuan bertahan dan terus bergerak dan menyerang Zhu Ba tanpa mengucapkan sepatah kata pun.</p>
+<p>	Sudah seperti ini sejak pertandingan dimulai dan sekarang, lima belas menit telah berlalu.</p>
+<p>	“Engah!” Fang Yuan menghirup udara keruh dan tiba-tiba mundur selangkah, menghentikan serangannya.</p>
+<p>	Darah merembes keluar dari sudut bibirnya; kekuatan counter-shock dari Zhu Ba menyentak organ-organnya, menimbulkan luka dalam pada dirinya.</p>
+<p>	Dia memiliki tulang besi, tendon baja, kanopi Gu dan ada juga perisai emas Gu, tetapi kejutan ini melewati semua pertahanannya dan menyerang organ internalnya.</p>
+<p>	Organ internalnya tidak diperkuat sama sekali, meskipun dia menyembuhkannya dengan kemandirian Gu, lukanya semakin berat.</p>
+<p>	Fang Yuan menghentikan serangannya, kekuatan serangan balik juga menghilang. Beberapa napas kemudian, organ internalnya benar-benar sembuh.</p>
+<p>	Serangan dilanjutkan!</p>
+<p>	Dia mengambil langkah kuat dan memulai serangannya; tinjunya hancur seperti meteor, membawa serta suara angin. Lemak di Zhu Ba bergetar sekali lagi, menciptakan riak dan mengirimkannya kembali.</p>
+<p>	“Fang Zheng, kamu memiliki Gu yang menyembuhkan, tetapi aku juga. Kamu menderita delapan puluh persen dari serangan itu, sementara aku hanya menerima dua puluh persen dari kerusakan. Konsumsimu lebih dari milikku, lebih baik mengaku kalah saja.” Zhu Ba terus membujuk.</p>
+<p>	Fang Yuan hanya menyerang, tanpa membalas.</p>
+<p>	Ketika darah mulai merembes keluar lagi, dia menghentikan serangan dan menggunakan kemandirian Gu untuk pulih.</p>
+<p>	Meskipun dia menghilangkan kekuatan babi hutan, dia menambahkan kekuatan banteng, kekuatan kuda, dan kekuatan setengah kura-kura; kemandirian efek Gu telah melampaui daging-tulang.</p>
+<p>	Keadaan ini terus berlanjut dan penonton mulai bosan, bahkan ada yang menguap.</p>
+<p>	“Terlalu membosankan…”</p>
+<p>	“Aku benar-benar bertanya-tanya mengapa Fang Zheng berusaha keras.”</p>
+<p>	“Hari ini, Zhu Ba juga terlihat agak tidak normal, mengapa dia tidak menyerang?”</p>
+<p>	“Bukankah ini gayanya selama ini? Pertama-tama pertahankan dan buang esensi purba dan semangat juang lawannya, lalu gerakkan, kalahkan lawannya. ”</p>
+<p>	“Masalahnya ada di sini, Fang Zheng memiliki terlalu banyak energi, dia telah menyerang begitu lama tanpa hasil tetapi dia tidak terlihat sedikit pun putus asa. Dia adalah seorang kultivator kekuatan, jadi konsumsi esensi purbanya juga kecil. Kapan kebuntuan ini akan berakhir?”</p>
+<p>	“Kalian tidak bisa melihat apa yang sedang terjadi? Zhu Ba sedang bermain dengan pemula.”</p>
+<p>	Kata-kata ini segera menyebabkan orang-orang di sekitarnya tertawa.</p>
+<p>	Bagi para Master Gu yang nongkrong di zona pertempuran sepanjang tahun, Fang Yuan memang seorang pemula yang sangat tidak berpengalaman.</p>
+<p>	“Fang Zheng, tidak ada artinya melanjutkan ini. Saya tidak tertarik dengan usaha habis-habisan Anda Gu, saya tidak ingin menggertak seorang pemula sebagai senior. Akan lebih baik bagimu untuk mundur, aku berjanji tidak akan memilih cacing Gumu.” Zhu Ba tertawa.</p>
+<p>	Dia telah menerima serangan Fang Yuan yang berisi kekuatan tabrakan babi hutan, kekuatan gigitan buaya dan kekuatan pukulan beruang coklat, tetapi dia masih bisa tertawa.</p>
+<p>	“Kekuatan macam apa ini!”</p>
+<p>	“Memang layak menjadi peringkat delapan di kota terdalam keempat.”</p>
+<p>	“Kekuatannya adalah yang sebenarnya.”</p>
+<p>	Penonton benar-benar tersentuh.</p>
+<p>	“Diam, kau babi gemuk!” Fang Yuan tiba-tiba berteriak.</p>
+<p>	Panggung pertempuran menjadi sunyi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

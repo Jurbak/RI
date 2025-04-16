@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 536 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 536";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_535.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 536">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_537.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 536</h1>
+        <div class="text-left">
+<p>	Bab 536 – Pertempuran Besar</p>
+<p>	Bab 536: Pertempuran Besar</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan mengamati ekspresi Chang Biao dan yang lainnya sepenuhnya.</p>
+<p>	Fang Yuan tahu tentang masalah Raja Serigala Chang Shan Yin sebagian besar dari biografinya, dia tidak tahu penyebab sebenarnya di balik situasi Raja Serigala.</p>
+<p>	Tetapi bahkan jika dia tahu, dia tidak akan repot-repot membalas dendam untuk Raja Serigala yang mati.</p>
+<p>	Dia adalah Fang Yuan, yang disebut Chang Shan Yin hanyalah topeng.</p>
+<p>	“Mulai hari ini dan seterusnya, aku akan menjadi satu-satunya tetua tertinggi suku Chang.” Fang Yuan berbicara, memecah kesunyian.</p>
+<p>	Tubuh Chang Biao bergidik, dia membuka matanya dan dengan cepat membungkuk: “Chang Biao memberi hormat kepada tuan sesepuh tertinggi.”</p>
+<p>	“Mm.” Fang Yuan mengangguk: “Kita perlu menyelidiki masalah sejak saat itu secara menyeluruh. Tapi sekarang bukan waktunya, kita harus menunggu sampai kontes Imperial Court berakhir. Mulai hari ini dan seterusnya, saya akan menjadi satu-satunya tetua tertinggi suku Chang. Chang Ji You, Anda akan menjadi pemimpin suku. Chang Biao akan menjadi penatua nomor satu. Ni Xue Tong, hubungan kita sudah berakhir, teruslah menjadi istri Chang Biao.”</p>
+<p>	Karena tradisi Giant Sun Immortal Venerable, di dataran utara, wanita memiliki status rendah, mereka sering dijual sebagai komoditas dalam transaksi. Bahkan, kadang-kadang, ketika seorang tamu terhormat datang berkunjung, tuannya akan mengirim istrinya sendiri kepada tamu terhormat untuk tidur dengannya.</p>
+<p>	“Ah?” Chang Ji You tertegun di tempat, dia membeku sepenuhnya.</p>
+<p>	Ni Xue Tong tidak berbicara.</p>
+<p>	Chang Biao mengendalikan keterkejutan di hatinya, dia membungkuk sekali lagi: “Bawahan ini mengerti!”</p>
+<p>	“Meninggalkan.” Fang Yuan melambaikan tangannya, mengirim mereka pergi. Dia harus memanfaatkan waktunya dengan baik untuk terus berkultivasi.</p>
+<p>	Ketiganya berjalan keluar dari rumah kadal besar Gu dengan linglung, sampai angin malam yang dingin bertiup dan membangunkan mereka.</p>
+<p>	“Aku… selamat seperti ini?” Chang Biao merasakan kegembiraan dan kebahagiaan yang tak ada habisnya.</p>
+<p>	“Tapi masalah saat itu dilakukan dengan sempurna! Meskipun ada beberapa jejak di sana-sini, setelah bertahun-tahun, buktinya sudah lama hilang. Saat itu, saya sengaja dekat dengan Chang Shan Yin, dan menjadi teman baik dengannya. Sekarang Chang Shan Yin telah mengalami perubahan yang begitu besar, ditambah lagi sudah bertahun-tahun, itu normal jika hubungan kita menjadi hambar.” Chang Biao berpikir cepat di kepalanya.</p>
+<p>	Situasi saat ini jauh lebih baik dari yang dia harapkan.</p>
+<p>	“Meskipun saya diturunkan dari pemimpin suku menjadi tetua, sebagian besar otoritas saya masih utuh. Chang Shan Yin masih memercayaiku melihat bahwa dia mengizinkanku menjadi penatua nomor satu! Adapun menjadikan Chang Ji You sebagai pemimpin suku baru, itu menunjukkan bahwa dia masih sangat peduli dengan darah dan dagingnya sendiri! Selama dia peduli dengan hubungan dan persahabatan lamanya, semuanya akan mudah diselesaikan…” pikir Chang Biao dan menjadi lebih energik.</p>
+<p>	Dia bermimpi dalam dunianya sendiri, dan tidak memperhatikan ekspresi rumit istrinya Ni Xue Tong.</p>
+<p>	Chang Shan Yin yang lama sangat tergila-gila dengan kecantikannya, tetapi sebelumnya, Chang Shan Yin bahkan tidak memberinya pandangan ekstra.</p>
+<p>	Dalam perjalanan ke sini, dia sangat khawatir tentang Chang Shan Yin yang memaksanya ke istrinya lagi. Dengan begitu, dia akan berpisah dari kekasihnya Chang Biao, itu terlalu menyakitkan!</p>
+<p>	Tapi sekarang, situasinya jauh lebih baik dari yang dia duga.</p>
+<p>	Chang Shan Yin tidak hanya tidak mengejar masalah saat itu, dia bahkan mengizinkannya untuk tetap sebagai istri Chang Biao!</p>
+<p>	Ini adalah hasil yang Ni Xue Tong impikan sebelumnya. Seharusnya dia senang, tapi entah kenapa, saat dia masih merasakan sedikit kegugupan dari sebelumnya, ada juga rasa kehilangan dalam dirinya, yang tidak ingin dia akui.</p>
+<p>	Adapun Chang Ji You, dia sangat gembira, bingung, dan curiga.</p>
+<p>	“Aku akhirnya bertemu ayah, dia hanya beberapa langkah di depanku! Dia jauh lebih berwibawa daripada yang saya bayangkan.”</p>
+<p>	“Ayah tidak memanggil saya putranya, tetapi memanggil nama saya. Apakah dia tidak menyadari bahwa aku adalah darah dan dagingnya?”</p>
+<p>	“Tapi ayah, kenapa dia membiarkanku menjadi pemimpin suku Chang? Saya sangat muda dan hanya memiliki kultivasi peringkat tiga, dapatkah saya melakukannya? ”</p>
+<p>	“Saya mengerti! Ini pasti ujian dari ayah. Dia sedang menguji saya, anak ini yang belum pernah dia temui, jika saya bisa mengelola suku dengan baik dan mencapai hasil yang luar biasa, apakah dia akan merasa bahagia dan bangga, akan mengakui saya sebagai putranya?</p>
+<p>	Berpikir demikian, Chang Ji You merasa sangat bersemangat, dia mengambil keputusan, dia akan mengerahkan semua upayanya dan tampil baik dalam pertarungan mendatang untuk Pengadilan Kekaisaran.</p>
+<p>	Fang Yuan tidak menyangka bahwa pengaturannya yang sederhana akan membawa perubahan emosional yang begitu besar pada Chang Biao dan gengnya.</p>
+<p>	Tetapi bahkan jika dia tahu, dia tidak akan peduli.</p>
+<p>	Dalam lima ratus tahun kehidupan masa lalunya, Chang Shan Yin membantu Ma Hong Yun naik ke posisi Penguasa Pengadilan Kekaisaran, dia juga memiliki kendali penuh atas suku Chang.</p>
+<p>	Berbeda dari Bumi, ketika kekuatan dapat diakumulasikan dalam diri seseorang, semakin kuat seseorang, semakin besar otoritasnya.</p>
+<p>	Pada titik ini, Fang Yuan bukan lagi Master Gu peringkat rendah di gunung Qing Mao, ditekan dan dilemahkan oleh sistem. Saat ini, dia memiliki wewenang untuk memanipulasi dan mengubah sistem kekuasaan suatu suku. Bisa dikatakan, dia berada di puncak alam fana.</p>
+<p>	Dia tahu di dalam hatinya, semua ini karena kekuatan besar yang dia miliki!</p>
+<p>	“Saat ini, aperture pertamaku sudah beradaptasi, aku bisa menggunakan esensi primeval tahap puncak peringkat lima. Aperture kedua saya juga telah mencapai peringkat lima tahap tengah. Dua lubang saya memiliki bakat kelas sembilan puluh persen A, untuk menggunakan dua set cacing Gu saya sekarang, saya memiliki esensi purba yang cukup.</p>
+<p>	“Tapi jalur perbudakan dan kekuatan cacing Gu tidak terlalu kuat. Dalam hal jalur kekuatan, setelah mendapatkan efek penguatan peringkat lima Gu, kekuatan ledakan saya sudah cukup tinggi, kecuali bahwa tubuh saya tidak mampu menahan peningkatan kekuatan.</p>
+<p>	Sebelumnya, ketika bertarung melawan Liu Wen Wu dan gerakan pembunuh kombinasi saudaranya ‘tiga kepala enam lengan’, Fang Yuan pasti bisa melawan mereka menggunakan kultivasi jalur kekuatannya.</p>
+<p>	Tapi Fang Yuan tahu dengan jelas bahwa saat dia melepaskan kekuatan lima ratus jun, terlepas dari bagaimana lawannya akan berakhir, tubuhnya sendiri pasti akan hancur lebih dulu.</p>
+<p>	“Tulangku adalah tulang ketidakkekalan. Kulit saya adalah kulit serigala giok penyu. Untuk mempertahankan kekuatan lima ratus jun, ini tidak cukup. Tetapi jika saya memodifikasi otot dan tendon saya untuk mengakomodasi jalur kekuatan, mereka tidak akan cocok dengan jalur perbudakan saya. Jika saya memodifikasinya untuk jalur perbudakan, mereka tidak akan membantu jalur kekuatan saya. Akar masalahnya adalah bahwa perbudakan dan kekuatan memiliki beberapa konflik di antara mereka, sulit untuk mengolahnya bersama. Itu tidak seperti jalan jiwa dan perbudakan, atau jalan jiwa dan kebijaksanaan.”</p>
+<p>	Masalah ini selalu mengganggu Fang Yuan.</p>
+<p>	Jika dia tidak bisa menyelesaikan ini, perbudakan dan jalur kekuatan Fang Yuan hanya akan pergi jauh, tetapi tidak akan mencapai puncak dan mencapai kekuatan tertinggi.</p>
+<p>	Meskipun Fang Yuan memiliki informasi tentang lembah Luo Po sekarang, masa depan tidak pasti, apa pun bisa terjadi. Fang Yuan adalah orang yang waspada, sebelum mendapatkan lembah Luo Po, dia tidak akan memutuskan untuk mengolah jalur jiwa, jadi, dia perlu menyempurnakan rute jalur kekuatan perbudakannya sekarang.</p>
+<p>	Fang Yuan memejamkan matanya dan memikirkannya, sebelum membukanya dan mengeluarkan Gu jendela timur dari lubangnya.</p>
+<p>	Gu ini adalah Gu penyimpanan, digunakan untuk menyimpan informasi, itu berasal dari roh tanah Lang Ya.</p>
+<p>	Di dalam jendela timur Gu, ada informasi mengenai gerakan pembunuh ‘tiga kepala enam tangan’. Gerakan pembunuh ini sangat kuat, bisa membuat Liu Wen Wu, Ouyang Bi Sang, dan Mo Shi Kuang menjadi monster raksasa, meningkatkan kekuatan pertempuran mereka ke tingkat yang menakutkan.</p>
+<p>	Setelah suku Hei mengalahkan suku Liu, mereka membuat permintaan mengenai langkah pembunuh ini, sehingga menjadi bagian dari reparasi. Setelah itu, Fang Yuan menukarnya menggunakan kemampuan bertarungnya.</p>
+<p>	Hari-hari ini, ketika Fang Yuan bebas, dia akan meneliti tentang langkah pembunuh ini.</p>
+<p>	Ketika Gu Masters menggunakan beberapa worm Gu pada saat yang sama, memungkinkan efek mereka untuk bergabung dan bekerja sama untuk membentuk efek yang lebih besar, itu akan menjadi apa yang disebut gerakan pembunuh Gu Master.</p>
+<p>	Gerakan pembunuh ‘tiga kepala enam lengan’, membutuhkan delapan belas cacing Gu untuk digunakan pada saat yang bersamaan. Cacing Gu yang digunakan berkisar dari peringkat tiga hingga lima, pengeluaran esensi purba juga sangat besar. Pada saat yang sama, tiga Master Gu diperlukan, seseorang tidak dapat mengaktifkannya sendiri.</p>
+<p>	Langkah pembunuh ini tidak dapat digunakan oleh Fang Yuan. Tapi itu tidak berarti itu tidak berharga baginya.</p>
+<p>	Gerakan pembunuh, atau resep, menunjukkan penggunaan cacing Gu yang luar biasa.</p>
+<p>	Mengapa ketika cacing Gu ini digunakan dengan cara tertentu, mereka mencapai efek seperti itu? Mengapa cacing Gu ini bisa melakukannya, tetapi yang lain tidak? Jika Gu ini diubah menjadi Gu lain, dapatkah efek yang sama dicapai? Jika musuh menggunakan jurus pembunuh ini, cara apa yang bisa dilakukan untuk melawannya?</p>
+<p>	Manusia adalah roh dari semua makhluk, Gu adalah inti dari langit dan bumi.</p>
+<p>	Di dalam Gu, ada hukum langit dan bumi yang kecil, pecahan dari Dao yang agung.</p>
+<p>	Dengan memahami Gu, seseorang akan memahami Dao yang agung, dan memahami hukum alam dunia ini. Sama seperti di Bumi, menggunakan eksperimen untuk mempelajari teori-teori ilmiah.</p>
+<p>	Resep Gu ini memberikan wawasan yang luar biasa kepada Fang Yuan.</p>
+<p>	“Jika saya memiliki tiga kepala dan enam tangan, apa yang akan terjadi?”</p>
+<p>	Kilasan inspirasi muncul di otaknya, seperti membuka jendela baru.</p>
+<p>	Tubuhnya seperti batu penjuru. Perbudakan dan jalur kekuatan seperti bangunan di atas batu penjuru. Saat ini, batu penjuru ini masih kecil, sehingga kedua bangunan itu hanya bisa bertingkat rendah. Jika dia memperluas landasan ini di masa depan, apakah itu bisa menampung dua gedung tinggi pada saat yang bersamaan?</p>
+<p>	Fang Yuan tidak pernah peduli dengan penampilannya sendiri.</p>
+<p>	Tampan, cantik, jelek, ini pendapat orang lain. Apa hubungannya dengan dia?</p>
+<p>	Jika kekuatan pertempurannya tinggi, lalu bagaimana jika dia disebut monster?</p>
+<p>	Dataran Utara, Juli.</p>
+<p>	Cuaca menjadi dingin, kabut berubah menjadi embun beku, hujan turun tanpa henti.</p>
+<p>	Semua tentara terlibat dalam banyak pertempuran sengit, sudah ada kurang dari lima puluh yang tersisa.</p>
+<p>	Meskipun suku Hei menang melawan suku Liu, mereka menderita kerugian besar juga, mereka mendirikan kemah dan memanfaatkan seluruh waktu mereka untuk memulihkan diri dan pulih, seperti binatang yang terluka.</p>
+<p>	Pertengahan Juli.</p>
+<p>	Di wilayah Du Jiao, tentara Ye Lui mengalahkan aliansi tujuh tentara, pada hari serangan balik, Ye Lui Sang membunuh tiga Master Gu peringkat lima.</p>
+<p>	Namun dalam pertempuran ini, yang berprestasi terbesar adalah sesepuh tersembunyi di suku Qi Lian, anak baptis pemimpin suku Qi Lian, Wu Ming.</p>
+<p>	Wu Ming adalah peringkat lima jalur gelap tingkat menengah Gu Master. Selama pertempuran, dia menyelinap ke kamp musuh dan membunuh musuh, berhasil membunuh dua ahli peringkat lima, tiga belas peringkat empat Master Gu, menyebabkan tujuh tentara aliansi merasa sangat takut dan moral rendah.</p>
+<p>	Dataran Utara, Agustus.</p>
+<p>	Setelah suku Yang merekrut master perbudakan Jiang Bao Ya, kekuatan mereka melonjak dan mereka mengalami banyak kemenangan, setelah beberapa pertempuran, mereka adalah salah satu pesaing populer baru untuk Istana Kekaisaran.</p>
+<p>	Master perbudakan baru “Raja Macan Tutul’ Nu Er Tu memimpin pasukannya melawan suku Tao. Tentara aliansi suku Tao telah mengalami banyak kemunduran selama pertempuran, pemimpin aliansi Tao You tahu bahwa dia tidak memiliki harapan untuk naik ke posisi Penguasa Istana Kekaisaran. Karena itu, dia tunduk pada Nu Er Tu, dan setelah pasukan mereka bergabung, kekuatan militer mereka melonjak.</p>
+<p>	Pertengahan Agustus, Hei Lou Lan memberi perintah untuk melanjutkan penaklukan mereka.</p>
+<p>	Pada bulan September, kontes Pengadilan Kekaisaran mulai beres. Hanya lima tentara yang memiliki harapan tertinggi.</p>
+<p>	Suku Hei yang memiliki Chang Shan Yin, Tai Bai Yun Sheng, suku Nu Er dengan Raja Macan Tutul yang baru, suku Yang yang memiliki Raja Tikus dan Raja Elang, suku Ma dengan Raja Kuda, serta suku Ye Lui yang memiliki Ye Lui Sang yang memiliki Gu Abadi.</p>
+<p>	Paruh pertama September, tentara suku Nu Er melawan tentara suku Yang. Kelompok macan tutul tidak bisa mengikuti kombinasi elang dan tikus, setelah setengah bulan, Nu Er Tu kalah.</p>
+<p>	Mulai Oktober, ketika suku Yang sedang mencerna reparasi pertempuran, Ye Lui Sang menargetkan mereka.</p>
+<p>	Tentara suku Yang memiliki orang-orang yang ingin berperang, ada yang ingin bertahan, ada yang ingin mundur. Karena perbedaan pendapat, tentara tidak dapat menjalankan perintah yang benar, dan dengan demikian, dijatuhkan oleh Ye Lui Sang.</p>
+<p>	Setelah Ye Lui Sang menang, mereka tidak bisa menertawakan terlalu lama, karena suku Ma memperhatikan mereka.</p>
+<p>	Suku Ma bergegas selama tiga hari tiga malam, membuat Ye Lui Sang lengah.</p>
+<p>	Adegan serupa terjadi lagi, sebelum tentara Ye Lui mencerna keuntungan pertempuran mereka, mereka dikalahkan oleh suku Ma.</p>
+<p>	Ye Lui Sang melarikan diri dengan pasukannya yang tersisa, tunduk pada pasukan suku Hei.</p>
+<p>	Mulai November, suku Hei bergerak ke utara dengan cepat, mendirikan delapan garis pertahanan di jalan, dan selama pertengahan bulan, terlibat dalam pertempuran terakhir dengan suku Ma.</p>
+<p>	Hanya pemenang yang bisa tinggal di Istana Kekaisaran. Sementara itu, yang kalah harus membayar ganti rugi dan menghadapi badai salju sepuluh tahun di tengah kekecewaan dan belas kasihan.</p>
+<p>	Seketika, pertempuran ini menarik banyak tatapan, baik peserta maupun orang-orang di belakang layar.</p>
+<p>	Selama beberapa pertempuran pertama, suku Hei mendapat keuntungan, setelah suku Ma kehilangan dua garis pertahanan, mereka mundur ke yang ketiga.</p>
+<p>	Ye Lui Sang ingin membalas dendam, jadi dia terus menantang mereka, membunuh sampai tentara suku Ma hanya bisa bersembunyi dan membela diri, menyebabkan moral mereka berkurang.</p>
+<p>	Suku Ma tidak punya pilihan, selain mencari bantuan dari tanah terberkati Gunung Bersalju yang mendukung mereka.</p>
+<p>	ChibiGeneral ChibiGeneral Ringkasan: Sebagian besar suku melarikan diri atau bergabung dengan pemenang, pertempuran terakhir dimulai, suku Ma vs suku Hei.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

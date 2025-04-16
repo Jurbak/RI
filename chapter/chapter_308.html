@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 308 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 308";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_307.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 308">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_309.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 308</h1>
+        <div class="text-left">
+<p>	Bab 308</p>
+<p>	Bab 308: Lelang (4)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Haha, aku khawatir wajah Shang Ya Zi sekarang menjadi hijau.” Di ruang pribadi kesembilan, Wei Yang tertawa tak terkendali: “Tapi saudara Fang Zheng, apakah tidak apa-apa bagimu untuk tidak mendapatkan kekuatan pahit Gu?”</p>
+<p>	Di sampingnya, Shang Xin Ci menatap Fang Yuan dengan prihatin.</p>
+<p>	Fang Yuan tertawa: “Saya harus mendapatkan kekuatan pahit Gu tidak peduli apa, tapi saya tidak idiot, menghabiskan delapan ratus sepuluh ribu batu purba pada Gu. Saya lebih suka memperbaikinya sendiri, delapan ratus sepuluh ribu … itu sudah cukup untuk banyak percobaan. ”</p>
+<p>	“Kemungkinan kegagalan sangat tinggi, itu akan membahayakan tubuhmu, saudaramu Hei Tu.” Shang Xin Ci mengungkapkan kekhawatirannya.</p>
+<p>	Fang Yuan menggelengkan kepalanya perlahan, dia punya rencana lain untuk ini, tetapi dia tidak bisa memberi tahu mereka.</p>
+<p>	“Heh! Fang Zheng ini memainkan Shang Ya Zi seperti orang bodoh. Dia menghabiskan delapan ratus sepuluh ribu untuk kekuatan pahit Gu. ” Para penonton menyaksikan dengan mata bersinar.</p>
+<p>	“Shang Ya Zi, idiot itu, ini memalukan bagi kita semua tuan muda!” Tuan muda klan Shang sangat marah.</p>
+<p>	“Sejujurnya, akting Fang Zheng luar biasa, bahkan aku tertipu olehnya.” Seseorang menghela nafas.</p>
+<p>	” Orang di tempat yang bingung, penonton yang melihat dengan jelas. Aku tahu ada sesuatu yang salah sejak lama.” Seseorang mengklaim bahwa dia tahu.</p>
+<p>	“Shang Ya Zi sangat picik dan menikmati balas dendam, jadi dia terus menaikkan tawarannya. Tapi Fang Zheng juga gagal mendapatkan Gu yang diinginkannya, jadi mereka berdua kalah. Inilah sebabnya mengapa Anda tidak dapat membawa perselisihan ke rumah lelang. ” Ju Kai Bei berpikir dalam hatinya.</p>
+<p>	“Pemenang sebenarnya adalah rumah lelang.”</p>
+<p>	“Klan Ju pasti sangat gembira, satu kekuatan pahit Gu untuk delapan ratus sepuluh ribu!”</p>
+<p>	Semua orang berdiskusi satu sama lain.</p>
+<p>	Tapi kenyataannya, mereka melupakan satu pemenang besar.</p>
+<p>	Yaitu, Nona An Yu yang menjadi terkenal.</p>
+<p>	Denting.</p>
+<p>	Shang Ya Zi memecahkan cangkirnya ke tanah, memecahkannya.</p>
+<p>	Di kamar pribadi kelima, para pelayan berlutut di tanah, bernapas sepelan mungkin.</p>
+<p>	Shang Ya Zi duduk di kursinya, bernapas dengan kasar saat pembuluh darah muncul di dahinya, wajahnya memerah karena marah.</p>
+<p>	Dia ditipu!</p>
+<p>	Delapan ratus sepuluh ribu, dihabiskan untuk kekuatan pahit Gu yang bahkan tidak bisa dia gunakan.</p>
+<p>	Shang Ya Zi merasakan hatinya sendiri berdarah!</p>
+<p>	Yang benar adalah, dia pintar, setelah kemunduran itu, dia belajar dan menjadi lebih bijaksana. Selama dua tahun terakhir, dia bekerja keras dan mengelola toko dengan sangat baik.</p>
+<p>	Tapi karakter menentukan nasib Anda.</p>
+<p>	Dia picik dan pendendam, kebencian membuatnya kehilangan rasionalitasnya, sehingga jatuh ke perangkap Fang Yuan.</p>
+<p>	“Fang Zheng, Fang Zheng, jika bukan karena sumpah racun Gu, aku pasti akan membunuhmu, aku akan memotongmu menjadi jutaan keping!!!” Shang Ya Zi berteriak di dalam hatinya.</p>
+<p>	Pelelangan berlanjut.</p>
+<p>	Item keempat belas, kelima belas, enam belas … delapan belas … dua puluh delapan …</p>
+<p>	Klimaks lain terjadi, saat suasana menjadi hidup, dan orang-orang dengan cepat melupakan konflik Fang Yuan dan Shang Ya Zi.</p>
+<p>	“Item tiga puluh detik — peringkat empat atmosfer Gu.” Kata Master Gu perempuan.</p>
+<p>	Suasana Gu berbentuk seperti kupu-kupu, memiliki sepasang sayap biru, setiap kali berkibar, akan ada debu berkilau yang tercipta di udara, itu adalah pemandangan yang sangat menarik.</p>
+<p>	Suasana Gu adalah Gu yang unik, menyerap energi kehidupan dan lahir dari angin, itu adalah Gu alami. Hingga saat ini, belum ada master resep yang mampu mengembangkan resep mereka.</p>
+<p>	Ada tiga jenis master resep. Mereka yang melihat ke masa lalu, mempelajari jalur kekuatan kuno, jalur qi, dan resep cacing Gu lainnya, mencoba memulihkannya. Beberapa melihat saat ini, mempelajari Gu yang terbentuk secara alami, mencoba menghasilkan resep penyempurnaan mereka. Dan mereka yang melihat masa depan, menciptakan resep penyempurnaan baru dan inovatif dari awal.</p>
+<p>	Suasana Gu tidak hanya diciptakan dengan cara yang unik, penggunaannya juga unik.</p>
+<p>	Itu bisa digunakan pada ras atau kelompok, menggunakan kekuatan tak terlihat untuk menciptakan kebiasaan atau hobi yang mempengaruhi seluruh kelompok.</p>
+<p>	Di zaman kuno, Gu Masters menggunakannya untuk berurusan dengan kelompok binatang. Jika mereka berurusan dengan sekelompok babi hutan jarum baja, Master Gu akan menggunakan atmosfer Gu dan menargetkan mereka, memberi mereka kebiasaan menggosok kulit mereka di atas batu.</p>
+<p>	Bulu babi hutan jarum baja itu seperti jarum baja, itu adalah serangan dan pertahanan dalam satu. Setelah menggosok batu, mereka akan rusak, dan Master Gu akan dapat menanganinya dengan mudah.</p>
+<p>	Tapi kemudian, Master Gu akhirnya menyadari bahwa suasana Gu adalah senjata yang sempurna di suku atau klan yang berkuasa.</p>
+<p>	Beberapa klan kekurangan makanan, tetapi suka menyeduh anggur. Setelah menggunakan atmosfer Gu, mereka menghilangkan kebiasaan menyeduh anggur, dan mereka memiliki lebih banyak makanan untuk dimakan, memungkinkan klan untuk berkembang lebih baik.</p>
+<p>	Suasana Gu tidak hanya dapat digunakan untuk menangani kebiasaan internal, tetapi juga eksternal.</p>
+<p>	Dalam sejarah, ada contoh yang sangat terkenal.</p>
+<p>	Dua klan sedang berkonflik, yang lebih lemah menggunakan atmosfer Gu dan menyebabkan wanita dari klan yang lebih kuat tertarik untuk mengikat kaki mereka.</p>
+<p>	Hal ini menyebabkan para wanita di klan ini menjadi tidak mampu melakukan tugas-tugas yang melelahkan. Para Master Gu wanita juga mengalami penurunan kekuatan, akhirnya klan yang lebih lemah menggulingkan dan memusnahkan mereka.</p>
+<p>	Pada akhirnya, ini adalah dunia Gu, dan ada segala macam cacing Gu yang tak terbayangkan.</p>
+<p>	Master Gu wanita memperkenalkan Gu sebelum berkata: “Atmosphere Gu, tawaran dasar adalah dua ratus enam puluh ribu batu purba.”</p>
+<p>	“Tiga ratus ribu.” Tetua klan Yi Yi Bu Hui menawar lebih dulu.</p>
+<p>	“Tiga ratus lima puluh ribu.” Tetua klan Fei Yan Luan Feng sama-sama tangguh.</p>
+<p>	“Tiga ratus tujuh puluh ribu.” Seorang master resep berteriak.</p>
+<p>	“Tiga ratus delapan puluh ribu.” Wei Yang berbicara, dia bertanggung jawab atas Feng Yu Manor, dia ingin menggunakan suasana ini Gu untuk membuat bawahannya bekerja lebih baik.</p>
+<p>	“Lima ratus ribu!” Fang Yuan berteriak.</p>
+<p>	Kerumunan itu terdiam.</p>
+<p>	Fang Yuan terdiam beberapa saat, tetapi suara ini membuat semua orang ingat, itu adalah orang yang menipu Shang Ya Zi sebelumnya.</p>
+<p>	“Lima ratus ribu untuk suasana Gu? Fang Zheng, kamu masih ingin menipuku? Apa aku terlihat seperti orang bodoh!” Shang Ya Zi menggertakkan giginya, matanya terbakar amarah.</p>
+<p>	Dia baru saja menghabiskan delapan ratus sepuluh ribu batu purba, jika dia menghabiskan lima ratus ribu lagi, dia akan bangkrut.</p>
+<p>	“Lima ratus ribu, sekali… dua kali… tiga kali… terjual!” Master Gu wanita mengumumkan.</p>
+<p>	Lima ratus ribu sedikit di atas anggaran semua orang, tidak ada yang menawar lagi.</p>
+<p>	Suasana Gu efektif pada klan atau kekuatan, tetapi memiliki sedikit manfaat terhadap individu, itu membuat banyak orang merasa acuh tak acuh terhadapnya.</p>
+<p>	“Saudara Fang Zheng, Anda bisa mendapatkan Gu ini dengan empat ratus enam puluh ribu.” Wei Yang menghela nafas.</p>
+<p>	Shang Xin Ci memiliki interpretasi yang berbeda: “Tidak, mengingat klan Yi dan klan Fei, kedua tetua itu mungkin bersaing dan menaikkan harga di atas ini. Penawaran lima ratus ribu membuat keduanya enggan menawar, itu panggilan yang bagus. ”</p>
+<p>	“Empat ratus enam puluh ribu… lima ratus ribu… hanya empat puluh ribu lebih. Saudara Wei, aku akan menyimpan Gu ini kalau begitu. ” Fang Yuan melambaikan tangannya, tidak terganggu olehnya.</p>
+<p>	“Kenapa, jangan bilang kamu ingin membangun kembali desa Gu Yue?” Wei Yang terkejut, tidak menyangka Fang Yuan tertarik pada Gu.</p>
+<p>	Sebelumnya, dia pikir Fang Yuan menawar demi dia.</p>
+<p>	“Tentu saja aku membutuhkan Gu ini, tapi alasannya harus dirahasiakan lebih lama.” Fang Yuan tersenyum, tetapi tidak menjelaskan lebih lanjut.</p>
+<p>	“Hmph, bertindak rahasia.” Bai Ning Bing membenci sisi Fang Yuan ini, dia tahu dia licik lagi dan tetap waspada.</p>
+<p>	Setelah suasana Gu, itu adalah satu set makan angin Gu.</p>
+<p>	Tiga puluh delapan makan angin Gu, dikelompokkan menjadi satu set dan dilelang bersama.</p>
+<p>	Makan angin Gu hanya peringkat dua, tetapi sangat bermanfaat, itu memungkinkan Tuan Gu untuk mengkonsumsi angin dan mengisi perut mereka.</p>
+<p>	Klan Ju terletak di atas gunung Ju Feng, mereka berspesialisasi dalam Gu tipe angin. Gu angin makan adalah salah satu spesialisasi mereka.</p>
+<p>	Waktu terus berlalu.</p>
+<p>	Tiga puluh empat… tiga puluh lima… tiga puluh delapan… empat puluh empat…</p>
+<p>	Fang Yuan tidak menawar lagi, tetapi Wei Yang mencoba sekali dan berhasil membeli Gu tipe ringan, mendapatkan apa yang diinginkannya.</p>
+<p>	Bai Ning Bing juga menawar tiga kali, akhirnya mendapatkan peringkat tiga tornado Gu.</p>
+<p>	Sama seperti Fang Yuan kehilangan semua minatnya, item keempat puluh sembilan terakhir ditampilkan.</p>
+<p>	“Ini adalah harta terbesar yang kita miliki untuk pelelangan ini. Ini bukan cacing Gu, dan bukan bahan pemurnian yang berharga, tetapi ini adalah resep.” Master Gu perempuan diperkenalkan.</p>
+<p>	Selanjutnya dia menambahkan: “Resep ini, karena sangat berharga, belum dinilai.</p>
+<p>	Kalimat ini membuat semua orang penasaran.</p>
+<p>	Biasanya, resep penyempurnaan yang berharga harus dinilai dengan hati-hati. Sebab, begitu resep diserahkan ke master resep untuk dinilai, ada bahaya bocor.</p>
+<p>	Resep, resep, yang terbaik adalah jika sedikit orang yang mengetahuinya. Sebuah resep yang diketahui oleh semua orang, nilainya kurang dari selembar kertas kosong.</p>
+<p>	Master Gu wanita berpengalaman, jadi dia tidak berbicara tetapi membiarkan semua orang mencerna informasinya.</p>
+<p>	Melihat semua orang tenggelam dalam pikirannya, tetapi mengumpulkan pandangan mereka padanya sekali lagi, Guru Gu perempuan itu tersenyum, melemparkan bom ke arah mereka: “Resep ini, tentang Lotus Raja Harta Karun Esensi Surgawi.”</p>
+<p>	“Essence Surgawi Harta Karun Raja Lotus? Apa aku salah dengar!”</p>
+<p>	“Peringkat tiga Heavenly Essence Treasure Lotus, peringkat empat Heavenly Essence Treasure Monarch Lotus, peringkat lima Heavenly Essence Treasure King Lotus … Seri cacing Gu ini terlalu terkenal, saya dapat dengan mudah melafalkannya.”</p>
+<p>	“Ini adalah Gu inti Immortal Venerable Genesis Lotus. Saya mendengar siapa pun yang mampu memperbaiki peringkat enam Heavenly Essence Treasure Imperial Lotus akan dapat menerima tanah warisan Immortal Venerable Genesis Lotus!</p>
+<p>	“Tidak disangka klan Ju memiliki harta karun seperti itu …”</p>
+<p>	Orang-orang di rumah lelang penuh dengan kegembiraan.</p>
+<p>	Master Gu wanita melanjutkan: “Karena setiap orang memiliki pemahaman tentang lotus harta karun esensi surgawi, saya tidak akan menjelaskan lebih lanjut. Ini adalah resep yang melibatkan penyempurnaan teratai raja harta karun esensi surgawi. Tawaran awal adalah lima ratus ribu!”</p>
+<p>	Harga resepnya jauh lebih tinggi daripada cacing Gu.</p>
+<p>	Resep lotus raja harta karun esensi surgawi peringkat empat bahkan lebih mahal daripada lotus raja itu sendiri.</p>
+<p>	Beri seseorang ikan dan Anda memberinya makan selama sehari; ajari seseorang memancing dan Anda memberinya makan seumur hidup. Secara teori, dengan resepnya, Anda akan dapat membuat banyak lotus raja harta karun esensi surgawi.</p>
+<p>	“Tunggu dulu, aku punya pertanyaan. Apakah resep ini membutuhkan lotus harta karun esensi surgawi sebagai bahan penyempurnaan? Fang Yuan tiba-tiba bertanya, berteriak sekuat tenaga.</p>
+<p>	Ekspresi Tuan Gu wanita berubah, dia tidak ingin menjawab, tetapi Fang Yuan adalah pemilik token duri ungu.</p>
+<p>	Dia telah menghindari pertanyaan ini, tetapi tidak menyangka pikiran Fang Yuan begitu cerdik, mengajukan pertanyaan yang paling penting.</p>
+<p>	Dia tidak punya pilihan selain mengakui: “Meskipun pada prinsipnya, kami tidak mengungkapkan detail resepnya, tetapi dengan integritas klan Shang, resep ini memang membutuhkan lotus harta karun esensi surgawi sebagai bahan utama.”</p>
+<p>	Semua orang terkesiap.</p>
+<p>	“Lotus harta karun esensi surgawi diperlukan sebagai bahan utama, di mana kita akan menemukannya?”</p>
+<p>	“Tidak heran klan Ju tidak memurnikan lotus raja harta karun esensi surgawi meskipun memiliki resep ini.”</p>
+<p>	“Apa gunanya ini? Kami tidak bisa berbuat apa-apa, ini terlalu canggung.”</p>
+<p>	“Itu hampir, untungnya Fang Zheng menanyakan pertanyaan itu.”</p>
+<p>	“Yang terpenting, keaslian resep ini belum dinilai.”</p>
+<p>	“Resep ini disimpan sebagai harta karun oleh klan Ju, itu pasti sesuatu yang bagus. Saya akan menawar lima ratus dua puluh ribu.” Tawaran master resep.</p>
+<p>	Meski begitu, resep tentang lotus raja harta karun esensi surgawi masih memiliki daya tarik besar bagi beberapa Master Gu.</p>
+<p>	“Lima ratus lima puluh ribu.”</p>
+<p>	“Lima ratus delapan puluh ribu.”</p>
+<p>	Tawaran naik, lebih lambat dan lebih lambat, sampai berhenti di enam ratus enam puluh ribu.</p>
+<p>	“Enam ratus tujuh puluh ribu.” Wei Yang adalah yang terakhir menawar, karena dia akhirnya mendapatkan resep ini.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

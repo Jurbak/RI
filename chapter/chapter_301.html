@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 301 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 301";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_300.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 301">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_302.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 301</h1>
+        <div class="text-left">
+<p>	Bab 301</p>
+<p>	Bab 301: Fang Yuan vs Zhu Ba (2)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Melihat ahli nomor delapan di senior kota keempat Zhu Ba, dipukuli sampai dia muntah darah oleh pendatang baru, adegan ini membalikkan harapan banyak orang!</p>
+<p>	Tapi Zhu Ba masih seorang veteran berpengalaman, dia tiba-tiba berteriak, merentangkan kedua tangannya dan memeluk Fang Yuan dengan erat.</p>
+<p>	Fang Yuan merasa bahwa dia dibungkus dengan kapas, daging gemuk meremasnya dari segala arah, menyebabkan dia tidak bisa bergerak.</p>
+<p>	Dia meninju dan menendang, memukul daging dengan setiap pukulan. Tulang Zhu Ba patah, dan dagingnya dipukuli hingga menjadi bubur, dihaluskan di bawah kulitnya.</p>
+<p>	Tapi Zhu Ba menggertakkan giginya, dengan paksa menjebak Fang Yuan. Dia hampir dipukuli tanpa alasan oleh Fang Yuan, tetapi satu-satunya pikiran jernih di benaknya mengingatkannya, jika dia membiarkan monster ini keluar, dia akan berada dalam masalah besar.</p>
+<p>	Saat ruang di sekitarnya diperas, Fang Yuan mendengus, tidak menunjukkan rasa takut saat dia mengaktifkan upaya habis-habisan Gu.</p>
+<p>	Hantu banteng hijau muncul di udara.</p>
+<p>	“Hantu binatang baru!” Bai Ning Bing melihat ini dan pupilnya menyusut.</p>
+<p>	“Diam-diam, Fang Yuan sudah tumbuh sekuat ini. Jika saya melawannya, hanya dengan cacing Gu saya, saya khawatir … “Hati Bai Ning Bing tenggelam.</p>
+<p>	Kekuatan banteng itu kuat dan tahan lama, Fang Yuan mengulurkan tangannya dan menarik lengan gemuk Zhu Ba yang melingkar erat di sekelilingnya.</p>
+<p>	Membandingkan kekuatan, bagaimana Zhu Ba bisa menjadi lawannya.</p>
+<p>	Zhu Ba mencoba yang terbaik, lengannya menggigil, dan keringat mengalir seperti hujan, tetapi dia tidak bisa menghentikan Fang Yuan.</p>
+<p>	“Sial, sial, jika dia lepas, aku sudah selesai!” Zhu Ba merasakan perasaan tidak nyaman yang intens, firasat kematian yang intens menyebabkan dia merasa sangat takut.</p>
+<p>	“Aku… aku mengaku kalah!” Dia berteriak.</p>
+<p>	Dibandingkan dengan hidupnya, apa itu ketenaran?</p>
+<p>	Tuan Gu tuan rumah segera menggunakan panggung pertempuran untuk memisahkan keduanya dengan paksa.</p>
+<p>	“Pertempuran telah diputuskan, Fang Zheng menang, Zhu Ba kalah!” Tuan Gu tuan rumah mengumumkan.</p>
+<p>	Kerumunan tersentak.</p>
+<p>	“Dia benar-benar menang!”</p>
+<p>	“Zhu Ba hanyalah macan kertas, berpura-pura kuat di luar, aku hampir tertipu olehnya.”</p>
+<p>	“Zhu Ba bahkan tidak bisa mengalahkan pendatang baru, bagaimana dia bisa menjadi ahli nomor delapan, ini benar-benar memalukan untuk tahap pertempuran kota terdalam keempat kita …”</p>
+<p>	Keadaan menyedihkan Zhu Ba sekarang, menghancurkan citra yang telah dia bangun dengan susah payah selama bertahun-tahun.</p>
+<p>	Bai Ning Bing mendengar ocehan itu, dan menggelengkan kepalanya secara internal: “Zhu Ba telah menjadi ahli selama bertahun-tahun, dia pasti kuat, sayangnya dia bertemu Fang Yuan. Gaya bertarung Zhu Ba melawan serangan lawannya. Pertama menggunakan pertahanan untuk menyia-nyiakan esensi dan stamina purba lawannya, lalu melakukan serangan balik untuk menang. Tapi dia bertarung melawan Fang Yuan, monster ini, sebagai pembudidaya kekuatan, ditambah dengan lotus harta esensi surgawi, dia memiliki esensi purba yang tak ada habisnya. Stamina juga keahliannya sebagai seorang kultivator kekuatan… keduanya saling membalas dalam aspek yang berbeda, tetapi yang lebih tangguh menang!”</p>
+<p>	Omong-omong, itu agak ironis.</p>
+<p>	Bai Ning Bing mengubah gayanya, menjadi lebih licik dan licik. Fang Yuan juga berubah, dari gaya licik sebelumnya, dia mulai bertarung dengan kekuatan mentah, gaya terus terang yang masuk semua.</p>
+<p>	Keduanya tampak bertukar gaya.</p>
+<p>	Zhu Ba jatuh dan mengaku kalah, kalah dari Fang Yuan, reputasinya benar-benar ternoda.</p>
+<p>	“Kerja yang baik.” Di bawah panggung, Wei Yang tertawa ketika dia berkata kepada Fang Yuan.</p>
+<p>	Ini adalah pertempuran pertama Fang Yuan di kota terdalam keempat, jadi Wei Yang datang untuk menonton.</p>
+<p>	Penampilan Fang Yuan di luar dugaan Wei Yang.</p>
+<p>	Wei Yang sangat memperhatikan Fang Yuan, salah satunya karena perintah dan misi pemimpin klan, tetapi juga karena persahabatan mereka.</p>
+<p>	“Mungkin kamu dilahirkan untuk jalur kekuatan.” Di jamuan makan, Wei Yang berseru.</p>
+<p>	Dia menepuk bahu Fang Yuan: “Saya berjalan di jalur kekuatan di masa lalu, tetapi gagal. Sekarang, saya melihat harapan dalam diri Anda, tahukah Anda, banyak mata yang memperhatikan Anda sekarang. Lanjutkan berjalan di jalan ini tanpa ragu!”</p>
+<p>	Fang Yuan mengangguk.</p>
+<p>	Dia tahu keadaannya.</p>
+<p>	Dia baru saja naik ke kota terdalam keempat, dan bertemu Zhu Ba, mengalahkannya. Menjadi terkenal dalam semalam, banyak yang terkejut.</p>
+<p>	Pertempuran ini baru saja berakhir, tetapi dia telah menerima tantangan kuat dari banyak orang.</p>
+<p>	Orang-orang ini sebagian besar adalah jalur kekuatan Gu Masters, datang setelah upaya habis-habisannya Gu.</p>
+<p>	Semakin baik kinerjanya, semakin besar nilai upaya habis-habisan Gu, dan semakin banyak keserakahan yang ditariknya. Saat ini, mereka yang datang untuknya semuanya ahli di kota terdalam keempat.</p>
+<p>	Sejak saat itu, kesulitannya hanya akan semakin berat.</p>
+<p>	Tapi semakin keras, semakin kuat niat bertarungnya, saat Fang Yuan merasakan darahnya terbakar.</p>
+<p>	Hanya tingkat risiko dan kesulitan ini, apa itu? Bagaimana mereka bisa menghentikan saya, kemajuan Fang Yuan!</p>
+<p>	“Di dunia ini, tidak ada yang mampu mengakhiri ambisiku!”</p>
+<p>	Delapan hari kemudian, dia melawan Jin Bian Yuan, setelah bertarung secara merata untuk sementara waktu, dia melepaskan hantu binatang buasnya, menghancurkan cacing inti pertahanan inti Jin Bian Yuan, membunuhnya di tempat.</p>
+<p>	Sepuluh hari kemudian, Liao Hua Dong yang terkenal dengan serangan agresifnya, bertarung melawan Fang Yuan. Fang Yuan melawan serangan dengan lebih banyak serangan, menjatuhkannya secara langsung. Jika bukan karena tuan rumah Gu Master, Liao Hua Dong pasti sudah mati.</p>
+<p>	Tujuh belas hari kemudian, Zhong De yang memiliki kekuatan lima harimau bertarung dalam pertandingan seru melawan Fang Yuan, tetapi dipukuli seperti anjing mati, tergeletak di tanah, tanpa bergerak.</p>
+<p>	…</p>
+<p>	Waktu terus berlalu, saat Fang Yuan menang lagi dan lagi.</p>
+<p>	Ada banyak ahli di kota terdalam keempat, tetapi pertumbuhan Fang Yuan gila.</p>
+<p>	Baik itu budidaya, penambahan cacing Gu baru, atau aspek lainnya.</p>
+<p>	Semakin banyak dia menang, semakin banyak batu purba yang dia terima.</p>
+<p>	Dia berjuang melewatinya, maju dengan berani, setiap pertandingan adalah suguhan untuk ditonton para penonton.</p>
+<p>	Tapi di sisi lain, dia sangat waspada. Dia tidak pernah memandang rendah lawan mana pun, mendapatkan semua informasi yang dia butuhkan sebelumnya. Dengan Wei Yang dan Li Ran, yang satu memiliki otoritas sementara yang lain memiliki jaringan bawah tanah, Fang Yuan dapat mengumpulkan semua informasi yang diperlukan sebelum pertempuran.</p>
+<p>	Dia bukan orang yang tidak punya otak, dia hanya menerima empat pertandingan sebulan. Meskipun tantangan yang kuat adalah aturan, untuk mencegah penargetan yang disengaja, Master Gu yang ditantang dapat memiliki waktu istirahat delapan hari setelah setiap pertandingan.</p>
+<p>	Fang Yuan menggunakan waktu ini untuk mempersiapkan dirinya secara memadai, mengabaikan ejekan dari orang lain. Dia fokus pada kultivasi, tujuan tahap pertempuran adalah untuk menilai dan melatih dirinya sendiri, serta sumber pendapatan.</p>
+<p>	Dia telah menjadi terkenal.</p>
+<p>	Kemenangannya menyebabkan namanya menyebar luas.</p>
+<p>	Pendatang baru terkuat dalam sejarah!</p>
+<p>	Bintang harapan dalam menghidupkan kembali jalur kekuatan!</p>
+<p>	Binatang buas dan kejam!</p>
+<p>	…</p>
+<p>	Banyak gelar yang dianugerahkan kepadanya, menggambarkan sifat-sifatnya: Pendatang baru tetapi memiliki rekor kemenangan yang luar biasa, memiliki usaha habis-habisan Gu, kejam dan kejam, tidak pernah melepaskan musuh yang bisa dia bunuh, dan lain-lain.</p>
+<p>	Tiga bulan berlalu seperti ini.</p>
+<p>	Hari ini, di ruang rahasia.</p>
+<p>	Fang Yuan dan Bai Ning Bing duduk berhadapan.</p>
+<p>	Bai Ning Bing meletakkan kedua telapak tangannya di punggung Fang Yuan, menyuntikkan esensi purba perak salju ke dalam dirinya.</p>
+<p>	Esensi purba diubah oleh Gu kesatuan tulang daging, setelah beberapa kerugian, mereka disuntikkan ke lubang Fang Yuan.</p>
+<p>	Di aperture, esensi purba surut dan mengalir, saat ombak menabrak dan menyerang dinding aperture.</p>
+<p>	Desir desir desir…</p>
+<p>	Air pasang naik dan turun, tidak pernah berakhir.</p>
+<p>	Dinding cahaya putih diserang dan mulai berubah.</p>
+<p>	Sesaat kemudian, dinding cahaya digantikan oleh dinding air, saat cahaya putih mengalir seperti air, menyebabkan dinding bukaan menjadi lebih tebal dan lebih kuat.</p>
+<p>	Dari peringkat tiga tahap awal, dia maju ke tahap tengah!</p>
+<p>	Fang Yuan hanya menggunakan beberapa bulan.</p>
+<p>	Ini semua karena kesatuan tulang daging Gu dan Bai Ning Bing. Semakin tinggi peringkat Master Gu, semakin besar perbedaan antara kultivasi mereka di alam kecil. Bai Ning Bing berada di peringkat tiga tahap puncak, itu sangat membantu Fang Yuan.</p>
+<p>	Kecepatan ini, jika terkena, akan menyebabkan keributan besar. Bahkan Fang Yuan yang berpengetahuan luas diam-diam merasa terkejut.</p>
+<p>	Tapi Bai Ning Bing, yang merupakan mantan sepuluh fisik ekstrim dan memiliki kecepatan kultivasi monster, tidak merasa shock terhadap kemajuan Fang Yuan.</p>
+<p>	Jika Bai Ning Bing berada di peringkat empat, menggunakan esensi purba emas muda, kecepatan kultivasi Fang Yuan akan meningkat lebih jauh.</p>
+<p>	Merasakan perubahan aura Fang Yuan, Bai Ning Bing tahu dia telah berhasil dan menarik kembali telapak tangannya.</p>
+<p>	“Jadi bagaimana, dalam beberapa hari, kamu akan mencapai tahap pertempuran kota dalam keempat. Apakah Anda tertarik untuk meningkatkan kultivasi Anda ke peringkat empat? Fang Yuan berbalik dan bertanya.</p>
+<p>	Semakin tinggi kultivasi Bai Ning Bing, semakin cepat dia bisa mengkultivasi dirinya sendiri.</p>
+<p>	“Tidak perlu, jika kamu bisa berdiri teguh dengan kultivasi peringkat tiga dan berjuang, aku juga bisa.” Bai Ning Bing mendengus dingin, tidak menunjukkan ekspresi manis Fang Yuan.</p>
+<p>	Tetapi pada akhirnya, dia menambahkan: “Kecakapan saya meningkat lagi, mencapai sembilan puluh dua persen. Kalau begini terus, kapan kamu akan memberiku Yang Gu?”</p>
+<p>	“Oh. Itu cepat …” Fang Yuan terkejut, dia tahu banyak tentang sepuluh bakat ekstrem, tetapi detailnya tidak mendalam.</p>
+<p>	Meskipun sumpah racun telah dihapus, Bai Ning Bing masih memiliki tujuan besar.</p>
+<p>	“Kamu tidak perlu khawatir, dengan aku di sekitar, aku bisa melindungi hidupmu. Kami menggunakan sumpah racun Gu sebelumnya, bahkan jika kamu tidak percaya padaku, pasti kamu mempercayai kekuatan Gu? ”</p>
+<p>	“Hmph.” Bai Ning Bing tidak menegurnya, beberapa bulan terakhir yang dia habiskan bersama Fang Yuan adalah periode paling damai dalam hidupnya. Saat keduanya bekerja keras bersama, dan dengan sumpah racun, Gu mengizinkan mereka untuk membentuk aliansi. Tapi sepertinya…”</p>
+<p>	“Orang ini, dia tumbuh lebih cepat dan mendapatkan lebih banyak hadiah.” Mengenai hal ini, Bai Ning Bing memiliki pemahaman yang jelas tentang perbedaan mereka.</p>
+<p>	Peningkatannya besar, tetapi peningkatannya lebih besar.</p>
+<p>	Beberapa bulan ini, Fang Yuan tidak hanya mendapatkan kekuatan kura-kura, tetapi juga menggunakan kulit perunggu peringkat tiga Gu, memberikan kulitnya lapisan pertahanan lain.</p>
+<p>	Kulit perunggu peringkat dua Gu hanya dapat meningkatkan pertahanan kulit Guru Gu untuk jangka waktu terbatas.</p>
+<p>	Kulit perunggu peringkat tiga Gu, menggunakan tubuh sendiri dan memberikan pertahanan ini ke tubuh mereka secara permanen.</p>
+<p>	Sekarang, kulit Fang Yuan berwarna perunggu, seperti dia telah berjemur.</p>
+<p>	Tulang besi, tendon baja, kulit perunggu, dengan perisai emas Gu, pertahanan Fang Yuan berada pada tahap keberhasilan awal, bahkan di antara tahap pertempuran kota ketiga, itu cukup untuk menghadapi musuh yang kuat.</p>
+<p>	Adapun kanopi Gu, Fang Yuan sudah menjualnya. Itu tumpang tindih dengan perisai emas Gu, dan tidak sesuai dengan gaya bertarung Fang Yuan.</p>
+<p>	Sama seperti Fang Yuan maju ke panggung tengah, sekelompok orang tiba di luar kota klan Shang.</p>
+<p>	“Kota klan Shang … Gu Yue Fang Zheng ada di dalam ya.” Tie Ruo Nan berpikir sambil berjalan di depan semua orang.</p>
+<p>	“Tie Dao Ku menyapa tuan muda.” Tie Dao Ku dengan cepat memberi hormat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

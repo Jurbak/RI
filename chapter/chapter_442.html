@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 442 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 442";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_441.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 442">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_443.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 442</h1>
+        <div class="text-left">
+<p>	Bab 442 – Kekuatan Jun Gu</p>
+<p>	Bab 442: Kekuatan Jun Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Suku manusia memiliki lembah Hong Yan, mereka telah memenangkan beberapa pertempuran tahun ini dan telah berkembang pesat.</p>
+<p>	Dataran utara berbeda dengan perbatasan selatan.</p>
+<p>	Perbatasan selatan memiliki medan hutan dan gunung, mudah dipertahankan tetapi sulit diserang, perjalanan jarak jauh menyebabkan pengeluaran besar. Klan perbatasan selatan bekerja pada pengembangan diri, terakumulasi perlahan dan tumbuh secara stabil, menjaga garis keturunan murni.</p>
+<p>	Tapi dataran utara adalah padang rumput yang luas, ada banyak penaklukan yang terjadi. Suku-suku di dataran utara bangkit dengan cepat tetapi juga jatuh dengan cepat. Beberapa kemenangan mungkin memungkinkan suku berukuran kecil menjadi suku berukuran sedang, dan dari suku berukuran sedang, berkembang menjadi suku berukuran besar. Tetapi satu kerugian juga dapat menyebabkan suku berukuran besar ini terpecah menjadi banyak suku berukuran kecil.</p>
+<p>	Suku Man telah menyerap suku Shi baru-baru ini, dan tetua Shi Wu dari suku Shi menjadi tetua luar suku Man.</p>
+<p>	Dia adalah Gu Master jalur tulang, dia adalah orang yang membeli semua Gu bambu tulang di pasar, karena dia mengaku sedang meneliti resep jalur Gu baru.</p>
+<p>	Fang Yuan mengingat orang ini dengan hati, sebelum bertanya kepada penjaga toko tentang jalur jiwa dan jalur kekuatan cacing Gu.</p>
+<p>	“Saya memiliki kekuatan jin peringkat satu Gu, itu dapat meningkatkan kekuatan seorang Guru Gu dengan satu jin 1 . Setiap Gu dijual seharga dua ratus dua puluh batu purba.”</p>
+<p>	“Saya memiliki peringkat dua kekuatan sepuluh jin Gu, itu meningkatkan kekuatan Guru Gu sebesar sepuluh jin, itu dijual seharga enam ratus sembilan puluh batu purba.”</p>
+<p>	“Saya juga memiliki kekuatan jun peringkat tiga Gu, satu jun adalah tiga puluh jin, masing-masing Gu dijual seharga empat ribu lima ratus lima puluh batu purba.”</p>
+<p>	“Meskipun saya tidak memiliki kekuatan peringkat empat sepuluh jun Gu, jika pelanggan membutuhkannya, saya dapat mengaturnya untuk diangkut, setiap kekuatan sepuluh jun Gu dijual seharga tiga puluh enam ribu batu purba.”</p>
+<p>	Penjaga toko memberikan rantai harga yang sangat dia kenal.</p>
+<p>	Pada akhirnya, dia menambahkan: “Tentu saja, ini hanya kekuatan jin Gu dan kekuatan jun Gu. Jika pelanggan ingin berjalan di jalur kekuatan, dan membutuhkan kekuatan binatang Gu, kami juga memiliki kekuatan serigala Gu. Ini bisa memberi Anda kekuatan serigala, mendapatkan stamina dan daya tahan juga. Saya juga memiliki kekuatan kuda Gu, itu dapat memberi Anda kekuatan seekor kuda, itu paling berguna untuk berlari. ”</p>
+<p>	Sebelumnya, Fang Yuan menggunakan kekuatan binatang Gu untuk berjalan di jalur kekuatan kuno. Kekuatan Jin Gu dan kekuatan jun Gu adalah alternatif populer baru yang muncul dalam beberapa ratus tahun terakhir.</p>
+<p>	Meskipun jalur kekuatan lemah dan tidak lagi memiliki kejayaan sebelumnya, masih ada perkembangan yang dilakukan untuk itu.</p>
+<p>	Orang yang memiliki kontribusi ini adalah peringkat tujuh Gu Immortal yang terkenal di dataran utara yang disebut Chu Du, berjudul ‘Domination Immortal’. Dia adalah orang yang menemukan kekuatan jin Gu dan kekuatan jun Gu, dan bahkan menyempurnakan peringkat enam Immortal Gu ‘Kekuatan Seribu Jun’.</p>
+<p>	Satu jun adalah tiga puluh jin.</p>
+<p>	Seribu jun adalah tiga puluh ribu jin.</p>
+<p>	Dalam salah satu legenda Bumi, Jingu Bang dari Buddha Pejuang Kemenangan hanya tiga belas ribu lima ratus jin. ‘Three-pointed, Double-edge Lance’ Er Lang Shen hanya dua puluh lima ribu dua ratus jin.</p>
+<p>	Hu Du menjadi Gu Immortal tiga ratus tahun yang lalu, resep yang disempurnakannya tersebar luas, dengan cepat menjadi cabang utama dari jalur kekuatan di dataran utara.</p>
+<p>	Jalur kekuatan kuno menggunakan kekuatan binatang Gu, seperti kekuatan banteng hijau Gu, kekuatan Biao Gu, kekuatan naga Gu dan sebagainya, Karena bahan-bahan dari zaman kuno sudah sangat langka sekarang, biaya pemurnian Gu sangat besar.</p>
+<p>	Resep Domination Immortal Chu Du lebih unggul karena bahannya mudah ditemukan dan berbiaya rendah, dan tingkat keberhasilan penyempurnaan Gu lebih tinggi daripada kekuatan binatang Gu.</p>
+<p>	Dataran utara kemungkinan besar adalah wilayah di mana jalur kekuatan paling berkembang saat ini. Dataran utara sering mengalami pertempuran dan penaklukan, dengan jalur kekuatan yang berbiaya rendah, mereka memberikan peningkatan kekuatan yang nyata kepada Master Gu peringkat rendah.</p>
+<p>	Dengan demikian, banyak Master Gu di dataran utara mengembangkan jalur kekuatan sebagai jalur kecil mereka.</p>
+<p>	Mereka sering bertempur dalam pertempuran sengit, ketika mereka mengeluarkan esensi purba mereka, mereka akan membutuhkan tubuh fisik mereka untuk bertarung. Kekuatan fisik sangat penting saat itu.</p>
+<p>	Ada ungkapan di Bumi: perang adalah katalis untuk kemajuan teknologi. Kalimat ini bekerja dengan sangat baik di dunia ini juga. Dataran utara adalah tempat di mana cacing Gu baru terus-menerus ditemukan.</p>
+<p>	Dari tetua Shi Wu yang bergabung dengan suku Man, orang dapat melihat sikap para Guru Gu dataran utara terhadap inovasi.</p>
+<p>	Domination Immortal kemudian mati dalam pertempuran, oleh tangan Feng Jiu Ge yang turun dari istana surgawi. Setelah dia meninggal, dia dinobatkan sebagai ‘Twilight of Strength Path’ oleh generasi mendatang, setelah kematiannya diumumkan, Master Gu yang tak terhitung jumlahnya di dataran utara menangis kesakitan.</p>
+<p>	“Huh… jumlah talenta dan genius di dunia ini seperti jumlah bintang di langit malam, jumlah orang berbakat seperti ikan mas di sungai. Lima wilayah terlalu besar, ukuran satu Bumi tidak dapat dibandingkan dengan satu wilayah sekalipun. Terutama dalam pertempuran lima ratus tahun kemudian, naga dan ular bangkit dari tanah, para ahli dan pembangkit tenaga listrik bersaing, dan monster tua keluar dari pengasingan satu demi satu, saat talenta baru naik ke tampuk kekuasaan. Pahlawan yang tak terhitung jumlahnya, penakluk, kepribadian yang berbeda dari jalan kebenaran dan setan bentrok dan terlibat dalam pertempuran hidup dan mati. Ini benar-benar peristiwa besar dan menarik yang akan dicatat dalam sejarah.”</p>
+<p>	“Saya telah menggunakan penghapusan lama Gu secara diam-diam untuk menghilangkan kulit perunggu kuno, tulang esensi besi, dan tendon baja emas, dan bahkan hantu binatang saya. Pertama, hantu binatang jalur kekuatan ini berasal dari perbatasan selatan, mereka akan dibatasi di dataran utara, dan tidak dapat digunakan dengan baik. Kedua, jika saya memanggil hantu binatang, ada bahaya mengungkap identitas saya.</p>
+<p>	“Keuntungan terbesar saya sekarang adalah gunung Dang Hun, dan pengalaman saya selama lima ratus tahun, dengan sumber daya tanah yang diberkati, saya bisa berjalan di jalur perbudakan. Tetapi jalur perbudakan memiliki kelemahan, yaitu taktik ‘memenggal kepala’, sehingga saya membutuhkan jalur kekuatan untuk mengikutinya. Karena saya memiliki penampilan Chang Shan Yin sekarang, saya juga perlu bergabung ke dataran utara, saya harus menggunakan kekuatan jun ini Gu. ”</p>
+<p>	Pikiran Fang Yuan berkedip saat dia membuat keputusan, meminta peringkat empat kekuatan sepuluh jun Gu dari penjaga toko.</p>
+<p>	Selanjutnya, dia melihat jalur jiwa cacing Gu.</p>
+<p>	Ada lebih banyak jalur jiwa cacing Gu daripada jalur kekuatan.</p>
+<p>	Ada Gu api hantu, Gu tangisan hantu, Gu wajah hantu, Gu kapak hantu dan sebagainya untuk menyerang. Ada Gu sangkar hantu, Gu tangan hantu, Hantu memukul dinding untuk kurungan dan kebingungan.</p>
+<p>	Untuk pertahanan, ada baju penyegel hantu Gu, pelindung jiwa Gu dan lainnya. Untuk penyembuhan, ada hantu qi Gu, air mata hantu Gu dan lain-lain. Untuk penyelidikan, ada mata hantu Gu. Untuk gerakan, ada Gu lalat jiwa, dan Gu hantu yang sulit dipahami.</p>
+<p>	Ada juga prajurit hantu Gu, hantu ketidakkekalan, hantu perjalanan udara, dan hantu ibu sembilan anak Gu, semuanya ada hubungannya dengan jalur perbudakan.</p>
+<p>	Ini adalah cara sejati dari jalan yang besar.</p>
+<p>	Jalur kekuatan sangat lemah sekarang, sementara jalur jiwa masih berdiri kuat, titik ini dapat dengan mudah dilihat di sini.</p>
+<p>	Jalur kekuatan cacing Gu hanya terdiri dari kekuatan jin Gu, kekuatan jun Gu, dan kekuatan binatang Gu, sebagian besar untuk menyerang. Dalam hal pertahanan, penyelidikan, dan bantuan, hanya ada sedikit. Sulit untuk membuat set Gu hanya dari jalur kekuatan Gu.</p>
+<p>	Adapun jalur jiwa, ada banyak cacing Gu yang ada di semua aspek yang berbeda. Membentuk menjadi satu set, mereka bisa saling membantu dan mendapatkan efek yang lebih besar.</p>
+<p>	Lihatlah Dominasi Immortal Chu Du itu, dia adalah jalur kekuatan Gu abadi, tapi dia menggunakan cacing Gu lainnya untuk pertahanan, penyelidikan, dan penyimpanan dll.</p>
+<p>	Fang Yuan datang dengan tujuan, dia mengesampingkan semua jalur jiwa cacing Gu ini, hanya melihat yang bisa digunakan untuk memurnikan jiwa.</p>
+<p>	Tidak ada peringkat empat Gu untuk itu, tetapi sekelompok peringkat tiga.</p>
+<p>	Ada Gu jiwa ilahi, Gu jiwa naga, Gu jiwa es, Gu jiwa mimpi, Gu jiwa bulan, Gu jiwa umum, Gu jiwa dendam, Gu jiwa puisi, Gu jiwa kuda, Gu jiwa heroik, Gu jiwa heroik, Gu roh qi, Gu roh tubuh, roh awan Gu, roh angin Gu, roh harimau Gu, dan lain-lain.</p>
+<p>	Cacing Gu ini dapat memurnikan jiwa, mereka semua memiliki kegunaan yang unik.</p>
+<p>	Misalnya, memurnikan jiwa menjadi jiwa es, di masa depan ketika Guru Gu menggunakan cacing Gu tipe es, mereka akan mendapatkan dorongan yang besar. Roh awan, roh angin, memiliki efek yang sama.</p>
+<p>	Jika seseorang menggunakan Gu jiwa naga untuk memurnikan jiwa naga, ketika dia menggunakan Gu kekuatan naga, Gu sisik naga, atau Gu perjalanan naga, akan ada peningkatan efeknya.</p>
+<p>	Fang Yuan mencari sebentar, dan tidak menemukan Gu yang lebih cocok untuknya, jadi dia memilih Gu jiwa serigala yang telah dia rencanakan untuk dibeli.</p>
+<p>	Dari zaman kuno, jiwa dan perbudakan berasal dari asal yang sama.</p>
+<p>	Jalur perbudakan awalnya terpisah dari jalur jiwa, ketika Gu Masters menggabungkannya dengan jalur kebijaksanaan kuno, jalur perbudakan akhirnya menjadi jalur independen.</p>
+<p>	Perbudakan binatang Gu, perbudakan Gu, mereka digunakan untuk mengendalikan jiwa, memungkinkan seseorang menjadi penguasa pikiran.</p>
+<p>	Jika Fang Yuan memurnikan jiwa serigala, itu akan sangat membantunya dalam memperbudak kawanan serigala.</p>
+<p>	Jiwa serigala peringkat tiga Gu adalah tujuh ribu tujuh ratus batu purba. Fang Yuan membelinya dalam jumlah besar, membeli semua stok di toko, mendapatkan delapan jiwa serigala Gu.</p>
+<p>	Upaya jiwa serigala Gu dapat ditumpuk, jiwa serigala peringkat tiga Gu tidak cukup untuk memperbaiki jiwa seratus manusia Fang Yuan.</p>
+<p>	Cacing Gu Liar memiliki keinginannya sendiri, mereka sulit untuk disuling. Tapi cacing Gu yang dibeli Fang Yuan sudah disempurnakan oleh orang lain, jadi ketika transaksi berakhir, semua Gu ini berada dalam kendali Fang Yuan.</p>
+<p>	Dia menyimpan semua Gu ini di dalam lubangnya, dan meninggalkan toko, pergi ke toko lain.</p>
+<p>	Tujuannya adalah Gu perbudakan serigala peringkat dua dan tiga, serta jiwa serigala peringkat tiga Gu.</p>
+<p>	Satu juta batu purba tidak cukup, tetapi yang diinginkan Fang Yuan adalah peringkat dua dan tiga Gu yang sama.</p>
+<p>	Dia memang ingin membeli peringkat empat Gu.</p>
+<p>	Tapi pasar ini terlalu kecil, hanya ada beberapa Gu peringkat empat, dan semuanya bukan yang dia inginkan.</p>
+<p>	Setelah tiga hari, Fang Yuan menjadi terkenal di pasar. Setiap toko tahu bahwa ada ahli peringkat empat yang membeli Gu dalam jumlah besar.</p>
+<p>	Pada hari kelima, Fang Yuan sudah menghabiskan banyak, lebih dari lima hingga enam ratus ribu batu purba.</p>
+<p>	Selama periode ini, dia akan sering berjalan-jalan di sekitar peternakan pasar.</p>
+<p>	Di peternakan, ada banyak ternak yang dijual, yang paling populer adalah kuda perut besar. Kuda ini, bahkan manusia sangat membutuhkannya. Adapun mereka yang membeli serigala punuk untuk pertempuran, mereka sebagian besar adalah Master Gu.</p>
+<p>	Ada juga banyak Master Gu yang menangkap binatang buas untuk dijual di sini. Seperti banteng, kuda, elang dll. Di padang rumput, yang paling sering terlihat adalah serigala, mereka juga dijual dalam jumlah besar.</p>
+<p>	Fang Yuan bertanya-tanya, membandingkan barang dan harga, sampai dia melihat sekawanan serigala punggung tebal yang dia inginkan.</p>
+<p>	Fang Yuan memiliki serigala janggut beracun dan serigala angin. Sulit untuk mengisi kembali serigala janggut beracun, dan karena mereka lemah di bawah sinar matahari, mereka ditakdirkan untuk dimusnahkan. Serigala angin memiliki kecepatan yang cepat, sedangkan serigala punggung yang tebal memiliki pertahanan yang tinggi. Jika mereka dapat ditambahkan ke pasukan serigalanya, mereka akan bekerja sama dengan baik, dan membentuk kelompok serigala yang tepat.</p>
+<p>	Tetapi pada hari kesembilan, Fang Yuan secara tidak sengaja menemukan bahwa di antara sekelompok serigala air, ada seekor binatang muda yang bermutasi.</p>
+<p>	Dia segera membeli serigala air ini tanpa menimbulkan kecurigaan, mendapatkan banyak untuk dirinya sendiri.</p>
+<p>	Pasar berlangsung selama tiga belas hari.</p>
+<p>	Fang Yuan membeli lebih dari seribu serigala air, dan banyak bahan pemurnian Gu, serta makanan untuk memberi makan cacing Gu-nya, saat dia pergi pada hari kesepuluh.</p>
+<p>	Setelah pembeliannya, dia hanya memiliki tiga ribu batu purba yang tersisa.</p>
+<p>	Uang dihabiskan seperti air yang mengalir, Ge Guang menyaksikan dengan takjub saat dia mengagumi ‘Chang Shan Yin’ secara diam-diam, pahlawan ini benar-benar memiliki watak yang agung.</p>
+<p>	Fang Yuan mengikuti suku Ge dan kembali ke tempat asalnya untuk tinggal.</p>
+<p>	Dia berkultivasi dengan sepenuh hati, menggunakan jiwa serigala Gu untuk memperbaiki jiwanya sambil menyempurnakan Gu di sisi lain.</p>
+<p>	Setelah dua kali gagal, ia berhasil menyempurnakan Gu kulit serigala punggung emas peringkat tiga menjadi Gu kulit serigala biru peringkat empat.</p>
+<p>	Kulit serigala Azure Gu digunakan untuk pertahanan, meskipun itu umum, itu memperbaiki masalah pertahanan yang tidak mencukupi bagi Fang Yuan.</p>
+<p>	Pada hari ini, dia menyelesaikan pemurnian jiwanya dan berhenti berkultivasi, ketika tangisan terdengar di luar kamarnya.</p>
+<p>	“Apa yang terjadi?” Dia membuka pintu dan bertanya kepada Guru Gu yang menjaga tempat itu.</p>
+<p>	Master Gu berkata dengan muram, “Nona besar kita, Ge Yao, meninggal. Tim pencari menemukan pakaiannya yang robek di padang rumput beracun, dia dibunuh oleh serigala janggut beracun! ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

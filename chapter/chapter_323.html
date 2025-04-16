@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 323 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 323";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_322.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 323">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_324.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 323</h1>
+        <div class="text-left">
+<p>	Bab 323</p>
+<p>	Bab 323: Awal dari Warisan Tiga Raja</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Itu benar, bisnis informasi. Tahap pertempuran klan Shang memiliki lebih dari seratus pertempuran setiap hari, ada begitu banyak peluang tersembunyi di tahap pertempuran yang bisa kita gunakan. Saya sudah memikirkannya, kami dapat mengumpulkan informasi Master Gu dari peserta tahap pertempuran, dan menjualnya. Kami dapat mempekerjakan beberapa orang terkenal untuk melakukan prediksi sebelum pertempuran, dan kritik setelah pertempuran, dan seterusnya. Shang Xin Ci tersenyum saat dia menjawab.</p>
+<p>	“Cemerlang!” Bai Ning Bing bersorak.</p>
+<p>	Ide ini sangat cerdik!</p>
+<p>	Bai Ning Bing telah berpartisipasi dalam banyak pertempuran, dia sangat tahu betapa briliannya ide ini. Segera, dia tahu ide ini bisa mendatangkan keuntungan besar bagi mereka.</p>
+<p>	Bahkan Fang Yuan menatapnya dengan heran.</p>
+<p>	Dia telah memikirkan ide ini di kehidupan sebelumnya, bahkan menggunakannya di klan Wu. Panggung pertempuran klan Wu lebih megah dan memiliki suasana yang lebih hidup. Ide Fang Yuan membuat keributan besar dan memberinya banyak uang setiap hari. Namun tidak lama kemudian, klan Wu ikut campur, dan segala macam persaingan dan penindasan datang, hanya dalam beberapa bulan, keuntungannya menyusut dan bisnisnya terpaksa ditutup setelah setengah tahun.</p>
+<p>	Fang Yuan merenung, dia bisa menemukan ide ini karena ingatannya tentang Bumi. Tapi Shang Xin Ci bisa menganggap itu sebagai penduduk asli sangat mengesankan, itu menunjukkan bakatnya yang unggul dalam bisnis dan perdagangan!</p>
+<p>	Meskipun ide ini bagus, Fang Yuan menggelengkan kepalanya.</p>
+<p>	Shang Xin Ci menggertakkan giginya: “Apakah saudara Hei Tu berpikir ide ini buruk?”</p>
+<p>	“Idenya bagus, tapi tidak akan berhasil. Xin Ci, apakah kamu percaya padaku?” Fang Yuan menatap Shang Xin Ci dalam-dalam.</p>
+<p>	Shang Xin Ci tersenyum lembut.</p>
+<p>	“Hidupku diselamatkan oleh saudara Hei Tu, apa yang tidak bisa dipercaya?”</p>
+<p>	Bai Ning Bing mencibir di dalam hatinya, tetapi tetap diam.</p>
+<p>	Dia adalah orang dalam, di sepanjang jalan, dia sangat jelas: penderitaan Shang Xin Ci sendirian disebabkan oleh Fang Yuan.</p>
+<p>	Fang Yuan mengangguk: “Karena kamu mempercayaiku, dengarkan aku. Kami hanya perlu dua puluh hari untuk melipatgandakan batu purba Anda. ”</p>
+<p>	“Betulkah!” Shang Xin Ci mengungkapkan rasa ingin tahunya: “Kalau begitu saya akan mendengarkan instruksi saudara.”</p>
+<p>	“Skema apa yang dia buat kali ini? Siapa yang dia rencanakan untuk dilukai? ” Bai Ning Bing menatap Fang Yuan dengan sudut matanya, menebak-nebak dalam hatinya.</p>
+<p>	…</p>
+<p>	Gunung San Cha, terletak di tengah gunung Leng Zhan klan Zuo, dan gunung Fei Lai klan Che.</p>
+<p>	Klan Zuo dan klan Che, yang pertama memiliki enam ratus tahun sejarah, sedangkan yang terakhir memiliki lima ratus delapan puluh.</p>
+<p>	Keduanya adalah musuh, kebencian dan dendam berabad-abad, menyebabkan kedua klan menjadi musuh bebuyutan.</p>
+<p>	Selama seratus tahun terakhir, kedua klan berkembang, dan untuk menduduki gunung San Cha, mereka bertarung.</p>
+<p>	Di pinggang gunung gunung San Cha, pertempuran sengit telah terjadi, dan itu hampir berakhir.</p>
+<p>	Darah mengalir di tanah, saat puluhan mayat Guru Gu tergeletak di tanah. Ada tujuh orang yang masih berdiri.</p>
+<p>	Tiga dari klan Zuo, empat dari klan Che.</p>
+<p>	Dada tetua klan Zuo Zuo Wu Sheng memiliki lubang yang dalam, saat darah mengalir keluar. Dia menekan lukanya saat dia berdiri di depan Zuo Chan Yu, dengan ekspresi serius: “Nona Besar, pergi sekarang, kami akan memblokir mereka!”</p>
+<p>	Zuo Chan Yu adalah putri tertua pemimpin klan Zuo, memiliki bakat kelas A dan merupakan harapan masa depan klan Zuo. Dia masih muda dan cantik, peringkat tiga kultivasi tahap menengah bahkan sebelum berusia dua puluh tahun, dia tidak mampu mati di sini.</p>
+<p>	“Penatua Wu Sheng …” Zuo Chan Yu menunjukkan keraguan dan kekecewaan yang mendalam.</p>
+<p>	“Ingin pergi? Bermimpilah!” Tetua klan Che Che You Yin mencibir saat dia berjalan keluar.</p>
+<p>	“Orang tua Wu Sheng, untuk berpikir hari ini akan datang. Hehehe, hari ini, aku akan memastikan kalian bertiga mati tanpa penguburan yang layak!” Niat membunuhnya meledak.</p>
+<p>	Tetapi setelah mengatakan itu, dia menginstruksikan seorang Master Gu wanita muda di sampingnya: “Xiang Er, kamu mengalami cedera, nanti ketika kita bertarung, tetap di belakang dan awasi kami.”</p>
+<p>	Che Qiao Xiang langsung mengerutkan kening: “Ayah, saya hanya mengalami sedikit cedera, tidak masalah. Aku ingin bertarung di sampingmu!”</p>
+<p>	Dia sangat khawatir.</p>
+<p>	Zuo Wu Sheng adalah saingan ayahnya selama puluhan tahun, kekuatan mereka hampir sama. Meskipun Zuo Wu Sheng terluka, tidak mudah untuk membunuhnya, serangan baliknya yang sekarat akan menakutkan.</p>
+<p>	“Omong kosong!” Che You Yin mencaci: “Taat dan dengarkan ayah, ini perintah.”</p>
+<p>	Che Qiao Xiang cemberut, hendak menegur, tetapi tiba-tiba mendengar tawa.</p>
+<p>	“Hahahaha… hehehehe… huhuhu…”</p>
+<p>	Ini adalah tawa yang aneh, membuat seseorang merasakan angin jahat bertiup ketika mereka mendengarnya.</p>
+<p>	Setelah tawa ini, seseorang muncul di atas batu gunung.</p>
+<p>	Orang ini sangat tampan, mengenakan jubah bunga yang memiliki kupu-kupu merah muda. Dia mengenakan mahkota bunga di kepalanya, dan ada bola bunga merah dijahit ke mahkota. Saat dia tertawa, bola bergetar, menyebabkan dia terlihat seperti badut yang sangat lucu.</p>
+<p>	Tapi entah itu Zuo Wu Sheng atau Che You Yin, ketika mereka melihatnya, tidak ada tawa melainkan ketakutan yang intens.</p>
+<p>	“Ah, kamu adalah ‘Pink Butterfly Gentleman’…”</p>
+<p>	“Kong Ri Tian!”</p>
+<p>	Keduanya berbicara, mengungkapkan identitasnya.</p>
+<p>	Saat ini, ekspresi orang lain juga berubah. Terutama Zuo Chan Yu dan Che Qiao Xiang, wajah mereka menjadi pucat dan mereka menjadi sangat gugup.</p>
+<p>	Kong Ri Tian ini adalah Gu Master iblis, memiliki reputasi keji. Dia suka memakai jubah bunga yang memiliki kupu-kupu merah muda, sehingga dia disebut ‘pria kupu-kupu merah muda’.</p>
+<p>	Tapi sebenarnya, dia adalah pemerkosa berantai, menargetkan wanita perawan. Dia sangat dibenci oleh semua orang, dan karenanya dia penyendiri.</p>
+<p>	Yang paling penting, dia memiliki kultivasi peringkat empat, begitu dia muncul, situasi pertempuran berubah.</p>
+<p>	Klan Zuo dan klan Che kehabisan akal, petarung utama mereka Che You Yin dan Zuo Wu Sheng terluka, dan hanya memiliki kultivasi peringkat tiga.</p>
+<p>	“Hahaha… hehehe… huhuhu… Benar sekali, saya Kong Ri Tian!” Meskipun dia diekspos, pria kupu-kupu merah muda itu sangat senang, tertawa dengan cara yang aneh lagi.</p>
+<p>	Tiba-tiba, dia melambaikan lengan bajunya, dan menyuntikkan esensi purba, menyebabkan kelopak bunga menghujani medan perang.</p>
+<p>	Kelopak merah muda berubah menjadi kupu-kupu, terbang di udara.</p>
+<p>	Seketika, aroma menyebar ke seluruh medan perang.</p>
+<p>	Klan Zuo dan klan Che dengan cepat mempertahankan dan melepaskan kemampuan mereka.</p>
+<p>	Kong Ri Tian menggunakan kesempatan ini untuk menyerang, menyebabkan hujan bunga semakin deras saat tubuhnya bergerak cepat.</p>
+<p>	Setelah delapan hingga sembilan putaran, tubuh Kong Ri Tian melintas, saat dia mundur dan meninggalkan medan perang.</p>
+<p>	“Dia mundur!”</p>
+<p>	“Hampir saja…”</p>
+<p>	Che You Yin dan Zuo Wu Sheng menghela nafas bersama, tapi ekspresi mereka segera berubah.</p>
+<p>	“Chan Yu sayangku!”</p>
+<p>	“Qiao Xiang! Bajingan, lepaskan putriku!!”</p>
+<p>	Kedua tetua itu terbakar amarah.</p>
+<p>	“Hahaha… hehehe… huhuhu…” Kong Ri Tian tertawa, dua wanita di tangan kiri dan kanannya masing-masing.</p>
+<p>	Itu adalah Che Qiao Xiang dan Zuo Chan Yu, yang jatuh pingsan saat mereka ditangkap olehnya selama pertempuran yang kacau.</p>
+<p>	Kong Ri Tian mengkhususkan diri dalam berurusan dengan Master Gu wanita.</p>
+<p>	“Hadiah besar hari ini, untuk berpikir aku akan menemukan dua wanita cantik di sini. Hahaha… hehehe… huhuhu!” Kong Ri Tian sangat puas, ketika tiba-tiba terjadi perubahan.</p>
+<p>	Seluruh gunung San Cha mulai bergetar, saat bebatuan gunung jatuh karena getarannya!</p>
+<p>	“Apa yang sedang terjadi?”</p>
+<p>	“Apa yang sedang terjadi?!”</p>
+<p>	Saat semua orang berteriak kaget, tiga pilar cahaya meledak dari tiga puncak gunung gunung San Chan. Tiga pilar cahaya raksasa, kuning, biru, dan merah memanjang ke langit, di atas awan.</p>
+<p>	Pada titik ini, sebuah suara terdengar di antara semua yang hadir di gunung San Cha —</p>
+<p>	“Warisan Tiga Raja dibuka hari ini, terlepas dari kebenaran atau iblis, hanya nasib yang penting.”</p>
+<p>	Semua orang menatap pemandangan ini dengan kaget.</p>
+<p>	Bahkan Kong Ri Tian melupakan dua wanita cantik di pelukannya.</p>
+<p>	Warisan tiga raja … itu sebenarnya warisan tiga raja!</p>
+<p>	Semua orang bereaksi dan menunjukkan ekspresi yang sangat bersemangat.</p>
+<p>	Warisan tiga raja, ya Tuhan, ketiga raja itu peringkat lima Master Gu, ini warisan mereka, ini sebenarnya warisan mereka!!!</p>
+<p>	…</p>
+<p>	Tiga hari kemudian, di kota klan Shang.</p>
+<p>	Taman Nan Qiu, ruang belajar.</p>
+<p>	Menempatkan dokumen dengan ringan di atas meja, kecemerlangan bersinar di mata Fang Yuan.</p>
+<p>	“Warisan tiga raja akhirnya dibuka …”</p>
+<p>	Melihat tanggalnya, itu sama dengan kehidupan sebelumnya. Ini menunjukkan bahwa di dunia ini, meskipun kelahiran kembali dapat mengubah sejarah, peristiwa penting tidak dapat diubah dengan mudah.</p>
+<p>	“Sekarang setelah warisan tiga raja dibuka, aku hanya punya sedikit waktu lagi. Begitu Shang Xin Ci menjadi tuan muda, saya harus berangkat.”</p>
+<p>	Fang Yuan merasakan dorongan di hatinya, dia harus bertindak lebih cepat.</p>
+<p>	Warisan tiga raja berbeda dari warisan biasa.</p>
+<p>	Warisan anggur bunga dan warisan tulang putih yang dia ambil sebelumnya hanya satu warisan masing-masing. Tapi kali ini, itu adalah tiga warisan kolektif di satu tempat.</p>
+<p>	Jika dia bisa mendapatkan ketiganya, kekuatan Fang Yuan akan meningkat berkali-kali lipat, dan cacing Gu peringkat empat yang dia butuhkan sebagian besar akan terisi. Setidaknya sebelum peringkat lima, dia tidak perlu khawatir tentang sumber daya lagi.</p>
+<p>	Tapi warisan tiga raja adalah warisan iblis, itu berbahaya. Ada banyak kelompok anjing di dalam, dan banyak pos pemeriksaan yang harus dilewati. Dalam kehidupan sebelumnya, banyak nyawa dikorbankan, dan hanya setelah setengah tahun seseorang mencapai akhir dan mendapatkan warisan.</p>
+<p>	Jadi, tidak ada gunanya pergi saat ini.</p>
+<p>	“Berita tentang warisan tiga raja tidak dapat disembunyikan. Bagaimana tiga pilar yang mencapai langit itu bisa disembunyikan? ”</p>
+<p>	Fang Yuan tahu ketiga pilar ini adalah pintu masuk warisan. Tapi untuk masuk, ada persyaratan tertentu.</p>
+<p>	“Sekarang, aku akhirnya bisa membeli secara massal Gu perbudakan anjing, gu bangau kertas, dan Gu telur yang meledak.” Fang Yuan menganalisis.</p>
+<p>	Sebelum ini, meskipun dia memiliki uang tunai, dia diam-diam membeli tiga jenis Gu di pasar.</p>
+<p>	Dia memiliki sifat waspada, dia tidak masuk semua.</p>
+<p>	Hanya ketika berita tentang warisan tiga raja dirilis, dia tahu waktunya sudah matang.</p>
+<p>	Pembelian massal!</p>
+<p>	Lima hari kemudian, Fang Yuan membeli sejumlah besar peringkat satu perbudakan anjing Gu, peringkat dua kertas bangau Gu, dan peringkat satu telur meledak Gu. Tidak hanya seratus ribu batu purba Shang Xin Ci, tetapi juga tiga ratus ribu yang baru saja dia dapatkan dari klan Bai.</p>
+<p>	Fang Yuan pernah memeras tiga juta batu purba dari klan Bai, mereka sudah membayar hampir setengahnya.</p>
+<p>	Menambahkan uang Bai Ning Bing, rencana pembelian Fang Yuan sukses besar.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

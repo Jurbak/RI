@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 152 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 152";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_151.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 152">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_153.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 152</h1>
+        <div class="text-left">
+<p>	Bab 152</p>
+<p>	Bab 152: Maju ke Peringkat tiga</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Satu jam kemudian, Gu Yue Yao Le hampir sepenuhnya dimakan oleh beruang hitam itu.</p>
+<p>	Beruang hitam tidak mau memakan usus dan otak gadis itu, tetapi Fang Yuan tidak ingin itu terjadi.</p>
+<p>	Menurut resep Man-beast Life Burial Gu, seekor binatang buas harus memakan seluruh orang itu hingga potongan terkecil untuk efek terbesar. Hal ini dapat memastikan keberhasilan untuk tingkat terbesar.</p>
+<p>	Untuk memperbaiki Gu Pemakaman Kehidupan Manusia-binatang ini, diperlukan sekitar sepuluh bahan.</p>
+<p>	Dan dua yang paling penting, adalah manusia dan binatang.</p>
+<p>	Manusia harus menjadi gadis perawan, dan memiliki bakat Guru Gu. Selain itu, dia setidaknya harus memiliki bakat kelas C, tetapi tentu saja nilai A dan B akan lebih baik, dan dapat sangat meningkatkan peluang keberhasilan.</p>
+<p>	Binatang ini mengacu pada Gu Perbudakan Binatang. Gu Perbudakan Beruang, Gu Perbudakan Serigala, Gu Perbudakan Harimau dll, bahkan Gu Perbudakan Rusa atau Gu Perbudakan Banteng dapat bekerja. Namun hanya beruang, serigala, dan harimau – karnivora ini lebih mudah memakan daging. Jika tidak, jika memaksa herbivora seperti rusa atau banteng untuk memakan manusia ini, manipulasi Perbudakan Gu akan diperlukan untuk memaksa mereka melakukannya.</p>
+<p>	Setelah binatang itu memakan manusia, pemurnian harus segera dimulai. Kalau tidak, ketika binatang itu mencerna tulang dan daging orang itu, pemurnian tidak akan mungkin lagi.</p>
+<p>	Melihat bahwa beruang hitam menolak untuk memakan usus dan otak Yao Le, Fang Yuan mendengus tidak senang dan berkehendak dalam pikirannya, mengaktifkan Gu Perbudakan Beruang yang ditanam di tubuh beruang hitam.</p>
+<p>	Beruang hitam menggeram, dan di bawah penindasan Fang Yuan, dipaksa menelan usus dan otak. Pada saat yang sama, itu mematahkan tulang gadis itu berkeping-keping dan menelannya sepotong demi sepotong.</p>
+<p>	Pecahan tulang itu tajam dan runcing, tetapi di bawah kendali Fang Yuan, ia menelannya dan banyak pecahan menusuk ke dalam mulut dan tenggorokannya, rasa sakit menyebabkan beruang besar itu robek.</p>
+<p>	Tapi Fang Yuan hanya memperkuat kendalinya, dan tubuh beruang itu tidak lagi berada di bawah kendalinya sendiri.</p>
+<p>	Melihat beruang hitam memasukkan tulang belakang ke tenggorokannya, Fang Yuan tahu waktunya sudah matang.</p>
+<p>	Dia menjentikkan jarinya, dan Gu Arang Bukaan Tunggal terbang keluar.</p>
+<p>	Cacing Gu terbang ke mulut beruang hitam dan menggali jalan masuk.</p>
+<p>	Beruang hitam tiba-tiba berteriak kesakitan, saat kekuatan Arang Gu membakar organ dalamnya.</p>
+<p>	Tubuh beruang hitam itu gemetar hebat; ia menangis kesakitan dan ingin berguling-guling di tanah, tetapi Gu Perbudakan memiliki pegangan yang mantap pada gerakannya.</p>
+<p>	Setelah terbakar selama lima belas menit, jari Fang Yuan bergerak lagi dan tiga Gu Minyak Tanah terbang keluar.</p>
+<p>Gu Minyak Tanah adalah Gu tipe pengeluaran peringkat satu, dan saat memasuki tubuh beruang hitam, ia meledak menjadi minyak tanah dalam jumlah besar dan mengintensifkan api yang membakar di dalam tubuh beruang hitam.</p>
+<p>	Beruang hitam menangis sampai tenggorokannya kering, tetapi Fang Yuan mengatur waktunya dengan baik dan melemparkan beberapa cacing Gu lagi ke tubuhnya.</p>
+<p>	Cacing Gu ini semuanya ditukar menggunakan poin prestasi.</p>
+<p>	Beruang hitam itu tergeletak di tanah, sama sekali tidak bergerak.</p>
+<p>	Sesaat kemudian, dari mata, telinga, lubang hidung dan mulutnya serta pantatnya, terlihat percikan api kecil. Kemudian, api semakin besar dan dengan cepat menyelimuti seluruh tubuhnya, mengubahnya menjadi pilar api raksasa.</p>
+<p>	Seluruh gua yang redup diterangi oleh api ini.</p>
+<p>	Tapi api ini bukan oranye biasa, melainkan warna darah yang menakutkan.</p>
+<p>	Fang Yuan dengan sabar menunggu sebentar, sampai api hampir padam, lalu dia membuang Gu terakhir.</p>
+<p>	Ini adalah racun peringkat dua Gu.</p>
+<p>	Melemparnya ke dalam api, reaksi intens terjadi.</p>
+<p>	Sebuah gumpalan cahaya putih muncul dari api, awalnya hanya seukuran kepalan tangan.</p>
+<p>	Fang Yuan dengan cepat mengeluarkan batu purba dari kantong uangnya dan melemparkannya ke dalam gumpalan ringan ini.</p>
+<p>	Benjolan putih mencerna batu purba dan menjadi lebih besar.</p>
+<p>	Setelah melemparkan hingga seribu batu purba, cahaya itu seukuran pintu kamar, dan kemudian tiba-tiba menyusut.</p>
+<p>	Huff!</p>
+<p>	Api di mayat beruang itu padam seketika, dan gua kembali ke kegelapan, sementara cacing Gu berjalan menuju Fang Yuan.</p>
+<p>	Penguburan Kehidupan Manusia-binatang Gu.</p>
+<p>	Peringkat tiga, Gu tipe pengeluaran.</p>
+<p>	Itu tampak seperti laba-laba hitam dengan kaki panjang berbulu, tetapi memiliki kepala beruang, dan di punggungnya ada tato berwarna darah, menggambar garis wajah cantik seorang gadis muda.</p>
+<p>Ini adalah wajah Gu Yue Yao Le.</p>
+<p>	Itu menyerupai senyuman namun tidak, itu tampak seperti wajah menangis namun tidak, tapi dia sepertinya menatap Fang Yuan dengan tatapan penuh kebencian!</p>
+<p>	Fang Yuan tertawa terbahak-bahak, tidak mempedulikannya sama sekali.</p>
+<p>	Kematian adalah akhir dari segalanya, bahkan dalam hidup dia hanya begitu, apa lagi yang bisa dia lakukan untuk Fang Yuan setelah kematian?</p>
+<p>	Dia membuka mulutnya tanpa ragu-ragu dan menelan Gu Pemakaman Kehidupan Manusia-binatang ini.</p>
+<p>	Penguburan Kehidupan Manusia-binatang Gu bergerak di sepanjang tenggorokannya ke kerongkongannya, berubah menjadi campuran aliran air hitam dan merah.</p>
+<p>	Air mengalir dari atas, seperti sungai surgawi yang terbalik, mengalir ke lubangnya.</p>
+<p>	Memasuki lubang, semburan air merah hitam ini segera memasuki laut purba baja merah.</p>
+<p>	Seketika, seluruh esensi purba berubah menjadi warna hitam-merah yang menakutkan, dipenuhi dengan bau darah.</p>
+<p>	Pikiran Fang Yuan bergerak saat dia mengaktifkan esensi purba hitam-merah ini, bergegas menuju dinding aperture.</p>
+<p>	10%, 20%, 30%, ketika 38% dari esensi purba dikeluarkan, aperture memiliki ledakan keras saat dinding kristal putih pecah berkeping-keping.</p>
+<p>	Apa yang menggantikannya adalah dinding aperture membran cahaya berbentuk bola bulat yang sama sekali baru.</p>
+<p>	Pada saat ini, Fang Yuan naik ke peringkat tiga!</p>
+<p>Tapi Fang Yuan tidak mengendur, dan malah memaksa sisa esensi purba merah hitam keluar dari tubuhnya.</p>
+<p>	Esensi purba ini tidak dapat digunakan, dan jika disuntikkan ke cacing Gu, mereka akan mati. Jika dibiarkan tertinggal di dalam bukaan, semakin lama ia tinggal, semakin akan mengotori dinding bukaan membran cahaya, dan menyebabkan bakat seseorang menurun.</p>
+<p>	Setelah mengeluarkan semua esensi purba hitam-merah dari tubuhnya, dia mengambil batu purba dan mulai memulihkan esensi purbanya.</p>
+<p>	Pertama, kabut perak putih muncul, lalu mengembun menjadi tetesan air, akhirnya membentuk laut purba berwarna perak putihnya.</p>
+<p>	Untuk Master Gu, Peringkat satu adalah esensi purba tembaga hijau, Peringkat dua adalah baja merah, dan Peringkat tiga adalah perak putih.</p>
+<p>	Tapi laut purba perak putih ini tidak murni, karena ada jejak campuran hitam-merah — ini adalah efek samping dari menggunakan Gu Pemakaman Kehidupan Manusia-binatang.</p>
+<p>	Fang Yuan tidak terkejut. Dia menenangkan pikirannya dan mengeluarkan esensi purba perak putih ini dari tubuhnya, sebelum membentuk esensi purba baru.</p>
+<p>	Putaran kedua, zat berwarna hitam-merah berkurang setengahnya.</p>
+<p>	Tapi Fang Yuan tidak puas, dan mengeluarkan esensi purba perak putihnya lagi, membentuk esensi purba baru untuk ketiga kalinya.</p>
+<p>	Setelah beberapa kali mencoba, zat hitam-merah berkurang menjadi jumlah yang hampir tidak dapat diamati, dan bahkan jika Fang Yuan mencoba lebih banyak lagi, zat ini akan tetap ada.</p>
+<p>	Ini adalah konsekuensi yang tak terhindarkan dari penggunaan Gu Pemakaman Kehidupan Manusia-binatang.</p>
+<p>	Efek Gu Pemakaman Kehidupan Manusia-binatang itu luar biasa, mampu mengubah Master Gu tahap puncak peringkat dua tanpa harapan untuk memajukan seluruh hidupnya, menjadi peringkat tiga. Ini benar-benar mengubah nasib, jadi pasti ada ketidaksempurnaan.</p>
+<p>Menyingkirkan zat hitam-merah ini, ada sebuah metode. Yang paling umum adalah menggunakan Gu Air Pembersih.</p>
+<p>	Cleansing Water Gu dapat sepenuhnya membersihkan kotoran di aperture; itu muncul sekali di rumah pohon, tetapi dibeli oleh faksi Chi.</p>
+<p>	Dalam jangka pendek ini, Fang Yuan tidak bisa berbuat apa-apa tentang zat hitam-merah.</p>
+<p>	…</p>
+<p>	“Kalian sekelompok idiot yang tidak berguna, apa yang kalian lakukan! Tidak dapat menemukan orang yang begitu besar dan hidup ?! ” Di ruang pengobatan, Gu Yue Yao Ji menjadi sangat marah, dan teriakannya menyebabkan bahkan kisi-kisi jendela dan tirai bergetar.</p>
+<p>Dalam hatinya, dia khawatir, takut, cemas dan marah.</p>
+<p>	Sudah tiga hari tiga malam, empat serigala petir yang gila dimusnahkan dan desa Gu Yue relatif aman saat ini. Tapi cucunya Gu Yue Yao Le tidak terlihat.</p>
+<p>	Bahkan setelah dia mengerahkan semua hubungannya dan menyisir medan perang, bahkan ada regu pencari skala besar di sekitar desa, masih tidak ada jejaknya.</p>
+<p>	Orang-orang yang melihat Gu Yue Yao Le untuk terakhir kalinya adalah para Gu Master yang bertarung. Apa yang mereka lihat adalah – Gu Yue Yao Le jatuh ke dalam pengepungan serigala, dan harus melarikan diri dengan panik, dalam keadaan yang semakin memburuk.</p>
+<p>	Ini menunjukkan bahwa Gu Yue Yao Le tidak dalam situasi optimis, kemungkinan besar dikonsumsi oleh kawanan serigala.</p>
+<p>	Tapi Gu Yue Yao Ji marah.</p>
+<p>Dia tidak bisa menerima kenyataan yang begitu kejam.</p>
+<p>	Jika itu gadis lain, jadi bagaimana jika mereka mati. Tapi ini adalah cucunya sendiri yang berhubungan dengan darah, seseorang yang telah dia asuh sejak muda untuk menjadi pewaris faksi obatnya!</p>
+<p>	Dia berperilaku sangat baik dan cerdas, dicintai oleh semua orang. Begitu hidup dan lucu, membawa sukacita bagi orang lain.</p>
+<p>Hari-hari ini, Gu Yue Yao Ji tidak bisa tidur sama sekali, karena dalam pikirannya, itu semua gambar cucunya.</p>
+<p>	Gu Yue Yao Ji awalnya mempertahankan penampilannya dengan baik, tetapi dalam tiga hari ini, dia tampaknya telah berusia lebih dari sepuluh tahun. Rasanya seperti hatinya digali, dan dia merasakan rasa sakit kekosongan yang tak ada habisnya.</p>
+<p>Dalam teriakannya, puluhan Master Gu menundukkan kepala mereka, menahan penghinaan kejam dari wanita tua itu.</p>
+<p>	“Melapor ke tetua klan ruang obat, bawahan ini memiliki sesuatu untuk dilaporkan.” Pada saat ini, seorang Master Gu peringkat dua masuk.</p>
+<p>	“Apa! Apakah ini berita tentang Yao Le?” Mata Gu Yue Yao Ji bersinar, bertanya dengan cepat.</p>
+<p>	“Seseorang naik ke peringkat tiga, pemimpin klan mengadakan pertemuan tetua di paviliun pemimpin klan, untuk mengkonfirmasi situasinya.” Master Gu dengan cepat melaporkan.</p>
+<p>	Mata Gu Yue Yao Ji meredup, melambaikan tangannya, “Bukan informasi tentang Yao Le, dan masih menggangguku? Tunggu… tunggu, apa yang kamu katakan… Seseorang naik ke peringkat tiga dan menjadi tetua klan baru?”</p>
+<p>Di tengah jalan, dia bereaksi dan dengan ringan mengerutkan kening.</p>
+<p>	Ini terlalu mendadak, tanpa firasat.</p>
+<p>	Munculnya tetua klan baru akan mempengaruhi situasi politik seluruh klan Gu Yue. Ini adalah pukulan besar pada faksi obat yang telah kehilangan pewarisnya.</p>
+<p>Di aula pengobatan, para Master Gu yang berdiri mulai berdiskusi di antara mereka sendiri, menebak identitas tetua klan yang baru.</p>
+<p>	Gu Yue Yao Ji mengerutkan kening, langsung bertanya, “Siapa yang naik ke peringkat tiga?”</p>
+<p>	“Melapor kepada Lord Yao ji, ini adalah Gu Yue Fang Yuan,” jawab Master Gu.</p>
+<p>	“Apa? Itu dia!” Seketika, iris mata Gu Yue Yao Ji menyusut; ini adalah berita terburuk baginya.</p>
+<p>	Di aula, Master Gu juga mulai berdiskusi dengan keras.</p>
+<p>“Mereka tidak mungkin melakukan kesalahan, kan, mengira itu Fang Yuan?”</p>
+<p>	“Bukankah dia bakat kelas C? Bagaimana dia bisa menjadi Master Gu peringkat tiga begitu cepat? ”</p>
+<p>	“Begitu dia Peringkat tiga, dia akan menjadi tetua klan, seorang petinggi di klan. Ketika kita melihatnya lain kali, kita harus membungkuk dan menyapanya!”</p>
+<p>	“Bagaimana ini bisa…. Ini benar-benar melonjak melalui kesuksesan!”</p>
+<p>	“Sebelumnya, bukankah mereka bilang dia sudah mati? Dia menghilang selama tiga hari tiga malam, dan mayatnya tidak dapat ditemukan di medan perang. Kami pikir dia sudah dimakan oleh serigala petir…”</p>
+<p>	Mereka tercengang, cemburu dan bingung.</p>
+<p>“Hilang selama tiga hari tiga malam, tanpa mayat di medan perang, bukankah ini sama dengan situasi Yao Le?”</p>
+<p>	Telinga Gu Yue Yao Ji berkedut, dan naluri wanitanya menyebabkan dia memiliki kecurigaan yang kuat terhadap Fang Yuan tanpa alasan!</p>
+<p>	Dia tiba-tiba berubah pikiran; dia pergi ke paviliun pemimpin klan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

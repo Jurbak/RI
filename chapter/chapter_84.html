@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 84 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 84";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_83.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 84">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_85.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 84</h1>
+        <div class="text-left">
+<p>	Bab 84</p>
+<p>	Bab 84: Menginjak-injak dengan kejam!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Pertarungan terakhir, Gu Yue Fang Zheng vs Gu Yue Fang Yuan!</p>
+<p>	“Oh Menarik.”</p>
+<p>	“Untuk berpikir bahwa pada akhirnya, itu adalah pertarungan antara saudara.”</p>
+<p>	“Fang Zheng…” Melihat ini, senyum pemimpin klan sedikit memudar, “Hambatan terbesar di hatimu adalah saudaramu Fang Yuan. Silakan dan kalahkan dia, Anda memiliki esensi purba baja merah sementara juga memiliki Gu Kulit Giok. Dengan serangan dan pertahanan, Anda memiliki keuntungan terbesar. Hancurkan rintangan ini di jalanmu, dan kamu akan terlahir kembali!”</p>
+<p>	Pertandingan terakhir akhirnya dimulai.</p>
+<p>	Kedua bersaudara itu berdiri di arena yang sama, saling menatap.</p>
+<p>	Sinar matahari terakhir yang tersisa seperti darah …</p>
+<p>	Cahaya matahari terbenam seperti karpet mewah untuk arena.</p>
+<p>	Dua wajah yang sangat mirip.</p>
+<p>	Semangat juang adik laki-laki itu menyala, sementara tatapan kakak laki-laki itu sedalam jurang.</p>
+<p>	“Saudara …” Tinju Fang Zheng mengepal saat dia menatap tajam ke arah Fang Yuan, berbicara dengan suara tegas, “Akui kekalahan! Saya sudah peringkat dua, dan saya memiliki lebih dari 80% esensi purba baja merah. Esensi purba perunggu hijau Anda hanya 44%, Anda tidak memiliki peluang. ”</p>
+<p>	Fang Yuan dengan ringan menatap saudaranya, “Kamu benar-benar jelas tentang esensi purba saya. Tapi lebih baik jika Anda tidak melontarkan omong kosong. Jika esensi purba dapat menentukan kemenangan, apa gunanya bertarung? ”</p>
+<p>	Fang Zheng tercengang, tetapi segera dia membangkitkan semangatnya, dan kekuatannya terlihat membara di matanya.</p>
+<p>	Sebenarnya, di lubuk hatinya yang terdalam, dia juga tidak ingin Fang Yuan mengaku kalah. Tapi bagaimanapun juga, Fang Yuan adalah kakak laki-lakinya, jadi mengingat hubungan mereka, dia harus mengatakannya.</p>
+<p>	Jika tidak, itu akan terlalu kejam.</p>
+<p>	“Karena kakak laki-laki sangat bertekad, maka aku tidak punya pilihan selain menyerang!” Sebelum dia menyelesaikan kalimatnya, Fang Zheng bergegas menuju Fang Yuan.</p>
+<p>	“Ini lagi!” Di bawah panggung, Mo Bei melihat pemandangan ini, menggertakkan giginya. Dia memutuskan untuk melatih dirinya dengan keras setelah kembali dan mengembalikan penghinaan ini sepuluh kali lipat kepada Fang Zheng!</p>
+<p>	“Fang Yuan sudah selesai, dia tidak memiliki Gu kriket Dragonpill-ku.” Chi Cheng melipat tangannya dan menyeringai, menikmati masalah Fang Yuan.</p>
+<p>	Fang Zheng berlari dan langsung memperpendek jarak. Di tangannya ada bola cahaya bulan.</p>
+<p>	Ekspresi Fang Yuan seperti baja; tidak ada satu perubahan pun saat dia melihat pengisian daya pada Fang Zheng. Dia tidak mengambil satu langkah pun tetapi cahaya bulan berwarna biru juga berkumpul di telapak tangan kanannya.</p>
+<p>	Tiba-tiba!</p>
+<p>	Fang Yuan mengambil langkah tegas setelah menginjak tanah, dan bergerak ke arah Fang Zheng alih-alih mundur.</p>
+<p>	“Ini!” Fang Zheng tidak mengharapkan gerakan Fang Yuan, dia panik secara internal dan dengan cepat menembakkan pedang bulan.</p>
+<p>	Fang Yuan bergegas dengan cepat, dan memutar tubuhnya, menghindari pedang bulan selebar rambut.</p>
+<p>	Ekspresinya dingin, tanpa teriakan atau agresi. Tapi dalam kesunyiannya, ada aura dingin mutlak yang memancar darinya.</p>
+<p>	Fang Zheng tanpa sadar mundur beberapa langkah. Batasnya adalah enam meter, tetapi sekarang Fang Yuan berjarak lima meter darinya. Kali ini dia harus menjadi orang yang mencoba meningkatkan jarak mereka.</p>
+<p>	Dundundun.</p>
+<p>	Fang Zheng mundur sambil menjentikkan pergelangan tangan kanannya beberapa kali, mengirim pedang bulan terbang untuk mencoba dan mendorong Fang Yuan kembali.</p>
+<p>	Fang Yuan mengambil langkah lancar yang satu demi satu, tubuhnya sangat gesit. Dia bergerak dengan intens, dan setiap kali dia berhasil menghindari moonblade tanpa margin untuk kesalahan.</p>
+<p>	“Fang Yuan ini bahkan lebih berani!” Yao Hong berteriak.</p>
+<p>“Pertempuran seperti itu, mereka sudah mengabaikan kematian,” Qing Shu juga berseru.</p>
+<p>	“Maniak pertempuran lain!” Mo Yan menggertakkan giginya, melirik Chi Shan yang tidak jauh.</p>
+<p>	Chi Shan tanpa ekspresi, tapi matanya sesekali berbinar.</p>
+<p>	Kebisingan dari penonton berhenti, mereka semua terpikat oleh pertempuran di atas panggung.</p>
+<p>	Moonblade dan Fang Yuan saling melewati. Dari waktu ke waktu ada cahaya biru yang memantul di wajah Fang Yuan. Ekspresi dinginnya tetap seperti itu tanpa perubahan apa pun, dan setiap kali dia nyaris menghindari kematian, menunjukkan bakat bertarungnya yang ekstrem!</p>
+<p>	Pemimpin klan dan tetua klan semuanya menunjukkan ekspresi serius.</p>
+<p>	Chi Cheng dan Mo Bei menatap dengan mulut terbuka lebar, melihat Fang Yuan menghindari setiap pedang bulan dengan cara yang mustahil.</p>
+<p>	Bagaimana dia melakukannya? Banyak siswa memiliki tanda tanya raksasa di kepala mereka.</p>
+<p>	Hmph, Fang Yuan yang memiliki 500 tahun pengalaman pertempuran, bagaimana dia bisa dibandingkan dengan Fang Zheng yang hanya diajari selama setahun oleh Master Gu Peringkat empat?</p>
+<p>	Di mata Fang Yuan, Fang Zheng setipis sungai jernih. Tidak peduli bagaimana sungai itu mengalir, atau berbelok di antara bebatuan gunung, dia bisa melihatnya dengan jelas ke dasar sungai.</p>
+<p>	Setiap serangan moonblade tidak instan, butuh proses. Fang Zheng harus menjentikkan pergelangan tangannya, dan itu adalah ramalan terbesar.</p>
+<p>	Di mata Fang Yuan, gerakan bahu Fang Zheng, gerakan pergelangan tangannya, setiap langkah yang dia ambil memberikan banyak informasi. Setiap serangan, penghindaran, dan penghindaran Fang Zheng mudah dilihat oleh Fang Yuan, bahkan tentang apa yang terjadi di kepala Fang Zheng, Fang Yuan bisa menebak sampai taraf tertentu.</p>
+<p>	Pikiran Fang Zheng saat ini terperangah!</p>
+<p>	Fang Yuan adalah penghalang di hatinya selama lebih dari sepuluh tahun, bayangan itu dengan cepat berkembang menjadi kegelapan, menyeretnya ke dalam jurang.</p>
+<p>	Emosi gugup membuatnya lupa untuk menggunakan Jade Skin Gu. Pendekatan kuat Fang Yuan membuatnya panik dan dia tidak bisa mendapatkan kembali temponya, sehingga tidak memberinya waktu untuk berpikir.</p>
+<p>	Ini adalah perbedaan dalam pengalaman, ini adalah perbedaan antara pengetahuan orang dalam!</p>
+<p>	Dalam perspektif Fang Yuan, informasi dalam dirinya bahkan lebih penting daripada Jangkrik Musim Gugur Musim Semi, itu adalah kepercayaan terbesarnya.</p>
+<p>	Dia tidak bisa mengandalkan pemimpin klan, pemimpin klan, keluarga, teman, atau cacing Gu.</p>
+<p>	Dia selalu dan hanya mengandalkan dirinya sendiri!</p>
+<p>Di dunia ini, hanya diri sendiri yang paling bisa diandalkan!!</p>
+<p>	Rekan satu tim dan mitra pertempuran itu, mereka hanyalah topeng orang lemah, alasan untuk mengantisipasi bantuan dari orang lain.</p>
+<p>	Dia akhirnya sampai di dekat Fang Zheng!</p>
+<p>	Bam.</p>
+<p>	Pukulan Fang Yuan ditarik dari sudut tersembunyi, menghantam tepat ke perut Fang Zheng.</p>
+<p>	Tubuh Fang Zheng meringkuk saat kekuatan tinju hampir membuatnya muntah. Dia dengan cepat melindungi kepalanya dengan tangannya dan mengambil langkah mundur yang besar. Pada saat genting, itu menunjukkan keterampilan dasarnya yang mantap.</p>
+<p>	“Dimana dia?” Mata Fang Zheng menatap lebar, melihat sekeliling dari celah di antara kedua tangannya, mencoba menemukan lokasi Fang Yuan.</p>
+<p>	“Dibelakang!” Dengan pemikiran ini, Fang Zheng merasakan kekuatan yang kuat di pinggangnya.</p>
+<p>	Dia kehilangan pusat gravitasinya dan jatuh ke tanah.</p>
+<p>	Tapi Fang Zheng telah melalui pelatihan yang sulit. Dengan gerakan ini dia membalik-balik di tanah dan pada saat yang sama, menembakkan pedang bulan dari telapak tangannya ke punggungnya.</p>
+<p>	Gerakan ini adalah pengalaman pertempuran yang diberikan oleh pemimpin klan.</p>
+<p>	Jika itu orang normal, mereka mungkin mengikuti di belakang Fang Zheng. Jika mereka tidak bisa bereaksi tepat waktu, mereka akan terkena moonblade. Bahkan jika moonblade tidak mengenai, mereka akan dipaksa mundur.</p>
+<p>	Tapi siapa Fang Yuan? Bahkan Gu Yue Bo tidak bisa bersaing dengannya dalam hal pengalaman.</p>
+<p>	Fang Yuan bergerak dengan mantap, tidak mengejar. Sebaliknya, dia bergerak dalam lingkaran dan mendekati Fang Zheng. Moonblade hanya berhasil mengenai udara.</p>
+<p>	Fang Zheng mengira dia bisa menarik jarak dan dengan cepat berdiri. Dia akan mengatur ulang dirinya sendiri tetapi dia tiba-tiba mendengar suara swoosh.</p>
+<p>	“Ini embusan pukulan!” Pada sepersekian detik itu, Fang Zheng memiliki pemikiran seperti itu.</p>
+<p>	Segera setelah itu, dia dipukul dengan keras di telinga oleh tinju Fang Yuan.</p>
+<p>	Bam.</p>
+<p>	Dia segera merasakan penglihatannya menjadi gelap, dan rasa pusing yang kuat menyebabkan dia kehilangan keseimbangan, benar-benar ambruk di tanah.</p>
+<p>	Dia tergeletak di tanah selama lebih dari dua kali napas, dan akhirnya dia pulih sedikit. Penglihatannya menjadi lebih jelas, melihat kedua kaki Fang Yuan tepat di sampingnya.</p>
+<p>	Dia tiba-tiba mengerti betapa buruknya situasinya. Dia tergeletak di tanah seperti anjing sementara Fang Yuan menatapnya dari posisi tinggi itu.</p>
+<p>	“Brengsek!” Fang Zheng sangat marah dan mencoba untuk bangun.</p>
+<p>	Di bawah mata semua orang, Fang Yuan mengangkat kaki kanannya dan turun dengan kuat.</p>
+<p>	Bam.</p>
+<p>	Kepala Fang Zheng diinjak dengan keras, seperti batu yang menabrak panggung, membuat suara keras.</p>
+<p>	“Persetan!” Fang Zheng mengamuk dan mencoba bangkit lagi.</p>
+<p>	Fang Yuan menatap dingin, menginjak-injak sekali lagi.</p>
+<p>	Bam.</p>
+<p>	Kepala Fang Zheng membentur panggung lagi. Kulit kepalanya terbuka dan darah berdarah tanpa henti.</p>
+<p>	“Berengsek! Brengsek!!” Gigi Fang Zheng akan hancur karena mengepal, dan kemarahan di dadanya membakar seluruh tubuhnya. Dia mengangkat kepalanya lagi, mencoba untuk bangun.</p>
+<p>	Bam.</p>
+<p>	Langkah ketiga Fang Yuan turun. Kali ini dia terus menginjak kepalanya, tidak melepaskannya. Di bawah kekuatan besar, wajah Fang Zheng terjepit di lantai panggung.</p>
+<p>	Wajah Fang Zheng hampir berubah bentuk, dan dia bernapas dengan terengah-engah, berjuang tanpa hasil. Dia merasa bahwa di kepalanya, ada batu besar yang tidak akan bergerak tidak peduli bagaimana dia berjuang.</p>
+<p>	“Benar, bagaimana aku bisa lupa, aku punya Moonlight Gu!” Di bawah keputusasaan, inspirasi Fang Zheng muncul, dan dia memikirkan Moonlight Gu.</p>
+<p>	Telapak tangan kanannya mengumpulkan cahaya bulan lagi.</p>
+<p>	Tapi bagaimana mungkin Fang Yuan tidak menyadarinya?</p>
+<p>	Dengan suara ringan, dia menembakkan pedang bulan ke telapak tangan kanan Fang Zheng.</p>
+<p>	Argh!</p>
+<p>	Fang Zheng berteriak, rasa sakit yang luar biasa membuat tubuhnya kejang seperti disambar petir.</p>
+<p>	Telapak tangannya hampir ditembus oleh Fang Yuan, menunjukkan tulang putihnya. Moonlight Gu di telapak tangannya sudah mendapat pukulan hebat, itu di ambang kematian!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

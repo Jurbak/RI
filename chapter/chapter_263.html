@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 263 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 263";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_262.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 263">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_264.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 263</h1>
+        <div class="text-left">
+<p>	Bab 263</p>
+<p>	Bab 263: Pertemuan</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Shang Yan Fei menunjukkan senyum tulus saat dia masuk ke rumah.</p>
+<p>	Xiao Die buru-buru memberi hormat, sementara Shang Xin Ci duduk di samping meja, tidak bergerak sambil terus menatap tempat yang sama.</p>
+<p>	Shang Yan Fei juga duduk di samping meja, berbicara dengan suara yang sangat lembut: “Ci Er, bagaimana perasaanmu sekarang?”</p>
+<p>	Bagaimanapun, Shang Xin Ci memiliki pendidikan yang baik, dia berdiri, mundur beberapa langkah dan membungkuk: “Pemimpin klan Tuan Shang tidak perlu khawatir, saya hanya pingsan karena emosi saya terlalu kuat, saya telah pulih sekarang, saya dapat mendengar dan lihat baik-baik, tidak ada masalah.”</p>
+<p>	Shang Yan Fei dengan cepat melambaikan tangannya: “Hehehe, selama kamu baik-baik saja Ci Er, ayo duduk, duduk dan bicara.”</p>
+<p>	Shang Xin Ci hanya memanggilnya sebagai pemimpin klan Shang, sengaja menggunakan istilah yang begitu jauh, itu menyebabkan hatinya sakit.</p>
+<p>	Shang Xin Ci duduk sekali lagi, saat Xiao Die akhirnya bereaksi dan menuangkan teh untuk Shang Yan Fei.</p>
+<p>	“Katakan padaku, bagaimana beberapa tahun terakhirmu?” Shang Yan Fei memandang Shang Xin Ci dengan lembut.</p>
+<p>	“Itu agak baik-baik saja.” Shang Xin Ci menjawab singkat, tidak ingin membicarakannya secara mendalam.</p>
+<p>	Tapi Xiao Die mulai menggerutu: “Sejak muda, Missy telah diisolasi oleh klan. Setelah Nyonya meninggal, mereka menjadi lebih keras dan ingin merebut kekayaan keluarga kami. Mereka terlalu jahat, Tuan, Anda harus membantu Missy!”</p>
+<p>	“Xiao Die, tuangkan tehmu.” Shang Xin Ci memutar matanya ke arah Xiao Die.</p>
+<p>	Xiao Die langsung diam, tidak berbicara lagi.</p>
+<p>	Menghadapi ini, Shang Yan Fei tidak merasa cemas, malah rasa kasihan dan rasa sakit di hatinya tumbuh.</p>
+<p>	Dia tertawa: “Benar, bagaimana kamu sampai di sini? Datang ke sini dari klan Zhang, jaraknya sangat jauh. ”</p>
+<p>	“Tuan, Anda hampir gagal menemui Missy. Kami nyaris tidak berhasil keluar hidup-hidup dalam perjalanan ini. Seluruh karavan seribu dikurangi menjadi kami empat. Untungnya kami bertemu Lord Hei Tu dan Bai Yun dan mendapatkan bantuan mereka, jika tidak…” Xiao Die tidak bisa mengendalikan dirinya dan mengoceh.</p>
+<p>	“Xiao Mati!” Shang Xin Ci memelototi Xiao Die.</p>
+<p>	Xiao Die harus tutup mulut sekali lagi.</p>
+<p>	Shang Yan Fei mengingat dua nama, “Hei Tu dan Bai Yun”, sambil tersenyum: “Mulai sekarang, kalian berdua akan tinggal di sini. Sangat aman, ketika Anda bosan Anda bisa berjalan-jalan di taman, atau berbelanja di luar. Anda baru saja tiba di sini, dan belum terbiasa dengan perkebunan, mudah tersesat. Saya akan mengirim seorang pelayan kepada Anda, dia akrab dengan lingkungan. Saya akan pergi dulu, istirahat yang baik untuk saat ini. ”</p>
+<p>	Shang Yan Fei dapat mengatakan bahwa Shang Xin Ci masih membutuhkan waktu untuk menyesuaikan pola pikirnya.</p>
+<p>	Pada titik ini, dia perlu memberinya waktu dan ruang untuk beradaptasi.</p>
+<p>	“Tuan adalah orang yang baik, meskipun dia adalah pemimpin klan Shang, dia sangat ramah. Nona, bagaimanapun juga dia adalah ayah kandungmu…” Melihat Shang Yan Fei pergi, Xiao Die mendesak.</p>
+<p>	“Saya tahu, saya mengerti niat ibu ketika saya pertama kali melihatnya. Huh , dia menginstruksikan saya untuk datang ke gunung Shang Liang sebelum dia meninggal, namun tidak memberi tahu saya alasannya. Itu karena dia tidak yakin apakah dia akan mengakui saya sebagai putrinya … Meskipun dia telah menerima saya, saya tidak merasa baik tentang itu. Ini semua terlalu tiba-tiba…”</p>
+<p>	“Nona, tidak peduli apa, ke mana pun Anda pergi, saya akan tetap di sisi Anda.” Xiao Die berdiri di depan meja, meraih tangan Shang Xin Ci dan memberi semangat.</p>
+<p>	“Mm.” Shang Xin Ci tergerak dan mengangguk, meletakkan telapak tangannya di atas telapak tangan Xiao Die.</p>
+<p>	“Tentu saja, jika Missy bisa tinggal di sini, itu yang terbaik. Anda tahu, ini adalah klan Shang! Ya Tuhan, kemuliaan dan kekayaan semuanya dalam jangkauan tangan. Klan Zhang bahkan tidak bisa memegang lilin untuk klan Shang, Nona!” Xiao Die membuat wajah masam saat dia berkata.</p>
+<p>	“Oh kamu.” Shang Xin Ci tertawa terbahak-bahak, merasa tak berdaya melawan Xiao Die.</p>
+<p>	Xiao Die mencibir. Saat tawanya menginfeksi Shang Xin Ci, itu menyelesaikan dendam yang tersisa di hatinya.</p>
+<p>	Shang Yan Fei berjalan keluar dari ruangan, dan senyumnya menghilang sepenuhnya.</p>
+<p>	Dia mengenakan jubah hitam dan memiliki rambut berwarna darah; wajah tampan dengan mata bersinar dengan cahaya dingin, dia biasanya mengatupkan bibirnya, memamerkan kepribadiannya yang teguh dan tegas.</p>
+<p>	Dia adalah Shang Yan Fei, pemimpin klan Shang generasi ini!</p>
+<p>	Dia kejam dan kejam. Untuk posisi pemimpin klan, dia memaksa dua saudara laki-laki dan seorang saudara perempuan untuk bunuh diri.</p>
+<p>	Dia tegas dalam membunuh, ketika dia pertama kali berkuasa, sebuah desa klan yang jauh berpikir bahwa mereka berada pada jarak yang aman dan menyerang karavan klan Shang. Dia mengabaikan semua keberatan dan menghabiskan banyak sumber daya, untuk membunuh setiap orang di desa itu. Dia membunuh semua orang yang menyerah, dan tengkorak mereka menumpuk di gunung, di depan para tetua yang pertama kali menolak keputusannya untuk membalas.</p>
+<p>	Dia memegang aturan besi, sejak dia berkuasa, dia mengkonsolidasikan kekuatan politiknya, dan mempraktikkan nepotisme, menekan persaingannya. Dengan cepat menambahkan lebih dari selusin tetua klan eksternal, dia hanya menggunakan tiga tahun untuk mengubah seluruh klan Shang lebih tinggi menjadi suara pribadinya.</p>
+<p>	Dia memiliki visi yang besar, dan bakat untuk bisnis. Selama bertahun-tahun berkuasa, karavan klan Shang tumbuh tiga kali lipat. Hingga seratus klan menjadi bawahan klan Shang, dan dibentuk menjadi kekuatan tersembunyi yang besar.</p>
+<p>	Dia mengangkat orang berdasarkan prestasi, bahkan untuk anak-anaknya sendiri. Awalnya ada lima belas posisi master muda klan Shang, tetapi setelah pemerintahannya, dia menguranginya menjadi sepuluh.</p>
+<p>	Yang lebih langka, adalah bakatnya, memiliki bakat kelas A, pada saat yang sama ketika dia memerintah klan, kultivasinya juga meningkat dengan cepat, di depan rekan-rekannya, menyebabkan banyak orang mengagumi, membenci, dan iri padanya.</p>
+<p>	Ini adalah Shang Yan Fei, pria yang berdiri di atas alam fana perbatasan selatan.</p>
+<p>	“Bawahan ini menyapa pemimpin klan tuan.” Seorang Master Gu wanita muda membungkuk dan memberi hormat.</p>
+<p>	“Tian Lan, mulai hari ini dan seterusnya, kamu akan menjaga Nona Ci Er dengan usaha terbaikmu.” Shang Yan Fei berkata dengan dingin.</p>
+<p>	“Bawahan ini mengerti.” Gadis muda itu mengangguk.</p>
+<p>	“Ketika Anda berada di dekatnya, perhatikan baik-baik, dan cari tahu beberapa informasi. Nona Ci Er mungkin tidak suka berbicara, tetapi pelayannya berbicara tanpa berpikir, dia adalah titik tembus termudah Anda, saya ingin Anda mencari tahu bagaimana tepatnya mereka bisa datang ke gunung Shang Liang.</p>
+<p>	“Ya, bawahan ini mengerti.”</p>
+<p>	“Mm, pergi sekarang.”</p>
+<p>	“Bawahan ini membawanya pergi.”</p>
+<p>	Tian Lan adalah seorang yatim piatu yang diadopsi oleh Shang Yan Fei, dia setia dan dapat dipercaya untuk digunakan. Kemampuannya untuk tampil juga luar biasa, hanya dalam tiga hari, dia menyelesaikan misinya.</p>
+<p>	“Hei Tu Bai Yun? Master Gu Iblis …” Shang Yan Fei menggosok dagunya: “Jika ini nyata, saya harus berterima kasih kepada mereka berdua dengan baik. Tetapi untuk mencegah kemungkinan lain, saya harus menyelidikinya lebih jelas. ”</p>
+<p>	Memikirkan hal ini, Shang Yan Fei memanggil Wei Yang: “Pergi temukan keduanya, satu disebut Hei Tu, yang lain Bai Yun, satu pria dan satu wanita, keduanya adalah Master Gu iblis, fitur wajah mereka seperti itu …”</p>
+<p>	…………</p>
+<p>	Di kota terdalam ketiga.</p>
+<p>	“Sudah tiga hari, apakah mereka berdua tinggal di taman Nan Qiu sepanjang waktu?”</p>
+<p>	“Ya tuan muda, sejak hari itu, mereka tinggal jauh di dalam. Yang paling mereka lakukan adalah keluar dan membeli susu. Bawahan ini mengira susu itu untuk memberi makan cacing Gu. ”</p>
+<p>	“Sialan …” Shang Ya Zi menggertakkan giginya, tatapannya seperti belati yang ingin memotong kedua orang itu menjadi beberapa bagian.</p>
+<p>	Penilaian itu akan datang, di antara sepuluh tuan muda, dia berada di tempat terakhir, jika dia tidak menyelesaikan bisnis apa pun, dia pasti akan tersingkir.</p>
+<p>	Shang Yan Fei memiliki banyak anak, tetapi hanya ada sepuluh posisi master muda.</p>
+<p>	Membandingkan anak-anak biasa dan tuan muda, perlakuan mereka adalah dunia yang terpisah satu sama lain. Tuan-tuan muda mengumpulkan perhatian, dan bisa mengendalikan salah satu bisnis klan Shang, dengan kemewahan dan keberuntungan yang tak terbatas menunggu. Pemimpin klan muda bahkan lebih luar biasa.</p>
+<p>	Tetapi jika itu hanya anak-anak biasa, maka perlakuan mereka tidak berbeda dengan klan lainnya.</p>
+<p>	Shang Ya Zi telah mengalami otoritas seorang tuan muda, memintanya untuk kembali ke gaya hidup biasa dari klan sama dengan memintanya untuk mati!</p>
+<p>	Karena itu, dia membutuhkan warisan itu.</p>
+<p>	Tidak hanya mendapatkannya, tetapi juga mendapatkannya dengan harga murah.</p>
+<p>	Hanya ketika harganya rendah, keuntungannya akan tinggi.</p>
+<p>	Tapi keduanya, Fang dan Bai, keras kepala seperti batu, menolak untuk tunduk padanya.</p>
+<p>	Jika ini adalah kota terdalam keempat atau kelima, dia bisa menggunakan beberapa metode ekstrem, dan memaksa mereka untuk tunduk. Tapi sekarang mereka tinggal di kota terdalam ketiga, Shang Ya Zi bahkan tidak berani berpikir untuk menggunakan kekuatan di sini.</p>
+<p>	“Ini tidak bisa terus berlanjut, mereka punya waktu untuk disia-siakan, tetapi saya tidak. Sepertinya aku harus pergi sendiri, hmph!”</p>
+<p>	Shang Ya Zi tidak tahan lagi, membawa bawahannya dan tiba di taman Nan Qiu.</p>
+<p>	Taman Nan Qiu adalah area perumahan bagi tamu terhormat untuk menginap.</p>
+<p>	Di kota terdalam ketiga, tidak ada penginapan, hanya taman berukuran kecil ini.</p>
+<p>	Tinggal di sini selama sehari membutuhkan tiga puluh batu purba, yaitu tiga ratus selama sepuluh hari, dan hampir seribu sebulan.</p>
+<p>	Harga taman Nan Qiu masih murah di antara perkebunan kota ketiga. Beberapa taman berukuran besar membutuhkan seratus batu purba setiap hari. Untuk beberapa taman kelas khusus, Anda tidak bisa tinggal hanya dengan batu purba, Anda membutuhkan token klan Shang.</p>
+<p>	Di kota klan Shang, setiap hektar tanah sama berharganya dengan emas, terutama di kota terdalam ketiga di mana harga komoditas sangat tinggi.</p>
+<p>	Shang Ya Zi membawa orang-orangnya untuk berkunjung, saat Fang dan Bai sedang bermain catur di samping kolam teratai.</p>
+<p>	Shang Ya Zi mendengus, berkata dengan nada mengejek: “Kalian berdua benar-benar memiliki minat yang besar, mengapa kamu tidak pergi ke toko lain untuk bertanya akhir-akhir ini?”</p>
+<p>	“Apa yang harus ditanyakan. Mereka yang ingin membeli, akan menemukan jalan mereka di sini, kan? ” Fang Yuan tertawa ringan.</p>
+<p>	“Anda!” Shang Ya Zi menjadi marah, sikap Fang Yuan membuatnya marah.</p>
+<p>	Dia mengertakkan gigi, dengan paksa menekan emosinya, mengangkat kepalanya dan berkata dengan arogan: “Saya melihat fakta bahwa Anda memilikinya, saya akan membuatnya menjadi lima ratus ribu, apakah Anda bahagia sekarang?”</p>
+<p>	“Lima ratus ribu batu purba? Tidak sepakat. Setidaknya enam ratus lima puluh.” Fang Yuan melirik Shang Ya Zi sebelum kembali ke papan catur.</p>
+<p>	Mata Shang Ya Zi menyipit menjadi garis tipis saat dia mengambil beberapa langkah ke arah Fang Yuan dan mengancam: “Kalian berdua Gu Master iblis, beraninya kamu berpura-pura! Saya sudah memeriksa latar belakang Anda, Anda mengambil warisan ini dari klan Bai kan? Saya mendengar Anda bahkan membunuh dua tuan muda klan Bai? Anda sebaiknya mengambil kesempatan sekarang dan menjualnya dengan cepat. Saya akan memberitahu Anda, beberapa hari ini, kelompok klan Tie telah mencapai gunung Shang Liang, dan mencari jejak Anda. Menurut Anda apa yang akan terjadi jika saya mengungkapkan informasi Anda kepada mereka?</p>
+<p>	“Oh? Pergi beri tahu mereka kalau begitu. ” Fang Yuan tertawa terbahak-bahak.</p>
+<p>	“Anda!” Shang Ya Zi menunjuk ke arah Fang Yuan, tidak dapat menahannya lagi: “Saya akan memberitahu Anda, lima ratus ribu adalah ketulusan terbesar saya, selain menjualnya kepada saya, apa pilihan lain yang Anda miliki? Tidak ada! Ini adalah teror saya, Anda harus lebih memahami keadaan Anda. ”</p>
+<p>	Pada saat ini, cahaya turun dari langit, dan berubah menjadi Master Gu.</p>
+<p>	Guru Gu ini melihat sekeliling, sebelum membungkuk sedikit, berkata ke arah Fang dan Bai: “Tuan Hei Tu dan Nyonya Bai Yun, saya Wei Yang, seperti perintah pemimpin klan, saya mengundang Anda berdua ke kota terdalam kedua untuk berbicara. .”</p>
+<p>	“A-apa? Ayah ingin bertemu keduanya secara pribadi ?! ” Shang Ya Zi merasakan kilat menyambarnya saat matanya menatap lebar, mengungkapkan ketakutannya yang luar biasa.</p>
+<p>	Ini benar-benar buruk!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

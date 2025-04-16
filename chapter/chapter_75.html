@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 75 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 75";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_74.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 75">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_76.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 75</h1>
+        <div class="text-left">
+<p>	Bab 75</p>
+<p>	Bab 75: Resolusi Jalan Iblis!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Pikiran Fang Yuan terbang ke mana-mana di rumah pohon.</p>
+<p>	Dengan pengetahuan yang diperoleh dari kehidupan sebelumnya, Fang Yuan dapat merasakan keberadaan Wang Da, tetapi bagaimana kekuatannya?</p>
+<p>	Fang Yuan belum pernah melihat Wang Da ini, tetapi dengan informasi yang ada, ada banyak hal yang bisa dia analisis dari ini.</p>
+<p>	“Keberanian dibangun atas dasar kekuatan, dia telah mengumpulkan informasi saya dan masih ingin membalas dendam pada saya. Dengan kepercayaan diri seperti itu, kultivasinya harus di atas Peringkat satu! ”</p>
+<p>	“Tiga tahun ini dia telah bergerak di sekitar tiga daerah yang dilingkari merah, tinggal di pinggiran tiga desa klan. Hampir setiap hari dia menghadapi risiko ketahuan dan dibersihkan. Ini menunjukkan dia tidak memiliki kekuatan untuk berkeliaran di luar, dan berkeliaran di luar membutuhkan kultivasi peringkat tiga.</p>
+<p>	“Ini berarti, pada evaluasi pertama, dia adalah peringkat dua.”</p>
+<p>	Mata Fang Yuan berkilau dengan cahaya dingin, “Menghitung waktu, dia menghilang selama tiga tahun dan berkultivasi ke Peringkat dua sekarang, jadi dia harus menjadi bakat kelas B atau C, dan aperture-nya harus memiliki sekitar 40-70% esensi purba.”</p>
+<p>	“Tiga tahun ini, dia bisa bertahan dan pada saat yang sama, tinggal di rumah meskipun Jiang He mengamati, jadi dia harus memiliki cacing Gu tipe siluman di tempat kerja.</p>
+<p>	Informasi adalah hal yang paling penting untuk pertarungan Guru Gu.</p>
+<p>	Meskipun Fang Yuan tidak memiliki cacing Gu tipe investigasi, dengan pengalaman dan pengetahuannya, ia dapat dengan paksa merekayasa balik tingkat budidaya Wang Da dan cacing Gu ke tingkat yang sangat masuk akal.</p>
+<p>	Dengan sangat cepat, gambaran mentalnya tentang faksi iblis peringkat dua Gu Master muncul, membawa kebencian atas pembunuhan keluarganya dan bersembunyi di suatu tempat untuk membunuh target balas dendamnya.</p>
+<p>	“Saya bisa membunuh orang lain, orang lain secara alami bisa datang untuk membunuh saya. Ini bukan apa-apa.” Fang Yuan tertawa ringan.</p>
+<p>	Di dunia ini, siapa pun berhak untuk hidup, dan siapa pun memiliki kesempatan untuk mati.</p>
+<p>	Mereka yang membunuh, pasti akan terbunuh.</p>
+<p>	Karena dia melakukan pembunuhan, dia harus siap secara mental untuk dibunuh.</p>
+<p>	Jika dia terbunuh seperti itu, maka dia akan mati seperti itu, itu tidak banyak, dan jelas tidak ada penyesalan. Ini adalah jalan yang dia pilih.</p>
+<p>	Poin ini, Fang Yuan sudah memiliki tekad yang besar. Ini adalah resolusi dari cara iblis!</p>
+<p>	“Wang Er ingin membunuhku, maka dalam ujian tengah tahun ini, ini jelas merupakan kesempatan terbaik. Biasanya, siswa akan tinggal di desa, dan dengan kultivasi Peringkat duanya, dia tidak dapat merayap ke desa, yaitu mencari kematian. ”</p>
+<p>	“Mungkin dia menilai bahwa saya mungkin keluar untuk berburu. Tapi Gunung Qing Mao sangat besar, dia sendiri yang harus menyembunyikan jejaknya dan juga harus mencariku, itu terlalu sulit. Sekarang setelah ada kesempatan ini, dia kemungkinan besar akan menyerang. ”</p>
+<p>	“Dia adalah Master Gu peringkat dua, dan yang telah berjuang selama tiga tahun, menjalani kehidupan yang berbahaya dan tidak dikenal, faksi iblis yang diasuh Gu Master seperti ini. Dengan kekuatan pertempuran saya saat ini, saya jelas bukan lawannya. Tetapi ini tidak berarti bahwa saya tidak memiliki kesempatan untuk bertahan hidup.”</p>
+<p>	Melarikan diri!</p>
+<p>	Fang Yuan langsung memutuskan.</p>
+<p>	Tidak ada yang terlalu tidak tahu malu jika ingin bertahan hidup, jadi jika dia tidak bisa melawannya, larilah.</p>
+<p>	Bagi seorang Guru Gu untuk membuat terobosan tiba-tiba hampir tidak pernah terjadi. Bertarung melawan alam yang lebih tinggi adalah mungkin, tetapi itu dibangun di atas dasar bahwa Guru Gu memiliki cacing Gu khusus.</p>
+<p>	Fang Yuan memiliki sejumlah cacing Gu yang dimilikinya, tetapi Jangkrik Musim Gugur Musim Semi sedang berhibernasi dan tidak dapat digunakan, sedangkan cacing Liquor, Gu Babi Putih, Gu Cahaya Kecil dan Gu Cahaya Bulan bukanlah kartu truf untuk melawan alam yang lebih tinggi.</p>
+<p>	Jelas mengetahui musuh tidak terkalahkan, namun memutuskan untuk bertarung sampai mati, itu adalah perilaku “berdarah panas” yang bodoh. Bahkan jika dia menang, itu tidak akan memenangkannya dari takdir.</p>
+<p>	Fang Yuan berhati-hati sepanjang hidupnya bahkan dengan kartu truf, dan jika peluang kemenangannya tipis, dia akan memilih untuk menghindari pertempuran.</p>
+<p>	Dia suka mengendalikan situasi, menggunakan metode yang tidak bermoral untuk meningkatkan peluangnya hingga batasnya. Dia suka bertarung dalam pertempuran yang meyakinkan.</p>
+<p>	Hanya ketika dia tidak punya pilihan, dia akan terlibat dalam pertarungan yang berisiko.</p>
+<p>	Jadi, aktivitas favoritnya adalah menggertak yang lemah dan merebut sumber daya untuk menjadi lebih kuat. Cukup kuat sampai dia melampaui musuhnya dan kemudian menginjak mereka setelah itu, menggertak yang lemah.</p>
+<p>	Tidak ada yang tidak tahu malu tentang ini, mereka yang menemukan tantangan hanya untuk membuktikan keberanian mereka dan mempertaruhkan hidup mereka untuk bertarung sampai mati dengan musuh yang kuat, itulah kebodohan yang sebenarnya.</p>
+<p>	Namun sayangnya, “kualitas” ini dipuji dan direkomendasikan, karena organisasi mana pun membutuhkan individu yang mengorbankan diri untuk melindungi kepentingan penguasa.</p>
+<p>	Seseorang hanya perlu sedikit berpikir untuk mengetahui bahwa kelangsungan hidup adalah prasyarat untuk semua aktivitas.</p>
+<p>	Untuk bertahan hidup dan memenuhi ambisi di hati mereka, ini adalah keberanian terbesar seseorang.</p>
+<p>	Mati untuk aspirasi, mereka bodoh. Bertahan hidup tanpa malu demi ambisi mereka, mereka adalah pejuang pemberani sejati!</p>
+<p>	Di bumi, Han Xin(1) menanggung rasa malu merangkak melalui kaki seseorang, Cao Cao(2) dikejar sampai dia mencukur jenggotnya dan merobek jubahnya, Yue Wang(3) untuk bertahan hidup, harus makan kotoran untuk mengekspresikannya. kesetiaannya……</p>
+<p>	Itu sebabnya, persetan dengan kehormatan dan reputasi, dan muka!</p>
+<p>	Terlepas dari organisasi, mereka akan memuji sistem nilai seperti itu. Semakin banyak yang perlu dikorbankan, semakin mereka akan dipromosikan, seperti militer.</p>
+<p>	“Arah mana yang harus saya tuju, yang memiliki peluang terendah untuk bertemu Wang Da?” Sebuah peta muncul di benak Fang Yuan.</p>
+<p>	“Wang Da sudah tahu saya memiliki peta kulit binatang, sekarang dia harus bersembunyi di hutan, mencari saya dengan mencari distribusi babi hutan di peta. Saya tidak bisa pergi ke tempat-tempat ini, jadi saya hanya bisa bergerak mundur untuk menemukan kesempatan untuk bertahan hidup. ” Memikirkan hal ini, rute yang agak gila muncul di benak Fang Yuan. Di bawah matahari terbenam di hutan pegunungan, bayangan pohon tumpang tindih dan rumput liar tumbuh subur.</p>
+<p>	Sepasang mata merah bersembunyi jauh di dalam bayang-bayang. Matanya terbakar oleh kebencian dan kemarahan, seolah-olah tidak bisa disiram bahkan dengan tsunami.</p>
+<p>	“Fang Yuan, akhirnya aku menemukanmu…” Wang Da menggertakkan giginya, mengeluarkan kata-kata dari mulutnya.</p>
+<p>	Di bawah tatapannya, tidak jauh, seorang anak muda dengan tubuh kurus dan wajah pucat sedang melintasi hutan.</p>
+<p>	Dengan musuhnya di dekatnya, Wang Da tidak segera bertindak, tetapi mengalihkan pandangannya ke beberapa posisi lain.</p>
+<p>	Dari masing-masing posisi ini, seorang pengawas Gu Master disembunyikan.</p>
+<p>	Untuk mencegah kecurangan dan untuk perawatan luka segera, daerah di dekatnya memiliki sekitar beberapa lusin Peringkat dua Gu Masters bersembunyi. Bahkan ada tetua klan peringkat tiga yang memegang benteng di pegunungan tinggi.</p>
+<p>	Wang Da dengan hati-hati bergerak di sekitar hutan dan mengumpulkan banyak informasi.</p>
+<p>	“Saya ingin membunuh Fang Yuan, jadi saya harus menyingkirkan ketiga Master Gu ini terlebih dahulu. Kalau tidak, begitu saya menunjukkan diri, saya akan terganggu. Mungkin dengan terkejut, aku bisa membunuh Fang Yuan, tapi aku juga akan dibunuh oleh Master Gu yang mengejarku dari sana.”</p>
+<p>	“Saya memiliki kultivasi tingkat menengah peringkat dua, dan ada 50% esensi purba di tubuh saya. Saya harus bertindak terlebih dahulu dan membunuh ketiga Master Gu ini, itu sulit. Saya harus menyerang secara berurutan dalam waktu yang sangat singkat. Kalau tidak, begitu mereka menemukan teman mereka mati, mereka akan menjadi waspada dan jejak saya akan terungkap …… ”</p>
+<p>	“Pengikut Bayangan Gu.” Wang Da memejamkan matanya dan memanggil dalam hatinya.</p>
+<p>	Segera, tubuhnya diselimuti gumpalan kegelapan dan bisa bergerak di antara bayangan pohon.</p>
+<p>	Semua terdiam.</p>
+<p>	Di semak lebat di dekatnya, Master Gu peringkat dua klan Gu Yue tergeletak di dalam, menguap karena bosan.</p>
+<p>	“Sangat membosankan, menemani siswa junior ini, saya merasa seperti pengasuh.” Gu Master ini mengeluh pelan, tidak merasakan bayangan yang perlahan merayap di sekelilingnya.</p>
+<p>	Sepasang tangan kurus terentang dari bayang-bayang.</p>
+<p>	Sepasang tangan ini pucat sampai batas, persendiannya besar dan sepuluh pakunya tajam dan panjang, kukunya diwarnai dengan warna ungu tua dan mengeluarkan bau yang sedikit amis.</p>
+<p>	“Bau apa ini?” Klan Gu Yue, Gu Master mengendus, mengerutkan kening tanpa sadar.</p>
+<p>	Dia hanya ingin menyelidiki, tetapi sudah terlambat.</p>
+<p>	Wang Da menerkam seperti ular, menyerang dengan kecepatan kilat!</p>
+<p>	Satu tangan menutupi mulut dan hidung Guru Gu, sementara yang lain menusuk dari bayang-bayang ke arah punggungnya. Kuku ungu gelapnya tajam seperti pisau, jari-jarinya dengan mudah memasuki tubuh Guru Gu dan mencapai jantungnya.</p>
+<p>	Kuku itu beracun, dan pada saat itu ia menyerang jantung. Melalui darah, itu menyebar ke seluruh tubuh Guru Gu.</p>
+<p>	Tubuh Master Gu menegang dan kehilangan semua tanda kehidupan.</p>
+<p>	Meskipun mereka berdua adalah Master Gu peringkat dua, salah satunya menyerang dengan tiba-tiba dengan persiapan, jadi sebelum pertempuran dimulai, itu telah berakhir.</p>
+<p>	“Saya menggunakan 10% dari esensi purba saya, 40% tersisa.” Wang Da memeriksa aperture-nya, dan menyatu dengan bayangan sekali lagi.</p>
+<p>	Sesaat kemudian, Master Gu kedua yang bersembunyi di balik batu juga menemui serangannya. Matanya menyusut seukuran pin saat dia ambruk di tanah.</p>
+<p>	Racun itu menyerang tubuhnya, dan segera dia berubah menjadi ungu, dan dari hidungnya dua aliran darah ungu mengalir keluar.</p>
+<p>	“sisa 30%.” Wang Da melantunkan dalam hati, berubah menjadi bayangan lagi.</p>
+<p>	“Siapa ini!” Guru Gu ketiga bersembunyi di cabang pohon di atas pohon besar. Pada saat genting dia merasakan sesuatu yang salah, dan pada saat Wang Da menyerang, dia berbalik dan meraih kedua tangan beracun itu.</p>
+<p>	“Brengsek!” Wang Da tertawa sinis, sepuluh kukunya tumbuh gila-gilaan, sekaligus menjadi lima sentimeter, menusuk lengan Gu Master dan menusuk kulitnya.</p>
+<p>	Lengan bawahnya berdarah dan darah dengan cepat berubah menjadi ungu tua.</p>
+<p>	“Ini adalah Pemisahan Kehidupan Cinta ?!” Guru Gu ketiga yang melihat ini sangat terkejut; racun ungu sudah menginfeksi wajahnya.</p>
+<p>	Dia tahu dia tidak memiliki cacing Gu yang tahan racun dan pasti sudah mati, jadi dia menunjukkan tekad di wajahnya, berteriak, “Kalau begitu mari kita mati bersama!”</p>
+<p>	Dia membuka mulutnya dan menjulurkan lidahnya.</p>
+<p>	Ada tato bulan sabit di lidahnya — itu adalah Moonlight Gu.</p>
+<p>	Sebuah moonblade melesat dan menebas bahu kanan Wang Da, menembus dan keluar dari punggungnya.</p>
+<p>	Darah berceceran.</p>
+<p>	Wang Da menggerutu, tubuhnya sedikit bergoyang, tetapi Guru Gu sudah meninggal, dengan sisa-sisa kehidupan.</p>
+<p>	“Benar, ini adalah Pemisahan Kehidupan Cinta.” Wang Da berdiri di dahan pohon, perlahan berdiri, menunjukkan senyum pahit.</p>
+<p>	Love Life Separation, racun nomor satu di antara cacing peringkat dua Gu! Untuk memperbaikinya, seseorang membutuhkan rumput nafas kehidupan peringkat satu, laba-laba janda, kalajengking jarum merah, dan hati seorang kekasih.</p>
+<p>	Untuk memurnikan cacing Gu ini, Wang Da membunuh istrinya sendiri yang sangat mencintainya, dan menggali hatinya!</p>
+<p>	“Ini semua untuk bertahan hidup, saya hanya bisa memilih kekuatan … ini adalah resolusi dari jalur iblis saya!” Mata Wang Da merah saat dia menatap tajam pada anak muda di dekatnya.</p>
+<p>	“Saya menyerah pada cinta, dan hanya memiliki kekerabatan yang tersisa, tetapi Anda mengambilnya dari saya! Fang Yuan …” Dia menggeram rendah, “Aku ingin kamu sangat menyesali semua yang kamu lakukan!”</p>
+<p>	(1) (Han Xin): Jenderal terkenal dari kaisar pertama Han kaisar Liu Bang.</p>
+<p>	(2) (Cao Cao): Negarawan dan jenderal terkenal di akhir Han, penyair dan kaligrafer terkenal, kemudian panglima perang, pendiri dan raja pertama Cao Wei, ayah Kaisar Cao Pi, serta penjahat utama novel Roman Tiga Kerajaan.</p>
+<p>	(3) (Yue Wang/Raja Gou Jian dari Yue): terkadang dianggap sebagai salah satu dari Lima Hegemoni.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

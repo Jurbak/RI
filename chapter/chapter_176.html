@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 176 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 176";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_175.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 176">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_177.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 176</h1>
+        <div class="text-left">
+<p>	Bab 176</p>
+<p>	Bab 176: Tekad untuk berkorban</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Penatua Fang Yuan, apakah benar kamu membantai seluruh keluarga Wang tua?” Gu Yue Bo bertanya dengan suara berat dari kursi utama.</p>
+<p>	Semua tatapan tertuju pada Fang Yuan; tetua muda dengan dingin tersenyum, “Itu memang benar.”</p>
+<p>	Gu Yue Fang Zheng menutup matanya dengan sedih.</p>
+<p>Dia mungkin telah membunuh banyak serigala petir, tetapi dia tidak pernah mengambil nyawa manusia. Dan sekarang dia mendengar Fang Yuan mengakuinya sendiri, dia tiba-tiba merasa bahwa kakaknya sendiri menjadi begitu asing dan terasing.</p>
+<p>	Dalam keterasingan ini, ia juga merasa takut terhadap cara-cara kejam saudaranya dan kemarahan atas hilangnya nyawa tak berdosa.</p>
+<p>	“Fang Yuan, apakah kamu tidak merasa bersalah membantai orang tak bersalah? Jika kamu memiliki kesulitan, kamu bisa mengatakannya,” Tie Ruo Nan berbicara sambil mengerutkan kening. Dia adalah seseorang dengan karakter yang sangat lurus, dan paling membenci orang seperti Fang Yuan.</p>
+<p>	“Jadi bagaimana jika saya membunuh mereka, saya tidak merasa perlu untuk menceritakan kisah saya kepada Anda. Namun, pada saat itu, saya tidak tahu bahwa Wang Er yang hilang adalah Gu Master iblis. Dapat dikatakan bahwa Fang Zheng secara tak terduga terlibat, ”Fang Yuan berbicara dengan jujur.</p>
+<p>	“Kakak, apakah kamu tidak akan mengatakan sesuatu padaku?” Fang Zheng membuka matanya; sudut matanya menjadi merah.</p>
+<p>	“Apa yang kamu ingin aku katakan? Menghiburmu atau meminta maaf? …..Hmph, adik kecil, kamu terlalu lembut, ”cibir Fang Yuan.</p>
+<p>	“Sialan, kakak… jangan berpikir kamu luar biasa hanya dengan menjadi seorang penatua. Saya akan memberi tahu Anda bahwa saya sudah memiliki kualifikasi untuk menembus peringkat tiga …. ” Fang Zheng menggertakkan giginya, pembuluh darah muncul di tinjunya yang terkepal.</p>
+<p>	“Cukup!” Gu Yue Bo tidak bisa terus melihat ini lagi dan berteriak, “Fang Zheng, kembali, sopan santun apa yang kamu tunjukkan dengan membuat keributan di sini?”</p>
+<p>	Kata-katanya memiliki arti lain dan menyatakan ketidakpuasan. Tie Ruo Nan tidak bisa merasakannya, tapi Penyelidik Ilahi Tie Xue Leng langsung bereaksi; dia melangkah maju dan menangkupkan tangannya. “Pemimpin klan Gu Yue dan semua tetua, memang tidak pantas bagi putriku untuk masuk dan bergegas ke aula diskusi para bangsawan. Yang ini meminta maaf karena telah menyinggung semua orang!”</p>
+<p>	Para tetua segera berdiri dan terus mengatakan Tie Xue Leng terlalu baik.</p>
+<p>	Ekspresi Gu Yue Bo juga santai.</p>
+<p>	Tie Xue Leng melanjutkan, “Karena adik laki-laki Fang Yuan terlibat dalam kasus Jia Jin Sheng dan juga tersangka, saya harap dia tetap di desa dan tidak akan pergi ke desa lain.”</p>
+<p>	Gu Yue Bo memijat pelipisnya dan menghela nafas, “Klan Gu Yue kami sangat berharap kami dapat memberikan penjelasan yang sesuai kepada tuan Jia Fu. Karena Penyelidik Ilahi juga meminta, saya harus meminta Penatua Fang Yuan untuk tidak pergi sebelum Anda bebas dari kecurigaan. Saya harap Anda bisa mengerti. ”</p>
+<p>	Gu Yue Bo menatap Fang Yuan, ekspresinya tulus. Tapi tatapannya, bagaimanapun, memiliki makna yang dalam.</p>
+<p>	Fang Yuan mungkin telah membunuh seluruh keluarga tua Wang, tetapi mereka hanyalah manusia biasa. Bagaimana mungkin seorang Guru Gu membunuh manusia ini? Apalagi jika Tuan Gu ini adalah seorang tetua klan. Dengan demikian, tidak ada hukuman.</p>
+<p>	“Ya.” Fang Yuan melirik Gu Yue Bo dan menjawab tanpa ekspresi.</p>
+<p>	…</p>
+<p>	“Sialan, seperti ini lagi!” Tie Ruo Nan meninju pohon, menyebabkan daunnya berhamburan.</p>
+<p>	Dia sangat marah ketika dia berkata dengan gigi terkatup, “Ini jelas pembunuhan, tetapi mereka menutup mata untuk itu dan tidak peduli. Ayah, apakah manusia fana bukan manusia? Mengapa Master Gu merasa bahwa mereka memiliki hak untuk membunuh manusia?”</p>
+<p>	Tie Xue Leng terdiam seperti patung.</p>
+<p>	Cuaca agak suram, dan angin bertiup dan dedaunan pohon berdesir.</p>
+<p>	Tie Ruo Nan tiba-tiba menundukkan kepalanya, ekspresinya turun. “Maafkan aku, ayah.”</p>
+<p>	Dia meminta maaf, “Saya tidak mendengarkan saran Anda, dan menggunakan Gu Intuisi.”</p>
+<p>	“Huh….” Penyelidik Ilahi menghela nafas panjang dan menatap putrinya dengan tatapan yang dalam, “Nak, kamu memiliki kebencian terhadap kejahatan dan penuh dengan kebenaran, sama seperti aku ketika aku masih muda. Saya senang tapi juga khawatir.”</p>
+<p>	“Kenapa kau khawatir?”</p>
+<p>	“Cita-citamu jauh lebih besar dariku saat itu. Ketika saya masih muda, ambisi saya adalah untuk menangkap semua penjahat dan menjejalkan Menara Demon Suppression. Tetapi untuk Anda, Anda ingin membuat semua orang sama, memperlakukan Master Gu dan manusia secara setara, menyebabkan hukum dan ketertiban ditegakkan di seluruh dunia. Ambisi dan cita-cita seperti itu terlalu besar dan juga sangat berat,” kata-kata Tie Xue Leng dipenuhi dengan pengalaman.</p>
+<p>	“Tapi ayah, ini yang disebut hukum, keadilan dan keadilan. Jika kita tidak memperlakukan semua orang secara setara, apa artinya mereka? Jika orang muda tidak memiliki mimpi yang ambisius, lalu bagaimana mereka bisa dianggap muda? Saya percaya itu semua masalah usaha kita sendiri. Selama saya memberikan yang terbaik, itu mungkin belum tentu mustahil untuk dicapai!” Tie Ruo Nan berbicara dengan penuh semangat, kedua matanya dipenuhi harapan untuk masa depan.</p>
+<p>	Tie Xue Leng terdiam beberapa saat, “Akan ada hari dimana kamu akan mengerti. Tapi, ini bagus juga, anak muda harus menempuh jalan mereka sendiri. Kemunduran akan membuatmu dewasa. Ayah tidak akan ikut campur lagi. Saya hanya berharap Anda dapat menjalani kehidupan yang Anda inginkan!”</p>
+<p>	Dia kemudian mengeluarkan surat dan memberikannya kepada Tie Ruo Nan.</p>
+<p>	“Ini adalah….?!” Tie Ruo Nan merobek surat itu dan langsung sangat gembira.</p>
+<p>	Surat ini dari Jia Fu dan mencatat setiap informasi mengenai kasus Jia Jin Sheng, termasuk bagaimana Fang Yuan memperoleh cacing Liquor dengan judi batu, bagaimana pria bambu itu digunakan untuk menginterogasi Fang Yuan, dan bahkan harga penawaran Fang Yuan di karavan kedua. mengunjungi tempat dia menunjukkan bakat bisnis dan menerima tawaran rekrutmen Jia Fu.</p>
+<p>	Tie Ruo Nan membaca ulang isi ‘harga penawaran Fang Yuan’ beberapa kali; tatapannya menjadi lebih cerah dan lebih cerah.</p>
+<p>	“Fang Yuan ini tidak hanya ganas dalam metodenya, tetapi juga memiliki sifat kejam dan bahkan mampu merencanakan secara mendalam. Intuisi saya mengatakan bahwa dia sangat mencurigakan. Jika dia benar-benar pembunuhnya, maka dia seharusnya agak takut. Tetapi pria bambu itu tidak menunjukkan perubahan pada kebohongannya, bagaimana dia melakukannya?” Tie Ruo Nan bergumam pada dirinya sendiri.</p>
+<p>	“Apa yang kamu persiapkan selanjutnya?” Tanya Tie Xue Leng.</p>
+<p>	“Sudah lama sejak kematian Jia Jin Sheng. Semuanya mencurigakan dan penuh dengan misteri. Hingga saat ini, jenazahnya belum ditemukan dan bahkan tempat kematiannya belum dapat disimpulkan. Kasus ini terlalu bersih, tidak memberi saya petunjuk, kecuali bahwa Fang Yuan adalah tersangka terbesar. Meskipun petunjuk dari Wang Er telah rusak, tidak ada bukti untuk membuktikan bahwa dia adalah pembunuhnya. Namun, karena tidak ada petunjuk lain, saya hanya bisa mengandalkan intuisi saya untuk menyelidiki Fang Yuan ini!” Tie Ruo Nan menjawab dengan antusias.</p>
+<p>	“Kamu merasa Fang Yuan mencurigakan?” Tanya Tie Xue Leng.</p>
+<p>	“Sangat mencurigakan!” Tie Ruo Nan segera berkata, “Fang Yuan ini jelas hanya bakat kelas C, tapi mengapa kecepatan kultivasinya lebih cepat dari Fang Zheng? Bisa dibilang dia mendapat bantuan dari Liquor worm dan Relic Gu, tapi kecepatan ini masih sangat cepat. Klan Gu Yue mungkin tidak merasakan sesuatu yang salah, tetapi ini adalah kasus ‘mereka yang terlibat dekat tidak dapat melihat sejelas mereka yang berada di luar’. Ini adalah poin pertama yang mencurigakan.”</p>
+<p>	“Selain ini, ada hal lain yang mencurigakan; keberuntungannya. Dia berjudi batu untuk pertama kalinya dalam hidupnya dan membeli enam batu emas ungu, tetapi bisa mendapatkan dua Gu hidup; kodok kulit lumpur dan cacing Liquor. Bukankah keberuntungan ini terlalu banyak?”</p>
+<p>	Tie Xue Leng mengangguk, “Ya, lanjutkan.”</p>
+<p>	“Fang Yuan ini terlihat biasa saja, tetapi jika kita melihatnya, kita akan menemukan bahwa misteri yang mengelilinginya seperti kabut tebal yang menutupi gunung. Banyak hal yang secara tidak sengaja terungkap membuat orang merenung. Misalnya, teknik membedah batu; dia benar-benar menggunakan Moonlight Gu untuk membedah batu dan melakukannya tanpa merusak intinya. Kontrol yang begitu halus benar-benar tak terbayangkan bagi seorang siswa….tunggu!”</p>
+<p>	Tie Ruo Nan berhenti. Dia telah menemukan sesuatu saat matanya mengeluarkan cahaya yang terang dan tajam!</p>
+<p>	Tatapannya mendarat di sebaris kata dalam surat itu, dan semakin dia melihat, semakin tatapannya menjadi cerah.</p>
+<p>	“Aku menemukannya. Fang Yuan ini memiliki masalah besar!” Setelah beberapa lama, dia tiba-tiba mengangkat kepalanya dan berbicara dengan penuh semangat.</p>
+<p>…</p>
+<p>	Aroma teh dalam cangkir naik dengan uap dan menyebar di ruang belajar.</p>
+<p>	Fang Yuan memegang cangkir teh, lalu meniup daun teh yang mengambang dan meminum teh panasnya. Setelah itu, dia dengan santai mengeluarkan udara keruh.</p>
+<p>	Setelah melihat sikap santai Fang Yuan, Gu Yue Mo Chen melakukan yang terbaik untuk bertahan dan merasakan urat di dahinya menonjol.</p>
+<p>	Sebelumnya, Fang Yuan telah meminta harga yang sangat besar dan dia dengan marah mengusir yang terakhir dari rumahnya.</p>
+<p>	Tapi hari ini, dia tidak punya pilihan selain mengundang kembali Fang Yuan.</p>
+<p>	Semua ini hanya karena keadaan lebih berkuasa daripada laki-laki. Fraksi Yao telah menekannya dari mana-mana dan masalah mengenai penurunannya ke Peringkat dua akan terungkap cepat atau lambat. Fraksi Mo berada dalam bahaya; itu sangat membutuhkan seorang penatua untuk melayani sebagai menantu dan menstabilkan situasi.</p>
+<p>	“Bajingan ini terlalu keji, membuat tuntutan setinggi langit. Apakah dia benar-benar berpikir faksi Mo saya sedang mandi emas? Gu Yue Mo Chen mengutuk dalam hati, sementara di luar tersenyum hangat dan berbicara dengan suara negosiasi, “Penatua Fang Yuan, hargamu terlalu tinggi, itu sangat melebihi apa yang dapat didukung oleh faksi Mo-ku. Bisakah kamu menguranginya?”</p>
+<p>	Fang Yuan melirik Gu Yue Mo Chen. Orang tua yang tahu kapan harus memberi dan menerima ini layak dihormati.</p>
+<p>	Bahkan, situasinya saat ini juga menjadi kacau.</p>
+<p>	Ayah dan anak Tie memaksanya ke sudut. Setelah diketahui bahwa dia membunuh Jia Jin Sheng, Klan Gu Yue pasti akan menyerahkannya untuk meredakan kemarahan keluarga Jia dan secara bersamaan dapat melanjutkan perdagangan dengan karavan keluarga Jia setiap tahun.</p>
+<p>	Itu hampir saat yang penting sekarang, jadi Fang Yuan melembutkan nadanya, “Kalau begitu kita akan menguranginya tiga puluh persen. Tapi ada syarat, Anda harus menunjukkan ketulusan Anda dengan membayar empat puluh ribu batu purba di muka. Kamu juga harus menyerahkan Gu Besi Babi dan Gu Rumput Akhirat.”</p>
+<p>	Gu Yue Mo Chen hanya bisa memijat alisnya saat mendengar ini. Dia menjawab dengan suara cekung, “Gu Babi Besi akan diserahkan kepadamu, tapi gudang fraksi Mo saya tidak memiliki Gu Rumput Akhirat. Kami juga tidak dapat memberikan empat puluh ribu batu purba sekaligus, mereka akan diberikan kepada Anda secara mencicil. ”</p>
+<p>	Fang Yuan tahu rubah tua ini tidak mengatakan yang sebenarnya, tetapi dia sangat jelas bahwa menjadi terlalu sombong malah bisa menghasilkan hasil yang sebaliknya.</p>
+<p>	“Tidak apa-apa. Saya akan menunggu Anda mengirimnya terlebih dahulu, lalu kita bisa bicara tentang pernikahan. Sebelum itu, saya tidak bisa menjamin kesetiaan saya.” Fang Yuan meninggalkan kata-kata ini sebelum pergi.</p>
+<p>	Ruang belajar menjadi sunyi sekali lagi.</p>
+<p>	Beberapa saat kemudian, Gu Yue Mo Chen tiba-tiba berkata, “Kamu bisa keluar.”</p>
+<p>	Sebuah pintu tersembunyi didorong terbuka dan seorang gadis muda berjalan keluar. Ada noda air mata di wajahnya dan matanya merah karena menangis.</p>
+<p>	“Kakek.” Dia memberi hormat; dia adalah Gu Yue Mo Yan.</p>
+<p>	Gu Yue Mo Chen menghela nafas, “Kamu juga jelas tentang situasi keluarga. Mo Yan, keluarga kami membutuhkan pengorbananmu, bisakah kamu mengerti? ”</p>
+<p>	“Ya.” Gadis muda itu terisak dan menundukkan kepalanya.</p>
+<p>	Tidak peduli dunia mana, tidak ada yang namanya makan siang gratis. Bahkan Fang Yuan menyumbangkan banyak kekuatan untuk klan sebagai tetua klan. Satu-satunya perbedaan adalah bahwa jumlah yang dibayarkan atau diperoleh seseorang, berbeda dari orang ke orang.</p>
+<p>	Bahkan anak-anak dengan sendok emas pun tidak bisa leluasa menikmati keistimewaannya. Dengan menerima pengasuhan keluarga, mereka perlu memiliki tekad untuk berkorban.</p>
+<p>	Dan tekad ini sudah ada dalam diri Gu Yue Mo Yan.</p>
+<p>Dia tidak memiliki perasaan sedikit pun untuk Fang Yuan, bahkan merasa benci dan jijik terhadap yang terakhir. Tapi dia tahu, dia harus menikahinya demi keluarganya, menjadi istrinya!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

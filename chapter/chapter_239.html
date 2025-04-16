@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 239 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 239";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_238.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 239">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_240.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 239</h1>
+        <div class="text-left">
+<p>	Bab 239</p>
+<p>	Bab 239: Gunung Fei Hou</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Nona, Anda tidak bisa.” Zhang Zhu segera berkata.</p>
+<p>	“Nona, kelompok Klan Zhang kami di sini memiliki kekuatan paling kecil di seluruh karavan. Jika kita membawanya masuk, tidak diragukan lagi kita akan menyinggung kekuatan lain. Tidak ada gunanya melakukannya hanya untuk dua pelayan yang tidak penting. Nona, bahkan jika bukan untuk dirimu sendiri, pikirkan tentang kelompok klan Zhang kami di sini, atau pikirkan saja mereka yang bersamamu. ” Zhang Zhu meyakinkan.</p>
+<p>	“Ini….” Shang Xin Ci ditempatkan dalam dilema dan tidak bisa membuat keputusan.</p>
+<p>	“Kesulitan apa yang ada? Nyonya Zhang, saya hanya seorang pekerja bayaran dari keluarga Chen dan bukan pelayan mereka. Nona, jika Anda masih merasa bermasalah, saya punya cara untuk mengatasinya. Anda dapat memberi tahu klan Chen bahwa saya dan rekan saya menyinggung Anda, dan Anda ingin menghukum kami sehingga Anda memenjarakan kami. Klan Chen pasti tidak akan menyinggung Anda untuk kami dua manusia. ” kata Fangyuan.</p>
+<p>	“Itu ide yang bagus!” Tatapan Shang Xin Ci cerah.</p>
+<p>	“Merindukan….” Zhang Zhu menghela nafas tak berdaya, tahu dia tidak bisa membujuknya lagi.</p>
+<p>	Fang Yuan segera merangkak dengan tongkat dan membungkuk pada Shang Xin Ci: “Nona Zhang, Anda adalah orang yang baik. Saya pasti akan membalas Anda di masa depan! ”</p>
+<p>	Shang Xin Ci menggelengkan kepalanya: “Aku tidak membutuhkanmu untuk membalas budiku. Saya pasti akan membantu mereka yang membutuhkan bantuan saya dengan kemampuan terbaik saya. Tidurlah di perkemahanku malam ini. Xiao Die, siapkan tenda untuk mereka.”</p>
+<p>	“Ya, Bu.” Xiao Die menjawab, dengan enggan.</p>
+<p>	“Ikuti aku. Jangan salahkan saya jika Anda tersesat. ” Xiao Die tidak menunjukkan keramahan apa pun kepada Fang Yuan, tetapi tetap memimpin.</p>
+<p>	Alis Zhang Zhu berkerut lebih dalam saat dia melihat sosok Fang dan Bai yang pergi.</p>
+<p>	Dia tidak menyukai keduanya dari lubuk hatinya, dan pada saat yang sama dia harus memikirkan keselamatan Shang Xin Ci sebagai pengawalnya.</p>
+<p>	Dia memutuskan untuk menangani masalah ini secara pribadi.</p>
+<p>	Ini adalah tenda kecil dengan tidak banyak ruang di dalamnya.</p>
+<p>	Namun, Fang dan Bai tidak peduli. Mereka bahkan memperlakukan pohon yang menjebak binatang sebagai tenda, apalagi lingkungan ini yang jauh lebih baik.</p>
+<p>	Keduanya berbaring di tenda yang gelap.</p>
+<p>	Fang Yuan menggenggam tangannya dengan tangan Bai Ning Bing: “Semuanya akan baik-baik saja, Bai Yun.”</p>
+<p>	Bai Ning Bing memutar matanya, dia tahu maksud sebenarnya dari Fang Yuan. Dalam kegelapan, dia mentransfer sebagian dari esensi purba perak saljunya ke Fang Yuan melalui telapak tangannya.</p>
+<p>	“Tidur lebih awal, untungnya kita bertemu orang baik seperti Nona Zhang.” Fang Yuan menutup matanya begitu dia selesai mengatakan ini, dan mulai berkultivasi secara diam-diam.</p>
+<p>	Dia sudah peringkat dua sekarang; laut purbanya dipenuhi dengan esensi purba baja merah. Meskipun dia sudah bisa menggunakan cacing minuman empat rasa, esensi purba perak salju Bai Ning Bing tidak diragukan lagi jauh lebih baik.</p>
+<p>	Bagi Fang Yuan, cacing minuman empat rasa telah kehilangan kegunaannya dengan Bai Ning Bing di sini.</p>
+<p>	Esensi purba perak salju membersihkan dan menyempurnakan aperture, dengan cepat meningkatkan akumulasi Fang Yuan. Dia tidak perlu khawatir tentang auranya bocor dengan nafas yang menyembunyikan Gu.</p>
+<p>	Penyamarannya tidak akan rusak kecuali dia menggunakan cacing Gu di luar tubuhnya.</p>
+<p>	Saat ini, nafas yang menyembunyikan Gu belum benar-benar berjalan ke panggung dunia. Dalam kehidupan sebelumnya, hanya setelah seratus lima puluh tahun, itu dipopulerkan oleh raja pemburu Sun Gan. Dalam lima puluh tahun setelah itu, dalam perang besar yang mempengaruhi seluruh Perbatasan Selatan, Gu yang menyembunyikan nafas digunakan secara luas dan menjadi pusat perhatian.</p>
+<p>	Dengan kata lain, menurut kehidupan Fang Yuan sebelumnya, umat manusia akan sadar untuk menjaga dari nafas yang menyembunyikan Gu hanya setelah seratus lima puluh tahun. Dan setelah dua ratus tahun, mereka akan memiliki metode dan pengalaman untuk merespons nafas yang menyembunyikan Gu.</p>
+<p>	Gu yang menyembunyikan nafas adalah Gu peringkat tiga, karavan ini tidak memiliki Gu Master peringkat empat dan meskipun ada banyak Gu Master, mengapa mereka secara khusus memperhatikan ‘Hei Tu’ dan ‘Bai Yun’, dua orang biasa?</p>
+<p>	Fang Yuan segera mengaktifkan kekuatan buaya Gu setelah porsi esensi purba perak salju habis.</p>
+<p>	Potongan kekuatan baru secara permanen ditambahkan ke tubuhnya. Kerangkanya tidak lagi putih, tetapi seperti besi hitam yang kokoh. Itu seperti landasan yang kokoh, secara stabil mendukung peningkatan kekuatan yang terus menerus.</p>
+<p>	Malam berlalu dengan tenang.</p>
+<p>	Keesokan harinya, saat fajar menyingsing ketika matahari baru saja terbit, seluruh perkemahan terbangun.</p>
+<p>	Setelah periode yang sibuk dan ramai, karavan melanjutkan perjalanannya.</p>
+<p>	Zhang Zhu tidak langsung pergi ke klan Chen, melainkan melakukan penyelidikan rahasia melalui bawahannya terlebih dahulu.</p>
+<p>	Memang ada perkelahian kemarin malam, dan banyak yang menyaksikannya.</p>
+<p>	Adapun Saudara Qiang dan kelompoknya, mereka menutupi fakta bahwa Fang Yuan telah memukuli mereka; jika diketahui bahwa begitu banyak dari mereka yang tidak bisa mengalahkan satu Fang Yuan, mereka akan kehilangan muka! Bagaimana mereka bisa berkeliling saat itu?</p>
+<p>	Faktanya, mereka telah melalui semuanya kemarin dan membuat pernyataan palsu yang mereka semua setujui; mengatakan ‘mereka menggertak pendatang baru dan Fang Yuan menawari mereka batu purba, tetapi kemudian dia marah dan mencari pelayan lama’.</p>
+<p>	Setelah memastikan pertarungan benar-benar terjadi, Zhang Zhu berangkat dan menemukan kepala klan Chen di karavan.</p>
+<p>	Wakil pemimpin ini tidak bisa tidak merenungkan ketika dia mendengar dua bawahannya yang fana menyinggung Zhang Xin Ci dan ditahan.</p>
+<p>	Meskipun dia tidak akan menyinggung Zhang Clan karena dua manusia, jika dia dengan mudah berkompromi, prestise Chen Clan bisa jatuh. Selain itu, dia memiliki beberapa orang dekat di antara para pelayan.</p>
+<p>	Setelah itu, dia menanyakan siapa dua pelayan mereka.</p>
+<p>	Wakil pemimpin klan Chen sedikit terkejut ketika mendengar jawaban Zhang Zhu. Dia memiliki beberapa kesan tentang keduanya, dia membiarkan mereka masuk karena permintaan kepala desa yang lama. Tetapi untuk berpikir, mereka telah mengacaukan hari pertama mereka.</p>
+<p>	Menurutnya, Fang dan Bai seharusnya adalah kerabat kepala desa yang lama, tapi lalu apa?</p>
+<p>	Kepala desa tua adalah seseorang yang dia terangi dan seseorang di bawah kendalinya. Menyerahkan keduanya tidak akan berarti apa-apa baginya. Selain itu, mereka adalah orang-orang yang telah melakukan kejahatan, membawa masalah bagi Klan Chen, bahkan kematian tidak akan cukup sebagai hukuman.</p>
+<p>	Saat dia memikirkan hal ini, wakil pemimpin telah memutuskan untuk menyerahkan keduanya untuk menyelesaikan konflik dengan Zhang Clan.</p>
+<p>	Namun, dia memasang ekspresi sulit: “Saudara Zhang, saya tidak akan menyembunyikannya dari Anda, Klan Chen kami mungkin tidak memiliki cukup tenaga jika Anda mengambil keduanya. Kita tidak bisa membuat Master Gu kita bekerja dan memindahkan barang, kan? Bagaimana dengan ini, saya akan memanggil pelayan saya. Dia mengerti situasinya, jika memang ada kelangkaan tenaga kerja, kami mungkin tidak dapat menyerahkan keduanya kepada Anda saat ini. Kami sementara akan menyimpannya di sini dan menyerahkannya ke Klan Zhang Anda untuk ditangani setelah kami mendapatkan pekerja baru di desa berikutnya.</p>
+<p>	“Itu bekerja.” Zhang Zhu mengangguk.</p>
+<p>	Wakil pemimpin tidak bisa membantu tetapi mengungkapkan senyum. Seperti ini, tidak akan ada gosip dan rumor yang mengatakan bahwa Klan Chen takut pada Klan Zhang.</p>
+<p>	Pramugara tua itu agak gugup ketika dia dipanggil: Apakah saya membuat kesalahan?</p>
+<p>	Namun, ketika dia bersih dari situasinya, dia tiba-tiba merasa hidup.</p>
+<p>	Ini adalah kesempatan yang dikirim surga!</p>
+<p>	Keduanya benar-benar kurang beruntung, jatuh ke tangan Zhang Clan. Mati, kalian berdua mati, maka kedua batu purba itu akan menjadi milikku.</p>
+<p>	Memikirkan hal ini, pelayan tua itu segera menampar dadanya dan menjamin bahwa tidak ada masalah dengan tenaga kerja.</p>
+<p>	Bahkan jika ada beberapa masalah, dia bertekad untuk mempertaruhkan tubuhnya yang sudah tua untuk memindahkan barang secara pribadi, untuk dua batu purba itu!</p>
+<p>	Sekarang, debu sudah beres mengenai masalah ini.</p>
+<p>	Zhang Zhu mengucapkan selamat tinggal; hatinya, bagaimanapun, merasa sesak.</p>
+<p>	Dalam beberapa hari mendatang, Fang dan Bai bekerja di siang hari dan berkultivasi di malam hari.</p>
+<p>	Karavan telah meninggalkan gunung Zi You jauh di belakang dan sekarang berada di wilayah pegunungan Fei Hou.</p>
+<p>	Fang Yuan tahu semakin jauh mereka dari gunung Zi You, identitasnya akan semakin tersembunyi dan dengan demikian, lebih aman.</p>
+<p>	Melalui beberapa hari berkultivasi ini, dia telah memperoleh kekuatan setengah buaya. Sayangnya, banyak tulang tombak Gu mati kelaparan; jumlah mata air susu padanya kurang dari cukup, dia hanya bisa memberikan beberapa untuk memberi makan cacing Gu yang tersisa.</p>
+<p>	Fang Yuan merasa sakit hati karena ini. Meskipun dia tidak akan menggunakan Gu ini, mereka bisa saja dijual.</p>
+<p>	Dia berencana untuk membeli satu set cacing Gu di kota klan Shang. Ini membutuhkan sejumlah besar batu purba. Dia bisa menggunakan Heavenly Essence Treasure Lotus untuk menghasilkan lusinan batu purba setiap hari, tapi dia tidak bisa menggunakannya di karavan untuk mencegah identitasnya terungkap.</p>
+<p>	Oleh karena itu, dia perlu lebih menggenggam Shang Xin Ci.</p>
+<p>	Dia akan menjadi salah satu tuan muda begitu mereka mencapai Klan Shang, ini akan membuat perjalanan Fang Yuan di kota klan Shang sangat nyaman.</p>
+<p>	Tentu saja, premisnya adalah bahwa dia tidak hanya perlu mendekati Shang Xin Ci, tetapi juga mendapatkan kepercayaannya.</p>
+<p>	Hutan di gunung itu gelap dan misterius dengan kabut yang menyelimuti udara.</p>
+<p>	Kafilah perlahan-lahan bergerak melalui lorong gunung yang sempit, dan ketika mereka melakukan perjalanan lebih jauh, kabut menjadi lebih tebal, jangkauan pandangan mereka menyusut hingga mereka hanya bisa melihat dalam sepuluh langkah.</p>
+<p>	Gunung Fei Hou tertutup kabut, Fang dan Bai harus melalui masalah besar jika mereka bepergian sendiri. Namun, mereka berada di karavan sekarang, dan tentu saja ada Gu Master investigasi.</p>
+<p>	Tiba-tiba, ada semacam keributan di depan mereka; kafilah berhenti.</p>
+<p>	“Apa yang terjadi?”</p>
+<p>	“Ada masalah.”</p>
+<p>	“Kelompok monyet menghalangi jalan kita!”</p>
+<p>	Dalam beberapa saat, sebagian besar orang di karavan mulai berdiskusi, tetapi tidak ada yang terkejut.</p>
+<p>	Gunung Fei Hou diperintah oleh monyet, ada terlalu banyak monyet untuk dihitung. Kafilah yang melewati tempat ini, akan dihadang oleh kelompok kera dan dirampok. Siapa pun yang memiliki pengalaman dan pengetahuan, tidak akan merasa terkejut dengan hal ini.</p>
+<p>	“Monyet dari gunung Fei Hou? Hehe, saya telah membaca tentang mereka di buku … untuk berpikir saya bisa melihatnya secara pribadi hari ini. Bai Ning Bing dengan lembut berkata dengan sedikit kegembiraan.</p>
+<p>	Awalnya, ketika karavan pertama kali melewati gunung Fei Hou, mereka bertengkar hebat dengan kelompok monyet, mereka membunuh gelombang demi gelombang monyet tetapi kelompok monyet muncul lagi dan lagi. Akhirnya, karavan-karavan itu dimusnahkan atau harus mundur karena kalah.</p>
+<p>	Gunung Fei Hou pernah dikenal sebagai tanah terlarang dan tidak bisa dilewati para pedagang.</p>
+<p>	Jika itu adalah pegunungan lain, binatang buas yang berbeda saling menjaga, dan akan ada celah untuk dilewati. Namun, hanya ada monyet bandit di gunung Fei Hou. Mereka hidup bersama, dan meskipun ada perkelahian antara kelompok monyet, semua monyet bandit akan bersatu jika mereka menemukan musuh eksternal.</p>
+<p>	Kekuatan seperti itu bukanlah sesuatu yang bisa disaingi oleh karavan.</p>
+<p>	Bahkan klan skala besar mungkin tidak dapat membersihkan semua kelompok monyet ini.</p>
+<p>	Ini sampai ‘Sky Crown Marquis’ muncul.</p>
+<p>	Ini adalah peringkat lima Gu Master dari jalan yang benar. Dia melakukan perjalanan jauh ke gunung Fei Hou sampai dia mencapai puncaknya, dan menggunakan bahasa monyet Gu, dia mencapai kesepakatan dengan kaisar monyet.</p>
+<p>	Semuanya berubah setelahnya.</p>
+<p>	Rute perdagangan dibuka melalui gunung Fei Hou untuk pertama kalinya.</p>
+<p>	Sekarang, jalur perdagangan ini adalah salah satu dari tiga jalur perdagangan terpenting di Perbatasan Selatan, menghubungkan timur dan barat, kepentingannya sudah jelas.</p>
+<p>	“Monyet-monyet sialan ini muncul lagi. Mereka menghalangi jalan kita, kalian semua tahu aturannya. Saya akan memberitahu Anda terus terang, siapa pun yang melanggar aturan dan melibatkan kita, klan Jia saya tidak akan membiarkan mereka pergi! Pemimpin karavan berteriak, dengan dingin.</p>
+<p>	“Tentu saja.”</p>
+<p>	“Saudara Jia Long benar, semuanya harus dilakukan sesuai aturan.”</p>
+<p>	“Siapa pun yang ingin mengambil keuntungan akan diusir dari karavan!”</p>
+<p>	Wakil pemimpin lainnya pergi bersama dengan Jia Long.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

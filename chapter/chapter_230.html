@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 230 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 230";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_229.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 230">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_231.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 230</h1>
+        <div class="text-left">
+<p>	Bab 230</p>
+<p>	Bab 230: Kultivasi Ganda</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Di ruangan gelap, Bai Ning Bing mendengus kesal.</p>
+<p>	Fang Yuan mengubah topik pembicaraan: “Pada tahap ini, kota klan Shang adalah tempat yang paling cocok untuk kita. Ada banyak toko di sana tempat kita bisa membeli cacing Gu yang cocok untuk kita. Meskipun cacing Gu yang kita miliki sekarang sangat bagus, mereka tidak cocok satu sama lain. Hanya dengan cacing Gu yang dapat melengkapi satu sama lain, kita dapat menunjukkan kecakapan bertarung yang lebih kuat dan bahkan bertarung dengan peringkat yang lebih tinggi.”</p>
+<p>	Bai Ning Bing sangat setuju.</p>
+<p>	Semua Gu Master yang luar biasa akan memiliki satu set cacing Gu yang melengkapi.</p>
+<p>	Misalnya, ketika Bai Ning Bing memiliki Fisik Jiwa Es Gelap Utara, cacing Gu yang dia miliki adalah Gu bilah es, Gu es, Gu perisai air, Gu peti mati es burung biru, Gu otot es, Gu iblis beku …</p>
+<p>	Mereka semua milik seri es dan air, dan dengan mudah saling melengkapi ketika saling dipasangkan dan digunakan.</p>
+<p>	Namun sekarang, Fang dan Bai hanya memiliki berbagai macam cacing Gu, jika mereka menyelesaikan satu set cacing Gu yang melengkapi, kekuatan bertarung mereka setidaknya akan berlipat ganda.</p>
+<p>	Untungnya, Fang Yuan telah menyimpan sejumlah besar tombak tulang Gu dan tombak tulang spiral Gu. Semua ini bisa dijual di Shang Clan City.</p>
+<p>	Bahkan jika tidak ada Gu ini, Fang Yuan memiliki Heavenly Essence Treasure Lotus dan dapat menggunakannya untuk menghasilkan batu purba.</p>
+<p>	Tujuan pertama pergi ke Shang Clan City adalah untuk bersembunyi. Tujuan kedua adalah untuk membeli dan menukar cacing Gu. Namun, tujuan ketiga Fang Yuan tidak nyaman untuk diceritakan kepada Bai Ning Bing.</p>
+<p>	Ini melibatkan perjudian batu.</p>
+<p>	Di sudut gelap situs perjudian batu tertentu, ada batu yang menyembunyikan Gu berwarna pelangi legendaris!</p>
+<p>	Cacing Gu yang dimiliki Fang Yuan mencapai peringkat enam Musim Semi Musim Gugur Jangkrik, Teratai Harta Karun Surgawi yang terlibat dengan peringkat sembilan yang dimuliakan abadi, Gu tengkorak darah yang dapat mengubah bakat seseorang dan juga Gu kesatuan daging tulang.</p>
+<p>	Mengesampingkan kesatuan daging tulang Gu, Tengkorak darah Gu telah kehilangan nilainya karena hampir tidak ada kerabat darah yang tersisa dari Fang Yuan sekarang. Heavenly Essence Treasure Lotus mungkin memiliki hasil yang sangat baik, tetapi tidak memiliki prospek kemajuan karena Fang Yuan tidak memiliki resep fusi; semakin tinggi kultivasinya, semakin sedikit bantuan yang akan diberikannya.</p>
+<p>	Mari kita bahkan tidak berbicara tentang Spring Autumn Cicada.</p>
+<p>	Saat ini masih hibernasi. Jika seseorang mengatakan untuk menggunakannya, itu akan penuh dengan bahaya; tetapi jika seseorang tidak menggunakannya, setelah pulih, itu akan meledakkan aperture.</p>
+<p>	Itu adalah bom waktu yang berdetak.</p>
+<p>	Musim Semi Musim Gugur Jangkrik, Teratai Harta Karun Surgawi, Gu tengkorak darah dan Gu kesatuan daging tulang adalah Gu paling berharga yang dimiliki Fang Yuan.</p>
+<p>	Selain itu, keempatnya memiliki kesamaan; mereka semua terlibat dalam membantu kultivasi.</p>
+<p>	Seberapa besar bantuan mereka bagi Fang Yuan? Besar, sangat besar!</p>
+<p>	Namun, penggunaannya dalam pertempuran tidak begitu jelas.</p>
+<p>	Gu di Kota Klan Shang itu berbeda karena itu adalah kartu truf untuk pertempuran. Dengan itu dan beberapa cacing Gu lainnya untuk melengkapinya, Fang Yuan baru bisa dianggap telah dilahirkan kembali; dia akan memiliki kepercayaan diri untuk menjadi tak tertandingi di antara mereka yang berada di peringkat yang sama, memulihkan beberapa bantalan dari kehidupan sebelumnya sebagai salah satu tembakan besar dari jalur iblis.</p>
+<p>	“Ini adalah perjalanan panjang ke Kota Klan Shang, tidak perlu memikirkan ini sekarang, kamu harus terlebih dahulu memperbaiki kesatuan daging tulang Gu.” Fang Yuan menghentikan topik ini.</p>
+<p>	Bai Ning Bing merasa sedikit tenang setelah mengetahui rencana Fang Yuan.</p>
+<p>	Setelah berhubungan dengan Fang Yuan begitu lama, dia menjadi semakin sadar betapa berbahaya dan liciknya Fang Yuan.</p>
+<p>	Terutama penampilannya hari ini, kesederhanaan dan kejujuran seperti itu bahkan hampir menipunya! Belum lama ini, dia telah menyaksikan bagaimana Fang Yuan telah menyempurnakan kesatuan daging tulang Gu dan setelah menghubungkan semua perilakunya, dia mulai merasakan hawa dingin di hatinya.</p>
+<p>	Dia mengingatkan dirinya untuk berhati-hati dan belajar dari kesalahan pemimpin Bai Clan yang menyedihkan itu! Jika dia tidak memiliki kewaspadaan terhadap Fang Yuan, siapa yang tahu suatu hari dia mungkin dijual oleh Fang Yuan sambil masih menghitung uang untuknya?</p>
+<p>	Dia menggelengkan kepalanya untuk mengendalikan suasana hatinya dan mulai memperbaiki kesatuan daging tulang Gu.</p>
+<p>	Sepasang Gu ini memiliki bentuk yang aneh dengan satu hijau dan merah lainnya. Bai Ning Bing memilih yang merah dan mulai menuangkan esensi purba ke dalamnya.</p>
+<p>	Kesatuan daging tulang Gu ini telah disempurnakan oleh Fang Yuan sejak awal. Sekarang, Fang Yuan menghapus jejaknya dari Gu dan bekerja sama dengan Bai Ning Bing.</p>
+<p>	Bai Ning Bing tidak membutuhkan banyak waktu untuk memperbaikinya.</p>
+<p>	Saat dia selesai menyempurnakan Gu, ada perubahan dalam kesatuan daging tulang Gu.</p>
+<p>	Sepasang gelang giok yang terhubung ini tiba-tiba benar-benar menghilang di udara. Dan hampir seketika, muncul tanda lingkaran di pergelangan tangan Fang Yuan dan Bai Ning Bing.</p>
+<p>	Yang berbeda adalah, tanda yang muncul di pergelangan tangan kiri Fang Yuan berwarna hijau, sedangkan di pergelangan tangan kanan Bai Ning Bing berwarna merah.</p>
+<p>	Hubungan misterius muncul dari hati Fang dan Bai.</p>
+<p>	Koneksi ini memungkinkan Fang Yuan untuk merasakan Bai Ning Bing dan Bai Ning Bing juga bisa merasakan Fang Yuan, seolah-olah darah dan daging mereka terhubung dan tidak dapat dibagi.</p>
+<p>	Perasaan ini tidak baik dan membuat Bai Ning Bing merasa mual seperti menelan lalat rumah.</p>
+<p>	Alis Fang Yuan juga berkerut erat.</p>
+<p>	Ini tidak disebutkan dalam gulungan yang ditinggalkan oleh Gray Bone Scholar.</p>
+<p>	Fang Yuan memikirkannya sebelum merasa lega: “Sarjana tulang abu-abu telah meneliti ini hanya dalam teori dan tidak pernah mempraktikkannya. Tidak mengetahui ini sangat normal…”</p>
+<p>	Perasaan ini hanya detail kecil, yang penting adalah tahap selanjutnya.</p>
+<p>	Keduanya menahan perasaan aneh dan duduk bersila saling berhadapan di tempat tidur, memulai kultivasi ganda mereka.</p>
+<p>	Mereka berdua mengulurkan tangan, keempat telapak tangan saling bersentuhan.</p>
+<p>	Agar aman, kultivasi yang lebih lemah, Fang Yuan, bereksperimen.</p>
+<p>	Dia mengeluarkan sebagian dari esensi purba tembaga hijau dan dengan hati-hati menuangkannya ke lubang Bai Ning Bing.</p>
+<p>	Tanda lingkaran hijau dan merah tiba-tiba memancarkan cahaya terang.</p>
+<p>	Esensi purba asing – ketika dipindahkan ke lubang Bai Ning Bing – segera berubah menjadi aura Bai Ning Bing.</p>
+<p>	“Itu benar-benar berhasil!” Bai Ning Bing dengan lembut berseru kegirangan.</p>
+<p>	“Saya dengan jelas mentransfer sepuluh persen dari esensi purba tembaga hijau saya, tetapi Anda hanya menerima tiga perlima darinya; dua perlimanya hilang dalam pertobatan.” Pengamatan Fang Yuan bahkan lebih rinci.</p>
+<p>	Bai Ning Bing tidak terkejut: “Apa yang sulit dimengerti? Bukankah gulungan itu mengatakannya? Gu kesatuan daging tulang ini dapat dibagi menjadi lima jenis kualitas tergantung pada seberapa dalam hubungan antara kedua penyuling. Dari rendah ke tinggi, itu dibagi menjadi: persaudaraan, hubungan persahabatan, hubungan tak terpisahkan, hubungan keluarga, hubungan darah.</p>
+<p>	Dia menganalisis dan melanjutkan: “Jika pasangan saudara laki-laki dan perempuan itu menjadi Master Gu, dan menyempurnakan kesatuan darah daging Gu sendiri, dengan seberapa dalam hubungan di antara mereka, saya memperkirakan mereka akan mendapatkan ‘hubungan kerabat darah’ kualitas tertinggi. Jika kita memperbaikinya sendiri, hehe, itu pasti akan menjadi ‘pembunuh saudara’ dengan kualitas terburuk, mengingat hubungan kita. Keduanya menetralkan satu sama lain dan dengan demikian kami memperoleh ‘hubungan tak terpisahkan’ dengan kualitas menengah.</p>
+<p>	Kesatuan daging tulang Gu mengacu pada seri Gu. Sama seperti bagaimana di Gu babi hutan, ada Gu babi hutan hitam, Gu babi hutan putih, Gu babi hutan merah muda dan sebagainya.</p>
+<p>	Menurut gulungan yang disebutkan, kesatuan daging tulang Gu berisi lima jenis cacing Gu.</p>
+<p>	Kualitas terburuk adalah Gu pembunuhan saudara yang mengubah sepuluh persen esensi purba menjadi seperlima darinya; di atasnya adalah hubungan persahabatan Gu yang mengubah sepuluh persen esensi purba menjadi dua perlima; hubungan tak terpisahkan Gu bisa mentransfer tiga perlima; hubungan keluarga Gu dapat mentransfer empat perlima; dan hubungan kerabat darah teratas Gu dapat mentransfer seratus persen esensi purba tanpa kehilangan konversi.</p>
+<p>	Dengan mengandalkan pengalaman kehidupan sebelumnya, Fang Yuan telah merusak resep pada saat terakhir, mendapatkan peringkat tiga hubungan tak terpisahkan Gu yang dapat dianggap sebagai keberuntungan yang cukup baik.</p>
+<p>	Meneliti resep perbaikan itu tidak mudah. Itu membutuhkan deduksi dan eksperimen terus menerus bersama dengan banyak cacing Gu.</p>
+<p>	Fang Yuan berhasil dengan gangguannya, satu faktor adalah karena wawasan dari pengalamannya dan faktor lainnya adalah keberuntungan.</p>
+<p>	Namun, dia tidak pernah suka mengandalkan keberuntungan.</p>
+<p>	Ini tidak berarti dia terlahir sebagai pembawa sial atau keberuntungannya selalu buruk. Keberuntungan Fang Yuan sama dengan orang biasa; kadang baik kadang buruk. Mengapa dia tidak menyukainya karena itu adalah faktor yang tidak bisa dia kendalikan.</p>
+<p>	Dia adalah orang yang sangat ingin memegang kendali; dia suka mengendalikan situasi, mengendalikan orang lain dan secara alami mengendalikan dirinya sendiri.</p>
+<p>	“Itu dia. Giliranmu sekarang.” kata Fangyuan.</p>
+<p>	Secara keseluruhan, dia puas mendapatkan Gu yang tidak dapat dipisahkan.</p>
+<p>	Bai Ning Bing mentransfer sepuluh persen dari esensi purba salju peraknya ke dalam lubang Fang Yuan.</p>
+<p>	Apa yang terjadi selanjutnya sangat mengejutkan!</p>
+<p>	Tepat sebelumnya, ketika Fang Yuan mentransfer esensi purba hijau gelapnya ke dalam lubang Bai Ning Bing, itu terbentuk menjadi air hijau yang ditelan oleh laut purba salju perak hanya dalam beberapa saat; laut purbanya meningkat sedikit.</p>
+<p>	Sekarang, ketika dia mentransfer sepuluh persen esensi purba ke dalam bukaan Fang Yuan, sebelum esensi purbanya belum mendarat ke laut purba, bukaannya mulai bergetar.</p>
+<p>	Fang Yuan segera berteriak untuk berhenti.</p>
+<p>	Ini bukan masalah dalam kesatuan daging tulang Gu, melainkan masalah kultivasinya; dia hanya berada di tingkat atas dari peringkat satu Guru Gu dan telah menyimpan ratusan tulang tombak Gu, dan sekarang dia menerima esensi purba perak salju, seluruh beban terlalu banyak untuk ditangani untuk bukaannya.</p>
+<p>	Bai Ning Bing ragu-ragu, jika dia terus mentransfer esensi purba sekarang, dia mungkin bisa memecahkan celah Fang Yuan.</p>
+<p>	Tetapi bahkan jika dia memecahkan lubangnya, Yang Gu masih bisa dihancurkan dengan satu pikiran dari Fang Yuan.</p>
+<p>	Dia berpikir sejenak sebelum akhirnya memutuskan untuk menarik esensi purbanya.</p>
+<p>	Awalnya, sepuluh persen esensi purba salju perak dipindahkan ke aperture Fang Yuan, yang seharusnya diubah menjadi tiga perlima. Sekarang setelah Bai Ning Bing menarik esensi purbanya, hanya sekitar seperlima dari esensi purba yang dikonversi yang tersisa.</p>
+<p>	Apa yang membuat Bai Ning Bing menghela nafas dalam hati adalah kemampuan Gu kesatuan daging tulang ini.</p>
+<p>	Fang Yuan memindahkan semua tombak tulang Gu ke lubang Bai Ning Bing, dan kemudian menerima esensi purba perak salju.</p>
+<p>	Ketika bagian dari esensi purba salju ini ada di tubuh Bai Ning Bing, itu memiliki auranya. Sekarang setelah dipindahkan ke aperture Fang Yuan, tiba-tiba menyusut dan berubah menjadi aura Fang Yuan.</p>
+<p>	Esensi purba perak salju yang dikonversi tenggelam ke bagian bawah bukaan Fang Yuan dan esensi purba tembaga hijau hanya bisa melayang tanpa daya di atasnya.</p>
+<p>	Keduanya ada dengan damai, seolah-olah bagian dari esensi purba salju perak ini dilahirkan oleh aperture Fang Yuan.</p>
+<p>	Jika itu adalah esensi purba asing yang datang sedekat ini, itu akan segera meledak dan menyebabkan kerusakan pada aperture.</p>
+<p>	Oleh karena itu, pemberian esensi purba yang normal seperti berjalan di atas tali baja; sangat berbahaya dan melelahkan.</p>
+<p>	Fang Yuan mencoba menggerakkan bagian dari esensi purba perak putih ini untuk bergegas ke dinding aperture.</p>
+<p>	Master Gu dibagi menjadi sembilan tingkatan alam besar, masing-masing alam besar dibagi lagi menjadi empat alam kecil; tahap awal, tahap tengah, tahap atas dan tahap puncak.</p>
+<p>	Tahap awal adalah dinding aperture membran ringan; cahayanya tipis dan berkedip-kedip.</p>
+<p>	Panggung tengah adalah dinding bukaan membran air; cahaya mengalir dengan bebas.</p>
+<p>	Tahap atas adalah dinding celah membran batu; cahaya itu terkondensasi menjadi solid state.</p>
+<p>	Tahap puncak adalah dinding aperture membran kristal dengan cahaya halus dan murni.</p>
+<p>	Fang Yuan sekarang berada di peringkat satu tingkat atas; dinding lubangnya terbuat dari membran batu.</p>
+<p>	Namun, dengan satu gelombang tumbukan dari esensi purba perak salju, dinding membran batu ini benar-benar mulai bergetar hebat!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

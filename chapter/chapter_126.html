@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 126 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 126";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_125.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 126">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_127.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 126</h1>
+        <div class="text-left">
+<p>	Bab 126</p>
+<p>	Bab 126: Kematian pesona kayu</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Mengaku kalah…..</p>
+<p>	Kata-kata Fang Yuan masih melekat di telinga orang banyak.</p>
+<p>	Seketika, hampir semua Master Gu peringkat dua di bawah bangunan batu memandang Fang Yuan dengan terkejut.</p>
+<p>Fang Yuan mengabaikan mereka; dia memegang tangannya dan berdiri di tempat dengan ekspresi acuh tak acuh.</p>
+<p>“Mengakui kekalahan? Dia langsung mengaku kalah, apa aku salah dengar?”</p>
+<p>“Dia adalah Fang Yuan? Dia bahkan tidak punya nyali untuk keluar, haha. ”</p>
+<p>“Kami mengakui kekuatan Xiong Li, dia memang kuat. Tetapi bahkan jika Anda ingin mengakui kekalahan, setidaknya lakukan itu setelah formalitas. Dengan mengakui kekalahan secara langsung, dia tidak hanya menunjukkan bahwa dia adalah seorang pengecut, dia bahkan menodai klan.”</p>
+<p>	Bisikan itu seperti riak di danau yang tenang.</p>
+<p>	Tatapan para Master Gu berubah dari terkejut menjadi membenci, mencemooh, dan menyombongkan diri.</p>
+<p>Banyak Master Gu klan Gu Yue merasa tidak nyaman; tatapan dari Master Gu klan Xiong dan Bai seperti jarum tak terlihat, menusuk harga diri mereka.</p>
+<p>	Fang Yuan adalah anggota klan Gu Yue, dengan dia secara langsung mengakui kekalahan, ini membuat mereka merasa benar-benar terhina.</p>
+<p>	“Bagaimana kamu bisa mengakui kekalahan? Fang Yuan, kamu adalah seorang pria dari desa Gu Yue, berdiri dan bertarunglah dengan berani bersama Xiong Li!”</p>
+<p>“Bahkan jika kamu kalah, itu tidak akan menjadi sesuatu yang serius.”</p>
+<p>	“Jika kamu bahkan tidak punya nyali untuk keluar, maka itu benar-benar akan membuang martabat kita!”</p>
+<p>	Some Gu Yue clan Gu Masters shouted and urged Fang Yuan to take the challenge.</p>
+<p>Fang Yuan was indifferent; to him, these words were like dogs barking.</p>
+<p>The so-called name, face and honor was only a pie painted on a paper; shackles used by the higher-ups to bind the organization members.</p>
+<p>These Gu Masters were also dogs on a leash.</p>
+<p>Xiong Li gazed at Fang Yuan and suddenly laughed, “I am truly disappointed. Is this how a Gu Yue village’s bravery looks like?”</p>
+<p>	Klan Gu Yue, Gu Masters terlihat tidak enak dipandang ketika mereka mendengar ini.</p>
+<p>Suara tawa datang dari sisi desa Xiong, dan bahkan Gu Master dari desa Bai memandang klan Gu Yue dengan ejekan.</p>
+<p>Orang-orang di sekitar Fang Yuan mulai menjauh. Semua orang membuat jarak darinya; wajah mereka dipenuhi rasa malu.</p>
+<p>Segera, tidak ada seorang pun dalam jarak lima langkah dari Fang Yuan.</p>
+<p>	Fang Yuan berdiri sendiri. Jalanku atau jalan raya (1), ekspresinya tenang dibandingkan dengan sekitarnya.</p>
+<p>Yang lain menyukai reputasi yang berani, tetapi Fang Yuan mencemoohnya. Ini membuat orang lain membencinya.</p>
+<p>Karena Fang Yuan membenci ketenaran, dia menolak nilai-nilai masyarakat. Menyangkal sistem nilai ini berarti menolak orang-orang yang menjalani hidup mereka mengikuti nilai-nilai ini.</p>
+<p>Orang lain secara alami tidak akan menyangkal nilai-nilai mereka sendiri, jika tidak, mereka akan merasa bahwa mereka hidup dengan cara yang salah. Dengan demikian, mereka secara tidak sadar mulai menolak dan memboikot Fang Yuan.</p>
+<p>Orang yang lemah hati akan dikalahkan oleh penolakan seperti itu dan mereka akan mengubah diri mereka sendiri agar sesuai dengan publik.</p>
+<p>Namun, Fang Yuan membutuhkan penolakan seperti itu. Dia memiliki terlalu banyak rahasia pada dirinya sehingga dia harus menyendiri. Pada saat yang sama, orang-orang ini tidak layak berteman. Dalam ingatannya, tiga desa Gunung Qing Mao nyaris tidak selamat dari gelombang serigala, tetapi kecelakaan dua tahun kemudian akan benar-benar menghancurkan mereka dan mengubah seluruh Gunung Qing Mao menjadi daerah terpencil.</p>
+<p>Yang dibutuhkan Fang Yuan adalah menggunakan waktu ini untuk meningkatkan dirinya sebanyak mungkin, lalu meninggalkan klan dan menghindari bencana yang fatal.</p>
+<p>Gu Yue Qing Shu – Master Gu peringkat dua nomor satu di Klan Gu Yue – mau tidak mau berdiri melihat situasi ini.</p>
+<p>	“Xiong Li, bagaimana kalau berdebat denganku?”</p>
+<p>	“Hehe, apa yang akan kita lawan?” Xiong Li tersenyum, tapi ekspresinya serius.</p>
+<p>Gu Yue Qing Shu tidak menatap Xiong Li; dia sedikit mengangkat telapak tangannya dan diam-diam menggerakkan esensi purbanya, matanya dengan waspada melihat pohon anggur hijau yang perlahan tumbuh keluar dari telapak tangannya.</p>
+<p>	Dia dengan tenang berkata, “Ayo bersaing dengan kekuatanmu. Jika Anda dapat melepaskan diri dari ikatan anggur hijau saya, saya akan mengaku kalah. Apakah itu tidak apa apa?”</p>
+<p>“Hehe, saran yang bagus, mari kita lakukan seperti itu.” Xiong Li menyeringai, matanya memancarkan cahaya terang.</p>
+<p>	Dia dalam hati berpikir, saya sudah memiliki kekuatan beruang dan menggabungkannya dengan peningkatan kekuatan dari Grand Bear Gu, saya memiliki kekuatan dua beruang. Meskipun pohon anggur hijau itu keras, saya memiliki jaminan mutlak untuk menghancurkannya dengan kekuatan dua beruang. Xiong Jiang menang melawan Bai Bing Yi dan jika aku mengalahkan Qing Shu, itu akan memberi kita reputasi besar!</p>
+<p>Qing Shu dengan lembut tersenyum. Tanpa berbicara, dia mengulurkan kedua tangannya; dua tanaman merambat hijau tumbuh dari telapak tangannya. Seperti dua ular sanca hijau yang gesit, kedua tanaman merambat itu memanjat Xiong Li dan memutar tubuhnya.</p>
+<p>	Tangan Xiong Li berada di pinggangnya; tanaman merambat hijau melingkar di kedua lengannya dan langsung membuat selusin lingkaran di sekitar mereka, erat mengikat tangannya dengan punggungnya.</p>
+<p>Master Gu di tempat kejadian tidak bisa mengalihkan pandangan dari kontes ini.</p>
+<p>	“Tolong.” Qing Shu berkata kepada Xiong Li.</p>
+<p>Xiong Li membuka matanya. Dia dengan erat mengepalkan tinjunya dan mulai memberikan kekuatan.</p>
+<p>Setiap otot di tubuhnya tampak menonjol seperti gumpalan di atas batu besar.</p>
+<p>	Kekuatan beruang!</p>
+<p>Ledakan.</p>
+<p>	Tanaman merambat hijau mulai patah di bawah kekuatannya yang luar biasa.</p>
+<p>“Hahaha, saudara Qing Shu, sepertinya pemenang kontes ini adalah milikku!” Xiong Li menggunakan kekuatannya untuk membebaskan diri, tetapi dia masih memiliki energi yang cukup untuk melakukan percakapan.</p>
+<p>	“Qing Shu Senior ….” Fang Zheng gugup dan tangannya berkeringat</p>
+<p>. Master Gu klan Gu Yue lainnya juga sama. Gu Yue Qing Shu adalah orang nomor satu di antara mereka dan jika dia kalah dalam kontes, Klan Gu Yue akan benar-benar kehilangan muka mereka kali ini!</p>
+<p>	“Belum tentu.” Gu Yue Qing Shu tersenyum, matanya menunjukkan kepercayaan diri.</p>
+<p>Ketika dia selesai berbicara, tanaman merambat hijau di tangannya mulai berubah. Warna giok yang awalnya seperti hijau tiba-tiba berubah menjadi warna hijau tua. Pada saat yang sama, tanaman merambat juga menjadi lebih tebal dan daun lebar hijau mulai tumbuh di atasnya.</p>
+<p>Wajah Xiong Li berubah, dia merasakan kekuatan melingkar anggur hijau telah meningkat lebih dari sepuluh kali lipat.</p>
+<p>	Apa yang membuatnya lebih khawatir adalah bahwa tanaman merambat hijau yang telah dia pecahkan mulai tumbuh dan terhubung kembali dengan area yang rusak.</p>
+<p>Beruang Besar Gu!</p>
+<p>	Dia merasakan situasinya menjadi buruk dan segera menggunakan Grand Bear Gu di aperture-nya.</p>
+<p>Segera, rambutnya mulai menegang seperti jarum baja. Otot-otot di seluruh tubuhnya membesar dan dia tampak menjadi jauh lebih tinggi dan lebih besar.</p>
+<p>Kekuatan dua beruang!</p>
+<p>	Tanaman merambat hijau mengeluarkan suara berderit tetapi masih mampu menahan kekuatan yang menakutkan ini, dengan kuat menahan Xiong Li.</p>
+<p>	Wajah Xiong Li menjadi sangat merah, dan dia mengeluarkan seluruh kekuatannya untuk mematahkan tanaman merambat hijau. Tapi akhirnya, dia hanya bisa mematahkan satu sulur hijau dan tidak bisa melanjutkan lagi.</p>
+<p>	“Aku tersesat.” Dia melepaskan kekuatan pendukung Grand Bear Gu dan berkata sambil terengah-engah.</p>
+<p>“Kau biarkan aku menang.” Qing Shu menangkupkan tangannya dan mengambil tanaman merambat hijau.</p>
+<p>“Senior Qing Shu, kamu yang terbaik.” Master Gu Gu Yue Clan sangat gembira.</p>
+<p>“Senior Qing Shu benar-benar pantas mendapatkan namanya. Kakak tidak bisa dibandingkan dengannya sama sekali. ” Fang Zheng berdiri di samping Qing Shu dan memandang Qing Shu dengan hormat.</p>
+<p>	Tatapan Xiong Li rumit saat dia melihat Gu Yue Qing Shu. Dia telah berkembang dan memperoleh Gu Kekuatan Bawaan Beruang Coklat, tetapi Qing Shu juga telah berkembang. Meskipun dia tidak tahu apa yang terakhir digunakan, tapi ini adalah saingannya yang sebenarnya. Adapun Fang Yuan itu, dia hanya seorang pemula dan tidak perlu khawatir.</p>
+<p>“Itu benar-benar Gu Pesona Kayu,” pikir Fang Yuan sambil mengamati Qing Shu dari jauh.</p>
+<p>	Xiong Li tidak menemukan apapun saat menghadapi Gu Yue Qing Shu. Dua daun hijau zamrud tumbuh di rambut Gu Yue Qing Shu.</p>
+<p>	Ini adalah tanda menggunakan Gu Mantra Kayu.</p>
+<p>Yang disebut Mantra Kayu adalah roh pohon.</p>
+<p>	Menggunakan Pesona Kayu Gu bisa membiarkan satu pertempuran sebagai roh pohon.</p>
+<p>Roh pohon adalah makhluk yang tidak biasa. Itu bisa langsung menyerap esensi alami di udara dan menggunakannya.</p>
+<p>Master Gu tidak bisa melakukan ini, mereka hanya bisa menggunakan esensi purba di aperture mereka.</p>
+<p>	Ketika seseorang menggunakan gu Mantra Kayu, mereka bisa menjadi perwujudan dari roh pohon Mantra Kayu dan akan dapat langsung menyerap esensi alami di udara dan mengisi kembali esensi purba mereka. Itu sama dengan menyerap esensi purba dari batu purba.</p>
+<p>	Ketika Gu Masters bertarung normal, mereka tidak dapat membagi pikiran mereka dan menyerap esensi purba dari batu purba saat bertarung.</p>
+<p>	Tetapi sebagai perwujudan dari roh pohon, penyerapan esensi alam adalah naluri dan tidak perlu memecah belah pikiran mereka. Ini berarti bahwa Gu Master yang menggunakan Wood Charm Gu adalah ahli dalam perang gesekan. Meskipun seseorang tidak dapat mengatakan bahwa mereka dapat menggunakan esensi alami tanpa henti, mereka dapat bertarung sebanyak tiga kali lebih lama karena pengisian yang terus menerus.</p>
+<p>	Dan begitu seseorang menjadi perwujudan dari roh pohon, cacing Gu seperti Green Vine Gu dan Pine Needle Gu juga akan diperkuat kekuatannya.</p>
+<p>	Fang Yuan langsung menghubungkan titik-titik, “Kemajuan fusi Wood Charm Gu dapat dikatakan sebagai salah satu rute kemajuan yang paling mewah. Itu adalah Gu Peringkat tiga dan perlu menyatu dengan Gu Umur seratus tahun untuk naik ke Gu Mantra Kayu Peringkat empat ratus tahun. Gu Mantra Kayu seratus tahun perlu menyatu dengan Gu Seumur Hidup seribu tahun untuk naik ke Gu Mantra Kayu Peringkat lima ribu tahun. Semua orang tahu rute fusi ini, tetapi Gu Masters jarang menggunakan resep ini. Alasannya adalah karena berharganya Lifespan Gu. Ketika Master Gu menemukan Lifespan Gu, mereka biasanya akan menggunakannya secara langsung untuk meningkatkan umur mereka sendiri.”</p>
+<p>Di dunia ini, manusia bisa hidup paling lama seratus tahun jika mereka tidak mengalami kecelakaan atau penyakit. Seratus tahun adalah batas umur manusia.</p>
+<p>	Tapi Lifespan Gu dapat meningkatkan umur.</p>
+<p>Seratus tahun Umur Gu dapat meningkatkan umur seseorang seratus tahun dan seribu tahun Umur Gu dapat meningkatkannya seribu tahun.</p>
+<p>	Umur Gu sangat langka dan semua orang mencarinya.</p>
+<p>	Fang Yuan telah hidup selama lima ratus tahun di kehidupan sebelumnya karena dia menggunakan lima ratus tahun Umur Gu dalam kehidupan sebelumnya, sehingga menambah lima ratus tahun untuk umurnya — umur seratus tahun telah berubah menjadi enam ratus tahun. Tetapi pada akhirnya di tengah jalan, dia diserang oleh faksi-faksi yang benar dan tidak punya pilihan selain meledakkan diri sendiri dan mati.</p>
+<p>	Lifespan Gu mewakili ‘umur panjang’ dan bisa membiarkan orang hidup lama, tapi itu tidak berarti ‘abadi’.</p>
+<p>	“Pesona Kayu Gu sangat kuat tetapi memiliki kelemahan; Gu Masters tidak bisa menggunakannya untuk waktu yang lama. Jika mereka menggunakannya terlalu lama, kekuatan Mantra Kayu Gu akan mempengaruhi tubuh mereka dan akan mengubah tubuh mereka menjadi kayu, akhirnya mengubah tubuh menjadi mayat kayu. Dalam kehidupanku sebelumnya, Gu Yue Qing Shu telah mati dengan cara ini.”</p>
+<p>Memikirkan hal ini, mata Fang Yuan berbinar.</p>
+<p>Biasanya, cacing Gu yang kuat memiliki efek samping yang besar dan perlu digunakan dengan cacing Gu lainnya. Jika tidak, akan ada pengaruh berbahaya pada tubuh Master Gu.</p>
+<p>Roaming Zombie Gu Xiong Jiang paling baik digunakan dengan Bloodline gu. Jika tidak, darah di tubuhnya akan berkurang jika digunakan terlalu lama dan dia akan berubah menjadi zombie sejati.</p>
+<p>Kelompok Xiong Li kembali ke kamp mereka. Mereka pertama kali menang melawan Bai Bing Yi, lalu kalah melawan Qing Shu. Meski begitu, grup tersebut tetap mendapat banyak tepuk tangan dan pujian.</p>
+<p>“Mo Yan, aku menantangmu.”</p>
+<p>	“Ayo, Xiong Jiao Man, aku akan melawanmu!”</p>
+<p>	Setelah kelompok Xiong Li, seluruh pemandangan tiba-tiba menjadi bising. Banyak Master Gu terus-menerus keluar dan menantang lawan yang kuat dalam pikiran mereka, menunjukkan keberanian mereka.</p>
+<p>	Lereng Aliansi menjadi kacau, dan semua jenis pertempuran Gu yang brilian dan beragam terjadi.</p>
+<p>	Pertempuran Gu yang sebenarnya telah dimulai.</p>
+<p>	(1) Tidak sepenuhnya yakin bagaimana memasukkan ini ke dalam bagian ini, itu adalah sebuah idiom, tetapi itu hanya berarti dia melakukan apa pun yang dia inginkan/bertahan dalam apa pun yang dia lakukan tidak peduli apa yang dikatakan orang lain.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

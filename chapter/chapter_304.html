@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 304 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 304";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_303.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 304">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_305.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 304</h1>
+        <div class="text-left">
+<p>	Bab 304</p>
+<p>	Bab 304: Kekuatan Pahit Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Tie Ruo Nan benar-benar pergi. Dan seperti yang dia katakan, dia membawa Tie Dao Ku bersamanya.</p>
+<p>	Fang Yuan sangat mengerti orang macam apa Tie Dao Ku itu.</p>
+<p>	Mampu bertarung secara intens dengan Bai Ning Bing untuk waktu yang lama, dia jelas adalah seorang ahli dan tidak bisa dipandang rendah. Sekarang, dia telah direkrut oleh Tie Ruo Nan.</p>
+<p>	“Tie Ruo Nan ini harus dihilangkan, membiarkannya hidup akan menjadi ancaman yang sangat besar.” Fang Yuan memiliki firasat yang kuat di dalam hatinya, karena Tie Ruo Nan, dia dan Bai Ning Bing memiliki kesamaan —</p>
+<p>	Mereka adalah orang-orang yang menemukan jalan yang ingin mereka jalani dalam hidup.</p>
+<p>	Orang-orang seperti itu memiliki tekad dan keberanian yang besar, selama mereka tidak mati sebelum waktunya, mereka pasti memiliki pencapaian besar.</p>
+<p>	Tie Ruo Nan juga memiliki bakat kelas A bersama dengan dukungan dari Tie Clan.</p>
+<p>	Dia adalah salah satu dari delapan tuan muda Klan Tie, hanya ini saja, Fang dan Bai tidak bisa dibandingkan dengan dia bahkan dengan token duri ungu.</p>
+<p>	“Jika pertumbuhan kita terus seperti ini, dia secara bertahap akan membuang aku dan Bai Ning Bing jauh-jauh. Hanya melalui warisan tiga raja, saya dapat mengurangi jarak di antara kami. ” Fang Yuan membuat rencana.</p>
+<p>	Dengan perkembangan normal, Fang dan Bai bukanlah tandingan Tie Ruo Nan. Yang terakhir adalah salah satu tuan muda dari Klan Tie, sumber daya yang dia terima sangat banyak sehingga Fang dan Bai bahkan tidak bisa membandingkannya.</p>
+<p>	Hanya dengan berjalan di rute yang tidak biasa, dengan mengambil risiko dan jalan pintas, mereka dapat mengurangi kesenjangan ini.</p>
+<p>	Warisan tiga raja dan pertempuran besar iblis yang benar di gunung Yi Tian adalah ‘jalan pintas’ seperti itu.</p>
+<p>	Musim semi datang dan pergi; musim gugur pergi dan kembali.</p>
+<p>	Sungai waktu terus mengalir tanpa henti dan lebih dari setahun berlalu.</p>
+<p>	Taman Nan Qiu, ruang rahasia.</p>
+<p>	Fang Yuan sedang duduk bersila di atas bantal, butiran keringat merembes keluar dari dahinya, saat dia mengertakkan gigi dan bertahan.</p>
+<p>	Dia sedang memperbaiki Gu dan itu adalah saat yang penting.</p>
+<p>	Sebuah bola merah, oranye dan hijau melayang di udara; seukuran keranjang. Lampunya mewarnai wajah Fang Yuan dengan beragam warna.</p>
+<p>	Melakukan empat tugas sekaligus!</p>
+<p>	“Kekuatan kura-kura batu Gu, pergi.”</p>
+<p>	Mengikuti kehendak Fang Yuan, cahaya gelap terbang keluar dari lubangnya dan menembus ke dalam tiga bola cahaya berwarna.</p>
+<p>	Penambahan kekuatan kura-kura batu Gu segera menciptakan reaksi intens di bola cahaya tiga warna.</p>
+<p>	Bola cahaya yang memiliki warna merah, oranye, dan tiga warna, sekarang memiliki cahaya gelap yang bercampur di dalamnya.</p>
+<p>	Empat warna bersaing satu sama lain tetapi tidak ada yang bisa mengalahkan yang lain, dan pertempuran menjadi kacau.</p>
+<p>	Untuk sesaat, keempat warna itu bergerak dengan ganas, seperti air mendidih yang diaduk dengan tangan besar.</p>
+<p>	Ledakan.</p>
+<p>	Tiba-tiba, ada ledakan kecil.</p>
+<p>	Bola cahaya pecah dan membentuk hujan empat warna. Hujan ringan datang dengan cepat dan pergi dengan cepat; dalam sekejap mata, ruang rahasia itu tenggelam dalam kegelapan.</p>
+<p>	Semuanya menghilang.</p>
+<p>	“Gagal lagi …” Dalam kegelapan yang menakutkan, Fang Yuan menghela nafas pelan.</p>
+<p>	Darah perlahan merembes keluar dari hidungnya dan karena kegagalan dalam memurnikan Gu, jiwanya juga menerima serangan balik, menyebabkan dia pusing.</p>
+<p>	Ini sudah kegagalan keempat.</p>
+<p>	“Satu setengah tahun telah berlalu, saya telah maju ke kota terdalam ketiga dari kota keempat. Namun, saya belum bisa membeli kekuatan pahit Gu. ”</p>
+<p>	Fang Yuan tahu alasannya.</p>
+<p>	Salah satunya karena kekuatan pahit Gu sangat langka dan juga sangat mahal; itu jarang muncul bahkan di kota klan Shang.</p>
+<p>	Kedua adalah karena Shang Ya Zi adalah orang yang mengelola toko dan menghalangi Fang Yuan dari kegelapan.</p>
+<p>	Shang Ya Zi adalah salah satu tuan muda klan Shang dan mengendalikan toko-toko di kota klan Shang. Fang Yuan ingin membeli kekuatan pahit Gu, dan Shang Ya Zi memiliki segala macam cara untuk menghalangi Fang Yuan.</p>
+<p>	Dua tahun lalu, Fang Yuan tiba di kota klan Shang dan memeras Shang Ya Zi. Dan setelah ini selesai, Shang Ya Zi mengandalkan warisan Bai Gu untuk lulus ujian klan dan mempertahankan posisi tuan mudanya. Meskipun dia terhalang oleh sumpah racun Gu – tidak bisa melakukan gerakan fatal melawan Fang Yuan – cara membalas dendam ini masih diperbolehkan.</p>
+<p>	Shang Ya Zi bagaimanapun adalah putra Shang Yan Fei, setiap kehilangan yang dideritanya membuatnya lebih bijaksana. Setelah kemunduran yang dideritanya, dia membangkitkan semangatnya, menghapus dekadensinya, menjadi berhati-hati dalam menikmati anggur dan wanita, dan menjadi lebih cerdik.</p>
+<p>	Dia mengandalkan sistem klan untuk berurusan dengan Fang Yuan, menggunakan cara yang lebih tersembunyi yang bahkan token duri ungu yang dimiliki Fang Yuan tidak ada gunanya.</p>
+<p>	Pemegang token duri ungu dianggap sebagai tamu terhormat klan Shang. Tetapi pada akhirnya, mereka adalah orang luar dan tidak bisa dibandingkan dengan Shang Ya Zi yang merupakan tuan muda klan Shang.</p>
+<p>	Karena dia tidak bisa membeli kekuatan pahit Gu, Fang Yuan hanya bisa mencoba memperbaikinya sendiri.</p>
+<p>	Namun, tingkat keberhasilan dalam menyempurnakan kekuatan pahit Gu benar-benar sangat rendah.</p>
+<p>	Menghitung dalam upaya hari ini, Fang Yuan sudah mencoba fusi empat kali dan dalam proses kehilangan kekuatan beruang coklat Gu, kekuatan kuda yang berlari kencang, Gu tenaga banteng hijau dan kekuatan penyu batu Gu.</p>
+<p>	Terlepas dari ini, dia juga kehilangan bahan tambahan yang berharga dan sejumlah besar batu purba.</p>
+<p>	Untungnya, Fang Yuan dapat terus menang di tahap pertempuran dan mendapatkan sumber daya, memungkinkan dia menanggung biaya kegagalan penyempurnaan Gu.</p>
+<p>	“Huh, kali ini juga gagal… Aku hanya bisa menunggu lukaku pulih sebelum aku mencoba lagi.” Fang Yuan menghela nafas.</p>
+<p>	Penyempurnaan Gu membutuhkan kehati-hatian.</p>
+<p>	Kegagalan untuk memurnikan seorang Gu dapat menimbulkan serangan balasan pada tubuh dan jiwa Guru Gu. Cedera pada tubuh lebih mudah diatasi; tetapi karena multitasking, jiwa mengalami kerusakan yang sangat sulit untuk ditangani.</p>
+<p>	Semakin tinggi pangkat dan semakin jarang Gu, semakin parah konsekuensi kegagalannya.</p>
+<p>	Oleh karena itu, penyempurnaan Gu Master akan sering terluka parah atau terbaring di tempat tidur karena kegagalan penyempurnaan Gu, dan terkadang serangan balik bahkan menyebabkan kematian.</p>
+<p>	Bukan karena Gu yang bisa menyembuhkan jiwa tidak ada, tetapi mereka semua sangat langka dan biasanya disimpan secara rahasia oleh klan besar.</p>
+<p>	Cedera pada jiwanya kali ini akan menimbulkan pusing ringan pada Fang Yuan selama lebih dari sebulan.</p>
+<p>	Pusing ini akan mempengaruhi kekuatan pertempuran Fang Yuan dan celah kecil seperti itu bisa berakibat fatal dalam pertempuran antara para ahli.</p>
+<p>	Jadi Fang Yuan biasanya mencoba ini setelah selang waktu sebulan untuk membiarkan jiwanya memiliki cukup waktu untuk memulihkan diri.</p>
+<p>	Penyempurnaan Gu gagal tetapi kultivasi hari ini belum berakhir.</p>
+<p>	Fang Yuan menunggu dalam meditasi; beberapa saat kemudian, dia mendengar ketukan dari luar. Dia membuka pintu dan menyambut Bai Ning Bing.</p>
+<p>	Selama satu setengah tahun ini, Bai Ning Bing membuat kemajuan pesat dan juga mencapai kota terdalam ketiga, setelah mengumpulkan satu set cacing Gu. Dia setara dengan Fang Yuan dan jarang menderita kerugian. Mereka disebut dua bintang baru dari generasi ini di panggung pertempuran dan mendapat perhatian dari banyak orang.</p>
+<p>	Keduanya tidak berbicara dan hanya mengangguk satu sama lain.</p>
+<p>	Bai Ning Bing duduk bersila di bantal yang berlawanan dan meletakkan telapak tangannya di punggung Fang Yuan, menuangkan esensi purba salju peraknya.</p>
+<p>	Bai Ning Bing sengaja menekan kultivasinya dan dengan demikian, masih berada di peringkat tiga tahap puncak.</p>
+<p>	Sebaliknya, kultivasi Fang Yuan berkembang pesat dan sekarang hanya setengah langkah dari peringkat tiga tahap atas.</p>
+<p>	Empat jam kemudian, Bai Ning Bing berhenti menyuntikkan esensi purba dan menarik telapak tangannya.</p>
+<p>	Fang Yuan perlahan membuka matanya.</p>
+<p>	Auranya bahkan lebih berlimpah dan ada perasaan kenyang yang samar-samar. Ini adalah tanda kultivasi yang hampir menerobos.</p>
+<p>	“Kultivasi saya semakin dekat dengan peringkat tiga tahap atas, saya akan melakukan terobosan dalam beberapa hari.” Fang Yuan dengan tenang menganalisis dalam pikirannya.</p>
+<p>	“Setelah saya menerobos ke tingkat atas, saya akan menggunakan Gu peninggalan perak putih dan langsung mendorong kultivasi saya ke peringkat tiga tahap puncak. Seperti ini, saya bisa mengejar Bai Ning Bing, dan juga mengurangi tekanan Spring Autumn Cicada pada aperture.”</p>
+<p>	Spring Autumn Cicada adalah Gu vital Fang Yuan dan juga Gu peringkat enam.</p>
+<p>	Selama satu setengah tahun ini, ia terus-menerus menyerap air sungai waktu dan auranya semakin kuat saat pulih, menciptakan tekanan pada bukaan Fang Yuan lagi.</p>
+<p>	Tapi situasi kali ini berkali-kali lebih baik daripada yang ada di gunung Qing Mao.</p>
+<p>	Kultivasi Fang Yuan berkembang pesat, dan dengan aperture peringkat tiga, itu tidak menekan seperti saat itu di gunung Qing Mao.</p>
+<p>	Semua ini harus dikaitkan dengan kesatuan daging tulang Gu dan Bai Ning Bing.</p>
+<p>	Kultivasi berakhir; Bai Ning Bing berdiri dan segera meninggalkan ruang rahasia.</p>
+<p>	Selama seluruh proses, dia tidak mengatakan sepatah kata pun dan ekspresinya sedingin es.</p>
+<p>	Fang Yuan juga bukan orang yang banyak bicara. Selama satu setengah tahun ini, keduanya sudah terbiasa berinteraksi seperti ini.</p>
+<p>	Fang Yuan dalam hati merenungkan: “Ketika saya mencapai peringkat tiga tahap puncak, esensi purba Bai Ning Bing tidak akan banyak membantu saya. Tapi dari periode interaksi yang panjang dengannya dan dari perubahan menit dalam auranya, samar-samar aku bisa merasakan bahwa dia tidak jauh dari peringkat empat dunia.”</p>
+<p>	Bahkan jika Bai Ning Bing mencoba yang terbaik untuk menunda kultivasinya, kutukan dari sepuluh fisik ekstrem belum hilang dan mulai menunjukkan efeknya.</p>
+<p>	Menurut apa yang dikatakan Bai Ning Bing, bakatnya telah meningkat dua persen lagi dan sekarang berada di sembilan puluh tiga persen.</p>
+<p>	Peningkatan tujuh persen lainnya akan mencapai seratus persen dan dia akan mendapatkan kembali fisik jiwa es gelap utaranya.</p>
+<p>	“Jika dia mencapai peringkat empat, esensi purba emas kuningnya akan sangat membantu saya dalam menerobos ke peringkat empat dunia.”</p>
+<p>	“Dalam beberapa aspek, dia dan saya berada dalam situasi yang sama. Saya memiliki Spring Autumn Cicada dan dia memiliki fisik jiwa es gelap utara…”</p>
+<p>	Tujuh hari kemudian, Fang Yuan menerima kabar baik dari Wei Yang.</p>
+<p>	Sebuah lelang!</p>
+<p>	“Bencana yang jarang terlihat muncul di gunung Ju Feng dan menghancurkan klan Ju. Sisa-sisa klan Ju telah diserahkan ke kota klan Shang dan melelang sejumlah besar koleksi klan mereka untuk mempertahankan mata pencaharian mereka. Dengan demikian, akan ada lelang yang diadakan segera. ”</p>
+<p>	Setelah mengatakan ini, Wei Yang dengan sengaja berkata kepada Fang Yuan: “Saudara Fang, keberuntunganmu telah datang. Saya telah menyelidiki dan menemukan ada kekuatan pahit Gu yang dilelang kali ini. ”</p>
+<p>	Wei Yang jelas dari permintaan Fang Yuan untuk kekuatan pahit Gu. Fang Yuan bahkan memintanya untuk bertanya sebelumnya.</p>
+<p>	“Hal utama adalah semua orang di kota klan Shang melihat pelelangan ini dengan penting, akan sulit bagi tuan muda Shang Ya Zi untuk bermain trik.” Wei Yang menambahkan.</p>
+<p>	Konflik antara Shang Ya Zi dan Fang Yuan bukanlah rahasia bagi para petinggi klan Shang.</p>
+<p>	“Kekuatan pahit Gu!”</p>
+<p>	“Klan Ju!”</p>
+<p>	Tatapan Fang Yuan cerah.</p>
+<p>	Klan Ju memiliki fondasi selama berabad-abad, pasti ada banyak hal berguna untuk ditawar sekarang karena mereka menjual properti mereka. Kekuatan pahit Gu yang tidak diperoleh Fang Yuan meskipun sudah mencarinya ke mana-mana, adalah salah satunya.</p>
+<p>	“Saya telah mengumpulkan hampir satu juta batu purba selama satu setengah tahun ini. Saya memiliki peluang besar untuk berhasil membeli kekuatan pahit Gu. ”</p>
+<p>	“Kasus seperti kehancuran klan Ju tidak jarang terjadi. Di dunia ini, selain bencana manusia, ada juga bencana alam. Angin kencang bertiup sepanjang tahun di gunung Ju Feng, meskipun itu adalah gunung spiritual yang memiliki mata air roh, lingkungannya sangat buruk. Mungkin ada banyak harta di gudang Ju Clan.”</p>
+<p>	“Saya harus berpartisipasi dalam pelelangan!” Fang Yuan segera memutuskan.</p>
+<p>…</p>
+<p>	“Apa, Ju Clan memiliki kekuatan yang pahit Gu?” Dalam sebuah penelitian, Shang Ya Zi perlahan mengerutkan alisnya.</p>
+<p>	Dia memegang dokumen di satu tangan; dokumen tersebut berisi sebagian besar rincian lelang.</p>
+<p>	Dan tangannya yang lain berada di atas meja, jari telunjuknya mengetuk permukaan.</p>
+<p>	“Memikirkan keberuntungan Fang Zheng sangat bagus, aku melakukan segalanya untuk menghalanginya dan sepertinya dia masih akan mendapatkan kekuatan pahit Gu. Bahkan ayah memperhatikan pelelangan kali ini, tidak akan mudah bagiku untuk ikut campur. ”</p>
+<p>	“Tapi, Fang Zheng… Aku tidak akan membiarkanmu mendapatkan kekuatan pahit Gu dengan mudah. Saya juga akan berpartisipasi dalam pelelangan dan memastikan Anda menderita kerugian besar! ”</p>
+<p>	Shang Ya Zi tidak bisa membantu tetapi mendengus dingin memikirkannya.</p>
+<p>	Dia selalu menyimpan dendam karena pemerasan Fang Yuan.</p>
+<p>	Dia adalah orang yang berpikiran sempit dan picik, menolak untuk melihat Fang dan Bai mendapatkan ketenaran dan status. Dia hanya bisa meredakan kebencian di hatinya dengan melihat rasa sakit dan penderitaan Fang dan Bai.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

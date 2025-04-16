@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 50 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 50";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_49.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 50">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_51.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 50</h1>
+        <div class="text-left">
+<p>	Bab 50</p>
+<p>	Babak 50: Panggung Tengah!</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Malam tiba. Bulan seperti piring perak, muncul di antara awan. Bintang-bintang yang menyebar tipis menghiasi sekeliling.</p>
+<p>	Gu Yue Mo Bei berdiri di halaman, mengangkat kepalanya, matanya berkilauan di bawah pantulan bulan.</p>
+<p>	“Adik laki-laki, kudengar kamu terluka hari ini.” Di belakangnya, suara adiknya Gu Yue Mo Yan bergema.</p>
+<p>	“Kakak, kamu khawatir setelah dipukuli sampai aku muntah darah hari ini, aku akan mengalami trauma yang bertahan lama?” Mo bei berbalik dan melengkungkan bibirnya.</p>
+<p>	Melihat kakaknya tertawa, hati Mo Yan terasa nyaman. Meskipun dia benar-benar khawatir, dia malah berkata, “Tidak mungkin, kakak di sini paling mengerti kamu. Saudara yang baik, Anda memiliki kemauan yang gigih, kepala masa depan keluarga Mo kami. Bagaimana Anda bisa takut dengan cedera sekecil itu? ”</p>
+<p>	“Hehehe, aku tahu kakak sangat menyayangiku,” Mo Bei menggaruk bagian belakang kepalanya sambil tertawa malu-malu.</p>
+<p>	“Kau tahu, kakak?” Di bawah pancaran sinar bulan, mata remaja berusia lima belas tahun ini terpancar terang. “Meskipun saya gagal kali ini, saya mendengar Fang Yuan terengah-engah selama pertandingan. Saat itu dia dengan mudah mengalahkan saya dalam dua atau tiga serangan dengan cara yang tenang dan tenang. Tapi napasnya yang terengah-engah sudah menunjukkan kelemahannya. Dia jelas tidak sekuat yang orang lain pikirkan. Suatu hari, saya akan mengalahkannya dengan adil.”</p>
+<p>	“Bagus, seperti yang diharapkan dari pria baik dari garis keturunan Mo-ku!” Mo Yan tertawa, menepuk kepala kakaknya, menunjukkan kekhawatiran di wajahnya, “Namun, Anda menderita luka dalam, jadi tolong jangan berlatih seni bela diri Anda beberapa hari ini.”</p>
+<p>	“Jangan sentuh adik perempuanku, aku sudah cukup tua.” Mo Bei mengangkat kepalanya, menggunakan nada tidak senang, “Aku mengerti apa yang kamu katakan, aku punya rencana. Beberapa hari ini, saya akan memelihara dinding aperture saya. Untuk benar-benar terobosan dari tahap awal ke tahap tengah dan mendapatkan posisi ketua kelas, dan menekan dominasi Fang Yuan. Saya akan memberi tahu dia bahwa, yang benar-benar penting bagi kultivasi Guru Gu adalah bakat! ”</p>
+<p>	“Aku senang kamu bisa berpikir seperti ini. Saya hanya wakil ketua terakhir kali. Jika Anda berhasil menjadi ketua, itu akan memenuhi penyesalan saya juga. ”</p>
+<p>	“Jangan khawatir kakak. Posisi ketua, saya pasti harus mendapatkannya! ”</p>
+<p>	Pada saat yang sama, di keluarga Chi.</p>
+<p>	Di dalam ruang rahasia, hanya ada satu obor, menempel pada lubang di dinding batu kapur.</p>
+<p>	Nyala api menyala, menerangi ruangan kecil ini.</p>
+<p>	Salah satu dari dua tetua yang berkuasa, Gu Yue Chi Lian, sedang duduk menghadap cucunya, Gu Yue Chi Cheng. Keduanya duduk di sajadah dengan bayangan mereka diproyeksikan di tanah, goyah dengan kedipan nyala api.</p>
+<p>	Gu Yue Chi Lian mengulurkan tangannya, menggunakan telapak tangannya untuk menyentuh daerah perut Chi Cheng.</p>
+<p>	Wajah Gu Yue Chi Chen penuh kecemasan, pikirannya memasuki lubangnya, menekan riak-riak di laut purba dengan seluruh konsentrasinya.</p>
+<p>	Di dunia ini, tidak ada dua daun pohon yang identik. Mirip dengan Gu Masters, tidak ada esensi purba yang identik juga.</p>
+<p>	Setelah esensi purba dari sumber eksternal memasuki aperture, itu akan menghasilkan resistensi alami dari esensi purba asli di aperture.</p>
+<p>	Jika Gu Yue Chi Cheng tidak menekannya, dan sebaliknya membiarkan esensi purbanya melawan, itu akan menghasilkan bentrokan antara esensi. Reaksi intensif seperti itu dapat menyebabkan kerusakan besar pada aperture.</p>
+<p>	Laut purba bukaan adalah fondasi dan akar dari kultivasi Master Gu, dan sangat penting.</p>
+<p>	Setelah aperture rusak, paling tidak kultivasi seseorang dapat menurun, tetapi jika parah, bakat laten mereka juga dapat diturunkan. Setelah aperture benar-benar hancur, Master Gu akan segera mati.</p>
+<p>	Setelah beberapa saat, Gu Yue Chi Lian secara bertahap berhenti mentransmisikan esensi purba, perlahan-lahan mengambil kembali tangannya.</p>
+<p>	Gu Yue Chi Cheng menarik napas lega, tubuhnya yang tegang menjadi rileks. “Terima kasih Kakek, karena telah memelihara bukaan saya dan mentransfusikan esensi purba kepada saya setiap tiga hari. Itu sulit bagimu!”</p>
+<p>	Dahi Gu Yue Chi Lian penuh dengan keringat, dan dia menghela nafas dan berkata, “Ini tidak bisa dihindari. Bakat Anda hanya kelas C, jadi jika kami mengandalkan kemampuan Anda sendiri untuk naik ke tahap tengah, itu akan memakan waktu lama. Waktu biasanya dua kali nilai B, dan empat kali nilai A. Dalam situasi seperti itu, bakat Anda akan terungkap. Jadi, meskipun metode ini berbahaya, kita harus menggunakannya.”</p>
+<p>	“Cucu mengerti niat kakek.”</p>
+<p>	“Selama kamu mengerti.” Lelaki tua itu menghela nafas, “Metode ini juga memiliki sekuel lain. Setelah bukaan Anda telah dipelihara oleh esensi purba perak saya, meskipun esensi purba perak memiliki efek yang lebih besar, itu masih merupakan sumber eksternal esensi purba bagi Anda. Selanjutnya, bahkan jika dinding aperture Anda berubah dari dinding cahaya menjadi dinding air, itu masih akan bercampur dengan energi saya. Semakin banyak energi eksternal yang ada, semakin tidak murni bukaan Anda, dan ini akan melumpuhkan bakat Anda, membatasi perkembangan Anda di masa depan.”</p>
+<p>	Gu Yue Chi Cheng menggigit bibirnya, “Kakek, demi masa depan keluarga Chi, aku rela mengorbankan prospek masa depanku!”</p>
+<p>	Gu Yue Chi Lian senang, membelai jenggotnya. “Bagus kalau kamu punya pikiran seperti itu. Tapi langit selalu meninggalkan secercah harapan untukmu, karena kamu belum putus asa. Jika kami dapat menemukan Cleansing Water Gu, itu akan dapat membersihkan dinding aperture Anda dan mengeluarkan semua energi eksternal di laut aperture Anda, menghilangkan sekuel ini.”</p>
+<p>	“Selain itu, saya juga menggunakan hubungan saya untuk mencari cacing Liquor untuk Anda. Cacing ini mampu membantu Master Gu Peringkat satu memperbaiki esensi purba mereka dan meningkatkannya dengan satu ranah kecil. Dengan cara ini esensi purba yang disempurnakan akan menjadi esensi purba tubuh Anda sendiri dan bukan esensi eksternal. Menggunakan cara ini untuk memelihara aperture Anda tidak meninggalkan dampak dan risiko, ini adalah efek pengasuhan yang jauh lebih baik!”</p>
+<p>	Gu Yue Chi Lian sangat gembira. “Terima kasih kakek!”</p>
+<p>	“Namun, cacing Liquor sulit ditemukan. Di antara cacing Gu peringkat satu, cacing Liquor, Gu babi hutan, dan Cacing Buku dll, semuanya adalah Gu yang sangat langka. Begitu mereka muncul di pasar, mereka akan segera direnggut. Tentu saja, ada juga beberapa Gu di dunia ini yang dikabarkan akan mengubah bakat Guru Gu. Tetapi pada usia ini, kakek belum pernah melihatnya, hanya mendengar desas-desus sesekali tentang mereka. ” Pria tua itu menjelaskan.</p>
+<p>	Angin malam bertiup dengan lembut dari jendela dan masuk ke dalam ruangan.</p>
+<p>	Gu Yue Fang Zheng duduk di tempat tidurnya dengan mata tertutup, memegang batu purba di kedua tangannya.</p>
+<p>	Laut purba tembaga hijau mengamuk tanpa angin, ombak menerjang menuju dinding lubang putih.</p>
+<p>	Dia memiliki bakat peringkat A, dan esensi purbanya menempati 80% dari aperture. Tingkat pemulihan alaminya dua kali lipat dari Fang Yuan!</p>
+<p>	Dengan keuntungan yang diberkati seperti itu, dia sudah dekat dengan peringkat satu tahap tengah.</p>
+<p>	Fiuh.</p>
+<p>	Beberapa saat kemudian, Gu Yue Fang Zheng menghela nafas dan membuka matanya.</p>
+<p>	Bulan terang dan bintang-bintang jarang di luar jendela, rumah-rumah bambu hijau kebiruan tersusun berjajar.</p>
+<p>	Sebuah adegan perdamaian dan harmoni.</p>
+<p>	“Waktu selalu berlalu saat berkultivasi. Dalam sekejap mata, ini sudah larut malam, ”gumam Fang Zheng pelan. Dia perlahan membuka tangannya, dan dua tumpukan bubuk batu jatuh ke lantai di depan tempat tidurnya.</p>
+<p>	Setelah esensi batu purba telah diambil sepenuhnya, itu akan berubah menjadi tumpukan bubuk.</p>
+<p>	Melihat tumpukan bedak, Fang Zheng mengerutkan kening.</p>
+<p>	Dia mengeluarkan tas uangnya; itu sudah hampir kosong.</p>
+<p>	Membukanya, dia melihat tiga batu purba tertinggal di dalam.</p>
+<p>	Fang Zheng akan mengambil tiga potong setiap tujuh hari dari akademi sebagai sumber daya, tetapi karena Fang Yuan akan mengambil sepotong darinya, dia hanya punya dua yang tersisa setiap minggu.</p>
+<p>	Paman dan Bibi juga akan memberinya biaya hidup, tetapi juga tiga batu setiap tujuh hari.</p>
+<p>	Hanya dengan batu-batu purba ini, bagaimana itu cukup?</p>
+<p>	Fang Zheng bertekad untuk melampaui saudaranya Fang Yuan, sehingga ia mengambil inisiatif untuk mendekati paman dan bibinya beberapa kali untuk meminta beberapa batu purba.</p>
+<p>	Setelah berkali-kali, bibinya akan mencarinya untuk mengobrol dari hati ke hati, bercerita tentang betapa miskinnya keluarga itu, dan bagaimana mereka mengalami kesulitan arus kas, tidak memiliki uang cadangan. Sejak itu, Fang Zheng tidak memiliki keinginan untuk terus bertanya.</p>
+<p>	“Ayah dan ibu sudah melakukan semua yang mereka bisa untuk mendukung kultivasi saya. Saya tidak dapat mempersulit mereka dan meminta lebih banyak batu purba. Saya hanya punya tiga yang tersisa. Saya hanya bisa lebih hemat. Jika saya menggunakan satu potong sehari, saya akan punya cukup untuk tiga hari. ”</p>
+<p>	“Saya merasa bahwa dalam tiga atau empat hari, saya pasti akan maju ke tahap tengah! Satu-satunya adalah, apa kemajuan kakak sekarang? ” Berpikir demikian, Fang Zheng tanpa sadar melihat ke arah tempat tinggal akademi.</p>
+<p>	“Aku memiliki bakat kelas A, sedangkan kakak laki-laki hanya memiliki bakat kelas C. Kecepatannya pasti lebih lambat dariku. Kakak bukan tandinganku kali ini! Kakak, saya akan memberi tahu Anda kekuatan sebenarnya dari bakat kelas A! ”</p>
+<p>	Memikirkan hal ini, Fang Zheng mengepalkan tinjunya.</p>
+<p>	……</p>
+<p>	Asrama Akademi.</p>
+<p>	Pintu Fang Yuan tertutup rapat.</p>
+<p>	Dalam kegelapan, dia tidak tidur, tetapi duduk di tempat tidurnya.</p>
+<p>	Kultivasi seorang Guru Gu tidak dapat menggantikan tidur. Biasanya saat ini, Fang Yuan sudah tertidur.</p>
+<p>	Tetapi dalam berkultivasi hari ini, dia sudah merasa bahwa dia hanya selangkah lagi dari panggung tengah.</p>
+<p>	“Saya mungkin juga tidak tidur malam ini, saya akan buru-buru langsung ke panggung tengah!” Matanya bersinar dengan tekad.</p>
+<p>	Segera setelah itu, dia menutup matanya dan pikirannya masuk ke lubang.</p>
+<p>	44% dari laut purba tembaga hijau. Beberapa saat yang lalu, mereka semua disempurnakan menjadi esensi purba tahap menengah berwarna hijau pucat oleh cacing minuman keras.</p>
+<p>	“Bangkit.” Dengan pikiran, laut purba tembaga hijau yang damai mulai bergerak.</p>
+<p>	Keributan semakin besar, sampai terbentuk gelombang.</p>
+<p>	Percikan, cipratan, cipratan…</p>
+<p>	Air pasang berpacu satu sama lain, bergegas menuju dinding aperture di sekitarnya.</p>
+<p>	Seperti menabrak karang, sebagian besar esensi purba akan pecah menjadi riak zamrud dan menyatu kembali ke laut.</p>
+<p>	Sejumlah kecil esensi purba dikeluarkan, berubah menjadi sedikit energi tak terlihat, menembus ke dalam dinding aperture cahaya berwarna putih.</p>
+<p>	Bangkit lagi, pikir Fang Yuan ketika riak zamrud menjadi lebih besar dalam skala. Gelombang sebelumnya seperti kelinci dan anjing, tetapi sekarang mereka seperti pasukan kuda, berbaris menuju dinding lubang.</p>
+<p>	Seekor naga seperti kuda, ombaknya seperti surga!</p>
+<p>	Esensi purba dikeluarkan dengan cepat, dan permukaan air turun tajam.</p>
+<p>	Percikan, cipratan, cipratan…</p>
+<p>	Gelombang menghantam tanpa henti, akhirnya menghasilkan perubahan. Dinding berwarna putih tiba-tiba bergetar, warna putih yang awalnya lembut memancarkan kecemerlangan yang menusuk mata.</p>
+<p>	Melihat adegan ini, Fang Yuan sangat gembira karena dia tahu bahwa bagian penting telah tiba, dan dia dengan cepat mengaktifkan semua esensi purba untuk bergegas ke dinding.</p>
+<p>	Cahaya putih semakin terang, sinar cahaya terdistorsi dan kusut bersama, memberi orang perasaan tebal. Setelah lebih dari sepuluh napas, garis putih pita cahaya muncul di dinding cahaya, dan garis-garis itu bertabrakan satu sama lain seperti air yang mengalir tanpa henti. Dalam proses tumbukan, mereka terus bergabung dan bergabung, membentuk cahaya putih yang mengalir.</p>
+<p>	Akhirnya, cahaya yang mengalir berkumpul menjadi satu dan sepenuhnya menutupi dinding cahaya.</p>
+<p>	Cahaya putih meredup, dan dinding cahaya putih asli dari aperture hilang, digantikan oleh lapisan dinding air putih berbentuk bola. Permukaan dinding cahaya itu halus tanpa kotoran. Namun, dinding air lebih tebal dari dinding cahaya, riak cahaya mengalir dan berkedip-kedip di atasnya.</p>
+<p>	Laut purba mendapatkan kembali kedamaiannya, aperture masih memiliki 20% esensi purba yang tersisa.</p>
+<p>	“Aku maju ke tahap tengah!” Fang Yuan tertawa terbahak-bahak, membuka matanya.</p>
+<p>	Sinar matahari yang cerah merayap masuk melalui bukaan di gorden.</p>
+<p>	Tanpa sadar, malam telah berlalu, dan hari sudah pagi.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

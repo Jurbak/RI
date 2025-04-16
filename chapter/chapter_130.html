@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 130 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 130";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_129.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 130">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_131.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 130</h1>
+        <div class="text-left">
+<p>	Bab 130</p>
+<p>	Bab 130: Klan masih lebih bisa diandalkan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Awan gelap menutupi langit, menebarkan bayangan di seluruh gunung Qing Mao, tampaknya menandakan datangnya badai.</p>
+<p>	Di sisi gunung yang terpencil, selusin serigala petir yang kuat menarik kembali sudut mulut mereka dan membuat raungan rendah. Mereka telah mengepung Fang Yuan.</p>
+<p>	Serigala-serigala ini memiliki tubuh yang sehat dan tidak seperti serigala lumpuh.</p>
+<p>	Guru Gu peringkat dua lainnya akan putus asa jika mereka terjebak dalam pengepungan seperti itu, sendirian. Namun, situasinya sangat berlawanan sekarang.</p>
+<p>	Fang Yuan berdiri di tempat, ekspresinya tenang. Sebaliknya, serigala petir yang mengelilinginya sedikit gugup dan takut.</p>
+<p>	Pertempuran sudah berlanjut untuk sementara waktu dan tanah dibasahi dengan darah. Beberapa serigala petir telah runtuh di tanah, dan keheningan menunjukkan pencapaian pertempuran Fang Yuan.</p>
+<p>	Membunuh!</p>
+<p>	Fang Yuan berteriak dalam hati, dia mengambil inisiatif untuk menyerang meskipun dia yang dikepung. Kakinya mendorong tanah saat dia menerkam ke arah serigala petir di sisi kirinya.</p>
+<p>	Serigala petir ini segera mundur selangkah ketakutan, tetapi kemudian kepribadiannya yang ganas dirangsang; itu membuat lompatan yang kuat dan menyerang Fang Yuan.</p>
+<p>	Itu membuka mulutnya di udara, memperlihatkan banyak gigi serigala tajam yang memenuhi mulutnya.</p>
+<p>	Fang Yuan tertawa keras; dia tidak menghindar tapi hanya mengayunkan tangan kanannya.</p>
+<p>Suara mendesing.</p>
+<p>Sebuah moonblade biru yang menakutkan terbang secara horizontal di udara dan mengenai mulut serigala petir yang terbuka.</p>
+<p>	Hanya ada suara robekan, serigala petir yang malang ini langsung terpotong menjadi dua – dari mulut hingga ekornya – oleh pedang bulan ini.</p>
+<p>	Darah mendidih menyembur keluar dan mengalir seperti hujan darah.</p>
+<p>	Seluruh tubuh Fang Yuan bersinar dengan cahaya batu giok putih saat dia menerobos hujan darah dan mengamuk di dalam kawanan serigala.</p>
+<p>	Serigala petir bereaksi, mereka menyerangnya dari semua sisi. Mereka membuka mulut mereka dan mencabik-cabiknya tetapi dihalangi oleh pertahanan Gu Giok Putih, menyebabkan gigi mereka sendiri patah.</p>
+<p>	Cakar mereka juga tidak berguna.</p>
+<p>	Fang Yuan meninju dan menendang, dan serigala petir dikirim terbang di bawah kekuatan besar dua babi hutan. Beberapa serigala petir memiliki tengkorak mereka langsung hancur dan mati di tempat. Fang Yuan berada di atas angin dalam pertempuran ini.</p>
+<p>	Tetapi hal-hal baik tidak bertahan selamanya, karena esensi purbanya digunakan dengan cepat.</p>
+<p>	Bakat Fang Yuan hanya kelas C dan kultivasinya berada di peringkat dua tahap tengah saat ini. Esensi purba di aperture-nya bahkan tidak lima puluh persen.</p>
+<p>	Dia melihat esensi purbanya yang menurun, tetapi masih ada beberapa serigala petir yang tersisa. Dia tidak punya pilihan selain menggunakan — Stealth Scales Gu!</p>
+<p>	Tubuhnya berangsur-angsur menghilang seperti riak di air. Dalam sekejap mata, tidak ada lagi jejaknya.</p>
+<p>	Serigala petir kehabisan akal, dan mereka melolong marah dan mulai membakar daerah itu tetapi tidak menemukan apa pun.</p>
+<p>	Fang Yuan belum pergi jauh. Dia menatap gerakan serigala petir sambil menyerap batu purba untuk memulihkan esensi purbanya dan juga mempertahankan penyembunyian Gu Sisik Siluman pada saat yang sama.</p>
+<p>	Serigala petir memiliki penglihatan yang luar biasa tetapi indera penciuman mereka tidak tajam. The Stealth Scales Gu kebetulan menjadi kutukan mereka.</p>
+<p>	Ketika esensi purba Fang Yuan pulih menjadi tiga puluh persen, paket serigala petir akhirnya mundur dengan enggan.</p>
+<p>	Fang Yuan tidak memiliki gerakan cacing Gu, jadi jika serigala petir benar-benar mundur, dia pasti tidak akan bisa mengejar mereka dengan kecepatannya. Dengan demikian, dia menghilangkan penyembunyian dari Stealth Scales Gu dan menjadi terlihat.</p>
+<p>Hooooow!</p>
+<p>	Serigala petir melihat Fang Yuan dan seolah-olah dia telah membunuh ayah mereka, mereka bergegas ke arahnya.</p>
+<p>	Fang Yuan mencibir. Dia menunggu sampai serigala petir ada di depannya, lalu dia tiba-tiba menyerang dengan tangan kanannya.</p>
+<p>	Tinju kanannya ditutupi dengan lapisan cahaya giok putih samar yang sangat keras. Pukulan itu dengan ganas menghantam punggung bawah serigala petir.</p>
+<p>	Retakan. Suara renyah segera terdengar dan serigala petir sial ini dikirim terbang oleh Fang Yuan, punggung bawahnya retak.</p>
+<p>	Itu jatuh ke tanah dan dengan gila berjuang sambil mengeluarkan lolongan menyedihkan, tetapi tidak bisa lagi bangun.</p>
+<p>	Fang Yuan telah memulihkan esensi purba yang cukup dan dengan kekuatan bertarungnya yang tangguh, dia membunuh empat serigala petir lagi dalam beberapa saat.</p>
+<p>	Beberapa serigala petir yang tersisa kehilangan semangat juang mereka dan menatap Fang Yuan dengan ketakutan. Mereka merintih dan kemudian menyelipkan ekor mereka dan melarikan diri.</p>
+<p>	Fang Yuan tidak mengejar mereka.</p>
+<p>	Dia tidak bisa dibandingkan dengan serigala petir ini dalam kecepatan; mengejar tidak ada gunanya.</p>
+<p>	Tanah dipenuhi dengan mayat serigala dan mereka semua adalah rampasan perang Fang Yuan. Tapi Fang Yuan berhati-hati, dia tidak terburu-buru untuk mengeluarkan bola mata serigala petir.</p>
+<p>	Rumput Telinga Komunikasi Bumi!</p>
+<p>	Dia turun di tangannya, telinga kanannya dekat ke bumi. Akar tumbuh dari telinga dan menembus tanah.</p>
+<p>	Kekuatan pendengarannya meningkat seketika; dia bisa mengintai apa pun dalam radius tiga ratus langkah.</p>
+<p>	Banyak suara memasuki telinganya, tetapi tidak ada suara sekawanan serigala atau suara Master Gu lain yang bergerak.</p>
+<p>	“Ini aman untuk saat ini.” Fang Yuan menghela nafas lega. Dia mengeluarkan belati dan mulai menggali bola mata serigala petir.</p>
+<p>	Dia hanya menyerahkan sebagian kecil dari bola mata ini dan menyembunyikan sisanya.</p>
+<p>	Jika dia menyerahkan semuanya, tidak diragukan lagi akan menarik kecurigaan dan bahkan mengakibatkan penyelidikan rahasia. Fang Yuan ingin mencegah ketidaknyamanan seperti itu sebanyak mungkin.</p>
+<p>	Fang Yuan segera pergi setelah menggali semua bola mata serigala petir ini.</p>
+<p>	Ketika dia membunuh dua sekawanan serigala lagi seperti ini, langit sudah tertutup awan gelap yang tebal. Angin kencang bertiup, bertiup melalui hutan pinus, menciptakan gelombang hijau di gunung bersama dengan gemerisik dedaunan.</p>
+<p>	Hoooollll…</p>
+<p>	Raungan samar dari sejumlah besar serigala petir bergema di dalam angin.</p>
+<p>	Ekspresi Fang Yuan sedikit memucat; menurut ingatan kehidupan sebelumnya, hari ini adalah hari dimana gelombang serigala benar-benar pecah.</p>
+<p>	Dia menggunakan Rumput Telinga Komunikasi Bumi lagi tetapi tidak mendengar kemajuan pesat dari serigala petir.</p>
+<p>	Dia tidak terkejut, tetapi malah menjadi tenang.</p>
+<p>	Ini berarti setidaknya ada jarak tiga ratus langkah antara dia dan serigala petir. Jarak ini bersama dengan kecepatannya sendiri dan pengetahuan tentang topografi, cukup untuk membuatnya mencapai desa dengan selamat.</p>
+<p>	“Serigala petir ini licik, memilih untuk menyerang dalam cuaca seperti itu. Kebisingan dari angin kencang dan suara dari hutan pinus akan menutupi gerakan mereka hingga tingkat yang tinggi, ”Fang Yuan menghela nafas dalam, lalu berlari menuju desa dengan kecepatan tertinggi.</p>
+<p>	Setelah berlari sejauh ratusan meter, dia menabrak kelompok Guru Gu yang beranggotakan lima orang.</p>
+<p>	“Hei, kamu Gu Yue Fang Yuan!” Seorang Guru Gu muda dalam kelompok itu mengangkat alisnya ketika dia melihat Fang Yuan dan menyapanya dengan cara yang aneh.</p>
+<p>	Guru Gu ini adalah Gu Yue Peng, teman sekelas Fang Yuan. Selama periode akademi, dia menderita intimidasi dan pemerasan Fang Yuan.</p>
+<p>Fang Yuan dengan acuh tak acuh meliriknya sebelum melewatinya tanpa berhenti, tidak memberinya kesempatan untuk berbicara lagi.</p>
+<p>	“Bajingan!” Gu Yue Peng tertegun, lalu perasaan tertahan muncul di hatinya dan kecepatannya melambat.</p>
+<p>	Dia tidak mendapatkan kesempatan untuk mengejek Fang Yuan.</p>
+<p>	“Ping Kecil. Jangan lambat. Kita perlu berburu setidaknya lima puluh serigala petir hari ini untuk mempertahankan peringkat kita di papan prestasi pertempuran! ” Pemimpin kelompok berbicara.</p>
+<p>	Gu Yue Peng segera menahan ekspresi marahnya dan dengan cepat mengikuti anggota kelompok.</p>
+<p>	“Kelompokku berada di peringkat tujuh puluh lima di papan prestasi pertempuran. Fang Yuan itu berperingkat lebih dari dua ratus. Perbedaan ini seperti langit dan bumi! Saya juga cukup beruntung memiliki senior yang peduli seperti pemimpin kelompok. Dari awal gelombang serigala sampai sekarang, saya telah menukar bagian dari manfaat pertempuran untuk mendapatkan cacing Gu. Masa depanku cerah, bagaimana bisa Fang Yuan dibandingkan denganku?”</p>
+<p>	Gu Yue Peng menjadi sangat tenang ketika memikirkan hal ini, bahkan merasa diberkati saat itu.</p>
+<p>	“Di dunia ini, apa yang bisa dicapai seseorang dengan bertarung sendirian? Banyak tangan membuat pekerjaan ringan, persatuan adalah kekuatan yang lebih besar. Masih klan yang bisa diandalkan! Meminjam kekuatan klan, kami para pemula dapat tumbuh dewasa dengan aman. Fang Yuan itu idiot, dia benar-benar berpikir dia adalah pahlawan. Dia menyelesaikan masalah Kodok Menelan Sungai Peringkat Lima hanya dengan keberuntungan dan dia mengudara. Meskipun dia telah menjadi pemimpin grup, dia belum merekrut anggota grup, melayaninya dengan benar untuk menjadi peringkat terakhir! Ha ha. Ngomong-ngomong, dengan kepribadiannya yang eksentrik, bagaimana dia akan merekrut anggota grup mana pun? ”</p>
+<p>	Gerakan Gu Yue Peng menjadi lebih santai.</p>
+<p>	Anehnya, sepanjang jalan, mereka tidak bertemu dengan kawanan serigala.</p>
+<p>	Gu Yue Peng mengangkat kepalanya untuk melihat ke langit, itu sore tapi langit sudah gelap seperti malam.</p>
+<p>	Angin bertiup, dan awan gelap menutupi langit dengan rapat dan bergerak cepat, menimbulkan guntur dan hujan badai.</p>
+<p>	Namun, Gu Yue Peng tidak takut, senyum mengejek muncul di mulutnya saat dia berpikir, “Hahaha, jadi Fang Yuan buru-buru kembali karena dia khawatir dengan badai hujan ini? Sungguh pengecut, apa yang harus ditakuti dari badai hujan?”</p>
+<p>	Tepat pada saat ini, wajah pemimpin kelompok itu tiba-tiba memucat, dia membuka mulutnya dan menarik napas dalam-dalam.</p>
+<p>	“Tuan pemimpin kelompok, apa yang terjadi?” Empat anggota lainnya secara alami memperhatikan ini.</p>
+<p>	Dalam kelompok Guru Gu ini, pemimpin kelompok bertanggung jawab atas kepramukaan. Meskipun dia juga seorang Master Gu peringkat dua, cacing Gu pengintainya tidak memiliki radius sebesar Rumput Telinga Komunikasi Bumi Fang Yuan.</p>
+<p>	Wajahnya pucat pasi sekarang dan dia tidak ingin memberikan penjelasan rinci.</p>
+<p>	“Lari, cepat!” Dia berteriak ketakutan dan di tengah tatapan heran anggota kelompok lainnya, dia berbalik dan berlari.</p>
+<p>	“Ikuti pemimpin kelompok !!” Anggota kelompok lain tidak bodoh, mereka dengan cepat bereaksi dan berlari.</p>
+<p>	Hooooollll——!</p>
+<p>	Raungan serigala datang dari belakang mereka terus menerus. Dari suara-suara ini, mereka tahu ada lebih dari seribu serigala petir!</p>
+<p>	Semua orang dalam kelompok itu pucat, mereka terengah-engah dan menggunakan semua kekuatan mereka untuk berlari.</p>
+<p>	“Tunggu aku!” Gu Yue Peng berlari dengan semua yang dia miliki tetapi masih yang terakhir; dia kehilangan ketenangannya dan mulai berteriak minta tolong.</p>
+<p>	Dia merasakan suara napas serigala petir di belakang punggungnya.</p>
+<p>	Tapi yang membuatnya putus asa adalah pemimpin kelompok yang biasanya menunjukkan perhatian besar padanya, bahkan tidak menoleh ke belakang. Rekan satu tim yang biasa menepuk dada mereka dan berbicara tentang persaudaraan dan sentimen mengabaikan teriakannya.</p>
+<p>	Houu!</p>
+<p>	Gu Yue Peng tiba-tiba mendengar serigala melolong tepat di sebelahnya.</p>
+<p>	Pada saat berikutnya, dia merasakan kekuatan besar menekan punggungnya dan menjatuhkannya.</p>
+<p>	Dia jatuh di tanah; jatuh telah membuatnya pusing.</p>
+<p>Dia tanpa sadar berbalik untuk mencoba melawan.</p>
+<p>	Ledakan!</p>
+<p>	Seekor ular petir melintas di udara.</p>
+<p>Dalam kegelapan, sosok serigala petir yang berani segera terlihat.</p>
+<p>	Tubuhnya dua kali ukuran serigala petir normal, rambut di tubuhnya tegak. Itu membuka mulutnya dan menunjukkan taring tajam putih peraknya.</p>
+<p>	Pupil mata Gu Yue Peng menyusut hingga seukuran jarum, sebuah pikiran bergema di benaknya— “Ratusan raja binatang!”</p>
+<p>	Sisik kawanan serigala di sarang serigala sangat besar; tidak hanya ada tiga serigala mahkota guntur tingkat raja binatang buas, ada juga ratusan serigala petir tingkat raja binatang buas dan ribuan serigala petir tingkat raja binatang buas.</p>
+<p>	Detik berikutnya, serigala petir yang berani membuka mulutnya dan dengan suara retak, seluruh kepala Gu Yue Peng digerogoti.</p>
+<p>	Darah segar dan materi otak memercik. Serigala petir yang berani menundukkan kepalanya dan mulai menelan darah dari leher Gu Yue Peng dan menggerogoti dagingnya yang berlemak.</p>
+<p>	Serigala petir yang tak terhitung jumlahnya datang dari belakangnya dan bergegas ke depan.</p>
+<p>	Suara gemuruh terus berlanjut tanpa henti.</p>
+<p>Pitter-patter, hujan lebat juga mulai turun.</p>
+<p>	Gelombang serigala sejati telah dimulai!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

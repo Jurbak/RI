@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 401 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 401";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_400.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 401">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_402.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 401</h1>
+        <div class="text-left">
+<p>	Bab 401 – Pertempuran dimulai sekali lagi</p>
+<p>	Bab 401: Pertempuran dimulai sekali lagi</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Chou Jiu terkejut, dengan cepat memusatkan pikirannya dan mendorong jiwanya, bermeditasi melawan cahaya kuning ini.</p>
+<p>	Cahaya kuning ini didukung oleh kekuatan jiwa Fang Yuan, tetapi dia masih muda dan memiliki fondasi yang lebih lemah dalam jiwanya dibandingkan dengan monster berusia seratus tahun Chou Jiu ini. Untuk memperbudak Chou Jiu, itu bukan tugas yang mudah.</p>
+<p>	Tapi mengapa Fang Yuan tidak melihat ini datang, dia punya caranya sendiri.</p>
+<p>	Piak piak piak, bam bam bam.</p>
+<p>	“Berhenti, kamu berani memukulku!”</p>
+<p>	“Tendang wajahku lagi dan aku akan bertarung denganmu …”</p>
+<p>	“F * cker, masih menendang, aku akan membunuhmu !!”</p>
+<p>	“Berhenti memukul, berhenti memukul saya.”</p>
+<p>	“Tidak, tidak lagi…”</p>
+<p>	Fang Yuan memukul Chou Jiu sampai dia berguling, Chou Jiu tidak bisa menggunakan cacing Gu tetapi Fang Yuan memiliki jalur kekuatan cacing Gu yang tersedia.</p>
+<p>	Membandingkan kekuatan, Chou Jiu bukanlah tandingan Fang Yuan. Dengan cepat, wajah Chou Jiu memar, dan gangguannya membuat cahaya kuning menyatu lebih dalam ke tubuhnya.</p>
+<p>	“Tunggu, aku harus memblokirnya, setelah menyatu sepenuhnya, aku akan menjadi budaknya, aku tidak akan punya jalan keluar!” Chou Jiu meremas menjadi bola saat dia membiarkan Fang Yuan memukulnya, rasa bahaya yang kuat menyebabkan rambutnya berdiri.</p>
+<p>	Hanya sedikit cahaya yang tersisa, di dekat dahinya tidak dapat menyatu dengan baik.</p>
+<p>	Fang Yuan tertawa dingin, tiba-tiba berkata: “Zeng Ah Niu, kamu tidak ingin balas dendam? Chen Jiu mengkhianatimu dan hidup baik dengan Shang Yan Fei.”</p>
+<p>	“Kamu, bagaimana kamu tahu ?!” Chou Jiu terkejut, cahaya dengan cepat memasuki tubuhnya dengan kesempatan ini.</p>
+<p>	Ekspresi Chou Jiu langsung berubah, berlutut di depan Fang Yuan.</p>
+<p>	“Bawahan ini menyapa tuan!”</p>
+<p>	Fang Yuan tertawa terbahak-bahak.</p>
+<p>	Kesuksesan!</p>
+<p>	Perbudakan peringkat lima Gu ini harus digunakan pada peringkat lima Gu Master untuk mengekspresikan nilai sebenarnya.</p>
+<p>	Sampai sekarang, Mo Wu Tian dan Xiao Mang belum tiba. Tie Mu Bai, Wu Gui, Ku Mo dan Wu Lan Shan semuanya dibunuh oleh Fang Yuan, pilihan terakhir adalah Wang Xiao pemilik gunung Wu dan dokter hantu pembunuh Chou Jiu.</p>
+<p>	Tapi bagaimana gunung Wu bisa dibandingkan dengan pintu hidup dan mati? Pintu hidup dan mati adalah tanah terlarang pada tingkat yang sama dengan sungai waktu!</p>
+<p>	Memperbudak Chou Jiu berarti mendapatkan petunjuk ke pintu hidup dan mati. Selain itu, Chou Jiu adalah salah satu dari empat dokter besar perbatasan selatan, pengaruhnya bahkan menyebar ke jalan yang benar, dia pasti lebih baik daripada Mo Wu Tian.</p>
+<p>	Satu-satunya kelemahan adalah memperbudak Chou Jiu menempatkan beban besar pada jiwa Fang Yuan, itu adalah masalah untuk penyempurnaan Immortal Gu yang akan datang.</p>
+<p>	“Chou Jiu, saat itu apakah kamu menggunakan sumpah racun Gu dengan Dokter Su Shou, bersumpah untuk saling mencintai selamanya, tidak pernah meninggalkan satu sama lain?” Fang Yuan menatap dokter hantu pembunuh itu, mengajukan pertanyaan.</p>
+<p>	“Memang ada masalah seperti itu, tapi tuan, bagaimana Anda tahu?” Chou Jiu berlutut di tanah dan menjawab dengan wajah memar, merasa bingung.</p>
+<p>	“Hmph, karena kamu menggunakan sumpah racun Gu, apakah kamu tahu bagaimana Dokter Su Shou mencabut batasannya?” Fang Yuan menyipitkan matanya.</p>
+<p>	“Sumpah racun Gu adalah janji gunung pengganti sumpah laut Gu, Chen Jiu tidak memiliki kemampuan untuk meniadakannya. Dia mengambil risiko besar untuk gigolo Shang Yan Fei itu, membiarkan sumpah racun membunuhnya. Tanpa tuan rumah, kekuatan sumpah racun lenyap. Dia kemudian menggunakan teknik penyembuhan untuk membangkitkan dirinya sendiri, membebaskan diri dari sumpah racun!”</p>
+<p>	Chou Jiu mengatakan ini dengan ekspresi marah. Dia sangat mencintai kakak perempuan seniornya, tetapi dia mengkhianatinya untuk gigolo, bahkan mengabaikan bahaya dalam hidupnya dan melanggar sumpah racun.</p>
+<p>	Fang Yuan mendengar ini dan bahkan lebih marah darinya, mengangkat kakinya dan menendang Chou Jiu.</p>
+<p>	“Kau bohong, sialan!”</p>
+<p>	Dia ingat bahwa di kehidupan sebelumnya, Chou Jiu mengatakan ini:</p>
+<p>	“Kami bersumpah di depan laut tanah yang diberkati, untuk saling melindungi dan berdiri.”</p>
+<p>	“Tapi siapa sangka hatinya sudah berubah dan benar-benar melanggar sumpah yang kita ambil saat itu dan melukaiku, membelot dengan pencuri itu!”</p>
+<p>	Sumpah apa, itu sumpah racun sialan Gu!</p>
+<p>	Chou Jiu ini hanya membicarakan hal-hal yang kurang penting, membuat informasi penting menjadi tidak jelas dan menyembunyikan dirinya. Jika dia mengatakan sumpah racun Gu saat itu, Fang Yuan menganggap: Dia tidak akan begitu tidak sadar, tidak tahu bahwa ada seseorang di kota klan Shang yang bisa membebaskan diri dari sumpah racun Gu, dan dengan demikian dia akan berhati-hati. dari Bai Ning Bing.</p>
+<p>	“Tapi aku seharusnya sudah menebaknya, ketika Chou Jiu berbicara tentang penampilan Shang Yan Fei, dia mengatakan bahwa dia hanya sedikit lebih tampan. Mengatakan kata-kata tak tahu malu seperti itu wajar, tidak mengherankan bahwa dia tidak akan menyebut Gu. ”</p>
+<p>	Fang Yuan memandang Chou Jiu dengan jijik.</p>
+<p>	Mengatakan dia mencintainya, tetapi menggunakan sumpah racun Gu untuk membatasinya, itu menunjukkan betapa jahat dan rendahnya hati batinnya. Orang seperti itu berbicara dengan kebenaran yang dilebih-lebihkan bukanlah hal yang aneh.</p>
+<p>	Fang Yuan juga curiga bagaimana Bai Ning Bing melepaskan diri dari sumpah racun, bahkan di kehidupan sebelumnya Bai Ning Bing tidak mengatakan alasannya. Sekarang Fang Yuan tahu, itu adalah Dokter Su Shou yang membantunya membebaskan diri darinya.</p>
+<p>	“Baiklah, biarkan masa lalu berlalu. Chou Jiu, pergilah ke Warisan Raja Xin dan berikan aku seratus pertempuran yang tak terkalahkan, Gu.” Fang Yuan mengumpulkan pikirannya dan menginstruksikan.</p>
+<p>	“Bawahan ini akan melakukan semua yang dia bisa!” Jawab Chou Jiu.</p>
+<p>	Chou Jiu adalah seorang Master Gu yang menyembuhkan, dia bukan master jalur penyempurnaan seperti Feng Tian Yu, tidak mungkin memintanya untuk membantu Fang Yuan dalam menyempurnakan Gu bukaan kedua. Tapi sangat mudah baginya untuk mendapatkan seratus pertempuran yang tak terkalahkan, Gu.</p>
+<p>	Ini karena tanah yang diberkati melemah, tidak lama kemudian, cacing Gu akan dapat digunakan, Chou Jiu hanya perlu menyerang ke depan dan dia akan mendapatkan seratus pertempuran Gu yang tak terkalahkan.</p>
+<p>	Pada titik ini, pembantaian Fang Yuan berakhir.</p>
+<p>	Dia kembali ke aula dan terus menyempurnakan Gu.</p>
+<p>	Dibandingkan dengan kehidupan sebelumnya, dia menghemat banyak waktu setelah kelahiran kembali. Tanpa tekanan Musim Semi Musim Gugur Jangkrik itu jauh lebih mudah.</p>
+<p>	Saat itu dia hanya menghabiskan satu jam sehari, menyempurnakan Gu seperti orang gila, memaksakan batasnya sendiri. Tapi sekarang dia bisa tidur enam jam, perlahan dan mantap, menyempurnakan Gu dengan urutan yang sempurna.</p>
+<p>	Hari-hari terus berlalu, dan tanah yang diberkati itu semakin lemah. Tetapi pengeluaran esensi abadi jauh lebih sedikit daripada terakhir kali. Fang Yuan memiliki pengalamannya dari terakhir kali, dia mengambil jalan memutar yang lebih sedikit kali ini, banyak langkah diselesaikan dalam satu percobaan, dan roh tanah sangat kagum.</p>
+<p>	Keadaan aneh warisan tiga raja menarik perhatian semua orang.</p>
+<p>	Seiring berjalannya waktu, klan Che, klan Zuo pindah, dan Xiao Mang dan Mo Wu Tian juga muncul di gunung San Cha.</p>
+<p>	Akhirnya tanggal 24 Oktober datang lagi.</p>
+<p>	“Tuan, bawahan ini telah berhasil!” Chou Jiu berlutut di tanah, mengangkat Gu, menyerahkannya kepada Fang Yuan.</p>
+<p>	Gu ini memiliki penampilan yang hambar, seperti cakram batu abu-abu, itu tidak lain adalah seratus pertempuran Gu yang tak terkalahkan.</p>
+<p>	Dalam kehidupan sebelumnya, Feng Tian Yu yang diperbudak Fang Yuan memperoleh Warisan Raja Xin dan memiliki beberapa ratus pria berbulu sebagai pengikut. Sekarang, Chou Jiu bukan master jalur penyempurnaan, dia menerobos dengan paksa, hanya mendapatkan seratus pertempuran yang tak terkalahkan, tidak ada satu pun pria berbulu yang mengikutinya.</p>
+<p>	Tapi orang-orang berbulu itu pandai memperbaiki Gu, mereka tidak bisa bertarung. Garis pertahanan pria berbulu itu tidak ada apa-apanya, Fang Yuan tidak mempermasalahkannya.</p>
+<p>	Setelah mempertahankan seratus pertempuran yang tak terkalahkan, Fang Yuan memberikan instruksi sebelum mengirim Chou Jiu pergi. Proses ini dilakukan dalam kegelapan, Bai Ning Bing tidak mengetahuinya.</p>
+<p>	Fang Yuan kembali ke aula perunggu, dan Bai Ning Bing sudah tiba.</p>
+<p>	Di belakangnya, ada seratus ribu binatang anjing, sedang beristirahat atau bermain-main.</p>
+<p>	Fang Yuan tersenyum ringan: “Bai Ning Bing, serahkan cacing Gumu ke roh tanah.”</p>
+<p>	“Apa?” Bai Ning Bing terkejut: “Bukankah aku memerintah anjing-anjing ini?”</p>
+<p>	“Roh tanah dapat menggunakan cacing Gu, manipulasinya lebih baik daripada milikmu.” Fang Yuan menjelaskan.</p>
+<p>	Roh tanah muncul, sedikit khawatir: “Anak muda, saya harus memurnikan Gu dengan Anda sambil mengendalikan esensi abadi, jika saya harus mengeluarkan upaya mengendalikan anjing, saya mungkin tidak memiliki energi untuk melakukannya.”</p>
+<p>	Fang Yuan mencibir, ekspresinya sangat percaya diri: “Jangan khawatir, apakah kamu tidak yakin dengan tindakanku? Di antara musuh, saya juga memiliki bidak. Ada batu purba yang cukup di sini bagi Anda untuk memanipulasi anjing. ”</p>
+<p>	“Begitukah …” Ba Gui ragu-ragu, tetapi memikirkan identitas rahasia Fang Yuan, dia akhirnya setuju.</p>
+<p>	“Adapun kamu Bai Ning Bing, ikut aku. Ketika saya memurnikan Gu, saya membutuhkan orang yang dapat dipercaya untuk membela saya. ” Fang Yuan menepuk bahu Bai Ning Bing, menunjukkan senyum ramah dan penuh kasih sayang.</p>
+<p>	Bai Ning Bing mendengus, tatapannya bersinar diam-diam, saat dia berkata dengan nada datar: “Terserah kamu, selama kamu tidak mati, apakah penyempurnaan Gu berhasil atau tidak, itu bukan urusanku.”</p>
+<p>	Fang Yuan dan Bai Ning Bing memasuki aula bersama.</p>
+<p>	Fang Yuan duduk saat Bai Ning Bing bertindak sebagai walinya.</p>
+<p>	Fang Yuan menutup matanya, tidak melakukan apa-apa.</p>
+<p>	“Apa yang kamu tunggu? Tidak ada banyak waktu.” Bai Ning Bing bertahan beberapa saat sebelum memecah kesunyian.</p>
+<p>	“Ning Bing, tetap tenang, beberapa hal tidak bisa terburu-buru.” Fang Yuan tersenyum ringan, tidak ada kecemasan sama sekali saat dia berbicara dengan jelas.</p>
+<p>	Bai Ning Bing mendengus, tidak berbicara, matanya menyipit, berpikir dalam hatinya: “Apa yang dipikirkan Fang Yuan ini? Dia mengambil hak memerintahku, apakah dia curiga padaku? Tidak, dia mengatur agar saya berada di aula, dia masih mempercayai saya! Saya harus terus bertahan.”</p>
+<p>	Dia memikirkan Tie Ruo Nan, merasa yakin: “Dia dihalangi oleh kelompok anjing di luar sekarang, tanpa bantuanku, dia hanya bisa menerobos dengan paksa. Sialan, dia tidak membiarkan saya mengendalikan anjing-anjing itu. Untungnya, kami memiliki rencana cadangan, Tie Bai Qi sudah diam-diam di gunung San Cha.”</p>
+<p>	Sesaat kemudian, Fang Yuan tenang dan beristirahat, tidak melakukan apa-apa.</p>
+<p>	Kali ini, bahkan roh tanah datang untuk mendesak Fang Yuan untuk memperbaiki Gu.</p>
+<p>	Tapi Fang Yuan menolaknya, tidak melakukan apa-apa.</p>
+<p>	Roh tanah cemas, nadanya menjadi sedikit marah, tetapi Fang Yuan menggunakan identitas kelahiran kembali untuk meyakinkannya.</p>
+<p>	Saat ini, di puncak gunung San Cha.</p>
+<p>	Pilar lampu biru dan merah tipis dan lemah, masih bersinar di puncak gunung. Pilar kuning warisan Raja Quan telah hilang.</p>
+<p>	Kali sebelumnya, hanya pilar merah yang tersisa, itu karena Feng Tian Yu mengambil Warisan Raja Xin. Tapi kali ini, Chou Jiu bukan ahli pemurnian, dia tidak bisa menembus babak final, sehingga tersisa dua pilar.</p>
+<p>	“Aku ingin tahu siapa yang mengambil Warisan Raja Quan!”</p>
+<p>	“Dua lagi, kita ikan kecil tidak punya kesempatan …”</p>
+<p>	“Tapi itu benar-benar aneh, tidak ada satu pun dari Master Gu peringkat lima dalam warisan yang keluar, apakah sesuatu terjadi?”</p>
+<p>	“Itu benar, Warisan Raja Quan diwarisi, tetapi mengapa yang lain tidak keluar?”</p>
+<p>	“Mereka ditahan di dalam tanah yang diberkati. Tanah yang diberkati ini menghadapi kehancuran, segera pintu akan terbuka, memungkinkan kita untuk masuk dan keluar sesuka hati. ” Sebuah suara bergema.</p>
+<p>	“Itu Tuan Xiao Mang!” Seseorang bersorak, mengenali identitas orang tersebut.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

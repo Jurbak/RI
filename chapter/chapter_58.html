@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 58 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 58";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_57.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 58">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_59.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 58</h1>
+        <div class="text-left">
+<p>	Bab 58</p>
+<p>	Bab 58: Klan tidak hanya memiliki aturan dan peraturan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Pemimpin klan, ada apa?” Penatua akademi dengan hormat berdiri di sudut.</p>
+<p>	“Tidak apa-apa, duduklah, aku punya cerita untuk dibagikan denganmu.” Gu Yue Bo menyipitkan matanya dan berkata perlahan.</p>
+<p>	“Bawahanmu harus mendengarkan dengan penuh perhatian!” Penatua akademi memilih untuk duduk di kursi yang paling dekat dengan pemimpin klan.</p>
+<p>	Pemimpin klan Gu Yue Bo memulai ceritanya tentang Ren Zu.</p>
+<p>	Ada yang bilang ——</p>
+<p>	Sejak Ren Zu bisa mendapatkan nama mereka dan menaklukkan Gu Aturan dan Regulasi, perintah pertamanya adalah agar mereka menangkap Gu yang berumur panjang.</p>
+<p>	Aturan dan Regulasi Gu, satu putaran dan kotak lainnya, bekerja sama dan dapat menangkap semua Gu di dunia, umur panjang Gu bukanlah hal yang sulit.</p>
+<p>	Ren Zu menggunakan umur panjang Gu dan mendapatkan kembali masa mudanya, menjadi 20 tahun lagi.</p>
+<p>	Tapi sekarang aturan Gu berkata, “Manusia, meskipun kamu menaklukkan kami, setiap kali kamu memerintah kami, itu akan menambah aturan dan regulasi.”</p>
+<p>	Regulasi Gu melanjutkan, “Kami dapat menangkap Gu umur panjang untukmu, ini adalah pesanan pertama. Aturan dan peraturan baru kami adalah, kami tidak akan berulang kali menangkap Gu yang sama untuk Anda. ”</p>
+<p>	Itu berarti, jika Ren Zu ingin menangkap Gu umur panjang lagi, kedua Aturan dan Regulasi Gu tidak akan membantu.</p>
+<p>	Ren Zu mengangguk, tidak punya pilihan selain menerima.</p>
+<p>	Dia memberikan perintah keduanya, “Kalau begitu, selain umur panjang Gu, tolong tangkap sepuluh ribu Gu lainnya di dunia untukku.”</p>
+<p>	Aturan dan regulasi Gu mendapat perintah ini dan Aturan Gu berubah menjadi lingkaran raksasa, meliputi alam semesta. Peraturan Gu berubah menjadi kotak raksasa, menutupi dunia besar.</p>
+<p>	Satu persegi dan satu putaran membentuk jaring raksasa bersama-sama, menyelimuti seluruh dunia.</p>
+<p>	Ketika mereka menyusut lagi dan kembali ke Ren Zu, semua Gu di dunia selain Gu umur panjang ditangkap.</p>
+<p>	Ren Zu sangat gembira, dengan ini semua Gu miliknya, mulai sekarang dia adalah penguasa dunia!</p>
+<p>	Tapi begitu dia membuka jaring, dengan swoosh, sejumlah besar cacing terbang keluar dan Gu yang Rules and Regulation Gu bekerja keras untuk menangkapnya, semuanya melarikan diri dengan sungguh-sungguh.</p>
+<p>	Ketika Ren Zu menutup jaring, hanya lima Gu yang tersisa.</p>
+<p>	“Kenapa ini?” Ren Zu tercengang.</p>
+<p>	Rules and Regulation menjawabnya, “Manusia, dunia memiliki lebih dari sepuluh ribu Gu dengan segala macam kemampuan. Anda tidak memiliki kekuatan atau pengetahuan, bagaimana Anda bisa menaklukkan mereka? Kami hanya bisa menangkap Gu untukmu, untuk menaklukkan mereka, kamu harus mengandalkan dirimu sendiri agar mereka bekerja untukmu.”</p>
+<p>	Selanjutnya mereka menambahkan, “Ini adalah pesanan kedua Anda, jadi kami akan menambahkan aturan dan peraturan kedua — Mulai sekarang, kami hanya dapat menangkap satu Gu untuk Anda dalam satu waktu.”</p>
+<p>	Ren Zu hanya bisa mengangguk, dan dengan hati-hati membuka jaring, hanya menunjukkan celah kecil.</p>
+<p>	Lima Gu yang tersisa berisi Gu Kekuatan dan Kebijaksanaan. Melihat ini, Ren Zu sangat gembira.</p>
+<p>	Dia berkata kepada Strength Gu, “Strength Gu, kamu meninggalkanku saat itu, apakah kamu menyesal? Jika Anda menyerah kepada saya sekarang, saya akan mengembalikan kebebasan Anda.”</p>
+<p>	Kekuatan Gu berkata, “Manusia, kamu salah. Saya tidak pergi bukan karena saya tidak bisa, tetapi karena saya ingin tinggal. Anda ingin menaklukkan saya tapi itu tidak mungkin. Saya hanya menyerah pada mereka yang lebih kuat dari saya, tetapi Anda tidak mungkin. Namun kita bisa berurusan lagi, beri aku masa mudamu dan aku akan mematuhimu untuk sementara waktu. ”</p>
+<p>	Ren Zu enggan mendengar ini, dia baru saja mendapatkan kembali masa mudanya, apakah dia akan kehilangannya lagi?</p>
+<p>	Tetapi dia menginginkan kekuatan, dia tahu bahwa dengan kekuatan, dia akan menjadi lebih kuat dan hidup akan menjadi lebih mudah.</p>
+<p>	Terlebih lagi, dengan kekuatan, dia bisa menaklukkan lebih banyak Gu.</p>
+<p>	Jadi, Ren Zu menerimanya, dan membuat kesepakatan kedua dengannya.</p>
+<p>	Ren Zu menjadi setengah baya sekaligus, dan kekuatan Gu terbang keluar dari jaring dan mendarat di bahu Ren Zu.</p>
+<p>	Ren Zu memiliki kekuatan, dan penuh percaya diri.</p>
+<p>	Dia berkata kepada Gu Kebijaksanaan: “Gu Kebijaksanaan, kamu meninggalkanku saat itu, apakah kamu menyesal? Jika Anda menyerah kepada saya sekarang, saya akan mengembalikan kebebasan Anda.”</p>
+<p>	Gu Kebijaksanaan berkata, “Manusia, kamu salah. Saya tidak pergi bukan karena saya tidak bisa, tetapi karena saya ingin tinggal. Anda ingin menaklukkan saya tapi itu tidak mungkin. Saya hanya menyerah pada mereka yang lebih pintar dari saya, namun Anda tidak lebih pintar dari saya. Tapi kita bisa berurusan lagi, beri aku usia paruh bayamu dan aku akan mematuhimu untuk sementara waktu. ”</p>
+<p>	Ren Zu setelah mendengar ini, menolak untuk melakukan kesepakatan yang sama lagi.</p>
+<p>	Dia lebih menghargai hidupnya, dan dia juga tahu bahwa begitu dia menjual usia paruh bayanya, dia akan ditinggalkan dengan usia tua. Tak lama kemudian, Gu Kekuatan dan Kebijaksanaan akan meninggalkannya lagi, sama seperti terakhir kali.</p>
+<p>	Ren Zu menolak untuk berurusan, tetapi tidak ingin melepaskan Gu Kebijaksanaan.</p>
+<p>	Wisdom Gu cemas, dengan enggan menyerah, “Baiklah, Manusia, kamu menang. Aku kalah darimu kali ini. Selama Anda memberi tahu saya metode apa yang Anda gunakan untuk menangkap saya, saya akan mengakui kekalahan dan tidak mengambil apa pun dari Anda, siap membantu Anda. ”</p>
+<p>	Setelah mendengar ini, Ren Zu sangat gembira dan sebelum Aturan dan Regulasi Gu bisa menghentikannya, dia berkata, “Saya menggunakan Aturan dan Regulasi Gu untuk menangkap Anda.”</p>
+<p>	Gu Kebijaksanaan tertawa setelah mendengar, “Saya mengingatnya, jadi Gu ini disebut Aturan dan Peraturan. Haha, sekarang aku tahu namamu, kamu tidak bisa lagi menangkapku. ”</p>
+<p>	Mengatakan demikian, itu berubah menjadi kilatan cahaya dan terbang, menghilang ke udara tipis.</p>
+<p>	Aturan dan Regulasi Gu mulai mengeluh, “Manusia, kami sudah memberitahumu sejak lama bahwa nama kami harus diketahui olehmu sendiri, dan bukan orang lain. Jika tidak, kita akan dimanfaatkan oleh orang lain. Lihat apa yang terjadi, sekarang Gu Kebijaksanaan mengetahui nama kita, itu menimbulkan masalah.”</p>
+<p>	Baru saat itulah Ren Zu menyadari bahwa dia telah ditipu oleh Gu Kebijaksanaan. Dia sedih, karena dia tahu dia kehilangan satu-satunya kesempatan yang dia miliki untuk menangkap Gu Kebijaksanaan menggunakan Aturan dan Peraturan.</p>
+<p>	Mengatakan demikian, cerita Gu Yue Bo berakhir. Dia menatap sesepuh akademi dengan tatapan penuh arti.</p>
+<p>	Penatua akademi melompat dari tempat duduknya. Dia telah mendengar cerita Ren Zu sejak lama, tetapi dari mulut Gu Yue Bo, itu memiliki makna yang lebih besar.</p>
+<p>	Tatapannya bersinar dan hatinya mengerti. Dia membungkuk sedikit pada Gu Yue Bo, dengan hormat berkata, “Pemimpin klan, kamu menggunakan cerita ini sebagai analogi? Fang Yuan sebagai Gu Kebijaksanaan dan klan sebagai Ren Zu. Meskipun Ren Zu menggunakan Gu Aturan dan Regulasi untuk menangkap Gu Kebijaksanaan dan berhasil menjebaknya, Gu Kebijaksanaan akhirnya lolos.”</p>
+<p>	Mengatakan demikian, sesepuh akademi berhenti dan memikirkannya sebentar, sebelum melihat Gu Yue Bo. “Tuan pemimpin klan, Anda ingin saya melepaskan Fang Yuan dan berhenti menekannya? Tapi dia semakin berlebihan…”</p>
+<p>	Gu Yue Bo menghentikan kata-kata sesepuh akademi, mengulurkan tangannya, mengisyaratkan dia untuk duduk dan berbicara.</p>
+<p>	Penatua akademi duduk dan mendengar Gu Yue Bo menghela nafas, “Kamu, pemahamanmu masih luar biasa, menjadi orang yang cerdas, dengan mudah mengerti maksudku. Sayangnya pemahaman Anda tentang situasi ini masih terlalu kecil, Anda hanya dapat melihat sebidang tanah kecil di depan Anda. Biarkan saya memberi tahu Anda, akademi adalah masalah kecil, dan klan benar-benar penting. ”</p>
+<p>	“Saya tahu apa yang Anda khawatirkan, takut siswa lain sangat ditekan oleh Fang Yuan, akhirnya kehilangan api di hati mereka. Hehehe.” Gu Yue Bo menggelengkan kepalanya, menunjuk pada sesepuh akademi, “Kamu terlalu memikirkannya.”</p>
+<p>	“Menurutmu apa yang dilakukan klan itu? Hanya mengandalkan akademi Anda untuk memelihara orang baru? Tentu tidak, di belakang setiap siswa, ada orang tua, orang tua, dan teman-temannya. Hanya dengan dukungan, dorongan, harapan dari orang-orang ini, generasi baru klan Gu Yue kami dapat memiliki kepercayaan diri dan motivasi di dalam hati mereka.”</p>
+<p>	“Fang Yuan memang berulang kali melebihi harapanku, dia memiliki sedikit keunggulan luar biasa. Saya telah mengamati Fang Zheng secara diam-diam dan saya sudah lama tahu tentang pemerasan Fang Yuan, biarkan dia melanjutkan. Gunakan dia untuk melatih Fang Zheng, Mo Bei dan Chi Cheng, batu giok kasar ini. Ada banyak keuntungan dalam hal ini, setidaknya siswa babak ini memiliki keterampilan bertarung terbaik di antara semua musim sebelumnya. ”</p>
+<p>	Tetua akademi khawatir, “Tapi pemimpin klan, rintangan yang berlebihan juga bukan hal yang baik, itu akan menghancurkan batu giok. Terutama karena Fang Yuan memiliki cacing Liquor sekarang, cacing ini memberikan bantuan besar kepada Master Gu Peringkat satu. Saya khawatir bahwa pada peringkat satu tahap, di bawah penindasan Fang Yuan, tidak ada yang bisa membalikkan situasi. ”</p>
+<p>	“Kalau begitu biarkan mereka tidak bisa membalikkan situasi!” Gu Yue Bo mendengus, menunjukkan keanggunan dan ketidakpedulian seseorang yang berkuasa, “Kemunduran kecil ini, apa bedanya? Apakah itu lebih menakutkan daripada kematian? Dengan dukungan tetua keluarga mereka, jika mereka masih kurang motivasi, maka mereka bahkan bukan batu giok untuk memulai dan tidak memiliki nilai untuk diasuh. Klan memiliki banyak siswa baru ke akademi setiap tahun, jadi jika musim ini tidak berhasil, selalu ada musim berikutnya. Adapun Gu Yue Fang Zheng, mulai besok malam, aku akan mengajarinya secara rahasia.”</p>
+<p>	“Dengan ajaran pribadi pemimpin klan, itu benar-benar kekayaan Gu Yue Fang Zheng.” Penatua akademi menjilat sepatu botnya pada waktu yang tepat (1).</p>
+<p>	Ekspresi Gu Yue Bo melunak saat dia melihat sesepuh akademi, menginstruksikan, “Apakah kamu tahu alasan mengapa setelah beberapa dekade, kamu masih tetua akademi? Memiliki toleransi yang lebih besar, saya tahu Fang Yuan melanggar martabat Anda dan membuat Anda dipermalukan, tetapi apakah Anda benar-benar harus begitu perhitungan dengan junior dari generasi yang lebih muda?</p>
+<p>	“Saya tahu bahwa Fang Yuan memiliki kebijaksanaan sebelumnya, tetapi dia masih muda dan cenderung gegabah. Jika tidak, dia tidak akan menyakiti penjaga di depan umum dan menyebabkan Anda berada dalam kesulitan. Dia sangat marah secara internal saat itu dan itu bisa dimengerti. Dari dipuji sebagai jenius menjadi orang biasa, adalah normal untuk marah pada klan. ”</p>
+<p>	“Dia sebenarnya sangat kekanak-kanakan, kamu bisa tahu dari dia mencoba menyembunyikan cacing Liquor. Bagaimana cacing Liquor bisa disembunyikan? Dia belum dewasa dan masih polos, jangan menganggapnya sebagai makhluk yang menakutkan. Membandingkannya dengan Gu Kebijaksanaan, aku terlalu memikirkannya. Paling-paling, dia memiliki sedikit kecerdasan, tetapi tidak memiliki kebijaksanaan dan pengetahuan sejati. Jika dia menyembunyikan fakta bahwa dia naik ke panggung tengah secara diam-diam, atau menerima posisi ketua kelas tanpa rasa tidak senang, itu benar-benar rencana yang sangat licik.”</p>
+<p>	“Pemimpin klan, maksudmu adalah?” Penatua akademi mengangkat alisnya.</p>
+<p>	“Yang ingin saya katakan adalah, Fang Yuan tidak puas dengan klan, jadi biarkan dia melampiaskan amarahnya. Seekor semut meludahi gajah, apakah gajah akan peduli? Emosi dimaksudkan untuk dikeluarkan dan tidak disimpan di dalam, jadi begitu dia selesai melampiaskan, dia secara alami akan menyatu ke dalam klan. Klan Gu Yue kami telah ada selama hampir seribu tahun sejak generasi pertama mendirikannya. Ada banyak orang yang tidak puas dengan klan, tetapi akhirnya apakah ada di antara mereka yang berhasil membalikkan klan? ”</p>
+<p>	“Sebuah klan bukan hanya tentang aturan dan peraturan, ada juga hubungan darah dan kekerabatan. Ren Zu ingin menggunakan aturan dan peraturan untuk menangkap kebijaksanaan. Namun dia tidak hanya kalah, tetapi dia juga menginformasikan kebijaksanaan tentang aturan dan peraturan. Ada makna mendalam dalam cerita ini – aturannya sudah mati, tetapi orang-orang masih hidup, dan hubungan yang mendalam. Jika Anda hanya tahu cara menggunakan aturan dan peraturan untuk menangkap orang, itu hanya akan meningkatkan kebencian dan menyebabkan Fang Yuan lebih tidak berhubungan dengan klan. Fang Yuan hanya kelas C, jika dia beruntung, setelah puluhan tahun dia masih menjadi tetua klan berpangkat rendah. Tapi dia masih saudara kembar Gu Yue Fang Zheng, apakah kamu mengerti sekarang?”</p>
+<p>	“Dipahami!” Mendengar kalimat terakhir Gu Yue Bo, sesepuh akademi langsung sadar.</p>
+<p>	“Mmm, jika sebuah keluarga hanya memiliki aturan dan peraturan, maka keluarga adalah tumpukan benda mati. Tetapi jika Anda menambahkan hubungan darah, itu akan hidup. ” Gu Yue Bo mengangguk, “dan satu kalimat lagi, aku ingin kau mengingatnya.”</p>
+<p>	“Tolong tegur saya, tuan klan tetua.”</p>
+<p>	Gu Yue Bo, dengan pandangan jauh, melihat ke luar jendela ke arah bulan, “Laut dapat menampung air dari ribuan sungai, besar karena kapasitasnya. Seseorang itu hebat ketika dia bisa bersikap toleran dan memaafkan banyak orang. Ingat ini, dan pergi.”</p>
+<p>	“Ya pemimpin klan, Tuan, bawahan Anda pergi,” kata sesepuh akademi saat dia meninggalkan aula.</p>
+<p>	(1) Menjilat boot pada dasarnya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

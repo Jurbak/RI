@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 404 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 404";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_403.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 404">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_405.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 404</h1>
+        <div class="text-left">
+<p>	Bab 404 – Memperbaiki Gu Abadi lagi!</p>
+<p>	Bab 404: Memperbaiki Gu Abadi lagi!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Tie Ruo Nan maju selangkah dan menatap dengan tatapan setajam pisau: “Fang Yuan, kamu adalah orang yang cerdas, kamu harus bebas dari situasimu!”</p>
+<p>	“Saya memang jelas dari situasi saya.” Ekspresi Fang Yuan tenang: “Dan aku bahkan lebih jelas dari situasimu.”</p>
+<p>	Bibirnya mengungkapkan sedikit senyum dingin: “Penyempurnaan Gu Abadi memang belum selesai, tetapi ini membuat saya mempertahankan lebih banyak bagian dari esensi abadi, cukup bagi saya untuk membunuh kalian semua!”</p>
+<p>	Namun, tepat saat ini, Ba Gui muncul dan berbicara dengan ekspresi menangis: “Tidak ada gunanya, tidak ada gunanya. Akan ada terlalu banyak kehilangan esensi abadi untuk membunuh mereka dan jumlah yang tersisa tidak akan dapat mendukung penyempurnaan Gu. Selain itu, sekarang sudah larut, ada terlalu banyak lubang di tanah yang diberkati dan itu akan benar-benar runtuh dan menyebar menjadi asap tidak lama kemudian. ”</p>
+<p>	Obsesi terbesarnya adalah menyelesaikan penyempurnaan Gu bukaan kedua, ia bahkan tidak peduli dengan kehancurannya sendiri.</p>
+<p>	Saat ini, Fang Yuan baru saja menyempurnakan ke tahap ini dan langkah penting masih tersisa yang juga merupakan langkah paling sulit; tetapi situasi tidak lagi memungkinkan dia untuk melanjutkan.</p>
+<p>	“Anak muda, kamu membuat kesalahan besar dalam perhitunganmu, penyempurnaan Immortal Gu kami gagal!” Roh tanah melolong dalam kesedihan.</p>
+<p>	“Menyempurnakan Gu Abadi? Tidak pernah menyangka akan begitu hidup di sini. ” Yan Jun dengan tenang melangkah ke aula utama.</p>
+<p>	Di kehidupan sebelumnya, dia telah dihalangi oleh Feng Tian Yu, tetapi sekarang tanpa penghalang, dia berjalan dengan bebas ke aula perunggu.</p>
+<p>	“Heheh, Fang Yuan, kamu bukan tuan tanah yang diberkati, jadi roh tanah tidak akan sepenuhnya mematuhi perintahmu. Sejak pemimpin klan muda Yan Jun telah tiba, yang lain juga tidak akan jauh. Hari ini, kehilanganmu sudah pasti.” Tie Ruo Nan memiliki ketakutan terhadap roh tanah dan hanya bisa terus terlibat dalam pertempuran psikologis.</p>
+<p>	“Tidak, masih ada harapan, penyempurnaan Gu tidak bisa dianggap gagal.” Fang Yuan tiba-tiba tersenyum.</p>
+<p>	Dia mengalihkan pandangannya ke Bai Ning Bing.</p>
+<p>	Hati Bai Ning Bing menegang; jika Fang Yuan menggunakan Yang Gu untuk memaksanya bertarung sampai mati, jalan apa yang harus dia ambil?</p>
+<p>	Namun, tatapan Fang Yuan bergerak melewati Bai Ning Bing dan berbalik ke arah roh tanah Ba Gui.</p>
+<p>	Ba Gui yang sudah tua ini terlihat mengerikan sekarang setelah menangis, tampak sangat patah hati.</p>
+<p>	“Ba Gui, apakah kamu masih ingin memperbaiki Gu aperture kedua atau tidak?” Fang Yuan mentransmisikan suaranya.</p>
+<p>	“Mungkinkah, mungkinkah kamu punya cara?” Ba Gui tiba-tiba merasakan sedikit harapan: “Itu benar, kamu adalah Gu Immortal yang terlahir kembali, dan dengan pengalaman hidupmu sebelumnya, kamu seharusnya mengharapkan situasi ini dengan benar!”</p>
+<p>	“Tidak, situasinya di luar dugaanku. Aku yang sekarang hanyalah manusia fana dan aku tidak dapat membuat perbedaan.” Fang Yuan berkata terus terang, “Ba Gui, aku telah mengecewakanmu, penyempurnaan Gu kali ini memang gagal.”</p>
+<p>	Roh tanah mulai meratap lebih keras.</p>
+<p>	Namun, Fang Yuan segera mengubah topik: “Tapi kegagalan ini hanya sementara, kita masih bisa memiliki harapan.”</p>
+<p>	Tangisan roh tanah melunak ketika bertanya: “Apa maksudmu?”</p>
+<p>	“Setelah kamu mati, aku akan menjadi satu-satunya orang yang tahu resepnya. Bukaan kedua setengah jadi Gu juga bersamaku, jadi Ba Gui, kamu harus melindungiku.”</p>
+<p>	“Tentu saja aku harus melindungimu! Anda adalah satu-satunya orang yang memenuhi persyaratan tanah yang diberkati dan juga merupakan Gu Immortal yang terlahir kembali, ada kemungkinan besar penyempurnaan aperture kedua Gu berhasil di masa depan bahkan jika kali ini gagal. ” Roh tanah menjawab sebagai fakta.</p>
+<p>	“Bagus. itu bagus bahwa Anda memiliki pemahaman ini. Namun, Anda hanya dapat melindungi saya untuk suatu periode tetapi tidak selamanya. Tidak lama kemudian, Anda akan mati. Dengan esensi abadi yang tersisa, kita juga tidak dapat sepenuhnya membasmi semua musuh di tanah yang diberkati. Bahkan jika Anda membawa saya ke dunia luar, ada banyak kelompok Master Gu di gunung San Cha. ” Sudut bibir Fang Yuan melengkung menjadi senyum sinis.</p>
+<p>	Sejak kelahiran kembali kali ini, semuanya berjalan lancar. Saat dia beringsut lebih dekat ke kesuksesan, dia tidak bisa tidak merasakan sedikit kegembiraan.</p>
+<p>	“Lalu bagaimana kamu ingin aku melindungimu?” Roh tanah bertanya.</p>
+<p>	Fang Yuan terkekeh dan berkata dalam-dalam: “Ba Gui, apakah kamu ingat bagian ketiga dari bab kedua &lt;&gt;?”</p>
+<p>	Roh tanah bingung saat menebak arti Fang Yuan, ia berkata dengan ragu-ragu: “Kamu mengatakan … tidak, itu tidak akan berhasil, ada dua kondisi yang tidak terpenuhi. Pertama-tama, Anda membutuhkan cahaya kejayaan zaman dahulu.”</p>
+<p>	“Hehehe.” Fang Yuan tertawa puas mendengar ini, dia mengangkat tangannya dan menunjuk ke atas aula perunggu dan berteriak, “Lihat, cahayanya ada di sini!”</p>
+<p>	Dari saat dia berdiri, dia dalam hati meminta roh tanah untuk membagikan visinya, sehingga situasi di luar sangat jelas baginya.</p>
+<p>	Setelah itu, pembicaraan dengan klan Tie dan yang lainnya hanya menunda waktu dan menunggu kesempatan yang baik.</p>
+<p>	Ini sudah ketiga kalinya Fang Yuan menggunakan Jangkrik Musim Gugur Musim Semi dan dengan mengumpulkan pengalamannya, dia memiliki pemahaman yang lebih dalam tentang kelahiran kembali.</p>
+<p>	Memang ada efek kupu-kupu setelah kelahiran kembali yang dapat menyebabkan beberapa hal berubah sepenuhnya. Namun, ada juga kelembaman sejarah; banyak peristiwa besar yang terjadi adalah konflik yang menumpuk dari waktu ke waktu, mereka hanya kekurangan trigger point. Bahkan tanpa pemicu asli, pemicu baru akan selalu muncul. Ini bukanlah sesuatu yang dapat dipengaruhi dan diubah oleh seseorang dengan mudah.</p>
+<p>	Di luar aula utama.</p>
+<p>	Xiao Mang semakin tidak sabar bertarung dengan Ying Ming dan terbang ke langit.</p>
+<p>	Peringkat empat, kumpulkan Gu ringan.</p>
+<p>	Peringkat lima, Gu ringan ekstrim.</p>
+<p>	Peringkat lima, sungai di bawah matahari Gu.</p>
+<p>	Gerakan mematikan — Aliran Cahaya Terhebat!</p>
+<p>	Sungai cahaya bergulung dan jatuh saat mengalir ke tanah yang diberkati.</p>
+<p>	Cahayanya menyilaukan, dan ombaknya ganas, membuat seluruh medan perang menjadi putih, dan semua orang memejamkan mata, tidak mampu menahan cahaya yang begitu kuat.</p>
+<p>	“Tidak baik!” Tie Ruo Nan dan yang lainnya berada di aula utama, Tie Bai Qi mencoba menghentikannya ketika dia melihat ini, tetapi formasi sungai ringan sudah selesai dan dia hanya bisa mengurangi dampaknya sedikit.</p>
+<p>	Sungai cahaya besar itu seperti air terjun, menabrak aula perunggu.</p>
+<p>	Atap aula segera ditembus, dan air terjun ringan terbang menuju Fang Yuan.</p>
+<p>	“Cahaya kemuliaan zaman dahulu kala!” Roh tanah berteriak kaget.</p>
+<p>	Fang Yuan tertawa keras dan menuangkan esensi purba ke peringkat empat sayap tulang Gu dan peringkat lima Gu logam cair.</p>
+<p>	Sepasang sayap hitam panjang dan lebar terbentang dari punggungnya, sementara logam cair menutupi seluruh tubuhnya seperti cat, menyebar ke sayap hitam dan mewarnai seluruh tubuhnya dengan cahaya keemasan yang menyilaukan.</p>
+<p>	“Dia, apa yang dia lakukan?”</p>
+<p>	“Fang Yuan!”</p>
+<p>	Di Tie Ruo Nan, Bai Ning Bing dan tatapan heran lainnya, Fang Yuan mengepakkan sayapnya dan terbang langsung menuju sungai cahaya!</p>
+<p>	Bam!</p>
+<p>	Ada dengungan keras di telinganya dan dampak hebat memaksa Fang Yuan mundur.</p>
+<p>	Namun, dia telah membunuh banyak Master Gu peringkat lima sebelumnya dan memperoleh banyak gerakan Gu seperti aurora emas Gu dan seterusnya. Saat ini, dia mengaktifkan semuanya dan terbang melawan aliran air terjun, terbang semakin tinggi.</p>
+<p>	Ketika dia terbang keluar dari aula perunggu, itu segera menarik napas dan keraguan yang tak terhitung jumlahnya.</p>
+<p>	“Apa itu?”</p>
+<p>	“Itu berkedip dengan cahaya keemasan dan terlihat seperti burung besar!”</p>
+<p>	“Tidak, itu adalah seseorang, seorang prajurit yang telah direndam dalam emas cair!”</p>
+<p>	Hanya ada lautan putih yang luas di mata Fang Yuan. Esensi purbanya menipis dengan cepat dengan mengaktifkan begitu banyak gerakan Gu dan Gu defensif.</p>
+<p>	” Waktu dan pasang menunggu tidak ada manusia , semangat lahan membantu saya, Gu perjalanan ilahi!”</p>
+<p>	Perjalanan ilahi Gu Immortal mendarat di telapak tangannya.</p>
+<p>	“Langit giok Gu!”</p>
+<p>	Sinar cahaya hijau keluar dari lubangnya dan mendarat di tangannya, berubah menjadi bambu berwarna hijau giok yang berlubang di tengahnya.</p>
+<p>	“Apa yang dia coba lakukan? Dia benar-benar menghadapi si pembunuh secara langsung dan terbang!” Tie Ruo Nan menatap dengan mata terbuka lebar, mengungkapkan keterkejutannya.</p>
+<p>	“Apakah raja binatang kecil menyerah, dan mencoba untuk mengakhiri hidupnya?” Rahang Yan Jun terbuka lebar saat dia melihat ke atas dengan linglung.</p>
+<p>	“Ada sesuatu, aku mengerti dia! Semua yang dilakukan Fang Yuan memiliki makna yang sangat dalam! Tidak peduli apa, kita tidak bisa membiarkan dia melakukan apa yang dia inginkan, kita harus mengganggu ini!” Nada suara Bai Ning Bing tergesa-gesa dan untuk beberapa alasan, perasaan buruk di hatinya terus menjadi lebih kuat.</p>
+<p>	Tie Ruo Nan mengangguk dan setuju dengan kata-kata Bai Ning Bing.</p>
+<p>	“Empat orang tua!” Dia berteriak.</p>
+<p>	“Dipahami!” Keempat orang tua segera bergerak secara terpisah ke arah timur, selatan, barat dan utara; mereka berlutut di tanah dan memegang pergelangan tangan kanan mereka dengan tangan kiri, tangan kanan mereka terbentang dalam bentuk cakar dan saling berhadapan.</p>
+<p>	Gerakan pembunuh — Pencarian dan kunci tanpa batas!</p>
+<p>	Hampir pada saat yang sama, lengan kiri Fang Yuan bersinar dengan cahaya biru yang menakutkan; orang bisa samar-samar melihat bintang tetap Gu di atasnya.</p>
+<p>	Gu ini adalah fragmen bintang dari zaman dahulu, itu seperti berlian delapan sisi dan sangat jernih!</p>
+<p>	Pada saat yang sama, di sekitar Fang Yuan, ruang terkoyak dan empat rantai muncul, bergerak seperti ular sanca.</p>
+<p>	“Akhirnya bereaksi pada titik ini? Hmph, terlambat!” Fang Yuan tersenyum dingin.</p>
+<p>	Perjalanan ilahi Gu tiba-tiba terbang dan menusuk lengan kirinya, menelan bintang tetap Gu.</p>
+<p>	Keempat pengatur waktu lama batuk darah saat mereka kehilangan koneksi dengan bintang tetap Gu.</p>
+<p>	Empat rantai yang bergerak di samping Fang Yuan juga kehilangan target dan terbang sembarangan sebelum dihancurkan oleh sungai cahaya.</p>
+<p>	Setelah perjalanan ilahi Gu memakan bintang tetap Gu, ia pergi ke langit giok berongga Gu dan dengan cepat membentuk kepompong.</p>
+<p>	“Hah? Ada orang aneh yang terbang langsung ke arah gerakan pembunuhku ?! ” Xiao Mang sangat terkejut. Orang lain sering tidak punya cukup waktu untuk menghindari gerakan pembunuhnya, tetapi sekarang sebenarnya ada orang bodoh yang menghadapinya secara langsung!</p>
+<p>	“Siapa lelaki ini? Apa yang dia coba lakukan?” Yi Huo, Yi Chong dan yang lainnya menatap langit dengan tatapan tercengang.</p>
+<p>	“Tunggu sebentar, adegan ini, di mana aku melihatnya sebelumnya!” Li Xian mengerutkan kening dalam-dalam, seberkas cahaya melintas di benaknya yang cerdik.</p>
+<p>	“Bagaimana ini bisa terjadi, dia tampaknya … menyempurnakan Gu?” Feng Tian Yu mendongak sebentar dan setelah melihat dengan jelas dia langsung terkejut.</p>
+<p>	“Dia benar-benar menyempurnakan Gu menggunakan gerakan pembunuh, keberaniannya tidak mengenal batas!” Mata Mo Wu Tian memancarkan cahaya ungu yang memanjang dua inci ke udara.</p>
+<p>	Itu benar, Fang Yuan sedang memperbaiki Gu.</p>
+<p>	Ini adalah rencana Fang Yuan.</p>
+<p>	Ketika dia memperbudak dokter hantu pembunuh, sudah pasti penyempurnaan aperture kedua Gu akan gagal.</p>
+<p>	Karena pada langkah terakhir bergabung dengan Gu perjalanan ilahi, Fang Yuan tidak dapat mencapainya sendirian. Sebelumnya, dia mendapat bantuan grandmaster jalur penyempurnaan Feng Tian Yu dan bantuan roh tanah, sebelum dia hampir tidak bisa menyelesaikannya.</p>
+<p>	Sekarang, dia tidak memiliki bantuan Feng Tian Yu, jadi langkah ini ditakdirkan untuk gagal!</p>
+<p>	Namun, setelah kelahiran kembali, Fang Yuan tidak pernah benar-benar berpikir untuk menyempurnakan Gu bukaan kedua.</p>
+<p>	Dia menipu roh tanah dan dengan sengaja menunda waktu untuk menciptakan situasi khusus untuk meyakinkan roh tanah dan memperbaiki Gu ini.</p>
+<p>	Mirip dengan Gu bukaan kedua, Gu ini juga adalah Gu Abadi yang resepnya dicatat di bab dua bagian tiga dari &lt;&gt;!</p>
+<p>	&lt;&gt; adalah klasik pertama dari dunia Gu!</p>
+<p>	Tampaknya menjadi sebuah cerita ketika seseorang pertama kali membacanya tetapi sebenarnya menyimpan pesan yang mendalam, merekam rahasia zaman kuno dan semua jenis Gu. Beberapa Gu secara langsung digambarkan seperti Gu kebijaksanaan, Gu kekuatan dan sebagainya. Sementara beberapa Gu disembunyikan, deskripsi mereka sangat kabur, mengharuskan pembaca untuk menggali dan mempelajarinya dengan cermat.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

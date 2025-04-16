@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2005 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2005";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2004.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2005">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2006.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2005</h1>
+        <div class="text-left">
+<p>	Bab 2005 – Bekerja Sama dengan Surgawi Co</p>
+<p>	Bab 2005 Bekerja sama dengan Heavenly Court</p>
+<p>	Saat Fang Yuan melihat sisa setengah dari warisan sejati Asal Primordial ini, dia berpikir, itu tidak terkait dengan warisan yang sebenarnya.</p>
+<p>	“Haruskah saya menggunakan kesempatan ini untuk menangkap Dewa Pengadilan Surgawi Gu ini dalam satu gerakan?”</p>
+<p>	Pikiran ini sangat menarik.</p>
+<p>	Qin Ding Ling saat ini adalah pemimpin sementara Pengadilan Surgawi, Pengadilan Surgawi pasti akan menerima pukulan besar jika mereka kehilangan dia. Gu Yue Fang Zheng diatur oleh kehendak surga dan merupakan karakter penting untuk menahan iblis dunia lain Fang Yuan. Jika Fang Yuan membunuhnya, dia akan bebas dari belenggu ini. Pangeran Feng Xian yang menyertai, Bai Cang Shui, dan yang lainnya juga merupakan pilar Pengadilan Surgawi saat ini. Jika mereka pergi, itu akan menjadi bencana besar bagi Pengadilan Surgawi dan seluruh jalan lurus Benua Tengah.</p>
+<p>	Tetapi memikirkannya, Fang Yuan menyerah pada ide ini.</p>
+<p>	Kekuatannya saat ini tidak lengkap dan dia tidak dapat mempertahankan kekuatan pertempurannya karena tanda dao jalur surga.</p>
+<p>	Di permukaan, para dewa Pengadilan Surgawi berbicara dengan gembira dan tampak santai, tetapi bagaimana mungkin mereka tidak waspada di wilayah Leluhur Laut Qi?</p>
+<p>	Hanya saja mereka berpura-pura santai untuk menunjukkan ketulusan dan keramahan mereka.</p>
+<p>	Bahkan jika Fang Yuan mengaktifkan formasi laut qi, makhluk abadi Pengadilan Surgawi pasti akan segera mengambil Rumah Gu Abadi dan bertahan.</p>
+<p>	Jika dia menyerang makhluk abadi Pengadilan Surgawi sekarang, apakah itu menghasilkan kemenangan atau kekalahan, identitas Leluhur Laut Qi Fang Yuan akan dicermati dengan cermat.</p>
+<p>	Sebenarnya, Fang Yuan bersedia bekerja sama dengan Pengadilan Surgawi.</p>
+<p>	Meskipun Pengadilan Surgawi mencoba semua metode untuk menciptakan kesulitan bagi Fang Yuan dan berusaha membunuhnya, bahkan memaksanya ke dalam situasi hampir mati, selama ada cukup banyak manfaat yang berguna baginya dalam mengejar kehidupan abadi, Fang Yuan tidak bertentangan. bekerja sama dengan Pengadilan Surgawi.</p>
+<p>	Pengadilan Surgawi ingin bekerja sama dengan Leluhur Laut Qi untuk keuntungan mereka sendiri.</p>
+<p>	Fang Yuan juga akan menerima keuntungan besar dari bekerja sama dengan Pengadilan Surgawi.</p>
+<p>	Tidak perlu menyebutkan manfaat jangka panjang, hanya Fang Yuan yang memaksa kembali Demon Immortal Qi Jue dengan bantuan Pengadilan Surgawi sudah cukup untuk menjamin nilai identitas Leluhur Laut Qi ini. Pada saat yang sama, Pengadilan Surgawi juga mengambil inisiatif untuk memberikan sisa setengah dari warisan asli Primordial Origin kepadanya!</p>
+<p>	Fang Yuan agak tergerak saat dia memegang jalur informasi Gu fana.</p>
+<p>	Saat itu, dia telah menghabiskan banyak pemikiran dan upaya untuk merencanakan warisan sejati jalur qi ini. Duke Long cerdik, metode Pencuri Surga dapat mengurangi umurnya tetapi dia berpura-pura itu tidak berhasil dan menggunakan setengah dari warisan asli Primordial Origin untuk berhasil menstabilkan Leluhur Laut Qi.</p>
+<p>	Setengah sisanya dipegang dengan kuat oleh Duke Long dan Fang Yuan tidak bisa mendapatkannya.</p>
+<p>	Fang Yuan tidak memiliki harapan apa pun, tetapi siapa yang mengira bahwa setelah perang nasib, dia benar-benar akan mendapatkan setengah sisa dari warisan sejati Asal Primordial melalui Qin Ding Ling.</p>
+<p>	Di sisa setengah dari warisan sejati Asal Primordial, pencabutan tiga qi yang didambakan Fang Yuan dicatat.</p>
+<p>	“Qin Ding Ling tidak bisa diremehkan.” Fang Yuan menghela nafas di kepalanya.</p>
+<p>	Bahkan tanpa menyebutkan permintaan apa pun, Qin Ding Ling langsung menyerahkan setengah sisa warisan sejati Asal Primordial kepada Leluhur Laut Qi, keberanian yang dibutuhkan untuk langkah ini benar-benar besar. Ketulusan Qin Ding Ling dan Pengadilan Surgawi ditunjukkan sepenuhnya.</p>
+<p>	“Jika Qin Ding Ling tahu aku adalah Fang Yuan, aku ingin tahu ekspresi apa yang akan dia tunjukkan?”</p>
+<p>	Duke Long membantu musuh sebelumnya dan sekarang Qin Ding Ling melanjutkan tren ini. Jika Qin Ding Ling mengetahui orang di depannya adalah penyebab terbesar dari perang nasib dan dia secara pribadi menyerahkan warisan yang sebenarnya kepadanya, dia mungkin batuk darah karena marah.</p>
+<p>	“Aku benar-benar merasakan ketulusanmu. Masalah apa yang Anda miliki, saya akan menggunakan semua kekuatan saya untuk membantu Pengadilan Surgawi! ” Fang Yuan menyimpan jalur informasi Gu fana di celahnya, dia sudah menebak masalah Pengadilan Surgawi.</p>
+<p>	Qin Ding Ling menghela nafas lega ketika dia melihat Leluhur Laut Qi menyingkirkan jalur informasi Gu fana.</p>
+<p>	Apa yang dia khawatirkan adalah kemungkinan Leluhur Laut Qi tidak setuju untuk membantu. Bagaimanapun, Leluhur Laut Qi adalah seorang kultivator terpencil yang tidak peduli dengan hal-hal yang tidak menjadi perhatiannya. Mungkin informasi yang diberikan oleh Fang Yuan yang terlahir kembali membuat Leluhur Laut Qi menyadari bahwa jika dia melanjutkan kultivasinya yang terpencil, Pengadilan Surgawi akan mencari masalah dengannya, jadi dia mengubah caranya melakukan sesuatu.</p>
+<p>	Qin Ding Ling tidak tahu bagaimana Pengadilan Surgawi menjadi musuh dengan Leluhur Laut Qi. Tetapi karena Leluhur Laut Qi mempercayai kata-kata Fang Yuan, jelas Fang Yuan telah memberikan cukup bukti.</p>
+<p>	Ini adalah kekacauan yang tidak mereka tanggung, dengan kehancuran nasib Gu, masa depan telah berubah, Pengadilan Surgawi tidak dapat menemukan apa pun tentang hal itu. Qin Ding Ling hanya bisa mengandalkan situasi saat ini untuk menyimpulkan dan menyimpulkan.</p>
+<p>	Itu normal bagi Qin Ding Ling untuk memiliki beberapa kekhawatiran.</p>
+<p>	Bagaimanapun, Leluhur Laut Qi memiliki hubungan permusuhan dengan Pengadilan Surgawi sebelumnya dan hanya menjadi netral karena mediasi Duke Long. Saat ini, untuk merekrut Leluhur Laut Qi, Qin Ding Ling harus mengambil sesuatu yang tidak dapat ditolak oleh Leluhur Laut Qi.</p>
+<p>	Leluhur Laut Qi menerima warisan sejati Asal Primordial dan segera menunjukkan sikap tegas untuk membantu Pengadilan Surgawi.</p>
+<p>	Qin Ding Ling sangat lega. Skemanya tidak berakhir di sini. Warisan sejati Asal Primordial hanyalah umpan, Leluhur Laut Qi akan membutuhkan jalur qi yang cocok, Immortal Gu untuk mengaktifkan gerakan pembunuh yang tercatat di dalamnya.</p>
+<p>	Dan jalur qi Immortal Gu ini semuanya ada di perbendaharaan Pengadilan Surgawi.</p>
+<p>	Ini adalah chip untuk menggoda Leluhur Laut Qi nanti.</p>
+<p>	“Mungkin kita masih bisa menggunakan tekanan Demon Immortal Qi Jue untuk mendorong Leluhur Laut Qi untuk bergabung dengan Pengadilan Surgawi.” Inspirasi ini muncul di benak Qin Ding Ling tetapi untuk sementara ditekan.</p>
+<p>	Dia mulai menjelaskan masalah yang dihadapi Pengadilan Surgawi.</p>
+<p>	Fang Yuan mengelus jenggotnya saat dia memastikan tebakannya. Seperti yang dia prediksi, buah panen qi juga muncul di Pengadilan Surgawi.</p>
+<p>	Dengan pengorbanan Duke Long dan kehancuran kuburan abadi, Pengadilan Surgawi tidak lagi memiliki ahli jalur qi untuk menstabilkan situasi, sehingga sangat sulit bagi mereka untuk menyelesaikan masalah buah panen qi.</p>
+<p>	Qin Ding Ling menyerahkan warisan asli Primordial Origin secara lugas dan juga berharap warisan sejati ini dapat membantu Leluhur Laut Qi dalam menangani masalah buah panen qi jauh lebih cepat.</p>
+<p>	Fang Yuan berpikir sebentar dan mengangguk: “Saya akan menangani masalah buah panen qi ini. Tetapi saya tidak memiliki metode untuk menghadapinya sekarang dan perlu berkultivasi tertutup selama beberapa waktu untuk meneliti warisan asli Primordial Origin. ”</p>
+<p>	Pada saat ini, tetua tertinggi pertama klan Xia tiba-tiba berkata: “Tuan Leluhur, Anda terluka dan harus memulihkan diri terlebih dahulu. Keselamatan Anda tidak hanya menyangkut Laut Timur tetapi juga terkait dengan menjaga situasi keseluruhan umat manusia dan varian manusia. ”</p>
+<p>	Dia khawatir dan takut jika Leluhur Laut Qi bekerja sama dengan Pengadilan Surgawi, masalah klan Xia akan dikesampingkan.</p>
+<p>	Qin Ding Ling tersenyum: “Anda tidak perlu khawatir, saya akan berbicara tentang aliansi dua surga sekarang. Wu Shuai saat ini adalah iblis besar dan juga orang berdosa yang menyerbu Pengadilan Surgawi, kami benar-benar tidak akan membiarkannya berkembang. Kami datang ke sini untuk meminta bantuan Leluhur serta untuk menangani varian kekuatan manusia ini. ”</p>
+<p>	Setelah sedikit jeda, dia melanjutkan: “Pengadilan Surgawi bersedia mengeluarkan bahan abadi untuk membiayai Leluhur dan klan Xia, untuk membantu Anda merebut kembali tanah Anda yang hilang. Dalam pertempuran di masa depan, jika perlu, Pengadilan Surgawi akan mengirim bala bantuan untuk membantu memerangi varian ras manusia. ”</p>
+<p>	“Ah!” tetua tertinggi pertama klan Xia berseru kaget dan membungkuk: “Pengadilan Surgawi adalah benar dan layak menjadi kekuatan nomor satu umat manusia. Saya sangat berterima kasih, seluruh klan Xia sangat berterima kasih! ”</p>
+<p>	Qin Ding Ling mengobrol dengan tetua tertinggi pertama klan Xia untuk sementara waktu, memperdalam hubungan mereka dengan cepat.</p>
+<p>	Pengadilan Surgawi kalah dalam perang nasib tetapi tidak kekurangan sumber daya, hanya kekurangan tenaga kerja.</p>
+<p>	Dalam perjalanan ke Laut Timur ini, Pengadilan Surgawi ingin memikat Leluhur Laut Qi sementara juga menargetkan Dewa Gu klan Xia. Roping dalam kekuatan asli Laut Timur akan membangun fondasi mereka di masa depan lima wilayah perang kacau.</p>
+<p>	Ini adalah rencana jangka panjang.</p>
+<p>	Hal yang disayangkan adalah bahwa Pengadilan Surgawi dan keabadian klan Xia tidak tahu bahwa Wu Shuai dan Leluhur Laut Qi pada dasarnya adalah orang yang sama. Ini benar-benar rahasia besar yang akan mengejutkan dunia.</p>
+<p>	Fang Yuan mengangguk tanpa ragu-ragu: “Aku tidak akan pernah membiarkan aliansi dua surga ada di Laut Timur, aku pasti akan mengusir mereka dan memusnahkan mereka secara menyeluruh!”</p>
+<p>	Qin Ding Ling mengangkat tangannya: “Dalam pandangan saya, aliansi dua surga memiliki kekuatan manusia juga, hanya saja aliansi dua surga sedang dikendalikan dengan kuat oleh varian manusia saat ini. Kekuatan manusia ini tidak berbeda dari kita, kita semua adalah manusia. Kita harus tetap bersatu dan bersatu. Jadi, tidak ada salahnya dipecah dulu sebelum kita bertindak.”</p>
+<p>	Fang Yuan segera memahami artinya: “Mungkinkah beberapa kekuatan manusia di aliansi dua surga telah menyerah kepada Anda?”</p>
+<p>	Qin Ding Ling menggelengkan kepalanya: “Bukan seperti itu. Kami mampu menangkap peringkat delapan Gu Immortal. Dia disebut Granny Skeleton, pemilik surga gua Shattered Bone saat ini di dua surga.”</p>
+<p>	Granny Skeleton dibujuk oleh kata-kata An Chong dan ingin bergabung dengan aliansi dua surga. Namun di tengah perjalanannya, dia disergap dan ditangkap oleh Pengadilan Surgawi.</p>
+<p>	Secara alami, Night Heavenly Wolf Lord yang memberikan informasi ini.</p>
+<p>	Lady Cold Ash ingin menyatukan kekuatan manusia di dua surga dan memperjuangkan otoritas di aliansi dua surga. Dia telah menjadikan Night Heavenly Wolf Lord sebagai salah satu pembantunya, tapi dia tidak pernah menyangka Night Heavenly Wolf Lord telah memihak Pengadilan Surgawi.</p>
+<p>	“Nenek Tengkorak?” Fang Yuan berhenti sebentar sebelum bertanya: “Apakah orang ini ada di sini sekarang?”</p>
+<p>	Qin Ding Ling menggelengkan kepalanya: “Pengadilan Surgawi saya menggunakan cara yang baik, kami membiarkannya pergi setelah membujuknya untuk beberapa waktu.”</p>
+<p>	Mata tetua tertinggi pertama klan Xia terbuka lebar pada kata-kata ini, dia merasakan beberapa kekhawatiran tentang ‘kenaifan’ Pengadilan Surgawi tetapi tidak berbicara.</p>
+<p>	Fang Yuan, bagaimanapun, memandang Qin Ding Ling dengan makna yang dalam dan tersenyum: “Sepertinya Granny Skeleton adalah karakter penting dan kunci untuk menggodanya untuk bergabung dengan kita harus terletak pada masalah buah panen qi.”</p>
+<p>	Qin Ding Ling tertawa dan mengangkat cangkirnya untuk memuji: “Leluhur, Anda memiliki penglihatan yang tajam. Masalah buah panen qi juga muncul di surga gua Shattered Bone, jika kita bisa menyelesaikan masalah ini, kita bisa mengikat Granny Skeleton dan kekuatan manusia lainnya.”</p>
+<p>	“Rencana bagus!”</p>
+<p>	“Jika kita bisa mengikat kekuatan manusia ini, itu akan menjadi kerugian mereka dan keuntungan kita, ini akan menjadi pukulan besar bagi aliansi dua surga, dan bahkan ada kemungkinan mereka akan hancur.”</p>
+<p>	“Ras lain memiliki motif yang berbeda, manusia Dewa Gu di dua surga memiliki ras yang sama dengan kita. Selama kami menunjukkan antusiasme dan ketulusan, seharusnya tidak sulit untuk merekrut mereka.”</p>
+<p>	Abadi klan Xia tersenyum dan berbicara, beberapa bertepuk tangan dan tertawa, suasana perjamuan menjadi semakin hidup.</p>
+<p>	Fang Yuan tersenyum saat dia mengamati ekspresi Dewa Gu dari tempat duduknya.</p>
+<p>	Jika mereka tahu musuh mereka sudah mengetahui rencana mereka bahkan sebelum mereka menerapkannya, bagaimana perasaan mereka?</p>
+<p>	Baca di meionovel.id</p>
+<p>	Tatapan Fang Yuan berpindah-pindah sebelum akhirnya berhenti di wajah Qin Ding Ling.</p>
+<p>	“Meskipun dia hanya memupuk jalur keberuntungan, kepemimpinannya memenuhi standar.”</p>
+<p>	“Pada levelnya, dia seharusnya mencapai level mahir dalam meniru jalan lain juga. Jalur kebijaksanaan biasa peringkat delapan juga tidak lebih unggul dari ini. ”</p>
+<p>	‘Tentu saja, masih ada jarak yang besar antara dia dan Peri Zi Wei.’</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

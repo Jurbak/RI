@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 119 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 119";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_118.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 119">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_120.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 119</h1>
+        <div class="text-left">
+<p>	Bab 119</p>
+<p>	Bab 119: Anak laki-laki ini keras kepala, dia membutuhkan lebih banyak pemolesan</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Gu Yue Fang Yuan?” Para tetua tidak bisa menahan diri untuk tidak saling memandang setelah mendengar nama ini.</p>
+<p>	Mereka jelas mengenali nama ini. Bahkan, sejak awal, nama Gu Yue Fang Yuan terkadang sampai ke telinga mereka.</p>
+<p>	Terutama setelah Upacara Kebangkitan, ketika kultivasi Guru Gu-nya dimulai, anak ini mulai gelisah; dia sering menyebabkan beberapa gangguan yang menarik perhatian.</p>
+<p>	“Ah, aku ingat dia. Bukankah anak ini yang menjual aset keluarganya dan membeli Relic Gu baja merah?” Seorang penatua menyadari.</p>
+<p>	Wajah Gu Yue Chi Lian dan Gu Yue Mo Chen berubah jelek.</p>
+<p>	Jika Chi Shan atau Mo Yan telah menggunakan Relic Gu baja merah, mereka bisa naik ke peringkat dua tahap puncak dan setara dengan Gu Yue Qing Shu.</p>
+<p>	Ini akan mencerminkan para petinggi — apakah itu faksi Mo atau faksi Chi yang mendapatkan relik gu, itu akan menjadi kemenangan politik. Tetapi untuk berpikir bahwa anak yang hilang ini telah menghancurkan semuanya!</p>
+<p>	“Kembali ke topik utama, anak ini benar-benar kuat. Di arena sebelumnya, dia menggunakan tinjunya untuk menghancurkan pertahanan Jade Skin Gu dan memukul jatuh Fang Zheng, mencapai kejuaraan, ”kenang seorang tetua.</p>
+<p>	Kali ini, giliran kepala klan Gu Yue Bo yang malu.</p>
+<p>	Dia secara khusus mengasuh Gu Yue Fang Zheng, jadi kekalahan Fang Zheng – dalam beberapa hal – adalah kekalahannya, dari faksi kepala klan.</p>
+<p>	Selama seseorang memasuki sistem, siapa pun akan dicap dengan faksi. Ada faksi politik yang netral, tapi sama sekali bukan orang tanpa faksi.</p>
+<p>	“Tapi dalam hal kekuatan, kekuatannya seharusnya tidak sebanding dengan milikmu, kan?” Chi Lian ragu bertanya pada Chi Shan.</p>
+<p>	Chi San dengan hormat menjawab, “Tetua, mungkin Anda mungkin tidak tahu, Fang Yuan tidak hanya membeli Relic Gu baja merah, dia juga membeli Black Boar Gu. Beberapa bulan ini, dia telah membeli daging babi untuk memelihara Black Boar Gu dan meningkatkan kekuatannya. Suatu kali, saya bahkan melihatnya memindahkan batu besar di gunung untuk mengukur kekuatannya. Saya tidak yakin berapa banyak kekuatan yang dia miliki, tetapi dari apa yang saya lihat, kekuatannya sama sekali tidak kalah dengan milik saya. ”</p>
+<p>	“Jadi seperti itu. Memikirkan anak ini, Fang Yuan telah tumbuh ke tahap ini. ” Gu Yue Bo mengangguk. “Kalau begitu mari kita tugaskan kelompok Fang Yuan untuk mencobanya.”</p>
+<p>	Mendengar ini, tetua aula urusan internal dengan canggung berdiri dari tempat duduknya, “Tuan kepala klan, Fang Yuan ini adalah penyendiri dan belum bergabung dengan grup.”</p>
+<p>	“Apa artinya itu?” Gu Yue Bo mengerutkan kening.</p>
+<p>	“Masalahnya – setelah gelombang binatang pertama, kelompoknya benar-benar dimusnahkan dan satu-satunya yang selamat adalah dia, sendirian,” jawab tetua aula urusan internal.</p>
+<p>	“Bahkan jika demikian, mengapa dia tidak dipertimbangkan selama reorganisasi kelompok?” Seorang penatua bertanya dengan rasa ingin tahu.</p>
+<p>	“Mendesah!” Penatua aula urusan internal menghela nafas berat, “Saya juga mendesaknya tentang ini, tetapi dia tidak punya niat untuk bergabung dengan kelompok mana pun. Sejujurnya, saya tidak setuju dengan anak ini. Dia sangat pandai bermain-main, mungkin dia telah kehilangan keinginan untuk bertarung setelah mewarisi warisan itu. ”</p>
+<p>	“Bermain-main disekitar? Bagaimana bisa, dia belum bergabung dengan grup mana pun jadi bagaimana dia bisa menyelesaikan misi klan bulanan? Seorang penatua ragu.</p>
+<p>	Wajah sesepuh aula urusan internal itu tenggelam, “Setiap bulan, dia menerima misi wajib tetapi hasilnya semua gagal. Saya belum pernah melihat catatan yang lebih buruk darinya; hampir semua misi dicatat sebagai kegagalan. Saya sudah mencoba berbicara dengannya beberapa kali, tetapi dia masih ingin melanjutkan jalannya, tanpa ada penyesalan. Namun, dia tidak melanggar aturan klan, jadi aku hanya bisa memberikan hukuman ringan kepada anak nakal dan licik ini!”</p>
+<p>	Para tetua saling memandang; mereka belum pernah melihat generasi muda yang tidak ingin maju.</p>
+<p>	Kegagalan misi mewakili perkembangan karir yang lebih sempit di dalam klan.</p>
+<p>	“Anak ini menjadi kacau…..”</p>
+<p>“Hmph, dia terlalu nakal!”</p>
+<p>“Dia menghancurkan masa depannya sendiri!”</p>
+<p>“Jika saya memiliki anak yang begitu malas, saya akan langsung menamparnya sampai mati!”</p>
+<p>	“Cukup.” Gu Yue Bo mengangkat tangannya, menghentikan obrolan pribadi para tetua; orang tidak tahu apakah dia senang atau marah.</p>
+<p>	Tatapan Gu Yue Bo bergerak dan akhirnya berhenti pada tetua aula urusan internal, “Kirim perintah wajib, biarkan Gu Yue Fang Yuan mencoba kekuatannya di River Swallowing Toad. Anak ini keras kepala, memberontak dan sulit diatur, dia perlu dipoles. Jika dia gagal, kita bisa menggunakan dalih ini untuk memberikan hukuman.”</p>
+<p>	“Itu akan seperti yang dikatakan kepala klan tuan.” Penatua aula urusan internal segera setuju.</p>
+<p>	Ada keributan di kedai minuman.</p>
+<p>	“Apakah kalian tahu, klan mengirim kelompok Chi Shan ke kaki gunung tetapi mereka akhirnya kembali dengan kekalahan.”</p>
+<p>“Penduduk desa yang tinggal di kaki gunung semua berlutut di depan pintu masuk klan, menghalangi gerbang.”</p>
+<p>“Hmph, rakyat jelata rendahan ini bahkan tidak memiliki sedikit pengetahuan. River Swallowing Toad adalah Gu Peringkat lima, apakah mereka benar-benar berpikir mereka akan aman di desa? ”</p>
+<p>	Meskipun ini dikatakan, udara dipenuhi dengan kepanikan. Master Gu ini semua dengan paksa menenangkan diri mereka sendiri.</p>
+<p>	Fang Yuan mendengarkan sebentar sebelum tidak lagi memperhatikan; ini bukan lagi berita baru. Dia berdiri dan hendak pergi ketika seseorang memasuki kedai.</p>
+<p>	Orang ini tinggi dengan tubuh yang kekar. Bagian atas tubuhnya telanjang dan otot-ototnya berwarna merah cerah, sepertinya ingin meledak.</p>
+<p>	Itu adalah Gu Yue Chi Shan.</p>
+<p>Obrolan di dalam kedai segera berhenti. Tatapan yang tak terhitung jumlahnya mendarat di Chi Shan.</p>
+<p>	Chi Shan mengabaikan tatapan ini; dia melihat sekeliling dan menemukan Fang Yuan.</p>
+<p>	“Kamu di sini.” Di bawah banyak tatapan, dia berjalan di depan Fang Yuan, “Ayo pergi, klan telah memberikan perintah wajib. Ayo menuju ke kaki gunung, saya akan memberi tahu Anda detailnya di jalan. ”</p>
+<p>	Tatapan Fang Yuan melintas, dia tidak bisa menolak perintah wajib. Selain itu, tidak ada banyak bahaya saat menghadapi Kodok Menelan Sungai, jadi dia setuju.</p>
+<p>	Hanya setelah Fang Yuan dan Chi Shan meninggalkan kedai, keributan dimulai lagi di kedai.</p>
+<p>	“Penjaga toko, surga memiliki mata. Lihat ini, pembalasan karma yang begitu cepat! Itu adalah Gu peringkat lima, bahkan tuan Gu Masters lainnya tidak berdaya menghadapinya, sedangkan dia masih sangat muda, bukankah ini hanya kehilangan nyawanya dengan sia-sia ?! ”</p>
+<p>	“Kami pikir tuan muda Fang Yuan berbeda dari Guru Gu lainnya dan akan berempati dengan kami rasa sakit dan penderitaan manusia. Hmph, untuk berpikir dia juga dari cetakan yang sama. Persetan dengannya, kami tidak akan menyesal bahkan jika dia mati. ”</p>
+<p>	“Penjaga toko, Anda tidak menderita luka ini dengan sia-sia, mendapatkan kehidupan Guru Gu karena itu benar-benar untung.”</p>
+<p>	Kepala penjaga toko tua itu diikat dengan perban putih melingkar. Saat ini, dia terus mengerang, bersandar lemah di sudut.</p>
+<p>	Beberapa pelayan berada di sisinya, menghiburnya.</p>
+<p>	Mata lelaki tua itu memancarkan kebencian, tetapi suasana hatinya sedikit mereda setelah mendengar kata-kata ini.</p>
+<p>	Namun, setelah beberapa saat mendengarkan, dia dengan munafik memarahi mereka dengan suara rendah, “Tutup mulutmu, apakah ini sesuatu yang bisa kita bicarakan? Apakah kamu tidak takut kehilangan nyawamu jika Master Gu lainnya mendengarnya ?! ”</p>
+<p>	Para pelayan terkikik, “Penjaga toko, Anda terlalu khawatir. Di kedai sangat bising, siapa yang bisa mendengar bisikan kita?”</p>
+<p>	Mereka baru saja mengatakan ini, ketika seorang Guru Gu yang duduk paling dekat dengan mereka berbicara, “Saya mendengarnya.”</p>
+<p>	Kulit pemilik toko dan para pelayan sangat berubah; mereka sangat ketakutan.</p>
+<p>	“Tuan …” Penjaga toko tua mengabaikan perasaan pusing di kepalanya dan buru-buru berjalan menuju Guru Gu untuk meminta pengampunan.</p>
+<p>	Master Gu ini mengangkat tangannya dan menghentikannya.</p>
+<p>	“Anda semua berbicara dengan sangat baik, saya menyukai apa yang Anda katakan. Fang Yuan, bajingan ini, bahkan jika dia mati, itu tidak boleh disesali! Bicaralah lebih banyak, saya akan memberi Anda hadiah besar jika saya menyukai apa yang Anda katakan! ” Master Gu mengeluarkan batu purba dan membantingnya ke meja dengan keras.</p>
+<p>	Jika Fang Yuan ada di sini, dia akan mengenali orang ini. Orang ini adalah Gu Master yang menyembuhkan dari gelombang binatang kecil sebelumnya. Fang Yuan telah menggunakan gadis yang dicari Guru Gu ini sebagai perisai untuk menutupi tubuhnya. Dengan demikian, Guru Gu ini memiliki kebencian yang mendalam terhadap Fang Yuan dan itu tidak dapat didamaikan.</p>
+<p>	Para pelayan saling berpandangan. Salah satu dari mereka dengan lebih berani mulai menatap batu purba di atas meja dengan mata terbelalak.</p>
+<p>	Tiga teman Gu Master mengerutkan kening, tetapi tidak menghentikannya. Mereka hanya bisa mendengarkan para pelayan yang memarahi Fang Yuan seolah-olah mereka sedang berkompetisi.</p>
+<p>	Saat itu awal musim gugur dan pemandangannya bagus.</p>
+<p>	Di hutan, beberapa daun berwarna gelap dan beberapa berwarna terang. Daun hijau sudah mulai berubah menjadi kuning dan daun kuning samar-samar menunjukkan warna merah.</p>
+<p>	Di sawah, ladang tanaman padi kuning-oranye melambai bersama angin musim gugur.</p>
+<p>	Di beberapa ladang sayuran yang subur, daun sayurannya gemuk, empuk dan enak.</p>
+<p>	Fang Yuan melesat jauh dari tengah gunung, mengikuti kelompok Chi Shan turun ke kaki gunung di mana dia melihat Kodok Menelan Sungai Peringkat lima.</p>
+<p>	Itu sangat besar dan menyerupai bukit kecil. Itu berbaring miring di dasar sungai dan memblokir saluran sungai. Bagian hulu sungai sudah dipenuhi air yang hampir tumpah ke tepi sungai. Dan hampir tidak ada aliran sungai di hilir; hanya dasar sungai yang lembab dan dangkal yang bisa terlihat.</p>
+<p>	Perut River Swallowing Toad sangat indah seputih salju dan ditutupi dengan lapisan kilau. Punggungnya berwarna biru langit jernih dan juga memiliki kilau mengkilap, tanpa kutil seperti yang ditemukan pada katak dan kodok biasa.</p>
+<p>	Itu tertidur lelap pada saat ini. Tapi tidak ada suara dengkuran; itu tidur sangat tenang.</p>
+<p>	Merasakan auranya, dua cacing Liquor di lubang Fang Yuan meringkuk menjadi bola. Penampilan lincah Black Boar Gu tampaknya telah musnah saat terbang ke bawah. Moonglow Gu yang berada di telapak tangan kanannya menyembunyikan cahayanya.</p>
+<p>	Hanya Jangkrik Musim Semi Musim Gugur yang masih tidur nyenyak.</p>
+<p>	Fang Yuan menarik Moonglow Gu ke dalam lubangnya. Selama dia tidak mengambil inisiatif untuk menggunakan Gu ini, aura mereka tidak akan bocor. Menempatkan mereka di aperture sangat aman dan andal.</p>
+<p>	“Fang Yuan, giliranmu selanjutnya,” Chi Shan berbicara dari samping.</p>
+<p>	Dia sudah menjelaskan sebagian besar detail di jalan.</p>
+<p>	Fang Yuan juga menyetujui metode ini. Tentu saja, cara paling sederhana adalah menggunakan Spring Autumn Cicada; begitu aura cacing peringkat enam Gu bocor, Kodok Menelan Sungai ini akan ketakutan dan segera melarikan diri.</p>
+<p>	Ini juga karena River Swallowing Toad tidak suka berkelahi. Jika itu adalah Gu yang kejam seperti Blood River Python, aura Spring Autumn Cicada malah akan membuatnya mengamuk dan membalas dengan gila-gilaan.</p>
+<p>	Fang Yuan berdiri di tepi sungai, mencoba mendorong pada awalnya. Kulit River Swallowing Toad licin, membuat orang merasa bahwa kekuatannya telah hilang.</p>
+<p>	Selain itu, itu sangat berat, seseorang bahkan tidak bisa mengalah.</p>
+<p>	“Bisakah kamu melakukannya?” Chi Cheng mencibir dari samping.</p>
+<p>	Fang Yuan mengabaikannya dan berkata kepada Chi Shan, “Meskipun aku memiliki peningkatan kekuatan dari Black Boar Gu, kekuatanku mungkin hanya sedikit lebih besar darimu. Adapun mendorong Kodok Menelan Sungai ini, itu bukan tanpa harapan, tapi aku butuh bantuanmu. ”</p>
+<p>	“Bantuan apa?” Chi Shan segera bertanya.</p>
+<p>	Fang Yuan perlahan menjelaskannya. Chi Shan ragu, “Jika kita melakukan ini, bukankah itu akan bekerja sama? Bahkan jika River Swallowing Toad terbangun, apakah dia akan tetap mengakuimu dan kemudian pergi dengan rela?”</p>
+<p>	Fang Yuan tersenyum, “Kamu tidak perlu khawatir tentang itu. Selama kalian menjaga jarak dan tidak membiarkannya mendeteksi Anda, itu akan mungkin. Bagaimanapun, itu adalah Gu, jangan menganggapnya terlalu cerdas. ”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

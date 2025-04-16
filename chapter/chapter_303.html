@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 303 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 303";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_302.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 303">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_304.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 303</h1>
+        <div class="text-left">
+<p>	Bab 303</p>
+<p>	Bab 303: Aku benar-benar ingin membunuhnya</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Fang Yuan tidak bisa tidak berpikir lagi: “Menurut reaksi klan Tie, Tie Ruo Nan mungkin tidak tahu tengkorak darah Gu ada di tanganku. Mungkin bakat kelas A saya sekarang adalah fasad terbesar yang saya miliki. ”</p>
+<p>	Mengenai ini, Fang Yuan sangat tepat.</p>
+<p>	Sebenarnya, Tie Ruo Nan tidak pernah mencurigai identitas Fang Yuan.</p>
+<p>	Alasannya jelas karena bakat.</p>
+<p>	Tie Ruo Nan selalu berasumsi bahwa Fang Yuan adalah fisik Bulan Kuno yang Sunyi. Mengenai kelemahan dari sepuluh fisik ekstrem, dia telah belajar banyak tentang itu di klan Tie. Setelah sekian lama berlalu, jika itu benar-benar Fang Yuan, dia pasti sudah lama mati.</p>
+<p>	Selanjutnya, dari laporan Tie Dao Ku, gaya bertarung Fang Yuan yang berani dan terus terang, juga merupakan bukti identitasnya.</p>
+<p>	Dalam pikiran Tie Ruo Nan, Fang Zheng adalah orang dengan gaya seperti itu, untuk Fang Yuan yang licik itu, bagaimana dia bisa bertarung dengan keganasan seperti itu?</p>
+<p>	Pada kunjungan keempat Tie Ruo Nan, dia akhirnya bertemu Fang Yuan.</p>
+<p>	Di ruang tamu, hanya Fang Yuan dan Tie Ruo Nan yang hadir, sisanya diusir.</p>
+<p>	“Untuk berpikir bahwa kamu dan aku akan bertemu dalam keadaan seperti itu.” Tie Ruo Nan berseru.</p>
+<p>	Fang Yuan dan Fang Zheng adalah saudara kembar, mereka terlihat hampir identik.</p>
+<p>	Dia berseru, tetapi Fang Yuan bahkan lebih emosional, menghela nafas dalam-dalam: “Masa lalu adalah masa lalu. Biarkan tetap seperti itu, saya tidak ingin menyebutkannya lagi. ”</p>
+<p>	Mata Tie Ruo Nan bersinar tajam: “Tidak, beberapa hal tidak bisa dilupakan. Kunjungan saya kali ini adalah untuk masalah saat itu. Anda harus tahu bagaimana ayah saya meninggal, tolong katakan yang sebenarnya! ”</p>
+<p>	Fang Yuan menatap Tie Ruo Nan dalam-dalam, dia tidak menunjukkan rasa takut, balas menatapnya. Tatapannya menunjukkan semangat tekad yang kuat.</p>
+<p>	Mata dan alisnya lebih tajam dari sebelumnya, karena dia tidak berkeliaran beberapa tahun ini, kulitnya yang agak gelap menjadi pucat, dan bersama dengan hidung bengkok dan bibir merahnya, itu menampilkan citra seorang jenderal wanita yang heroik.</p>
+<p>	Tidak diragukan lagi, dia cantik. Meskipun bukan tandingan Bai Ning Bing dan Shang Xin Ci, tubuhnya memiliki bentuk yang bagus, terutama kakinya yang panjang. Ditambah dengan wataknya yang unik, itu membuatnya bersinar di antara orang-orang, dan memikat keinginan menaklukkan pria.</p>
+<p>	Tapi Fang Yuan tidak peduli dengan penampilannya, dari tatapannya, Fang Yuan merasa bahwa dia tidak meragukan identitasnya.</p>
+<p>	Ini bagus.</p>
+<p>	Kemudian selanjutnya, masalahnya adalah bagaimana menjelaskan masalah itu saat itu.</p>
+<p>	Fang Yuan tahu, jika dia tidak memberikan penjelasan yang tepat, Tie Ruo Nan tidak akan melepaskannya.</p>
+<p>	Mengenai ini, Fang Yuan memiliki langkahnya sendiri.</p>
+<p>	Karena itu, dia menghela nafas: “Setiap kali saya memikirkan tentang Qing Mao, hati saya sakit. Anda mungkin kehilangan seorang ayah, tetapi saya kehilangan satu klan, setiap anggota keluarga saya, dan terpaksa berkeliaran di alam liar. Meskipun kota klan Shang bagus, bagaimanapun juga, ini adalah tanah asing, tidak ada perasaan seperti di rumah sendiri. ”</p>
+<p>	Mengatakan demikian, matanya menjadi merah.</p>
+<p>	Melihat Fang Yuan bertindak seperti ini, tatapan baja Tie Ruo Nan yang keras melunak.</p>
+<p>	Sebagai orang dalam keadaan yang sama, keduanya adalah korban. Tetapi dibandingkan dengan dia, Fang Zheng yang telah kehilangan semua anggota klannya tidak diragukan lagi lebih menyedihkan.</p>
+<p>	“Apakah kamu tahu? Anda membunuh seorang tuan muda dari klan saya, jika saya tidak menghentikan mereka, Anda pasti sudah diadili oleh klan saya. ” Tie Ruo Nan mengubah topik pembicaraan.</p>
+<p>	Ekspresi Fang Yuan berubah, dengan cepat menjelaskan: “Saya tahu tentang masalah Tie Dao Ku, itu tidak disengaja! Saya menggali perangkap untuk berurusan dengan monyet rok rumput. Siapa yang meminta klan Tie Anda untuk mengikuti saya dan jatuh ke dalam perangkap saya? Mereka meminta kematian, bagaimana Anda bisa menyalahkan saya!</p>
+<p>	“Hidup untuk hidup, itu sangat dibenarkan, bukan?” Ekspresi Tie Ruo Nan berubah serius.</p>
+<p>	Fang Yuan tertawa dingin di dalam hatinya: “Jika itu masalahnya, berapa banyak nyawa yang saya butuhkan untuk membayar mereka?”</p>
+<p>	Wajahnya juga menunjukkan senyum dingin: “Tie Ruo Nan, setelah banyak hal terjadi, kita bukan lagi anak-anak yang naif. Klan Tie Anda tidak memiliki pembenaran dalam hal ini, alasan Anda tidak bertindak adalah karena token duri ungu di tangan saya, bukan begitu?”</p>
+<p>	Tie Ruo Nan menjawab dengan jujur: “Token duri ungu adalah alasan utamanya. Tapi itu hanya bisa melindungi keselamatan Anda di kota klan Shang, begitu Anda pergi, kami tidak akan membiarkan Anda pergi. Jika Anda dapat memberi tahu saya kebenaran di balik masalah saat itu, saya dapat meyakinkan Anda, selama saya hidup, klan Tie tidak akan mengejar Anda untuk masalah ini.</p>
+<p>	Hati Fang Yuan sedikit terkejut.</p>
+<p>	Tie Ruo Nan ini tampaknya telah berkembang dengan baik beberapa tahun ini. Bahkan sebagai tuan muda klan Tie, tidak banyak yang memiliki tingkat otoritas ini.</p>
+<p>	“Jika kamu tidak percaya padaku, kita bisa menggunakan sumpah racun Gu.” Tie Ruo Nan melanjutkan.</p>
+<p>	Sumpah racun Gu lagi?</p>
+<p>	Sejujurnya, Fang Yuan sudah muak memperbaiki kata-kata Gu.</p>
+<p>	“Sebenarnya tidak banyak, sekarang kamu adalah tuan muda klan Tie, tidak bisakah kamu menebaknya?” Fang Yuan menunduk, diam-diam mengamati Tie Ruo Nan.</p>
+<p>	Dia menggunakan ini untuk menyelidikinya, tapi Tie Ruo Nan sepertinya tidak menyadarinya.</p>
+<p>	Gadis muda itu tersenyum: “Sebenarnya, bahkan jika kamu tidak mengatakannya, aku sudah punya ide.”</p>
+<p>	Nada suara Fang Yuan berubah: “Kamu tahu?”</p>
+<p>	Tie Ruo Nan menghela nafas perlahan: “Sepuluh fisik ekstrem bukanlah rahasia bagi klan tingkat tinggi di dunia Guru Gu. Menyebabkan adegan itu dan menyegel seluruh gunung Qing Mao dalam es, bahkan Master Gu peringkat lima pun tidak bisa melakukannya. Tapi yang tidak saya duga adalah, saudara Anda bukanlah fisik Bulan Kuno yang Sunyi, tetapi fisik Jiwa Es Gelap Utara. ”</p>
+<p>	“Apa?” Fang Yuan memanggil dalam pikirannya, tetapi ekspresinya tetap sama, hanya menyipitkan mata dengan tepat.</p>
+<p>	“Mengapa dia mengira aku adalah fisik Bulan Kuno yang Desolate?” Fang Yuan merasa aneh dengan absurditas klaimnya.</p>
+<p>	“Tunggu… tidak heran saat itu, pemimpin klan Gu Yue melindungiku tanpa alasan. Jangan bilang, mereka mengira kecepatan kultivasi saya disebabkan oleh sepuluh fisik yang ekstrem? ” Saat dia mempertimbangkan ini, banyak hal mulai masuk akal.</p>
+<p>	“Jika dia berpikir begitu, maka fisik Jiwa Es Gelap Utara adalah penutup terbesarku. Ini berarti dia tidak pernah meragukan identitas asliku. Selama saya tidak menunjukkan cacat dalam kepura-puraan saya nanti … ”</p>
+<p>	Memikirkan hal ini, wajah Fang Yuan menunjukkan ekspresi yang rumit dan menyakitkan.</p>
+<p>	Dia tidak berbicara, hanya menghela nafas.</p>
+<p>	Semakin banyak dia berbicara, semakin banyak celah yang dia ciptakan, kata-kata mengarah pada kesalahan!</p>
+<p>	Tie Ruo Nan melihat ekspresinya dan menegaskan tebakannya, saat nada suaranya menjadi lebih lembut: “Fang Zheng, aku tahu rasa sakit di hatimu sangat rumit. Satu-satunya yang menghancurkan rumahmu, menyebabkanmu berkeliaran di luar, dan membunuh seluruh klanmu, adalah saudaramu sendiri Fang Yuan…”</p>
+<p>	Fang Yuan menghentikan kata-katanya, matanya memerah: “Berhenti bicara, karena kamu tahu dengan jelas, mengapa kamu harus bertanya padaku sekarang.”</p>
+<p>	“Tapi saya butuh jawaban yang jelas, semua ini adalah asumsi saya!” Tie Ruo Nan memberikan tatapan kuat.</p>
+<p>	Fang Yuan mengangguk, saat air mata jatuh tanpa suara.</p>
+<p>	Tie Ruo Nan melihat ini, tidak bisa memaksanya lebih jauh, hanya berkata dengan sedih: “Tahukah Anda, saya telah bergegas kembali ke gunung Qing Mao, melihat salju yang menyelimuti gunung, hati saya berantakan. Saya tahu ayah saya dibunuh oleh Fang Yuan, jika dia masih ada, kebencian membunuh ayah saya lebih besar dari surga, saya pasti akan membunuhnya untuk membalas dendam. Tapi dia sudah mati…”</p>
+<p>	“Jadi bagaimana jika saya tidak puas dengan hasilnya? Saya ingin berbakti kepada orang tua saya tetapi sudah terlambat, saya ingin membunuh pembunuhnya tetapi dia sudah mati. Ini adalah penyesalan terbesar dalam hidup!” Tie Ruo Nan menghela nafas, tidak tahu bahwa musuh bebuyutannya ada di depannya.</p>
+<p>	Fang Yuan mendengus dingin, menunjukkan ketidaksenangan: “Fang Yuan adalah saudaraku, dia sudah mati, apa lagi yang kamu inginkan?”</p>
+<p>	Mata Tie Ruo Nan bersinar: “Saya ingin tahu beberapa hal. Saat itu, ayah saya telah menerima surat misterius, saya tahu apa yang tertulis di dalamnya. Dikatakan bahwa desa Gu Yue berisi warisan lautan darah, jadi ayahku mengabaikan luka-lukanya dan segera bergegas ke gunung Qing Mao. Apakah Anda dan Bai Ning Bing mengetahuinya?”</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Jika saya mendapatkannya, saya pasti sudah menggunakannya. Mengapa saya begitu menderita dalam perjalanan ini?”</p>
+<p>	Tie Ruo Nan menatap Fang Yuan dengan makna yang dalam: “Warisan laut darah membawa bencana tanpa akhir. Saat itu, jalur iblis leluhur laut darah Guru Gu meninggalkan warisan keji ini. Sampai ke akar masalahnya, kematian ayah saya juga karena warisan ini. Fang Zheng, jika Anda benar-benar menerima warisan ini, saya harap Anda dapat menyerahkannya kepada saya, dan biarkan saya mengimbangi beberapa penyesalan saya.</p>
+<p>	Fang Yuan menggelengkan kepalanya: “Tidak berarti tidak.”</p>
+<p>	Tie Ruo Nan serius, sebelum berbicara: “Menurut laporan saya, Anda memiliki Gu yang Anda miliki yang mengeluarkan aura darah yang kuat, Anda biasa menggunakannya sebagai serangan jarak jauh. Tetapi setelah Anda beralih ke kultivasi jalur kekuatan, Anda tidak lagi menggunakannya. Mengapa demikian?”</p>
+<p>	Fang Yuan tercengang, sebelum menyadari.</p>
+<p>	“Kamu mencurigai aku mengambil warisan laut darah, tetapi ingin menyembunyikannya? Hmph, maksudmu Gu ini?”</p>
+<p>	Fang Yuan menghendaki, dan mengeluarkan Gu bulan darah dari lubangnya, melemparkannya ke Tie Ruo Nan.</p>
+<p>	“Ini adalah Gu bulan darah dari klan saya, apakah Anda tidak melihat saudara saya menggunakannya sebelumnya? Kembali ketika ledakan terjadi, pemimpin klan saya dan pemimpin klan Bai bekerja bersama dan melindungi saya dan Bai Ning Bing dengan mengorbankan nyawa mereka. Pemimpin klan menyerahkan Gu yang tersisa kepada saya, dan selama perjalanan dengan Bai Ning Bing, banyak Gu meninggal karena kelaparan, tetapi hanya Gu bulan darah ini yang tersisa sehingga mudah untuk diberi makan.”</p>
+<p>	Kata-kata Fang Yuan tidak hanya menjawab pertanyaan Tie Ruo Nan, tetapi bahkan menjelaskan mengapa dia dan Bai Ning Bing dapat melarikan diri dari neraka yang sedingin es.</p>
+<p>	Tie Ruo Nan memeriksa bulan darah Gu, ekspresinya berubah santai: “Jadi begitu. Pemimpin klan Anda berani, untuk melindungi garis keturunan, dia mengorbankan dirinya sendiri, dia benar-benar mulia! ”</p>
+<p>	Fang Yuan mendengus: “Itulah sebabnya aku harus hidup lebih baik, dan membangun kembali desa Gu Yue. Siapa pun yang berani menghentikan saya, saya akan mengakhiri hidupnya! ”</p>
+<p>	Ini menjelaskan mengapa dia begitu kejam dan kejam di panggung pertempuran.</p>
+<p>	“Meskipun kita tidak menghabiskan banyak waktu bersama, aku jelas bisa merasakan bahwa kamu telah berubah.” Tie Ruo Nan memandang Fang Yuan, dia hanya mengenang dan tidak mencurigainya.</p>
+<p>	Setelah mengalami trauma seperti itu, kebanyakan orang akan berubah, itu normal.</p>
+<p>	Fang Yuan menatapnya dengan jelas: “Orang-orang berubah, bukankah kamu juga berubah?”</p>
+<p>	Tie Ruo Nan menggelengkan kepalanya: “Saya baru saja berjalan di jalan saya sendiri.”</p>
+<p>	Setelah itu, keduanya terdiam.</p>
+<p>	Lama setelah itu, Tie Ruo Nan berbicara: “Aku akan membawa Tie Dao Ku kembali. Saya berjanji, klan Tie tidak akan lagi mengejar masalah ini. Mengandalkan klan Shang dan membangun kembali klan Anda adalah metode yang baik, banyak orang berhasil, dan saya berharap Anda sukses juga.</p>
+<p>	Setelah mengatakan itu, gadis muda itu berdiri dan pergi dengan tegas.</p>
+<p>	Fang Yuan memandang kepergiannya, matanya menyipit.</p>
+<p>	Dia memiliki firasat yang tidak jelas, Tie Ruo Nan ini tidak sederhana, dia mungkin membawa masalah besar padanya di masa depan.</p>
+<p>	“Aku benar-benar ingin membunuhnya terlebih dahulu …” Fang Yuan dipenuhi dengan penyesalan yang tak berdaya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

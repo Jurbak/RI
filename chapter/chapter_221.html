@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 221 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 221";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_220.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 221">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_222.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 221</h1>
+        <div class="text-left">
+<p>	Bab 221</p>
+<p>	Bab 221: Selamat datang di Gunung Bai Gu</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Wajah pemimpin klan Bai tampak sangat gelap.</p>
+<p>	Dia telah mengerti segalanya!</p>
+<p>	Awalnya dia ragu-ragu, tetapi setelah melihat gambar di asap berwarna-warni, hanya orang idiot yang tidak mengerti apa yang terjadi.</p>
+<p>	Pemimpin klan Bai bukanlah orang bodoh, bahkan dia lebih bijaksana dari orang biasa. Dalam kehidupan sebelumnya Fang Yuan, dia adalah orang yang memimpin klan Bai di pemukiman kembali, dan meletakkan dasar untuk kemakmuran generasi berikutnya.</p>
+<p>	“Brengsek! Bagaimana ini bisa terjadi?”</p>
+<p>	“Kedua bajingan itu sebenarnya adalah Master Gu iblis. Mereka terlalu pandai berakting!”</p>
+<p>	“Pemimpin klan, dua tuan muda ada di tangan mereka, apa yang harus kita lakukan?”</p>
+<p>	Di tenda, Master Gu lainnya panik ketika mereka melihat pemandangan ini.</p>
+<p>	Situasinya mengerikan, Fang Yuan menyandera kedua tuan muda itu, dan menyebabkan semua orang berhati-hati dalam tindakan mereka.</p>
+<p>	Pemimpin klan Bai memaksa dirinya untuk tenang. Dia adalah ibu kandung Bai Hua dan Bai Sheng, kekhawatiran dan kecemasannya jauh melebihi yang lain. Namun, sebagai seseorang yang berkuasa, dia harus memiliki kekuatannya.</p>
+<p>	Selain identitasnya sebagai seorang ibu, dia juga pemimpin klan!</p>
+<p>	Dia pertama kali memerintahkan bawahannya untuk melepaskan Tie Dao Ku.</p>
+<p>	“Kami salah tentang Anda, prajurit klan Tie, saya minta maaf kepada Anda di sini.” Dia berdiri dan membungkuk dengan ekspresi tulus.</p>
+<p>	Tie Dao Ku mendengus, meskipun dia sangat tidak senang, dia mengagumi tekad pemimpin klan Bai.</p>
+<p>	Lagi pula, dia hanya seorang tahanan sekarang, hidup dan matinya bisa diputuskan hanya dengan pemikirannya.</p>
+<p>	Dia menggertakkan giginya dan mencoba berdiri, tetapi karena tubuhnya sangat lemah, bahkan tindakan ini membebaninya.</p>
+<p>	“Ayo, bawa tamu klan Tie ke tempat duduknya.” Pemimpin klan Bai menginstruksikan.</p>
+<p>	Tie Dao Ku duduk, memusatkan pandangannya pada asap berwarna-warni. Tatapannya tampak berapi-api ketika dia melihat Fang Yuan dan Bai Ning Bing, menyebabkan orang lain memalingkan muka.</p>
+<p>	“Keduanya adalah Master Gu iblis yang melarikan diri dari gunung Qing Mao? Perangkap ledakan itu dipasang oleh mereka? Kematian tuan muda Tie Ao Tian, ​​​​yang saya kejar, apakah kedua anak muda ini? ”</p>
+<p>	Tie Dao Ku mengukir penampilan Bai dan Fang dan bentuk tubuh mereka ke dalam pikirannya.</p>
+<p>	“Tidak, mungkin bukan mereka, ini semua bisa jadi salah paham…” Tie Dao Ku memikirkan kemungkinan lain.</p>
+<p>	Dia jujur, dan tidak pernah membunuh orang yang tidak bersalah.</p>
+<p>	“Bagaimanapun, aku harus memastikannya sendiri! Jika tidak, saya akan mengejar penjahat yang sebenarnya. Jika ya, aku akan melumpuhkan lubang kedua bajingan ini dan mencabik-cabiknya!”</p>
+<p>	Berpikir demikian, dia berbicara: “Pemimpin klan Bai, masalah yang dihadapi adalah menangkap dua bajingan ini, serta menyelamatkan dua tuan muda klanmu.”</p>
+<p>	“Prajurit klan dasi, apa yang harus Anda sarankan kepada saya?” Pemimpin klan Bai ingin mendapatkan beberapa informasi berguna dari Tie Dao Ku.</p>
+<p>	Tapi dia ditakdirkan untuk kecewa.</p>
+<p>	Tie Dao Ku menggelengkan kepalanya, tersenyum pahit.</p>
+<p>	Di dalam gua, pedang diacungkan.</p>
+<p>	“Kalian semua, keluar, apakah kamu ingin aku mengulanginya lagi?” Fang Yuan mengancam dengan kekek dingin.</p>
+<p>	“Fang Zheng, apa yang kamu lakukan?”</p>
+<p>	“Apa yang sedang terjadi? Mengapa Anda menyandera dua tuan muda itu? ”</p>
+<p>	Bai Lian, Bai Sheng dan yang lainnya kehabisan lidah, mereka mengira dia telah menemukan mata air roh, tetapi semuanya terjadi dalam sekejap, siapa sangka Fang Yuan tiba-tiba menjadi gila dan menculik kedua tuan muda itu.</p>
+<p>	Suara mendesing! Suara mendesing! Suara mendesing!</p>
+<p>	Tiga sosok tiba-tiba muncul.</p>
+<p>	“Fang Zheng, kamu berani menyandera tuan muda klan kami? Beraninya kamu, kejahatanmu tidak bisa dimaafkan! ”</p>
+<p>	“Lepaskan mereka, dan kami mungkin akan menyelamatkanmu dari hidupmu!”</p>
+<p>	“Fang Zheng, lepaskan mereka sekarang, dan kembalilah bersama kami, kami akan membiarkanmu pergi dengan selamat!”</p>
+<p>	Tiga tetua klan berbicara, ekspresi mereka sangat jelek.</p>
+<p>	Mereka kuat, dan mengikuti kelompok ini sepanjang waktu. Tetapi saat mereka merasakan perubahan ini, mereka bergegas ke tempat kejadian.</p>
+<p>	“Kalian akhirnya memutuskan untuk menunjukkan dirimu? Luar biasa …” Fang Yuan mencibir, Bai Sheng dan Bai Hua berjuang keras di tangannya.</p>
+<p>	“Bajingan jahat, lepaskan kami!”</p>
+<p>	“Jika kamu membunuhku, kamu juga akan mati!”</p>
+<p>	Kedua anak itu berteriak dengan sekuat tenaga, wajah mereka memerah karena mati lemas.</p>
+<p>	Kedua anak ini adalah Master Gu Peringkat 5 di masa depan, penguasa klan Bai, Bintang Kembar yang Benar. Tapi sekarang, sayangnya, mereka tidak berdaya dan dicekik oleh Fang Yuan.</p>
+<p>	Setelah beberapa saat, mata mereka mulai berputar ke belakang dan napas mereka melambat.</p>
+<p>	“Fang Zheng! Jangan salah, lepaskan kedua tuan muda itu!”</p>
+<p>	“Kami telah memberi Anda kesempatan, selama Anda melepaskan tuan muda, kami akan membiarkan Anda pergi, kami pasti tidak akan mengejar Anda.”</p>
+<p>	“Apa yang kamu inginkan? Batu purba, cacing Gu?”</p>
+<p>	Tiga tetua klan cemas, dan mata mereka menunjukkan ekspresi kejam seolah-olah mereka tidak sabar untuk menyerang.</p>
+<p>	“Hmph, bukankah kata-kataku sebelumnya cukup jelas? Kalian semua keluar, jika tidak….” Fang Yuan tertawa licik, menggunakan tatapannya untuk memberi isyarat kepada Bai Ning Bing.</p>
+<p>	Bai Ning Bing mengerti, mengeluarkan kelabang emas gergaji mesin.</p>
+<p>	Dia menyuntikkan esensi purba ke dalamnya, dan pisau cukur mulai berputar dengan ganas, bergerak ke arah lengan lembut Bai Hua.</p>
+<p>	“Lepaskan adikku… le… lepaskan….” Bai Sheng menatap dengan marah, napasnya mulai menjadi kasar saat dia berjuang dengan seluruh kekuatannya, tetapi Fang Yuan menggunakan sedikit lebih banyak kekuatan dan kata-katanya tersangkut di tenggorokannya.</p>
+<p>	“Jangan gegabah!”</p>
+<p>	“Berhenti berhenti!”</p>
+<p>	Pada titik ini, semakin banyak Master Gu masuk, dan semua orang berteriak dalam kecemasan.</p>
+<p>	Fang Yuan tertawa keras: “Pada hitungan ketiga, jika Anda tidak semua keluar dari gua ini, anggota tubuh tuan muda Anda akan hilang!”</p>
+<p>	Semua orang mengertakkan gigi, mata mereka terbakar api, mereka tidak menginginkan apa pun selain memotong Fang Yuan menjadi beberapa bagian.</p>
+<p>	“Masih tidak pergi?” Alis Fang Yuan terangkat dan dia mendekatkan Bai Hua ke gergaji mesin.</p>
+<p>	“Ah!” Semua orang berteriak.</p>
+<p>	“Tuhanku!!” Seorang Master Gu wanita muda menutupi matanya.</p>
+<p>	“Cepat, keluar dari gua!” Para tetua klan berteriak, mereka tidak berani bertaruh dengan nyawa tuan muda mereka.</p>
+<p>	Semua orang secara bertahap mundur, menatap Fang dan Bai di jalan keluar.</p>
+<p>	Jika tatapan bisa membunuh seseorang, Fang Yuan pasti sudah mati jutaan kali. Jika kemarahan itu seperti air, mereka pasti sudah tenggelam di bawah tsunami.</p>
+<p>	Ketika semua orang keluar dari gua, Fang Yuan melewati Bai Hua dan Bai Sheng ke Bai Ning Bing, sebelum mengamati sekeliling.</p>
+<p>	Gunung Bai Gu terbuat dari tulang tanpa batu atau tanah. Gua ini sama, putih seluruhnya. Dinding gua bahkan memiliki paku-paku tulang yang tajam, meskipun paku-paku tulang ini terlihat sama seperti di gua-gua lain, sebenarnya, jika diamati dengan baik, mereka akan menemukan bahwa paku-paku tulang ini berbentuk spiral di ujungnya, berbeda dari yang lain.</p>
+<p>	Ini adalah gua tulang spiral, juga pintu masuk ke warisan Cendekiawan Tulang Abu-abu.</p>
+<p>	Seluruh gunung Bai Gu memiliki banyak gua, tetapi ini adalah satu-satunya gua dengan begitu banyak paku tulang spiral.</p>
+<p>	Fang Yuan belum pernah ke sini. Tetapi di kehidupan sebelumnya dia telah mendengar banyak cerita yang bahkan disaksikan oleh Bai Sheng dan Bai Hua secara pribadi.</p>
+<p>	“Kami memasuki gua tulang spiral terlebih dahulu, lalu tanpa sengaja menemukan paku tulang yang bisa dipelintir; itu adalah mekanisme untuk membuka pintu masuk …… ”</p>
+<p>	Fang Yuan berpikir sejenak, sebelum mulai mencari lonjakan tulang khusus itu.</p>
+<p>	Ada paku tulang yang tak terhitung jumlahnya di gua ini, tetapi dalam kehidupan Fang Yuan sebelumnya, Bai Hua telah mengungkapkan bahwa saat itu ketika dia dan saudara laki-lakinya bermain di gunung belakang, dia melihat paku tulang besar di gua, dengan ukiran yang sangat dekat. tanda spiral. Dia menyentuhnya dengan santai, dan secara tidak sengaja memutarnya, membuka pintu masuk.</p>
+<p>	“Fang Zheng, kamu dikelilingi. Tidak ada cara untuk melarikan diri, keluarlah.”</p>
+<p>	“Sejujurnya, kami cukup baik kepada Anda, untuk berpikir Anda membalas kebaikan kami dengan tidak tahu berterima kasih!”</p>
+<p>	“Fang Zheng, aku akan memberimu beberapa saran, tinggalkan beberapa kelonggaran untuk dirimu sendiri. Jika sesuatu terjadi pada tuan muda kami, kami akan membalas dendam padamu dengan sekuat tenaga! ”</p>
+<p>	Gua itu tidak dalam, teriakan para Master Gu bisa terdengar bergema di dalam.</p>
+<p>	Bai Hua mulai terisak.</p>
+<p>	Bai Sheng berkata: “Fang Zheng, hentikan. Lepaskan kami dan aku akan membiarkan kalian berdua pergi dengan tenang. Saya meyakinkan Anda sebagai tuan muda. ”</p>
+<p>	Dia masih muda, tetapi lebih tenang daripada orang dewasa yang menghadapi kesulitan ini. Kecemerlangan bintang masa depan sudah ditampilkan dalam dirinya.</p>
+<p>	Fang Yuan tidak memedulikan mereka, tiba-tiba matanya bersinar.</p>
+<p>	Dia mengambil langkah ke depan sebelum mengulurkan tangannya ke arah duri tulang besar yang agak mencolok.</p>
+<p>	Selanjutnya, dia memutarnya dengan ringan.</p>
+<p>	Berderak…</p>
+<p>	Terdengar suara keras dan duri-duri tulang mulai berkontraksi; sebuah pintu rahasia terbuka dari samping, memperlihatkan lubang gua berbentuk persegi.</p>
+<p>	Mata Bai Ning Bing bersinar.</p>
+<p>	Bai Hua berhenti menangis, menatap perubahan ini dengan kaget.</p>
+<p>	“Ah, ada gua!” Bai Sheng berteriak.</p>
+<p>	“Hmph, tutup mulutmu.” Bai Ning Bing memotong lehernya, membuatnya pingsan.</p>
+<p>	Bai Sheng sengaja berteriak untuk meninggalkan jejak bagi orang-orang di luar.</p>
+<p>	Seperti yang diharapkan, keributan terjadi di luar.</p>
+<p>	“Gua?”</p>
+<p>	“Tidak bagus, mereka mencoba melarikan diri!”</p>
+<p>	“Mengejar!”</p>
+<p>	Fang Yuan menggeram: “Jika ada yang berani masuk, aku akan membunuh Bai Sheng terlebih dahulu.”</p>
+<p>	Teriakan ini menghentikan Master Gu klan Bai.</p>
+<p>	Fang Yuan dengan cepat berjalan ke dalam gua, Bai Ning Bing juga membuat Bai Hua pingsan, membawa mereka di masing-masing tangannya dan mengikuti.</p>
+<p>	Jalan rahasia ini terang benderang, bersinar dengan cahaya putih bersih. Hanya saja ada duri-duri tulang di mana-mana, menusuk dinding seperti tombak tajam..</p>
+<p>	Tombak tulang ini padat, menyegel seluruh terowongan. Hanya ada sedikit ruang di antara mereka, memungkinkan Fang Yuan melihat aula di luar mereka.</p>
+<p>	“Sepertinya inilah alasan kamu datang ke gunung Bai Gu, aku akan membukakan jalan untuk kita!” Bai Ning Bing bergerak maju, mencoba menggunakan kelabang emas gergaji, tetapi Fang Yuan menghentikannya.</p>
+<p>	“Tombak tulang ini sangat tangguh, jangan terburu-buru.” Fang Yuan mencari-cari sesuai dengan apa yang dikatakan Bai Hua di kehidupan sebelumnya; dia menemukan paku tulang spiral terpendek, dan menariknya.</p>
+<p>	Berderak……</p>
+<p>	Suara lain dari beberapa mekanisme yang diaktifkan, gua di belakang keduanya menyegel dirinya sendiri sementara tombak tulang di terowongan berkontraksi kembali ke dinding.</p>
+<p>	Tiba-tiba, jalan di depan mulus dan tidak terhalang.</p>
+<p>	Fang Yuan tertawa terbahak-bahak, berbalik dan berkata kepada Bai Ning Bing: “Selamat datang di gunung Bai Gu.”</p>
+<p>	Tatapan Bai Ning Bing berkedip, saat dia melihat ke belakang tanpa sadar.</p>
+<p>	Pintu masuk gua di belakangnya telah menyegel dirinya sendiri.</p>
+<p>	Master Gu klan Bai perlu menghabiskan sedikit waktu untuk mengejar mereka setidaknya untuk membuka pintu masuk gua ini.</p>
+<p>	Bibir Bai Ning Bing melengkung, menunjukkan senyum gembira.</p>
+<p>	Semuanya menjadi menarik, inilah kehidupan yang dia kejar…</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

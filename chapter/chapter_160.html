@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 160 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 160";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_159.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 160">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_161.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 160</h1>
+        <div class="text-left">
+<p>	Bab 160</p>
+<p>	Bab 160: Tepuk tangan yang luar biasa</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Dengan bam, serigala petir yang gila itu jatuh ke tanah seperti gajah raksasa.</p>
+<p>	Itu membuka mulutnya lebar-lebar, tetapi matanya kehilangan fokus saat kehidupan perlahan keluar dari tubuhnya.</p>
+<p>	Di sekujur tubuhnya terdapat luka. Saat darah serigala dicurahkan tanpa henti, lingkungan diwarnai merah.</p>
+<p>	Hujan terus mengguyur saat mengencerkan darah serigala, dan menyebabkan darah menyebar lebih jauh ke tanah.</p>
+<p>	Tanahnya berlumpur, dan beberapa tetua berdiri di samping mayat serigala petir yang hiruk pikuk, mengambil napas dalam-dalam saat tubuh mereka basah kuyup oleh hujan. Mereka juga berlumuran darah serigala dan lumpur, terlihat seperti pengemis.</p>
+<p>	“Akhirnya membunuhnya!”</p>
+<p>	“Serigala petir yang gila ini sebenarnya memiliki cacing Gu defensif di tubuhnya, dan sangat sulit untuk dikalahkan …”</p>
+<p>	“Untungnya kami memiliki Blood Moon Gu yang lebih tua dari Fang Yuan yang mengumpulkan luka di atasnya, atau akan lebih sulit untuk mencoba membunuhnya.”</p>
+<p>	Ketika para tetua mengatakan ini, mereka melihat ke arah Fang Yuan.</p>
+<p>	Awalnya ketika mereka mendengar bahwa Fang Yuan telah memurnikan Blood Moon Gu, mereka merasa tidak setuju terhadapnya. Tapi sepertinya sekarang, itu sangat efektif dalam menghadapi serigala petir yang gila.</p>
+<p>	“Saya tersanjung, sesama tetua yang terhormat, jika bukan karena bantuan dan perlindungan Anda, saya tidak akan bisa menyerang tanpa henti.” Fang Yuan menyeka air hujan dari wajahnya saat dia berkata dengan sopan.</p>
+<p>“Tidak, tidak, itu adalah tugas kita.”</p>
+<p>	“Kami sudah tua. Kami tidak merasakannya sebelumnya, tetapi setelah bertarung bersama dengan tetua Fang Yuan, kami merasa bahwa kami benar-benar menua. ”</p>
+<p>	“Memang, memang.”</p>
+<p>	Beberapa tetua tertawa bersama.</p>
+<p>	Dalam pertempuran sebelumnya, Fang Yuan memiliki pemahaman yang kuat tentang kapan harus menyerang dan mundur. Dengan serangannya yang kejam dan biadab, berkali-kali metodenya bahkan lebih efektif daripada tetua normal, menyebabkan para tetua klan melihatnya dengan cara yang berbeda.</p>
+<p>	Apalagi dengan sikapnya yang sopan dan rendah hati serta tidak ada rasa arogansi, dia jelas bukan seperti yang dikatakan rumor – orang yang menyendiri dan sulit diatur – sehingga para tetua memiliki kesan yang baik tentangnya.</p>
+<p>	“Saya masih memiliki banyak aspek yang perlu dipelajari dari kalian semua,” kata Fang Yuan dengan hormat, tetapi matanya bersinar dengan cahaya gelap.</p>
+<p>	Blood Moon Gu memiliki pro dan kontra.</p>
+<p>	Setelah menggunakannya berkali-kali, dia memiliki beberapa wawasan tentangnya.</p>
+<p>	Blood Moon Gu berspesialisasi dalam pertempuran berkepanjangan, menyebabkan cedera yang tidak dapat disembuhkan. Seiring waktu berlalu, luka musuh akan semakin parah.</p>
+<p>	Tapi ini didasarkan pada fakta bahwa tidak ada cacing Gu tipe penyembuhan.</p>
+<p>	Alam seimbang, tidak ada cacing Gu terkuat. Setiap Gu pasti memiliki kekuatan dan kelemahan.</p>
+<p>	“Kelemahan terbesar Blood Moon Gu adalah beberapa hari dalam sebulan di mana ia mengeluarkan darah dan menghadapi penurunan kekuatan pertempuran yang cepat. Ini adalah metode serangan utama saya, jadi ini membuatnya terlalu tidak stabil. Tapi, setelah aku mendapatkan Chainsaw Golden Centipede di tanah warisan Flower Wine, aku bisa menutupi kelemahan ini.”</p>
+<p>	Beberapa hari ini adalah periode siaga tinggi di mana gelombang serigala terus menyerang desa, jadi sebagai tetua klan, Fang Yuan menarik lebih banyak perhatian daripada sebelumnya dan tidak memiliki kesempatan untuk pergi ke gua rahasia retakan batu itu.</p>
+<p>	“Cepat, selamatkan klan kita!”</p>
+<p>	“Sapu medan perang, jangan lewatkan satu pun cacing Gu!”</p>
+<p>	Melihat serigala petir yang gila itu jatuh, sekelompok Master Gu yang menyembuhkan segera muncul.</p>
+<p>	“Para tetua yang terhormat, Anda semua telah mengerahkan diri, terimalah perlakuan khusus dari ruang pengobatan kami.” Master Gu terkemuka membungkuk ke arah Fang Yuan dan para tetua.</p>
+<p>	“Oh … Li Chen dari faksi obat.” Beberapa tetua klan mengenali orang ini, mengangguk dan mengubah ekspresi mereka.</p>
+<p>	Mereka sopan kepada Fang Yuan, memasang wajah penuh senyum. Tetapi terhadap orang ini, mereka menyimpan emosi mereka dan menunjukkan otoritas yang lebih tinggi.</p>
+<p>	Inilah perbedaan status!</p>
+<p>	Gu Yue Li Chen ini, hanya Guru Gu peringkat dua.</p>
+<p>	“Saya tidak mengalami cedera, saya tidak memerlukan perawatan. Sesepuh, mari kita bicara lagi ketika kita bebas. ” Fang Yuan mengangguk kepada para tetua.</p>
+<p>	“Penatua Fang Yuan sangat luar biasa, dia bahkan tidak terluka dari pertempuran seperti itu, sungguh pahlawan muda sejati!”</p>
+<p>	“Huh, dibandingkan dengan penatua Fang Yuan, kita benar-benar tua.”</p>
+<p>	“Hehe, jaga dirimu baik-baik, tetua Fang Yuan.”</p>
+<p>	Beberapa tetua mulai tertawa ketika mereka berkata.</p>
+<p>	“Penatua Fang Yuan, maafkan kekasaran saya, tetapi izinkan ruang pengobatan kami menyembuhkan Guru Gu untuk melakukan pemeriksaan untuk Anda,” desak Gu Yue Li Chen.</p>
+<p>	Dia adalah anggota faksi obat, dan setelah Fang Yuan membuat marah Gu Yue Yao Ji sampai pingsan, menyebabkan kejatuhannya, dia secara alami membenci Fang Yuan. Tetapi dengan posisi dan pekerjaannya, sebagai pemimpin dia tidak bisa mengabaikan Fang Yuan.</p>
+<p>	“Terima kasih atas niat baikmu, tapi tidak apa-apa. Aku akan melihat semua orang lagi!” Fang Yuan menepuk bahu Gu Yue Li Chen, pergi sambil tersenyum.</p>
+<p>	Para tetua tersenyum atau mengangguk untuk menjawabnya.</p>
+<p>	Hanya setelah dia pergi, ekspresi mereka berubah dengan cepat, berubah serius.</p>
+<p>	Fang Yuan ini, meskipun hanya kelas C, telah tumbuh hingga titik ini, benar-benar sulit didapat! Bertarung bersama dengannya, mereka bisa merasakan ketidakberdayaan dan kekejamannya, tetapi ketika memikirkannya, mereka merasa terancam. Ketika mereka berusia tujuh belas tahun, apakah mereka memiliki prestasi seperti itu?</p>
+<p>	Terutama ketika mereka melihatnya tersenyum saat dia menepuk bahu anggota faksi obat, bakat dalam politik dan perencanaan, itu benar-benar menakjubkan!</p>
+<p>	……</p>
+<p>	“Tuan Fang Yuan, apakah Anda mengenali saya?” Di sepanjang jalan, seseorang menunjukkan ekspresi hormat saat dia menyapa Fang Yuan.</p>
+<p>	“Kamu adalah …” Fang Yuan menyipitkan mata, mengenali orang ini sebagai teman sekelasnya. Hanya saja dia tidak bisa mengingat namanya, tetapi ketika dia memeras batu purba darinya, orang ini selalu menyerahkannya dengan baik. Itu menunjukkan kecemerlangannya di bawah kepribadian yang lemah lembut itu.</p>
+<p>	“Tuan Fang Yuan, saya Gu Yue Ding Zong. Memiliki keberuntungan untuk menjadi teman sekelasmu, itu adalah kehormatanku. Sebenarnya, setelah berita bahwa Anda telah maju ke sesepuh klan menyebar, banyak teman sekelas kami mengagumi dan iri pada Anda tuan, ingin mencari kesempatan untuk mendiskusikan pengalaman kultivasi dengan Anda. Apakah Anda bebas malam ini, Tuan?” Gu Yue Ding Zong menggosok tangannya, matanya tersenyum membentuk garis.</p>
+<p>	“Oh, begitu …” Alis Fang Yuan terangkat, mengangguk, “Oke, tapi biarkan aku mengganti pakaianku dulu, pakaian basah kuyup ini membuatku tidak nyaman.”</p>
+<p>	“Saya sudah menyiapkan air hangat dan baju baru, dan beberapa pelayan cantik sedang menunggu untuk melayani Anda Tuhan!” Gu Yue Ding Zong tersenyum, ekspresinya sangat bersemangat.</p>
+<p>	Fang Yuan menggelengkan kepalanya untuk menolak, “Tidak, sebelum itu, aku harus pergi ke terowongan bawah tanah.”</p>
+<p>	“Ah aku mengerti.” Ekspresi Gu Yue Ding Zong berubah. Terowongan bawah tanah hanya dapat diakses oleh para tetua klan, dan bagi orang-orang seperti mereka, itu adalah tanah terlarang di klan.</p>
+<p>	Selanjutnya, senyumnya menjadi lebih patuh, dan punggungnya melengkung lebih jauh, saat nadanya membawa perasaan seorang pelayan, “Tuhan, lanjutkan dengan bisnis Anda, waktu yang rendah ini tidak berharga, menunggu Anda juga merupakan kehormatan bagi Anda. Milikku.”</p>
+<p>	Fang Yuan mengangguk, tidak berbicara lagi dan terus berjalan pergi.</p>
+<p>	Gu Yue Ding Zong mundur selangkah dengan cepat, membuka jalan saat dia membungkuk dan mengirim Fang Yuan pergi dengan tatapannya.</p>
+<p>	Memasuki gua bawah tanah lagi.</p>
+<p>	Ruang rahasia yang berisi cacing Gu yang berharga ini sangat besar, hampir sebesar alun-alun desa.</p>
+<p>	Tapi cacing Gu yang terkandung di dalamnya tidak banyak; hanya ada beberapa lusin.</p>
+<p>	Rumput Deklarasi Gua, Jangkrik Pengembalian Udara, Capung Tulang Kering, Kupu-Kupu Sayap Phoenix … ada cacing Gu yang bervariasi dari Peringkat dua hingga empat.</p>
+<p>	Hanya ada sedikit Gu Peringkat dua, dan di antaranya adalah Gu Pemisah Cinta — ini adalah Gu racun nomor 1 di antara Gu peringkat dua, dan luka yang disebabkan olehnya tidak dapat disembuhkan bahkan oleh Gu penyembuh peringkat tiga.</p>
+<p>	Pemisahan Cinta ini, adalah milik Wang Er saat itu. Setelah mendapatkannya, klan menyimpannya di sini.</p>
+<p>	Yang paling banyak adalah Gu Peringkat tiga, sedangkan Gu peringkat empat relatif sedikit.</p>
+<p>	Fang Yuan tidak memiliki harapan yang tinggi. Meskipun klan memiliki sedikit keberuntungan, itu masih merupakan klan menengah dan memiliki persaingan dengan dua desa lain, serta tekanan gelombang serigala.</p>
+<p>	Tetapi untuk memikirkan itu, dia benar-benar menemukan Gu yang diinginkan.</p>
+<p>	Bunga Tusita.</p>
+<p>	Ini adalah rumput peringkat tiga Gu yang berbentuk seperti lentera merah, dan memiliki daun hijau bulat. Daunnya tebal dan gemuk, total tiga menunjuk ke tiga arah secara simetri.</p>
+<p>	Bunga tusita ini sama dengan rumput tusita. Tidak hanya dapat menyimpan makanan, tetapi juga dapat menyimpan batu purba dan merupakan salah satu Gu paling ideal dalam pikiran Fang Yuan.</p>
+<p>	“Tidak disangka desa Gu Yue ini memiliki bunga tusita. Dengan itu, saya dapat menutupi kelemahan penyimpanan, ”kegembiraan Fang Yuan, segera memilihnya.</p>
+<p>	“Sebenarnya, di desa pasti ada Gu peringkat lima. Klan Gu Yue memiliki dua ahli peringkat lima dalam sejarah, mereka pasti akan meninggalkan beberapa cacing Gu. Kecuali mereka tidak dapat ditempatkan di sini, Gu Peringkat lima ini adalah kartu truf desa, diberi makan oleh desa dengan semua sumber daya mereka. Meskipun untuk mengatakan ‘umpan’, itu sebenarnya lebih seperti persembahan. ”</p>
+<p>	Fang Yuan meninggalkan terowongan. Hujan sudah berhenti tapi cuaca masih mendung. Udara juga tidak segar, karena ada bau darah.</p>
+<p>	Fang Yuan berganti baju bersih dan perlahan bergerak menuju titik berkumpul.</p>
+<p>	“Penatua Fang Yuan, Anda di sini, merupakan kehormatan terbesar kami untuk memiliki Anda bersama kami!” Gu Yue Ding Zong berdiri di pintu, menatap dengan mata lebar. Dari jauh dia bisa melihat Fang Yuan berjalan di seberang jalan, dan dia dengan cepat tersenyum dan menerimanya.</p>
+<p>Dia membawa Fang Yuan ke gedung bambu. Sudah ada pesta yang disiapkan karena banyak orang duduk di sana.</p>
+<p>	Saat melihat Fang Yuan, mereka dengan cepat bangkit.</p>
+<p>	Segera setelah itu, segala macam pujian dan sanjungan mengalir seperti air ke arah Fang Yuan.</p>
+<p>	“Salam untuk tuan Fang Yuan.”</p>
+<p>	“Setelah sekian lama, pesona Fang Yuan yang lebih tua lebih besar dari sebelumnya, yang rendahan ini benar-benar mengagumimu!”</p>
+<p>	“Untuk menjadi teman sekelas tuan Fang Yuan, ini adalah keberuntunganku dari tiga kehidupan! Bahkan memikirkannya sekarang, rasanya seperti pengalaman mimpi…”</p>
+<p>	Tatapan Fang Yuan menyapu meja, melihat semua teman sekelasnya; mereka adalah wajah-wajah yang dikenalnya, semuanya adalah orang-orang yang telah diperasnya.</p>
+<p>	“Dengan senang hati.” Dia ringan tersenyum, duduk di posisi tertinggi.</p>
+<p>	“Sajikan hidangannya, sajikan anggur terbaik!” Gu Yue Ding Zong berteriak, dan para pelayan segera mulai bekerja.</p>
+<p>	Segala macam hidangan disajikan, rasa mereka yang terbaik; keluarga Gu Yue Ding Zong ini pasti memiliki beberapa aset. Untuk dapat menyajikan hidangan seperti itu selama gelombang serigala, itu menunjukkan bahwa dia benar-benar membayar mahal, menunjukkan ketulusannya.</p>
+<p>	“Penatua Fang Yuan, yang rendahan ini memanggangmu!”</p>
+<p>	“Penatua Fang Yuan, luangkan waktumu untuk minum, aku akan minum ini dulu!”</p>
+<p>	Fang Yuan benar-benar sangat santai. Dengan secangkir anggur, dia hanya menyesap sedikit setiap kali, tetapi orang-orang tidak memiliki keluhan tentang ini.</p>
+<p>	Setelah memanggang hampir semua orang dan minum dalam jumlah yang layak, dia tiba-tiba memegang cangkirnya dan berdiri, tertawa, “Anak-anak muda itu bodoh, saya belum dewasa di masa lalu dan melakukan beberapa hal yang mengerikan, saya harap semua orang bisa memaafkan saya, dan jangan mengingat masa lalu.”</p>
+<p>	Begitu dia berdiri, tidak ada orang lain yang berani terus duduk, dan mereka semua dengan cepat bangkit.</p>
+<p>	Semua orang tahu bahwa masalah yang dimaksud Fang Yuan adalah pemerasan batu purba.</p>
+<p>	Mereka dengan cepat berteriak, “Tidak sama sekali, tidak sama sekali!”</p>
+<p>	“Penatua Fang Yuan benar-benar memiliki karakter, pahlawan sejati!”</p>
+<p>	“Memiliki batu purba saya dimata oleh tetua Fang Yuan, itu adalah kehormatan terbesar kami!”</p>
+<p>	“Itu benar, itu benar, pesona dan kepahlawanan Fang Yuan yang lebih tua selalu terukir di hatiku …”</p>
+<p>	Fang Yuan meminum secangkir anggur ini dalam satu suap, saat semua orang bersorak dan bertepuk tangan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

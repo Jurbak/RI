@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 206 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 206";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_205.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 206">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_207.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 206</h1>
+        <div class="text-left">
+<p>	Bab 206</p>
+<p>	Bab 206: Menjadi pemimpin</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Matahari menggantung cerah di langit biru dan awan putih.</p>
+<p>Sinar matahari menyinari daratan saat Sungai Naga Kuning mengalir, dengan hutan lebat di samping sungai, membentuk lautan hijau.</p>
+<p>	Di mahkota pohon perangkap binatang, tanaman merambat digantung ketika delapan atau sembilan daun membentuk sangkar, seperti kumpulan kerang yang berdiri tegak.</p>
+<p>	Tiba-tiba di antara salah satu kandang, ada guncangan hebat.</p>
+<p>	Bangku gereja.</p>
+<p>	Bilah bulan merah terang melesat keluar dari sana, merobek dedaunan.</p>
+<p>	Seorang gadis muda dengan pakaian berwarna terang, diselimuti baju besi berwarna putih di tubuhnya, muncul dari sangkar daun.</p>
+<p>	Dia lincah, kakinya mendarat di beberapa cabang di pohon, bergerak cepat saat dia melompat turun, akhirnya mendarat dengan selamat di tanah.</p>
+<p>	Itu adalah Bai Ning Bing.</p>
+<p>Sepanjang proses, pohon perangkap binatang itu tidak bergerak, seolah-olah sudah mati.</p>
+<p>	Bai Ning Bing memandangi pohon perangkap binatang ini, memikirkan apa yang dikatakan Fang Yuan padanya malam sebelumnya.</p>
+<p>	“Menuju mangsa yang lolos, pohon perangkap binatang tidak akan menyerang lebih jauh. Karena mangsa apa pun yang dapat melarikan diri, bukanlah sesuatu yang dapat ditangani oleh pohon. Bahkan tanpa kecerdasan, naluri pohon perangkap binatang dapat memungkinkannya beradaptasi dan bertahan hidup lebih baik di alam liar.”</p>
+<p>	“Achoo.”</p>
+<p>	Bai Ning Bing tidak bisa menahan bersin, saat dia menggosok hidungnya, dia mengamati sekeliling dan memeriksa lokasinya.</p>
+<p>	Di hutan perangkap binatang ini, sebagian besar sangkar daun tergantung tinggi di tajuk pohon seperti kerang hijau mengkilat.</p>
+<p>	“Sepertinya bau darah di pantai telah menarik banyak binatang buas. Pohon perangkap binatang itu panen besar tadi malam, ”pikir Bai Ning Bing dalam hatinya saat dia meregangkan anggota tubuhnya, mematahkan lehernya.</p>
+<p>	Dia tidak nyaman tidur tadi malam — mayat buaya itu keras dan keras. Ditambah dengan malam yang dingin, meskipun dia sangat lelah, dia terbangun karena kedinginan beberapa kali.</p>
+<p>	Jadi, dengan kantung mata yang besar, dia berada dalam kondisi mental yang buruk. Tetapi setelah berkultivasi sebentar, staminanya telah pulih lebih dari setengahnya.</p>
+<p>	Pada saat ini, dia berdiri di area dengan sinar matahari, menggunakan sinar matahari untuk menghilangkan rasa dingin di tubuhnya.</p>
+<p>	“Bai Ning Bing, biarkan aku keluar.” Sebuah suara terdengar, tidak lain adalah Fang Yuan. Dia tidak perlu menggunakan Rumput Komunikasi Pendengaran Bumi untuk memperhatikan keributan itu.</p>
+<p>	Bai Ning Bing melirik pohon perangkap binatang lainnya. Di mahkota pohon ini, sangkar daun yang telah menangkap Fang Yuan masih berada di tempat yang sama.</p>
+<p>Dia tertawa dalam hati, tidak menjawab, malah menutup matanya dan beristirahat sambil mandi di bawah sinar matahari, menunda dengan sengaja.</p>
+<p>	Lima belas menit kemudian, dia menembakkan pedang bulan berwarna darah, memotong tanaman merambat.</p>
+<p>	Daun seperti kerang tersebar di tanah saat mereka robek dan tersebar.</p>
+<p>	Bai Ning Bing perlahan berjalan mendekat, menggunakan blood moonblade lain, memotong daun saat Fang Yuan keluar dari kandang.</p>
+<p>	“Ada apa dengan penundaan itu? Saya bangun berabad-abad yang lalu, dan bahkan berhasil berkultivasi untuk sementara waktu. ” Wajah Fang Yuan berkilauan, terlihat sangat segar.</p>
+<p>	Pakaian dan jubah yang dia keluarkan tadi malam sudah disimpan.</p>
+<p>	Bai Ning Bing mendengus. Situasi Fang Yuan saat ini di luar dugaannya.</p>
+<p>	Dia mengira Fang Yuan akan seperti dia, tidak bisa tidur sambil merasa lapar dan kedinginan. Jadi dia menunda pembebasannya, mencoba menyiksanya.</p>
+<p>	Tetapi untuk berpikir bahwa kondisinya berada pada puncaknya!</p>
+<p>	“Sudah larut, kita harus mulai bergerak. Ayo makan dulu.” Fang Yuan menembakkan bunga tusita, mengeluarkan batu bara, rak besi, panci besi, botol air dan biskuit kering, dll.</p>
+<p>	Dia bergerak cepat, memasak sepanci sup daging dalam waktu singkat.</p>
+<p>	Selanjutnya dia mencari di sekitar, menemukan sejumlah besar jamur di bawah penutup pohon perangkap binatang.</p>
+<p>	Jamur pohon ini panjang, kering dan tipis, tampak ungu tua atau hitam.</p>
+<p>	Bai Ning Bing memandang Fang Yuan saat dia memasukkan ini ke dalam panci, bertanya, “Tumbuhan liar tidak bisa dimakan tanpa hati-hati, mereka mungkin beracun.”</p>
+<p>	“Ya, kamu benar.” Fang Yuan mengangguk. “Kalau begitu jangan makan.”</p>
+<p>	Bai Ning Bing tertawa dingin, “Jika kamu diracuni, aku tidak punya cacing Gu yang menyembuhkan.”</p>
+<p>	Fang Yuan dengan acuh tak acuh mengeluarkan sendok, meminum seteguk besar sup daging di bawah pengawasan Bai Ning Bing.</p>
+<p>	Bai Ning Bing mendengus.</p>
+<p>	Hanya sampai Fang Yuan minum lima hingga enam suap sup, dia meyakinkan dirinya sendiri bahwa tidak ada bahaya dalam sup itu.</p>
+<p>	Setelah minum dari sendok, matanya bersinar.</p>
+<p>	Dibandingkan kemarin, semur ini memiliki rasa yang jauh lebih segar dan manis!</p>
+<p>	Dia mengarahkan pandangannya ke arah jamur pohon dalam sup. Ternyata, perbedaan itu disebabkan oleh jamur ini.</p>
+<p>	Dia tidak bisa tidak melihat Fang Yuan saat dia duduk di atas batu, minum sup dengan kepala menunduk saat dia makan biskuit kering, penuh semangat.</p>
+<p>	Meskipun kondisi tidur mereka sama, Bai Ning Bing membandingkannya dengan keadaan menyedihkannya sendiri dan merasakan sedikit kekaguman terhadap Fang Yuan di dalam hatinya, tidak peduli seberapa banyak dia menyangkalnya.</p>
+<p>	Tentu saja, jika dia tahu bahwa Fang Yuan diam-diam mengeluarkan jubah dan pakaiannya agar tetap hangat, maka dia akan memiliki perasaan yang berbeda bersama-sama.</p>
+<p>	Fang Yuan merasakan tatapannya mendarat padanya.</p>
+<p>	Tapi dia tidak mengangkat kepalanya, hanya tersenyum ringan, berpura-pura tidak menyadarinya dan terus makan.</p>
+<p>	Sejak gunung Qing Mao di mana Bai Ning Bing dengan tegas menyelamatkannya, Fang Yuan merasakan sifat iblis murni dalam dirinya.</p>
+<p>	Setan-setan itu gila, kebal terhadap nalar, dengan gigih berjalan di jalannya sendiri. Sifat iblis Bai Ning Bing memberi Fang Yuan beberapa ide tentang cara memanfaatkannya.</p>
+<p>	Tapi orang ini, Bai Ning Bing, juga kompleks.</p>
+<p>	Di satu sisi, dia terlalu lembut. Setelah mendapatkan kehidupan baru dan menyelesaikan masalah fisik Jiwa Es Gelap Utara, dia tidak ingin menyerah lagi, menikmati hidup dan tidak memutuskan untuk mati.</p>
+<p>	Tetapi di sisi lain, sifat iblisnya membuatnya mengejar kegembiraan, sehingga memiliki kepribadian yang benar-benar tidak terkendali. Dia tidak takut mati, dan jika kematian cukup menarik, dia akan mengejarnya.</p>
+<p>	Orang seperti itu seperti naga muda, penuh rasa ingin tahu terhadap dunia, membawa sifat yang tidak terkendali, dan keliarannya tidak dapat dijinakkan. Dia memiliki jalannya sendiri, ambisi dan aspirasinya sendiri.</p>
+<p>	Bai Ning Bing belum sepenuhnya tumbuh menjadi raja iblis; dia hanyalah seorang anak iblis sekarang. Tetapi iblis sejati ini tidak akan pernah mengubah jalannya, dan arahnya tidak dapat diubah, dan dia pasti tidak akan tunduk kepada siapa pun.</p>
+<p>	Setan sejati hanya setia pada diri mereka sendiri, bergerak dalam kegelapan sendirian, berjalan di jalannya sendiri.</p>
+<p>	Setan sejati akan mengagumi orang lain, tetapi mereka tidak akan pernah tunduk.</p>
+<p>	Setan sejati adalah penguasa mereka sendiri, keberadaan tertinggi!</p>
+<p>	Fang Yuan memahami Bai Ning Bing karena Fang Yuan memahami dirinya sendiri. Dia tahu bahwa Bai Ning Bing tidak akan pernah tunduk padanya, tetapi tidak tunduk tidak berarti dia tidak bisa ditundukkan. Meskipun tidak dapat mengubah jalannya, itu tidak berarti dia tidak dapat digunakan.</p>
+<p>	Jika Fang Yuan memiliki kultivasi peringkat tiga, dia tidak akan membutuhkannya. Tetapi dengan hanya Peringkat satu tahap awal sekarang, nilai Bai Ning Bing sangat bagus.</p>
+<p>	Tentu saja, ingin menaklukkannya dan memanfaatkannya, beberapa upaya perlu dilakukan.</p>
+<p>	Bai Ning Bing cerdas dan arogan, dan tidak bisa dipaksakan. Hanya melalui beberapa hal kecil, atau pengaruh eksternal untuk menekannya, dia bisa perlahan-lahan dijinakkan.</p>
+<p>	Diam-diam mengambil pakaian agar tetap hangat, bukan karena Fang Yuan picik. Sebelumnya Bai Ning Bing sengaja menunda waktu, dan Fang Yuan tidak mengejarnya; itu bukan karena dia murah hati.</p>
+<p>	“Untuk menaklukkan Bai Ning Bing, saya perlu menghabiskan banyak waktu. Tapi saya tidak terburu-buru, mari kita pelan-pelan, saya perlu waktu untuk memulihkan kultivasi saya. ”</p>
+<p>	Setelah keduanya makan, hari sudah hampir siang.</p>
+<p>	Di tanah, ada jejak kaki binatang buas di mana-mana. Keduanya terus bergerak, saat Bai Ning Bing membuka jalan menuju arah tenggara.</p>
+<p>	Semakin dalam mereka pergi, semakin tinggi pohon-pohon di hutan. Sebelumnya hanya ada pohon perangkap binatang dengan tinggi sekitar tiga sampai empat meter, tetapi secara bertahap, mereka menjadi lima sampai enam meter, dan kadang-kadang ada pohon raja setinggi tujuh sampai delapan meter, seperti burung bangau di antara sekawanan ayam.</p>
+<p>	Tentu saja ada juga cabang pohon sekarat yang jatuh ke tanah, dipenuhi lumut hijau. Atau di beberapa daerah, ada daun yang bertunas, atau kayu yang patah, terbelah oleh kilat, menunjukkan kemurkaan surga.</p>
+<p>	Makhluk-makhluk besar ini tumbuh dalam jarak dekat di daerah ini, menyelimuti surga.</p>
+<p>	Semakin dalam, semakin dingin.</p>
+<p>	Sinar matahari yang kuat terhalang oleh dedaunan pohon yang berkilau, dan hanya sinar kecil yang bisa menembus, menciptakan bayangan besar di hutan.</p>
+<p>	Angin bertiup, dan dedaunan pohon mengeluarkan suara desir, saat bayangan bergerak seperti emas yang hancur.</p>
+<p>	Di hutan, tidak semuanya damai.</p>
+<p>	Kadang-kadang, akan ada rusa, rubah, kelinci, dan hewan lain yang berkeliaran.</p>
+<p>	Sebagian besar adalah burung, segala jenis burung, baik dalam kelompok bertiga atau lima, atau kawanan besar yang terbang di langit. Yang lain berdiri di cabang-cabang pohon saat mereka bernyanyi dengan harmonis.</p>
+<p>	Terkadang, akan ada auman harimau dari jauh.</p>
+<p>	Keduanya bergerak dan berhenti, mengandalkan rumput Komunikasi Pendengaran Bumi untuk menghindari banyak bahaya. Tetapi beberapa area tidak dapat dihindari, sehingga kekuatan pertempuran Bai Ning Bing diperlukan untuk memaksa mereka melewatinya.</p>
+<p>	Budidaya peringkat tiga sudah cukup untuk menangani masalah di alam liar.</p>
+<p>	MALAM turun lagi, dan Fang Yuan menemukan tempat berkemah yang aman; itu adalah bukit batu.</p>
+<p>	Bai Ning Bing sangat lelah, langsung tertidur bahkan di bebatuan tajam yang kasar.</p>
+<p>	Pada hari kedua ketika dia bangun, seluruh tubuhnya sakit dan bahkan kepalanya tidak bisa berputar dengan baik, lehernya kaku. Bersinnya juga menjadi lebih sering; itu jelas dia masuk angin.</p>
+<p>	Fang Yuan mempertimbangkan semua ini saat mereka melanjutkan perjalanan mereka.</p>
+<p>	Mereka bergerak sangat lambat, karena tidak ada Gu tipe gerakan untuk bepergian. Sebelumnya, Fang Yuan menggunakan laba-laba Thousand Li Earthwolf dan Bai Ning Bing menggunakan White Form Immortal Snake Gu; keduanya adalah Gu seluler yang berada di peringkat lima. Sayangnya satu meninggal dan yang lainnya melarikan diri.</p>
+<p>	Tetapi Fang Yuan tidak terburu-buru — kultivasinya lemah dan dia membutuhkan waktu untuk berkultivasi.</p>
+<p>	Setiap kali ada istirahat ketika mereka bepergian di siang hari, bahkan saat istirahat dia akan mengambil setiap detik untuk berkultivasi.</p>
+<p>	Pada malam hari, dia akan berkultivasi hingga larut malam.</p>
+<p>	Beberapa hari kemudian, Bai Ning Bing jatuh sakit, masuk angin. Kepalanya sakit dan kekuatan bertarungnya turun dengan cepat, juga demam.</p>
+<p>	Fang Yuan harus berhenti dan menggunakan obat di bunga tusita padanya, serta beberapa pasta medis untuk dioleskan ke tubuhnya. Meskipun mereka membakar kulit, mereka membantu menghilangkan rasa dingin di tubuhnya.</p>
+<p>	Hanya setelah beristirahat selama enam hari Bai Ning Bing pulih.</p>
+<p>	Penyakit ini adalah pelajaran besar baginya. Selama periode itu, dia mengantuk dan hampir tidak memiliki kekuatan di tubuhnya, bahkan tidak bisa mengoleskan pasta sendiri. Fang Yuan yang membantunya.</p>
+<p>	“Jika bukan karena Fang Yuan, aku akan berada dalam posisi kritis kali ini…” Setelah Bai Ning Bing pulih, dia menghela nafas dalam hati. Tidak peduli berapa banyak dia tidak ingin setuju dengan itu, itu adalah kebenaran.</p>
+<p>	Di masa lalu, nada suaranya keras dan sangat agresif. Tapi setelah masalah ini, dia menjadi lebih pendiam, sering diam; kadang-kadang, dia bisa pergi selama setengah hari tanpa berbicara.</p>
+<p>	Semakin sedikit dia berbicara, semakin banyak Fang Yuan memimpin dan otoritasnya meningkat. Dengan cara ini, dia perlahan menjadi pemimpin di antara keduanya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

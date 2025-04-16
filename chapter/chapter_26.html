@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 26 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 26";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_25.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 26">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_27.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 26</h1>
+        <div class="text-left">
+<p>	Bab 26</p>
+<p>	Bab 26 – Sifat dari semua organisasi</p>
+<p>	Saat mendekati malam, matahari di tepi cakrawala tampak seperti darah. Sinar sisa-sisa mengalir ke sekolah di mana sekitar lima puluh siswa duduk tegak. Di panggung di atas, sesepuh akademi membacakan nama satu per satu, membagikan uang saku kepada mereka.</p>
+<p>	Ini adalah subsidi mingguan akademi di mana setiap tujuh hari tunjangan akan didistribusikan. Bisa dikatakan itu adalah bantuan keuangan untuk para remaja muda ini. Lagi pula dengan kemampuan mereka, untuk memberi makan dan membesarkan Gu mereka sendiri adalah banyak tekanan finansial.</p>
+<p>	“Gu Yue Fang Yuan.” Yang lebih tua membaca dengan keras.</p>
+<p>	Fang Yuan bangkit dari kursi di dekat jendela di baris terakhir. Dia berjalan ke atas panggung, menerima dua kantong uang. Dalam satu tas ada tiga batu purba – uang saku klan. Tas lainnya berisi hadiah sepuluh batu purba.</p>
+<p>	“Kerja keras,” kata si penatua. Dia menatap Fang Yuan dalam-dalam. Fang Yuan terus mencapai nomor satu, dan ini membuat para tetua yang awalnya kecewa padanya mulai sedikit memperhatikan.</p>
+<p>	Fang Yuan menganggukkan kepalanya dan mengambil dompet itu ke dalam pelukannya, kembali ke tempat duduknya.</p>
+<p>	“Sialan, dia benar-benar mendapat nomor satu lagi …” Gu Yue Mo Bei mengarahkan pandangannya ke Fang Yuan dengan tegas, hatinya agak marah.</p>
+<p>	“Dua pedang bulan itu secara berurutan mengenai leher boneka itu. Apakah ini karena keberuntungan belaka atau keterampilan nyata? ” Gu Yue Chi Cheng menyipitkan matanya. Sejak akhir penilaian sampai sekarang, pertanyaan ini telah melayang di benaknya.</p>
+<p>	Bukan hanya dia – banyak siswa tanpa sadar mengalihkan pandangan mereka ke arah Fang Yuan. Pertanyaan ini menghantui mereka. Meskipun mereka telah kalah, hati mereka tidak puas dan mereka ingin mempertanyakan apa yang sebenarnya terjadi.</p>
+<p>	Ketika hari hampir berakhir, tetua akademi mengumumkan suatu masalah. “Kalian semua telah berada di akademi untuk waktu yang lama sekarang, dan kalian juga akrab dengan cara menggunakan Gu vital kalian . Dalam beberapa hari ke depan saya akan mengajari Anda semua cara menghangatkan dan memelihara bukaan Anda, memajukan ranah kultivasi Guru Gu . Semakin tinggi ranah Master Gu , semakin ringkas esensi purba Anda. Seorang Master Gu peringkat satu memiliki esensi purba tembaga hijau; Master Gu peringkat dua memiliki esensi purba besi merah dan peringkat tiga GuGuru memiliki esensi purba perak putih. Satu porsi esensi purba besi merah sebanding dengan sepuluh porsi esensi purba tembaga hijau. Demikian pula sebagian dari esensi purba perak putih sama dengan sepuluh porsi esensi purba besi merah!</p>
+<p>	“Kalian semua harus ingat, Gu hanyalah alat yang kita gunakan. Kultivasi adalah fondasi kami, para Master Gu . Semakin tinggi peringkat Anda, semakin kuat Gu yang dapat Anda gunakan. Dalam tiga bulan ke depan, siapa pun yang dapat memimpin dan dipromosikan ke peringkat satu tahap tengah akan menerima hadiah tiga puluh batu purba. Pada saat yang sama dia akan dapat memilih Gu kedua terlebih dahulu. Setelah tiga bulan, kami akan memilih pengawas kelas dan dua wakil pengawas kelas berdasarkan hasil. Monitor kelas akan menikmati subsidi sepuluh batu purba sementara monitor wakil kelas akan mendapat tunjangan lima buah! Baiklah, itu saja untuk hari ini. Kalian semua bisa pergi.”</p>
+<p>	Kata-kata tetua membuat akademi meledak dengan kebisingan.</p>
+<p>	“Saatnya memilih pemantau kelas dan wakil pemantau kelas!” Seseorang mengepalkan tinjunya karena kegembiraan.</p>
+<p>	“Monitor kelas menerima sepuluh batu purba setiap tujuh hari, dan wakil monitor kelas mendapat lima buah? Jika saya bisa menjadi yang pertama mencapai peringkat satu tahap tengah, saya pasti akan bisa menjadi pemantau kelas. ” Yang lain memiliki cahaya di matanya.</p>
+<p>	“Batu purba bukanlah fokus penting. Yang penting di sini adalah posisi pemantau kelas dan wakil pemantau kelas – mewakili kemuliaan dan menempatkan identitas seseorang di atas orang lain. Ketika siswa normal melihat monitor kelas, mereka semua harus membungkuk dan menyapanya.” Gu Yue Mo Bei dan Chi Cheng tidak kekurangan batu purba, tetapi mereka menganggap kemuliaan posisi sangat penting.</p>
+<p>	“Untuk menjadi pemantau kelas, tanpa kesalahan itu adalah orang pertama yang naik ke peringkat satu tingkat menengah pertama! Itu berarti ketika kakak melihat saya di masa depan, dia harus membungkuk dan secara otomatis menyapa saya. Tunggu, di mana kakak? ” Gu Yue Fang Zheng tanpa sadar melihat ke belakang, tetapi kursi Fang Yuan kosong.</p>
+<p>	Para siswa berjalan keluar dari akademi.</p>
+<p>	“Di mana Gu Yue Fang Yuan?” Gu Yue Mo Bei ingin mencari Fang Yuan dan bertanya langsung padanya. Namun Fang Yuan selangkah lebih maju dan sudah lama pergi.</p>
+<p>	“Hmph, dia benar-benar kabur dengan cepat. Apakah dia takut? Sepertinya dia beruntung lagi dalam ujian hari ini.” Gu Yue Chi Cheng mencibir.</p>
+<p>	“Terserah, itu hanya sepuluh batu purba. Saya tidak perlu peduli dengan masalah kecil ini, saat ini yang penting adalah maju ke tingkat menengah dan mendapatkan posisi pemantau kelas itu. ” Gu Yue Mo Bei menyipitkan matanya, melihat ke sisinya dimana Gu Yue Chi Cheng dan Gu Yue Fang Zheng berada.</p>
+<p>	Kedua sosok ini adalah musuhnya yang sebenarnya, sementara Fang Yuan hanyalah talenta kelas C kecil; dia tidak setara.</p>
+<p>	“Dalam dua kali pertama, Fang Yuan beruntung dan mendapat nomor satu. Namun kali ini adalah ujian kultivasi, dan fokusnya adalah pada bakat kultivasi. Ketika bakat lebih tinggi, keuntungannya menjadi jauh lebih besar, ”pikir Gu Yue Chi Cheng, tertekan di dalam hatinya. Bakat kelasnya yang sebenarnya hanya kelas C; hanya karena kecurangan yang membuatnya mendapatkan ilusi memiliki nilai B.</p>
+<p>	“Hanya seorang pemantau kelas dan dua posisi pemantau wakil kelas membuat mereka gatal. Betapa berdarah panas dan naifnya mereka pada usia ini, ”Fang Yuan mencibir sambil bersandar di pintu gerbang akademi.</p>
+<p>	Yang disebut kemuliaan hanyalah alat berharga yang digunakan tingkat atas untuk memotivasi orang-orang di bawah mereka. Pada akhirnya, itu hanya lapisan kemuliaan ilusi, itu tidak berguna!</p>
+<p>	Pengalamannya selama lima ratus tahun telah lama memungkinkan Fang Yuan untuk memahami beberapa rahasia kehidupan.</p>
+<p>	“Apakah itu datang ke klan, sekte atau kelompok iblis, apakah itu dunia atau bumi ini, semua organisasi seperti ini. Posisi tinggi dan rendah ditetapkan, membuat hukum promosi menjadi jelas, membiarkan orang-orang dalam organisasi naik tanpa henti dari bawah. Karena mengejar keuntungan adalah sifat manusia, dan posisi otoritas sering membuat orang memiliki keunggulan, menciptakan ilusi bahwa diri sendiri menjalani kehidupan yang lebih berharga daripada orang lain.</p>
+<p>	“Kekuasaan itu seperti wortel yang menjuntai di depan seekor keledai. Keinginan manusia dirangsang olehnya, dan masing-masing dari mereka mengamankan keuntungan pribadi mereka dengan seseorang yang berwenang untuk itu. Setelah naik satu tingkat, akan ada tingkat yang lebih tinggi. Sementara mereka sibuk mencari bantuan untuk keuntungan pribadi, kerja keras mereka diperas dari mereka dan nilai mereka dieksploitasi oleh posisi atas.”</p>
+<p>	“Di setiap organisasi, selama ada rantai komando, itu adalah untuk melayani mereka yang berada di peringkat atas. Apa yang disebut monitor kelas dan posisi monitor wakil kelas seperti wortel terkecil, memikat semua orang ke dalam struktur klan. Dan untuk menghentikan mereka yang berada di bawah menyadari kebenaran, mereka yang berada di posisi yang lebih tinggi mengintegrasikan nilai-nilai bersama, memotong gagasan tentang kemuliaan, perbuatan baik, dll. Penetapan posisi tinggi dan rendah dilakukan bersamaan dengan manfaat yang tidak setara. Terkadang penggunaan agama dilakukan untuk menguasai hati orang.”</p>
+<p>	“Ini adalah kebenaran yang sebenarnya, namun sangat disayangkan bahwa terlalu banyak orang di dunia ini yang tidak mengerti; mereka dengan bodohnya bekerja keras untuk orang lain. Dan untuk setiap organisasi di dunia, esensinya yang paling mendasar hanyalah satu hal, yaitu – Redistribusi sumber daya, di mana semakin tinggi posisinya, semakin banyak sumber daya yang dapat mereka nikmati.”</p>
+<p>	Dalam kehidupan sebelumnya, Fang Yuan telah mendirikan Sekte Setan Bloodwing di Kerajaan Tengah, di mana ia mengajar hingga puluhan ribu orang. Dia mendirikan posisi tentara iblis, jenderal iblis, orang bijak iblis, dll. Setiap posisi memberikan manfaat yang sesuai, membiarkan banyak orang berkumpul seperti bebek, membiarkan Fang Yuan memerintah mereka. Pengalaman semacam ini memungkinkan Fang Yuan untuk memahami dengan jelas cara berpikir dalam prinsip ini.</p>
+<p>	“Jadi organisasi apa pun hanyalah representasi, sedangkan basis sebenarnya hanyalah satu kata – sumber daya. Tanpa sumber makanan, seseorang akan mati kelaparan. Tanpa sumber air, seseorang akan mati kehausan. Tanpa sumber daya kultivasi, seseorang akan menjadi lemah dan cepat atau lambat, diintimidasi sampai mati. ”</p>
+<p>	“Dan untuk seorang Guru Gu , batu purba adalah sumber daya yang paling penting!” Dua bola Fang Yuan sangat dalam seperti kolam kuno, dan saat pikirannya mencapai titik ini, sudut bibirnya sedikit melengkung, menciptakan garis cibiran.</p>
+<p>	Dia telah lama meninggalkan akademi, dan saat ini dia berdiri di gerbang masuk sekolah. Dia melihat gelombang pertama siswa keluar, secara bertahap berjalan lebih dekat ke arahnya.</p>
+<p>	“Ini Fang Yuan.”</p>
+<p>“Apa yang dia lakukan di tengah pintu masuk gerbang?”</p>
+<p>“Hmph, setiap kali aku melihat keadaan disfungsionalnya yang mati, aku merasa sangat kesal.”</p>
+<p>“Jangan khawatir tentang dia, dia mungkin sedang menunggu seseorang.”</p>
+<p>	Para remaja muda tidak memperhatikannya. Tepat ketika mereka akan berjalan, Fang Yuan melangkah dan menghalangi mereka. “Aku sedang menjarah . Setiap orang harus menyerahkan sepotong batu purba sebelum mereka bisa pergi. ”</p>
+<p>	T/N: Merampok waktu. Betapa sakitnya bab ini untuk menerjemahkan &gt;_&gt;</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

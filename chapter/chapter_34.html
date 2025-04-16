@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 34 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 34";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_33.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 34">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_35.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 34</h1>
+        <div class="text-left">
+<p>	Bab 34</p>
+<p>	Bab 34 – Pemukulan Menekan!</p>
+<p>	Fang Yuan tidak memedulikan pria itu dan mulai melakukan banyak tugas. Dia secara bersamaan menyerap esensi alami dari batu purba dan mengamati aperture-nya.</p>
+<p>	Permukaan laut purba yang semula turun drastis di dalam celah, dengan bantuan dari aliran konstan esensi alam, mulai perlahan naik lagi. Bentuk kecepatan pemulihan ini pasti lambat, tetapi Fang Yuan tidak terburu-buru.</p>
+<p>	Budidaya dimaksudkan untuk menjadi akumulatif; itu tidak bisa terburu-buru.</p>
+<p>	Masalah mendesak yang dihadapi sebenarnya adalah pelayan setengah baya di luar rumah.</p>
+<p>	Setelah setengah jam, laut purba tembaga hijau Fang Yuan mencapai 44%, kapasitas maksimum yang dapat ditampungnya. Tapi ini bukan akhir.</p>
+<p>	Pada titik ini laut purba menunjukkan warna hijau giok, ini hanya esensi purba tembaga hijau tahap awal peringkat satu. Esensi purba yang sebelumnya digunakan Fang Yuan untuk memelihara dinding aperture bukan lagi esensi purba tahap awal. Itu telah berubah menjadi esensi purba tahap menengah, disempurnakan oleh cacing Liquor.</p>
+<p>	“Cacing minuman keras.” Dengan pemikiran dari Fang Yuan, cacing Liquor di laut purba langsung terbang keluar dan melayang di udara, tubuhnya melengkung menjadi bentuk bola, menyerupai bola nasi putih.</p>
+<p>	Disiram .</p>
+<p>	10% dari esensi purba tahap awalnya dikerahkan dan dikirim ke tubuh Liquor Worm, dan segera esensi itu sepenuhnya diserap olehnya. Segera setelah itu, gelombang kabut minuman keras muncul dari tubuh cacing Liquor dan berkumpul menjadi gumpalan.</p>
+<p>	Sekali lagi, Fang Yuan mengerahkan 10% dari esensi purba dan menginvestasikannya ke dalam kabut minuman keras ini. Setelah kabut sepenuhnya dikeluarkan, 10% asli dari esensi purba tahap awal menyusut setengah secara fisik, dan pada saat yang sama warnanya berubah dari hijau giok menjadi hijau pucat.</p>
+<p>	Ini adalah esensi purba tingkat menengah.</p>
+<p>	“Untuk maju dalam kultivasi mereka, semua siswa biasa menggunakan esensi purba tahap awal. Namun, saya akan menggunakan esensi purba tahap menengah, dan efisiensinya setidaknya dua kali lipat dari mereka. Demikian pula, ketika menggunakan esensi purba tahap menengah untuk mengaktifkan Moonlight Gu dan melempar pedang bulan, itu akan jauh lebih kuat daripada mengaktifkannya menggunakan esensi purba tahap awal.</p>
+<p>	Hanya ketika semua esensi purba di laut purba telah diubah menjadi esensi purba tahap menengah, Fang Yuan membuka matanya.</p>
+<p>	Waktu berlalu dalam sekejap mata ketika berkultivasi, dan pada titik ini sudah tengah malam. Langit tidak lagi hitam murni, tetapi telah berubah warna menjadi biru tua. Bulan tidak lagi terlihat, dan hanya beberapa bintang yang tersisa.</p>
+<p>	Pintu terbuka hampir sepanjang malam, dan sudut pintu kayu sudah basah, menunjukkan warna gelap saat air mengotorinya.</p>
+<p>	Asrama sekolah memiliki kelemahan ini, tidak senyaman pondok kayu biasa yang dibangun di atas tanah (1), tetapi langsung dibangun di atas tanah sehingga memiliki kelembaban yang tinggi.</p>
+<p>	Kembali ke kenyataan, Fang Yuan merasakan hawa dingin di punggungnya. Setelah duduk bersila untuk waktu yang lama, kedua kakinya terasa mati rasa. Dia membuka tangan kanannya yang terkepal dan menaburkan segenggam bubuk batu putih.</p>
+<p>	Ini adalah batu purba setelah esensinya telah sepenuhnya diserap, dan yang tersisa hanyalah bubuk yang tersisa.</p>
+<p>	“Setelah malam berkultivasi, saya telah menghabiskan tiga batu purba.” Fang Yuan menghitung dalam pikirannya.</p>
+<p>	Dia memiliki bakat peringkat C, tetapi untuk mengejar kecepatan kultivasi yang lebih cepat, dia menggunakan batu purba untuk mengisi kembali esensi purbanya. Yang lebih penting adalah cacing Liquor, karena telah digunakan untuk memperbaiki esensi purba tahap tengahnya.</p>
+<p>	Ini telah sangat meningkatkan pengeluaran batu purbanya.</p>
+<p>	“Meskipun saya menjarah sejumlah batu purba kemarin, malam kultivasi saya menghabiskan tiga batu. Dalam hal ini, meskipun tampaknya saya memiliki banyak sumber daya, itu tidak dapat menopang saya untuk waktu yang lama dengan kecepatan kultivasi saya saat ini, tetapi ini adalah harga yang harus saya bayar untuk mengejar kecepatan dan efisiensi kultivasi. ”</p>
+<p>	Fang Yuan melihat ke luar ruangan lagi, hanya untuk melihat Gao Wan, pelayan berotot, berjongkok di sudut dengan tubuhnya meringkuk, tampaknya tertidur.</p>
+<p>	“Sepertinya Tuan Gu wanita peringkat dua itu telah lama pergi, meninggalkan Gao Wan ini di sini untuk mengawasiku. Hehe .” Fang Yuan mengungkapkan senyum dingin saat dia turun dari tempat tidur dan mulai melatih anggota tubuhnya.</p>
+<p>	Setelah tubuhnya menghangat, dia meninggalkan asrama.</p>
+<p>	“Lad, kamu akhirnya memutuskan untuk keluar. Jadi bagaimana? Menyerah dengan patuh dan pergi bersamaku untuk bersujud dan meminta maaf kepada Nona muda kita. ” Telinga Gao Wan menangkap langkah Fang Yuan dan dia segera berdiri.</p>
+<p>	Tubuhnya yang berotot hampir dua kali ukuran Fang Yuan. Otot-otot di tubuhnya menegang dan alisnya menyatu, sepasang mata kejam bersinar dengan cahaya jahat, menyerupai hyena yang kelaparan.</p>
+<p>	Fang Yuan tanpa ekspresi berjalan ke arahnya.</p>
+<p>	“Lad, kamu seharusnya keluar lebih awal. Dengan keluar sekarang, apakah kamu tahu seberapa besar penderitaan The Great Me karena mengawasimu?” Dia mencibir saat mendekati Fang Yuan, ternyata merencanakan sesuatu yang jahat.</p>
+<p>	Pada saat ini, Fang Yuan dengan ringan berteriak, dan dengan lompatan ganas dia mengarahkan kedua tinjunya ke arah Gao Wan.</p>
+<p>	“Bajingan, kamu mencari kematian !!” Wajah Gao Wan terdistorsi dengan kemarahan yang meningkat di dalam dirinya, mengangkat tinjunya yang seukuran batu bata dan dia meninju ke arah Fang Yuan.</p>
+<p>	Tinju itu sangat kuat, membelah udara dan suara angin yang menderu bisa terdengar.</p>
+<p>	Mata Fang Yuan bersinar sebening kristal. Melihat tinju itu mendekat, dia melangkah ke samping dan berbalik ke arah belakang Gao Wan. Mengulurkan jari, dia memukul ke arah pinggang Gao Wan.</p>
+<p>	Gao Wan memblokir dengan lengannya yang ditarik – Fang Yuan tidak mendapatkan pukulan yang jelas, dan akhirnya mengenai lengan kiri Gao Wan.</p>
+<p>	Jari Fang Yuan terasa seperti menabrak pelat baja, sakit dan mati rasa.</p>
+<p>	“Gao Wan ini telah mendekati batas kekuatan fisik manusia. Saat ini aku hanya bisa menggunakan Moonlight Gu untuk bertarung, dan tanpa cacing Gu lain untuk membantuku, aku bukan lawannya dalam pertarungan jarak dekat dasar!” Mata Fang Yuan bersinar dan dia memutuskan dengan cepat untuk menyerah menyerang. Sebaliknya, dia mundur beberapa langkah dan menjauh dari Gao Wan.</p>
+<p>	Di desa Gu Yue, hanya klan Gu Yue yang memiliki hak untuk berkultivasi sebagai Master Gu . Orang luar, terlepas dari apakah mereka memiliki bakat kultivasi atau tidak, tidak memiliki hak untuk menghadiri Upacara Kebangkitan.</p>
+<p>	Tapi manusia ini bisa berlatih dalam pertempuran fisik.</p>
+<p>	Sama seperti Gao Wan di sini, meskipun dia bukan Master Gu , dia telah berlatih keras dalam pukulan dan tendangannya dan keterampilan dasarnya adalah teguh. Selain itu dia adalah seorang pria paruh baya, dan ini berarti berada di puncak fisik dalam kehidupan fana.</p>
+<p>	Fang Yuan, selain memiliki Moonlight Gu untuk bertarung, hanya memiliki tubuh remaja berusia 15 tahun. Baik itu kekuatan, kelincahan atau daya tahan, dia bukan tandingan Gao Wan.</p>
+<p>	Seniman bela diri seperti Gao Wan cukup untuk membunuh Gu Master tahap awal peringkat satu . Bahkan menuju Gu Master tingkat satu tingkat menengah , mereka masih merupakan ancaman tertentu.</p>
+<p>	“Anak ini terlalu licik!” Melihat bahwa Fang Yuan telah menarik jarak di antara mereka, Gao Wan merasakan kecemasan di dalam hatinya.</p>
+<p>	Pinggang adalah titik vital tubuh, dan jika dirusak oleh seseorang dengan kekerasan, bahayanya tidak bisa diabaikan. Jika kekuatan itu diberikan melampaui satu titik, itu juga bisa mematikan.</p>
+<p>	Gao Wan telah menunggu di luar asrama sepanjang malam, dan dengan demikian tubuhnya diselimuti oleh atmosfer lembab, menyebabkan kecepatan reaksinya menjadi sedikit lebih lambat. Oleh karena itu serangan sebelumnya hampir berhasil. Untungnya, meskipun dia seorang bootlicker, dia telah berlatih keras dalam kemampuan fisiknya. Jadi pada saat genting refleks tubuhnya secara naluriah bereaksi dan memungkinkannya untuk memblokir serangan Fang Yuan dengan sempit.</p>
+<p>	“Aku tidak bisa ceroboh lagi! Anak laki-laki ini berperilaku seperti serigala, menyerang dengan kasar dan licik, mendapatkan jalannya setiap kali aku bahkan sedikit ceroboh. Tidak heran tuan muda tersingkir olehnya dua kali. ” Gao Wan menyeka keringat di dahinya dan menghapus semua tanda penghinaan. Dia mulai menganggap serius lawannya.</p>
+<p>	“Jika saya bisa menangkap anak ini, itu akan menjadi pencapaian yang luar biasa. Nona Muda pasti akan menghadiahiku! Moonblade tahap awal peringkat satu hanya maksimal seperti belati kecil, jadi selama itu tidak mengenai titik vitalku, itu hanya akan menjadi cedera eksternal ringan. ”</p>
+<p>	Memikirkan hal ini, jantung Gao Wan mulai berdetak lebih cepat. Mengulurkan tangannya yang seperti sekop, dia meraih Fang Yuan.</p>
+<p>	Boom boom boom!</p>
+<p>	Fang Yuan tidak menunjukkan rasa takut dan mendekati Gao Wan untuk terlibat dalam pertempuran jarak dekat. Bertukar pukulan dan tendangan, bergiliran menyerang dan bertahan, suara benturan keras bergema di seluruh area.</p>
+<p>	Saat menjarah para siswa, dia hanya menggunakan telapak tangannya dengan tujuannya untuk mengendalikan kerumunan. Tapi sekarang ketika terlibat dengan Gao Wan, Fang Yuan sudah habis-habisan.</p>
+<p>	Kadang-kadang ia menggunakan jari-jarinya untuk menusuk mata, kadang mencekik tenggorokan, memukul rahang dengan pangkal telapak tangannya, memotong bagian belakang kepala lawannya, menggunakan lutut untuk memukul daerah panggul, atau menggunakan tangannya untuk memukul. pegang di pinggang.</p>
+<p>	Keringat Gao Wan mengalir seperti sungai.</p>
+<p>	Semua gerakan Fang Yuan mengarah ke titik-titik vital, masing-masing menyerang dengan licik dan mematikan seolah-olah dia ingin mengakhiri hidup Gao Wan di sana!</p>
+<p>	Gao Wan hanyalah manusia biasa, dan tidak seperti Master Gu, meskipun dia berlatih dengan baik dalam pertarungan fisiknya, titik vitalnya tetap vital. Manusia tidak dapat melatih kelopak mata mereka untuk menjadi seperti baja. Ini adalah batas seni bela diri fana.</p>
+<p>	Selain itu, Gao Wan tidak berani melepaskan gerakan mematikan apa pun pada Fang Yuan.</p>
+<p>	Fang Yuan adalah anggota klan Gu Yue, jadi membunuhnya akan menimbulkan kemarahan publik dan dia akan segera dieksekusi. Faktanya, keluarga Mo akan menjadi yang pertama melaksanakan hukumannya. Jadi satu-satunya pikirannya adalah menangkap Fang Yuan hidup-hidup, dan akan lebih baik jika dia bisa membuat Fang Yuan menderita dalam proses penangkapan.</p>
+<p>	Satu sisi memiliki ketakutan sementara sisi lain memiliki niat membunuh. Situasi demikian menjadi Fang Yuan menekan Gao Wan dalam pertarungan!</p>
+<p>	(1) – pondok kayu biasa yang dibangun di atas tanah (lihat gambar).</p>
+<p>	*Bab ini dipersembahkan oleh Chibigen dan Skyfarrow. Penghargaan untuk Chibigen karena membantu terjemahan.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

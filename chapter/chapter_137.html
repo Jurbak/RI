@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 137 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 137";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_136.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 137">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_138.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 137</h1>
+        <div class="text-left">
+<p>	Bab 137</p>
+<p>	Bab 137: Bayangan kematian</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	Melihat tinju Xiong Li hendak mengenai Bai Ning Bing, Xiong Lin dan Xiong Jiang keduanya menunjukkan ekspresi gembira.</p>
+<p>	Hanya Fang Yuan yang berdiri jauh, matanya bersinar dengan kesungguhan.</p>
+<p>	Dengan pemahamannya tentang Bai Ning Bing, bagaimana dia bisa melakukan kesalahan pemula seperti itu?</p>
+<p>	Seperti yang diharapkan, saat ini!</p>
+<p>	Bai Ning Bing tiba-tiba menyerang; tangan kanan dan daging lengan bawahnya semuanya berubah menjadi es beku biru transparan, dari luar tulang jarinya bisa terlihat.</p>
+<p>	Jari-jarinya berkumpul lurus, membentuk bilah telapak tangan dan menyerang seperti kilat, menusuk jantung Xiong Li!</p>
+<p>	“Ugh!” Tubuh turun Xiong Li terhenti.</p>
+<p>	Dia menatap dengan mata terbuka lebar, menundukkan kepalanya dan menatap dadanya dengan tak percaya.</p>
+<p>	“Bagaimana ini bisa?”</p>
+<p>	“Tuan Xiong Li!”</p>
+<p>	Dengan putaran peristiwa yang tiba-tiba, Xiong Jiang dan Xiong Lin tidak bisa mempercayainya.</p>
+<p>	“Kamu pikir lengan kananku benar-benar patah karena pukulanmu? Naif! Saya sudah menggunakan Gu otot es peringkat tiga, dan melatih tubuh otot es, ini adalah pertahanan pamungkas! Alasan saya berpura-pura sebelumnya adalah untuk memberi seseorang kejutan. ” Bai Ning Bing perlahan bangkit, menunjukkan penghinaan di matanya, dan di akhir pidatonya, dia melihat ke arah Fang Yuan.</p>
+<p>	Ekspresi Fang Yuan tenang, menatapnya juga.</p>
+<p>	Celepuk.</p>
+<p>	“Bai… Ning Bing….” Xiong Li membuka mulutnya, mengucapkan kata-kata terakhirnya dengan susah payah. Tangan es Bai Ning Bing menyebarkan udara dingin dan membekukan hatinya, memotong kekuatan hidupnya!</p>
+<p>	“Bajingan licik, aku akan bertarung denganmu!” Xiong Lin melihat kematian Xiong Li secara langsung, dan di bawah rasa sakit dan kemarahan yang luar biasa, dia mengabaikan bahayanya sendiri dan menyerang Bai Ning Bing.</p>
+<p>	“Xiong Lin, tenanglah!’ Xiong Jiang bertindak tepat waktu, menahan Xiong Lin.</p>
+<p>	“Pemimpin grup sudah mati, kita bukan lagi lawannya, cepat pergi, aku akan memblokirnya!” Xiong Jiang mengendalikan kesedihannya dan berkata.</p>
+<p>	“Saudara Xiong Jiang …” Xiong Lin tercengang, matanya memerah.</p>
+<p>	Xiong Jiang mengangkat tangannya ke belakang dan maju selangkah, menghalangi Bai Ning Bing.</p>
+<p>	Bayangan Bond Gu!</p>
+<p>	Bayangan di bawah kakinya tiba-tiba menjadi hidup, terdistorsi secara menyeramkan, menghubungkan dirinya dengan bayangan Bai Ning Bing.</p>
+<p>	“Aku punya Gu Shadow Bond! Begitu saya terluka, Bai Ning Bing menerima kerusakan yang sama. Dia tidak akan membunuhku dengan mudah. Xiong Lin, kamu masih muda dan memiliki bakat yang lebih baik dariku atau pemimpin kelompok, cepat pergi!” Tatapan Xiong Jiang terkunci pada Bai Ning Bing saat dia berteriak.</p>
+<p>	“Saudara Xiong Jiang!” Mata Xiong Lin berkaca-kaca, dia tahu kelemahan Shadow Bond Gu.</p>
+<p>	Dalam pertempuran sebelumnya, Xiong Jiang juga menggunakan cacing Gu, tetapi begitu Bai Ning Bing menarik jarak yang cukup, bayangan itu akan terbelah. Xiong Jiang mengatakan ini hanya untuk menghiburnya.</p>
+<p>	Apalagi sekarang, Xiong Jiang tidak memiliki cukup esensi purba; dia sudah menggunakan terlalu banyak, dan bahkan Roaming Zombie Gu telah berhenti bekerja.</p>
+<p>	Kaki Xiong Lin tampaknya telah berakar, karena dia menolak untuk bergerak selangkah pun. Dia berbalik, menatap Fang Yuan, “Fang Yuan, mengapa bala bantuan belum datang ?!”</p>
+<p>	Fang Yuan tidak berbicara, hanya menatap tajam ke arah Bai Ning Bing.</p>
+<p>	Bai Ning Bing menggerakkan lengan kanannya, dan setelah beberapa saat, lengan kanannya kembali seperti semula. Dia menggunakan nada mengejek, “Bala bantuan? Hehehe, mereka pasti sudah datang sejak lama jika itu masalahnya, tapi ini semua bohong. Ck ck ck, kamu bahkan lebih naif dari yang lain. Anda benar-benar berpikir metode murah seperti Shadow Bond Gu dapat menahan saya? ”</p>
+<p>	Dia menatap bayangan itu dengan jijik, tidak peduli.</p>
+<p>	“Fang Yuan, apakah ini benar?” Xiong Lin mengepalkan tinjunya, matanya berbicara api saat dia bertanya dengan marah.</p>
+<p>	Fang Yuan tidak peduli padanya, tetapi menatap Bai Ning Bing, mulutnya melengkung tersenyum, “Langkah itu sebelumnya, itu menghabiskan esensi purbamu kan? Sekarang, berapa banyak esensi purba yang masih Anda miliki di aperture Anda?</p>
+<p>	Xiong Li menggunakan cacing Gu defensif tetapi lebih lemah dari Gu Giok Putih Fang Yuan. Hasilnya adalah pertahanannya ditembus, tetapi serangan seperti itu jelas tidak dimiliki oleh Master Gu peringkat dua.</p>
+<p>	Menurut situasi sebelumnya, Fang Yuan menebak bahwa Bai Ning Bing menggunakan Frost Demon Gu peringkat tiga.</p>
+<p>	Kemampuan Gu ini kuat, terkenal di antara Gu Peringkat tiga, tetapi penggunaan yang berlebihan merugikan pengguna. Masalah persendian hanyalah gejala ringan, tetapi jika serius, otot seseorang dapat membeku dan rusak, sehingga perlu digunakan dengan cacing Gu lainnya.</p>
+<p>	Bai Ning Bing telah mengatakan sebelumnya bahwa ototnya telah menjadi otot es, dan dapat menahan dinginnya es. Jadi, ketika digunakan bersama dengan Frost Demon Gu, mereka saling melengkapi.</p>
+<p>	Ini masih Bai Ning Bing menggunakan esensi purba peringkat dua untuk secara paksa mengaktifkan cacing peringkat tiga Gu, jadi itu harus memiliki konsumsi yang tinggi, tetapi dia perlu menggunakan metode seperti itu untuk memecahkan kebuntuan.</p>
+<p>	Ekspresi Bai Ning Bing berubah; langkah sebelumnya telah menyebabkan konsumsi besar esensi purba, dan Fang Yuan melihatnya.</p>
+<p>	Jadi, setelah membunuh Xiong Li, dia tidak menyerang lagi, tetapi menggunakan waktu bicara untuk pulih.</p>
+<p>	Dia tertawa terbahak-bahak, mengangguk, dan mengaku, “Tidak buruk, esensi purba saya mengering, saya membiarkan anggota tubuh kanan saya tidak digunakan untuk memikat Anda untuk menyerang. Tapi Anda tidak jatuh untuk itu. Hehehe, pertarungan yang sebenarnya baru saja dimulai, bukan?”</p>
+<p>	Fang Yuan menyipitkan mata.</p>
+<p>	Jika Bai Ning Bing menyangkalnya, dia akan menyerang tanpa ragu. Tapi Bai Ning Bing mengaku, menunjukkan ekspresi tak kenal takut…</p>
+<p>	Entah itu Bai Ning Bing tahu dia akan mati, tidak menunjukkan rasa takut terhadap kematian, atau dia mungkin memiliki kartu truf lain yang kuat dan memiliki kepercayaan diri yang besar untuk bertahan hidup.</p>
+<p>	Master Gu biasa hanya memiliki tiga hingga lima cacing Gu, bahkan Qing Shu dan Chi Shan pun demikian.</p>
+<p>	Tapi ada pengecualian.</p>
+<p>	Misalnya Fang Yuan, dengan Moonglow Gu, White Jade Gu, Stealth Scales Gu, Four Flavour Liquor worm, Spring Autumn Cicada, Earth Communication Ear Grass dan Nine Leaf Vitality Grass, ia memiliki tujuh cacing Gu.</p>
+<p>	Bai Ning Bing adalah harapan klan Bai dan memiliki tubuh Jiwa Es Gelap Utara, seorang jenius mutlak. Dari awal perjalanan kultivasinya, dia telah menerima dukungan penuh dari klannya, kekayaannya pasti lebih besar dari Fang Yuan.</p>
+<p>	Sampai sekarang, dia telah menampilkan lebih dari enam cacing Gu. Fang Yuan yakin dia punya orang lain.</p>
+<p>	Dan cacing Gu ini membuatnya tenang meskipun berada dalam posisi ini dengan sedikit esensi purba.</p>
+<p>	Sebenarnya, jenis lawan yang paling merepotkan adalah seperti dia.</p>
+<p>	Tidak hanya memiliki bakat, tetapi tidak takut mati, dan memiliki sejumlah besar cacing Gu di tangan.</p>
+<p>	Dengan ketiganya, itu sangat mempengaruhi pertempuran Gu Master dalam hal menang atau kalah. Terutama cacing Gu, dengan yang kuat atau khusus, dapat memungkinkan Master Gu untuk membalikkan situasi.</p>
+<p>	Frost Demon Gu Bai Ning Bing adalah cacing Gu peringkat tiga, jadi bahkan dengan pertahanan White Jade Gu milik Fang Yuan, dia bisa ditembus. Ini juga mengapa Fang Yuan tidak melibatkan Bai Ning Bing secara pribadi.</p>
+<p>	Fang Yuan telah menggunakan Gu Yue Man Shi, Xiong Li dan yang lainnya untuk mencari tahu rahasia Bai Ning Bing. Lagi pula, hanya dengan mengetahui musuh seseorang dapat memastikan kemenangan.</p>
+<p>	Dalam membandingkan bakat, Fang Yuan hanya kelas C. Dibandingkan dengan Bai Ning Bing, itu adalah dunia yang berbeda. Bai Ning Bing mulai berkultivasi lebih awal dan mendapat bantuan klan, dan dia memiliki cacing Gu yang lebih menonjol daripada Fang Yuan.</p>
+<p>	Dalam hal temperamen, keberaniannya terhadap kematian membuatnya hampir kebal.</p>
+<p>	Perbedaan antara keduanya adalah Bai Ning Bing kuat, dan Fang Yuan lemah. Ini adalah kebenaran, dia harus menerimanya dan memahaminya.</p>
+<p>	Tetapi pertempuran itu menarik karena yang kuat belum tentu menang, dan yang lemah mungkin tidak selalu jatuh.</p>
+<p>	Fang Yuan ingin menang melawan rintangan, itu bukan tidak mungkin, tetapi dia harus menggunakan semua metode yang dia miliki, dan memanfaatkan semua kekuatan yang bisa dia kumpulkan.</p>
+<p>	“Gu Yue Man Shi hanyalah permulaan, dan kelompok Xiong Li bukanlah akhir.” Berpikir begitu, Fang Yuan menyerang.</p>
+<p>	Dengan pisau bulan, sebuah kepala terbang, dan darah dimuntahkan!</p>
+<p>	Saat ini, iris Bai Ning Bing menyusut menjadi ukuran pin, wajahnya berubah warna.</p>
+<p>	Moonblade Fang Yuan tidak menyerangnya, tetapi ditujukan ke kepala Xiong Jiang.</p>
+<p>	Xiong Jiang tidak mengharapkan pengkhianatan Fang Yuan; Tekanan Bai Ning Bing terlalu besar, dan semua perhatiannya tertuju pada yang terakhir.</p>
+<p>	Dia tidak memiliki banyak esensi purba yang tersisa, jadi untuk melestarikannya, dia tidak mempertahankan Roaming Zombie Gu, sehingga mendapatkan satu tembakan.</p>
+<p>	Bam!</p>
+<p>	Wajah Bai Ning Bing pucat saat dia memuntahkan seteguk darah, dan pada saat yang sama, telinga, hidung, dan matanya memiliki bekas darah.</p>
+<p>	Sejak pertempuran dimulai, ini adalah cedera paling parah yang dia derita.</p>
+<p>	Bayangan Bond Gu!</p>
+<p>	Dengan efek kerusakan bersama, ketika Master Gu Shadow Bond mengalami cedera, Master Gu yang terhubung dengan rantai menerima 10% dari kerusakan. Sekarang Xiong Jiang sudah mati, luka-lukanya terhubung melalui bayangan dan ditransmisikan ke Bai Ning Bing.</p>
+<p>	Cedera ini dengan efek langsung, bahkan jika Bai Ning Bing memiliki Gu Perisai Air, itu tidak dapat menghalanginya.</p>
+<p>	“Fang Yuan, apa yang telah kamu lakukan ?!” Sedetik kemudian, Xiong Lin kembali dari keterkejutan dan berteriak dengan suara marah, patah hati.</p>
+<p>	Fang Yuan mengabaikannya, tubuhnya bersinar dengan cahaya batu giok putih saat dia menyerang Bai Ning Bing.</p>
+<p>	Bai Ning Bing mengalami cedera seperti itu, tubuhnya goyah, dan kepalanya pusing, kekuatan bertarungnya turun drastis. Melihat Fang Yuan menyerang, dia segera mundur.</p>
+<p>	“Bai Ning Bing, bukankah kamu menginginkan pertempuran hidup dan mati?” Fang Yuan mengejar tanpa henti.</p>
+<p>	Bai Ning Bing menggertakkan giginya, melarikan diri tanpa suara. Langkah kakinya berantakan, tetapi dia memaksa dirinya untuk fokus, mengabaikan ejekan Fang Yuan.</p>
+<p>	Meskipun dia tahu dia adalah orang yang sekarat dan tidak takut mati, dia tidak bodoh, dan dengan situasi berbahaya seperti itu, hatinya menjadi lebih tenang.</p>
+<p>	Xiong Lin berdiri di tempat, tidak memilih untuk membantu Fang Yuan mengejar Bai Ning Bing.</p>
+<p>	Hatinya dipenuhi dengan rasa sakit dan kemarahan. Dia membenci Bai Ning Bing, dan juga membenci Fang Yuan.</p>
+<p>	Bai dan Fang bergerak mendekat, melintasi lembah.</p>
+<p>	Seiring waktu berlalu, luka Bai Ning Bing perlahan pulih, dan hidung serta matanya berhenti berdarah. Perlahan langkahnya menjadi lebih tenang.</p>
+<p>	Dia tidak hanya melarikan diri, tetapi selama ini, menggunakan cacing Gu untuk menyembuhkan luka tubuhnya.</p>
+<p>	Fang Yuan dikejar dan hatinya diam-diam terkejut.</p>
+<p>	“Sebelumnya esensi purba Bai Ning Bing hampir habis, tapi selama ini, jumlah yang dia pulihkan sudah cukup untuk menyembuhkan lukanya sendiri. Tubuh Jiwa Es Gelap Utara, Sepuluh talenta Ekstrim, kecepatan pemulihan esensi purba macam apa ini!”</p>
+<p>	Semakin dia tahu, semakin dia bertekad untuk membunuh Bai Ning Bing.</p>
+<p>	Cahaya Bulan Gu!</p>
+<p>	Fang Yuan mengirim moonblade seukuran wajah terbang; itu terbang melintasi langit, memancarkan suara mendengung.</p>
+<p>	Bai Ning Bing mendengar suara ini dan mencoba menghindar, tapi lengannya masih terpotong.</p>
+<p>	Cedera muncul dan darah mengalir keluar, tetapi luka itu dengan cepat ditutupi oleh lapisan es, menghentikan darah.</p>
+<p>	Bai Ning Bing telah memperoleh otot es, dan setelah ini tercapai, itu seperti peningkatan kekuatan Black and White Boar Gu — tidak diperlukan esensi purba untuk mempertahankannya.</p>
+<p>	Tapi hati Bai Ning Bing terus tenggelam. Sebelum luka lamanya sembuh, luka baru akan datang; ternyata, Fang Yuan ingin perlahan-lahan menggilingnya sampai mati!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

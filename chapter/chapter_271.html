@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 271 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 271";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_270.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 271">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_272.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 271</h1>
+        <div class="text-left">
+<p>	Bab 271</p>
+<p>	Bab 271: Token Duri Ungu (Bab dua-dalam-satu)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Shang Yan Fei melihat Fang Yuan menolak batu purba, dan memberikan solusi lain: “Kamu sekarang berada di bawah surat perintah penangkapan klan Bai, ini jelas salah paham. Saya akan menjelaskan untuk Anda dan menghapus surat perintah penangkapan ini, bagaimana menurut Anda?”</p>
+<p>	Fang dan Bai dicari, Shang Xin Ci tahu ini.</p>
+<p>	“Mengapa saya tidak memikirkannya, untuk menyingkirkan surat perintah penangkapan untuk saudara Hei Tu, ini tidak diragukan lagi yang paling dia butuhkan.” Shang Xin Ci mendukung ini dengan sepenuh hati.</p>
+<p>	Klan Shang adalah penguasa perbatasan selatan, sedangkan klan Bai adalah desa klan biasa. Selain itu, mata air semangat mereka mengering, klan secara bertahap semakin lemah. ‘Penjelasan’ Shang Yan Fei pasti akan diterima oleh klan Bai.</p>
+<p>	Tapi Fang Yuan menggelengkan kepalanya.</p>
+<p>	Meskipun ini menarik, dia punya rencana lain di dalam hatinya.</p>
+<p>	Jika klan Shang menyelesaikan masalah ini, itu akan menyebabkan dia dicap sebagai salah satu dari mereka. Ini akan menjadi hambatan besar dalam rencana masa depannya untuk mendekati Master Gu iblis dan bergabung dengan gunung Yi Tian. Manfaat jangka pendek sebagai ganti kerugian jangka panjang.</p>
+<p>	Surat perintah penangkapan ini mungkin tampak merepotkan, tetapi itu tidak membahayakan Fang Yuan.</p>
+<p>	Raja iblis mana yang tidak memiliki puluhan surat perintah penangkapan? Fang Yuan memiliki lebih dari seratus di kehidupan sebelumnya!</p>
+<p>	Jadi bagaimana jika surat perintah penangkapan menumpuk?</p>
+<p>	Hal yang paling ironis adalah, setelah dia mendirikan sekte iblis sayap darah di kehidupan sebelumnya, dan mendominasi suatu wilayah, banyak klan mengambil inisiatif untuk menghapus surat perintah penangkapan untuknya.</p>
+<p>	Ini adalah kebenaran dunia, pada akhirnya, hanya kekuatan yang penting!</p>
+<p>	Menurut rencana Fang Yuan, dia ingin tinggal di kota klan Shang selama dua hingga tiga tahun, selama periode ini klan Bai tidak memiliki cara untuk menangkapnya.</p>
+<p>	Setelah itu, dia akan mengumpulkan satu set cacing Gu dan mendapatkan dorongan kekuatan, maka dia tidak akan takut terhadap surat perintah penangkapan klan Bai.</p>
+<p>	Faktanya, klan Bai sendiri berada dalam situasi berbahaya, tidak mampu menjaga diri mereka sendiri, bagaimana mereka bisa peduli tentang Fang dan Bai!</p>
+<p>	Jadi, hadiah Shang Yan Fei, meskipun penting di mata Shang Xin Ci, itu tidak bernilai bagi Fang Yuan.</p>
+<p>	Karena itu, dia menggelengkan kepalanya: “Konflik kami dengan klan Bai berasal dari warisan. Sejujurnya, kami merampas warisan mereka dan membunuh tuan muda klan Bai, tetapi kami tidak pernah menyesalinya. Cedera saya adalah karena klan Bai, suatu hari, saya akan menemukan mereka untuk membalas dendam. Saya orang seperti itu, membalas kebaikan dengan rasa terima kasih, dan membalas dendam dengan balas dendam. Tetesan yang diterima membutuhkan akan dilunasi dengan seluruh musim semi, percikan kebencian akan mengakibatkan pembakaran seluruh hutan! ”</p>
+<p>	Saat dia berkata begitu, Fang Yuan tidak menyembunyikan niat membunuhnya yang luar biasa.</p>
+<p>	Segera, banyak tuan muda memiliki perasaan yang berbeda.</p>
+<p>	“Dia memiliki sifat yang sangat jahat …” Beberapa merasa jijik.</p>
+<p>	“Seseorang yang menuntut balas dendam pada klan, orang ini benar-benar naif.” Beberapa memandang dengan jijik.</p>
+<p>	“Hehehe, begitu jujur ​​di depan ayah, apakah orang ini bodoh, atau sesuatu dengan keberanian besar?” Beberapa merasa geli.</p>
+<p>	Klan Shang adalah penguasa jalan yang benar, tetapi Fang Yuan menyatakan niatnya untuk membalas dendam di depan Shang Yan Fei.</p>
+<p>	Kesombongan dan kepercayaan dirinya menyebabkan Shang Xin Ci merasa terkejut, tetapi tidak terkejut. Ini adalah sifat asli saudara Hei Tu, bukan?</p>
+<p>	Shang Yan Fei juga tidak terpengaruh, menurutnya, Fang Yuan sangat jujur ​​dan lugas. Evaluasi Wei Yang sangat tepat. Orang seperti itu dapat dengan mudah dibaca, dibandingkan dengan Bai Ning Bing yang pendiam, dia lebih menyukai Fang Yuan.</p>
+<p>	“Tidak perlu bagi pemimpin klan tuan untuk campur tangan dan menghapus surat perintah penangkapan untuk kita. Saya membutuhkan ini untuk mendorong diri saya sendiri, untuk mencambuk diri sendiri dan terus menjadi lebih kuat. Terima kasih Tuan Shang Yan Fei atas niat baik Anda.” Fang Yuan menangkupkan tinjunya.</p>
+<p>	“Kalau begitu, beri tahu aku hadiah apa yang kamu inginkan. Jangan bicara tentang hutang Anda yang dilunasi, jika klan Shang saya ingin memberi hadiah kepada seseorang, mereka akan diberi hadiah. Ini adalah aturan kami. Bahkan jika kamu membuang hadiahnya, itu bukan urusanku.” Shang Yan Fei mengerutkan kening, bertingkah tidak senang.</p>
+<p>	Segera, suasana santai di halaman menjadi sedikit lebih serius.</p>
+<p>	Tuan-tuan muda menjadi jauh lebih berhati-hati ketika mereka mengangkat gelas mereka untuk minum.</p>
+<p>	Ini adalah aura yang mendominasi pemimpin klan Shang, Shang Yan Fei, peringkat lima Gu Master.</p>
+<p>	Saya ingin memberi Anda hadiah, bahkan jika Anda tidak menginginkannya, Anda harus mengambilnya! Ini bukan pilihan!</p>
+<p>	Fang Yuan melihat sekeliling, dan tertawa: “Tetapi bagaimana jika saya benar-benar tidak menginginkannya?”</p>
+<p>	Shang Yan Fei berbicara dengan tenang, tetapi tatapannya bertekad: “Itu bukan pilihan.”</p>
+<p>	Banyak tuan muda melihat konflik ini dan memarahi Fang Yuan sebagai orang bodoh secara diam-diam. Dia pasti bodoh, menyingkirkan hadiah pemimpin klan Shang, banyak orang akan mati untuk kesempatan ini. Beberapa memuji keberaniannya yang luar biasa.</p>
+<p>	Tangan Shang Xin Ci berkeringat, mengkhawatirkan Fang Yuan.</p>
+<p>	Wei Yang tertawa, menenangkan suasana: “Saya memikirkannya, saudara Fang Zheng terluka dan cacat. Mengapa pemimpin klan tuan tidak meminta dokter untuk memulihkan penampilannya?</p>
+<p>	“Hm, ini ide yang bagus. Wei Yang, panggil Dokter Su Shou untuk datang ke sini.” Shang Yan Fei mengangguk dan berkata.</p>
+<p>	Fang Yuan terdiam, saat Wei Yang pergi.</p>
+<p>	Segera, Wei Yang melaporkan: “Dokter Su Shou telah diundang ke sini, silakan ikut dengan saya saudara Fang Zheng.”</p>
+<p>	Fang Yuan tidak memperhatikan penampilannya sendiri, tetapi saat ini dia tidak bisa lagi memaksa.</p>
+<p>	Dia memandang Bai Ning Bing: “Ikut juga, periksa seluruh tubuh juga.”</p>
+<p>	Bai Ning Bing mendengus, dia tahu persis luka apa yang dia miliki. Tapi sekali lagi, dia tahu Fang Yuan punya rencana lain, jadi dia setuju.</p>
+<p>	Keduanya meninggalkan halaman dan memasuki rumah.</p>
+<p>	Mereka akrab dengan rumah ini, karena mereka pernah menunggu di sini untuk Shang Yan Fei selama enam jam, dan bahkan tidak bisa bertemu dengannya.</p>
+<p>	Dokter Su Shou adalah seorang wanita langsing, mengenakan kerudung di wajahnya dan kemeja putih dan rok. Dia sedang minum teh di tempat duduknya.</p>
+<p>	Dia memiliki hubungan yang kompleks dengan Shang Yan Fei; nikmat, dendam, cinta, benci, semuanya. Dia memegang posisi unik di kota klan Shang, dia adalah peringkat lima Master Gu yang menyembuhkan.</p>
+<p>	“Hari yang langka di mana suasana hatiku sedang bagus hari ini.” Dia meletakkan cangkirnya ke bawah, menatap Fang Yuan: “Kamu mencari pengobatan? Mandi dulu.”</p>
+<p>	Dia kemudian mengulurkan jarinya, menunjuk Bai Ning Bing: “Terutama Anda nona muda, apa yang Anda oleskan di wajah Anda, jelek dan kotor, bersihkan sebelum Anda kembali.”</p>
+<p>	Bai Ning Bing telah menyembunyikan penampilannya di seluruh perjalanan, dia terus melakukannya bahkan di kota klan Shang. Wajahnya dilumuri cinnabar, berpura-pura itu adalah tanda lahirnya. Dia bahkan mengoleskan minyak hitam khusus, dan rambutnya menutupi dahinya, menyebabkan dia terlihat tidak terawat.</p>
+<p>	Mendengar ini, Bai Ning Bing terkejut.</p>
+<p>	Fang Yuan memiliki ekspresi yang sama.</p>
+<p>	Wei Yang dengan cepat menjelaskan: “Ini adalah aturan Tuan Dokter Su Shou. Setiap pasien harus mandi dan membersihkan tubuh mereka, menggunakan minyak wangi dan berganti pakaian putih. Kalau tidak, dia tidak akan memperlakukan mereka. Tapi jangan khawatir, saya sudah menyiapkannya terlebih dahulu, air panasnya sudah siap, silakan ikuti saya. ”</p>
+<p>	Keduanya memasuki rumah bagian dalam, dan memang ada dua ember kayu di dalamnya.</p>
+<p>	Di samping setiap ember, ada dua pelayan fana yang berdiri, membantu para tamu untuk mencuci diri.</p>
+<p>	Bai Ning Bing segera mengerutkan kening, berkata dengan sedih: “Keluar, aku akan mandi.”</p>
+<p>	“Ini …” Wei Yang ragu-ragu, keempatnya adalah pelayan Dokter Su Shou. Dokter Su Shou adalah orang yang bersih, jika para pelayan diusir, dia mungkin tidak membersihkan dirinya dengan benar, sehingga dia tidak bisa mendapatkan perawatan.</p>
+<p>	“Aku akan menyimpan milikku, saudara Wei, tolong keluar dulu. Kerugiannya jika dia tidak bisa menikmatinya.” Fangyuan tertawa.</p>
+<p>	Wei Yang memberi tahu mereka kekhawatirannya, tetapi Bai Ning Bing bersikeras. Wei Yang tidak mengejarnya lebih jauh, meninggalkan ruangan dan menutup pintu, bagaimanapun juga, target penyembuhannya adalah Fang Yuan.</p>
+<p>	Fang Yuan melepas pakaiannya, membuang bajunya dan memasuki ember kayu.</p>
+<p>	Suhu airnya bagus, saat kedua pelayan bekerja, yang satu menuangkan minyak wangi sementara yang lain menggosok punggung Fang Yuan, mereka bergerak dalam harmoni yang sempurna, jelas berpengalaman.</p>
+<p>	Bai Ning Bing berdiri di depan ember, tidak bergerak saat dia ragu-ragu.</p>
+<p>	Fang Yuan berbaring di ember dengan santai, meletakkan tangannya di sudut ember, berkata dengan ringan: “Bai Ning Bing, identitas kami telah terungkap, kami tidak perlu bersembunyi di kota klan Shang, apakah Anda benar-benar tidak berani melakukannya? tunjukkan wajahmu kepada orang-orang?”</p>
+<p>	Bai Ning Bing segera mendengus.</p>
+<p>	Fang Yuan melanjutkan: “Aku memanggilmu dengan niat baik. Dokter Su Shou ini, saya sudah lama mendengar ketenarannya yang luar biasa, di perbatasan selatan, dia, Dokter Jelajah Jiu Zhi, Dokter Sheng Shou, dan Dokter Sha Ren adalah empat dokter hebat. Anda bisa bertanya padanya nanti tentang rotasi Yin Yang Gu. ”</p>
+<p>	Rotasi Yin Yang Gu!</p>
+<p>	Mata Bai Ning Bing menyipit membentuk garis, saat mereka bersinar dengan goyah.</p>
+<p>	Ini adalah rasa sakit terbesar Bai Ning Bing, dan metode yang digunakan Fang Yuan untuk mengendalikan Bai Ning Bing. Mengatakannya keras-keras seperti ini, apa alasannya? Skema apa yang dia miliki sekarang? Apa motifnya?</p>
+<p>	Segala macam kecurigaan muncul di kepala Bai Ning Bing.</p>
+<p>	Dampak mental yang diberikan Shang Xin Ci padanya masih melekat, menyebabkan Bai Ning Bing masih mengalami afterfear.</p>
+<p>	Fang Yuan ini, seperti jurang yang tidak diketahui!</p>
+<p>	Bahkan Shang Xin Ci tidak tahu identitasnya, tapi dia tahu, kalau tidak dia tidak akan mendekatinya.</p>
+<p>	bagaimana dia melakukannya?</p>
+<p>	Bai Ning Bing tidak bisa menebak Jangkrik Musim Gugur Musim Semi, itu adalah Gu peringkat enam, dan terlalu jauh dari pemahamannya. Tapi dia membuat tebakan lain, yaitu, kemampuan prediksi Gu.</p>
+<p>	“Fang Yuan pasti memiliki tipe prekognisi Gu, mampu melihat pemandangan masa depan. Saya pikir dia akrab dengan gunung Bai Gu karena pengalaman orang-orang di masa lalu, tetapi sekarang tampaknya itu adalah efek dari Gu ini. Masalahnya adalah, Gu prediktif mana yang dia miliki, dan peringkat apa itu? ”</p>
+<p>	Tidak diragukan lagi, tekanan Bai Ning Bing saat ini adalah yang terbesar.</p>
+<p>	Bahkan jika dia mengerti, Gu prediktif itu memiliki kelemahan parahnya sendiri. Terkadang, masa depan yang diprediksi salah atau kacau.</p>
+<p>	Tapi sekarang dia ingin berurusan dengan Fang Yuan, dia akan dipaksa untuk berpikir — Apakah rencanaku ini akan diperingatkan sebelumnya? Jika saya menggunakan metode ini untuk menghadapinya, apakah dia akan menggunakannya saja?</p>
+<p>	Musuh yang bisa memprediksi masa depan terlalu menakutkan.</p>
+<p>	Di rumah bagian dalam, uap panas naik.</p>
+<p>	Bai Ning Bing berdiri di tempat, tetapi merasakan tangan dan kakinya membeku.</p>
+<p>	Dalam uap, dia hampir bisa melihat Fang Yuan terbaring di ember, saat para pelayan membasuh tubuhnya.</p>
+<p>	Dia bisa merasakan bahwa Fang Yuan menatapnya, menggunakan mata gelapnya yang seperti jurang, mata tanpa emosi dan dalam itu, diam-diam menatapnya.</p>
+<p>	Dia bisa mendengar Fang Yuan berteriak di dalam hatinya: Apa yang akan kamu lakukan? Bai Ning Bing! Itu benar, ini kartu truf saya, Gu prekognisi. Anda ingin berurusan dengan saya? Lanjutkan! Saya bisa melihat masa depan, Anda tidak memiliki peluang untuk menang …</p>
+<p>	Tapi sebenarnya, Fang Yuan sudah mengistirahatkan matanya.</p>
+<p>	Apakah Bai Ning Bing dicuci atau tidak, itu adalah bagian dari penyelidikannya, membunuh dua burung dengan satu batu. Dia sedang menguji Bai Ning Bing dan Shang Yan Fei.</p>
+<p>	Kedua pelayan itu benar-benar berpengalaman, ketika air menjadi sedikit dingin, mereka segera menambahkan air panas.</p>
+<p>	Ruangan itu tidak besar, setelah menempatkan dua ember, itu penuh sesak. Ini menggambarkan keadaan yang dihadapi Shang Yan Fei ketika dia memutuskan untuk melepaskan posisi tuan muda pada masa itu untuk menjadi orang biasa.</p>
+<p>	Tapi ini normal.</p>
+<p>	Pahlawan sering menemui keputusasaan. Namun bukan berarti, nasib para pahlawan penuh dengan malapetaka. Tapi karena, hanya keputusasaan dan keputusasaan yang bisa menciptakan pahlawan.</p>
+<p>	Shang Yan Fei bisa disebut pahlawan, tetapi dia lebih merupakan perencana, orang yang ambisius.</p>
+<p>	Setelah satu jam mencuci, pelayan itu berhenti.</p>
+<p>	Fang Yuan mengenakan kemeja yang mereka siapkan, dan berjalan keluar ruangan, tetapi Bai Ning Bing masih berdiri di sana, pikiran mengalir di kepalanya.</p>
+<p>	“Keluar, aku akan mandi.” Setelah Fang Yuan pergi, Bai Ning Bing mengusir kedua pelayan itu.</p>
+<p>	Fang Yuan tersenyum, semakin Bai Ning Bing berpikir, semakin banyak tekanan yang dia hadapi. Semakin dia berpikir, semakin banyak tekadnya tersedot.</p>
+<p>	Terkadang, kekuatan mungkin bukan kekuatan.</p>
+<p>	Jika Bai Ning Bing adalah orang yang lugas, biarlah. Tapi dia sangat cerdas, dan semakin cerdas dia, semakin dia berpikir, dan semakin dia akan menemukan Fang Yuan tidak dapat diprediksi, dan sulit untuk dimenangkan.</p>
+<p>	Bai Ning Bing mungkin merasa tidak ada yang salah dengan mandi, tetapi Fang Yuan tahu bahwa dia telah menundukkan kepalanya kepadanya dari masalah yang tidak penting ini.</p>
+<p>	Orang pintar curiga, dari sudut lain, Bai Ning Bing-lah yang membantu Fang Yuan menaklukkan dirinya sendiri.</p>
+<p>	Kembali di ruang utama, Fang Yuan menemukan Dokter Su Shou.</p>
+<p>	Dia tidak membuang waktu, mengulurkan telapak tangannya dan meletakkannya di bahu Fang Yuan.</p>
+<p>	Semburan cahaya putih murni meledak seperti air dan menyelimuti seluruh tubuh Fang Yuan.</p>
+<p>	Perasaan menyegarkan dan sejuk menyebar ke seluruh tubuh Fang Yuan.</p>
+<p>	Kulitnya yang terbakar terlihat pulih dengan cepat, pada saat yang sama daging mulai tumbuh di sisi kanan kepalanya.</p>
+<p>	Seiring waktu berlalu, daging tumbuh dan terbentuk menjadi bentuk telinga, dan tulang rawan.</p>
+<p>	Fang Yuan menggertakkan giginya, saat perasaan mati rasa menyerangnya seperti ombak, terus menerus menantang batas kemampuannya.</p>
+<p>	Dengan cepat, kulit baru terbentuk di tubuhnya, dan dari pori-pori yang terbakar, alis baru tumbuh.</p>
+<p>	Dalam waktu lima belas menit, luka-lukanya sembuh, dia tidak hanya mendapatkan kembali penampilannya, tetapi telinga kanannya juga tumbuh, cocok dengan telinga kirinya.</p>
+<p>	Dokter Su Shou menarik kembali tangannya, berkomentar: “Sekarang kamu terlihat jauh lebih baik. Pergi, dan bawa temanmu, hmph, dia mengusir pelayanku, bagaimana aku tahu jika dia telah membersihkan dirinya dengan benar? eh…”</p>
+<p>	Pada saat ini, pintu kamar terbuka, dan Bai Ning Bing keluar.</p>
+<p>	Dia mengenakan jubah putih, kembali ke penampilan formalnya, tanpa penyembunyian apa pun, mata birunya bersinar seperti langit biru, dengan otot es dan tulang giok, wajahnya sedikit merah, dan dia membawa uap yang tersisa dari mandinya. Bahkan wanita Dokter Su Shou tergerak oleh penampilan ilahinya.</p>
+<p>	Kesan Dokter Su Shou tentang Bai Ning Bing berubah total, saat dia berkata dengan lembut: “Adik perempuan terlihat luar biasa, aku hampir terpesona olehmu.”</p>
+<p>	Sikap ini berubah seratus delapan puluh derajat, Fang Yuan tidak bisa membantu tetapi memutar matanya.</p>
+<p>	Tapi dia tahu, ini adalah Dokter Su Shou, mengejar semua hal indah dalam hidupnya. Atau menggunakan kata-kata Bumi, dia memiliki penampilan yang kompleks!</p>
+<p>	Bai Ning Bing menggelengkan kepalanya: “Saya tidak perlu penyembuhan, saya hanya ingin tahu tentang Gu rotasi Yin Yang.”</p>
+<p>	“Aku akan menjawab apa pun yang ingin diketahui adik perempuan.” Dokter Su Shou dengan lembut berkata, lalu berbalik dengan dingin pada Fang Yuan: “Adapun kamu, mengapa kamu masih di sini, pergilah!”</p>
+<p>	Sikap yang sama sekali berbeda terhadap Fang Yuan dan Bai Ning Bing.</p>
+<p>	Fang Yuan menggosok hidungnya, setelah diusir.</p>
+<p>	Saat dia keluar, dia melihat Wei Yang.</p>
+<p>	“Saudara Fang Zheng?” Wei Yang menatapnya dengan ragu.</p>
+<p>	Fang Yuan mengangguk, menunjukkan rasa terima kasih di matanya: “Terima kasih saudara telah menjaga di sini sepanjang waktu.”</p>
+<p>	“Haha, untuk berpikir kamu terlihat sangat tampan!” Wei Yang mengangkat ibu jarinya saat dia memuji.</p>
+<p>	Sebenarnya, Fang Yuan terlihat sangat polos dan biasa saja, dia hanya bisa dianggap tingkat menengah ke atas dalam hal penampilan. Tapi matanya gelap seperti jurang, mengeluarkan aura yang tidak perlu dipertanyakan lagi.</p>
+<p>	Yang paling penting, dia terlalu jelek ketika dia terluka, sebaliknya, dia menjadi jauh lebih ‘tampan’.</p>
+<p>	Tapi Wei Yang dengan cepat tertawa getir: “Adik laki-laki, karena kamu memanggilku kakak, aku akan menceramahimu. Mengapa Anda menolak hadiah pemimpin klan? Saya tahu Anda memiliki prinsip Anda, tetapi klan Shang memiliki aturan mereka, seperti yang mereka katakan, ikuti kebiasaan tempat Anda berada, terlebih lagi, pemimpin klan tuan tidak mencoba untuk menyakiti Anda! Ini adalah hal yang baik.”</p>
+<p>	“Tetapi jika Anda terus bersikeras, hal yang baik akan berubah menjadi masam. Orang bijak tunduk pada keadaan, saya yakin Anda tidak ingin Nona Xin Ci terjebak di tengah kan?”</p>
+<p>	Fang Yuan mengerutkan kening: “Saya menerima perawatan karena saya mempertimbangkan hal ini.”</p>
+<p>	Senyum Wei Yang menjadi lebih pahit: “Perlakuan ini saja tidak ada hasilnya. Jika klan Shang tidak menghasilkan hadiah yang layak, itu akan menyebabkan orang luar menertawakan kita, dan merusak reputasi dan citra klan Shang. Di masa depan, jika tuan muda klan Shang menghadapi masalah, siapa yang akan membantu mereka? Jadi, Anda harus menerima hadiah ini apa pun yang terjadi. ”</p>
+<p>	Wei Yang berbicara saat dia mengamati ekspresi Fang Yuan, melihatnya semakin mengernyit, dia terus mendesak: “Kamu, oh kamu, aku tidak tahu harus berkata apa. Sesuatu yang orang akan mati untuk, Anda melakukan yang terbaik untuk menolaknya. Adik laki-laki Fang Zheng, lengan tidak bisa mengalahkan kaki , jika Anda benar-benar tidak menginginkannya, Anda dapat menerimanya sekarang, dan setelah ini selesai, berikan kepada Shang Xin Ci. Bukankah itu solusi yang baik?”</p>
+<p>	Fang Yuan memikirkannya, dan berkata dengan sungguh-sungguh: “Hmm, ini ide yang bagus. Pertama, itu tidak melanggar prinsip saya, kedua, itu tidak akan membuat hidup Anda sulit. Tapi saudara Wei, apa yang saya minta?</p>
+<p>	Wei Yang segera menjawab: “Oh, tentu saja itu token!”</p>
+<p>	Fang Yuan tertawa diam-diam, itulah yang ingin dia dengar selama ini. Dia ingin mendengarnya dari Shang Yan Fei, tetapi Shang Yan Fei sepertinya ingin merekrutnya, sengaja tidak menyebutkannya.</p>
+<p>	Sekarang, dia akan memanfaatkan Wei Yang.</p>
+<p>	“Token?” Fang Yuan menunjukkan ekspresi bingung.</p>
+<p>	“Kamu baru saja tiba di kota klan Shang, meskipun kamu tahu ada kebutuhan untuk token, kamu tidak tahu pentingnya itu. Percayalah saudara Wei, token kelas tinggi sangat penting. Terkadang, bahkan jika Anda punya uang, tidak ada gunanya tanpa token. ” Wei Yang menasihati dengan sepenuh hati.</p>
+<p>	Fang Yuan mengangguk: “Meskipun saya tidak mengerti, karena saudara Wei berkata demikian, saya akan meminta token.”</p>
+<p>	Wei Yang langsung merasa sangat tersentuh karena dipercaya.</p>
+<p>	Dia menepuk bahu Fang Yuan, menghela nafas: “Adik laki-laki, kami sangat cocok, mengapa saya membuat Anda kalah?”</p>
+<p>	Kembali ke halaman, Fang Yuan segera berkata kepada Shang Yan Fei: “Saya terburu-buru, setelah mendengar nasihat saudara Wei Yang, saya menyadari bahwa sebuah token sangat penting. Saya ingin meminta dua token dari pemimpin klan tuan. ”</p>
+<p>	Mata Shang Yan Fei bersinar, dia sengaja diam karena dia punya rencana. Tetapi untuk berpikir Wei Yang merusaknya, Wei Yang ini, dia gagal ketika mencoba berbuat baik, tidak memikirkan lebih jauh tentang ini.</p>
+<p>	Keduanya menyelamatkan putri kandungnya, token yang diberikan tidak boleh terlalu rendah.</p>
+<p>	Lupakan!</p>
+<p>	Di kota klan Shang, berapa jumlah batu purba kecil yang mereka miliki? Dalam satu atau dua tahun, itu akan selesai, bahkan jika mereka memiliki token, mereka masih harus bergantung pada klan Shang.</p>
+<p>	Berpikir demikian, Shang Yan Fei tertawa terbahak-bahak, melambaikan tangannya: “Baiklah, aku akan memberi kalian berdua token duri ungu masing-masing, sebagai ucapan terima kasihku untukmu.”</p>
+<p>	Hampir semua tuan muda tersentak mendengarnya.</p>
+<p>	Bahkan Wei Yang terkejut.</p>
+<p>	Kota klan Shang memiliki warna hitam, putih, merah, oranye, kuning, hijau, pirus, biru, ungu — total sembilan token. Token batu hitam adalah yang terendah, token duri ungu adalah yang tertinggi, itu berarti seseorang adalah VIP di klan Shang, otoritasnya hampir setengah tetua klan!</p>
+<p>	Bahkan Fang Yuan tidak menyangka bahwa Shang Yan Fei akan memberikan token duri ungu. Dia telah merencanakan untuk menerima token hijau, pirus atau biru, tiga warna ini. Dia sangat meremehkan kemurahan hati Shang Yan Fei.</p>
+<p>	Shang Yan Fei segera mengeluarkan token, terbuat dari kayu cercis chinensis, seukuran telapak tangan, bagian depan tertulis dua kata ‘Shang Clan’, sedangkan bagian belakangnya adalah minimap gunung Shang Liang.</p>
+<p>	Tapi ini bukan token duri ungu asli.</p>
+<p>	Shang Yan Fei memanggil Gu lain: “Ini adalah tanda khusus Gu dari klan Shang, itu membutuhkan darahmu.”</p>
+<p>	Cacing Gu seperti nyamuk, terbang ke lengan Fang Yuan, mengambil sedikit darah, dan kembali ke permukaan token.</p>
+<p>	percikan.</p>
+<p>	Dengan suara nyaring, token Gu meledak, berubah menjadi gumpalan darah dan bergabung menjadi token.</p>
+<p>	Token itu tampaknya tidak berubah, tetapi ketika sampai ke tangan Fang Yuan, permukaannya mulai bersinar dengan cahaya ungu, seperti air dan bayangan.</p>
+<p>	Baru sekarang, apakah ini menjadi token duri ungu asli.</p>
+<p>	Bahkan jika orang luar mendapatkan token, itu tidak berguna. Ini hanya bisa digunakan oleh Fang Yuan.</p>
+<p>	Ini juga merupakan tindakan perlindungan klan Shang. Membuat mustahil bagi orang luar untuk menyamar. Jika mereka menggunakan cacing Gu sebagai token kepercayaan, Master Gu lain mungkin merekayasa balik dan memperbaiki Gu untuk diri mereka sendiri.</p>
+<p>	Bagian jeniusnya adalah, token duri ungu itu bukan cacing Gu, itu hanya memiliki kekuatan token Gu yang tersisa di dalamnya.</p>
+<p>	Seiring waktu berlalu, kekuatan token Gu akan berkurang, dan token duri ungu akan kehilangan efeknya.</p>
+<p>	Ini adalah keuntungan bagi klan Shang.</p>
+<p>	Depresiasi token, akan menyebabkan penggunaannya dipertahankan pada tingkat tertentu.</p>
+<p>	Jika token duri ungu Fang Yuan kehilangan efek, dia harus kembali ke kota klan Shang dan meminta mereka untuk membuat yang baru. Ini adalah cara klan Shang mengendalikan token mereka.</p>
+<p>	Fang Yuan memperoleh token duri ungu, dan tatapan tuan muda ke arahnya berubah sepenuhnya.</p>
+<p>	Sebelumnya, dia masih hanya seorang Guru Gu iblis, banyak yang memandang rendah dia, merasa jijik terhadapnya, tetapi sekarang mereka memiliki sikap yang sama.</p>
+<p>	Token duri ungu hanya bisa diberikan ketika pemimpin klan, atau sepuluh tetua mencapai kesepakatan. Hanya ada dua ratus token duri ungu di dunia sekarang.</p>
+<p>	“Temanmu?” Shang Yan Fei mengeluarkan token lain.</p>
+<p>	“Masih dengan Dokter Su Shou, aku akan bergegas padanya sekarang.” Wei Yang hendak bangun, ketika Bai Ning Bing kembali, di depan semua orang.</p>
+<p>	Ekspresinya dingin, dan serius. Dia telah mendengar dari Dokter Su Shou, bahwa untuk kembali ke tubuh laki-lakinya, dia membutuhkan Yang Gu yang sesuai.</p>
+<p>	Tentu saja, tidak ada yang mutlak. Jika dia bisa mendapatkan peringkat enam Gu abadi untuk membantu, ada peluang sukses yang tinggi.</p>
+<p>	Melihat penampilannya, banyak tuan muda menjadi linglung.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

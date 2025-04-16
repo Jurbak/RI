@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2022 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 2022";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_2021.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 2022">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_2023.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 2022</h1>
+        <div class="text-left">
+<p>	Bab 2022 – Pengadilan Surgawi Mencari Untuk Figh</p>
+<p>	Bab 2022 Pengadilan Surgawi Mencari Figh</p>
+<p>	“Menurut u003cu003cThe Legends of Ren Zuu003eu003e, Gu kebencian dan Gu petir dapat bekerja sama dan memperkuat kekuatan satu sama lain untuk membentuk gerakan pembunuh yang menakutkan yang secara langsung menghancurkan surga biru purba?”</p>
+<p>	Fang Yuan membacanya dengan hati-hati lagi ketika dia bertanya-tanya, apakah ini berarti kedua cacing Gu ini dapat melawan jalan surga?</p>
+<p>	Di mana tanda dao jalur surga paling banyak dikumpulkan?</p>
+<p>	Tidak diragukan lagi, sembilan surga yang abadi.</p>
+<p>	Selain mereka, ada tubuh Fang Yuan.</p>
+<p>	“Ini tampaknya menjadi jalan untuk menyelesaikan kesulitan saya saat ini.” Fang Yuan merenung: “Tapi hanya Gu petir yang ada di sini, itu tidak akan berhasil tanpa kebencian Gu. Di mana cacing Gu ini? Apakah saat ini ada Gu Abadi seperti itu? Jika tidak, bagaimana cara memperbaikinya? Jika ada, situasinya bahkan lebih merepotkan karena saya perlu membuat skema dan berencana untuk merebutnya.”</p>
+<p>	“Faktanya, bahkan jika saya memiliki dua inti Immortal Gu ini, masih menjadi misteri bagaimana membentuk mereka menjadi gerakan pembunuh itu. u003cu003cThe Legends of Ren Zuu003eu003e terlalu samar tentang hal itu.”</p>
+<p>	Tepat pada saat ini, Qin Ding Ling secara pribadi mengirim surat melalui surga kuning harta karun.</p>
+<p>	Fang Yuan membuka dan membacanya, surat yang Gu langsung bicarakan tentang masalah surga gua Petir Hutan. Qin Ding Ling sangat bersemangat tentang Gu petir, dan bahkan ingin Leluhur Laut Qi berhenti meneliti buah panen qi untuk sementara waktu dan memimpin bawahannya untuk bekerja sama dengan Pengadilan Surgawi dalam memperjuangkan Gu petir.</p>
+<p>	“Mengapa Pengadilan Surgawi begitu cemas?” Mata Fang Yuan bersinar dengan cahaya terang: “Juga, mereka memperoleh informasi terlalu cepat. Sepertinya mereka telah mengatur beberapa mata-mata di pihak Wu Shuai. ”</p>
+<p>	Qin Ding Ling bukanlah Peri Zi Wei, dia sedikit terburu-buru dalam melakukan sesuatu, yang memungkinkan Fang Yuan, yang memiliki pencapaian jalur kebijaksanaan yang dalam untuk menyimpulkan beberapa kemungkinan.</p>
+<p>	“Karena itu masalahnya …” Fang Yuan tersenyum pahit, surat mendesak Pengadilan Surgawi membuatnya mengambil keputusan.</p>
+<p>	Gua-surga Petir Hutan.</p>
+<p>	Ekspresi Xiao He Jian sedikit berubah, dia telah menerima perintah Wu Shuai.</p>
+<p>	Tatapannya menjadi dingin saat dia berteriak: “Pemimpin Aliansi mengirim perintah untuk membunuh Dewa Petir Gua Hutan tanpa mengkhawatirkan petir Gu. Tidak ada ruginya hanya kehilangan peringkat delapan Immortal Gu. Kita harus mengeksekusi semua Gu Immortals of Forest Lightning gua-surga dan kemudian berusaha untuk menyingkirkan buah panen qi. Jangan khawatir tentang sumber daya gua-surga, gunakan semua kekuatanmu untuk menyelesaikan tugas dalam waktu sesingkat mungkin!”</p>
+<p>	“Apa?!” Mendengar kata-kata ini, tidak hanya Dewa Petir Hutan Petir, bahkan Lady Cold Ash dan Night Heavenly Wolf Lord tercengang.</p>
+<p>	Ini adalah peringkat sembilan Immortal Gu di masa depan, Wu Shuai menyerah begitu saja?</p>
+<p>	Untuk sesaat, tidak satu pun dari tiga makhluk abadi yang bergerak karena keterkejutannya.</p>
+<p>	Night Heavenly Wolf Lord adalah tahi lalat Pengadilan Surgawi, dia secara alami berpikir untuk membantu melestarikan Forest Lightning Grotto Lord untuk membahayakan aliansi Wu Shuai.</p>
+<p>	Dan Lady Cold Ash pada dasarnya adalah Spectral Soul, dia juga berpikir untuk melestarikan titik konflik ini yang akan memicu pertempuran sengit antara Wu Shuai dan Leluhur Laut Qi. Selama ada kekacauan, dia bisa mendapatkan banyak peluang untuk bertindak.</p>
+<p>	Forest Lightning Grotto Lord tiba-tiba berteriak: “Xiao He Jian, keberanian seperti itu, kamu benar-benar memberikan perintah yang salah. Wu Shuai memperluas kekuatannya, bagaimana dia bisa menyerah pada peringkat sembilan Immortal Gu di masa depan? Sebagai seseorang yang bergabung baru-baru ini, kamu benar-benar memiliki niat buruk!”</p>
+<p>	Ekspresi Xiao He Jian berubah dingin dari tuduhan Forest Lightning Grotto Lord.</p>
+<p>	Dia tidak membalas, malah memelototi Lady Cold Ash dan Night Heavenly Wolf Lord: “Ini adalah perintah pemimpin aliansi kita! Apakah Anda akan percaya pengkhianat atau saya? Menyerang!”</p>
+<p>	Mengatakan demikian, Xiao He Jian tidak menunggu keduanya dan menyerbu masuk sendiri.</p>
+<p>	Bam bam bam…</p>
+<p>	Gerakan pembunuh dilepaskan, menghancurkan sebagian besar hutan petir.</p>
+<p>	“Mengenakan biaya!” Aliansi abadi yang berada di atas tanah juga menerima perintah Xiao He Jian dan datang, mengepung hutan petir ini.</p>
+<p>	Karena situasinya menjadi seperti ini, Lady Cold Ash dan Night Heavenly Wolf Lord tidak peduli dengan skema mereka sendiri, mereka menghela nafas dan bergabung dengan kelompok untuk menyerang.</p>
+<p>	“Wu Shuai, kamu benar-benar kejam! Kamu sangat berpikiran sempit, kamu pasti akan mati dengan menyedihkan! ” Forest Lightning Grotto Lord tahu dia akan mati dan mengeluarkan kutukan ganas sambil mengerahkan kekuatan untuk menghancurkan Gu petir.</p>
+<p>	“Dalam mimpimu.” Pada saat berikutnya, Lady Cold Ash tiba-tiba muncul di belakangnya.</p>
+<p>	Forest Lightning Grotto Lord menegang, Lady Cold Ash mengambil kesempatan dan benar-benar merebut Lightning Gu dari tangannya!</p>
+<p>	“Metode apa ini?” Para abadi tercengang.</p>
+<p>	Meskipun tingkat pencapaian Jiwa Spektral telah jatuh ke tingkat yang menyedihkan, dia masih memiliki banyak metode. Akumulasi seorang yang terhormat tidak dapat diperkirakan oleh peringkat delapan Dewa Abadi biasa.</p>
+<p>	“Kerja bagus!” Xiao He Jian sangat gembira. Dia tidak memiliki harapan untuk mengambil Gu petir, tetapi siapa yang mengira itu akan benar-benar disita. Ini adalah jasa Lady Cold Ash dan juga miliknya. Sekarang, posisi wakil pemimpin aliansinya sudah setengah dikonfirmasi. Setengah sisanya adalah dengan menyelesaikan tugas yang diberikan oleh Wu Shuai!</p>
+<p>	Forest Lightning Grotto Lord menyerang balik dengan gila-gilaan.</p>
+<p>	Untuk melestarikan petir Gu, Lady Cold Ash telah secara paksa menahan serangannya dan terluka.</p>
+<p>	“Mundur dan jaga petir Gu!” Xiao He Jian dengan cepat datang untuk membantu, dia memblokir Forest Lightning Grotto Lord untuk Lady Cold Ash.</p>
+<p>	Untuk mencegah gangguan, makhluk abadi lainnya mulai menjarah sumber daya sambil menonton Xiao He Jian melawan Tuan Gua Petir Hutan sendirian.</p>
+<p>	Forest Lightning Grotto Lord sudah bertarung dengan Lady Cold Ash sebelumnya, kondisinya tidak optimal dan hampir semua metodenya terungkap.</p>
+<p>	Berdasarkan kekuatan dangkal yang ditunjukkan, Xiao He Jian juga lebih kuat dari Lady Cold Ash.</p>
+<p>	Pertempuran ini tidak menimbulkan ketegangan, dan segera, Xiao He Jian mengalahkan Lord Gua Petir Hutan.</p>
+<p>	Forest Lightning Grotto Lord tidak pasrah dikalahkan dan masih berpikir untuk melarikan diri.</p>
+<p>	Tapi Dewa Gu di sekitarnya telah mengamati pertempuran dan mengepung Lord Gua Petir Hutan tanpa cara baginya untuk melarikan diri.</p>
+<p>	Lord Gua Petir Hutan dipenggal dan surga gua Petir Hutan dihancurkan. Eksperimen aliansi pada buah panen qi gagal kali ini juga.</p>
+<p>	Selain itu, karena Wu Shuai meminta agar pertempuran diselesaikan secepat mungkin, sebagian besar sumber daya di surga gua Petir Hutan dihancurkan. Para Dewa Gu yang berpartisipasi hanya bisa mengumpulkan sangat sedikit sumber daya.</p>
+<p>	Keuntungan terbesar adalah Gu petir peringkat delapan liar itu. Tapi jelas ini akan diserahkan kepada Pemimpin Aliansi Wu Shuai.</p>
+<p>	Fang Yuan berpikir sejenak sebelum akhirnya memutuskan untuk menangani masalah secara langsung, menyingkirkan surga gua Petir Hutan agar konflik tidak berkembang.</p>
+<p>	Keputusan cepat Wu Shuai tidak hanya mengejutkan anggota aliansi, bahkan menghancurkan rencana Pengadilan Surgawi.</p>
+<p>	Qin Ding Ling telah memperoleh informasi tangan pertama dari Night Heavenly Wolf Lord dan segera menghubungi Leluhur Laut Qi.</p>
+<p>	Fang Yuan menerima surat itu; dalam surat itu, Qin Ding Ling masih bersikeras untuk merebut petir Gu meskipun sudah jatuh ke tangan Wu Shuai. Bahkan jika mereka tidak bisa merebut petir Gu, mereka harus menghancurkannya!</p>
+<p>	“Sepertinya Pengadilan Surgawi bertekad untuk mendapatkan Gu petir. Pengadilan Surgawi harus memiliki resep Gu Immortal Gu petir, mereka dapat memperbaikinya sendiri jika Gu ini dihancurkan.</p>
+<p>	Fang Yuan semakin penasaran, mengapa Pengadilan Surgawi begitu ingin mendapatkan Gu petir? Mengapa Pengadilan Surgawi yang begitu kuat memiliki kebutuhan mendesak untuk Gu Abadi ini? Lightning Gu bukanlah takdir Gu!</p>
+<p>	Fang Yuan tidak mengerti skema Pengadilan Surgawi, tetapi sikap Qin Ding Ling membuat rencana Fang Yuan sebelumnya gagal.</p>
+<p>	Baca di meionovel.id</p>
+<p>	Fang Yuan membuat Wu Shuai menghancurkan surga gua Petir Hutan tanpa memperhatikan keselamatan petir Gu untuk mencekik kemungkinan konflik sampai mati dan mencegah perang antara kedua belah pihak.</p>
+<p>	Tapi Pengadilan Surgawi memiliki sikap yang mirip dengan meminta pertempuran, Fang Yuan juga tidak bisa menolaknya dengan mudah.</p>
+<p>	Bagaimanapun, Leluhur Laut Qi bersekutu dengan Pengadilan Surgawi.</p>
+<p>	Bagaimana dia harus menghadapi ini?</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 325 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 325";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_324.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 325">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_326.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 325</h1>
+        <div class="text-left">
+<p>	Bab 325</p>
+<p>	Bab 325: Tanah Yang Diberkati Abadi</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Selama sepuluh hari terakhir ini, kami mendapatkan rata-rata dua puluh ribu sehari. Secara total, seratus ribu awal sudah tiga kali lipat, kami memiliki tiga ratus ribu sekarang! Memegang buku rekening di tangannya, Shang Xin Ci terkejut dan senang.</p>
+<p>	Sepuluh hari memasuki kompetisi master muda, Shang Xin Ci telah melipatgandakan modal awal di tangannya, dia segera memisahkan diri dari para pesaingnya.</p>
+<p>	Tiga ratus ribu, dan ini hanya jumlah yang diperoleh dari modal tuan muda. Fang Yuan dan Bai Ning Bing juga telah banyak berinvestasi dalam hal ini, saat ini mereka mendapatkan banyak uang. Penatua purba Fang Yuan, Gu tidak lagi cukup, karena dia membeli dua lagi, total asetnya telah mencapai dua juta empat ratus ribu.</p>
+<p>	Bai Ning Bing juga menghasilkan banyak.</p>
+<p>	Pelayan Shang Xin Ci, Xiao Die dan Xiao Lan, menatap Fang Yuan dengan tatapan penuh warna.</p>
+<p>	Mereka tahu bahwa hasil yang luar biasa ini semua karena Fang Yuan.</p>
+<p>	Awal yang baik adalah setengah dari kesuksesan. Kedua pelayan ragu Shang Xin Ci bersaing untuk posisi tuan muda, tapi sekarang mereka jauh lebih percaya diri.</p>
+<p>	“Tapi, bagaimana Fang Yuan mengetahui informasi yang begitu akurat tentang warisan tiga raja?” Bai Ning Bing duduk di satu sisi saat dia merasa curiga.</p>
+<p>	Alasan Fang Yuan dapat menggunakan kesempatan ini dan mendapatkan waktu ini adalah karena informasi yang dia miliki.</p>
+<p>	Apakah itu berarti, Fang Yuan memiliki rahasia tentang warisan tiga raja? Atau apakah dia memiliki sumber informasi yang misterius?</p>
+<p>	Tidak peduli yang mana, kebenaran menunjukkan bahwa Fang Yuan tidak sederhana sama sekali.</p>
+<p>	Meskipun Bai Ning Bing mendapatkan banyak juga, dia merasakan tekanan kuat di hatinya.</p>
+<p>	Dia telah menghabiskan banyak waktu dengan Fang Yuan, dia menemukan bahwa sering, Fang Yuan akan memberinya kejutan ketika dia tidak mengharapkannya.</p>
+<p>	Meskipun dia tidak tampak misterius sama sekali di luar, dia sebenarnya diselimuti lapisan kabut tebal.</p>
+<p>	Justru karena dia telah menghabiskan begitu banyak waktu bersamanya, dia bisa merasakan ini dan mengalami betapa tak terduganya Fang Yuan!</p>
+<p>	“Kakak Hei Tu, terima kasih banyak kali ini. Dengan tiga ratus ribu ini, saya dapat menjalankan rencana saya dengan lebih baik sekarang. ” Shang Xin Ci tersenyum dan berkata.</p>
+<p>	Tapi Fang Yuan melambaikan tangannya: “Jangan khawatir, Xin Ci, kamu punya ide bagus, tetapi sangat sulit untuk dieksekusi.”</p>
+<p>	Dia melanjutkan: “Bisnis yang menjual informasi di tahap pertempuran tidak seperti kami yang membeli Gu dalam jumlah besar. Kali ini, saya menyerang ketika pesaing Anda lengah, tetapi yang paling penting, itu karena Shang Ya Zi yang mengendalikan toko telah pergi, dan tidak ada yang mengelola toko klan Shang. Tanpa pemimpin yang tegas, bahkan jika orang lain ingin ikut campur, mereka tidak bisa melakukannya, dan hanya bisa melihat kita mendapatkan keuntungan ini.”</p>
+<p>	“Tapi bisnis informasi berbeda. Untuk memulai ini, Anda tidak hanya membutuhkan sumber daya yang besar, Anda juga membutuhkan tenaga kerja dan jaringan yang besar untuk membantu Anda. Jika tidak, pesaing Anda akan menekan dan berusaha merusak bisnis Anda. Fondasi kami lemah, kami tidak mampu melakukan upaya yang gagal. Setelah kita berinvestasi dalam bisnis, itu harus berhasil. Karena itu, kita perlu melakukan persiapan.”</p>
+<p>	Ekspresi Shang Xin Ci berubah serius, mengangguk: “Saudara Hei Tu, Anda benar. Tetapi baru beberapa tahun sejak saya datang ke kota klan Shang, saya hanya memiliki Xiao Die dan Xiao Lan untuk membantu saya. Untuk jaringan, saya hampir tidak punya kontak.”</p>
+<p>	Xiao Die adalah seorang pelayan yang dia bawa dari klan Zhang, dia setia dan sekarang dia diasuh sebagai Guru Gu oleh Shang Xin Ci, dia memiliki bakat kelas B yang layak.</p>
+<p>	Adapun Xiao Lan, dia adalah Master Gu penyembuhan peringkat tiga yang dikirim Shang Yan Fei untuk membantu Shang Xin Ci, dia dapat diandalkan dan dapat dipercaya.</p>
+<p>	Fang Yuan tertawa: “Xin Ci, jangan menganggap dirimu terlalu rendah. Shang Chi Wen yang mengendalikan panggung pertempuran memiliki hubungan yang baik denganmu.”</p>
+<p>	“Kami bisa berhubungan satu sama lain karena kami perempuan. Pada saat yang sama, bisnis intel membantu pendapatannya, saya yakin dia tidak akan keberatan.” Shang Xin Ci menganalisis dan berkata.</p>
+<p>	“Xin Ci, saya bilang saya akan membantu Anda mendapatkan posisi tuan muda, saya punya rencana saya, dan kepercayaan diri yang cukup untuk menang. Tidak perlu khawatir, lakukan saja apa yang saya katakan, ada peluang besar untuk menang. ” Fang Yuan meyakinkan.</p>
+<p>	“Saya akan mendengarkan instruksi Saudara Hei Tu.” Shang Xin Ci tertawa, menjawab tanpa ragu-ragu.</p>
+<p>	Fang Yuan duduk di kursi, postur strategisnya memberi Shang Xin Ci rasa aman yang kuat.</p>
+<p>	“Xin Ci, pertama, kamu harus merekrut orang. Jika Anda ingin melakukan bisnis ini, Anda membutuhkan banyak bawahan yang setia. Tetapi sebelum itu, Anda membutuhkan seorang manajer. Dia harus memiliki kultivasi peringkat tiga dan harus mampu bertahan, berpengalaman dan mampu berdagang. Saya telah menemukan orang seperti itu, namanya Zhou Quan, dia adalah seorang penjaga toko di bawah Shang Ya Zi.” Fang Yuan terus merencanakan.</p>
+<p>	Shang Xin Ci sedikit sedih: “Zhou Quan? Saya tahu dia. Tapi dia adalah Master Gu peringkat tiga, dia sombong dan bangga. Dia pernah menjadi pemimpin klan Zhou, memiliki kultivasi peringkat empat. Tetapi setelah ada perselisihan internal, dan klan dibantai oleh Master Gu iblis, dia melarikan diri dengan luka berat, sehingga hanya memiliki peringkat tiga budidaya tingkat atas yang tersisa. Dia menjaga toko-toko dan selalu memiliki kinerja terbaik di antara semua pemilik toko lainnya. Tetapi bahkan Shang Ya Zi tidak bisa mendapatkan kesetiaannya, orang seperti itu, saya khawatir … ”</p>
+<p>	Fang Yuan melambaikan tangannya: “Bagaimana kamu tahu jika kamu tidak mencoba? Xin Ci, Anda harus menjadi percaya diri, percayalah, Anda memiliki karisma yang unik. Di masa depan, banyak orang akan melayani Anda dengan rela dan berjuang untuk Anda. Zhou Quan adalah target yang sulit, Anda mungkin tidak berhasil, tetapi selama Anda menunjukkan ketulusan Anda, kerja keras Anda pasti akan terbayar.</p>
+<p>	“Ya, Saudara Hei Tu, saya akan bekerja keras!” Shang Xin Ci mengepalkan tinjunya.</p>
+<p>	Fang Yuan mengangguk: “Bagus, lalu lanjutkan.”</p>
+<p>	Tidak lama setelah Shang Xin Ci pergi, Wei Yang tiba di taman Nan Qiu.</p>
+<p>	Fang Yuan merawatnya di paviliun danau: “Saya mengerti mengapa saudara Wei ada di sini, silakan duduk.”</p>
+<p>	Mengatakan demikian, Fang Yuan menuangkan secangkir teh untuk Wei Yang.</p>
+<p>	Wei Yang tertawa: “Saudara Fang Zheng bijaksana, maka tolong beri tahu saya tentang itu.”</p>
+<p>	Fang Yuan menggunakan warisan tiga raja untuk mendapatkan banyak uang, itu semua karena dia memiliki informasi rahasia tentang itu sebelumnya.</p>
+<p>	Shang Yan Fei tidak bodoh, dia segera tahu Fang Yuan memiliki informasi berharga.</p>
+<p>	Warisan tiga raja adalah peristiwa terbesar selama lima puluh hingga enam puluh tahun terakhir. Saat ini, itu telah mempengaruhi seluruh perbatasan selatan, dan menarik perhatian banyak kekuatan. Tetapi karena di daerah pegunungan perbatasan selatan, bahaya mengintai di mana-mana, tidak mudah untuk sampai ke tanah warisan. Meski begitu, banyak klan, selama mereka bisa, mengirimkan kelompok Master Gu mereka masing-masing.</p>
+<p>	Warisan tiga peringkat lima Master Gu, bahkan klan Shang kelas super akan dipindahkan.</p>
+<p>	“Informasi saya berasal dari gunung Bai Gu. Cendekiawan Tulang Abu-abu pernah menjelajahi tanah warisan tiga raja, dan mengumpulkan beberapa informasi. Yang benar adalah, tanah warisan tiga raja yang mereka temukan sekarang adalah tanah berkah Guru Gu kuno. ” Fang Yuan menjawab dengan setengah benar.</p>
+<p>	Informasinya jelas bukan dari gunung Bai Gu. Tetapi informasi tentang tanah yang diberkati, itu benar, dia telah mengkonfirmasinya di kehidupan sebelumnya.</p>
+<p>	“Tanah yang diberkati?” Mendengar kalimat ini, cahaya cemerlang melintas di mata Wei Yang.</p>
+<p>	Tanah terberkati, tanah terberkati, itu adalah tanah berkah, tempat tinggal para Guru Gu setelah mereka menjadi abadi.</p>
+<p>	Di tanah yang diberkati, pemandangannya seperti gambar, memiliki suasana yang unik dan sejumlah besar harta dan bahan berharga. Esensi purba di dalam seringkali puluhan kali lebih tebal dan lebih padat daripada dunia luar.</p>
+<p>	Tanah yang diberkati adalah dunia kecil yang mandiri, sebuah utopia, terisolasi dari dunia. Dewa Abadi menguasai tanah, dan siapa pun yang tinggal di dalamnya dapat mengalami ketenangan dan kebahagiaan.</p>
+<p>	“Saudara Fang Zheng, apakah kamu serius?” Nada bicara Wei Yang menjadi lebih cemas.</p>
+<p>	Dia harus serius.</p>
+<p>	Peringkat lima fana, peringkat enam abadi. Antara peringkat lima dan enam, ada perbedaan kualitatif yang membuat mereka terpisah dari dunia.</p>
+<p>	Warisan tiga peringkat lima Gu Masters hanya bisa menarik minat klan Shang. Tetapi jika itu melibatkan warisan peringkat enam Gu Immortal, maka semua klan super di perbatasan selatan akan menjadi gila karenanya!</p>
+<p>	Warisan peringkat enam Gu Immortal terlalu berharga. Sangat penting bahwa bahkan Dewa Gu peringkat enam yang terpencil itu akan muncul satu demi satu!</p>
+<p>	Fang Yuan tertawa: “Saya tidak yakin tentang detail pastinya, tetapi dalam catatan Gray Bone Scholar, itulah yang tertulis.”</p>
+<p>	Dia tidak takut mengungkapkan informasi ini lebih awal, karena tidak ada konsekuensi buruk dalam melakukannya.</p>
+<p>	Menurut ingatannya, hanya dalam beberapa hari, orang akan mulai mengembangkan pemahaman tentang ini. Bagaimanapun, setelah waktu yang singkat, klan Shang juga akan mengetahui hal ini. Dia mungkin juga memberi tahu Wei Yang sebelumnya untuk mendapatkan kepercayaan mereka.</p>
+<p>	“Kakak Wei, tenanglah. Meskipun ini adalah tanah yang diberkati yang ditinggalkan oleh peringkat enam Gu Immortal, itu sudah lama merosot. Saat ini, ia berada di ambang kehancuran. Kembali pada hari itu, tanah yang diberkati ini ditempati oleh tiga raja dan mereka menggali semua sumber daya dan harta di dalamnya. Saat ini, ketiga raja menggunakan tanah yang diberkati ini untuk membangun warisan mereka, menyebabkan tanah yang diberkati merasakan tekanan yang lebih besar. Akhirnya, itu akan menghadapi kehancuran, dan menghilang ke udara tipis. ” Fang Yuan berkata perlahan.</p>
+<p>	“Oh, begitu?” Wei Yang berkedip, saat dia dengan cepat memproses informasi.</p>
+<p>	“Ini semua tercatat dalam catatan Gray Bone Scholar, tapi untuk memastikan keselamatanku, aku sudah menghancurkan semua dokumen ini, aku tidak bisa menunjukkannya padamu.” Fang Yuan tersenyum ringan.</p>
+<p>	“Saudaraku, ini masalah yang terlalu besar. Bukannya saya tidak mempercayai Anda, tetapi saya harus melapor kepada pemimpin klan tuan, dan biarkan dia memutuskan. ” Wei Yang serius.</p>
+<p>	Fang Yuan mengungkapkan pemahamannya: “Jika klan Shang ingin mengirim tim eksplorasi, saya punya beberapa informasi di sini yang mungkin bisa membantu.”</p>
+<p>	Fang Yuan memiliki pemahaman tentang hal-hal di dalam warisan.</p>
+<p>	“Haha, kalau begitu, aku tidak bisa membiarkanmu kalah. Beri harga.” Wei Yang bertanggung jawab atas rumah Feng Yu, dan mengendalikan intel di kota.</p>
+<p>	Fang Yuan memikirkannya, dan berkata empat ratus ribu.</p>
+<p>	Wei Yang mengerutkan kening: “Untuk informasi tentang warisan peringkat enam Gu Immortal, empat ratus ribu adalah … terlalu sedikit. Tetapi keandalan informasinya belum dikonfirmasi, saya akan memberi Anda empat ratus ribu terlebih dahulu. Setelah beberapa saat, ketika dievaluasi, jangan khawatir, adik laki-laki, dengan saudaramu Wei di sini, kamu tidak akan kalah. ”</p>
+<p>	“Saya diyakinkan oleh kata-kata saudara Wei.” Fangyuan tertawa.</p>
+<p>	Setelah mendapatkan informasi ini, Shang Yan Fei sangat memperhatikannya, mengirim tiga tim ke gunung San Cha. Setiap tim memiliki setidaknya tiga penatua, itu adalah investasi yang kuat.</p>
+<p>	Beberapa hari kemudian, Fang Yuan menerima kompensasi dari Wei Yang terkait informasi tersebut.</p>
+<p>	Informasi yang dia berikan sangat membantu tim klan Shang, dan menghindari banyak kematian.</p>
+<p>	Setelah mendapatkan dana, Fang Yuan mendekati Li Ran.</p>
+<p>	Li Ran adalah mata-mata yang dikirim oleh klan Wu, saat ini dia berada di dalam panggung pertempuran kota dalam ketiga, identitasnya masih dirahasiakan dan tidak ada yang tahu kecuali Fang Yuan.</p>
+<p>	“Saya punya beberapa informasi tentang warisan tiga raja, saya yakin klan Wu Anda akan tertarik.” Fang Yuan bertemu dengan Li Ran secara rahasia dan langsung berkata.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

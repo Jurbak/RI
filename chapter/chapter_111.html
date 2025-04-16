@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 111 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 111";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_110.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 111">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_112.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 111</h1>
+        <div class="text-left">
+<p>	Bab 111</p>
+<p>	Bab 111: Batu purba hanyalah barang material</p>
+<p>	Penerjemah: Skyfarrow Editor: Skyfarrow</p>
+<p>	“Nenek, Gu apa ini?” Gadis muda itu dengan penasaran menunjuk ke konter pusat di lantai tiga.</p>
+<p>	Ada tiga lantai di rumah pohon ini; lantai pertama menjual cacing Gu peringkat satu, lantai dua menjual cacing Gu peringkat dua dan lantai ketiga menjual cacing Gu peringkat tiga.</p>
+<p>	Semakin tinggi Anda pergi, semakin sedikit cacing Gu dan semakin mahal harganya.</p>
+<p>	Secara alami, cacing Gu yang dijual di rumah pohon semuanya langka dan berharga.</p>
+<p>	Gu Yue Yao Ji mengikuti pandangan cucunya dan melihat tunggul pohon berbentuk ember, tinggi dan tipis. Tunggul itu memiliki lima cabang seperti lima jari manusia dan terjalin di tengah.</p>
+<p>	Cacing Gu berbentuk bola yang seukuran ibu jari dililitkan oleh cabang-cabang halus dan ditutupi oleh daun hijau, memancarkan cahaya putih keperakan.</p>
+<p>	“Ini adalah Gu Relik perak putih, itu hanya dapat digunakan sekali dan dapat secara instan meningkatkan kultivasi Guru Gu peringkat tiga oleh alam kecil,” Gu Yue Yao Ji perlahan menjelaskan.</p>
+<p>	Relic Gu adalah seri Gu worm.</p>
+<p>	Peringkat satu memiliki Gu Relik tembaga hijau yang secara khusus ditargetkan untuk Master Gu Peringkat satu. Peringkat dua memiliki Gu Relik baja merah yang hanya efektif pada Master Gu Peringkat dua, dan Peringkat tiga adalah Gu Relik Perak ini.</p>
+<p>	Peringkat empat memiliki Gu Relik emas kuning.</p>
+<p>	“Harganya tiga puluh ribu batu purba, sangat mahal!” Gadis muda itu sangat terkejut, dia menjulurkan lidahnya.</p>
+<p>	Gu Yue Yao Ji mengangguk, “Harga akhirnya harus mencapai setidaknya lima puluh ribu batu purba. Baiklah, kita sudah berjalan cukup lama di sini, ayo pergi ke meja resepsionis lantai satu, hasil penawaran cacing Liquor seharusnya sudah keluar. ”</p>
+<p>	Di rumah pohon, cacing Gu peringkat satu hanya akan ditampilkan selama setengah hari setelah ada tawaran untuk itu. Untuk cacing Gu yang kurang diminati orang, itu akan dipajang sampai seseorang mengajukan penawaran.</p>
+<p>	Peringkat dua cacing Gu akan ditampilkan selama sehari dan Peringkat tiga cacing selama dua hari.</p>
+<p>	Sepintas, praktik ini tampak aneh tetapi ketika dipraktikkan, ini adalah cara berbisnis yang paling cocok.</p>
+<p>	Di meja resepsionis.</p>
+<p>	“Apa, cacing Liquor telah dibeli oleh orang lain?” Gu Yue Yao Ji segera mengerutkan kening setelah melihat hasilnya. Dia telah memasang harga tinggi dan percaya diri dalam mendapatkan cacing Liquor, tetapi untuk berpikir dia benar-benar salah perhitungan.</p>
+<p>	“Hmph! Siapa yang begitu buruk untuk merebut cacing Liquor sayangku? ” Gadis muda itu bertanya dengan marah.</p>
+<p>	“Yao Le,” Gu Yue Yao Ji mengingatkan cucunya.</p>
+<p>	Gadis muda itu cemberut dan dengan patuh menutup mulutnya.</p>
+<p>	Petugas penjualan di belakang konter adalah Master Gu wanita peringkat dua. Dia sedikit membungkuk dan menjawab gadis muda itu, “Maaf, kami tidak dapat membocorkan informasi pelanggan kami. Setiap bisnis memiliki aturan khusus, mohon maafkan saya.”</p>
+<p>	Kerahasiaan inilah yang menghilangkan kekhawatiran banyak pelanggan dan memungkinkan mereka untuk secara bebas mengambil bagian dalam penawaran.</p>
+<p>	Kadang-kadang, orang akan memiliki beberapa hal yang mereka inginkan, tetapi mereka akan menyerah kepada orang lain karena perasaan dan kesopanan. Lagi pula, mereka akan sering bertemu satu sama lain di klan.</p>
+<p>	Tetapi metode melakukan transaksi seperti itu secara diam-diam memungkinkan seseorang untuk mengatasi masalah sentimen.</p>
+<p>	Mengapa hal baik seperti itu harus pergi kepada Anda? Karena kamu senior, saudara atau teman saya?</p>
+<p>	Jangan pernah meremehkan sisi gelap dalam diri setiap orang.</p>
+<p>	Transaksi rahasia semacam itu memungkinkan sisi gelap ini keluar.</p>
+<p>	Gu Yue Yao Ji merenung sejenak dan berkata, “Aku tahu aturannya. Kamu tidak perlu khawatir gadis kecil, aku tidak akan menanyakan nama orang yang membeli cacing Liquor itu, aku hanya ingin tahu berapa harga akhirnya.”</p>
+<p>	Master Gu perempuan membungkuk lagi, “Saya benar-benar minta maaf, harganya juga rahasia. Tapi tolong jangan khawatir, harga akhir pasti yang tertinggi di antara semua tawaran. Bisnis keluarga Jia selalu berpusat pada kejujuran.”</p>
+<p>	“Hmph, gadis kecil, apakah kamu tahu siapa aku?” Wajah Gu Yue Yao Ji tenggelam dan mendengus dingin.</p>
+<p>	“Apa yang sedang terjadi?” Pada saat ini, seorang Master Gu setengah baya peringkat tiga bergegas.</p>
+<p>	Rumah pohon ini terus dipantau; mereka secara alami akan tahu jika sesuatu terjadi.</p>
+<p>	“Tuan pengawas.” Master Gu wanita segera menyapa pria paruh baya ini.</p>
+<p>	Pria itu melambaikan tangannya pada gadis itu, “Kamu bisa pergi sekarang, aku akan menanganinya di sini.”</p>
+<p>	Dia berbalik ke arah Gu Yue Yao Ji dan tersenyum, “Jadi itu adalah tuan Yao Ji. Dia seharusnya cucumu, kan? Dia terlihat pintar dan manis.”</p>
+<p>	Ekspresi Gu Yue Yao Ji melunak saat melihat bahwa pria ini juga seorang Master Gu peringkat tiga, tapi dia masih bertanya untuk mengetahui harga akhirnya.</p>
+<p>	Pengawas laki-laki merasa bahwa situasinya agak rumit.</p>
+<p>	Dia adalah seorang penatua di karavan dan juga pembantu terpercaya dari Jia Fu. Setelah melakukan bisnis selama bertahun-tahun, dia memiliki pemahaman yang mendalam tentang situasi desa Gu Yue dan mengetahui pengaruh yang dimiliki wanita tua ini.</p>
+<p>	Bagi mereka, bahkan jika mereka menyinggung Gu Yue Chi Lian atau Gu Yue Mo Chen, mereka tidak ingin menyinggung Gu Yue Yao Ji. Pengaruh yang terakhir adalah yang kedua setelah pemimpin klan Gu Yue Bo.</p>
+<p>	Pengawas laki-laki merenung dan berkata, “Bagaimana dengan ini, karena tuan Yao Ji ingin membeli cacing Liquor, saya dapat mengambil alih dan diam-diam mentransfer satu. Sejujurnya, gudang itu memiliki tiga cacing Liquor dan Tuan Jia Fu secara pribadi memutuskan ke mana harus menjualnya. Anda harus tahu betapa berharganya cacing Liquor. Adapun harganya, mari kita putuskan harga penawaran Anda. ”</p>
+<p>	Namun, Gu Yue Yao Ji sedikit menggelengkan kepalanya dan menjatuhkan tongkat di tangannya ke tanah.</p>
+<p>	Dia berkata, “Saya tidak mencari penawaran. Harganya…akan sama dengan harga jual cacing Liquor sebelumnya.”</p>
+<p>	“Ini….” Pengawas itu ragu-ragu, dia secara alami melihat tujuan Gu Yue Yao Ji.</p>
+<p>	Gu Yue Yao Ji berpura-pura kesal dan terus menekan supervisor pria itu, “Apa? Apakah harganya begitu tinggi sehingga Anda takut saya tidak akan mampu membelinya? ”</p>
+<p>	“Tentu saja, aku tidak bermaksud begitu. Sigh, baiklah, kami akan melakukan seperti yang kamu katakan. ” Supervisor menghela nafas dan mengatakan harga.</p>
+<p>	Setelah mendengar harganya, gadis muda itu pertama-tama menghela nafas lega, tetapi segera setelah itu dia merasa agak marah, “Apa, itu hanya dua puluh batu purba lebih dari milik kita?”</p>
+<p>	Gu Yue Yao Ji menyipitkan matanya, tapi tidak berbicara.</p>
+<p>	Sementara itu, Fang Yuan sudah keluar dari rumah pohon dan tiba di kedai anggur.</p>
+<p>	Cacing Liquor kedua sudah dimilikinya, dan sekarang satu-satunya hal yang dia butuhkan adalah empat jenis anggur — anggur asam, manis, pahit dan pedas.</p>
+<p>	“Saya sudah memiliki anggur manis; masih ada cukup banyak anggur madu emas yang tersisa dari misi warisan keluarga. Anggur pedas dan asam seharusnya tidak menjadi masalah. Satu-satunya kekhawatiran saya adalah anggur pahit. ” Fang Yuan agak khawatir ketika memikirkan hal ini.</p>
+<p>	Jika dia memiliki anggur pahit, dia bisa mulai memurnikan cacing Four Flavours Liquor malam ini.</p>
+<p>	Banyak hal dalam hidup yang seperti ini, apa pun yang Anda takuti, itu akan menjadi kenyataan.</p>
+<p>	Kekhawatiran Fang Yuan menjadi kenyataan. Dia menghabiskan beberapa jam bergegas melalui tenda yang tak terhitung jumlahnya; dia menemukan anggur pedas dan asam, tetapi dia tidak menemukan anggur pahit.</p>
+<p>	“Tidak semua hal di dunia ini mengikuti keinginan kita.” Fang Yuan sangat tidak berdaya. Dia hanya bisa mengesampingkan rencana fusi untuk cacing Liquor.</p>
+<p>	Tanpa cacing Four Flavours Liquor, kecepatan kultivasinya akan biasa saja.</p>
+<p>	Di sore hari, dia pergi ke rumah pohon lagi.</p>
+<p>	Ada cacing Gu baru di banyak konter di lantai pertama.</p>
+<p>	Konter pusat – di mana cacing Liquor telah ditampilkan – sekarang ditempati oleh Gu Air Pembersih.</p>
+<p>	Gu Air Pembersih menyerupai lintah di Bumi, hanya saja ia jauh lebih manis daripada lintah; seluruh tubuhnya memiliki kilau biru muda seperti air yang berkilauan.</p>
+<p>	“Cleansing Water Gu dapat menghilangkan aura campuran di aperture. Bagi Chi Cheng, itu adalah cacing Gu yang harus dia miliki.” Fang Yuan memikirkan Chi Cheng ketika dia melihat Gu Air Pembersih ini.</p>
+<p>	Dia tahu Chi Cheng hanya memiliki bakat kelas C dan telah secara paksa meningkatkan kultivasinya dengan bantuan esensi purba kakeknya Gu Yue Chi Lian, sehingga aura Chi Lian tercampur di dalam celah Chi Cheng. Jika Chi Cheng tidak membersihkannya, maka prospek masa depannya akan terancam.</p>
+<p>	“Chi Lian pasti akan membeli cacing Gu ini untuk Chi Cheng. Hmm, coba kupikirkan….. kutipannya harus antara enam ratus tiga puluh hingga enam ratus empat puluh.”</p>
+<p>	Harga ini lebih dari nilai pasar cacing Liquor. Alasan utamanya adalah karena Chi Cheng secara khusus membutuhkan cacing Gu ini.</p>
+<p>	“Jika saya mengutip enam ratus lima puluh, itu akan memberi saya Gu Air Pembersih ini. Hanya dengan menambahkan sepuluh batu purba, Gu Air Pembersih ini pasti akan jatuh ke tanganku! Adapun cacing Liquor yang saya beli pagi ini, kutipan saya seharusnya sekitar dua puluh batu purba lebih tinggi dari milik Gu Yue Yao Ji. ” Fang Yuan dengan dingin tersenyum dalam hati.</p>
+<p>	Dia memiliki kepercayaan diri ini.</p>
+<p>	Pengalamannya selama lima ratus tahun dan pengetahuan bisnis tingkat lanjut dari Bumi telah digabungkan untuk membentuk kepercayaan diri ini. Itu luar biasa.</p>
+<p>	Dengan pengalaman kehidupan sebelumnya, ketika dia hanya meletakkan sepuluh batu purba lagi, dia memiliki jaminan delapan puluh persen untuk mendapatkan barang. Ketika dia membeli cacing Liquor, alasan mengapa dia menaruh sepuluh batu purba lagi adalah karena sifatnya yang berhati-hati.</p>
+<p>	Fang Yuan tidak membuat kutipan, dia tidak membutuhkan Gu Air Pembersih. Dan jika dia mendapatkannya, maka itu akan diselidiki oleh Chi Lian. Tentu saja, alasan utama Fang Yuan tidak menawar adalah karena dia perlu memegang sisa uang untuk melihat apakah ada cacing Gu yang bagus dalam beberapa hari mendatang.</p>
+<p>	“Saya kekurangan dua jenis cacing Gu; tipe kepramukaan dan tipe gerakan. Gelombang serigala akan datang di tahun mendatang, dan kafilah tidak akan datang lagi. Meskipun ada warisan tersembunyi Flower Wine Monk, yang buru-buru ditinggalkan oleh Flower Wine Monk setelah dia terluka. Siapa yang mengatakan apakah itu lengkap atau tidak dan cacing Gu apa yang akan terjadi selanjutnya? ”</p>
+<p>	Dalam ingatannya, pasang serigala tahun depan akan sangat berbahaya. Fang Yuan tidak ingin menjadi tidak berdaya hanya karena dia kekurangan cacing Gu, terluka atau bahkan binasa dalam gelombang serigala.</p>
+<p>	Akan menjadi bencana baginya saat ini jika dia dikelilingi oleh kawanan serigala.</p>
+<p>	Sebelum itu terjadi, dia perlu membuat persiapan yang cukup; baik budidaya dan cacing Gu seharusnya tidak kurang.</p>
+<p>	Setelah ini, dia berulang kali pergi ke rumah pohon selama tiga hari.</p>
+<p>	Pada hari ketiga, di lantai pertama rumah pohon, dia menemukan sesuatu yang membuatnya senang — Gu Babi Hitam!</p>
+<p>	Gu Black and White Boar adalah cacing Gu yang dapat meningkatkan kekuatan dasar Gu Masters. Fang Yuan telah menggunakan White Boar Gu dan menerima kekuatan yang setara dengan babi hutan. Jika dia menggunakan Gu Babi Putih lagi, dia tidak akan menerima peningkatan kekuatan. Tapi Black Boar Gu berbeda, kemampuannya bisa overlay dengan White Boar Gu.</p>
+<p>	Oleh karena itu, pada siang hari, ada satu cacing Gu lagi yang dimilikinya.</p>
+<p>	Setelah itu, tidak ada apa-apa.</p>
+<p>	Beberapa cacing Gu pengintai dan tipe gerakan muncul di konter tetapi mereka tidak bisa memuaskan Fang Yuan.</p>
+<p>	Cacing Gu ini dipajang di konter biasa dan harganya tidak bagus, jadi tidak banyak yang mau membelinya. Fang Yuan mendengar karavan akan tinggal selama delapan hari, jadi dia dengan sabar menunggu tanpa menjadi cemas.</p>
+<p>	Itu adalah hari ketujuh.</p>
+<p>	Di lantai dua rumah pohon, Fang Yuan menemukan Relic Gu baja merah.</p>
+<p>	Itu bisa langsung meningkatkan esensi purba Peringkat dua Gu Master oleh dunia kecil!</p>
+<p>	Harganya ditandai dengan tiga ribu batu purba, menarik banyak Master Gu peringkat dua untuk menawarnya, menjatuhkan kertas di konter; itu adalah pemandangan yang sangat hidup.</p>
+<p>	“Jika saya mendapatkan Relic Gu baja merah ini, saya bisa mendorong kultivasi saya ke tahap tengah secara instan. Dengan esensi purba kirmizi tingkat menengah, saya akan dapat menggunakan Moonglow Gu dan White Jade Gu berkali-kali.”</p>
+<p>	Kultivasi adalah dasar dari Master Gu, peningkatan kultivasi berarti peningkatan kekuatan bertarung. Dalam hal efeknya, itu jauh lebih baik daripada mendapatkan scouting dan movement Gu worm.</p>
+<p>	Selain itu, dua jenis cacing Gu di rumah pohon ini semuanya biasa bagi Fang Yuan, tanpa ada yang menarik perhatiannya.</p>
+<p>	“Saya telah membeli cacing Liquor dan Black Boar Gu, saya juga membeli beberapa anggur. Harga akhir Relic Gu baja merah ini pasti akan melewati lima ribu batu purba dan bahkan bisa mencapai delapan ribu. Lagi pula, semua orang tahu tentang gelombang serigala, jadi meningkatkan kultivasi seseorang dengan ranah kecil akan banyak membantu. Batu purbaku tidak akan cukup jika aku ingin mendapatkan Relic Gu ini!”</p>
+<p>	Fang Yuan langsung menyadari bahwa sebuah rintangan telah muncul di depannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

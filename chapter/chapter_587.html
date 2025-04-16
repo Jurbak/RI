@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 587 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 587";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_586.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 587">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_588.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 587</h1>
+        <div class="text-left">
+<p>	Bab 587</p>
+<p>	Bab 587: Perbedaan besar antara abadi dan fana</p>
+<p>	Waktu berlalu dengan cepat dan sebulan telah berlalu.</p>
+<p>	Dataran utara.</p>
+<p>	Angin bertiup kencang dan salju berkibar di sekitarnya.</p>
+<p>	Dunia adalah pemandangan putih saat salju putih menutupi padang rumput yang luas. Angin dingin tulang bertiup ke mana-mana; kadang-kadang, itu akan membentuk tornado dan kadang-kadang, itu akan mengangkat salju yang dalam di tanah.</p>
+<p>	Setiap sepuluh tahun, bencana badai salju menghancurkan seluruh dataran utara. Makhluk hidup meratap dan segala sesuatu menjadi melarat. Di beberapa tempat terbatas, manusia dan hewan yang masih hidup berjuang untuk hidup mereka.</p>
+<p>	Mereka tidak hanya harus mengatasi iklim dingin, tetapi juga harus terlibat dalam pertempuran sengit melawan monster salju dan pertempuran lainnya.</p>
+<p>	Namun, di lingkungan yang begitu kejam, manusia salju seperti ikan di air, sangat sering bergerak dan menjadi sangat hidup.</p>
+<p>	Badai salju yang sedingin es hanyalah angin musim semi yang hangat bagi manusia salju.</p>
+<p>	Mereka berburu di badai salju ini, dan sejumlah besar jalur salju liar, jalur es, dan jalur air cacing Gu mulai hidup satu demi satu di tubuh mereka.</p>
+<p>	Suku manusia salju yang diburu oleh Master Gu, dipukuli dan dijual pada waktu normal, sekarang mengalami pertumbuhan yang luar biasa. Kekuatan mereka berkembang pesat.</p>
+<p>	Dalam badai salju yang mengamuk, dua sosok gelap muncul.</p>
+<p>	Sosok-sosok gelap itu berdiri di atas tebing, dipenuhi dengan aura abadi; mereka adalah dua Dewa Gu suku Hei — Hei Bai dan Hei Cheng.</p>
+<p>	Mereka melihat ke bawah ke arah lembah di bawah mereka.</p>
+<p>	Badai salju masih liar, tetapi bahkan tidak mampu menggoyang pakaian keduanya. Salju berkibar liar, tetapi tidak mampu menghalangi pandangan keduanya yang menyelidik.</p>
+<p>	Di lembah itu, banyak rumah es dibangun, berdempetan dengan jumlah mencapai beberapa puluh ribu.</p>
+<p>	Sekelompok prajurit manusia salju yang heroik baru saja kembali dari perburuan mereka. Mereka telah kembali dengan panen besar sekali lagi.</p>
+<p>	Peringkat enam jalur kayu Gu Immortal Hei Bai mengerutkan kening: “Hmph, kelompok manusia salju ini memanfaatkan periode waktu ini untuk tumbuh begitu cepat! Dalam tiga hari ini, ini sudah menjadi suku ketujuh yang telah kita lihat dengan skala seperti itu.”</p>
+<p>	Mereka yang bukan ras saya memiliki motif yang berbeda, meskipun manusia salju memiliki nama laki-laki, mereka masih manusia varian.</p>
+<p>	Ketika badai salju berakhir, suku-suku dataran utara akan secara aktif mulai berkembang yang pasti akan menghasilkan banyak pertempuran besar dengan manusia salju ini.</p>
+<p>	Bagi suku manusia, sejumlah besar manusia salju berarti musuh mereka lebih banyak dan lebih kuat.</p>
+<p>	Hei Cheng menepuk bahu Hei Bai, tersenyum: “Saudara yang saleh seharusnya bahagia. Melihat dari sudut lain, manusia salju ini adalah kekayaan kita! Kita bisa mengambil manusia salju ini sebagai tawanan dan tidak hanya menukarnya dengan batu esensi abadi dengan Dewa Gu lainnya, kita juga bisa memberi Xue Song Zi sesuatu untuk ditangisi.”</p>
+<p>	Sudut bibir Hei Bai terangkat membentuk lengkungan: “Kakak laki-laki berpikir secara komprehensif. Jika bukan karena Xue Song Zi, ayam kayu Gu pasti sudah ada di tanganku. Dan dia bahkan ikut campur dalam kontes Imperial Court terakhir. Hari-hari ini, kami telah berburu manusia salju di mana-mana dan menjualnya di surga kuning harta karun. Hehehe, aku sangat ingin melihat bagaimana ekspresi Xue Song Zi sekarang.”</p>
+<p>	Tetapi saat dia selesai mengatakan ini, senyumnya menghilang dan tatapannya menunjukkan sedikit kecemasan: “Kakak laki-laki, Hei Lou Lan sudah lama berada di Istana Kerajaan, dan menurut waktu, Gedung Delapan Puluh Delapan Yang Sejati seharusnya telah membentuk lebih dari dua puluh lantai. Mengapa masih belum ada jejak ayam kayu Gu? ”</p>
+<p>	Hei Cheng tertawa: “Jangan resah, jangan resah. Eighty-Eight True Yang Building memiliki total delapan puluh delapan lantai, ini tidak banyak. Hei Lou Lan, anak ini mungkin memiliki temperamen yang mudah marah, tapi dia sangat teliti dalam hal gambaran besarnya. Dia belum memutuskan kontak dengan kita sejak dia memasuki Istana Kekaisaran, bukan begitu? Selain itu, dia sekarang sudah memiliki token pemilik satu sisi, selama ayam kayu Gu terlibat dalam pembuatan lantai baru, Hei Lou Lan dapat merasakannya, dan kami akan menerima beritanya. ”</p>
+<p>	Suku Hei adalah kekuatan super, meskipun mereka tidak memiliki kemampuan dalam mengeksploitasi kelemahan yang dapat menandingi tingkat Peri Mo Yao, mereka memiliki cara mereka sendiri untuk menggunakan cacing Gu untuk mentransfer pesan di dalam dan di luar.</p>
+<p>	Hei Bai menghela nafas: “Tanah yang diberkati Pengadilan Kekaisaran dan dunia luar dataran utara memiliki aliran waktu yang berbeda. Sehari di sini di dunia luar sama dengan lebih dari dua puluh hari di tanah yang diberkati Pengadilan Kekaisaran. Saya agak khawatir pemberitahuan Hei Lou Lan akan terlambat, dan jika demikian, bantuan yang dapat kami berikan akan sedikit.”</p>
+<p>	Hei Cheng menghibur sambil tersenyum: “Saudara yang berbudi luhur, semakin Anda khawatir, semakin panik Anda. Tenang, menurut kekuatan Hei Lou Lan, melewati tiga atau empat lantai tidak akan menjadi masalah. Sebelum ini, sebaiknya kita menjaga kelompok manusia salju ini.”</p>
+<p>	“Oke.” Kekhawatiran Hei Bai sedikit lega, saat dia mengangguk.</p>
+<p>	Keduanya ditembak jatuh seperti kilat, langsung menyerbu ke suku manusia salju di dalam lembah.</p>
+<p>	Hei Cheng tertawa.</p>
+<p>	Seketika, tawa tak terkendali mengguncang dunia, menghentikan bahkan awan yang bergerak! Seluruh lembah berdengung karena getaran dan hujan salju yang megah juga melambat.</p>
+<p>	Kecelakaan kecelakaan kecelakaan….</p>
+<p>	Gelombang suara menyapu lembah, menghancurkan bangunan es yang tak terhitung jumlahnya menjadi bubuk halus.</p>
+<p>	Suku manusia salju langsung menderita kerugian serius!</p>
+<p>	“Serangan musuh! Serangan musuh!”</p>
+<p>	“Musuh yang kuat telah muncul. Prajurit, inilah saatnya untuk melindungi tanah air kita!!”</p>
+<p>	“Lindungi tanah air kita. Ingat, kita tidak bisa jatuh, di belakang kita ada istri, anak, dan orang tua kita!”</p>
+<p>	Manusia salju gempar, dan setelah beberapa saat panik, mereka bersiap untuk melawan.</p>
+<p>	“Hmph, melebih-lebihkan kekuatanmu.” Hei Bai memandangi manusia salju yang berkumpul bersama sambil melayang di udara, tatapannya apatis seperti sedang melihat sekelompok semut.</p>
+<p>	Dia dengan ringan melambaikan lengan bajunya – buzzz buzzz buzzz…..</p>
+<p>	Massa hitam kelompok Gu terbang keluar. Pertama jumlahnya ratusan, lalu ribuan, lalu mencapai puluhan ribu.</p>
+<p>	Akhirnya, beberapa ratus ribu Gu melayang di atas lembah seperti awan gelap yang menekan kota.</p>
+<p>	Manusia salju memandang ke langit, ekspresi mereka dipenuhi dengan teror dan ketidakberdayaan. Semangat juang dan perasaan heroik yang mereka bangkitkan beberapa saat yang lalu, membeku sepenuhnya di depan kekuatan Gu Immortal.</p>
+<p>	Pada saat ini, mereka benar-benar bisa merasakan dinginnya badai salju yang menusuk tulang.</p>
+<p>	Dewa Gu memiliki esensi abadi, manik esensi abadi dapat dianggap sebagai esensi purba tak terbatas. Ini berarti setiap Gu Immortal dapat mengendalikan sejumlah besar Gu fana, dan tidak akan pernah kekurangan esensi purba.</p>
+<p>	Suku manusia salju mungkin berkembang, tetapi di depan kekuatan pertempuran Gu Immortal, mereka seperti domba yang menunggu untuk disembelih dan hanya bisa membiarkan diri mereka diinjak-injak.</p>
+<p>	Saat berikutnya, Hei Bai dengan ringan menunjuk dan kelompok Gu menerkam dengan keras.</p>
+<p>	Suara sedih mulai bergema dan bergema tanpa henti di lembah.</p>
+<p>	Selusin hari kemudian…</p>
+<p>	Pengadilan Kekaisaran memberkati tanah.</p>
+<p>	Hei Lou Lan perlahan meletakkan surat Gu di tangannya, mencibir.</p>
+<p>	Surat Gu berasal dari suku Hei’ Gu Immortal, isinya sama seperti sebelumnya, masih mendesak Hei Lou Lan untuk mempercepat pencarian Gu ayam kayu.</p>
+<p>	Awalnya tidak ada cara untuk mengirim pesan dari atau ke tanah yang diberkati Pengadilan Kekaisaran, tetapi setelah bertahun-tahun berlalu, bahkan jika itu adalah pengaturan oleh Giant Sun Immortal Venerable, itu tidak tahan terhadap erosi sungai waktu, dan beberapa kekurangan muncul.</p>
+<p>	Meskipun mereka tidak memiliki kemampuan dalam mengeksploitasi ini pada tingkat Peri Mo Yao, kekuatan super seperti suku Hei dan suku Liu telah memoles metode untuk mengirim pesan.</p>
+<p>	“Begitu seorang Guru Gu maju ke keabadian, fisik mereka akan benar-benar naik ke tingkat yang lebih tinggi dan akan memiliki esensi keabadian. Manusia tidak bisa menjadi lawan abadi, untuk berurusan dengan Gu Immortal membutuhkan Gu Immortal! ”</p>
+<p>	“Jalan kekuatan Immortal Gu …”</p>
+<p>	Hei Lou Lan bergumam pelan lalu perlahan berdiri dari kursinya dan berjalan menuju jendela.</p>
+<p>	Dia menatap aurora indah yang bergerak di puncak istana suci. Lantai terbaru Eighty-Eight True Yang Building telah mengembun pada saat ini.</p>
+<p>	“Lantai tiga puluh delapan.” Hei Lou Lan menghela nafas. Setelah melihat adegan ini berkali-kali, dia tidak lagi memiliki kegembiraan seperti sebelumnya ketika dia melihatnya untuk pertama kalinya. Tetapi penghargaannya terhadap Matahari Raksasa Leluhur Tua, sekarang telah mencapai tingkat kekaguman di hadapan metode surgawi leluhur tua setiap kali dia melihat pemandangan Gedung Yang Benar memadatkan lantai.</p>
+<p>	“Hanya dengan Eighty-Eight True Yang Building dan kekuatan Old Ancestor Giant Sun, aku bisa membalas dendam!” Hei Lou Lan mengeluarkan token pemiliknya.</p>
+<p>	Begitu banyak waktu telah berlalu tetapi token pemiliknya masih merupakan token pemilik satu sisi.</p>
+<p>	Hei Lou Lan tahu sejarah dan juga tahu kekuatannya sendiri.</p>
+<p>	Kekuatan saat ini, dibandingkan dengan pemenang kontes Pengadilan Kekaisaran sebelumnya, tidak buruk tetapi juga tidak bisa dianggap terlalu baik. Mempertimbangkan semuanya, itu hanya cukup untuk melintasi tiga-empat lantai.</p>
+<p>	Hei Lou Lan ingin mendapatkan jalur kekuatannya Immortal Gu, tetapi juga memiliki tanggung jawab suku untuk mendapatkan ayam kayu Immortal Gu. Ini berarti kuota untuk dua izin sudah terisi.</p>
+<p>	Oleh karena itu, akhir-akhir ini, dia menahan diri untuk tidak mengambil tindakan, menjadikan pemulihan sebagai prioritasnya, dan pada saat yang sama, dia masih membuka Eighty-Eight True Yang Building, membiarkan Gu Masters meningkatkan kekuatan mereka sebanyak mungkin.</p>
+<p>	Secara alami, dia melakukan ini untuk membuat Master Gu, di luar suku Hei, berterima kasih dan mengaguminya. Dan tentu saja, banyak di antara suku Hei tidak puas dan bingung dengan hal itu, tetapi mengingat reputasi sengit Black Tyrant, tidak ada yang berani angkat bicara.</p>
+<p>	“Kurir.” Hei Lou Lan memanggil dengan lembut.</p>
+<p>	Ajudan tepercayanya Hei Shu segera muncul di hadapannya dan diam-diam berlutut, berbicara dengan kepala tertunduk: “Pemimpin suku tuan, tolong instruksikan.”</p>
+<p>	“Bagaimana situasi baru-baru ini?” Hei Lou Lan menggosok token pemilik, pandangannya masih tertuju pada Eighty-Eight True Yang Building.</p>
+<p>	“Situasinya terlihat stabil baru-baru ini, tetapi arus bawah mulai melonjak. Master Gu suku Chang telah berulang kali terbunuh, banyak Master Gu menghilang secara misterius saat keluar. Pemimpin suku Chang, Chang Ji You secara pribadi telah pindah, mencari di mana-mana untuk menangkap para pembunuh, tetapi tidak ada hasil yang diperoleh. Sebaliknya, serangan terhadap Gu Master suku Chang menjadi lebih serius.” Hei Shu melaporkan.</p>
+<p>	“Eh, siapa yang punya nyali seperti itu?”</p>
+<p>	Hei Shu mengungkapkan ekspresi malu: “Bawahan masih menyelidiki.”</p>
+<p>	Hei Lou Lan sedikit mengangguk, nada suaranya mengungkapkan sedikit kegembiraan dalam bencana orang lain: “Tidak perlu terburu-buru, hehe, kita tidak harus terburu-buru dalam masalah ini. Tindakan Chang Shan Yin terlalu jahat dan kejam, tidak disukai orang, dan sekarang dia merasakan konsekuensi pahitnya. Beberapa bulan yang lalu, dia memusnahkan kelompok binatang kepala bumi dan menugaskan Master Gu suku Chang untuk menangkap banyak Master Gu, dan dia benar-benar membunuh mereka semua! Hmph, ini sudah menimbulkan kemarahan publik, tetapi karena takut akan reputasi Raja Serigala, tidak ada yang berani mengambil tindakan meskipun mereka memiliki hati untuk membalas dendam. ”</p>
+<p>	Hei Lou Lan mengingat ini dengan jelas.</p>
+<p>	Karena, di antara Master Gu yang tidak beruntung yang ditangkap Fang Yuan untuk melakukan eksperimen, ada beberapa orang yang memiliki hubungan dengan Hei Lou Lan.</p>
+<p>	Wolf King sebenarnya tidak memberinya muka dan membunuh orang-orang ini; Hei Lou Lan diam-diam menyimpan dendam ini selama ini.</p>
+<p>	“Pemimpin suku itu bijaksana, bawahan dan yang lain juga berpikir demikian.” Hei Shu tersanjung dan berkata setuju, “Pemimpin suku Chang mungkin adalah Chang Ji You, tapi dia adalah putra Raja Serigala dan ditunjuk sebagai pemimpin suku dengan satu kalimat dari Raja Serigala. Dia terlalu muda dan tidak bisa menenangkan anggota suku. Seluruh urusan suku Chang sebenarnya terletak pada ayah angkat Chang Ji You, Chang Biao.”</p>
+<p>	“Tapi belum lama ini, kematian dua penguasa Chang Biao dan Pan Ping saat menjelajahi ronde kesembilan puluh lantai tujuh, telah menyebar. Ada keributan yang tidak jelas di dalam suku Chang dan Chang Ji You merasa sulit untuk mempertahankan situasi suku Chang. Pembalas dendam melihat peluang besar ini, dan mungkin karena mereka telah menerima peningkatan kekuatan yang besar dari hadiah Eighty-Eight True Yang Building, mereka telah membunuh Master Gu suku Chang di mana-mana.”</p>
+<p>	“Hmm.” Hei Lou Lan mengangguk, analisis Hei Shu mirip dengan pikirannya sendiri.</p>
+<p>	“Cepat selidiki orang ini. Membalas dendam dengan sepenuh hati terlepas dari keganasan Raja Serigala, ini adalah keberanian. Membunuh Gu Master suku Chang dan tidak ditemukan bahkan setelah berhari-hari, ini licik. Orang ini berani dan bisa merencanakan, mereka harus dibawa ke suku Hei-ku. Dan juga, hanya suku Hei-ku yang bisa melindungi hidup mereka.” Hei Lou Lan menginstruksikan.</p>
+<p>	“Ya, Tuan.”</p>
+<p>	“Apakah ada gerakan dari Chang Shan Yin?”</p>
+<p>	“Sejak mayat Chang Biao ditemukan dan dikirim ke suku Chang, mungkin Raja Serigala menemukan beberapa petunjuk dari mayat itu, dia memasuki Gedung Delapan Puluh Delapan Yang Sejati hari itu juga dan belum keluar sekarang. Bawahan telah mengirim orang untuk bertanya, Wolf King seharusnya pergi ke labirin kesembilan puluh lantai tujuh. Sejak dia masuk, orang-orang sering melaporkan mendengar lolongan kelompok serigala.” Hei Shu melaporkan.</p>
+<p>	Hei Lou Lan mengerutkan kening.</p>
+<p>	Kematian Chang Biao, Pan Ping dan Iblis Air Hao Ji Liu adalah sesuatu yang tidak ingin dia lihat.</p>
+<p>	Tapi karena mereka sudah mati, Hei Lou Lan hanya bisa menerima kenyataan ini.</p>
+<p>	Dia bisa menyelesaikan ramalan begitu Raja Serigala keluar dari menara dan mengetahui kemalangan suku Chang, dia akan terbang dengan marah, mencari si pembunuh. Pada saat itu, seluruh istana suci mungkin akan terbalik.</p>
+<p>	Hei Lou Lan menantikan Raja Serigala menarik lebih banyak kemarahan publik, tetapi dia khawatir Raja Serigala bahkan akan melibatkan orang yang tidak bersalah dan mulai membantai di mana-mana yang akan sangat melemahkan kekuatan untuk dimobilisasi dalam melewati putaran.</p>
+<p>	Hei Lou Lan harus mencegah hal ini terjadi. Tapi bagaimana mencegahnya?</p>
+<p>	Hei Lou Lan terdiam saat dia mulai berpikir.</p>
+<p>	Hei Shu dengan tenang berlutut, dengan sabar menunggu perintah Hei Lou Lan selanjutnya.</p>
+<p>	Hei Lou Lan tidak berpikir lama sebelum ekspresi kagum muncul di wajahnya.</p>
+<p>	Tatapannya langsung berubah tajam saat dia sekali lagi melihat ke Eighty-Eight True Yang Building di puncak istana suci.</p>
+<p>	Di sana, lantai tiga puluh sembilan perlahan mengembun menjadi bentuk.</p>
+<p>	Meskipun belum terbentuk, Hei Lou Lan dapat mengetahui cacing Gu di lantai ini melalui token pemiliknya yang bermata satu.</p>
+<p>	‘Ayam kayu Gu! Gu ayam kayu akhirnya muncul!’</p>
+<p>	Pikiran Hei Lou Lan terguncang, tetapi segera dia menjadi tenang dan tatapannya dengan cepat beralih ke Hei Shu.</p>
+<p>	“Pergilah, panggil Ma Ying Jie untuk menemuiku. Langsung!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

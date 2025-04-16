@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 214 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 214";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_213.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 214">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_215.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 214</h1>
+        <div class="text-left">
+<p>	Bab 214</p>
+<p>	Bab 214: BOOM!</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	“Gunung Bai Gu, aku akhirnya di sini.” Fang Yuan menghela nafas saat dia menatap gunung putih dari lereng.</p>
+<p>	Bai Ning Bing ada di sampingnya, berdiri diam.</p>
+<p>	Keduanya compang-camping dengan kelelahan terlihat di seluruh wajah mereka.</p>
+<p>	Baru saja, mereka telah melarikan diri dari keluarga Steel Rage Boars yang beranggotakan lima orang.</p>
+<p>	Steel Rage Boars adalah kelompok binatang yang aneh, memiliki jumlah kecil dan berpindah-pindah dalam keluarga yang anggotanya kurang dari sepuluh. Tapi setiap Steel Rage Boars dewasa setidaknya seratus raja binatang.</p>
+<p>	Dalam keluarga lima yang mengejar Fang Yuan dan Bai Ning Bing – Kakek babi hutan adalah seribu raja binatang buas, sedangkan babi hutan ayah dan ibu babi hutan adalah seratus raja binatang, dan bahkan putra dan putri mereka memiliki cacing Gu peringkat 1 di dalamnya.</p>
+<p>	Sudah 5 hari sejak mereka mencuri anggur monyet. Setelah perjalanan panjang dan sulit, gunung Bai Gu akhirnya tercapai.</p>
+<p>	Perbatasan selatan penuh dengan gunung, bukit biasa tidak disebut gunung, hanya ketika mereka setidaknya sepuluh ribu kaki mereka dapat memenuhi syarat untuk disebut gunung.</p>
+<p>	Bai Ning Bing berdiri di lereng, menatap gunung yang jauh.</p>
+<p>	Ini adalah pertama kalinya dia melihat gunung Bai Gu.</p>
+<p>	Ada banyak bukit di sekitar gunung Qing Mao. Tapi gunung Bai Gu ini seperti seorang jenderal yang menyendiri, menjulang tinggi di atas tanah sementara sekitarnya datar, dan pemandangan di sekitarnya putih pucat.</p>
+<p>	Putih ini, bukan putih seperti salju, tetapi lebih seperti warna putih tulang.</p>
+<p>	Gunung Bai Gu, seperti namanya, setiap batu di gunung itu terbuat dari tulang. Orang menyebutnya batu tulang.</p>
+<p>	Gunung Bai Gu bukanlah daerah mati mutlak, ada banyak vegetasi khusus dan sejumlah besar tulang binatang yang tinggal di sini. Pada saat yang sama ada banyak cacing Gu liar tipe tulang.</p>
+<p>	Bai Ning Bing melihat dan melihat, mengerutkan kening.</p>
+<p>	Setiap gunung tinggi dan sungai panjang, adalah tanah kondensasi esensi purba. Gunung Bai Gu tidak berpenghuni, gunung yang benar-benar liar. Ada banyak binatang buas, cacing Gu, dan tanaman yang mematikan. Ini adalah tempat yang berbahaya namun Fang Yuan bersikeras memasuki gunung, niat apa yang dia miliki?</p>
+<p>	Atau lebih tepatnya, hal apa yang membuatnya sangat tertarik?</p>
+<p>	Fang Yuan membalik-balik ingatannya pada saat ini.</p>
+<p>	Gunung Bai Gu masih merupakan gunung liar sekarang, tanpa penghuni manusia. Tapi situasi ini akan berubah total 10 tahun kemudian.</p>
+<p>	Sebuah desa ukuran besar akan memindahkan basis mereka di sini dan berkembang.</p>
+<p>	Klan ini bernama Bai, desa Bai.</p>
+<p>	Di masa depan, dengan gunung Bai Gu sebagai pusat mereka, mereka akan menjadi penguasa dari ribuan mil tanah di sekitarnya.</p>
+<p>	Yang paling diingat Fang Yuan dengan jelas bukanlah kebangkitan kekuatan desa Bai, karena di dunia ini, kekuatan satu orang bisa berada di atas kekuatan kelompok.</p>
+<p>	Sebaliknya, dia memikirkan sepasang anak kembar di desa Bai.</p>
+<p>	Bai Sheng dan Bai Hua.</p>
+<p>	Sepasang saudara kandung ini menemukan sebuah gua secara tidak sengaja selama tes di daerah belakang gunung Bai Gu, ketika mereka berusia delapan belas tahun.</p>
+<p>	Di gua ini, mereka mengaktifkan warisan; itu adalah warisan lengkap dari peringkat empat Master Gu yang Benar.</p>
+<p>Nama Guru Gu ini tidak diketahui, hanya gelarnya yang tertinggal— “Tuan Tulang Daging”.</p>
+<p>	Bai Sheng dan Bai Hua mendapat banyak manfaat dari ini, dan menjadi bintang kembar dari jalan lurus setelah mendapatkan warisan. Seratus tahun kemudian, mereka berdua naik ke peringkat lima, mengambil alih desa Bai.</p>
+<p>	Kekuatan dua peringkat lima Master Gu mendorong kekuatan klan ke puncak.</p>
+<p>	“Cacing gu dalam warisan lengkap akan mencakup semua enam aspek serangan, penyembuhan, pertahanan, gerakan, penyimpanan, dan penyelidikan. Setelah mendapatkan warisan ini, saya akan dapat mempertahankan milik saya dan memiliki kemampuan untuk maju atau mundur. ”</p>
+<p>	Sebelumnya ketika Fang Yuan dan Bai Ning Bing melarikan diri dari gunung Qing Mao, cacing gu mereka tidak utuh karena budidaya mereka yang rendah; mereka seperti perahu yang bergerak melawan arus, naik ke tebing. Dengan hanya sedikit nasib buruk, mereka akan berada dalam bahaya.</p>
+<p>	Setelah perjuangan yang sulit, kesempatan mereka datang, dan mereka membunuh Master Gu wanita iblis yang terluka parah. Dengan mengambil gu-nya yang termasuk gu karung beras dan gu rumput lompat, mereka hampir tidak bisa bertahan.</p>
+<p>	Tapi mereka masih memiliki kelemahan.</p>
+<p>	Bukan hanya karena kurangnya penyembuhan gu, tetapi juga karena kultivasi mereka yang rendah.</p>
+<p>	Bahkan jika Fang Yuan naik ke peringkat 1 tahap tengah, lalu bagaimana? Esensi purba tembaga hijau masih esensi purba tembaga hijau.</p>
+<p>	Apa yang dia andalkan sekarang adalah bakat kelas A dan kecepatan pemulihan teratai esensi surgawi untuk mempertahankan konsumsinya.</p>
+<p>	Tetapi untuk lebih tegas, kekuatan pertempurannya dapat diabaikan. Jika bukan karena Bai Ning Bing dia mungkin sudah mati karena buaya selama pertempuran di pantai.</p>
+<p>	Dia bisa sejauh ini karena Bai Ning Bing.</p>
+<p>	Tetapi mengandalkan orang lain tidak akan pernah bisa dibandingkan dengan mengandalkan diri sendiri.</p>
+<p>	“Jika saya bisa mendapatkan warisan gunung Bai Gu, banyak masalah akan mudah diselesaikan.” Fang Yuan berpikir dalam hati.</p>
+<p>	Pertama itu adalah tulang giok Gu. Dengan Gu ini, tulang-tulang di tubuhnya akan membuang kerapuhan tulang fana, dan menjadi lebih kuat dan lebih keras. Tubuhnya saat ini hanya dapat menopang kekuatan dua babi hutan, tetapi setelah dia menggunakan tulang giok Gu, dia akan dapat menambahkan kekuatan buaya di atas ini.</p>
+<p>	Setelah itu adalah Gu penyembuh, Fang Yuan ingat warisan ini memiliki Gu penyembuhan peringkat tiga yang sangat terkenal, ‘tulang putih daging’. Dalam kehidupan sebelumnya, itu diterima oleh Bai Hua, menyebabkan dia menjadi Master Gu penyembuhan yang terkenal.</p>
+<p>	Akhirnya, itu adalah yang Fang Yuan peringkat sebagai yang paling penting, “kesatuan daging tulang Gu.”</p>
+<p>	Gu ini adalah inovasi Bone Flesh Lord, satu-satunya di dunia. Penggunaan luar biasa Gu ini membuat banyak kekuatan besar di perbatasan selatan, dalam kehidupan sebelumnya.</p>
+<p>	Jika cacing gu diklasifikasikan menurut penggunaannya, mereka dapat dibagi menjadi tujuh kategori.</p>
+<p>	Serangan, Pertahanan, Penyembuhan, Investigasi, Penyimpanan, Gerakan dan Budidaya.</p>
+<p>	Cacing minuman keras, cacing minuman empat rasa, Gu penguburan manusia-binatang, Gu relik, atau lotus harta karun esensi surgawi – semuanya berada di bawah kategori budidaya.</p>
+<p>	Dan Gu kesatuan daging tulang ini adalah Gu mistik di bawah kategori kultivasi.</p>
+<p>	Mirip dengan Gu rotasi yin yang, itu adalah sepasang Gu, digunakan pada dua Master Gu. Itu bisa membiarkan dua Master Gu menjalani kultivasi ganda 1 dan memajukan kultivasi mereka bersama, mendapatkan efek yang lebih besar dengan sedikit usaha.</p>
+<p>	“Jika saya dapat memperoleh kesatuan daging tulang Gu, dengan bantuan Bai Ning Bing, saya dapat memajukan kultivasi saya dengan cepat. Kultivasi saya akan mengejutkan setelah saya mencapai peringkat tiga tahap! Terutama pada tahap awal, efeknya akan lebih baik daripada cacing minuman keras. Aku harus mendapatkannya bagaimanapun caranya!”</p>
+<p>	Fang Yuan melirik Bai Ning Bing melalui sudut matanya.</p>
+<p>	Bai Ning Bing tidak menyadari apa-apa, masih menatap gunung Bai Gu.</p>
+<p>	Fang Yuan tertawa dingin di dalam hatinya. Ketika mereka hendak pindah, beberapa siluet tiba-tiba terbang ke arah mereka.</p>
+<p>	“Eh? Master Gu yang Benar!” Baik Fang Yuan dan Bai Ning Bing terkejut.</p>
+<p>	Sebanyak empat Master Gu mendekati mereka. Ketika mereka berjarak seratus langkah, mereka mendarat di tanah dan bergerak menuju Fang Yuan dan Bai Ning Bing.</p>
+<p>	Pemimpinnya adalah seorang Master Gu tua, mengeluarkan aura peringkat tiga sementara tiga sisanya semuanya peringkat dua.</p>
+<p>	Seragam mereka sama dan gerakan mereka bersinergi, menunjukkan tanda-tanda kelompok elit.</p>
+<p>	“Bagaimana kita bisa bertemu Guru Gu yang saleh di pegunungan terpencil ini?”</p>
+<p>	“Gu Masters dan binatang buas benar-benar berbeda, meskipun saya berada di peringkat tiga tahap puncak, dengan pisau cukur kelabang emas gergaji yang tumpul dan Fang Yuan sebagai beban, saya mungkin bukan lawan mereka. Kita dalam masalah sekarang…”</p>
+<p>	Keempat Master Gu semakin dekat di tengah desahan pahit Fang Yuan dan Bai Ning Bing.</p>
+<p>	——————————————————————————————————————-</p>
+<p>	Senja.</p>
+<p>	Beberapa sinar matahari terakhir seperti darah, dan burung-burung gagak memekik saat mereka terbang kembali ke sarangnya.</p>
+<p>	Tie Ao Tian berjalan di tengah kelompok dengan ekspresi dingin.</p>
+<p>	Ada delapan orang dalam kelompok mereka ketika mereka berangkat dari gunung Qing Mao, masing-masing adalah ahli klan. Tapi sekarang hanya tiga dari kelompoknya yang tersisa.</p>
+<p>	Hati Tie Ao Tian berdarah ketika dia memikirkan pengorbanan.</p>
+<p>	Kerugiannya terlalu parah!</p>
+<p>	Ini jauh dari harapannya. Kerugiannya bukan karena budidaya mereka tidak mencukupi, tetapi karena keberuntungan mereka terlalu buruk!</p>
+<p>	Setelah mengetahui jejak Fang Yuan dan Bai Ning Bing, mereka mulai bergerak di sepanjang sungai Huang Long. Tapi sungai Huang Long mengalir terlalu cepat, hampir tidak meninggalkan jejak. Bahkan jika mereka menggunakan cacing gu dan memiliki ahli investigasi, mereka masih menyimpang dari jalan.</p>
+<p>	Tanpa pilihan, mereka harus bergerak melawan arus, menghabiskan banyak waktu sebelum menemukan rakit Fang Yuan dan Bai Ning Bing.</p>
+<p>	Namun, masalah datang segera setelahnya.</p>
+<p>	Mereka bertemu dengan sejumlah besar buaya berkaki enam dan diserang.</p>
+<p>	Sejujurnya mereka cukup sial, pantai ini adalah tempat berkembang biak buaya berkaki enam, dan setelah dihancurkan, buaya berkaki enam yang mendominasi kawasan itu musnah.</p>
+<p>	Kelompok binatang juga dipecah menjadi kekuatan yang berbeda. Setelah pemilik aslinya meninggal, tempat ini menjadi gratis untuk semua, dan banyak kelompok buaya berkaki enam di sekitarnya bersaing untuk mendapatkannya.</p>
+<p>	Tepat ketika mereka hendak menguasai daerah ini, kelompok klan Tie tiba di pantai.</p>
+<p>	“Hal apa yang berani menyerang wilayah kita?”</p>
+<p>	“Tanah ini milik kita buaya berkaki enam!”</p>
+<p>	“Merebut wilayah dari kami, Anda memintanya …”</p>
+<p>	Konsep teritorial binatang buas tidak bisa dianggap enteng. Dengan demikian, pertempuran besar pecah, dan di bawah serangan gabungan dari dua kelompok seribu kelompok binatang dan tiga kelompok seratus kelompok binatang, kelompok klan Tie kehilangan dua anggota dan terpaksa melarikan diri.</p>
+<p>	Metode Fang Yuan untuk menghilangkan jejak sangat berpengalaman. Dengan demikian, penyelidikan mereka tidak membuat banyak kemajuan.</p>
+<p>	Dengan bantuan cacing Gu, mereka akhirnya menemukan arah yang dituju Fang Yuan.</p>
+<p>	Tapi kemudian, mimpi buruk yang penuh warna turun.</p>
+<p>	Xuan Yuan Divine Pheasant turun dari langit, menatap mereka dan menganggap mereka sebagai makanan.</p>
+<p>	Bahkan sekarang, seluruh proses pelarian terkubur dalam-dalam di hati Tie Ao Tian. Gambar Xuan Yuan Divine Pheasant menjadi mimpi buruknya, membangunkannya dari tidurnya setiap malam.</p>
+<p>	Xuan Yuan Divine Pheasant mengambil tiga nyawa temannya. Di antara mereka adalah Gu Master investigasi paling profesional mereka, dan bahkan Gu Master defensif peringkat tiga.</p>
+<p>	Kerugian yang benar-benar gila.</p>
+<p>	Saat ini, Guru Gu yang bertanggung jawab atas penyelidikan adalah yang setengah matang.</p>
+<p>	Bahkan dengan kekalahan seperti itu, Tie Ao Tian tidak berpikir untuk menyerah.</p>
+<p>	Dia adalah tuan muda keempat dari klan Tie, dengan bakat kelas A dan membawa harapan dan impian klan sejak muda. Dia berkultivasi dengan intens, mewarisi kepribadian besi dari klan Tie.</p>
+<p>	Memperkuat Tie Xue Leng dan putrinya adalah misi pertamanya keluar dari desa.</p>
+<p>	Tapi dia hanya berhasil menyelamatkan Tie Ruo Nan, dan penyelidik ilahi dikorbankan. Ini sangat kontras dengan niat awalnya.</p>
+<p>	Namun, jika dia menangkap bajingan iblis yang mendapat warisan laut darah dan membalas dendam untuk Tie Xue Leng, itu akan menjadi sukses besar.</p>
+<p>	Prestasi seperti itu akan berubah menjadi asetnya ketika bersaing untuk posisi pemimpin klan di masa depan, memberinya lebih banyak dukungan dari klan.</p>
+<p>	Dia tidak khawatir tentang kekuatan para bajingan iblis. Dalam proses mengejar mereka, mereka telah menemukan dari jejak bahwa keduanya memiliki kekuatan pertempuran yang terbatas, atau mungkin mereka menderita beberapa luka, hanya memiliki kekuatan kolektif satu peringkat tiga Gu Master.</p>
+<p>	“Meskipun saya kehilangan banyak teman, saya adalah Master Gu peringkat tiga, dan begitu juga Tie Dao Ku. Dengan dua Master Gu peringkat dua lainnya untuk membantu, kekuatan kami mendominasi keduanya. Setelah kita menangkap para bajingan iblis, hilangnya tenaga kerja akan menjadi bukti dari sifat “kemauan besi” dan “tidak pernah menyerah” saya!” Mata Tie Ao Tian bersinar dengan tekad.</p>
+<p>	“Tuan muda keempat, kami telah menemukan beberapa jejak di depan, sepertinya arah yang kami tuju tidak salah!” Pada saat ini, investigasi Gu Master melaporkan.</p>
+<p>	“Oh? Cepat bawa aku ke sana.”</p>
+<p>	Setelah waktu yang dibutuhkan untuk minum secangkir teh, dua lubang digali terbuka, memperlihatkan mayat sejumlah besar monyet rok rumput.</p>
+<p>	“Monyet rok rumput ini telah mati kurang dari seminggu, sepertinya kita mengejar keduanya!” Tie Dao Ku berkata dengan gembira.</p>
+<p>	Tie Ao Tian menarik napas dalam-dalam, suasana hatinya tiba-tiba terangkat!</p>
+<p>	“Akhirnya, kita mendekati akhir.” Dia mengepalkan tinjunya, berjalan ke depan dengan penuh semangat.</p>
+<p>	Dia menatap langit yang indah, lampu malam menyinari wajah mudanya, memantulkan cahaya di matanya.</p>
+<p>	Semua kesabaran dan usahanya tidak sia-sia, dia akhirnya mendapatkan hasilnya!</p>
+<p>	“Meskipun matahari terbenam, aku bisa melihat harapan dan masa depan darinya…” Dia menghela nafas dalam hatinya, tiba-tiba memiliki mood untuk mendaki lereng ini, dan menikmati momen indah ini.</p>
+<p>	Beberapa Master Gu di dekatnya, menatapnya dengan kekaguman.</p>
+<p>	“Tuan muda keempat memang tuan muda keempat!”</p>
+<p>	“Dalam perjalanan ini, kami berpikir untuk menyerah, tetapi tuan muda keempat bertahan sendirian, dan sekarang dia akan mendapatkan hasil dari pekerjaannya.”</p>
+<p>	“Di tuan muda keempat, saya bisa melihat harapan klan, dan masa depan yang cerah di depan.”</p>
+<p>	“Aku bersumpah aku hanya akan mengikuti tuan muda keempat dalam hidup ini!”</p>
+<p>	Mereka menatap linglung pada Tie Ao Tian yang menaiki lereng. Mereka hampir bisa melihat pemandangan di mana suatu hari, Tie Ao Tian naik ke posisi pemimpin klan.</p>
+<p>	Tetapi pada saat berikutnya, ledakan hebat terjadi.</p>
+<p>	LEDAKAN!!!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

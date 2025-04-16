@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 363 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 363";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_362.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 363">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_364.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 363</h1>
+        <div class="text-left">
+<p>	Bab 363 – Satu vs Tujuh (4/4)</p>
+<p>	Bab 363: Satu vs Tujuh (4/4)</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Ketenangan Fang Yuan membuat Tie Ba Xiu terkejut dan kedinginan.</p>
+<p>	Ketika pertempuran dimulai, Tie Ba Xiu sama sekali tidak menyangka dia akan berada dalam situasi seperti itu dan dalam posisi yang kurang menguntungkan.</p>
+<p>	Tapi sekarang, ahli mapan ini, pilar utama klan Tie, tidak punya pilihan selain mengakui bahwa dia berada dalam situasi berbahaya.</p>
+<p>	Pelakunya yang menyebabkan situasi ini adalah pemuda di depannya ini!</p>
+<p>	Dia bertarung melawan tujuh orang sendirian dan memaksa mereka untuk mencapai tahap ini.</p>
+<p>	Bagaimana dia bisa mencapai ini?</p>
+<p>	“Sejak saat raja binatang kecil muncul, tindakan dan kata-katanya semuanya adalah jebakan yang tak terduga dan tak terduga, memikat kami bertujuh langsung ke dalamnya. Bahkan lebih tak terduga, dia memegang Gu tipe terbang dan memiliki teknik terbang yang sangat terampil. Dengan kemampuan terbangnya, dia telah mengambil inisiatif, mampu mundur dan maju sesukanya, akhirnya mengarah ke situasi ini, pembantaian sepihak. ”</p>
+<p>	Tie Ba Xiu merasa hatinya menjadi dingin saat mengingat situasinya.</p>
+<p>	Bagaimana Fang Yuan memiliki teknik terbang yang luar biasa, pertanyaan itu bukan lagi hal yang paling menakutkan.</p>
+<p>	“Hal yang benar-benar menakutkan tentang anak ini adalah kepalanya. Bagaimana dia bisa memiliki kemampuan licik seperti itu di usianya? Dia hanyalah monster! Jika dia menggunakannya untuk jalan yang benar, dia akan menjadi bintang yang sedang naik daun di jalan yang benar. Sayangnya, dia memilih untuk menggunakan kecerdasannya untuk jalur iblis jahat. Ini adalah bencana bagi orang-orang di dunia!!”</p>
+<p>	Tie Ba Xiu memiliki firasat, suatu hari pemuda di depannya ini akan menjadi bencana bagi seluruh perbatasan selatan. Pada saat itu, darah akan mengalir ke sungai dan mewarnai tanah menjadi merah, dan jumlah makhluk hidup yang tak terhitung akan menjadi korban serangan ganasnya!</p>
+<p>	“Tidak, situasiku saat ini sangat berbahaya. Tie Ruo Nan tidak bisa bertarung dan serangan jarak jauhku tidak cukup. Namun, raja binatang kecil dapat terbang, sehingga menyerang atau mundur sesuai keinginannya. Mundur, kita harus bergegas ke gunung San Cha dan bergabung dengan empat orang tua!”</p>
+<p>	Meskipun Tie Ba Xiu sudah terkenal sejak lama, hatinya tetap teguh dan tidak disesatkan oleh ketenaran dan keuntungan.</p>
+<p>	Dia tidak bisa menampilkan semua kekuatannya, tetapi di bawah pemberdayaan terus menerus dari penguasa bumi Gu, kekuatan tiran Gu menjadi lebih kuat dan lebih kuat, melampaui batas Fang Yuan.</p>
+<p>	Tapi Tie Ba Xiu tidak mabuk dalam kekuatannya, dengan pengalamannya, dia bisa melihat situasi yang dia hadapi. Melanjutkan pertarungan hanya akan berakhir dengan bencana, pilihan yang paling masuk akal adalah mundur!</p>
+<p>	Dia tidak peduli bahwa dia dipaksa mundur oleh seorang junior. Bahkan jika dia kehilangan semua reputasinya, itu lebih baik daripada mati.</p>
+<p>	“Terlebih lagi, kakak Xue Leng, aku tidak bisa membiarkan anakmu mati di depanku!” Saat dia memikirkan hal ini, Tie Ba Xiu menjadi tegas dan menyeret Tie Ruo Nan untuk mundur.</p>
+<p>	“Hmm? Melarikan diri!” Fang Yuan tiba-tiba bersinar dengan keras.</p>
+<p>	Dia merasa situasinya bermasalah.</p>
+<p>	Mundur benar-benar pilihan yang paling masuk akal bagi Tie Ba Xiu. Tempat ini dekat dengan gunung San Cha dan jika mereka berhasil menarik empat orang tua dari klan Tie, giliran Fang Yuan untuk mundur.</p>
+<p>	“Membunuh!” Fang Yuan secara alami tidak ingin melihat situasi seperti itu terjadi.</p>
+<p>	Dia mengarahkan tangannya dan mengaktifkan upaya habis-habisannya Gu bersama dengan kekuatan qi Gu; hantu binatang berubah menjadi bentuk padat dan mendarat di tanah, menghalangi Tie Ba Xiu.</p>
+<p>	Namun, Tie Ba Xiu kuat, pukulan dan tendangannya seperti bersiul seperti angin dan berkotek seperti kilat, menyebarkan hantu-hantu buas ini.</p>
+<p>	Fang Yuan tiba-tiba mengubah target serangan, semua hantu binatang bergerak menuju Tie Ruo Nan.</p>
+<p>	“Tercela!” Tie Ba Xiu mengutuk dan bergerak untuk melindungi Tie Ruo Nan.</p>
+<p>	Fang Yuan tertawa keras mendengarnya, jika Tie Ba Xiu menyerah pada Tie Ruo Nan dan melarikan diri sendiri, Fang Yuan tidak akan bisa menghentikannya. Namun, Tie Ba Xiu melindungi Tie Ruo Nan, ini mencari malapetakanya sendiri.</p>
+<p>	Karena dia adalah seorang Master Gu yang berspesialisasi dalam serangan, bukan pertahanan.</p>
+<p>	Dengan melindungi Tie Ruo Nan, dia mengorbankan dirinya sendiri, mengikat tangan dan kakinya sendiri, melawan keahlian musuhnya dengan kelemahannya.</p>
+<p>	Satu pihak melarikan diri dan lainnya dikejar, situasinya menemui jalan buntu.</p>
+<p>	Tidak peduli bagaimana Tie Ba Xiu mengutuk dan memprovokasi, Fang Yuan hanya terbang di udara dan menggunakan hantu binatang untuk menyerang.</p>
+<p>	Tie Ba Xiu tidak bisa memukul Fang Yuan dan dengan demikian secara pasif menerima pukulan. Selain itu, ada luka ringan di tubuhnya saat melindungi Tie Ruo Nan.</p>
+<p>	“Dia hanya di peringkat empat tahap tengah, mengapa dia memiliki begitu banyak esensi purba?” Tie Ba Xiu mulai merasa putus asa, dia tidak tahu Fang Yuan tidak hanya memiliki cacing minuman keras, tetapi juga lotus harta karun esensi surgawi; dalam hal esensi purba, dia benar-benar bisa menandingi peringkat empat tingkat atas.</p>
+<p>	Fang Yuan menyerang dengan marah, mengirim serangan tanpa akhir. Jika hantu binatang dihancurkan, dia akan segera mengirim yang lain.</p>
+<p>	Hantu binatang menyerang satu demi satu, jika satu jatuh, yang lain datang. Terutama, hantu babi hutan dan buaya batu sesekali yang bisa mengancam Tie Ruo Nan.</p>
+<p>	Tie Ba Xiu semakin lelah dan perlahan-lahan tidak mampu menahan serangan, kekuatannya menurun dengan cepat.</p>
+<p>	“Mengapa keempat orang tua itu belum tiba!” Tie Ba Xiu terus berlari dan sudah berada di dekat gunung San Cha, tapi dia masih tidak melihat tanda-tanda dari keempat orang tua itu.</p>
+<p>	Jalan yang mereka pilih terlalu tersembunyi. Dan untuk mencegah bocornya berita, mereka sengaja pergi dua hari sebelumnya.</p>
+<p>	Pengaturan ini malah menjadi penghalang sekarang bagi Tie Ba Xiu.</p>
+<p>	Tie Ba Xiu sangat pasif sekarang, luka-luka di tubuhnya terus menumpuk dan berubah dari luka ringan menjadi luka berat.</p>
+<p>	Hantu binatang mulai menimbulkan lebih banyak ancaman baginya dan semakin sulit baginya untuk bergerak maju!</p>
+<p>	Tie Ruo Nan telah menjadi beban terbesar baginya; dia terus berjuang dan Tie Ba Xiu tidak punya pilihan selain membuatnya pingsan dan berlari sambil menggendongnya.</p>
+<p>	“Kita sudah dekat dengan kaki gunung, aku hanya perlu bertahan sebentar.” Tubuh Tie Ba Xiu gemetar dan pandangannya menjadi kabur.</p>
+<p>	“Apakah dia benar-benar akan melarikan diri? Brengsek!” Wajah Fang Yuan suram saat dia melihat ini dari udara. Dia mulai membuat serangan yang lebih ganas dan terus menerus, serangannya melonjak seperti gelombang pasang.</p>
+<p>	Saat mereka berada di dekat gunung San Cha, Master Gu mulai muncul di sekitarnya.</p>
+<p>	“Ada pertempuran yang terjadi, itu adalah raja binatang kecil!”</p>
+<p>	“Surga, apakah aku salah lihat? Yang dikejar tampaknya adalah ‘tuan zaman sekarang’, landasan klan Tie, Tie Ba Xiu!”</p>
+<p>	“Raja binatang kecil menentang surga, dia sebenarnya mengejar peringkat empat tingkat atas Tie Ba Xiu!”</p>
+<p>…</p>
+<p>	Master Gu yang melihat pertempuran itu semua terperangah dan sangat terkejut.</p>
+<p>	Beberapa Guru Gu yang saleh merasa hati mereka menjadi dingin ketika mereka melihat Tie Ba Xiu dikejar, melarikan diri seperti anjing menyedihkan yang jatuh ke dalam air.</p>
+<p>	“Kakak Li Xian, mengapa raja binatang kecil masih belum muncul? Kami telah menunggu di sini untuk waktu yang lama, apakah informasi Anda dapat diandalkan? Dari sudut gelap, Hu Mei Er melihat penghalang cahaya ungu di depannya dan menguap bosan.</p>
+<p>	Di penghalang cahaya yang dibentuk oleh lemari besi Gu, Bai Ning Bing masih terjebak oleh empat orang tua klan Tie.</p>
+<p>	“Tidak ada masalah dengan informasi saya, mari kita tunggu sebentar lagi.” Li Xian mengatakan itu tapi dia bergumam dalam hatinya, ‘Ini seharusnya tidak terjadi, aku sudah memberitahu berita tentang bala bantuan klan Tie kepadanya. Bagaimana dia masih bisa menahan diri? Mungkinkah, dia benar-benar akan meninggalkan Bai Ning Bing dalam kesulitan?”</p>
+<p>	Jika raja binatang kecil benar-benar tidak muncul, ketidakberdayaan seperti itu bahkan membuat Li Xian ketakutan ketika memikirkannya. Tetapi jika dia datang untuk menyelamatkannya, kedua belah pihak akan menderita, dan manfaat di medan perang yang kacau ini akan sangat besar.</p>
+<p>	Saat keduanya berbicara dengan berbisik, mereka mendengar keributan.</p>
+<p>	“Apa yang sedang terjadi?” Hu Mei Er dengan bingung menoleh untuk melihat, tetapi saat dia melihat pemandangan itu, ekspresi bingungnya dengan cepat menjadi lamban dan setelah beberapa saat, itu berubah menjadi syok!</p>
+<p>	Orang yang dia tunggu dengan susah payah muncul dan bahkan muncul saat terbang di udara.</p>
+<p>	Tunggu sebentar…</p>
+<p>	Orang yang dikejar raja binatang kecil itu terlihat agak familiar?</p>
+<p>	“Ap… apa-apaan ini, itu Tie Ba Xiu. ‘Tuan zaman sekarang’ dari klan Tie sedang dikejar! Jadi raja binatang kecil pergi untuk mencegat bala bantuan! ” Li Xian terpaku pada pengejaran ini dan tidak bisa menahan diri untuk mengutuk.</p>
+<p>	Pada saat yang sama dengan kesadarannya, dia merasakan keterkejutan dan kebingungan yang luar biasa.</p>
+<p>	“Raja binatang kecil benar-benar pergi untuk mencegat penguatan klan Tie, bagaimana dia bisa memiliki nyali seperti itu? Apakah dia gila! Tidak, dia tidak gila, dia memenangkan pertarungan dan sekarang mengejar Tie Ba Xiu!”</p>
+<p>	Tie Ba Xiu berada di peringkat empat tahap atas tetapi kecakapan pertempurannya melampaui level itu, bahkan peringkat empat puncak peringkat umum Gu Masters bukanlah lawannya. Bahkan di gunung San Cha, di antara lima peringkat empat puncak Gu Masters, hanya Yi Huo yang mampu bersaing dengan ‘tuan zaman sekarang’ ini.</p>
+<p>	Namun, saat ini, Tie Ba Xiu sebenarnya sedang dikejar oleh raja binatang kecil dan dalam keadaan yang menyedihkan.</p>
+<p>	“Ya Tuhan, apa aku berhalusinasi?” Seseorang meraih kepalanya dan melihat dengan ekspresi tidak percaya.</p>
+<p>	“Dunia ini terlalu gila, berubah begitu cepat…” Seseorang bergumam dengan ekspresi kusam di matanya.</p>
+<p>	“Untungnya, aku belum melawan raja binatang kecil!” Li Xian merasa beruntung, tetapi segera merasa takut, “Tidak, saya masih harus berhati-hati ketika berhadapan dengan Fang Zheng, orang ini tidak dapat dinilai dengan akal sehat.”</p>
+<p>	“Dalam waktu sesingkat itu, dia naik ke peringkat empat tahap tengah dan juga bisa terbang ?!” Hu Mei Er memegangi jantungnya, sangat terkejut dengan kecepatan pertumbuhan Fang Yuan yang tidak normal ini.</p>
+<p>	“Bajingan jalur iblis!”</p>
+<p>	“Cepat, kita harus menyelamatkan mereka, itu Tie Ba Xiu!!”</p>
+<p>	Empat orang tua klan Tie juga merasakan situasinya dan segera mencabut lemari besi Gu dan bergegas menyelamatkan. Adapun Bai Ning Bing yang terperangkap atau apa pun, mereka berhenti peduli.</p>
+<p>	Namun sayangnya, mereka masih terlambat selangkah.</p>
+<p>	“Aku masih selangkah terlalu lambat…” Tie Ba Xiu merasa sangat pahit, matanya kabur, rasa sakit dari luka di sekujur tubuhnya telah membuatnya mati rasa, dan luka beratnya telah bertambah parah sehingga dia berada di keadaan hampir mati sekarang.</p>
+<p>	Dia melindungi Tie Ruo Nan sepenuhnya dan tidak membiarkan satu serangan pun mengenainya.</p>
+<p>	“Sayang sekali raja binatang kecil ini tidak turun untuk bertarung dalam pertempuran jarak dekat. Kalau tidak, aku akan membunuhnya!” Tie Ba Xiu merasa sangat menyesal, dia memiliki kartu truf yang belum dia ungkapkan. Namun, Fang Yuan bertindak hati-hati sepanjang waktu, tidak pernah terbang ke bawah dan hanya menyerang dari udara.</p>
+<p>	“Ba Xiu, tunggu!”</p>
+<p>	“Kami datang untuk memperkuatmu.”</p>
+<p>	Empat orang tua dari klan Tie berteriak bersama dan bergegas dengan cepat.</p>
+<p>	“Hahaha, kamu hanya selangkah lagi, Tie Ba Xiu, kamu telah gagal!” Fang Yuan melemparkan kepalanya ke belakang dan tertawa keras, hantu buaya batu jatuh dengan suara ledakan, membuat Tie Ba Xiu berguling-guling di tanah.</p>
+<p>	Empat orang tua klan Tie bergegas mendekat dan sangat dekat, tapi celah kecil ini seperti jarak antara awan dan lumpur.</p>
+<p>	“Ini sudah berakhir.” Ekspresi Fang Yuan dingin saat dia menunjuk dan melakukan serangan fatal.</p>
+<p>	“Tidak, belum. Kabinet besi Gu!” Tie Ba Xiu menggunakan energi terakhirnya yang tersisa dan meletakkan telapak tangannya di punggung Tie Ruo Nan.</p>
+<p>	Sebuah lemari besi berbentuk persegi dengan cepat terbentuk dan tertutup rapat Tie Ruo Nan.</p>
+<p>	Hantu binatang menyerang, merobek Tie Ba Xiu menjadi berkeping-keping, tetapi lemari besi itu kokoh seperti biasa dan Tie Ruo Nan yang ada di dalamnya tidak terluka.</p>
+<p>	Pada saat genting, Tie Ba Xiu memberikan kesempatan terakhirnya untuk bertahan hidup kepada Tie Ruo Nan.</p>
+<p>	“Ba Xiu!” Empat orang tua klan Tie melolong dalam kemarahan dan kesedihan, mereka mencapai tempat kejadian tetapi terlambat selangkah.</p>
+<p>	“Raja binatang kecil, klan Tie kami tidak akan beristirahat sampai kamu mati!” Keempat orang tua itu menatap Fang Yuan, berharap mereka bisa menggigitnya sampai mati.</p>
+<p>	“Eh? Begitukah… Aku bertarung melawan tujuh klan Tie kali ini, enam termasuk Tie Ba Xiu kehilangan nyawa mereka di tanganku. Anda empat orang tua juga ingin berurusan dengan saya? Lalu terbanglah dan lawan aku.” Fang Yuan tertawa dingin, tatapan berbahaya muncul di matanya yang membuat orang menghindari tatapannya.</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

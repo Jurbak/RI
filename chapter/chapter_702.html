@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 702 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 702";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_701.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 702">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_703.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 702</h1>
+        <div class="text-left">
+<p>	Bab 702 – Kecelakaan, Serangan Gu Abadi yang Misterius</p>
+<p>	Bab 702: Kecelakaan, Serangan Gu Abadi yang Misterius</p>
+<p>	Baca di meionovel.id jangan lupa donasi</p>
+<p>	Saran Fang Yuan menggerakkan hati He Feng Yang.</p>
+<p>	Ketika Fang Yuan meluncurkan penyergapan dan mengepung He Feng Yang, dia mengira operasi ini akan berakhir dengan kegagalan. Dalam skenario kasus terbaik, dia akan menggunakan ruang yang diperluas Immortal Gu dan keluar dari pengepungan dengan paksa setelah mengalami luka besar.</p>
+<p>	Bahkan jika dia mengonsumsi banyak esensi abadi selama proses melarikan diri, dia tidak peduli. Bagaimanapun, membandingkan esensi abadi dan hidupnya, yang terakhir jauh lebih penting.</p>
+<p>	Setelah kembali ke Sekte Bangau Abadi, kehidupan He Feng Yang pasti akan menurun.</p>
+<p>	Sekte Bangau Abadi menaruh harapan besar padanya, dan dia bahkan telah bersiap selama lebih dari setahun, tetapi dia akhirnya gagal. Saingannya, Gu Immortal Lei Tan, pasti akan mencarinya untuk mengejeknya secara pribadi ketika dia mendengar berita itu!</p>
+<p>	Penatua tertinggi kedua akan sangat kecewa dengannya, dan He Feng Yang mungkin tidak dapat mengangkat kepalanya selama beberapa tahun setelah itu. Kehilangan ini bisa menjadi cacat seumur hidup, hanya dengan kegagalan ini, dia akan diejek oleh banyak orang dalam kegelapan selamanya.</p>
+<p>	Jika dia bisa membuat kesepakatan dengan Fang Yuan untuk keberanian Gu, bagi He Feng Yang, itu akan berkali-kali lebih baik daripada menerobos pengepungan.</p>
+<p>	He Feng Yang menilai dalam hatinya: “Tanah yang diberkati Hu Immortal memiliki empat Dewa Gu dan delapan binatang buas, bersama dengan keuntungan teritorial, mereka seaman benteng! Meskipun salah satu dari sepuluh sekte kuno besar memiliki kemampuan untuk melakukan ini, itu hanya berbicara tentang kemampuan. Mereka mungkin tidak bisa mengumpulkan begitu banyak Dewa Gu di sini. Bahkan jika mereka dapat mengirim Gu Immortals untuk menyerang tanah yang diberkati Hu Immortal, pertempuran antara Gu Immortals akan menghabiskan sejumlah besar esensi abadi dan sumber daya lainnya.</p>
+<p>	“Bahkan jika mereka bisa mendapatkan tenaga yang cukup dan berinvestasi banyak dalam pertempuran ini, pihak lain juga memiliki Dewa Gu dan dapat dengan mudah menghancurkan gunung Dang Hun. Pada saat itu, bahkan jika tanah yang diberkati Hu Immortal diperoleh, semuanya akan sia-sia. ”</p>
+<p>	Di dunia luar, Sekte Pedang Surgawi Besar memiliki tiga Dewa Gu, dan dapat mencoba untuk meninggalkan salah satu dari sepuluh sekte kuno besar, Sekte Bangau Abadi.</p>
+<p>	Ini karena untuk berurusan dengan tiga Dewa Gu, sumber daya dan tenaga yang dibutuhkan adalah sesuatu yang perlu dipertimbangkan oleh Sekte Derek Abadi. Jika mereka gagal, mereka tidak hanya akan kehilangan reputasi mereka, kerugian besar ini juga dapat menyebabkan keresahan di dalam sekte, dan memicu masalah lain.</p>
+<p>	Gu Immortals mudah dikalahkan, tetapi mereka sulit dibunuh. Mengapa siapa pun yang bisa mencapai tahap ini tidak memiliki sarana atau kartu truf untuk melarikan diri?</p>
+<p>	Jika mereka gagal membunuhnya, mereka akan benar-benar menyinggung Gu Immortal. Gu Immortal yang menyimpan dendam dapat menyebabkan masalah bagi manusia, dengan ukuran besar Immortal Crane Sect dan berbagai aset, mereka harus menyelamatkan situasi di mana-mana.</p>
+<p>	Sekarang Fang Yuan telah menunjukkan kekuatan seperti itu, Sekte Bangau Abadi saja tidak bisa lagi menyerang dengan paksa, kecuali sekte lain bekerja sama dengan mereka. Tetapi jika mereka bekerja sama, akan ada masalah dalam banyak aspek, mengenai alokasi manfaat.</p>
+<p>	Jika He Feng Yang setuju untuk bekerja sama dengan Fang Yuan, mereka akan membangun perdagangan untuk keberanian Gu, hasil ini bukanlah kegagalan total.</p>
+<p>	Itu karena tujuan utama Immortal Crane Sect dalam menjatuhkan tanah yang diberkati Hu Immortal adalah untuk nyali Gu.</p>
+<p>	Menggunakan harga terkecil untuk mendapatkan manfaat terbesar, ini adalah masalah yang dikhawatirkan oleh semua tetua tertinggi di Sekte Bangau Abadi.</p>
+<p>	Sebelum ini, Sekte Bangau Abadi telah meminta Fang Yuan untuk memulai penjualan nyali Gu.</p>
+<p>	“Jika kita bisa melakukan perdagangan dengan pihak lain, saya tidak perlu memaksakan jalan keluar dan mengambil risiko cedera, saya dapat menyimpan banyak esensi abadi dan memiliki pembenaran yang tepat ketika saya kembali ke sekte.” He Feng Yang mempertimbangkan opsi ini.</p>
+<p>	Fang Yuan mengamati ekspresinya, meskipun He Feng Yang adalah pria yang cerdik dan tidak menunjukkan emosi di wajahnya, dia jelas tersentuh karena berapa lama dia mempertimbangkan ini.</p>
+<p>	Karena itu, Fang Yuan melanjutkan: “Seratus nyaliku Gu akan menjual satu batu esensi abadi di surga kuning harta karun. Saya akan menjual seratus dua puluh Gu ke Immortal Crane Sect untuk setiap batu esensi abadi. Namun, sebagai imbalannya, saya ingin Sekte Bangau Abadi Anda untuk mengakui tanah berkah Hu Immortal saya sebagai kekuatan tambahan sekte Anda. Selanjutnya, anak perusahaan ini dapat melepaskan diri dari Anda kapan saja. ”</p>
+<p>	Selama dia memiliki identitas ini, sembilan sekte kuno besar lainnya tidak akan bisa berurusan dengan Fang Yuan tanpa melibatkan Sekte Bangau Abadi. Ini adalah aturan jalan yang benar, itu seperti menjadikan Sekte Bangau Abadi sebagai bos besar, sementara tanah yang diberkati Hu Immortal adalah anteknya, Anda harus bertanya kepada bos sebelum memukul antek-anteknya.</p>
+<p>	He Feng Yang tersenyum tidak tulus saat dia berbicara: “Fang Yuan, apakah kamu berpikir untuk menggunakan sekteku sebagai perlindunganmu? Dengan kekuatanmu, kamu pasti bisa mendirikan sektemu sendiri, kan?”</p>
+<p>	“Tidak ada yang bisa mendirikan sekte di gunung Tian Ti. Saya tidak punya niat untuk meninggalkan tempat yang berharga ini. ” Fangyuan tertawa.</p>
+<p>	Gunung Tian Ti telah terhubung langsung ke Pengadilan Surgawi, bahkan Dewa Gu tidak berani bertarung di gunung ini. Jika Sekte Bangau Abadi tidak menyatakan Fang Yuan sebagai pengkhianat sekte dan memiliki alasan yang tepat untuk menjatuhkannya, mereka tidak akan berani menyerang tanah yang diberkati Hu Immortal.</p>
+<p>	“Selanjutnya, tanah yang diberkati Hu Immortal menjadi anak perusahaan Immortal Crane Sekte juga akan memperhitungkan reputasi sekte Anda, kan?” Fang Yuan melanjutkan.</p>
+<p>	He Feng Yang terdiam lagi.</p>
+<p>	Beberapa saat kemudian, dia menghela nafas: “Masalah ini sangat penting, saya tidak bisa bertanggung jawab atas keputusan itu, izinkan saya untuk kembali dan melapor ke sekte.”</p>
+<p>	Fang Yuan mengangguk: “Akan lebih baik jika saudara He pergi dan menjelaskannya. Tapi Peri Cang Yu harus tetap sebagai tamu di sini lebih lama lagi.”</p>
+<p>	He Feng Yang dan Cang Yu melakukan kontak mata.</p>
+<p>	Peri Cang Yu berkata: “Tuan Feng Yang, silakan dan kembali, saya akan menunggu di sini.”</p>
+<p>	“Aku akan kembali dengan cepat.” He Feng Yang mengangguk dengan sungguh-sungguh padanya, sebelum menatap Fang Yuan dan gengnya dalam-dalam.</p>
+<p>	Dia ingin mengukir orang-orang ini ke lubuk hatinya.</p>
+<p>	“Roh darat, buka pintunya dan biarkan saudara He keluar.” Fang Yuan berkata dengan nada prihatin.</p>
+<p>	“Ya tuan.” Little Hu Immortal dengan cepat menjawab.</p>
+<p>	Di gunung Tian Ti, cahaya emas putih cemerlang terbentuk.</p>
+<p>	Dalam cahaya, sebuah pintu merah terang muncul, tingginya lebih dari tiga puluh meter, dan ada plakat berwarna pelangi. Awan merah muda berkumpul saat aurora mengembun menjadi tangga cahaya.</p>
+<p>	He Feng Yang keluar dari pintu, ketika dia pergi, itu melalui jalan keluar yang tepat dari tanah yang diberkati.</p>
+<p>	Tindakan ini dengan cepat menarik perhatian Dewa Gu dari sembilan sekte besar lainnya.</p>
+<p>	Mereka mulai berbincang.</p>
+<p>	“Dia keluar!”</p>
+<p>	“Sangat cepat? Jangan bilang tidak ada perlawanan sama sekali?”</p>
+<p>	“Ketika He Feng Yang masuk, dia menggunakan ruang ekspansi Immortal Gu, tetapi ketika dia keluar, itu melalui pintu masuk utama. Ini adalah bukti bahwa dia berhasil.”</p>
+<p>	“Ada yang salah, lihat wajahnya, tidak ada kegembiraan kemenangan, dia terlihat lebih tenang dan tenang.”</p>
+<p>	Meskipun mereka curiga, tidak ada dari mereka yang menanyakannya secara langsung.</p>
+<p>	Ini adalah kontes tersembunyi antara sepuluh sekte besar, konfrontasi langsung merusak reputasi mereka.</p>
+<p>	He Feng Yang tidak peduli dengan perasaan mereka, dia hanya ingin kembali ke gunung Fei He, untuk melaporkan masalah ini.</p>
+<p>	Dia terbang dengan cepat, melakukan perjalanan jauh dari gunung Tian Ti dalam waktu singkat.</p>
+<p>	Alis He Feng Yang terkunci, dia marah dan curiga: “Dari mana datangnya kekuatan Fang Yuan? Selain Fang Yuan, tiga abadi lainnya semua menutupi wajah mereka dengan topeng, dan menggunakan cacing Gu untuk memblokir metode investigasi, mereka jelas tidak ingin mengekspos identitas mereka. Mengapa demikian?”</p>
+<p>	“Jangan bilang mereka adalah Dewa Gu dari sembilan sekte lainnya? Mereka tidak ingin sekte kita mendapatkan gunung Dang Hun, jadi mereka diam-diam berkolusi dengan Fang Yuan sebelumnya?”</p>
+<p>	Saat dia memikirkan ini, He Feng Yang menolak kemungkinan ini.</p>
+<p>	Kertas tidak bisa menutupi api, rahasia bersifat sementara dan akan terungkap, sembilan sekte besar tidak akan melakukan hal seperti itu, itu bertentangan dengan sikap salah satu sekte besar.</p>
+<p>	“Lalu, apakah mereka Dewa Gu yang dikumpulkan dari sekte yang lebih kecil di Benua Tengah?” He Feng Yang berpikir.</p>
+<p>	Benua Tengah memiliki sekte yang tak terhitung jumlahnya, selain sepuluh sekte kuno yang besar, ada sekte berukuran besar, sekte menengah, sekte berukuran kecil, dan sekte mini. Ada jumlah sekte yang tak terhitung, di dalamnya, secara alami ada beberapa Dewa Gu.</p>
+<p>	Jika itu mereka, maka Gu Immortal ini semua akan memiliki yayasan di Benua Tengah, untuk mencegah sekte rumah mereka ditekan atau diganggu oleh sekte kuno, mereka tidak ingin mengungkapkan identitas mereka, itu masuk akal.</p>
+<p>	“Itu benar, Fang Yuan memiliki perjalanan abadi Immortal Gu! Orang-orang ini mungkin bukan Dewa Benua Tengah, mereka mungkin dari daerah lain. Semakin kuat Gu Immortal, semakin sulit untuk melewati tembok regional. Sesekali, mereka harus mengeluarkan celah mereka di wilayah tempat mereka menjadi abadi untuk mengingat dan mengumpulkan qi langit dan bumi untuk menstabilkan tanah yang diberkati. Tapi dengan Fixed Immortal Travel, pihak lain bisa menyelesaikan masalah ini dengan mudah!”</p>
+<p>	Pikiran He Feng Yang bergerak cepat, dia dengan cepat menebak identitas Fang Yuan dan para Dewa Gu lainnya. Tapi dia punya terlalu sedikit bukti, dia tidak bisa memastikannya.</p>
+<p>	“Secara keseluruhan, tanah yang diberkati Hu Immortal sangat misterius dan berbahaya, sebelum kita mengetahui rahasia mereka, kita tidak dapat menyerang dengan mudah. Kali ini, saya menderita kerugian besar, akar masalahnya adalah bahwa musuh berada dalam kegelapan saat saya berada di tempat terbuka, kami menderita karena kekurangan intel!”</p>
+<p>	He Feng Yang menyimpulkan pengalamannya dari kejadian ini, tapi dia tiba-tiba berhenti di udara.</p>
+<p>	“Siapa ini? Kamu berani menyergapku di sini! ” He Feng Yang dengan cepat menjadi waspada, berteriak.</p>
+<p>	“Hmm, kamu sangat waspada.” Sebuah suara datang dari suatu tempat, kadang-kadang bernada tinggi dan rendah, dengan suara laki-laki serak yang berubah menjadi suara perempuan yang renyah. Seseorang ternyata telah mengubah suaranya dengan cacing Gu.</p>
+<p>	Dua sosok muncul, satu di depan dan satu di belakang, mereka menghalangi jalan He Feng Yang.</p>
+<p>	Apa yang berubah selanjutnya adalah langit. Langit yang cerah, berkilau dan jernih tanpa awan menjadi gelap dan menakutkan, kabut menjadi tebal ketika jiwa-jiwa pendendam terbang ke mana-mana.</p>
+<p>	Ini adalah langkah pembunuh medan perang!</p>
+<p>	Ini adalah lingkungan medan perang yang diciptakan untuk memperkuat efek cacing Gu tertentu.</p>
+<p>	Ini bukan sesuatu yang bisa dimiliki Dewa Gu biasa.</p>
+<p>	“Aku He Feng Yang dari Immortal Crane Sekte, kalian berdua menyembunyikan penampilan kalian dan bertindak sangat rahasia, apa niat kalian?” He Feng Yang berteriak.</p>
+<p>	Dua Dewa Gu sebelum dia bertopeng dalam lapisan cahaya gelap, penampilan mereka tidak bisa dilihat.</p>
+<p>	“Jadi bagaimana jika kamu berasal dari Immortal Crane Sect?” Gu Immortal misterius di depannya tertawa dingin.</p>
+<p>	Gu Immortal di belakangnya berkata langsung: “Kami akan membunuhmu bagaimanapun caranya!”</p>
+<p>	Saat mereka mengatakan itu, Gu Immortal menyerang.</p>
+<p>	Lima jari terbuka dan ribuan benang putih abu-abu muncul dari telapak tangan.</p>
+<p>	Benang itu mendekati He Feng Yang, saat jantungnya melompat, ini jelas merupakan langkah pembunuh fana yang dirancang untuk menjebak orang. Begitu dia terjerat oleh utas ini, akan sulit untuk melarikan diri.</p>
+<p>	He Feng Yang dengan cepat memanggil kelompok bangau.</p>
+<p>	Di dalam lubang abadinya, ada banyak bangau terbang, dia membawa mereka ke mana-mana dan dia tidak pernah kekurangan pasukan.</p>
+<p>	Kelompok derek sangat besar jumlahnya, ada derek terbang paruh besi, derek pelet api, derek tailwind, derek kabut awan, derek cahaya bintang, dan derek petir ilusi semua bercampur menjadi satu dalam harmoni yang sempurna, membentuk formasi yang rapat.</p>
+<p>	Seekor binatang buas sembilan derek istana terbang keluar, berteriak dan menyebabkan kabut di sekitarnya menyebar.</p>
+<p>	He Feng Yang melangkah ke punggung sembilan bangau istana, rambutnya berkibar-kibar saat tatapannya seperti kilat, kemarahan dalam dirinya telah terbangun: “Apakah kamu benar-benar berpikir aku adalah sasaran empuk? Hari ini, kamu akan merasakan kemarahan dari Winged Crane Flying Immortal!”</p>
+<p>	Saat benang terbang ke arahnya, kelompok derek terbang paruh besi terbang keluar dan memblokirnya dengan tubuh mereka.</p>
+<p>	Gu Immortal misterius lainnya menggembungkan pipinya dan meniup api besar. Api ini berwarna hijau pucat, dan di medan perang ini, kekuatan mereka diperkuat, menyebabkan banyak bangau jatuh dari langit setelah terbakar.</p>
+<p>	He Feng Yang tidak mau kalah, dia mengaktifkan gerakan pembunuh jalur perbudakannya.</p>
+<p>	Segera, sekelompok derek petir ilusi terbang keluar, menembakkan petir yang berkumpul dan membentuk pilar, menembus medan perang. Kelompok lain dari derek pelet api terbang keluar, tubuh mereka tertutup api, membakar musuh mereka.</p>
+<p>	Dua kelompok bangau terbang menyerang dua Dewa Gu misterius seperti sepasang tinju raksasa.</p>
+<p>	Boom boom boom…</p>
+<p>	Dengan ledakan hebat, kedua belah pihak terlibat dalam pertempuran sengit!</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>

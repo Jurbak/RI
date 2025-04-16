@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 419 - Pendeta Kegilaan</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        window.onscroll = function() {
+            let button = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        function initAutocomplete() {
+            // Chapter navigation
+            document.getElementById("go-btn").addEventListener("click", function() {
+                goToChapter();
+            });
+            
+            document.getElementById("chapter-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    goToChapter();
+                }
+            });
+            
+            // Setup autocomplete
+            let input = document.getElementById("chapter-input");
+            let currentValue = "";
+            let chapters = [];
+            
+            // Generate chapter array (for larger novels, we might only show nearby chapters)
+            for (let i = 1; i <= 2334; i++) {
+                chapters.push("Chapter " + i);
+            }
+            
+            input.addEventListener("input", function() {
+                closeAllLists();
+                
+                if (!this.value) { return false; }
+                currentValue = this.value;
+                
+                let container = document.createElement("DIV");
+                container.setAttribute("id", this.id + "autocomplete-list");
+                container.setAttribute("class", "autocomplete-items");
+                
+                this.parentNode.appendChild(container);
+                
+                // Filter chapters that match the input
+                let matches = chapters.filter(item => 
+                    item.toLowerCase().includes(currentValue.toLowerCase())
+                );
+                
+                // Limit to first 10 matches for performance
+                matches = matches.slice(0, 10);
+                
+                for (let i = 0; i < matches.length; i++) {
+                    let item = document.createElement("DIV");
+                    
+                    // Highlight matching part
+                    let matchIndex = matches[i].toLowerCase().indexOf(currentValue.toLowerCase());
+                    if (matchIndex !== -1) {
+                        item.innerHTML = matches[i].substr(0, matchIndex);
+                        item.innerHTML += "<strong>" + matches[i].substr(matchIndex, currentValue.length) + "</strong>";
+                        item.innerHTML += matches[i].substr(matchIndex + currentValue.length);
+                    } else {
+                        item.innerHTML = matches[i];
+                    }
+                    
+                    item.innerHTML += "<input type='hidden' value='" + matches[i] + "'>";
+                    
+                    item.addEventListener("click", function() {
+                        input.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                        goToChapter();
+                    });
+                    
+                    container.appendChild(item);
+                }
+            });
+            
+            // Close lists when clicking elsewhere
+            document.addEventListener("click", function(e) {
+                closeAllLists(e.target);
+            });
+            
+            function closeAllLists(elmnt) {
+                let x = document.getElementsByClassName("autocomplete-items");
+                for (let i = 0; i < x.length; i++) {
+                    if (elmnt != x[i] && elmnt != input) {
+                        x[i].parentNode.removeChild(x[i]);
+                    }
+                }
+            }
+        }
+        
+        function goToChapter() {
+            let input = document.getElementById("chapter-input").value.trim().toLowerCase();
+            let chapterNum = input.replace(/[^0-9]/g, "");
+            
+            if (chapterNum && !isNaN(chapterNum) && chapterNum >= 1 && chapterNum <= 2334) {
+                window.location.href = "chapter_" + chapterNum + ".html";
+            } else {
+                alert("Please enter a valid chapter number (1-2334)");
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            initAutocomplete();
+            // Pre-set the current chapter
+            document.getElementById("chapter-input").placeholder = "Chapter 419";
+        };
+    </script>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="chapter_418.html" class="btn" >« Prev</a>
+        
+        <div class="autocomplete-container">
+            <input id="chapter-input" type="text" placeholder="Chapter 419">
+            <button id="go-btn" class="go-btn">Go</button>
+        </div>
+        
+        <a href="chapter_420.html" class="btn" >Next »</a>
+    </div>
+    
+    <div class="container">
+        <h1>Chapter 419</h1>
+        <div class="text-left">
+<p>	Bab 419 – Rasa sakit Fang Zheng</p>
+<p>	Bab 419</p>
+<p>	Rasa sakit Fang Zheng</p>
+<p>	Bab 419: Rasa sakit Fang Zheng</p>
+<p>	Penerjemah: ChibiGeneral Editor: ChibiGeneral</p>
+<p>	Gunung Tian Ti berdiri tinggi di atas awan, mencapai total 3000km.</p>
+<p>	Itu terletak di pusat Benua Tengah, itu adalah tanah warisan, gunung orang suci. Selama zaman kuno, itu adalah tangga abadi, mampu naik ke pengadilan surgawi.</p>
+<p>	Murid elit Immortal Crane Sekte sekarang berdiri di kaki gunung Tian Ti, setelah menunggu selama satu jam.</p>
+<p>	“Berapa lama lagi kita harus menunggu?”</p>
+<p>	“Fang Yuan ini terlalu banyak mengudara kan?”</p>
+<p>	“Ssst, tenang. Dia adalah saudara laki-laki Gu Yue Fang Zheng, pemilik tanah berkah Hu Immortal!”</p>
+<p>	“Omong-omong, saudara laki-laki Fang Zheng ini benar-benar luar biasa, dia berhasil mengalahkan Feng Jin Huang, Xiao Qi Xing, Ying Sheng Ji dan yang lainnya.”</p>
+<p>	“Terus? Jika saya memiliki tetua tertinggi yang mendukung saya dalam kegelapan, membantu saya menggunakan Gu perjalanan abadi yang tetap, saya akan dapat memenangkan tanah yang diberkati juga. ”</p>
+<p>	“Tetua klan kami benar-benar pintar. Menggunakan Fang Zheng untuk menarik perhatian mereka, sementara kartu truf yang sebenarnya adalah Fang Yuan selama ini!”</p>
+<p>	…</p>
+<p>	Untuk mewujudkannya, Sekte Bangau Abadi berbohong kepada semua murid mereka. Murid Immortal Crane Sekte sekarang tahu, bahwa ada seseorang bernama Gu Yue Fang Yuan di sekte mereka.</p>
+<p>	Selama tiga bulan ini, dia telah menjadi topik terpanas yang dibicarakan semua orang. Dia misterius dan rendah hati, itu membuat orang penasaran. Mengejutkan dunia dalam satu gerakan, ia memperoleh tanah yang diberkati Hu Immortal untuk Sekte Bangau Abadi, dan bahkan membiarkan Sekte Bangau Abadi menonjol di antara sepuluh sekte, itu membuat para murid lainnya merasa bangga.</p>
+<p>	Semua diskusi mereka memasuki telinga Fang Zheng.</p>
+<p>	Fang Zheng berdiri di depan orang-orang ini, tatapannya redup saat dia melihat gunung Tian Ti.</p>
+<p>	Hari-hari ini, dia telah menjadi mayat berjalan, dia tidak tahu bagaimana dia bertahan beberapa hari terakhir.</p>
+<p>	Setelah Fang Zheng meninggalkan gunung QIng Mao, dia bersumpah untuk membalas dendam, untuk mendapatkan keadilan bagi anggota klannya yang telah meninggal.</p>
+<p>	Dia membawa kebencian yang besar bersamanya, tujuan balas dendam adalah mempertahankan dan memotivasinya untuk berkultivasi. Dia lebih pekerja keras daripada semua murid lainnya, dia bahkan tidak mengendur sedetik pun.</p>
+<p>	Dia telah berfantasi berkali-kali, adegan ketika dia menemukan Fang Yuan — mengalahkannya dan membuatnya berlutut di tanah, menyesali semua yang dia lakukan di gunung Qing Mao. Klan di akhirat akhirnya akan beristirahat dengan tenang setelah itu.</p>
+<p>	Jadi, di gunung Dang Hun, dia tidak menyerah meskipun banyak kesempatan ingin melakukannya.</p>
+<p>	Setiap kali dia memikirkan Fang Yuan, akan ada kekuatan pendorong yang kuat di hatinya, mendukungnya untuk terus mendaki.</p>
+<p>	Dia ingin mendapatkan Warisan Abadi Hu, bukan hanya karena dia tidak ingin mengecewakan tuannya, atau mengecewakan harapan klan, itu juga karena peluangnya untuk membalas dendam akan jauh lebih besar jika dia memiliki tanah yang diberkati.</p>
+<p>	Tapi, dia tidak menyangka, bahwa hidup akan datang memukulnya dengan keras dan tiba-tiba.</p>
+<p>	Gu Yue Fang Yuan, saudaranya yang memiliki hubungan darah, karakter utama dari banyak mimpi buruknya, muncul di puncak gunung! Di bawah pandangan semua orang, dia mendapatkan warisan, bahkan Dewa Gu tidak bisa berbuat apa-apa padanya!</p>
+<p>	Fang Zheng yang gagal kembali ke sekte.</p>
+<p>	Terkejut!</p>
+<p>	Nyeri!</p>
+<p>	Kehilangan!</p>
+<p>	Takut!</p>
+<p>	Dia tahu kebohongan klan, dia tahu yang sebenarnya, tetapi justru begitu, bayangan di hatinya tumbuh berkali-kali.</p>
+<p>	Trauma ini telah tumbuh dalam dirinya sejak ia masih muda.</p>
+<p>	Kenapa kakak pinter? Tapi aku sangat bodoh!</p>
+<p>	Mengapa saya berkultivasi begitu keras, namun saya masih kalah dari Fang Yuan?</p>
+<p>	Mengapa ini terjadi di perbatasan selatan, dan juga di benua tengah?!</p>
+<p>	“Benarkah aku Gu Yue Fang Zheng, ditakdirkan untuk hidup dalam bayang-bayangnya sepanjang hidupku, tidak pernah melampaui dia ?!” Setiap kali Fang Zheng memikirkan ini, akan ada perasaan marah di hatinya, mendesaknya untuk berkultivasi lebih banyak.</p>
+<p>	Tapi kali ini berbeda.</p>
+<p>	Itu berbeda.</p>
+<p>	Memikirkan misi yang baru saja diberikan klan kepadanya, tubuh Fang Zheng bergidik.</p>
+<p>	Tanah yang diberkati berada dalam kendali Fang Yuan, untuk mendapatkan tanah yang diberkati Hu Immortal, sekte tersebut merekrut Fang Yuan. Selama dia menyerahkan tanah yang diberkati, dia akan menjadi sesepuh Immortal Crane Sekte.</p>
+<p>	Anggota sekte benua tengah diklasifikasikan dari rendah ke tinggi sebagai murid luar, murid dalam, murid elit, murid warisan.</p>
+<p>	Di atas murid, ada sesepuh sekte, sering berada di peringkat empat kultivasi, mengendalikan banyak aspek sekte. Penatua sekte di atas adalah pemimpin sekte, dia setidaknya harus berada di peringkat lima tahap tengah, dan merupakan orang kunci yang bertanggung jawab.</p>
+<p>	Dan di atas pemimpin klan, ada tetua tertinggi.</p>
+<p>	Tetua tertinggi ini semuanya adalah Dewa Gu, mereka jarang terlihat selama waktu normal, terpencil dalam kultivasi. Hanya ketika sekte menghadapi situasi hidup dan mati, atau ketika sesuatu yang penting terjadi, mereka akan muncul dan memberi tahu dunia kekuatan sebenarnya dari Sekte Bangau Abadi, sebagai salah satu dari sepuluh sekte teratas!</p>
+<p>	“Sejak saya bergabung dengan Sekte Bangau Abadi, saya telah berkultivasi dengan sangat rajin tahun ini, dari murid luar, saya menjadi murid dalam, dan dari murid dalam, saya menjadi murid elit. Selama pemeriksaan sekte, saya muncul sebagai murid teratas di antara para murid elit. Tapi sekarang, Fang Yuan hanya perlu mengatakan sepatah kata pun, dan dia akan menjadi sesepuh sekte. Setiap murid yang melihatnya harus membungkuk dan memberi hormat!”</p>
+<p>	Fang Zheng merasakan sakit yang luar biasa di hatinya setiap kali dia memikirkan hal ini.</p>
+<p>	Jika Fang Yuan benar-benar menjadi penatua, dia harus membungkuk dan memberi hormat kepada musuh ini setiap kali dia melihatnya! Apakah ada kesenangan dalam kehidupan seperti itu? Apakah ada makna dalam hidup?</p>
+<p>	“Tuan, apakah semua usaha dan kerja keras yang saya lakukan sia-sia?” Pada titik ini, Fang Zheng berdiri di kaki gunung Tian Ti, menunggu untuk bertemu Fang Yuan. Dia tak terhindarkan jatuh ke dalam keraguan diri yang mendalam.</p>
+<p>	Lord Sky Crane dengan cepat menghiburnya: “Fang Zheng, kamu harus menyesuaikan pola pikirmu. Immortal Crane Sect berkorban banyak untuk Hu Immortal Inheritance, kami bahkan menggunakan Immortal Gu! Untuk sekte, kita harus melihat ini dari gambaran besar, dan meletakkan dendam pribadi kita untuk sementara. Fang Zheng, kamu harus mengerti, itu adalah Sekte Bangau Abadi yang mengasuhmu, sekarang sekte itu membutuhkanmu untuk berkorban, kamu tidak bisa melupakan akarmu!”</p>
+<p>	Meskipun dia mengatakan itu, Lord Sky Crane menghela nafas di dalam hatinya.</p>
+<p>	Dia memahami kepribadian Fang Zheng, sehingga hatinya bahkan lebih khawatir.</p>
+<p>	Selama ini, gagasan balas dendam mendorong Fang Zheng maju seperti pilar, itu juga obsesinya dalam perjalanan kultivasi ini.</p>
+<p>	Tapi sekarang, perintah sekte adalah agar Fang Zheng menurunkan obsesi ini, ini lebih fatal daripada cedera apa pun. Kemungkinan besar, setelah menderita dampak seperti itu, Fang Zheng tidak akan lagi memiliki dorongan yang tersisa, dia akan membiarkan dirinya berdiam dalam mengasihani diri sendiri.</p>
+<p>	“Tapi apa yang bisa kita lakukan? Itu adalah tanah yang diberkati, dan bahkan berisi tanah terlarang seperti gunung Dang Hun! Gustones di gunung dapat digunakan oleh murid-murid kita dan membuat kekuatan seluruh sekte kita melonjak. Selain itu, Fang Yuan memiliki Gu tengkorak darah dan Gu perjalanan abadi tetap padanya! Hal-hal ini terlalu berharga, mereka sangat penting, bagaimana bisa seorang murid elit dibandingkan dengan mereka sama sekali? ”</p>
+<p>	Lord Sky Crane merasa sedih di dalam hatinya, tetapi dia masih berkata kepada Fang Zheng: “Muridku yang baik, kamu harus mengendalikan keinginanmu untuk membalas dendam. Sedikit ketidaksabaran merusak rencana besar, perlakukan ini sebagai uji ketahanan Anda! Setelah melihat saudaramu, jangan menyerang. Di dalam tanah yang diberkati, kamu bukan lawannya. ”</p>
+<p>	Mengatakan demikian, Lord Sky Crane mengingat apa yang diperintahkan He Feng Yang kepadanya—</p>
+<p>	“Aku tahu permusuhan antara Fang Yuan dan Fang Zheng. Jika perlu, kami dapat mengorbankan Fang Zheng, Anda dapat bernegosiasi menggantikan Fang Zheng! ”</p>
+<p>	Tekanan He Feng Yang sangat besar saat ini, semua tetua tertinggi melihat tindakannya.</p>
+<p>	“Tuan, Anda menyuruh saya memperlakukan ini sebagai cobaan? aku… aku akan mencoba.” Fang Zheng mengendurkan tinjunya yang terkepal, lalu mengepalkannya lagi, dia berjuang di dalam hatinya, dia merasakan sakit dan kemarahan.</p>
+<p>	Jika seseorang bersumpah untuk membalas dendam, dan berkultivasi untuk suksesi, hanya untuk menemukan bahwa musuhnya telah mati. Itu adalah rasa sakit.</p>
+<p>	Jika seseorang bersumpah untuk membalas dendam, dan berkultivasi untuk suksesi, tetapi menemukan bahwa dia tidak dapat mengalahkan musuhnya, dan musuhnya masih hidup dengan baik. Itu adalah rasa sakit yang jauh lebih besar.</p>
+<p>	Jika seseorang bersumpah untuk membalas dendam, dan berkultivasi untuk suksesi, tetapi mengetahui bahwa dia tidak hanya tidak dapat mengalahkan musuhnya, dia bahkan harus menggunakan sikap ramah palsu untuk bernegosiasi dengannya, berharap musuh akan menjadi atasannya. Ini adalah rasa sakit terbesar dari semua rasa sakit.</p>
+<p>	“Hehe, Fang Zheng, jangan terlalu dipikirkan. Fang Yuan mungkin tidak bersenang-senang, ada bencana di tanah yang diberkati. Anda tidak dapat membayangkan kekuatan bencana. Bahkan jika saudaramu memiliki Gu Abadi, dia masih fana. Segera, dia akan mengalami kekuatan mengerikan dari bencana duniawi. Pada saat itu, tanah yang diberkati akan penuh dengan celah, dan dia akan menderita kerugian besar. Anda memiliki peluang besar untuk berhasil dalam perjalanan ini. ” Lord Sky Crane menghiburnya lagi.</p>
+<p>	Fang Zheng mendengar ini dan suasana hatinya menjadi sedikit lebih santai.</p>
+<p>	“Bencana duniawi dimulai.” He Feng Yang bergumam, dia telah tinggal di belakang layar, pertama, itu untuk melindungi murid-murid elit ini, kedua, itu untuk mencegah niat buruk dari Master Gu lainnya, dan ketiga, jika Fang Yuan tidak dapat memblokir bencana duniawi ini. , dia harus membantu.</p>
+<p>	Pada saat ini, dia mulai di tempat di mana tanah yang diberkati Hu Immortal bersembunyi di gunung Tian Ti, merasakan bahwa ada aura kehancuran.</p>
+<p>	Tak lama kemudian, bibirnya membentuk senyuman saat ada pemandangan aneh di gunung Tian Ti.</p>
+<p>	Potongan demi potongan padang rumput muncul di gunung Tian Ti. Mereka seperti awan atau kabut, ilusi dan tidak nyata.</p>
+<p>	Bagaimana mungkin ada padang rumput di gunung?</p>
+<p>	Ini adalah celah dari tanah yang diberkati, dan celah besar pada saat itu, memungkinkan orang luar untuk melihat pemandangan di dalam tanah yang diberkati.</p>
+<p>	Celah seperti itu hanya bisa menampung cacing Gu, masih ada beberapa cara sebelum Master Gu bisa masuk.</p>
+<p>	Lord Sky Crane di sisi lain sudah memanggil: “Celah muncul, kirim derek kertas simbol petir Gu masuk.”</p>
+<p>	Fang Zheng menggertakkan giginya, di bawah pengawasan semua orang, dia menyuntikkan esensi purba dan mengaktifkan cacing Gu.</p>
+<p>	Derek kertas simbol petir Gu secepat kilat, terbang ke celah.</p>
+<p>	Tapi tepat setelah itu, gambar padang rumput berubah menjadi gumpalan esensi purba, saat menghilang di udara. Derek kertas simbol petir Gu terbang selama dua putaran sebelum terbang kembali ke tangan Fang Zheng.</p>
+<p>	“Fang Yuan ini menyerahkan sebagian dari tanah yang diberkati, sepenuhnya menghapusnya! Sepertinya dia khawatir Gu Masters akan pulih ketika celah itu berubah menjadi terowongan. ” He Feng Yang sedikit terkejut, tetapi segera mencibir: “Silakan, mari kita lihat berapa banyak tanah yang bisa kamu buang. Setiap bagian dari tanah yang Anda tinggalkan sama dengan menyerahkan daging Anda sendiri. ”</p>
+<p>	Tapi segera setelah itu, ekspresi He Feng Yang berubah.</p>
+<p>	“Dia masih melanjutkan? Dia sudah membuang beberapa kilometer persegi tanah! Dia benar-benar berani, tidak heran dia berhasil merebut warisan. ”</p>
+<p>	Tapi beberapa saat kemudian, ekspresi He Feng Yang berubah jelek.</p>
+<p>	“Sepertinya bencana duniawi ini sangat berbahaya kali ini. Tapi berapa banyak tanah yang akan dia berikan? Dia telah membuang puluhan kilometer persegi tanah. Bajingan ini!”</p>
+</div>
+    </div>
+    
+    <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+</body>
+</html>
