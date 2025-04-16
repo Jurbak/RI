@@ -1,6 +1,6 @@
 const CACHE_NAME = "scrap-cache-v1";
 
-const chapterUrls = Array.from({ length: 2334 }, (_, i) => `chapter/${i + 1}.html`);
+const chapterUrls = Array.from({ length: 2334 }, (_, i) => `chapter/chapter_${i + 1}.html`);
 
 const urlsToCache = [
   "index.html",
