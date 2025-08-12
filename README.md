@@ -1,1 +1,1 @@
-testing testing
+Lanjut baca [disini](https://jurbak.github.io/RI/)
