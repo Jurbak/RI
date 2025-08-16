@@ -1,17 +1,26 @@
  window.onload = function() {
-            initAutocomplete();
-            document.getElementById("chapter-input").placeholder = "Chapter 1";
+    initAutocomplete();
 
-            // Dark mode toggle
-            const darkModeBtn = document.getElementById("darkModeBtn");
-            if (localStorage.getItem("darkMode") === "true") {
-                document.body.classList.add("dark-mode");
-            }
-            darkModeBtn.addEventListener("click", () => {
-                document.body.classList.toggle("dark-mode");
-                localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-            });
-        };
+    // Ambil title dari dokumen
+    let titleText = document.title; // contoh: "Chapter 1007 - Pendeta Kegilaan"
+
+    // Cari angka setelah "Chapter"
+    let match = titleText.match(/Chapter\s+(\d+)/i);
+    let chapterNow = match ? match[1] : 1;
+
+    // Set placeholder sesuai chapter
+    document.getElementById("chapter-input").placeholder = "Chapter " + chapterNow;
+    
+    // Dark mode toggle
+    const darkModeBtn = document.getElementById("darkModeBtn");
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+    darkModeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+    });
+};
 
 
 function scrollToTop() {
